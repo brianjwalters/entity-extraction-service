@@ -1,0 +1,403 @@
+metadata:
+  pattern_type: usc_statutes
+  jurisdiction: federal
+  source_type: statutory
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-08-28'
+  description: Complete pattern library for U.S. Code citations and statutory entities
+usc_citations:
+  basic_usc_citation:
+    name: usc_basic_citation
+    pattern: (?P<full_citation>(?P<title>\d{1,2})\s+U\.S\.C\.\s+§\s*(?P<section>\d+(?:[a-z])?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?))(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.98
+    components:
+      full_citation: Complete USC citation
+      title: U.S.C. title number
+      section: Section number with all subsection levels
+      year: Publication year (optional)
+    examples:
+    - 42 U.S.C. § 1983
+    - 28 U.S.C. § 1331(a)
+    - 18 U.S.C. § 922(g)(1)
+    - 15 U.S.C. § 78j(b)(2019)
+    - 5 U.S.C. § 706(2)(A)
+  usc_range_citation:
+    name: usc_section_range
+    pattern: (?P<full_citation>(?P<title>\d{1,2})\s+U\.S\.C\.\s+§§\s*(?P<start_section>\d+(?:[a-z])?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?)-(?P<end_section>\d+(?:[a-z])?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?))
+    confidence: 0.95
+    components:
+      full_citation: Complete USC range citation
+      title: U.S.C. title number
+      start_section: Starting section number
+      end_section: Ending section number
+    examples:
+    - 42 U.S.C. §§ 1981-1988
+    - 28 U.S.C. §§ 1331-1367
+  usc_multiple_sections:
+    name: usc_multiple_sections
+    pattern: (?P<full_citation>(?P<title>\d{1,2})\s+U\.S\.C\.\s+§§\s*(?P<sections>(?:\d+(?:[a-z])?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?(?:\s*,\s*)?)+))
+    confidence: 0.92
+    components:
+      full_citation: Complete USC multiple sections citation
+      title: U.S.C. title number
+      sections: Comma-separated section numbers
+    examples:
+    - 42 U.S.C. §§ 1981, 1983, 1988
+    - 15 U.S.C. §§ 78a, 78j, 78u
+usc_titles:
+  civil_rights_title42:
+    name: title42_civil_rights
+    pattern: (?P<citation>42\s+U\.S\.C\.\s+§\s*(?P<section>1981|1983|1985|1986|1988|2000[a-z]?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?))(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.97
+    components:
+      citation: Complete Title 42 citation
+      section: Civil rights section number
+      year: Publication year
+    key_provisions:
+      '1981': Equal rights under law
+      '1983': Civil action for deprivation of rights
+      '1985': Conspiracy to interfere with civil rights
+      '1986': Action for neglect to prevent conspiracy
+      '1988': Attorney's fees
+      2000a: Public accommodations
+    examples:
+    - 42 U.S.C. § 1983
+    - 42 U.S.C. § 2000a(a)
+  federal_courts_title28:
+    name: title28_federal_courts
+    pattern: (?P<citation>28\s+U\.S\.C\.\s+§\s*(?P<section>1331|1332|1367|1404|1441|1446|1651|2254|2255)(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?)(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.97
+    components:
+      citation: Complete Title 28 citation
+      section: Federal courts section number
+      year: Publication year
+    key_provisions:
+      '1331': Federal question jurisdiction
+      '1332': Diversity jurisdiction
+      '1367': Supplemental jurisdiction
+      '1404': Change of venue
+      '1441': Removal of civil actions
+      '1446': Procedure for removal
+      '1651': All Writs Act
+      '2254': Habeas corpus (state custody)
+      '2255': Federal prisoner habeas corpus
+    examples:
+    - 28 U.S.C. § 1331
+    - 28 U.S.C. § 1404(a)
+  securities_title15:
+    name: title15_securities
+    pattern: (?P<citation>15\s+U\.S\.C\.\s+§\s*(?P<section>77[a-z]|78[a-z](?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?|80[a-b]-\d+))(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.95
+    components:
+      citation: Complete Title 15 citation
+      section: Securities section number
+      year: Publication year
+    key_acts:
+      '77': Securities Act of 1933
+      '78': Securities Exchange Act of 1934
+      80a: Investment Company Act of 1940
+      80b: Investment Advisers Act of 1940
+    examples:
+    - 15 U.S.C. § 78j(b)
+    - 15 U.S.C. § 80b-6
+  copyright_title17:
+    name: title17_copyright
+    pattern: (?P<citation>17\s+U\.S\.C\.\s+§\s*(?P<section>10[1-2]|10[6-8]|11[0-2]|50[1-2]|51[1-3]))(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.96
+    components:
+      citation: Complete Title 17 citation
+      section: Copyright section number
+      year: Publication year
+    key_provisions:
+      '101': Definitions
+      '102': Subject matter of copyright
+      '106': Exclusive rights
+      '107': Fair use
+      '108': Library reproduction rights
+      '501': Infringement
+      '502': Remedies for infringement
+    examples:
+    - 17 U.S.C. § 107
+    - 17 U.S.C. § 501(a)
+  criminal_title18:
+    name: title18_criminal_code
+    pattern: (?P<citation>18\s+U\.S\.C\.\s+§\s*(?P<section>\d+(?:[a-z])?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?))(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.97
+    components:
+      citation: Complete Title 18 citation
+      section: Criminal code section number with full subsections
+      year: Publication year
+    key_provisions:
+      '922': Federal firearms provisions
+      '924': Penalties for firearms violations
+      '1030': Computer fraud
+      '1341': Mail fraud
+      '1343': Wire fraud
+      '2113': Bank robbery
+    examples:
+    - 18 U.S.C. § 922(g)(1)
+    - 18 U.S.C. § 924(c)
+    - 18 U.S.C. § 1030(a)(1)
+  tax_title26:
+    name: title26_tax_code
+    pattern: (?P<citation>26\s+U\.S\.C\.\s+§\s*(?P<section>\d+(?:[a-z])?(?:\([a-z]\))?(?:\(\d+\))?(?:\([A-Z]\))?(?:\([ivx]+\))?))(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.94
+    components:
+      citation: Complete Title 26 citation
+      section: Tax code section number
+      year: Publication year
+    common_sections:
+      '61': Gross income defined
+      '162': Trade or business expenses
+      '7701': Definitions
+    examples:
+    - 26 U.S.C. § 61
+    - 26 U.S.C. § 162(a)(1)
+historical_citations:
+  revised_statutes:
+    name: revised_statutes_citation
+    pattern: R\.S\.\s+§\s+1979
+    confidence: 0.88
+    components:
+      citation: Complete Revised Statutes citation
+      section: Revised Statutes section
+      rs_section: Alternative section format
+    historical_note: Revised Statutes of 1873, largely superseded by U.S.C.
+    examples:
+    - 1979 Rev. Stat.
+    - R.S. § 1979
+  statutes_at_large:
+    name: statutes_at_large_citation
+    pattern: (?P<citation>(?P<act_name>[A-Z][^,]+),\s*(?P<date>[A-Z][a-z]+\s+\d{1,2},\s*\d{4}),\s*(?P<volume>\d+)\s+Stat\.\s+(?P<page>\d+))
+    confidence: 0.91
+    components:
+      citation: Complete Statutes at Large citation
+      act_name: Name of the act
+      date: Date of enactment
+      volume: Statutes at Large volume
+      page: Starting page number
+    examples:
+    - Civil Rights Act, April 9, 1866, 14 Stat. 27
+    - Sherman Act, July 2, 1890, 26 Stat. 209
+public_laws:
+  public_law_citation:
+    name: public_law_citation
+    pattern: (?P<citation>Pub\.\s*L\.\s*No\.\s*(?P<congress>\d+)-(?P<law_number>\d+)(?:\s*,\s*(?P<section>§\s*\d+(?:\([a-z]\))*(?:\(\d+\))*))?)(?:\s*,\s*(?P<volume>\d+)\s+Stat\.\s+(?P<page>\d+))?(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.95
+    components:
+      citation: Complete Public Law citation
+      congress: Congress number
+      law_number: Law number within congress
+      section: Specific section reference
+      volume: Statutes at Large volume
+      page: Starting page in Statutes at Large
+      year: Year of enactment
+    examples:
+    - Pub. L. No. 88-352, 78 Stat. 241 (1964)
+    - Pub. L. No. 117-58, § 40803
+short_forms:
+  usc_short_form:
+    name: usc_short_citation
+    pattern: (?P<short_cite>§\s*(?P<section>\d+(?:[a-z])?(?:\(\d+\))*(?:\([a-zA-Z]+\))*))
+    confidence: 0.87
+    components:
+      short_cite: Short form section reference
+      section: Section number with subdivisions
+    examples:
+    - § 1983
+    - § 78j(b)
+  id_statutory:
+    name: id_statutory_citation
+    pattern: Id\.(?:\s*§\s*(?P<section>\d+(?:[a-z])?(?:\(\d+\))*(?:\([a-zA-Z]+\))*))?
+    confidence: 0.9
+    components:
+      section: Referenced section number
+    examples:
+    - Id.
+    - Id. § 1985
+amendments:
+  amendment_notation:
+    name: statutory_amendment
+    pattern: (?P<citation>(?:\d{1,2}\s+U\.S\.C\.\s+§\s*\d+(?:[a-z])?(?:\(\d+\))*(?:\([a-z]+\))*(?:\([A-Z]+\))*)),?\s*(?P<amendment>as\s+amended\s+by\s+(?P<amending_law>Pub\.\s*L\.\s*No\.\s*\d+-\d+)(?:\s*,\s*(?P<amend_section>§\s*\d+))?)
+    confidence: 0.88
+    components:
+      citation: Base statute citation
+      amendment: Amendment clause
+      amending_law: Public law making amendment
+      amend_section: Section of amending law
+    examples:
+    - 42 U.S.C. § 1983, as amended by Pub. L. No. 104-317
+  effective_date:
+    name: effective_date_notation
+    pattern: (?P<statute_ref>(?:\d{1,2}\s+U\.S\.C\.\s+§\s*\d+|Pub\.\s*L\.\s*No\.\s*\d+-\d+))(?:\s*,\s*)?(?P<effective_clause>effective\s+(?P<effective_date>[A-Z][a-z]+\s+\d{1,2},\s*\d{4}|on\s+enactment|immediately))
+    confidence: 0.85
+    components:
+      statute_ref: Statute reference
+      effective_clause: Effective date clause
+      effective_date: Specific effective date
+    examples:
+    - 42 U.S.C. § 1983, effective January 1, 2020
+    - Pub. L. No. 117-58, effective on enactment
+congressional:
+  house_report:
+    name: house_report_citation
+    pattern: (?P<citation>H\.R\.\s*Rep\.\s*No\.\s*(?P<congress>\d+)-(?P<report_number>\d+)(?:\s*,\s*at\s*(?P<page>\d+))?(?:\s*\((?P<year>\d{4})\))?)
+    confidence: 0.93
+    components:
+      citation: Complete House Report citation
+      congress: Congress number
+      report_number: Report number
+      page: Specific page reference
+      year: Publication year
+    examples:
+    - H.R. Rep. No. 88-914, at 12 (1963)
+  senate_report:
+    name: senate_report_citation
+    pattern: (?P<citation>S\.\s*Rep\.\s*No\.\s*(?P<congress>\d+)-(?P<report_number>\d+)(?:\s*,\s*at\s*(?P<page>\d+))?(?:\s*\((?P<year>\d{4})\))?)
+    confidence: 0.93
+    components:
+      citation: Complete Senate Report citation
+      congress: Congress number
+      report_number: Report number
+      page: Specific page reference
+      year: Publication year
+    examples:
+    - S. Rep. No. 88-872, at 5 (1964)
+entity_types:
+- name: USC_STATUTE
+  description: U.S. Code statutory citation
+  confidence_threshold: 0.9
+- name: PUBLIC_LAW
+  description: Public Law citation
+  confidence_threshold: 0.92
+- name: STATUTES_AT_LARGE
+  description: Statutes at Large citation
+  confidence_threshold: 0.88
+- name: CONGRESSIONAL_REPORT
+  description: Congressional committee report
+  confidence_threshold: 0.9
+- name: STATUTORY_AMENDMENT
+  description: Statutory amendment reference
+  confidence_threshold: 0.85
+- name: USC_TITLE
+  description: U.S. Code title number
+  confidence_threshold: 0.95
+- name: USC_SECTION
+  description: U.S. Code section number
+  confidence_threshold: 0.93
+title_subjects:
+  title_mapping:
+    1: General Provisions
+    2: The Congress
+    3: The President
+    4: Flag and Seal, Seat of Government, and the States
+    5: Government Organization and Employees
+    6: Domestic Security
+    7: Agriculture
+    8: Aliens and Nationality
+    9: Arbitration
+    10: Armed Forces
+    11: Bankruptcy
+    12: Banks and Banking
+    13: Census
+    14: Coast Guard
+    15: Commerce and Trade
+    16: Conservation
+    17: Copyrights
+    18: Crimes and Criminal Procedure
+    19: Customs Duties
+    20: Education
+    21: Food and Drugs
+    22: Foreign Relations and Intercourse
+    23: Highways
+    24: Hospitals and Asylums
+    25: Indians
+    26: Internal Revenue Code
+    27: Intoxicating Liquors
+    28: Judiciary and Judicial Procedure
+    29: Labor
+    30: Mineral Lands and Mining
+    31: Money and Finance
+    32: National Guard
+    33: Navigation and Navigable Waters
+    34: Navy (repealed)
+    35: Patents
+    36: Patriotic and National Observances
+    37: Pay and Allowances of the Uniformed Services
+    38: Veterans' Benefits
+    39: Postal Service
+    40: Public Buildings, Property, and Works
+    41: Public Contracts
+    42: The Public Health and Welfare
+    43: Public Lands
+    44: Public Printing and Documents
+    45: Railroads
+    46: Shipping
+    47: Telegraphs, Telephones, and Radiotelegraphs
+    48: Territories and Insular Possessions
+    49: Transportation
+    50: War and National Defense
+    51: National and Commercial Space Programs
+    52: Voting and Elections
+    54: National Park Service and Related Programs
+validation:
+  title_range:
+    min_title: 1
+    max_title: 54
+    invalid_titles:
+    - 34
+  section_format:
+    valid_patterns:
+    - \d+
+    - \d+[a-z]
+    - \d+\([a-z]\)
+    - \d+\(\d+\)
+  historical_validation:
+    revised_statutes_year: 1873
+    usc_first_edition: 1926
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 1200_citations_per_second
+dependencies:
+  requires:
+  - usc_title_database
+  - public_law_index
+  - congressional_session_dates
+  optional:
+  - legislative_history_database
+  - statutory_amendment_tracker
+  - effective_date_calculator
+testing:
+  test_cases:
+  - pattern: usc_citations.basic_usc_citation
+    text: 42 U.S.C. § 1983
+    expected_entities: 1
+  - pattern: usc_titles.civil_rights_title42
+    text: under 42 U.S.C. § 1981
+    expected_entities: 1
+  - pattern: public_laws.public_law_citation
+    text: Pub. L. No. 88-352, 78 Stat. 241 (1964)
+    expected_entities: 1
+  - pattern: congressional.house_report
+    text: H.R. Rep. No. 88-914, at 12 (1963)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 1.5 seconds
+    memory_usage: < 80MB
+    accuracy_threshold: 0.94
+historical_notes:
+  codification_evolution:
+    revised_statutes_1873: First attempt at federal code organization
+    usc_1926: First official United States Code
+    annual_supplements: Cumulative supplements published annually
+  major_recodifications:
+    title_18_1948: Criminal Code recodified
+    title_28_1948: Judicial Code recodified
+    title_26_1954: Internal Revenue Code restructured
+  citation_standards:
+    bluebook_adoption: Standard legal citation format
+    electronic_supplements: Online updating systems

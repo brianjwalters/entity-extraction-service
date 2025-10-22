@@ -1,0 +1,337 @@
+metadata:
+  pattern_type: legal_dates
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '2.0'
+  created_date: '2025-01-21'
+  last_updated: '2025-08-28'
+  description: Legal date patterns for extracting filing dates, decision dates, and
+    various date formats
+legal_dates:
+  full_month_date:
+    name: full_month_date_format
+    pattern: \b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.95
+    entity_types:
+    - date
+    - legal_date
+    components:
+      month: Full month name
+      day: Day of month
+      year: Four-digit year
+    examples:
+    - January 15, 2024
+    - December 31st, 2023
+    - March 1, 2022
+    - September 22nd, 2024
+    - June 6, 2023
+    - November 16, 2021
+    validation_rules:
+    - valid_month: true
+    - valid_day_range: 1-31
+    - valid_year_range: 1900-2100
+  abbreviated_month_date:
+    name: abbreviated_month_format
+    pattern: \b(?:Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.93
+    entity_types:
+    - date
+    - legal_date
+    components:
+      month: Abbreviated month
+      day: Day of month
+      year: Four-digit year
+    examples:
+    - Jan. 15, 2024
+    - Dec 31, 2023
+    - Sept. 1, 2022
+    - Apr 22nd, 2024
+  iso_date_format:
+    name: iso_8601_date
+    pattern: \b\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])\b
+    confidence: 0.98
+    entity_types:
+    - date
+    - legal_date
+    - iso_date
+    components:
+      year: Four-digit year
+      month: Two-digit month
+      day: Two-digit day
+    examples:
+    - '2024-01-15'
+    - '2023-12-31'
+    - '2022-03-01'
+  us_date_format:
+    name: us_slash_date
+    pattern: \b(?:0?[1-9]|1[0-2])/(?:0?[1-9]|[12][0-9]|3[01])/(?:\d{4}|\d{2})\b
+    confidence: 0.9
+    entity_types:
+    - date
+    - legal_date
+    components:
+      month: Month (MM)
+      day: Day (DD)
+      year: Year (YYYY or YY)
+    examples:
+    - 1/15/2024
+    - 12/31/2023
+    - 03/01/22
+    - 9/5/2024
+  european_date_format:
+    name: european_date
+    pattern: \b(?:0?[1-9]|[12][0-9]|3[01])[-./ ](?:0?[1-9]|1[0-2])[-./ ]\d{4}\b
+    confidence: 0.88
+    entity_types:
+    - date
+    - legal_date
+    components:
+      day: Day (DD)
+      month: Month (MM)
+      year: Year (YYYY)
+    examples:
+    - 15-01-2024
+    - 31.12.2023
+    - 01 03 2022
+  filed_date_pattern:
+    name: filing_date_extraction
+    pattern: \b(?:filed|Filed|FILED)(?:\s+on)?\s+(?:the\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.94
+    entity_types:
+    - filing_date
+    - legal_date
+    - procedural_date
+    components:
+      action: Filing action
+      date: Complete filing date
+    examples:
+    - filed January 15, 2024
+    - Filed on December 31, 2023
+    - FILED March 1st, 2022
+  decided_date_pattern:
+    name: decision_date_extraction
+    pattern: \b(?:decided|Decided|DECIDED|issued|Issued|ISSUED|entered|Entered|ENTERED|rendered|Rendered)(?:\s+on)?\s+(?:the\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.94
+    entity_types:
+    - decision_date
+    - legal_date
+    - judgment_date
+    components:
+      action: Decision action
+      date: Complete decision date
+    examples:
+    - decided January 15, 2024
+    - Issued on December 31, 2023
+    - entered March 1st, 2022
+    - rendered September 22, 2024
+  simple_decision_date:
+    name: simple_decision_date_extraction
+    pattern: \b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.92
+    entity_types:
+    - decision_date
+    - legal_date
+    - date
+    components:
+      month: Full month name
+      day: Day of month
+      year: Four-digit year
+    examples:
+    - June 6, 2023
+    - November 16, 2021
+    - March 15, 2024
+    - December 31st, 2023
+    validation_rules:
+    - valid_month: true
+    - valid_day_range: 1-31
+    - valid_year_range: 1900-2100
+  case_header_date:
+    name: case_header_decision_date
+    pattern: \b(?:Decided|decided|DECIDED)\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.95
+    entity_types:
+    - decision_date
+    - legal_date
+    - case_header_date
+    components:
+      action: Decision indicator
+      date: Complete decision date
+    examples:
+    - Decided June 6, 2023
+    - decided March 15, 2024
+    - DECIDED December 31st, 2022
+    - Decided November 16th, 2021
+    validation_rules:
+    - valid_month: true
+    - valid_day_range: 1-31
+    - valid_year_range: 1900-2100
+  opinion_date_standalone:
+    name: opinion_date_extraction
+    pattern: \b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b(?=\s*(?:\n|$|\.|,))
+    confidence: 0.89
+    entity_types:
+    - opinion_date
+    - legal_date
+    - document_date
+    components:
+      month: Full month name
+      day: Day of month
+      year: Four-digit year
+    examples:
+    - June 6, 2023
+    - March 15, 2024
+    - November 16th, 2021
+    - December 31st, 2022
+    validation_rules:
+    - valid_month: true
+    - valid_day_range: 1-31
+    - valid_year_range: 1900-2100
+  effective_date_pattern:
+    name: effective_date_extraction
+    pattern: \b(?:effective|Effective|EFFECTIVE)(?:\s+as\s+of|\s+on|\s+from)?\s+(?:the\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.92
+    entity_types:
+    - effective_date
+    - legal_date
+    components:
+      action: Effective designation
+      date: Effective date
+    examples:
+    - effective January 1, 2024
+    - Effective as of December 31, 2023
+    - EFFECTIVE from March 1st, 2022
+  deadline_date_pattern:
+    name: deadline_extraction
+    pattern: \b(?:by|before|no\s+later\s+than|due\s+(?:on|by)|deadline(?:\s+is)?|must\s+be\s+(?:filed|submitted|received)\s+by)\s+(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4}\b
+    confidence: 0.91
+    entity_types:
+    - deadline
+    - legal_date
+    - procedural_date
+    components:
+      requirement: Deadline type
+      date: Deadline date
+    examples:
+    - by January 15, 2024
+    - no later than December 31, 2023
+    - due on March 1st, 2022
+    - must be filed by September 22, 2024
+  date_range_pattern:
+    name: date_range_extraction
+    pattern: \b(?:from|between)\s+(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2},?\s+\d{4}\s+(?:to|through|and|-|–)\s+(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan\.?|Feb\.?|Mar\.?|Apr\.?|May|Jun\.?|Jul\.?|Aug\.?|Sep\.?|Sept\.?|Oct\.?|Nov\.?|Dec\.?)\s+\d{1,2},?\s+\d{4}\b
+    confidence: 0.89
+    entity_types:
+    - date_range
+    - legal_date
+    components:
+      start_date: Beginning date
+      end_date: Ending date
+    examples:
+    - from January 1, 2024 to December 31, 2024
+    - between March 15, 2023 and June 30, 2023
+    - from Jan. 1, 2024 through Dec. 31, 2024
+  quarter_year_pattern:
+    name: quarter_year_extraction
+    pattern: \b(?:Q[1-4]|first\s+quarter|second\s+quarter|third\s+quarter|fourth\s+quarter|1st\s+quarter|2nd\s+quarter|3rd\s+quarter|4th\s+quarter)(?:\s+of)?\s+\d{4}\b
+    confidence: 0.87
+    entity_types:
+    - quarter
+    - legal_date
+    - fiscal_period
+    components:
+      quarter: Quarter designation
+      year: Year
+    examples:
+    - Q1 2024
+    - first quarter of 2023
+    - 3rd quarter 2022
+  fiscal_year_pattern:
+    name: fiscal_year_extraction
+    pattern: \b(?:FY|fiscal\s+year|Fiscal\s+Year)\s*\d{4}(?:-\d{2,4})?\b
+    confidence: 0.9
+    entity_types:
+    - fiscal_year
+    - legal_date
+    components:
+      designation: Fiscal year indicator
+      year: Fiscal year
+    examples:
+    - FY 2024
+    - fiscal year 2023-2024
+    - Fiscal Year 2022
+  term_date_pattern:
+    name: term_date_extraction
+    pattern: \b(?:term\s+(?:beginning|ending|expires|commencing)|(?:Spring|Summer|Fall|Winter)\s+(?:term|session))\s+\d{4}\b
+    confidence: 0.86
+    entity_types:
+    - term_date
+    - legal_date
+    components:
+      term_type: Term designation
+      year: Term year
+    examples:
+    - term beginning 2024
+    - Spring term 2023
+    - term expires 2025
+  statute_of_limitations_date:
+    name: limitations_period_extraction
+    pattern: \b(?:within|expires?)\s+(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:years?|months?|days?)\s+(?:of|from|after)\s+(?:the\s+)?(?:date|filing|discovery|injury|occurrence|event)
+    confidence: 0.88
+    entity_types:
+    - limitations_period
+    - legal_date
+    components:
+      period: Time period
+      trigger_event: Starting event
+    examples:
+    - within three years of the date
+    - expires two years from filing
+    - within 30 days after discovery
+  relative_date_pattern:
+    name: relative_date_extraction
+    pattern: two\s+years\s+ago
+    confidence: 0.82
+    entity_types:
+    - relative_date
+    - legal_date
+    components:
+      reference: Relative time reference
+    examples:
+    - 30 days from today
+    - last week
+    - two years ago
+    - next month
+entity_types:
+- name: dates
+  description: General date references
+  priority: 1
+  format_validation: true
+- name: legal_dates
+  description: Dates with legal significance
+  priority: 1
+  format_validation: true
+- name: filing_dates
+  description: Document filing dates
+  priority: 2
+  requires_action: true
+- name: decision_dates
+  description: Court decision dates
+  priority: 2
+  requires_action: true
+- name: effective_dates
+  description: Effective dates for provisions
+  priority: 2
+  requires_action: true
+- name: deadlines
+  description: Deadline dates requiring action
+  priority: 2
+  requires_action: true
+- name: date_ranges
+  description: Periods between two dates
+  priority: 3
+  requires_both_dates: true
+- name: fiscal_periods
+  description: Fiscal or accounting periods
+  priority: 3
+  format_validation: true

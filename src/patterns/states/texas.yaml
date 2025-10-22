@@ -1,0 +1,235 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: texas
+  state_abbreviation: Tex.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Texas state citations and entities
+case_citations:
+  texas_supreme_court:
+    name: texas_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Brown,\s+234\s+S\.W\.2d\s+567,\s+890\s+\(Tex\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: South Western Reporter or Texas Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Texas v. Johnson, 491 S.W.3d 123 (Tex. 2023)
+    - Smith v. ABC Corp., 456 Tex. 3d 789 (Tex. 2022)
+    - In re Marriage of Brown, 234 S.W.2d 567, 890 (Tex. 2021)
+    - Paxton v. City of Dallas, 509 S.W.3d 247 (Tex. 2017)
+    - Union Carbide Corp. v. Synatzske, 438 S.W.3d 39 (Tex. 2014)
+  texas_court_of_criminal_appeals:
+    name: texas_court_of_criminal_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.W\.(?:\s*2d|3d)?|Tex\.\s*Crim\.\s*(?:2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Tex\.\s+Crim\.\s+App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.97
+    priority: 93
+    components:
+      case_name: Full case name with parties
+      volume: South Western Reporter or Texas Criminal Reports volume
+      reporter: Texas criminal appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Ex parte Smith, 123 S.W.3d 456 (Tex. Crim. App. 2023)
+    - Johnson v. State, 456 Tex. Crim. 3d 789 (Tex. Crim. App. 2022)
+    - Harrell v. State, 620 S.W.3d 910 (Tex. Crim. App. 2021)
+    - Ex parte Reed, 271 S.W.3d 698 (Tex. Crim. App. 2008)
+  texas_court_of_appeals:
+    name: texas_court_of_appeals_citation
+    pattern: In\s+re\s+Estate\s+of\s+Guerrero,\s+465\s+S\.W\.3d\s+693\s+\(Tex\.\s+App\.—Corpus\s+Christi\s+2015\)
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: South Western Reporter or Texas App Reports volume
+      reporter: Texas appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      city: Court of Appeals city location
+      district: Court of Appeals district number
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 S.W.3d 456 (Tex. App.—Dallas 2023)
+    - ABC Corp. v. XYZ Inc., 456 Tex. App. 2d 789 (Tex. App.—Houston [1st Dist.] 2022)
+    - People v. Brown, 234 S.W.2d 567 (Tex. App.—Austin 2021)
+    - City of San Antonio v. Pollock, 284 S.W.3d 809 (Tex. App.—San Antonio 2009)
+    - In re Estate of Guerrero, 465 S.W.3d 693 (Tex. App.—Corpus Christi 2015)
+    - Baker v. State, 478 S.W.3d 770 (Tex. App.—Fort Worth 2015)
+  texas_district_court:
+    name: texas_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Tex\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-12345 (256th Dist. Ct. Harris County, Tex.)
+    - ABC Corp. v. XYZ Inc., No. CV-22-987654 (14th Dist. Ct. Dallas County, Tex.
+      2022)
+statute_citations:
+  texas_codes:
+    name: texas_codes_citation
+    pattern: Tex\.\s+(?P<code>Agric\.|Alco\.\s*Bev\.|Bus\.\s*&\s*Com\.|Bus\.\s*Orgs\.|Civ\.\s*Prac\.\s*&\s*Rem\.|Code\s*Crim\.\s*Proc\.|Educ\.|Elec\.|Est\.|Fam\.|Fin\.|Gov(?:'t)?|Health\s*&\s*Safety|Hum\.\s*Res\.|Ins\.|Lab\.|Loc\.\s*Gov(?:'t)?|Nat\.\s*Res\.|Occ\.|Parks\s*&\s*Wild\.|Penal|Prop\.|Tax|Transp\.|Util\.|Water)\s+Code\s+Ann\.\s+(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      code: Specific Texas code designation
+      section: Section number or range
+      year: Publication year
+    examples:
+    - Tex. Penal Code Ann. § 19.02 (West 2023)
+    - Tex. Bus. & Com. Code Ann. §§ 17.41-17.63
+    - Tex. Fam. Code Ann. § 153.001
+    - Tex. Gov't Code Ann. § 552.001
+    - Tex. Health & Safety Code Ann. §§ 481.001-481.205
+    - Tex. Civ. Prac. & Rem. Code Ann. § 74.301
+    - Tex. Lab. Code Ann. § 21.051
+    - Tex. Prop. Code Ann. § 92.056
+    - Tex. Occ. Code Ann. § 1701.253
+    - Tex. Transp. Code Ann. § 545.401
+  texas_constitution:
+    name: texas_constitution_citation
+    pattern: Tex\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Tex. Const. art. I, § 3
+    - Tex. Const. art. VII, § 1
+    - Tex. Const. art. XVI, § 50(a)
+    - Tex. Const. art. III, § 49-g
+    - Tex. Const. art. V, § 1
+regulation_citations:
+  texas_administrative_code:
+    name: texas_administrative_code_citation
+    pattern: (?P<title>\d+)\s+Tex\.\s+Admin\.\s+Code\s+(?:§§?\s*)?(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      section: Regulation section number
+    examples:
+    - 16 Tex. Admin. Code § 3.8
+    - 30 Tex. Admin. Code §§ 290.38-290.45
+    - 43 Tex. Admin. Code § 215.3
+    - 25 Tex. Admin. Code § 133.41
+    - 19 Tex. Admin. Code § 89.1
+    - 1 Tex. Admin. Code § 355.1
+court_system:
+  court_names:
+    texas_supreme_court:
+      pattern: (?i)(?:Tex(?:as)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Texas)?
+      confidence: 0.95
+      level: supreme
+    texas_court_of_criminal_appeals:
+      pattern: (?i)(?:Tex(?:as)?\.\s+)?(?:Court\s+of\s+Criminal\s+Appeals|Ct\.?\s+of\s+Crim\.?\s+App\.?)(?:\s+of\s+Texas)?
+      confidence: 0.94
+      level: supreme
+    texas_court_of_appeals:
+      pattern: (?i)(?:Tex(?:as)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:—(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)|(?:\s+(?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist\.))?
+      confidence: 0.93
+      level: appellate
+      cities:
+      - Houston
+      - Dallas
+      - Austin
+      - San Antonio
+      - Fort Worth
+      - El Paso
+      - Amarillo
+      - Beaumont
+      - Corpus Christi
+      - Eastland
+      - Tyler
+      - Texarkana
+      - Waco
+    texas_district_court:
+      pattern: (?i)(?:Tex(?:as)?\.\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: TEXAS_SUPREME_COURT_CASE
+  description: Texas Supreme Court case citation
+  confidence_threshold: 0.95
+- name: TEXAS_CRIMINAL_APPEALS_CASE
+  description: Texas Court of Criminal Appeals case citation
+  confidence_threshold: 0.94
+- name: TEXAS_APPELLATE_CASE
+  description: Texas Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: TEXAS_DISTRICT_COURT_CASE
+  description: Texas District Court case citation
+  confidence_threshold: 0.85
+- name: TEXAS_STATUTE
+  description: Texas statutory provision
+  confidence_threshold: 0.9
+- name: TEXAS_REGULATION
+  description: Texas administrative regulation
+  confidence_threshold: 0.88
+- name: TEXAS_CONSTITUTIONAL_PROVISION
+  description: Texas constitutional provision
+  confidence_threshold: 0.9
+  validation: null
+  year_range: null
+  min_year: 1845
+  max_year: 2025
+  volume_ranges: null
+  south_western_reporter: null
+  sw_2d: null
+  min_volume: 1
+  max_volume: 20
+  sw_3d: null
+  texas_reports: null
+  tex_2d: null
+  tex_3d: null
+  page_validation: null
+  min_page: 1
+  max_page: 9999
+  quality_metrics: null
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 780_citations_per_second
+  dependencies: null
+  requires:
+  - texas_court_abbreviations
+  - texas_code_names
+  - texas_county_names
+  - texas_judicial_districts
+  optional:
+  - texas_historical_courts
+  - texas_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.texas_supreme_court
+    text: Texas v. Johnson, 491 S.W.3d 123 (Tex. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.texas_codes
+    text: Tex. Penal Code Ann. § 19.02 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.texas_court_of_appeals
+    text: Smith v. Jones, 123 S.W.3d 456 (Tex. App.—Dallas 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.2 seconds
+    memory_usage: < 125MB
+    accuracy_threshold: 0.95

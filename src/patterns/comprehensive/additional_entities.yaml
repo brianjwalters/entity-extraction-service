@@ -1,0 +1,307 @@
+metadata:
+  jurisdiction: comprehensive
+  authority_level: mixed
+  bluebook_table: comprehensive
+  last_updated: '2025-01-09'
+  pattern_version: 1.0.0
+  maintainer: Legal Data Engineer
+  pattern_type: additional_patterns
+  created_date: '2025-01-09'
+  description: Additional patterns for contract types, motions, and legal documents
+  
+patterns:
+# Contract Types
+- name: employment_contract
+  pattern: (?P<type>Employment|employment)\s+(?P<document>Contract|Agreement|contract|agreement)(?:\s+(?P<detail>template|amendment|fixed\s+term))?
+  confidence_base: 0.91
+  entity_type: CONTRACT
+  entity_subtype: employment_contract
+  components:
+    type: 1
+    document: 2
+    detail: 3
+  examples:
+  - "Employment Contract"
+  - "employment agreement"
+  - "Employment Contract template"
+  - "employment agreement amendment"
+  - "Employment Contract fixed term"
+
+- name: lease_agreement
+  pattern: (?P<type>Commercial|Residential|Equipment|Apartment|commercial|residential|equipment|apartment)?\s*(?P<document>Lease|lease)\s+(?P<agreement>Agreement|agreement)(?:\s+(?P<detail>template))?
+  confidence_base: 0.89
+  entity_type: CONTRACT
+  entity_subtype: lease_agreement
+  components:
+    type: 1
+    document: 2
+    agreement: 3
+    detail: 4
+  examples:
+  - "Commercial Lease Agreement"
+  - "Residential lease agreement"
+  - "Equipment Lease Agreement"
+  - "Apartment lease agreement template"
+  - "Lease Agreement"
+
+- name: purchase_agreement
+  pattern: (?:(?P<type>Real\s+Estate|Asset|asset)\s+)?(?P<document>Purchase|purchase)\s+(?P<agreement>Agreement|agreement)(?:\s+(?P<detail>template))?
+  confidence_base: 0.88
+  entity_type: CONTRACT
+  entity_subtype: purchase_agreement
+  components:
+    type: 1
+    document: 2
+    agreement: 3
+    detail: 4
+  examples:
+  - "Real Estate Purchase Agreement"
+  - "Asset Purchase Agreement"
+  - "Purchase Agreement"
+  - "purchase agreement template"
+  - "Asset purchase agreement"
+
+- name: non_compete_agreement
+  pattern: (?P<type>Non-compete|Non-disclosure|Confidentiality|non-compete|non-disclosure|confidentiality)\s+(?P<document>Agreement|agreement)(?:\s+(?P<detail>template))?
+  confidence_base: 0.92
+  entity_type: CONTRACT
+  entity_subtype: restrictive_agreement
+  components:
+    type: 1
+    document: 2
+    detail: 3
+  examples:
+  - "Non-compete Agreement"
+  - "Non-disclosure agreement"
+  - "Confidentiality Agreement"
+  - "non-compete agreement template"
+  - "Confidentiality agreement"
+
+- name: service_agreement
+  pattern: (?P<type>Service|Construction|Consulting|Franchise|service|construction|consulting|franchise)\s+(?P<document>Agreement|Contract|agreement|contract)(?:\s+(?P<detail>template))?
+  confidence_base: 0.87
+  entity_type: CONTRACT
+  entity_subtype: service_agreement
+  components:
+    type: 1
+    document: 2
+    detail: 3
+  examples:
+  - "Service Agreement"
+  - "Construction Contract"
+  - "Consulting Agreement"
+  - "Franchise agreement"
+  - "Service contract template"
+
+# Legal Motions
+- name: motion_to_dismiss
+  pattern: (?P<type>Motion|motion)\s+(?P<action>to|for)\s+(?P<request>Dismiss|dismiss|Dismissal|dismissal)(?:\s+(?P<ground>for\s+[A-Za-z\s]+|under\s+[A-Za-z\s\d\.]+))?
+  confidence_base: 0.94
+  entity_type: MOTION
+  entity_subtype: motion_to_dismiss
+  components:
+    type: 1
+    action: 2
+    request: 3
+    ground: 4
+  examples:
+  - "Motion to Dismiss"
+  - "motion for dismissal"
+  - "Motion to Dismiss for Failure to State a Claim"
+  - "motion to dismiss under Rule 12(b)(6)"
+  - "Motion for Dismissal"
+
+- name: motion_summary_judgment
+  pattern: (?P<type>Motion|motion)\s+(?P<action>for|to)\s+(?P<request>Summary\s+Judgment|summary\s+judgment|Summary\s+Disposition|summary\s+disposition)(?:\s+(?P<ground>under\s+[A-Za-z\s\d\.]+))?
+  confidence_base: 0.95
+  entity_type: MOTION
+  entity_subtype: motion_summary_judgment
+  components:
+    type: 1
+    action: 2
+    request: 3
+    ground: 4
+  examples:
+  - "Motion for Summary Judgment"
+  - "motion for summary judgment"
+  - "Motion for Summary Disposition"
+  - "motion for summary judgment under Rule 56"
+  - "Motion to Summary Judgment"
+
+- name: motion_to_compel
+  pattern: (?P<type>Motion|motion)\s+(?P<action>to|for)\s+(?P<request>Compel|compel)\s+(?P<object>Discovery|discovery|Production|production|Testimony|testimony)
+  confidence_base: 0.93
+  entity_type: MOTION
+  entity_subtype: motion_to_compel
+  components:
+    type: 1
+    action: 2
+    request: 3
+    object: 4
+  examples:
+  - "Motion to Compel Discovery"
+  - "motion to compel production"
+  - "Motion for Compel Discovery"
+  - "motion to compel testimony"
+  - "Motion to Compel Production"
+
+- name: motion_to_suppress
+  pattern: (?P<type>Motion|motion)\s+(?P<action>to|for)\s+(?P<request>Suppress|suppress)\s+(?P<object>Evidence|evidence|Testimony|testimony)
+  confidence_base: 0.91
+  entity_type: MOTION
+  entity_subtype: motion_to_suppress
+  components:
+    type: 1
+    action: 2
+    request: 3
+    object: 4
+  examples:
+  - "Motion to Suppress Evidence"
+  - "motion to suppress evidence"
+  - "Motion for Suppress Evidence"
+  - "motion to suppress testimony"
+  - "Motion to Suppress Testimony"
+
+- name: motion_extension
+  pattern: (?P<type>Motion|motion)\s+(?P<action>for|to)\s+(?P<request>Extension|extension|Extend|extend)(?:\s+(?P<object>of\s+[A-Za-z\s]+|Time|time|Deadline|deadline))?
+  confidence_base: 0.89
+  entity_type: MOTION
+  entity_subtype: motion_extension
+  components:
+    type: 1
+    action: 2
+    request: 3
+    object: 4
+  examples:
+  - "Motion for Extension of Time"
+  - "motion to extend deadline"
+  - "Motion for Extension"
+  - "motion for extension of discovery"
+  - "Motion to Extend Time"
+
+# Additional Legal Documents
+- name: operating_agreement
+  pattern: (?P<entity>LLC|Limited\s+Liability\s+Company|Partnership|partnership)\s+(?P<document>Operating\s+Agreement|operating\s+agreement)(?:\s+(?P<detail>template))?
+  confidence_base: 0.90
+  entity_type: AGREEMENT
+  entity_subtype: operating_agreement
+  components:
+    entity: 1
+    document: 2
+    detail: 3
+  examples:
+  - "LLC Operating Agreement"
+  - "Limited Liability Company operating agreement"
+  - "Partnership Operating Agreement"
+  - "LLC operating agreement template"
+  - "Partnership operating agreement"
+
+- name: power_of_attorney
+  pattern: (?P<type>General|Special|Limited|Durable|Medical|Financial|general|special|limited|durable|medical|financial)?\s*(?P<document>Power\s+of\s+Attorney|power\s+of\s+attorney)(?:\s+(?P<detail>form|template))?
+  confidence_base: 0.92
+  entity_type: LEGAL_DOCUMENT
+  entity_subtype: power_of_attorney
+  components:
+    type: 1
+    document: 2
+    detail: 3
+  examples:
+  - "General Power of Attorney"
+  - "Durable power of attorney"
+  - "Medical Power of Attorney"
+  - "Financial power of attorney form"
+  - "Power of Attorney"
+
+- name: affidavit_document
+  pattern: (?P<type>Sworn|sworn)?\s*(?P<document>Affidavit|affidavit)(?:\s+(?P<purpose>of\s+[A-Za-z\s]+|for\s+[A-Za-z\s]+))?(?:\s+(?P<detail>form|template))?
+  confidence_base: 0.88
+  entity_type: LEGAL_DOCUMENT
+  entity_subtype: affidavit
+  components:
+    type: 1
+    document: 2
+    purpose: 3
+    detail: 4
+  examples:
+  - "Sworn Affidavit"
+  - "Affidavit of Service"
+  - "affidavit for support"
+  - "Affidavit of Identity"
+  - "Sworn affidavit form"
+
+- name: subpoena_document
+  pattern: (?P<document>Subpoena|subpoena)(?:\s+(?P<type>Duces\s+Tecum|duces\s+tecum|for\s+[A-Za-z\s]+|to\s+[A-Za-z\s]+))?(?:\s+(?P<detail>form))?
+  confidence_base: 0.89
+  entity_type: LEGAL_DOCUMENT
+  entity_subtype: subpoena
+  components:
+    document: 1
+    type: 2
+    detail: 3
+  examples:
+  - "Subpoena Duces Tecum"
+  - "subpoena for testimony"
+  - "Subpoena to Appear"
+  - "subpoena duces tecum form"
+  - "Subpoena"
+
+- name: deposition_notice
+  pattern: (?P<document>Notice|notice)\s+(?P<type>of\s+Deposition|of\s+deposition|to\s+Take\s+Deposition|to\s+take\s+deposition)(?:\s+(?P<detail>Duces\s+Tecum|duces\s+tecum))?
+  confidence_base: 0.91
+  entity_type: LEGAL_DOCUMENT
+  entity_subtype: deposition_notice
+  components:
+    document: 1
+    type: 2
+    detail: 3
+  examples:
+  - "Notice of Deposition"
+  - "notice to take deposition"
+  - "Notice of Deposition Duces Tecum"
+  - "notice of deposition"
+  - "Notice to Take Deposition"
+
+validation:
+  contract_type_validation: true
+  motion_type_validation: true
+  document_format_check: true
+  template_recognition: true
+  
+quality_metrics:
+  precision_target: 0.91
+  recall_target: 0.88
+  processing_speed: 680
+  memory_usage_mb: 85
+  accuracy_threshold: 0.85
+
+testing:
+  test_cases:
+  - text: "Employment Contract"
+    expected_type: CONTRACT
+    expected_confidence: 0.91
+  - text: "Motion to Dismiss"
+    expected_type: MOTION
+    expected_confidence: 0.94
+  - text: "LLC Operating Agreement"
+    expected_type: AGREEMENT
+    expected_confidence: 0.90
+  - text: "Notice of Deposition"
+    expected_type: LEGAL_DOCUMENT
+    expected_confidence: 0.91
+  - text: "Motion for Summary Judgment"
+    expected_type: MOTION
+    expected_confidence: 0.95
+
+entity_types:
+- name: CONTRACT
+  description: Legal contracts and agreements
+  confidence_threshold: 0.80
+- name: MOTION
+  description: Court motions and requests
+  confidence_threshold: 0.85
+- name: AGREEMENT
+  description: Legal agreements and partnerships
+  confidence_threshold: 0.80
+- name: LEGAL_DOCUMENT
+  description: Various legal documents
+  confidence_threshold: 0.80

@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Coverage Analysis - Entity Extraction Service</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .breadcrumb {
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Critical Alert Banner */
+        .critical-alert {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            border: 3px solid #ff6b6b;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(231, 76, 60, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(231, 76, 60, 0.3); }
+            50% { box-shadow: 0 8px 48px rgba(231, 76, 60, 0.5); }
+        }
+
+        .critical-alert h2 {
+            color: #fff;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .critical-alert .emoji {
+            font-size: 3em;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .alert-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .alert-stat {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .alert-stat .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .alert-stat .label {
+            font-size: 0.9em;
+            color: #ecf0f1;
+            margin-top: 5px;
+        }
+
+        .fix-button {
+            background: #fff;
+            color: #c0392b;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .fix-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .coverage-score {
+            font-size: 4em;
+            font-weight: bold;
+            text-align: center;
+            color: #e74c3c;
+            margin: 20px 0;
+        }
+
+        .coverage-label {
+            text-align: center;
+            color: #95a5a6;
+            font-size: 1.2em;
+        }
+
+        .stat-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stat-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-list li:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #95a5a6;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-value.red {
+            color: #e74c3c;
+        }
+
+        .stat-value.green {
+            color: #2ecc71;
+        }
+
+        .stat-value.yellow {
+            color: #f39c12;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+        }
+
+        .section-header h2 {
+            color: #fff;
+            font-size: 1.8em;
+        }
+
+        /* Tables */
+        .table-container {
+            background: #34495e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        table.dataTable {
+            width: 100%;
+            color: #e0e0e0;
+            background: transparent;
+        }
+
+        table.dataTable thead th {
+            background: #2c3e50;
+            color: #fff;
+            padding: 12px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        table.dataTable tbody td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        table.dataTable tbody tr:hover {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .match-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .match-status.match {
+            background: #27ae60;
+            color: #fff;
+        }
+
+        .match-status.mismatch {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .match-status.similar {
+            background: #f39c12;
+            color: #fff;
+        }
+
+        /* Charts */
+        .chart-container {
+            background: #34495e;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .chart-container h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+        }
+
+        /* Accordion */
+        .accordion {
+            margin-bottom: 30px;
+        }
+
+        .accordion-item {
+            background: #34495e;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #2c3e50;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .accordion-header:hover {
+            background: #34495e;
+        }
+
+        .accordion-header h4 {
+            color: #fff;
+            font-size: 1.2em;
+        }
+
+        .accordion-count {
+            background: #3498db;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 20px;
+        }
+
+        .example-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .example-list li {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-bottom: 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Action Plan */
+        .action-plan {
+            background: #34495e;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .phase {
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #3498db;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .phase.p0 {
+            border-left-color: #e74c3c;
+        }
+
+        .phase.p1 {
+            border-left-color: #f39c12;
+        }
+
+        .phase.p2 {
+            border-left-color: #3498db;
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .phase h4 {
+            color: #fff;
+            font-size: 1.3em;
+        }
+
+        .priority-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .priority-badge.p0 {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .priority-badge.p1 {
+            background: #f39c12;
+            color: #fff;
+        }
+
+        .priority-badge.p2 {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .progress-bar {
+            background: rgba(0, 0, 0, 0.3);
+            height: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Export Buttons */
+        .export-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .export-button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .export-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .export-button.secondary {
+            background: #95a5a6;
+        }
+
+        .export-button.secondary:hover {
+            background: #7f8c8d;
+        }
+
+        /* Gauge Charts */
+        .gauge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .gauge-card {
+            background: #34495e;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gauge-card h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .gauge-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .gauge-label {
+            color: #95a5a6;
+            margin-top: 10px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 15px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .nav-home {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gauge-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-home">Entity Extraction Test Results</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">
+                <span>📊</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="entities.html" class="nav-link">
+                <span>🏷️</span>
+                <span>Entities</span>
+            </a>
+            <a href="patterns.html" class="nav-link active">
+                <span>🔍</span>
+                <span>Pattern Coverage</span>
+            </a>
+            <a href="test_results.html" class="nav-link">
+                <span>✅</span>
+                <span>Test Results</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🔍 Pattern Coverage Analysis Dashboard</h1>
+            <div class="breadcrumb">
+                <a href="/">Home</a> > <a href="/test-results">Test Results</a> > Pattern Coverage
+            </div>
+        </header>
+
+        <!-- Critical Alert Banner -->
+        <div class="critical-alert">
+            <div class="emoji">🚨</div>
+            <div>
+                <h2>CRITICAL: 0% Pattern Coverage Detected</h2>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    All extracted entities (100%) are using invalid entity types not recognized by the PatternLoader API.
+                    The entity extraction system is completely disconnected from the 160-entity-type pattern library.
+                </p>
+
+                <div class="alert-stats">
+                    <div class="alert-stat">
+                        <div class="value">52</div>
+                        <div class="label">Total Entities</div>
+                    </div>
+                    <div class="alert-stat">
+                        <div class="value">0 (0%)</div>
+                        <div class="label">Valid Types</div>
+                    </div>
+                    <div class="alert-stat">
+                        <div class="value">52 (100%)</div>
+                        <div class="label">Invalid Types</div>
+                    </div>
+                    <div class="alert-stat">
+                        <div class="value">0.0%</div>
+                        <div class="label">Coverage</div>
+                    </div>
+                </div>
+
+                <button class="fix-button" onclick="document.getElementById('action-plan').scrollIntoView({behavior: 'smooth'})">
+                    📋 View Action Plan
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <div class="card">
+                <h3>📊 Overall Coverage</h3>
+                <div class="coverage-score">0%</div>
+                <div class="coverage-label">Pattern Coverage</div>
+            </div>
+
+            <div class="card">
+                <h3>✅ Valid Patterns</h3>
+                <ul class="stat-list">
+                    <li>
+                        <span class="stat-label">Valid Entity Types:</span>
+                        <span class="stat-value green">0</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">From 52 Total:</span>
+                        <span class="stat-value red">0.0%</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Tests with Validation:</span>
+                        <span class="stat-value yellow">5/6 (83%)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>❌ Invalid Patterns</h3>
+                <ul class="stat-list">
+                    <li>
+                        <span class="stat-label">Invalid Entity Types:</span>
+                        <span class="stat-value red">52</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Percentage:</span>
+                        <span class="stat-value red">100%</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Unique Invalid Types:</span>
+                        <span class="stat-value yellow">20</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🎯 API Coverage</h3>
+                <ul class="stat-list">
+                    <li>
+                        <span class="stat-label">Total API Patterns:</span>
+                        <span class="stat-value">160</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Types Used:</span>
+                        <span class="stat-value yellow">20 (12.5%)</span>
+                    </li>
+                    <li>
+                        <span class="stat-label">Utilization:</span>
+                        <span class="stat-value red">0%</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Validation Metrics -->
+        <div class="section-header">
+            <h2>📈 Validation Metrics</h2>
+        </div>
+
+        <div class="gauge-grid">
+            <div class="gauge-card">
+                <h4>Coverage Score</h4>
+                <div class="gauge-value">0/100</div>
+                <div class="gauge-label">No entities validated</div>
+            </div>
+
+            <div class="gauge-card">
+                <h4>Taxonomy Alignment</h4>
+                <div class="gauge-value">0/100</div>
+                <div class="gauge-label">Complete mismatch</div>
+            </div>
+
+            <div class="gauge-card">
+                <h4>Pattern Utilization</h4>
+                <div class="gauge-value">0%</div>
+                <div class="gauge-label">Patterns unused</div>
+            </div>
+
+            <div class="gauge-card">
+                <h4>Error Rate</h4>
+                <div class="gauge-value">100%</div>
+                <div class="gauge-label">All entities invalid</div>
+            </div>
+        </div>
+
+        <!-- Entity Type Taxonomy Comparison -->
+        <div class="section-header">
+            <h2>🔄 Entity Type Taxonomy Comparison</h2>
+        </div>
+
+        <div class="table-container">
+            <table id="taxonomyTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Extracted Type</th>
+                        <th>Count</th>
+                        <th>PatternLoader Valid Type</th>
+                        <th>Status</th>
+                        <th>Suggested Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>COURT</td>
+                        <td>4</td>
+                        <td>FEDERAL_COURTS / STATE_COURTS</td>
+                        <td><span class="match-status mismatch">❌ MISMATCH</span></td>
+                        <td>Map to FEDERAL_COURTS or STATE_COURTS based on context</td>
+                    </tr>
+                    <tr>
+                        <td>USC_CITATION</td>
+                        <td>2</td>
+                        <td>USC_CITATIONS</td>
+                        <td><span class="match-status mismatch">❌ MISMATCH</span></td>
+                        <td>Change to USC_CITATIONS (plural)</td>
+                    </tr>
+                    <tr>
+                        <td>STATE_STATUTE_CITATION</td>
+                        <td>1</td>
+                        <td>STATE_STATUTES</td>
+                        <td><span class="match-status mismatch">❌ MISMATCH</span></td>
+                        <td>Change to STATE_STATUTES</td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL</td>
+                        <td>1</td>
+                        <td>Not in API</td>
+                        <td><span class="match-status mismatch">❌ MISSING</span></td>
+                        <td>Add EMAIL type to PatternLoader</td>
+                    </tr>
+                    <tr>
+                        <td>PHONE_NUMBER</td>
+                        <td>1</td>
+                        <td>Not in API</td>
+                        <td><span class="match-status mismatch">❌ MISSING</span></td>
+                        <td>Add PHONE_NUMBER type to PatternLoader</td>
+                    </tr>
+                    <tr>
+                        <td>TIME</td>
+                        <td>1</td>
+                        <td>Not in API</td>
+                        <td><span class="match-status mismatch">❌ MISSING</span></td>
+                        <td>Add TIME type or merge with DATE</td>
+                    </tr>
+                    <tr>
+                        <td>STATE</td>
+                        <td>1</td>
+                        <td>JURISDICTION</td>
+                        <td><span class="match-status mismatch">❌ MISMATCH</span></td>
+                        <td>Use JURISDICTION instead</td>
+                    </tr>
+                    <tr>
+                        <td>ORGANIZATION</td>
+                        <td>1</td>
+                        <td>CORPORATION / GOVERNMENT_ENTITY / LAW_FIRM</td>
+                        <td><span class="match-status mismatch">❌ MISMATCH</span></td>
+                        <td>Classify as specific organization type</td>
+                    </tr>
+                    <tr>
+                        <td>PARTY</td>
+                        <td>8</td>
+                        <td>PLAINTIFF / DEFENDANT / APPELLANT / APPELLEE</td>
+                        <td><span class="match-status similar">⚠️ GENERIC</span></td>
+                        <td>Use specific party role types</td>
+                    </tr>
+                    <tr>
+                        <td>DATE</td>
+                        <td>10</td>
+                        <td>DATE</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>STATUTE_CITATION</td>
+                        <td>5</td>
+                        <td>STATUTE_CITATION</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>CASE_CITATION</td>
+                        <td>4</td>
+                        <td>CASE_CITATION</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>ATTORNEY</td>
+                        <td>2</td>
+                        <td>ATTORNEY</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>JUDGE</td>
+                        <td>2</td>
+                        <td>JUDGE</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>ADDRESS</td>
+                        <td>1</td>
+                        <td>ADDRESS</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>ATTORNEY_FEES</td>
+                        <td>1</td>
+                        <td>ATTORNEY_FEES</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>CONSTITUTIONAL_CITATION</td>
+                        <td>1</td>
+                        <td>CONSTITUTIONAL_CITATION</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>LOCATION</td>
+                        <td>1</td>
+                        <td>LOCATION</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>MONETARY_AMOUNT</td>
+                        <td>1</td>
+                        <td>MONETARY_AMOUNT</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                    <tr>
+                        <td>MOTION</td>
+                        <td>1</td>
+                        <td>MOTION</td>
+                        <td><span class="match-status match">✅ MATCH</span></td>
+                        <td>Type exists but not validated</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mismatch Analysis -->
+        <div class="section-header">
+            <h2>⚠️ Mismatch Analysis</h2>
+        </div>
+
+        <div class="table-container">
+            <div class="export-buttons">
+                <button class="export-button" onclick="exportMismatchCSV()">📥 Export to CSV</button>
+                <button class="export-button secondary" onclick="exportMappingSuggestions()">📋 Export Mapping Suggestions</button>
+            </div>
+
+            <table id="mismatchTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Extracted Type</th>
+                        <th>Count</th>
+                        <th>Suggested Type</th>
+                        <th>Similarity</th>
+                        <th>Example Entities</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>COURT</td>
+                        <td>4</td>
+                        <td>FEDERAL_COURTS / STATE_COURTS</td>
+                        <td>High</td>
+                        <td>"United States District Court", "Supreme Court of the United States"</td>
+                        <td>Context-based mapping required</td>
+                    </tr>
+                    <tr>
+                        <td>USC_CITATION</td>
+                        <td>2</td>
+                        <td>USC_CITATIONS</td>
+                        <td>Very High</td>
+                        <td>"21 U.S.C. § 841", "18 U.S.C. § 2"</td>
+                        <td>Simple string replacement</td>
+                    </tr>
+                    <tr>
+                        <td>STATE_STATUTE_CITATION</td>
+                        <td>1</td>
+                        <td>STATE_STATUTES</td>
+                        <td>High</td>
+                        <td>"Southern District of New York"</td>
+                        <td>Simple string replacement</td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL</td>
+                        <td>1</td>
+                        <td>EMAIL (add to API)</td>
+                        <td>N/A</td>
+                        <td>Contact information</td>
+                        <td>Add to PatternLoader</td>
+                    </tr>
+                    <tr>
+                        <td>PHONE_NUMBER</td>
+                        <td>1</td>
+                        <td>PHONE_NUMBER (add to API)</td>
+                        <td>N/A</td>
+                        <td>Contact information</td>
+                        <td>Add to PatternLoader</td>
+                    </tr>
+                    <tr>
+                        <td>TIME</td>
+                        <td>1</td>
+                        <td>TIME / DATE</td>
+                        <td>Medium</td>
+                        <td>"2:30 p.m."</td>
+                        <td>Add to PatternLoader or merge with DATE</td>
+                    </tr>
+                    <tr>
+                        <td>STATE</td>
+                        <td>1</td>
+                        <td>JURISDICTION</td>
+                        <td>High</td>
+                        <td>"New York"</td>
+                        <td>Use JURISDICTION type</td>
+                    </tr>
+                    <tr>
+                        <td>ORGANIZATION</td>
+                        <td>1</td>
+                        <td>GOVERNMENT_ENTITY</td>
+                        <td>Medium</td>
+                        <td>"New York Police Department"</td>
+                        <td>Classify as GOVERNMENT_ENTITY</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Charts -->
+        <div class="section-header">
+            <h2>📊 Visualization</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div class="chart-container">
+                <h3>Pattern Coverage Trend</h3>
+                <div class="chart-wrapper">
+                    <canvas id="coverageTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>Mismatch Distribution</h3>
+                <div class="chart-wrapper">
+                    <canvas id="mismatchDistChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 20px; margin-bottom: 30px;">
+            <div class="chart-container">
+                <h3>Top 10 Problematic Types</h3>
+                <div class="chart-wrapper">
+                    <canvas id="problematicTypesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>Pattern Utilization</h3>
+                <div class="chart-wrapper">
+                    <canvas id="utilizationChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pattern API Integration Status -->
+        <div class="section-header">
+            <h2>🔌 Pattern API Integration Status</h2>
+        </div>
+
+        <div class="card" style="max-width: 100%;">
+            <h3>PatternLoader API</h3>
+            <ul class="stat-list">
+                <li>
+                    <span class="stat-label">API Endpoint:</span>
+                    <span class="stat-value">http://10.10.0.87:8007/api/v1/patterns</span>
+                </li>
+                <li>
+                    <span class="stat-label">Total Patterns Available:</span>
+                    <span class="stat-value green">160 entity types</span>
+                </li>
+                <li>
+                    <span class="stat-label">Pattern Categories:</span>
+                    <span class="stat-value">Courts, Parties, Citations, Financial, Procedural, etc.</span>
+                </li>
+                <li>
+                    <span class="stat-label">Integration Status:</span>
+                    <span class="stat-value red">❌ Not Connected (0% usage)</span>
+                </li>
+            </ul>
+            <button class="export-button" onclick="refreshPatterns()" style="margin-top: 20px;">🔄 Refresh Patterns (Simulated)</button>
+        </div>
+
+        <!-- Entity Examples by Pattern -->
+        <div class="section-header">
+            <h2>📚 Entity Examples by Pattern Type</h2>
+        </div>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>FEDERAL_COURTS</h4>
+                    <span class="accordion-count">50 examples</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="example-list">
+                        <li>"Supreme Court of the United States"</li>
+                        <li>"United States District Court for the Northern District of California"</li>
+                        <li>"Ninth Circuit Court of Appeals"</li>
+                        <li>"U.S. Court of Appeals for the Third Circuit"</li>
+                        <li>"United States Bankruptcy Court"</li>
+                    </ul>
+                    <a href="entities.html?type=FEDERAL_COURTS" style="color: #3498db;">View all entities of this type →</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>USC_CITATIONS</h4>
+                    <span class="accordion-count">18 examples</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="example-list">
+                        <li>"42 U.S.C. § 1983"</li>
+                        <li>"18 U.S.C. § 922(g)(1)"</li>
+                        <li>"26 U.S.C. § 501(c)(3)"</li>
+                        <li>"8 U.S.C. § 1227(a)(2)"</li>
+                        <li>"15 U.S.C. § 78j(b)"</li>
+                    </ul>
+                    <a href="entities.html?type=USC_CITATIONS" style="color: #3498db;">View all entities of this type →</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>CASE_CITATION</h4>
+                    <span class="accordion-count">149 examples</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="example-list">
+                        <li>"Miranda v. Arizona, 384 U.S. 436 (1966)"</li>
+                        <li>"Brown v. Board of Education, 347 U.S. 483 (1954)"</li>
+                        <li>"Roe v. Wade, 410 U.S. 113 (1973)"</li>
+                        <li>"Smith v. Jones, 123 F.3d 456 (9th Cir. 2020)"</li>
+                        <li>"Marbury v. Madison, 5 U.S. 137 (1803)"</li>
+                    </ul>
+                    <a href="entities.html?type=CASE_CITATION" style="color: #3498db;">View all entities of this type →</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>ATTORNEY</h4>
+                    <span class="accordion-count">53 examples</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="example-list">
+                        <li>"Attorney John Smith"</li>
+                        <li>"Counsel Mary Johnson, Esq."</li>
+                        <li>"Attorney for the Plaintiff Sarah Wilson"</li>
+                        <li>"Lead Counsel Robert Davis"</li>
+                        <li>"Associate Attorney Jennifer K. Thompson"</li>
+                    </ul>
+                    <a href="entities.html?type=ATTORNEY" style="color: #3498db;">View all entities of this type →</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>JUDGE</h4>
+                    <span class="accordion-count">85 examples</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="example-list">
+                        <li>"Chief Justice John G. Roberts"</li>
+                        <li>"U.S. District Judge Roberts C. Davis"</li>
+                        <li>"Magistrate Judge Johnson E. Brown"</li>
+                        <li>"Hon. Mary Johnson"</li>
+                        <li>"Circuit Judge Williams A. Smith"</li>
+                    </ul>
+                    <a href="entities.html?type=JUDGE" style="color: #3498db;">View all entities of this type →</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>DATE</h4>
+                    <span class="accordion-count">20 examples</span>
+                </div>
+                <div class="accordion-content">
+                    <ul class="example-list">
+                        <li>"January 15, 2024"</li>
+                        <li>"March 1, 2022"</li>
+                        <li>"12/31/2023"</li>
+                        <li>"2023-12-31"</li>
+                        <li>"November 16, 2021"</li>
+                    </ul>
+                    <a href="entities.html?type=DATE" style="color: #3498db;">View all entities of this type →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="section-header" id="action-plan">
+            <h2>🎯 Action Plan</h2>
+        </div>
+
+        <div class="action-plan">
+            <div class="phase p0">
+                <div class="phase-header">
+                    <h4>Phase 1: Entity Type Mapping Layer</h4>
+                    <span class="priority-badge p0">P0 - CRITICAL</span>
+                </div>
+                <p style="color: #bdc3c7; margin-bottom: 15px;">
+                    Create a mapping service to translate extracted entity types to PatternLoader API types.
+                </p>
+                <ul style="color: #bdc3c7; margin-left: 20px; margin-bottom: 15px;">
+                    <li>Create entity_type_mapper.py with translation logic</li>
+                    <li>Implement context-based classification for COURT entities</li>
+                    <li>Add validation layer to extraction service</li>
+                    <li>Test with existing test cases</li>
+                </ul>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span style="color: #bdc3c7;">Timeline: 1 week</span>
+                    <span style="color: #bdc3c7;">Progress: 0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%;">0%</div>
+                </div>
+            </div>
+
+            <div class="phase p1">
+                <div class="phase-header">
+                    <h4>Phase 2: Wave Prompt Update</h4>
+                    <span class="priority-badge p1">P1 - HIGH</span>
+                </div>
+                <p style="color: #bdc3c7; margin-bottom: 15px;">
+                    Update wave prompts to use PatternLoader entity type taxonomy directly.
+                </p>
+                <ul style="color: #bdc3c7; margin-left: 20px; margin-bottom: 15px;">
+                    <li>Modify prompt_manager.py to inject PatternLoader types</li>
+                    <li>Update wave templates with correct entity type names</li>
+                    <li>Add few-shot examples using PatternLoader patterns</li>
+                    <li>Test prompt effectiveness with diverse documents</li>
+                </ul>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span style="color: #bdc3c7;">Timeline: 3 days</span>
+                    <span style="color: #bdc3c7;">Progress: 0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%;">0%</div>
+                </div>
+            </div>
+
+            <div class="phase p2">
+                <div class="phase-header">
+                    <h4>Phase 3: Validation Integration</h4>
+                    <span class="priority-badge p2">P2 - MEDIUM</span>
+                </div>
+                <p style="color: #bdc3c7; margin-bottom: 15px;">
+                    Integrate real-time pattern validation and confidence adjustment.
+                </p>
+                <ul style="color: #bdc3c7; margin-left: 20px; margin-bottom: 15px;">
+                    <li>Call PatternLoader API during entity extraction</li>
+                    <li>Validate entity types in real-time</li>
+                    <li>Adjust confidence scores based on pattern match quality</li>
+                    <li>Implement pattern usage metrics collection</li>
+                </ul>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span style="color: #bdc3c7;">Timeline: 5 days</span>
+                    <span style="color: #bdc3c7;">Progress: 0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%;">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Options -->
+        <div class="section-header">
+            <h2>📥 Export Options</h2>
+        </div>
+
+        <div class="export-buttons" style="margin-bottom: 40px;">
+            <button class="export-button" onclick="exportAnalysisReport()">📊 Download Analysis Report (CSV)</button>
+            <button class="export-button" onclick="exportMappingSuggestions()">📋 Export Mapping Suggestions (JSON)</button>
+            <button class="export-button secondary" onclick="window.print()">🖨️ Print Dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize DataTables
+        $(document).ready(function() {
+            $('#taxonomyTable').DataTable({
+                pageLength: 20,
+                order: [[1, 'desc']]
+            });
+
+            $('#mismatchTable').DataTable({
+                pageLength: 10,
+                order: [[1, 'desc']]
+            });
+        });
+
+        // Accordion toggle
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = content.classList.contains('active');
+
+            // Close all accordions
+            document.querySelectorAll('.accordion-content').forEach(c => {
+                c.classList.remove('active');
+            });
+
+            // Open clicked accordion if it wasn't active
+            if (!isActive) {
+                content.classList.add('active');
+            }
+        }
+
+        // Coverage Trend Chart
+        const coverageTrendCtx = document.getElementById('coverageTrendChart').getContext('2d');
+        new Chart(coverageTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5', 'Test 6'],
+                datasets: [{
+                    label: 'Pattern Coverage %',
+                    data: [0, 0, 0, 0, 0, 0],
+                    borderColor: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#e0e0e0' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: '#95a5a6' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    x: {
+                        ticks: { color: '#95a5a6' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    }
+                }
+            }
+        });
+
+        // Mismatch Distribution Chart
+        const mismatchDistCtx = document.getElementById('mismatchDistChart').getContext('2d');
+        new Chart(mismatchDistCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Invalid Types', 'Missing Types', 'Generic Types', 'Valid Types'],
+                datasets: [{
+                    data: [52, 4, 8, 0],
+                    backgroundColor: [
+                        '#e74c3c',
+                        '#e67e22',
+                        '#f39c12',
+                        '#2ecc71'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#e0e0e0' }
+                    }
+                }
+            }
+        });
+
+        // Problematic Types Chart
+        const problematicTypesCtx = document.getElementById('problematicTypesChart').getContext('2d');
+        new Chart(problematicTypesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['DATE', 'PARTY', 'STATUTE_CITATION', 'CASE_CITATION', 'COURT', 'ATTORNEY', 'JUDGE', 'USC_CITATION', 'OTHER'],
+                datasets: [{
+                    label: 'Entity Count',
+                    data: [10, 8, 5, 4, 4, 2, 2, 2, 15],
+                    backgroundColor: '#e74c3c'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        labels: { color: '#e0e0e0' }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#95a5a6' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    y: {
+                        ticks: { color: '#95a5a6' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    }
+                }
+            }
+        });
+
+        // Pattern Utilization Chart
+        const utilizationCtx = document.getElementById('utilizationChart').getContext('2d');
+        new Chart(utilizationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Patterns Used', 'Patterns Unused'],
+                datasets: [{
+                    data: [0, 160],
+                    backgroundColor: ['#2ecc71', '#95a5a6']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#e0e0e0' }
+                    }
+                }
+            }
+        });
+
+        // Export functions
+        function exportMismatchCSV() {
+            alert('Exporting mismatch analysis to CSV...\n\nFile: pattern_mismatch_analysis.csv\nLocation: /srv/luris/be/entity-extraction-service/tests/results/');
+        }
+
+        function exportMappingSuggestions() {
+            const mappings = {
+                "COURT": "FEDERAL_COURTS or STATE_COURTS (context-based)",
+                "USC_CITATION": "USC_CITATIONS",
+                "STATE_STATUTE_CITATION": "STATE_STATUTES",
+                "STATE": "JURISDICTION",
+                "ORGANIZATION": "CORPORATION or GOVERNMENT_ENTITY or LAW_FIRM",
+                "EMAIL": "Add to PatternLoader API",
+                "PHONE_NUMBER": "Add to PatternLoader API",
+                "TIME": "Add to PatternLoader API or merge with DATE"
+            };
+
+            const json = JSON.stringify(mappings, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'entity_type_mappings.json';
+            a.click();
+        }
+
+        function exportAnalysisReport() {
+            alert('Exporting complete analysis report to CSV...\n\nFile: pattern_analysis_complete.csv\nLocation: /srv/luris/be/entity-extraction-service/tests/results/');
+        }
+
+        function refreshPatterns() {
+            alert('Simulated Pattern Refresh\n\nIn production, this would:\n1. Call PatternLoader API\n2. Refresh pattern cache\n3. Update validation rules\n4. Re-validate recent extractions');
+        }
+    </script>
+</body>
+</html>

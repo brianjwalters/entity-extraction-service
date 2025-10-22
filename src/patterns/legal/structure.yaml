@@ -1,0 +1,493 @@
+metadata:
+  pattern_type: legal_structure
+  jurisdiction: general
+  source_type: legal_documents
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-09-03'
+  last_updated: '2025-09-03'
+  description: Comprehensive legal document structure patterns for markers, headers,
+    terms, parties, and signatures
+  optimization_notes: '- High-confidence patterns for legal document structure recognition
+
+    - Bluebook 22nd Edition compliant formatting
+
+    - Optimized for contract, agreement, and legal opinion processing
+
+    - Includes party identification and signature block extraction
+
+    - Performance targets under 15ms per pattern execution
+
+    '
+legal_markers:
+  whereas_clauses:
+    name: whereas_clause
+    pattern: (?P<marker>WHEREAS)(?P<content>,?\s+(?:[A-Z].*?(?:;|\sand\s|\sor\s|$)))
+    confidence: 0.95
+    entity_types:
+    - legal_marker
+    - recital_clause
+    - document_structure
+    components:
+      marker: WHEREAS keyword
+      content: Complete whereas clause content
+    optimization: Direct match for contract recitals
+    examples:
+    - WHEREAS, the parties desire to enter into this agreement
+    - WHEREAS the Company wishes to retain the services of Consultant
+    - WHEREAS, pursuant to the terms of the Purchase Agreement
+    - WHEREAS the Board of Directors has authorized this transaction
+  now_therefore:
+    name: now_therefore
+    pattern: (?P<marker>NOW,?\s+THEREFORE)(?P<content>,?\s+.*?(?:;|\.|\n|$))
+    confidence: 0.96
+    entity_types:
+    - legal_marker
+    - transitional_clause
+    - document_structure
+    components:
+      marker: NOW THEREFORE phrase
+      content: Following operative language
+    optimization: Transition from recitals to operative provisions
+    examples:
+    - NOW, THEREFORE, the parties agree as follows
+    - NOW THEREFORE, in consideration of the mutual covenants
+    - NOW, THEREFORE, BE IT RESOLVED that
+    - NOW THEREFORE, the undersigned hereby agrees
+  in_witness_whereof:
+    name: witness_whereof
+    pattern: (?P<marker>IN\s+WITNESS\s+WHEREOF)(?P<content>,?\s+.*?(?:executed|signed|\.|\n|$))
+    confidence: 0.94
+    entity_types:
+    - legal_marker
+    - execution_clause
+    - signature_marker
+    components:
+      marker: IN WITNESS WHEREOF phrase
+      content: Execution statement
+    optimization: Standard contract execution language
+    examples:
+    - IN WITNESS WHEREOF, the parties have executed this Agreement
+    - IN WITNESS WHEREOF, I have hereunto set my hand
+    - IN WITNESS WHEREOF, the undersigned has caused this instrument to be executed
+  be_it_resolved:
+    name: be_it_resolved
+    pattern: BE\s+IT\s+RESOLVED[,\s]+.*
+    confidence: 0.93
+    entity_types:
+    - legal_marker
+    - resolution_clause
+    - judicial_order
+    components:
+      marker: BE IT RESOLVED/ORDERED phrase
+      content: Resolution or order content
+    optimization: Corporate resolutions and court orders
+    examples:
+    - BE IT RESOLVED THAT the Board approves the merger
+    - BE IT ORDERED that defendant shall pay damages
+    - BE IT RESOLVED, that the Company is authorized to
+  it_is_ordered:
+    name: it_is_ordered
+    pattern: (?P<marker>IT\s+IS\s+(?:ORDERED|ADJUDGED|DECREED))(?P<content>\s+(?:THAT\s+)?.*?(?:;|\.|\n|$))
+    confidence: 0.94
+    entity_types:
+    - legal_marker
+    - judicial_order
+    - court_directive
+    components:
+      marker: IT IS ORDERED/ADJUDGED/DECREED phrase
+      content: Court order content
+    optimization: Court order and judgment language
+    examples:
+    - IT IS ORDERED that plaintiff's motion is granted
+    - IT IS ADJUDGED that defendant is liable
+    - IT IS DECREED that the marriage is dissolved
+section_headers:
+  article_sections:
+    name: article_header
+    pattern: (?P<marker>ARTICLE)\s+(?P<number>[IVXLCDM]+|\d+)(?:\s*[:\.\-]\s*(?P<title>.*?)(?:\n|$))?
+    confidence: 0.96
+    entity_types:
+    - section_header
+    - article_reference
+    - document_structure
+    components:
+      marker: ARTICLE keyword
+      number: Article number (Roman or Arabic)
+      title: Article title or subject
+    optimization: Contract and legal document articles
+    examples:
+    - 'ARTICLE I: DEFINITIONS'
+    - ARTICLE VII - TERMINATION
+    - ARTICLE 12. INDEMNIFICATION
+    - 'ARTICLE III: REPRESENTATIONS AND WARRANTIES'
+  section_headers:
+    name: section_header
+    pattern: (?P<marker>SECTION)\s+(?P<number>\d+(?:\.\d+)?[a-z]?)(?:\s*[:\.\-]\s*(?P<title>.*?)(?:\n|$))?
+    confidence: 0.95
+    entity_types:
+    - section_header
+    - section_reference
+    - document_structure
+    components:
+      marker: SECTION keyword
+      number: Section number with optional subsection
+      title: Section title or subject
+    optimization: Detailed section identification
+    examples:
+    - 'SECTION 1: BACKGROUND'
+    - SECTION 4.2 - PAYMENT TERMS
+    - SECTION 15a. GOVERNING LAW
+    - 'SECTION 8: CONFIDENTIALITY OBLIGATIONS'
+  paragraph_headers:
+    name: paragraph_header
+    pattern: (?P<marker>(?:PARAGRAPH|¶))\s+(?P<number>\d+[a-z]?)(?:\s*[:\.\-]\s*(?P<title>.*?)(?:\n|$))?
+    confidence: 0.92
+    entity_types:
+    - paragraph_header
+    - paragraph_reference
+    - document_structure
+    components:
+      marker: PARAGRAPH or paragraph symbol
+      number: Paragraph number with optional letter
+      title: Paragraph subject
+    optimization: Paragraph-level structure identification
+    examples:
+    - 'PARAGRAPH 1: INTRODUCTION'
+    - ¶ 15a - DAMAGES LIMITATION
+    - 'PARAGRAPH 23: DISPUTE RESOLUTION'
+  subsection_markers:
+    name: subsection_marker
+    pattern: (?P<marker>(?:\([a-z]\)|\([0-9]+\)|[a-z]\.|\d+\.))(?:\s+(?P<content>.*?)(?:\n|$))?
+    confidence: 0.89
+    entity_types:
+    - subsection_marker
+    - enumerated_item
+    - document_structure
+    components:
+      marker: Subsection identifier
+      content: Subsection content
+    optimization: Enumerated subsections and lists
+    examples:
+    - (a) General Provisions
+    - (1) Payment obligations
+    - a. Definitions section
+    - 1. Initial term provisions
+defined_terms:
+  quoted_definitions:
+    name: quoted_definition
+    pattern: (?P<term>"[A-Z][^"]*")\s+(?:shall\s+)?(?:mean|means)\s+(?P<definition>.*?)(?:\.|;|\n|$)
+    confidence: 0.94
+    entity_types:
+    - defined_term
+    - definition
+    - contract_term
+    components:
+      term: Quoted defined term
+      definition: Term definition
+    optimization: Standard contract definition format
+    examples:
+    - '"Agreement" means this Service Agreement'
+    - '"Confidential Information" shall mean any proprietary data'
+    - '"Effective Date" means the date first written above'
+    - '"Territory" means the United States and Canada'
+  capitalized_definitions:
+    name: capitalized_definition
+    pattern: (?P<term>[A-Z][a-zA-Z\s]{1,50})\s+(?:shall\s+)?(?:mean|means)\s+(?P<definition>.*?)(?:\.|;|\n|$)
+    confidence: 0.87
+    entity_types:
+    - defined_term
+    - definition
+    - contract_term
+    components:
+      term: Capitalized defined term
+      definition: Term definition
+    optimization: Alternative definition format without quotes
+    examples:
+    - Company means ABC Corporation, a Delaware corporation
+    - Services shall mean the consulting services described herein
+    - Term means the period from the Effective Date
+  definition_sections:
+    name: definition_section_marker
+    pattern: (?P<marker>(?:DEFINITIONS|DEFINED\s+TERMS))(?:\s*[:\.\-]\s*)?
+    confidence: 0.96
+    entity_types:
+    - section_marker
+    - definition_section
+    - document_structure
+    components:
+      marker: Definition section header
+    optimization: Definition section identification
+    examples:
+    - DEFINITIONS
+    - 'DEFINED TERMS:'
+    - DEFINITIONS AND INTERPRETATIONS
+  as_defined_references:
+    name: as_defined_reference
+    pattern: (?P<term>[A-Z][a-zA-Z\s]{1,30})\s+\(as\s+defined\s+(?:herein|below|above)\)
+    confidence: 0.91
+    entity_types:
+    - defined_term_reference
+    - cross_reference
+    components:
+      term: Referenced defined term
+    optimization: Cross-references to defined terms
+    examples:
+    - the Agreement (as defined herein)
+    - Confidential Information (as defined below)
+    - the Services (as defined above)
+contract_parties:
+  party_identification:
+    name: contract_party
+    pattern: (?P<party_name>(?:[A-Z][A-Z\s&,\.]{2,50}(?:INC\.|CORP\.|LLC|LTD\.|COMPANY|CORPORATION)?)),?\s*(?:a\s+(?P<state>[A-Z][a-z]+)\s+(?P<entity_type>corporation|company|limited\s+liability\s+company|partnership))?\s*\("(?P<short_name>[A-Z][A-Za-z\s&]{1,20})"\)
+    confidence: 0.92
+    entity_types:
+    - contract_party
+    - legal_entity
+    - corporation
+    components:
+      party_name: Full legal entity name
+      state: State of incorporation
+      entity_type: Type of legal entity
+      short_name: Abbreviated name for document use
+    optimization: Standard contract party identification
+    examples:
+    - ABC CORPORATION, a Delaware corporation ("Company")
+    - JOHN DOE CONSULTING, LLC, a California limited liability company ("Consultant")
+    - XYZ INDUSTRIES, INC. ("Buyer")
+  individual_parties:
+    name: individual_party
+    pattern: (?P<name>[A-Z][a-z]+\s+[A-Z]\.?\s+[A-Z][a-z]+),?\s*(?:an\s+individual\s+residing\s+in\s+(?P<state>[A-Z][a-z]+))?\s*\("(?P<short_name>[A-Z][a-z]+)"\)
+    confidence: 0.89
+    entity_types:
+    - individual_party
+    - natural_person
+    - contract_party
+    components:
+      name: Individual's full name
+      state: State of residence
+      short_name: Short reference name
+    optimization: Individual party identification
+    examples:
+    - John A. Smith, an individual residing in California ("Employee")
+    - Mary Johnson ("Contractor")
+    - Robert P. Williams, an individual ("Consultant")
+  between_parties:
+    name: parties_introduction
+    pattern: between\s+(?P<party1>.*?),?\s*(?:and\s+)?(?P<party2>.*?)(?:,\s*collectively\s+"(?P<collective_name>[^"]+)")?
+    confidence: 0.85
+    entity_types:
+    - parties_clause
+    - contract_introduction
+    components:
+      party1: First contracting party
+      party2: Second contracting party
+      collective_name: Collective reference name
+    optimization: Contract parties introduction clause
+    examples:
+    - between ABC Corp and XYZ Inc
+    - between the Company and Employee, collectively "Parties"
+signature_blocks:
+  signature_lines:
+    name: signature_line
+    pattern: (?P<signature_line>By:\s*_+|Signature:\s*_+|_+\s*\(Signature\))
+    confidence: 0.94
+    entity_types:
+    - signature_line
+    - execution_element
+    - document_authentication
+    components:
+      signature_line: Signature line format
+    optimization: Standard signature line identification
+    examples:
+    - 'By: ________________________'
+    - 'Signature: __________________'
+    - _________________ (Signature)
+  name_title_blocks:
+    name: name_title_block
+    pattern: Print\s+Name:\s*.*(?:\n.*)?
+    confidence: 0.91
+    entity_types:
+    - signatory_block
+    - execution_element
+    - officer_identification
+    components:
+      name_line: Name field line
+      name: Signatory name or blank line
+      title_line: Title field line
+      title: Signatory title or blank line
+    optimization: Corporate signatory identification
+    examples:
+    - 'Name: John Smith
+
+      Title: Chief Executive Officer'
+    - 'Print Name: _____________
+
+      Its: President'
+  date_executed:
+    name: execution_date
+    pattern: (?P<date_clause>(?:Date|Dated):\s*(?P<date>\d{1,2}\/\d{1,2}\/\d{4}|\d{1,2}-\d{1,2}-\d{4}|[A-Z][a-z]+\s+\d{1,2},\s+\d{4}|_+))
+    confidence: 0.93
+    entity_types:
+    - execution_date
+    - document_date
+    - contract_timing
+    components:
+      date_clause: Date field label
+      date: Execution date or blank line
+    optimization: Contract execution date identification
+    examples:
+    - 'Date: 12/15/2023'
+    - 'Dated: December 15, 2023'
+    - 'Date: _______________'
+  witness_acknowledgment:
+    name: witness_block
+    pattern: (?P<witness_marker>(?:WITNESS|ATTEST|ACKNOWLEDGED)):\s*(?P<witness_line>_+|(?P<witness_name>[A-Z][a-zA-Z\s\.]{1,40}))
+    confidence: 0.88
+    entity_types:
+    - witness_block
+    - acknowledgment
+    - document_authentication
+    components:
+      witness_marker: Witness/attest designation
+      witness_line: Witness signature line
+      witness_name: Witness name if present
+    optimization: Witness and acknowledgment blocks
+    examples:
+    - 'WITNESS: ________________________'
+    - 'ATTEST: John A. Secretary'
+    - 'ACKNOWLEDGED: ________________'
+  notary_blocks:
+    name: notary_acknowledgment
+    pattern: (?P<notary_marker>(?:State\s+of|County\s+of|Notary\s+Public|Acknowledged\s+before\s+me)).*?(?P<notary_content>.*?)(?:(?:\n\s*){2,}|$)
+    confidence: 0.86
+    entity_types:
+    - notary_block
+    - acknowledgment
+    - legal_authentication
+    components:
+      notary_marker: Notary acknowledgment start
+      notary_content: Full notary text
+    optimization: Notarial acknowledgment identification
+    examples:
+    - 'State of California
+
+      County of Los Angeles'
+    - Acknowledged before me this day
+    - Notary Public in and for said State
+corporate_structure:
+  corporate_resolutions:
+    name: board_resolution
+    pattern: RESOLVED[,\s]+.*
+    confidence: 0.89
+    entity_types:
+    - corporate_resolution
+    - board_action
+    - governance_document
+    components:
+      resolution_type: RESOLVED or RESOLUTION
+      body: Governing body taking action
+      content: Resolution content
+    optimization: Corporate governance resolutions
+    examples:
+    - RESOLVED, that the merger is approved
+    - RESOLUTION OF THE BOARD OF DIRECTORS THAT the Company
+    - RESOLVED THAT the officers are authorized
+  entity_good_standing:
+    name: good_standing_clause
+    pattern: (?P<entity>.*?),?\s*(?:is\s+)?(?:a\s+)?(?P<jurisdiction>[A-Z][a-z]+)\s+(?P<entity_type>corporation|company|LLC|partnership).*?(?:in\s+good\s+standing|duly\s+(?:formed|organized))
+    confidence: 0.87
+    entity_types:
+    - entity_status
+    - corporate_formation
+    - legal_standing
+    components:
+      entity: Entity name
+      jurisdiction: State/jurisdiction of formation
+      entity_type: Type of entity
+    optimization: Entity formation and standing verification
+    examples:
+    - ABC Corp, a Delaware corporation in good standing
+    - XYZ LLC, a California limited liability company duly formed
+entity_types:
+- name: legal_marker
+  description: Legal document markers and transition phrases
+  priority: 1
+  performance_target: <10ms
+- name: section_header
+  description: Document section headers and structure
+  priority: 1
+  performance_target: <8ms
+- name: defined_term
+  description: Contract defined terms and definitions
+  priority: 2
+  performance_target: <12ms
+- name: contract_party
+  description: Contracting parties identification
+  priority: 1
+  performance_target: <15ms
+- name: signature_block
+  description: Signature blocks and execution elements
+  priority: 2
+  performance_target: <10ms
+- name: document_structure
+  description: Overall document structural elements
+  priority: 3
+  performance_target: <5ms
+validation:
+  pattern_coverage:
+    contract_types:
+    - service_agreements
+    - purchase_agreements
+    - employment_contracts
+    - nda
+    - partnership_agreements
+    document_types:
+    - contracts
+    - legal_opinions
+    - court_orders
+    - resolutions
+    - agreements
+  bluebook_compliance:
+    version: 22nd_edition
+    citation_format: true
+    abbreviation_standards: true
+  quality_thresholds:
+    min_confidence: 0.85
+    precision_target: 0.95
+    recall_target: 0.92
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  f1_target: 0.93
+  processing_speed: 500_documents_per_second
+dependencies:
+  requires:
+  - legal_terminology_patterns
+  - contract_language_library
+  - corporate_entity_database
+  optional:
+  - notary_format_variations
+  - international_entity_types
+  - legacy_document_formats
+testing:
+  test_cases:
+  - pattern: legal_markers.whereas_clauses
+    text: WHEREAS, the parties desire to enter into this agreement
+    expected_entities: 1
+  - pattern: section_headers.article_sections
+    text: 'ARTICLE I: DEFINITIONS'
+    expected_entities: 1
+  - pattern: defined_terms.quoted_definitions
+    text: '"Agreement" means this Service Agreement'
+    expected_entities: 1
+  - pattern: contract_parties.party_identification
+    text: ABC CORPORATION, a Delaware corporation ("Company")
+    expected_entities: 1
+  - pattern: signature_blocks.signature_lines
+    text: 'By: ________________________'
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 5 seconds
+    memory_usage: < 50MB
+    accuracy_threshold: 0.93

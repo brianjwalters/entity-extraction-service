@@ -1,0 +1,232 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: new_york
+  state_abbreviation: N.Y.
+  court_system: four_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for New York state citations and entities
+case_citations:
+  new_york_court_of_appeals:
+    name: new_york_court_of_appeals_citation
+    pattern: Matter\s+of\s+Brown,\s+456\s+N\.E\.3d\s+789\s+\(N\.Y\.\s+2022\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: New York Reports or North Eastern Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - People v. Johnson, 123 N.Y.3d 456 (N.Y. 2023)
+    - Matter of Brown, 456 N.E.3d 789 (N.Y. 2022)
+    - Doe v. ABC Corp., 234 N.Y.2d 567, 890 (N.Y. 2021)
+  new_york_appellate_division:
+    name: new_york_appellate_division_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>A\.D\.(?:\s*2d|3d)?|N\.Y\.S\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\((?P<department>\d+)(?:st|d|nd|rd|th)\s+Dep(?:'t|t)?\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Appellate Division Reports or New York Supplement volume
+      reporter: New York appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      department: Appellate Division department number
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 A.D.3d 456 (1st Dep't 2023)
+    - People v. Brown, 456 N.Y.S.3d 789 (2d Dep't 2022)
+    - Doe v. ABC Corp., 234 A.D.2d 567 (4th Dep't 2021)
+  new_york_supreme_court:
+    name: new_york_supreme_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>N\.Y\.S\.(?:\s*2d|3d)?|Misc\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Sup\.\s+Ct\.(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.9
+    priority: 80
+    components:
+      case_name: Full case name with parties
+      volume: New York Supplement or Miscellaneous Reports volume
+      reporter: New York trial court reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      county: County where case was decided
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 N.Y.S.3d 456 (Sup. Ct. New York County 2023)
+    - ABC Corp. v. XYZ Inc., 456 Misc.3d 789 (Sup. Ct. Kings County 2022)
+  new_york_family_court:
+    name: new_york_family_court_citation
+    pattern: (?P<case_name>(?:Matter\s+of\s+|In\s+re\s+)?(?P<party_name>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>N\.Y\.S\.(?:\s*2d|3d)?|Misc\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Fam\.\s+Ct\.(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name or matter title
+      party_name: Primary party name
+      volume: Reporter volume number
+      reporter: New York Supplement or Miscellaneous Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      county: County where case was decided
+      year: Decision year
+    examples:
+    - Matter of Smith, 123 N.Y.S.3d 456 (Fam. Ct. Bronx County 2023)
+    - In re Brown, 456 Misc.3d 789 (Fam. Ct. Nassau County 2022)
+statute_citations:
+  new_york_consolidated_laws:
+    name: new_york_consolidated_laws_citation
+    pattern: N\.Y\.\s+Civil\s+Prac\.\s+L\.\s+\&\s+R\.\s+§§\s+3101\-3140
+    confidence: 0.95
+    priority: 90
+    components:
+      law: Specific New York consolidated law
+      section: Section number or range
+    examples:
+    - N.Y. Penal Law § 120.05
+    - N.Y. Civil Prac. L. & R. §§ 3101-3140
+    - N.Y. Bus. Corp. Law § 717
+    - N.Y. Gen. Bus. Law § 349
+    - N.Y. Real Prop. Law § 235-a
+  new_york_constitution:
+    name: new_york_constitution_citation
+    pattern: N\.Y\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+))?|(?P<amendment>amend\.\s*(?P<amend_num>[IVXLCDM]+|\d+)))
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section
+      amendment: Constitutional amendment reference
+      amend_num: Amendment number
+    examples:
+    - N.Y. Const. art. I, § 8
+    - N.Y. Const. art. VI, § 20
+    - N.Y. Const. art. III, § 24
+regulation_citations:
+  new_york_codes_rules_regulations:
+    name: new_york_codes_rules_regulations_citation
+    pattern: (?P<title>\d+)\s+N\.Y\.C\.R\.R\.\s+(?:§§?\s*)?(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      section: Regulation section number
+    examples:
+    - 8 N.Y.C.R.R. § 200.1
+    - 12 N.Y.C.R.R. §§ 141-1.1 - 141-1.8
+    - 18 N.Y.C.R.R. § 360-1.2
+  new_york_city_rules:
+    name: new_york_city_rules_citation
+    pattern: (?P<title>\d+)\s+(?:R\.C\.N\.Y\.|Rules\s+City\s+N\.Y\.)\s+(?:§§?\s*)?(?P<section>\d+(?:[-–]\d+)*(?:\.\d+)*)
+    confidence: 0.9
+    priority: 75
+    components:
+      title: Rules title number
+      section: Rule section number
+    examples:
+    - 24 R.C.N.Y. § 1-01
+    - 6 Rules City N.Y. §§ 2-01 - 2-08
+court_system:
+  court_names:
+    new_york_court_of_appeals:
+      pattern: (?i)(?:N(?:ew)?\s*Y(?:ork)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+New\s+York)?
+      confidence: 0.95
+      level: supreme
+    new_york_appellate_division:
+      pattern: (?i)(?:N(?:ew)?\s*Y(?:ork)?\.\s+)?(?:Appellate\s+Division|App\.\s+Div\.)(?:\s+(?P<department>\d+)(?:st|d|nd|rd|th)\s+Dep(?:'t|t)?)?
+      confidence: 0.93
+      level: appellate
+      departments:
+      - 1
+      - 2
+      - 3
+      - 4
+    new_york_supreme_court:
+      pattern: (?i)(?:N(?:ew)?\s*Y(?:ork)?\.\s+)?(?:Supreme\s+Court|Sup\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    new_york_family_court:
+      pattern: (?i)(?:N(?:ew)?\s*Y(?:ork)?\.\s+)?(?:Family\s+Court|Fam\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: specialized
+    new_york_surrogate_court:
+      pattern: (?i)(?:N(?:ew)?\s*Y(?:ork)?\.\s+)?(?:Surrogate(?:'s)?\s+Court|Surr\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.87
+      level: specialized
+entity_types:
+- name: NEW_YORK_COURT_OF_APPEALS_CASE
+  description: New York Court of Appeals case citation
+  confidence_threshold: 0.95
+- name: NEW_YORK_APPELLATE_DIVISION_CASE
+  description: New York Appellate Division case citation
+  confidence_threshold: 0.9
+- name: NEW_YORK_SUPREME_COURT_CASE
+  description: New York Supreme Court case citation
+  confidence_threshold: 0.85
+- name: NEW_YORK_FAMILY_COURT_CASE
+  description: New York Family Court case citation
+  confidence_threshold: 0.83
+- name: NEW_YORK_STATUTE
+  description: New York statutory provision
+  confidence_threshold: 0.9
+- name: NEW_YORK_REGULATION
+  description: New York administrative regulation
+  confidence_threshold: 0.88
+- name: NEW_YORK_CONSTITUTIONAL_PROVISION
+  description: New York constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1847
+    max_year: 2025
+  volume_ranges:
+    new_york_reports:
+      ny_2d:
+        min_volume: 1
+        max_volume: 105
+      ny_3d:
+        min_volume: 1
+        max_volume: 45
+    appellate_division:
+      ad_2d:
+        min_volume: 1
+        max_volume: 310
+      ad_3d:
+        min_volume: 1
+        max_volume: 220
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 750_citations_per_second
+dependencies:
+  requires:
+  - new_york_court_abbreviations
+  - new_york_consolidated_laws
+  - new_york_county_names
+  optional:
+  - new_york_historical_courts
+  - new_york_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.new_york_court_of_appeals
+    text: People v. Johnson, 123 N.Y.3d 456 (N.Y. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.new_york_consolidated_laws
+    text: N.Y. Penal Law § 120.05
+    expected_entities: 1
+  - pattern: case_citations.new_york_appellate_division
+    text: Smith v. Jones, 123 A.D.3d 456 (1st Dep't 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.5 seconds
+    memory_usage: < 130MB
+    accuracy_threshold: 0.94

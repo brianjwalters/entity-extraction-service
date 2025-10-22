@@ -1,0 +1,61 @@
+SUPREME COURT OF THE UNITED STATES
+
+STUDENTS FOR ACADEMIC FREEDOM,
+                                        Petitioner,
+            v.                                          No. 22-1234
+
+RIVERSIDE UNIFIED SCHOOL DISTRICT,
+                                        Respondent.
+
+Argued: March 21, 2024
+Decided: June 15, 2024
+
+CHIEF JUSTICE ROBERTS delivered the opinion of the Court.
+
+This case requires us to consider whether a public school district's policy restricting student speech on the basis of viewpoint violates the First Amendment to the United States Constitution. We hold that it does and reverse the judgment of the United States Court of Appeals for the Ninth Circuit.
+
+I
+
+Petitioner Students for Academic Freedom is a student organization at Riverside High School in Riverside, California. In September 2022, the organization sought to distribute flyers promoting a speaker event on the topic of "Free Speech and Academic Freedom on College Campuses." The flyers included information about constitutional protections for student speech and invited all students to attend.
+
+The school's principal, Dr. Elizabeth Thompson, denied the request to distribute the flyers, citing the school district's "Controversial Topics Policy." This policy, adopted in 2021, prohibits student distribution of materials that "promote viewpoints on politically divisive issues that may cause disruption to the educational environment." The policy grants administrators broad discretion to determine what constitutes a "politically divisive issue."
+
+Students for Academic Freedom filed suit in the United States District Court for the Central District of California, alleging that the policy violated the First Amendment, the Equal Protection Clause of the Fourteenth Amendment, and the Due Process Clause. The district court granted summary judgment in favor of the school district, holding that schools have broad authority to regulate student speech under Hazelwood School District v. Kuhlmeier, 484 U.S. 260 (1988).
+
+The Ninth Circuit affirmed in a divided opinion. Students for Academic Freedom petitioned for certiorari, which we granted to resolve a circuit split regarding the application of Hazelwood to student-initiated speech.
+
+II
+
+The First Amendment, applied to the states through the Fourteenth Amendment, provides that "Congress shall make no law... abridging the freedom of speech." U.S. Const. amend. I, XIV. This fundamental right extends to students in public schools, though not to the same degree as adults in other settings. Tinker v. Des Moines Independent Community School District, 393 U.S. 503, 506 (1969).
+
+In Tinker, we held that students do not "shed their constitutional rights to freedom of speech or expression at the schoolhouse gate." Id. Students may engage in expressive conduct so long as it does not "materially and substantially interfere with the requirements of appropriate discipline in the operation of the school." Id. at 509.
+
+We have recognized certain limitations on student speech rights. Schools may regulate speech that is vulgar or plainly offensive, Bethel School District No. 403 v. Fraser, 478 U.S. 675, 685 (1986), and may exercise control over school-sponsored expressive activities that students might reasonably perceive as bearing the school's imprimatur, Hazelwood, 484 U.S. at 271. Additionally, schools may prohibit speech that advocates illegal drug use. Morse v. Frederick, 551 U.S. 393, 409 (2007).
+
+However, viewpoint discrimination in the regulation of student speech is subject to strict scrutiny and is presumptively unconstitutional. Rosenberger v. Rector and Visitors of University of Virginia, 515 U.S. 819, 829 (1995). As we stated in Rosenberger, "viewpoint discrimination is an egregious form of content discrimination" that "raises the specter that the Government may effectively drive certain ideas or viewpoints from the marketplace." Id. at 829-30.
+
+III
+
+The school district's policy constitutes viewpoint discrimination in violation of the First Amendment. The policy's prohibition on materials that "promote viewpoints on politically divisive issues" is not viewpoint-neutral on its face. It grants administrators unbounded discretion to suppress student speech based on the content and viewpoint of the message.
+
+The record demonstrates that the policy has been applied in a discriminatory manner. Students were permitted to distribute flyers about climate change awareness but were prohibited from distributing materials questioning climate change policies. Students were allowed to promote social justice initiatives but were denied permission to distribute information about alternative perspectives on criminal justice reform. This selective enforcement reveals that the policy serves as a tool for viewpoint-based censorship rather than legitimate pedagogical concerns.
+
+Furthermore, the school district cannot satisfy strict scrutiny. While maintaining order and discipline in schools is a compelling interest, see Tinker, 393 U.S. at 509, the policy is not narrowly tailored to achieve that interest. The policy's vague prohibition on "politically divisive" topics and "disruptive" viewpoints sweeps far more broadly than necessary. The school district presented no evidence that distribution of the flyers about free speech would materially and substantially interfere with school operations.
+
+The flyers in question discuss fundamental constitutional principles and invite students to attend an educational event. This is precisely the type of student-initiated, non-school-sponsored speech that Tinker protects. The school's discomfort with the subject matter does not justify suppression of protected expression. As we explained in Texas v. Johnson, 491 U.S. 397, 414 (1989), "if there is a bedrock principle underlying the First Amendment, it is that the government may not prohibit the expression of an idea simply because society finds the idea itself offensive or disagreeable."
+
+The dissent argues that Hazelwood permits schools to regulate student speech that might be perceived as school-sponsored. However, the flyers at issue here are clearly student-initiated expression, not school-sponsored speech. Students distributed similar materials outside of school hours and off school grounds without restriction. The school's attempt to control this category of speech exceeds the authority recognized in Hazelwood and conflicts with the core principles of Tinker.
+
+We are mindful that school administrators face difficult decisions in maintaining safe and productive learning environments. However, the First Amendment does not permit schools to suppress student speech simply because the ideas expressed might be controversial or unpopular. "[T]he vigilant protection of constitutional freedoms is nowhere more vital than in the community of American schools." Shelton v. Tucker, 364 U.S. 479, 487 (1960).
+
+IV
+
+The judgment of the Court of Appeals is reversed, and the case is remanded for further proceedings consistent with this opinion.
+
+It is so ordered.
+
+CHIEF JUSTICE ROBERTS delivered the opinion of the Court, in which JUSTICES THOMAS, ALITO, GORSUCH, KAVANAUGH, and BARRETT joined.
+
+JUSTICE SOTOMAYOR filed a dissenting opinion, in which JUSTICES KAGAN and JACKSON joined.
+
+Decided: June 15, 2024.

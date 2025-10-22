@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Analysis - Entity Extraction Dashboard</title>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d2d44 0%, #3d3d5c 100%);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            color: #60a5fa;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 0.5rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #60a5fa;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 100%;
+            height: calc(100vh - 160px);
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background: #2d2d44;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            max-height: calc(100vh - 180px);
+        }
+
+        .sidebar h2 {
+            color: #60a5fa;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3d3d5c;
+        }
+
+        .filter-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-section label {
+            display: block;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-section select,
+        .filter-section input {
+            width: 100%;
+            padding: 0.5rem;
+            background: #1e1e2e;
+            border: 1px solid #3d3d5c;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .filter-section input[type="range"] {
+            padding: 0;
+        }
+
+        .range-value {
+            display: block;
+            text-align: center;
+            color: #60a5fa;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .document-list {
+            list-style: none;
+        }
+
+        .document-item {
+            background: #1e1e2e;
+            border: 1px solid #3d3d5c;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .document-item:hover {
+            background: #252536;
+            border-color: #60a5fa;
+            transform: translateX(5px);
+        }
+
+        .document-item.selected {
+            background: #2d3e5c;
+            border-color: #60a5fa;
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.2);
+        }
+
+        .document-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .document-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .document-meta span {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .document-meta .value {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            background: #2d2d44;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            overflow-y: auto;
+            max-height: calc(100vh - 180px);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            color: #60a5fa;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3d3d5c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: #1e1e2e;
+            border: 1px solid #3d3d5c;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
+        }
+
+        .stat-card-label {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+
+        .stat-card-subtitle {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+
+        /* Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-container {
+            background: #1e1e2e;
+            border: 1px solid #3d3d5c;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        /* DataTable Styles */
+        .datatable-container {
+            background: #1e1e2e;
+            border: 1px solid #3d3d5c;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dataTables_wrapper {
+            color: #e0e0e0;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+            background: #2d2d44;
+            border: 1px solid #3d3d5c;
+            color: #e0e0e0;
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .dataTables_wrapper .dataTables_length select {
+            background: #2d2d44;
+            border: 1px solid #3d3d5c;
+            color: #e0e0e0;
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+        }
+
+        table.dataTable {
+            width: 100%;
+            color: #e0e0e0;
+            border-collapse: collapse;
+        }
+
+        table.dataTable thead th {
+            background: #2d2d44;
+            color: #60a5fa;
+            padding: 0.75rem;
+            border-bottom: 2px solid #3d3d5c;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        table.dataTable tbody td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #3d3d5c;
+        }
+
+        table.dataTable tbody tr:hover {
+            background: #252536;
+        }
+
+        /* Entity Type Badges */
+        .entity-type-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-JUDGE { background: #1e40af; color: #dbeafe; }
+        .badge-CASE_CITATION { background: #7c3aed; color: #ede9fe; }
+        .badge-COURT { background: #059669; color: #d1fae5; }
+        .badge-ATTORNEY { background: #d97706; color: #fef3c7; }
+        .badge-STATUTE { background: #dc2626; color: #fee2e2; }
+        .badge-PARTY { background: #0891b2; color: #cffafe; }
+        .badge-DATE { background: #6366f1; color: #e0e7ff; }
+        .badge-UNKNOWN { background: #6b7280; color: #f3f4f6; }
+
+        /* Confidence Badges */
+        .confidence-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .conf-high { background: #065f46; color: #d1fae5; }
+        .conf-medium { background: #92400e; color: #fef3c7; }
+        .conf-low { background: #7f1d1d; color: #fee2e2; }
+
+        /* Action Buttons */
+        .btn {
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #60a5fa;
+            color: #1e1e2e;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #3d3d5c;
+            color: #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            background: #4d4d6c;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #9ca3af;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state-subtext {
+            font-size: 0.9rem;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            border: 4px solid #3d3d5c;
+            border-top: 4px solid #60a5fa;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e1e2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3d3d5c;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4d4d6c;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .comparison-table th {
+            background: #2d2d44;
+            color: #60a5fa;
+            padding: 0.75rem;
+            border-bottom: 2px solid #3d3d5c;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .comparison-table th:hover {
+            background: #3d3d5c;
+        }
+
+        .comparison-table th.sortable::after {
+            content: '⇅';
+            position: absolute;
+            right: 0.5rem;
+            opacity: 0.5;
+        }
+
+        .comparison-table th.sorted-asc::after {
+            content: '↑';
+            opacity: 1;
+        }
+
+        .comparison-table th.sorted-desc::after {
+            content: '↓';
+            opacity: 1;
+        }
+
+        .comparison-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #3d3d5c;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #252536;
+        }
+
+        .complexity-score {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .complexity-high { background: #7f1d1d; color: #fee2e2; }
+        .complexity-medium { background: #92400e; color: #fef3c7; }
+        .complexity-low { background: #065f46; color: #d1fae5; }
+
+        /* Test Links */
+        .test-links {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .test-links li {
+            padding: 0.5rem;
+            background: #1e1e2e;
+            border: 1px solid #3d3d5c;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .test-links a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .test-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Styles */
+        .navigation {
+            background: #1e1e2e;
+            border-bottom: 2px solid #3d3d5c;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .nav-links a.active {
+            color: #60a5fa;
+            border-bottom-color: #60a5fa;
+            background: rgba(96, 165, 250, 0.05);
+        }
+
+        .nav-icon {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-links a {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-text {
+                display: none;
+            }
+
+            .nav-icon {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="nav-icon">🏠</span><span class="nav-text">Home</span></a></li>
+                <li><a href="documents.html" class="active"><span class="nav-icon">📄</span><span class="nav-text">Documents</span></a></li>
+                <li><a href="entities.html"><span class="nav-icon">🏷️</span><span class="nav-text">Entities</span></a></li>
+                <li><a href="comparison.html"><span class="nav-icon">⚖️</span><span class="nav-text">Comparison</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="breadcrumb">
+            <a href="index.html">🏠 Home</a>
+            <span>›</span>
+            <span>📄 Documents</span>
+        </div>
+        <h1>📄 Document Analysis & Entity Overlay</h1>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-label">Total Documents</span>
+                <span class="stat-value" id="total-documents">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Tests</span>
+                <span class="stat-value" id="total-tests">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Entities</span>
+                <span class="stat-value" id="total-entities">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Avg Confidence</span>
+                <span class="stat-value" id="avg-confidence">-</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Sidebar: Document List -->
+        <div class="sidebar">
+            <h2>📚 Document Library</h2>
+
+            <div class="filter-section">
+                <label>Sort By</label>
+                <select id="sort-documents">
+                    <option value="entity_count">Entity Count</option>
+                    <option value="test_count">Test Count</option>
+                    <option value="confidence">Avg Confidence</option>
+                    <option value="length">Document Length</option>
+                    <option value="last_tested">Last Tested</option>
+                </select>
+            </div>
+
+            <div class="filter-section">
+                <label>Confidence Threshold: <span class="range-value" id="conf-threshold-value">0.0</span></label>
+                <input type="range" id="conf-threshold" min="0" max="1" step="0.05" value="0">
+            </div>
+
+            <div class="filter-section">
+                <label>Entity Type Filter</label>
+                <select id="entity-type-filter">
+                    <option value="">All Types</option>
+                </select>
+            </div>
+
+            <ul class="document-list" id="document-list">
+                <li class="loading">
+                    <div class="spinner"></div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content: Document Analysis -->
+        <div class="main-content">
+            <div id="no-selection" class="empty-state">
+                <div class="empty-state-icon">📄</div>
+                <div class="empty-state-text">No Document Selected</div>
+                <div class="empty-state-subtext">Select a document from the sidebar to view analysis</div>
+            </div>
+
+            <div id="document-details" style="display: none;">
+                <!-- Document Statistics -->
+                <div class="section">
+                    <h2><span class="section-icon">📊</span>Document Statistics</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-label">Document ID</div>
+                            <div class="stat-card-value" id="doc-id">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Total Characters</div>
+                            <div class="stat-card-value" id="doc-length">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Total Entities</div>
+                            <div class="stat-card-value" id="doc-entities">-</div>
+                            <div class="stat-card-subtitle">Across all tests</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Entity Density</div>
+                            <div class="stat-card-value" id="doc-density">-</div>
+                            <div class="stat-card-subtitle">Per 1000 chars</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Avg Confidence</div>
+                            <div class="stat-card-value" id="doc-conf">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-label">Tests Using Doc</div>
+                            <div class="stat-card-value" id="doc-tests">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visualizations -->
+                <div class="section">
+                    <h2><span class="section-icon">📈</span>Visual Analysis</h2>
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <div class="chart-title">Entity Type Distribution</div>
+                            <div class="chart-wrapper">
+                                <canvas id="entity-type-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title">Confidence Distribution</div>
+                            <div class="chart-wrapper">
+                                <canvas id="confidence-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entity List -->
+                <div class="section">
+                    <h2><span class="section-icon">🔍</span>Extracted Entities</h2>
+                    <div class="datatable-container">
+                        <table id="entities-table" class="display responsive nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Entity Text</th>
+                                    <th>Type</th>
+                                    <th>Confidence</th>
+                                    <th>Position</th>
+                                    <th>Wave</th>
+                                    <th>Test ID</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tests Using This Document -->
+                <div class="section">
+                    <h2><span class="section-icon">🧪</span>Tests Using This Document</h2>
+                    <ul class="test-links" id="test-links">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Document Comparison -->
+            <div class="section">
+                <h2><span class="section-icon">⚖️</span>Document Comparison</h2>
+                <div class="datatable-container">
+                    <table id="comparison-table" class="display responsive nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Document</th>
+                                <th>Tests</th>
+                                <th>Entities</th>
+                                <th>Avg Confidence</th>
+                                <th>Avg Duration (s)</th>
+                                <th>Complexity Score</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let testHistory = null;
+        let documentData = {};
+        let selectedDocumentId = null;
+        let entitiesTable = null;
+        let comparisonTable = null;
+        let charts = {};
+
+        // Load test history data
+        async function loadTestHistory() {
+            try {
+                const response = await fetch('test_history.json');
+                testHistory = await response.json();
+                processDocumentData();
+                renderDocumentList();
+                renderComparisonTable();
+                updateGlobalStats();
+            } catch (error) {
+                console.error('Error loading test history:', error);
+                document.getElementById('document-list').innerHTML = `
+                    <li class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <div class="empty-state-text">Error Loading Data</div>
+                        <div class="empty-state-subtext">${error.message}</div>
+                    </li>
+                `;
+            }
+        }
+
+        // Process document data from test history
+        function processDocumentData() {
+            documentData = {};
+            const entityTypes = new Set();
+
+            testHistory.tests.forEach(test => {
+                const docId = test.document_id;
+
+                if (!documentData[docId]) {
+                    documentData[docId] = {
+                        id: docId,
+                        tests: [],
+                        totalEntities: 0,
+                        totalConfidence: 0,
+                        entityCount: 0,
+                        entityTypes: {},
+                        lastTested: 0,
+                        totalDuration: 0,
+                        characterLength: 0,
+                        entities: []
+                    };
+                }
+
+                const doc = documentData[docId];
+                doc.tests.push(test);
+                doc.lastTested = Math.max(doc.lastTested, test.timestamp);
+                doc.totalDuration += test.performance.total_duration_seconds;
+
+                // Process entities
+                if (test.raw_response && test.raw_response.entities) {
+                    test.raw_response.entities.forEach(entity => {
+                        doc.entities.push({
+                            ...entity,
+                            test_id: test.test_id,
+                            timestamp: test.timestamp
+                        });
+
+                        doc.totalEntities++;
+                        doc.totalConfidence += entity.confidence;
+                        doc.entityCount++;
+
+                        const type = entity.entity_type || 'UNKNOWN';
+                        doc.entityTypes[type] = (doc.entityTypes[type] || 0) + 1;
+                        entityTypes.add(type);
+
+                        // Estimate character length from entity positions
+                        if (entity.end_pos > doc.characterLength) {
+                            doc.characterLength = entity.end_pos;
+                        }
+                    });
+                }
+            });
+
+            // Calculate averages and complexity scores
+            Object.values(documentData).forEach(doc => {
+                doc.avgConfidence = doc.entityCount > 0
+                    ? (doc.totalConfidence / doc.entityCount)
+                    : 0;
+                doc.avgDuration = doc.tests.length > 0
+                    ? (doc.totalDuration / doc.tests.length)
+                    : 0;
+                doc.entityDensity = doc.characterLength > 0
+                    ? ((doc.totalEntities / doc.characterLength) * 1000)
+                    : 0;
+
+                // Complexity score: based on entity count, types, and avg duration
+                const typeCount = Object.keys(doc.entityTypes).length;
+                doc.complexityScore = (doc.totalEntities * 0.4) + (typeCount * 10) + (doc.avgDuration * 0.1);
+            });
+
+            // Populate entity type filter
+            const filter = document.getElementById('entity-type-filter');
+            filter.innerHTML = '<option value="">All Types</option>';
+            Array.from(entityTypes).sort().forEach(type => {
+                filter.innerHTML += `<option value="${type}">${type}</option>`;
+            });
+        }
+
+        // Render document list in sidebar
+        function renderDocumentList() {
+            const sortBy = document.getElementById('sort-documents').value;
+            const confThreshold = parseFloat(document.getElementById('conf-threshold').value);
+            const typeFilter = document.getElementById('entity-type-filter').value;
+
+            let documents = Object.values(documentData);
+
+            // Apply filters
+            documents = documents.filter(doc => {
+                if (doc.avgConfidence < confThreshold) return false;
+                if (typeFilter && !doc.entityTypes[typeFilter]) return false;
+                return true;
+            });
+
+            // Sort documents
+            documents.sort((a, b) => {
+                switch (sortBy) {
+                    case 'entity_count': return b.totalEntities - a.totalEntities;
+                    case 'test_count': return b.tests.length - a.tests.length;
+                    case 'confidence': return b.avgConfidence - a.avgConfidence;
+                    case 'length': return b.characterLength - a.characterLength;
+                    case 'last_tested': return b.lastTested - a.lastTested;
+                    default: return 0;
+                }
+            });
+
+            const listElement = document.getElementById('document-list');
+
+            if (documents.length === 0) {
+                listElement.innerHTML = `
+                    <li class="empty-state">
+                        <div class="empty-state-icon">🔍</div>
+                        <div class="empty-state-text">No Documents Found</div>
+                        <div class="empty-state-subtext">Try adjusting the filters</div>
+                    </li>
+                `;
+                return;
+            }
+
+            listElement.innerHTML = documents.map(doc => `
+                <li class="document-item ${selectedDocumentId === doc.id ? 'selected' : ''}"
+                    data-doc-id="${doc.id}"
+                    onclick="selectDocument('${doc.id}')">
+                    <div class="document-name">${doc.id}</div>
+                    <div class="document-meta">
+                        <span>Tests: <span class="value">${doc.tests.length}</span></span>
+                        <span>Entities: <span class="value">${doc.totalEntities}</span></span>
+                        <span>Avg Conf: <span class="value">${doc.avgConfidence.toFixed(2)}</span></span>
+                        <span>Length: <span class="value">${doc.characterLength.toLocaleString()}</span></span>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        // Select and display document details
+        function selectDocument(docId) {
+            selectedDocumentId = docId;
+            const doc = documentData[docId];
+
+            // Update UI
+            document.getElementById('no-selection').style.display = 'none';
+            document.getElementById('document-details').style.display = 'block';
+
+            // Update selected state in sidebar
+            document.querySelectorAll('.document-item').forEach(item => {
+                item.classList.toggle('selected', item.dataset.docId === docId);
+            });
+
+            // Populate statistics
+            document.getElementById('doc-id').textContent = doc.id;
+            document.getElementById('doc-length').textContent = doc.characterLength.toLocaleString();
+            document.getElementById('doc-entities').textContent = doc.totalEntities.toLocaleString();
+            document.getElementById('doc-density').textContent = doc.entityDensity.toFixed(2);
+            document.getElementById('doc-conf').textContent = doc.avgConfidence.toFixed(3);
+            document.getElementById('doc-tests').textContent = doc.tests.length;
+
+            // Render charts
+            renderEntityTypeChart(doc);
+            renderConfidenceChart(doc);
+
+            // Render entity table
+            renderEntityTable(doc);
+
+            // Render test links
+            renderTestLinks(doc);
+        }
+
+        // Render entity type distribution chart
+        function renderEntityTypeChart(doc) {
+            const ctx = document.getElementById('entity-type-chart');
+
+            if (charts.entityType) {
+                charts.entityType.destroy();
+            }
+
+            const types = Object.keys(doc.entityTypes).sort();
+            const counts = types.map(type => doc.entityTypes[type]);
+
+            const colors = {
+                'JUDGE': '#1e40af',
+                'CASE_CITATION': '#7c3aed',
+                'COURT': '#059669',
+                'ATTORNEY': '#d97706',
+                'STATUTE': '#dc2626',
+                'PARTY': '#0891b2',
+                'DATE': '#6366f1',
+                'UNKNOWN': '#6b7280'
+            };
+
+            charts.entityType = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: types,
+                    datasets: [{
+                        data: counts,
+                        backgroundColor: types.map(type => colors[type] || '#6b7280'),
+                        borderColor: '#2d2d44',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#e0e0e0', font: { size: 11 } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                    return `${context.label}: ${context.parsed} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Render confidence distribution chart
+        function renderConfidenceChart(doc) {
+            const ctx = document.getElementById('confidence-chart');
+
+            if (charts.confidence) {
+                charts.confidence.destroy();
+            }
+
+            // Create bins for confidence scores
+            const bins = [0, 0.5, 0.7, 0.8, 0.9, 0.95, 1.0];
+            const binCounts = new Array(bins.length - 1).fill(0);
+            const binLabels = [];
+
+            for (let i = 0; i < bins.length - 1; i++) {
+                binLabels.push(`${bins[i].toFixed(2)}-${bins[i+1].toFixed(2)}`);
+            }
+
+            doc.entities.forEach(entity => {
+                const conf = entity.confidence;
+                for (let i = 0; i < bins.length - 1; i++) {
+                    if (conf >= bins[i] && conf < bins[i+1]) {
+                        binCounts[i]++;
+                        break;
+                    } else if (i === bins.length - 2 && conf === 1.0) {
+                        binCounts[i]++;
+                        break;
+                    }
+                }
+            });
+
+            charts.confidence = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: binLabels,
+                    datasets: [{
+                        label: 'Entity Count',
+                        data: binCounts,
+                        backgroundColor: '#60a5fa',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#9ca3af', precision: 0 },
+                            grid: { color: '#3d3d5c' }
+                        },
+                        x: {
+                            ticks: { color: '#9ca3af' },
+                            grid: { color: '#3d3d5c' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        // Render entity table
+        function renderEntityTable(doc) {
+            if (entitiesTable) {
+                entitiesTable.destroy();
+            }
+
+            const tableBody = document.querySelector('#entities-table tbody');
+            tableBody.innerHTML = doc.entities.map(entity => {
+                const confClass = entity.confidence >= 0.9 ? 'conf-high' :
+                                entity.confidence >= 0.7 ? 'conf-medium' : 'conf-low';
+                const typeClass = `badge-${entity.entity_type || 'UNKNOWN'}`;
+
+                return `
+                    <tr>
+                        <td>${entity.text}</td>
+                        <td><span class="entity-type-badge ${typeClass}">${entity.entity_type || 'UNKNOWN'}</span></td>
+                        <td><span class="confidence-badge ${confClass}">${entity.confidence.toFixed(3)}</span></td>
+                        <td>${entity.start_pos}-${entity.end_pos}</td>
+                        <td>${entity.wave_number !== null ? entity.wave_number : 'N/A'}</td>
+                        <td><a href="test_detail.html?test_id=${entity.test_id}">${entity.test_id.substring(5, 15)}...</a></td>
+                        <td><a href="entity_detail.html?entity_id=${entity.id}" class="btn btn-primary">View</a></td>
+                    </tr>
+                `;
+            }).join('');
+
+            entitiesTable = $('#entities-table').DataTable({
+                responsive: true,
+                pageLength: 10,
+                order: [[2, 'desc']],
+                language: {
+                    search: "Search entities:",
+                    lengthMenu: "Show _MENU_ entities"
+                }
+            });
+        }
+
+        // Render test links
+        function renderTestLinks(doc) {
+            const container = document.getElementById('test-links');
+            container.innerHTML = doc.tests.map(test => `
+                <li>
+                    <div>
+                        <a href="test_detail.html?test_id=${test.test_id}">${test.test_id}</a>
+                        <div style="font-size: 0.75rem; color: #9ca3af;">
+                            ${new Date(test.timestamp * 1000).toLocaleString()} •
+                            ${test.entity_distribution.total_entities} entities •
+                            ${test.performance.total_duration_seconds.toFixed(2)}s
+                        </div>
+                    </div>
+                    <div>
+                        <span class="confidence-badge ${test.quality.avg_confidence_score >= 0.9 ? 'conf-high' :
+                            test.quality.avg_confidence_score >= 0.7 ? 'conf-medium' : 'conf-low'}">
+                            ${test.quality.avg_confidence_score.toFixed(3)}
+                        </span>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        // Render comparison table
+        function renderComparisonTable() {
+            if (comparisonTable) {
+                comparisonTable.destroy();
+            }
+
+            const tableBody = document.querySelector('#comparison-table tbody');
+            tableBody.innerHTML = Object.values(documentData).map(doc => {
+                const complexityClass = doc.complexityScore > 100 ? 'complexity-high' :
+                                       doc.complexityScore > 50 ? 'complexity-medium' : 'complexity-low';
+
+                return `
+                    <tr>
+                        <td><strong>${doc.id}</strong></td>
+                        <td>${doc.tests.length}</td>
+                        <td>${doc.totalEntities}</td>
+                        <td>${doc.avgConfidence.toFixed(3)}</td>
+                        <td>${doc.avgDuration.toFixed(2)}</td>
+                        <td><span class="complexity-score ${complexityClass}">${doc.complexityScore.toFixed(1)}</span></td>
+                        <td><button class="btn btn-primary" onclick="selectDocument('${doc.id}')">Analyze</button></td>
+                    </tr>
+                `;
+            }).join('');
+
+            comparisonTable = $('#comparison-table').DataTable({
+                responsive: true,
+                pageLength: 10,
+                order: [[5, 'desc']],
+                language: {
+                    search: "Search documents:",
+                    lengthMenu: "Show _MENU_ documents"
+                }
+            });
+        }
+
+        // Update global statistics
+        function updateGlobalStats() {
+            const totalDocs = Object.keys(documentData).length;
+            const totalTests = testHistory.tests.length;
+            const totalEntities = Object.values(documentData).reduce((sum, doc) => sum + doc.totalEntities, 0);
+            const avgConf = totalEntities > 0
+                ? Object.values(documentData).reduce((sum, doc) => sum + doc.totalConfidence, 0) / totalEntities
+                : 0;
+
+            document.getElementById('total-documents').textContent = totalDocs;
+            document.getElementById('total-tests').textContent = totalTests;
+            document.getElementById('total-entities').textContent = totalEntities.toLocaleString();
+            document.getElementById('avg-confidence').textContent = avgConf.toFixed(3);
+        }
+
+        // Event listeners
+        document.getElementById('sort-documents').addEventListener('change', renderDocumentList);
+        document.getElementById('entity-type-filter').addEventListener('change', renderDocumentList);
+
+        document.getElementById('conf-threshold').addEventListener('input', function(e) {
+            document.getElementById('conf-threshold-value').textContent = parseFloat(e.target.value).toFixed(2);
+            renderDocumentList();
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', loadTestHistory);
+    </script>
+</body>
+</html>

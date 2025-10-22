@@ -1,0 +1,272 @@
+metadata:
+  pattern_type: address_entities
+  jurisdiction: general
+  source_type: general
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-08-28'
+  last_updated: '2025-08-28'
+  description: Patterns for identifying addresses, locations, and geographic entities
+  optimization_notes: '- Patterns for street addresses, buildings, and locations
+
+    - Prevents misclassification as parties or law firms
+
+    - Includes various address formats
+
+    - Target: <10ms per pattern execution
+
+    '
+address_entities:
+  street_address_full:
+    name: street_address_full
+    pattern: \b\d{1,5}\s+(?:[NSEW]\.?\s+)?[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2}\s+(?:Street|St\.?|Avenue|Ave\.?|Road|Rd\.?|Boulevard|Blvd\.?|Drive|Dr\.?|Lane|Ln\.?|Court|Ct\.?|Place|Pl\.?|Circle|Cir\.?|Parkway|Pkwy\.?|Highway|Hwy\.?)\b
+    confidence: 0.95
+    priority: 1
+    entity_types:
+    - address
+    - location
+    components:
+      street_number: Building number
+      street_name: Street name
+      street_type: Type of street
+    optimization: Full street address pattern
+    validation_rules:
+    - must_contain_number: true
+    - entity_type_override: address
+    examples:
+    - 1523 New Hampshire Avenue
+    - 319 Swede Street
+    - 950 Pennsylvania Avenue
+    - 1001 Liberty Avenue
+    - 450 Lexington Avenue
+    - 5550 Painted Mirage Road
+  po_box_address:
+    name: po_box_address
+    pattern: \b(?:P\.?O\.?\s+Box|Post\s+Office\s+Box)\s+\d{1,6}\b
+    confidence: 0.96
+    priority: 1
+    entity_types:
+    - address
+    - mailing_address
+    components:
+      address_type: P.O. Box
+      box_number: Box number
+    optimization: P.O. Box pattern
+    examples:
+    - P.O. Box 4148
+    - PO Box 12345
+    - Post Office Box 999
+    - P.O. Box 1
+  suite_floor_number:
+    name: suite_floor_number
+    pattern: \b(?:Suite|Ste\.?|Room|Rm\.?|Floor|Fl\.?|Unit|Apt\.?|Apartment)\s+(?:\#?\s*)?\w{1,10}\b
+    confidence: 0.92
+    priority: 2
+    entity_types:
+    - address
+    - unit_number
+    components:
+      unit_type: Type of unit
+      unit_number: Unit identifier
+    optimization: Suite and unit number pattern
+    examples:
+    - Suite 320
+    - Room 1500
+    - Floor 15
+    - Apt 2B
+    - 'Unit #5'
+  building_name:
+    name: building_name
+    pattern: \b(?:[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+(?:Building|Tower|Center|Centre|Plaza|Complex|Hall)\b
+    confidence: 0.91
+    priority: 3
+    entity_types:
+    - address
+    - building
+    components:
+      building_name: Name of building
+      building_type: Type of building
+    optimization: Building name pattern
+    examples:
+    - Liberty Center
+    - Cooper Building
+    - Kirk Tower
+    - Federal Plaza
+    - Justice Hall
+  city_state_zip:
+    name: city_state_zip
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2}),\s+([A-Z]{2})\s+(\d{5}(?:-\d{4})?)\b
+    confidence: 0.94
+    priority: 2
+    entity_types:
+    - address
+    - location
+    components:
+      city: City name
+      state: State abbreviation
+      zip_code: ZIP code
+    optimization: City, State ZIP pattern
+    examples:
+    - Washington, DC 20036
+    - Norristown, PA 19401
+    - Las Vegas, NV 89149
+    - New York, NY 10017
+    - Pittsburgh, PA 15222
+  city_state:
+    name: city_state
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2}),\s+([A-Z]{2})\b
+    confidence: 0.9
+    priority: 3
+    entity_types:
+    - address
+    - location
+    components:
+      city: City name
+      state: State abbreviation
+    optimization: City and state pattern
+    examples:
+    - Washington, DC
+    - Norristown, PA
+    - Las Vegas, NV
+    - New York, NY
+  state_full_name:
+    name: state_full_name
+    pattern: \b(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New\s+Hampshire|New\s+Jersey|New\s+Mexico|New\s+York|North\s+Carolina|North\s+Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode\s+Island|South\s+Carolina|South\s+Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West\s+Virginia|Wisconsin|Wyoming|District\s+of\s+Columbia)\b
+    confidence: 0.93
+    priority: 4
+    entity_types:
+    - location
+    - state
+    components:
+      state_name: Full state name
+    optimization: Full state name pattern
+    examples:
+    - Pennsylvania
+    - New York
+    - District of Columbia
+    - California
+    - Texas
+  compass_direction:
+    name: compass_direction
+    pattern: \b(?:North|South|East|West|N\.W\.|N\.E\.|S\.W\.|S\.E\.|NW|NE|SW|SE)\b
+    confidence: 0.85
+    priority: 5
+    entity_types:
+    - address
+    - direction
+    components:
+      direction: Compass direction
+    optimization: Compass direction pattern
+    examples:
+    - N.W.
+    - North
+    - SE
+    - Southwest
+  zip_code_standalone:
+    name: zip_code_standalone
+    pattern: \b\d{5}(?:-\d{4})?\b
+    confidence: 0.8
+    priority: 10
+    entity_types:
+    - address
+    - zip_code
+    components:
+      zip_code: ZIP code
+    optimization: Standalone ZIP code
+    examples:
+    - '20036'
+    - '19401'
+    - 89149-1234
+    - '10017'
+  international_address:
+    name: international_address
+    pattern: Paris,\s+France
+    confidence: 0.88
+    priority: 6
+    entity_types:
+    - address
+    - international_location
+    components:
+      location_parts: Location components
+    optimization: International address pattern
+    examples:
+    - London, England, UK
+    - Paris, France
+    - Toronto, Ontario, Canada
+  courthouse_address:
+    name: courthouse_address
+    pattern: \b(?:United\s+States\s+)?(?:District\s+)?(?:Court(?:house)?|Federal\s+Building)\b
+    confidence: 0.91
+    priority: 3
+    entity_types:
+    - address
+    - courthouse
+    components:
+      building_type: Courthouse or federal building
+    optimization: Courthouse address pattern
+    examples:
+    - United States District Court
+    - Federal Building
+    - Courthouse
+    - District Courthouse
+  law_office_address:
+    name: law_office_address
+    pattern: \b\d{1,5}\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2}\s+(?:Street|Avenue|Road|Boulevard|Drive|Lane|Court|Place),?\s+(?:Suite|Ste\.?|Room|Floor)\s+\w{1,10}\b
+    confidence: 0.93
+    priority: 2
+    entity_types:
+    - address
+    - office_address
+    components:
+      street_address: Street address
+      suite_number: Suite or office number
+    optimization: Law office address pattern
+    examples:
+    - 1523 New Hampshire Avenue, Suite 100
+    - 319 Swede Street, Room 200
+    - 1001 Liberty Avenue, Floor 15
+entity_types:
+- name: address
+  description: Physical or mailing address
+  priority: 1
+  performance_target: <5ms
+- name: location
+  description: Geographic location
+  priority: 1
+  performance_target: <5ms
+- name: mailing_address
+  description: Mailing address including P.O. Box
+  priority: 2
+  performance_target: <5ms
+- name: unit_number
+  description: Suite, apartment, or unit number
+  priority: 2
+  performance_target: <5ms
+- name: building
+  description: Building or complex name
+  priority: 2
+  performance_target: <5ms
+- name: state
+  description: U.S. state
+  priority: 2
+  performance_target: <5ms
+- name: zip_code
+  description: ZIP or postal code
+  priority: 3
+  performance_target: <5ms
+- name: direction
+  description: Compass direction
+  priority: 3
+  performance_target: <5ms
+- name: international_location
+  description: International address
+  priority: 3
+  performance_target: <5ms
+- name: courthouse
+  description: Courthouse or federal building
+  priority: 2
+  performance_target: <5ms
+- name: office_address
+  description: Office or business address
+  priority: 2
+  performance_target: <5ms

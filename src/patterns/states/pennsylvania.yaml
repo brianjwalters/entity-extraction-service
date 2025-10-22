@@ -1,0 +1,269 @@
+metadata:
+  jurisdiction: pennsylvania
+  state_code: PA
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: pennsylvania
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: Pennsylvania legal entity extraction patterns
+patterns:
+- name: pa_supreme_court
+  pattern: (?P<volume>\d+)\s+(?:Pa\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)|A\.(?P<series>\d+)?d\s+(?P<page_alt>\d+)(?:\s*,\s*(?P<pincite_alt>\d+(?:-\d+)?))?\s*\(Pa\.\s+(?P<year_alt>\d{4})\))
+  confidence_base: 0.95
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_supreme
+  components:
+    volume: 1
+    reporter: Pa.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Commonwealth v. Johnson, 692 Pa. 123 (2024)
+  - Doe v. City of Philadelphia, 691 Pa. 456, 460 (2023)
+  - Commonwealth v. Cosby, 252 A.3d 1092 (Pa. 2021)
+  - Hammons v. UPMC, 211 A.3d 806 (Pa. 2019)
+- name: pa_supreme_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Pa\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.93
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - Commonwealth v. Brown, 789 A.3d 234 (Pa. 2023)
+  - Smith v. Town of Allentown, 678 A.2d 567 (Pa. 2022)
+- name: pa_superior_court
+  pattern: (?P<volume>\d+)\s+Pa\.\s+Super\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.91
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_superior
+  components:
+    volume: 1
+    reporter: Pa. Super.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Commonwealth v. Williams, 2785 Pa. Super. 345 (2024)
+  - Johnson v. State, 2784 Pa. Super. 678, 681 (2023)
+  - Commonwealth v. Smith, 2750 Pa. Super. 123 (2022)
+  - Doe v. ABC Corp., 2700 Pa. Super. 456 (2021)
+- name: pa_superior_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Pa\.\s+Super\.\s+Ct\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.89
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_superior_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - Commonwealth v. Davis, 890 A.3d 123 (Pa. Super. Ct. 2023)
+- name: pa_commonwealth_court
+  pattern: (?P<volume>\d+)\s+Pa\.\s+Commw\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.89
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_commonwealth
+  components:
+    volume: 1
+    reporter: Pa. Commw.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Department of Revenue v. ABC Corp., 698 Pa. Commw. 234 (2024)
+  - Smith v. Pennsylvania Dept. of Transportation, 697 Pa. Commw. 567 (2023)
+- name: pa_commonwealth_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Pa\.\s+Commw\.\s+Ct\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.87
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_commonwealth_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - City of Pittsburgh v. State, 456 A.3d 789 (Pa. Commw. Ct. 2023)
+- name: pa_common_pleas
+  pattern: (?P<volume>\d+)\s+Pa\.\s+D\.\s*&\s*C\.(?P<series>\d+(?:st|nd|rd|th))?\s+(?P<page>\d+)\s*\((?P<county>[A-Z][a-z]+\s+County)\s+(?:C\.P\.|Common\s+Pleas)\s+(?P<year>\d{4})\)
+  confidence_base: 0.85
+  entity_type: CASE_CITATION
+  entity_subtype: pennsylvania_common_pleas
+  components:
+    volume: 1
+    reporter: Pa. D. & C.
+    series: 2
+    page: 3
+    pincite: 4
+    county: 5
+    year: 6
+  examples:
+  - Commonwealth v. Smith, 67 Pa. D. & C.5th 123 (Philadelphia County C.P. 2023)
+  - Brown v. Jones, 45 Pa. D. & C.4th 456 (Allegheny County Common Pleas 2022)
+- name: pa_consolidated_statutes
+  pattern: "(?P<title>\\d+)\\s+Pa\\.\\s+(?:C\\.S\\.A\\.|Cons\\.\\s+Stat\\.(?:\\s+Ann\\.)?)\\s*\xA7\\s*(?P<section>\\d+(?:\\.\\d+)?(?:\\([a-z]\\))?(?:\\(\\d+\\))?)"
+  confidence_base: 0.94
+  entity_type: STATUTE_CITATION
+  entity_subtype: pennsylvania_consolidated_statutes
+  components:
+    title: 1
+    jurisdiction: Pa. C.S.A.
+    section: 2
+  examples:
+  - "18 Pa. C.S.A. \xA7 2502"
+  - "75 Pa. Cons. Stat. \xA7 3731"
+  - "42 Pa. C.S.A. \xA7 5533(a)"
+- name: pa_statutes_annotated
+  pattern: "(?P<title>\\d+)\\s+Pa\\.\\s+Stat\\.(?:\\s+Ann\\.)?\\s*\xA7\\s*(?P<section>\\d+(?:\\.\\d+)?(?:\\([a-z]\\))?(?:\\(\\d+\\))?)"
+  confidence_base: 0.92
+  entity_type: STATUTE_CITATION
+  entity_subtype: pennsylvania_statutes_annotated
+  components:
+    title: 1
+    jurisdiction: Pa. Stat.
+    section: 2
+  examples:
+  - "71 Pa. Stat. \xA7 1690.104"  # Civil Service Act
+  - "42 Pa. Stat. \xA7 5524"  # Statute of limitations
+  - "18 Pa. Stat. \xA7 2501"  # Criminal homicide
+  - "75 Pa. Stat. \xA7 3802"  # DUI statute
+  - "23 Pa. Stat. \xA7 3501"  # Divorce grounds
+  - "35 Pa. Stat. Ann. \xA7 10231.301"
+- name: pa_constitution
+  pattern: "Pa\\.\\s+Const\\.\\s+art\\.\\s+(?P<article>[IVX]+|\\d+)(?:,\\s*\xA7\\s*(?P<section>\\d+))?"
+  confidence_base: 0.96
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: pennsylvania_constitution
+  components:
+    jurisdiction: Pa.
+    article: 1
+    section: 2
+  examples:
+  - "Pa. Const. art. I, \xA7 8"
+  - "Pa. Const. art. IV, \xA7 15"
+  - "Pa. Const. art. IX, \xA7 4"
+- name: pa_administrative_code
+  pattern: "(?P<title>\\d+)\\s+Pa\\.\\s+Code\\s+\xA7\\s*(?P<section>\\d+(?:\\.\\d+)*(?:\\([a-z]\\))?)"
+  confidence_base: 0.9
+  entity_type: REGULATION_CITATION
+  entity_subtype: pennsylvania_administrative_code
+  components:
+    title: 1
+    jurisdiction: Pa. Code
+    section: 2
+  examples:
+  - "25 Pa. Code \xA7 93.8"
+  - "67 Pa. Code \xA7 177.2"
+  - "49 Pa. Code \xA7 16.12(a)"
+entity_patterns:
+- name: pa_supreme_court_entity
+  pattern: (?:Pennsylvania\s+Supreme\s+Court|Pa\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+Pennsylvania)
+  entity_type: COURT
+  entity_subtype: pennsylvania_supreme
+  confidence_base: 0.97
+  attributes:
+    jurisdiction: Pennsylvania
+    court_level: supreme
+    authority_level: 1
+- name: pa_superior_court_entity
+  pattern: (?:Pennsylvania\s+Superior\s+Court|Pa\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+Pennsylvania)
+  entity_type: COURT
+  entity_subtype: pennsylvania_superior
+  confidence_base: 0.94
+  attributes:
+    jurisdiction: Pennsylvania
+    court_level: appellate
+    authority_level: 2
+- name: pa_commonwealth_court_entity
+  pattern: (?:Pennsylvania\s+Commonwealth\s+Court|Pa\.\s+Commw\.\s+Ct\.|Commonwealth\s+Court\s+of\s+Pennsylvania)
+  entity_type: COURT
+  entity_subtype: pennsylvania_commonwealth
+  confidence_base: 0.92
+  attributes:
+    jurisdiction: Pennsylvania
+    court_level: appellate
+    authority_level: 2
+- name: pa_common_pleas_entity
+  pattern: (?:Pennsylvania\s+Court\s+of\s+Common\s+Pleas|Pa\.\s+C\.P\.|Court\s+of\s+Common\s+Pleas\s+of\s+Pennsylvania)(?:\s+of\s+(?P<county>[A-Z][a-z]+\s+County))?
+  entity_type: COURT
+  entity_subtype: pennsylvania_common_pleas
+  confidence_base: 0.9
+  attributes:
+    jurisdiction: Pennsylvania
+    court_level: trial
+    authority_level: 3
+- name: pa_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+Pennsylvania\s+Supreme\s+Court|\s+\(Pa\.\s+Sup\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: pennsylvania_justice
+  confidence_base: 0.93
+  attributes:
+    jurisdiction: Pennsylvania
+    court_type: supreme
+validation:
+  year_range:
+  - 1789
+  - 2030
+  volume_limits:
+    pa_reports:
+    - 1
+    - 695
+    pa_super:
+    - 1
+    - 2790
+    pa_commw:
+    - 1
+    - 700
+    pa_d_and_c:
+    - 1
+    - 70
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  processing_speed: 900
+  memory_usage_mb: 140
+  accuracy_threshold: 0.9
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: Commonwealth v. Johnson, 692 Pa. 123 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.95
+  - text: Pennsylvania Supreme Court held
+    expected_type: COURT
+    expected_confidence: 0.97
+  - text: "18 Pa. C.S.A. \xA7 2502"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.94
+  performance_benchmarks:
+    citation_extraction_rate: 900
+    entity_recognition_rate: 1280
+    memory_efficiency: 0.88
+entity_types:
+- name: PENNSYLVANIA_LEGAL_ENTITY
+  description: Pennsylvania legal entity or citation
+  confidence_threshold: 0.8

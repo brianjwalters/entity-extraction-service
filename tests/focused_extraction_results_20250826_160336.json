@@ -1,0 +1,1655 @@
+{
+  "raw_results": [
+    {
+      "mode": "regex",
+      "segment": "1kb",
+      "entities": [],
+      "processing_time_ms": 89.56177579239011,
+      "error_message": null,
+      "confidence_scores": []
+    },
+    {
+      "mode": "spacy",
+      "segment": "1kb",
+      "entities": [
+        {
+          "text": "UNITED STATES COURT OF APPEALS",
+          "start": 18,
+          "end": 48,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "21-2835",
+          "start": 98,
+          "end": 105,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "BRYAN DAVID RANGE",
+          "start": 127,
+          "end": 144,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Appellant",
+          "start": 151,
+          "end": 160,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "UNITED STATES OF AMERICA",
+          "start": 189,
+          "end": 213,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Bureau of Alcohol",
+          "start": 252,
+          "end": 269,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "the United States",
+          "start": 346,
+          "end": 363,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "the Eastern District",
+          "start": 385,
+          "end": 405,
+          "type": "LOC",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pennsylvania",
+          "start": 409,
+          "end": 421,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "5:20",
+          "start": 435,
+          "end": 439,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Honorable Gene E.K. Pratter",
+          "start": 469,
+          "end": 496,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Merits Panel",
+          "start": 533,
+          "end": 545,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "September 19",
+          "start": 549,
+          "end": 561,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "2022",
+          "start": 563,
+          "end": 567,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Argued En Banc",
+          "start": 571,
+          "end": 585,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "February 15, 2023  \n",
+          "start": 589,
+          "end": 609,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "October 9",
+          "start": 629,
+          "end": 638,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "202 4",
+          "start": 640,
+          "end": 645,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Remand",
+          "start": 649,
+          "end": 655,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "Supreme Court",
+          "start": 666,
+          "end": 679,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "the United States",
+          "start": 683,
+          "end": 700,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "2",
+          "start": 725,
+          "end": 726,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "JORDAN",
+          "start": 764,
+          "end": 770,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "KRAUSE",
+          "start": 794,
+          "end": 800,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "BIBAS",
+          "start": 812,
+          "end": 817,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "MATEY",
+          "start": 829,
+          "end": 834,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "PHIPPS",
+          "start": 837,
+          "end": 843,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "FREEMAN",
+          "start": 846,
+          "end": 853,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "ROTH",
+          "start": 885,
+          "end": 889,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "December 23 , 2024",
+          "start": 935,
+          "end": 953,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "William V. Bergstrom",
+          "start": 958,
+          "end": 978,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Peter A. Patterson",
+          "start": 981,
+          "end": 999,
+          "type": "PERSON",
+          "confidence": 0.85
+        }
+      ],
+      "processing_time_ms": 1091.9085019268095,
+      "error_message": null,
+      "confidence_scores": [
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "mode": "ai_enhanced",
+      "segment": "1kb",
+      "entities": [],
+      "processing_time_ms": 15103.54469018057,
+      "error_message": "",
+      "confidence_scores": null
+    },
+    {
+      "mode": "regex",
+      "segment": "5kb",
+      "entities": [
+        {
+          "text": "3 \n Suite 320",
+          "start": 1587,
+          "end": 1600,
+          "type": "CASE_CITATION",
+          "pattern": "state_reporter",
+          "confidence": 0.95
+        }
+      ],
+      "processing_time_ms": 77.5421760044992,
+      "error_message": null,
+      "confidence_scores": [
+        0.95
+      ]
+    },
+    {
+      "mode": "spacy",
+      "segment": "5kb",
+      "entities": [
+        {
+          "text": "UNITED STATES COURT OF APPEALS",
+          "start": 18,
+          "end": 48,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "21-2835",
+          "start": 98,
+          "end": 105,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "BRYAN DAVID RANGE",
+          "start": 127,
+          "end": 144,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Appellant",
+          "start": 151,
+          "end": 160,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "UNITED STATES OF AMERICA",
+          "start": 189,
+          "end": 213,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Bureau of Alcohol",
+          "start": 252,
+          "end": 269,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "the United States",
+          "start": 346,
+          "end": 363,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "the Eastern District",
+          "start": 385,
+          "end": 405,
+          "type": "LOC",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pennsylvania",
+          "start": 409,
+          "end": 421,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "5:20",
+          "start": 435,
+          "end": 439,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Honorable Gene E.K. Pratter",
+          "start": 469,
+          "end": 496,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Merits Panel",
+          "start": 533,
+          "end": 545,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "September 19",
+          "start": 549,
+          "end": 561,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "2022",
+          "start": 563,
+          "end": 567,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Argued En Banc",
+          "start": 571,
+          "end": 585,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "February 15, 2023  \n",
+          "start": 589,
+          "end": 609,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "October 9",
+          "start": 629,
+          "end": 638,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "202 4",
+          "start": 640,
+          "end": 645,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Remand",
+          "start": 649,
+          "end": 655,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "Supreme Court",
+          "start": 666,
+          "end": 679,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "the United States",
+          "start": 683,
+          "end": 700,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "2",
+          "start": 725,
+          "end": 726,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "JORDAN",
+          "start": 764,
+          "end": 770,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "KRAUSE",
+          "start": 794,
+          "end": 800,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "BIBAS",
+          "start": 812,
+          "end": 817,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "MATEY",
+          "start": 829,
+          "end": 834,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "PHIPPS",
+          "start": 837,
+          "end": 843,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "FREEMAN",
+          "start": 846,
+          "end": 853,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "ROTH",
+          "start": 885,
+          "end": 889,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "December 23 , 2024",
+          "start": 935,
+          "end": 953,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "William V. Bergstrom",
+          "start": 958,
+          "end": 978,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Peter A. Patterson",
+          "start": 981,
+          "end": 999,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "David H. Thompson",
+          "start": 1012,
+          "end": 1029,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "1523",
+          "start": 1048,
+          "end": 1052,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "New Hampshire Avenue",
+          "start": 1053,
+          "end": 1073,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "N.W.",
+          "start": 1075,
+          "end": 1079,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Washington",
+          "start": 1082,
+          "end": 1092,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Michael P. Gottlieb",
+          "start": 1107,
+          "end": 1126,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Norristown",
+          "start": 1172,
+          "end": 1182,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "19401",
+          "start": 1187,
+          "end": 1192,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Joseph G. S. Greenlee  \n",
+          "start": 1228,
+          "end": 1252,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Roth",
+          "start": 1324,
+          "end": 1328,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "the en banc court",
+          "start": 1361,
+          "end": 1378,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "3d",
+          "start": 1392,
+          "end": 1394,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Ambro",
+          "start": 1428,
+          "end": 1433,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "February 6, 2023",
+          "start": 1459,
+          "end": 1475,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "3d",
+          "start": 1561,
+          "end": 1563,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Las Vegas",
+          "start": 1603,
+          "end": 1612,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "NV",
+          "start": 1614,
+          "end": 1616,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Amici Curiae FPC Action Foundation",
+          "start": 1639,
+          "end": 1673,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Firearms Policy Coalition , Inc.",
+          "start": 1679,
+          "end": 1711,
+          "type": "WORK_OF_ART",
+          "confidence": 0.85
+        },
+        {
+          "text": "Elisa A.",
+          "start": 1741,
+          "end": 1749,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Lisa B. Freeland",
+          "start": 1757,
+          "end": 1773,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Renee Pietropaolo  \nEleni Kousoulis  \nK. Anthony Thomas  \nHelen A. Marino  \n",
+          "start": 1776,
+          "end": 1852,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Heidi R. Freese",
+          "start": 1852,
+          "end": 1867,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Matthew Campbell  \nOffice of Federal Public Defender",
+          "start": 1870,
+          "end": 1922,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "1001",
+          "start": 1925,
+          "end": 1929,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Liberty Avenue  \n",
+          "start": 1930,
+          "end": 1947,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "1500",
+          "start": 1947,
+          "end": 1951,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Liberty Center  \nPittsburgh",
+          "start": 1952,
+          "end": 1979,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "15222",
+          "start": 1984,
+          "end": 1989,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Amicus Curiae Federal Public & \n",
+          "start": 2007,
+          "end": 2039,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Community Defender Organization of",
+          "start": 2039,
+          "end": 2073,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Brian M. Boynton",
+          "start": 2122,
+          "end": 2138,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Jacqueline C. Romero  \n",
+          "start": 2141,
+          "end": 2164,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Mark B. Stern",
+          "start": 2164,
+          "end": 2177,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Michael S. Raab  \n",
+          "start": 2180,
+          "end": 2198,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Abby C. Wright",
+          "start": 2198,
+          "end": 2212,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Kevin B. Soter",
+          "start": 2215,
+          "end": 2229,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "950",
+          "start": 2296,
+          "end": 2299,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pennsylvania Avenue",
+          "start": 2300,
+          "end": 2319,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "N.W.",
+          "start": 2321,
+          "end": 2325,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Washington",
+          "start": 2333,
+          "end": 2343,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Janet Carter  \n",
+          "start": 2389,
+          "end": 2404,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Everytown Law  \n",
+          "start": 2404,
+          "end": 2420,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Lexington Avenue  \n",
+          "start": 2424,
+          "end": 2443,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "New York",
+          "start": 2459,
+          "end": 2467,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "NY",
+          "start": 2469,
+          "end": 2471,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "10017",
+          "start": 2472,
+          "end": 2477,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Counsel for Amicus Curiae Everytown",
+          "start": 2482,
+          "end": 2517,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "HARDIMAN, Circuit",
+          "start": 2626,
+          "end": 2643,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Court",
+          "start": 2677,
+          "end": 2682,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "JORDAN",
+          "start": 2722,
+          "end": 2728,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "BIBAS",
+          "start": 2730,
+          "end": 2735,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "MATEY",
+          "start": 2746,
+          "end": 2751,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "PHIPPS",
+          "start": 2753,
+          "end": 2759,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "FREEMAN",
+          "start": 2761,
+          "end": 2768,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "CHUNG",
+          "start": 2796,
+          "end": 2801,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Circuit Judges",
+          "start": 2803,
+          "end": 2817,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "MATEY",
+          "start": 2826,
+          "end": 2831,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "PHIPPS",
+          "start": 2878,
+          "end": 2884,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "KRAUSE, Circuit",
+          "start": 2931,
+          "end": 2946,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "ROTH",
+          "start": 3012,
+          "end": 3016,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "ROTH",
+          "start": 3051,
+          "end": 3055,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "CHUNG",
+          "start": 3141,
+          "end": 3146,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Circuit Judges",
+          "start": 3148,
+          "end": 3162,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "5",
+          "start": 3334,
+          "end": 3335,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Bryan Range",
+          "start": 3340,
+          "end": 3351,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "the District Court\u2019s",
+          "start": 3360,
+          "end": 3380,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "18",
+          "start": 3465,
+          "end": 3467,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Second",
+          "start": 3501,
+          "end": 3507,
+          "type": "ORDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 3563,
+          "end": 3568,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "the Second Amendment",
+          "start": 3663,
+          "end": 3683,
+          "type": "LAW",
+          "confidence": 0.85
+        },
+        {
+          "text": "Nation",
+          "start": 3785,
+          "end": 3791,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 3857,
+          "end": 3862,
+          "type": "PRODUCT",
+          "confidence": 0.85
+        },
+        {
+          "text": "1995",
+          "start": 3942,
+          "end": 3946,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Court of Common Pleas",
+          "start": 3980,
+          "end": 4001,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "one",
+          "start": 4026,
+          "end": 4029,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pennsylvania",
+          "start": 4104,
+          "end": 4116,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "62",
+          "start": 4126,
+          "end": 4128,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pa. Stat",
+          "start": 4129,
+          "end": 4137,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Ann",
+          "start": 4140,
+          "end": 4143,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "\u00a7",
+          "start": 4147,
+          "end": 4148,
+          "type": "NORP",
+          "confidence": 0.85
+        },
+        {
+          "text": "those days",
+          "start": 4160,
+          "end": 4170,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4173,
+          "end": 4178,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "between $9",
+          "start": 4191,
+          "end": 4201,
+          "type": "MONEY",
+          "confidence": 0.85
+        },
+        {
+          "text": "9.50",
+          "start": 4212,
+          "end": 4216,
+          "type": "MONEY",
+          "confidence": 0.85
+        },
+        {
+          "text": "three",
+          "start": 4263,
+          "end": 4268,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "300",
+          "start": 4290,
+          "end": 4293,
+          "type": "MONEY",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4304,
+          "end": 4309,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4376,
+          "end": 4381,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4408,
+          "end": 4413,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4475,
+          "end": 4480,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "three years",
+          "start": 4565,
+          "end": 4576,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "2,458",
+          "start": 4643,
+          "end": 4648,
+          "type": "MONEY",
+          "confidence": 0.85
+        },
+        {
+          "text": "288.29",
+          "start": 4667,
+          "end": 4673,
+          "type": "MONEY",
+          "confidence": 0.85
+        },
+        {
+          "text": "100",
+          "start": 4692,
+          "end": 4695,
+          "type": "MONEY",
+          "confidence": 0.85
+        },
+        {
+          "text": "1995",
+          "start": 4719,
+          "end": 4723,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4736,
+          "end": 4741,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "6 \n ",
+          "start": 4873,
+          "end": 4877,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Range",
+          "start": 4882,
+          "end": 4887,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "1995",
+          "start": 4906,
+          "end": 4910,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pennsylvania",
+          "start": 4948,
+          "end": 4960,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "five",
+          "start": 4994,
+          "end": 4998,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        }
+      ],
+      "processing_time_ms": 530.2421739324927,
+      "error_message": null,
+      "confidence_scores": [
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "mode": "ai_enhanced",
+      "segment": "5kb",
+      "entities": [],
+      "processing_time_ms": 15042.904627043754,
+      "error_message": "",
+      "confidence_scores": null
+    },
+    {
+      "mode": "regex",
+      "segment": "first_page",
+      "entities": [],
+      "processing_time_ms": 76.65812503546476,
+      "error_message": null,
+      "confidence_scores": []
+    },
+    {
+      "mode": "spacy",
+      "segment": "first_page",
+      "entities": [
+        {
+          "text": "UNITED STATES COURT OF APPEALS",
+          "start": 18,
+          "end": 48,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "21-2835",
+          "start": 98,
+          "end": 105,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "BRYAN DAVID RANGE",
+          "start": 127,
+          "end": 144,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Appellant",
+          "start": 151,
+          "end": 160,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "UNITED STATES OF AMERICA",
+          "start": 189,
+          "end": 213,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "Bureau of Alcohol",
+          "start": 252,
+          "end": 269,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "the United States",
+          "start": 346,
+          "end": 363,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "the Eastern District",
+          "start": 385,
+          "end": 405,
+          "type": "LOC",
+          "confidence": 0.85
+        },
+        {
+          "text": "Pennsylvania",
+          "start": 409,
+          "end": 421,
+          "type": "GPE",
+          "confidence": 0.85
+        },
+        {
+          "text": "5:20",
+          "start": 435,
+          "end": 439,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Honorable Gene E.K. Pratter",
+          "start": 469,
+          "end": 496,
+          "type": "PERSON",
+          "confidence": 0.85
+        },
+        {
+          "text": "Merits Panel",
+          "start": 533,
+          "end": 545,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "September 19",
+          "start": 549,
+          "end": 561,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "2022",
+          "start": 563,
+          "end": 567,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Argued En Banc",
+          "start": 571,
+          "end": 585,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "February 15, 2023  \n",
+          "start": 589,
+          "end": 609,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "October 9",
+          "start": 629,
+          "end": 638,
+          "type": "DATE",
+          "confidence": 0.85
+        },
+        {
+          "text": "202 4",
+          "start": 640,
+          "end": 645,
+          "type": "CARDINAL",
+          "confidence": 0.85
+        },
+        {
+          "text": "Remand",
+          "start": 649,
+          "end": 655,
+          "type": "FAC",
+          "confidence": 0.85
+        },
+        {
+          "text": "Supreme Court",
+          "start": 666,
+          "end": 679,
+          "type": "ORG",
+          "confidence": 0.85
+        },
+        {
+          "text": "the United States",
+          "start": 683,
+          "end": 700,
+          "type": "GPE",
+          "confidence": 0.85
+        }
+      ],
+      "processing_time_ms": 404.53026723116636,
+      "error_message": null,
+      "confidence_scores": [
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    {
+      "mode": "ai_enhanced",
+      "segment": "first_page",
+      "entities": [],
+      "processing_time_ms": 15042.635357938707,
+      "error_message": "",
+      "confidence_scores": null
+    }
+  ],
+  "analysis": {
+    "timestamp": "2025-08-26T16:03:36.090830",
+    "modes_comparison": {
+      "regex": {
+        "success_rate": 1.0,
+        "avg_time_ms": 81.2540256107847,
+        "min_time_ms": 76.65812503546476,
+        "max_time_ms": 89.56177579239011,
+        "total_entities": 1,
+        "avg_entities_per_segment": 0.3333333333333333,
+        "confidence_stats": {
+          "mean": 0.95,
+          "median": 0.95,
+          "min": 0.95,
+          "max": 0.95,
+          "count": 1
+        }
+      },
+      "spacy": {
+        "success_rate": 1.0,
+        "avg_time_ms": 675.5603143634895,
+        "min_time_ms": 404.53026723116636,
+        "max_time_ms": 1091.9085019268095,
+        "total_entities": 187,
+        "avg_entities_per_segment": 62.333333333333336,
+        "confidence_stats": {
+          "mean": 0.85,
+          "median": 0.85,
+          "min": 0.85,
+          "max": 0.85,
+          "count": 187
+        }
+      },
+      "ai_enhanced": {
+        "success_rate": 0,
+        "errors": []
+      }
+    },
+    "performance_summary": {
+      "speed_ranking": [
+        [
+          "regex",
+          81.2540256107847
+        ],
+        [
+          "spacy",
+          675.5603143634895
+        ]
+      ],
+      "entity_count_ranking": [
+        [
+          "spacy",
+          187
+        ],
+        [
+          "regex",
+          1
+        ]
+      ]
+    },
+    "entity_analysis": {},
+    "recommendations": {
+      "fastest_mode": "regex (avg: 81.3ms)",
+      "most_comprehensive": "spacy (187 entities)"
+    }
+  }
+}

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Relationship Network - Test Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .relationship-type {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .relationship-type h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .relationship-type p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .confidence-bar {
+            height: 30px;
+            background: linear-gradient(90deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
+            border-radius: 15px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confidence-marker {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #333;
+        }
+
+        .test-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .test-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .test-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #666;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin: 2px;
+        }
+
+        .badge-co-occurs {
+            background: #48dbfb;
+            color: white;
+        }
+
+        .badge-filed-in {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .badge-represents {
+            background: #feca57;
+            color: #333;
+        }
+
+        .network-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🕸️ Entity Relationship Network</h1>
+            <p>Test Dashboard - Entity Extraction Service</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Tests</div>
+                <div class="stat-value">6</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Entities</div>
+                <div class="stat-value">52</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Relationships</div>
+                <div class="stat-value">59</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Avg Confidence</div>
+                <div class="stat-value">0.76</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Network Density</div>
+                <div class="stat-value">19%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Relationship Types</div>
+                <div class="stat-value">3</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📊 Relationship Type Distribution</h2>
+
+                <div class="relationship-type">
+                    <h3>CO_OCCURS <span class="badge badge-co-occurs">53 (89.8%)</span></h3>
+                    <p><strong>Average Confidence:</strong> 0.745</p>
+                    <p><strong>Description:</strong> Entities appearing within 200 characters of each other in the document, indicating contextual proximity and potential semantic relationships.</p>
+                </div>
+
+                <div class="relationship-type">
+                    <h3>FILED_IN <span class="badge badge-filed-in">3 (5.1%)</span></h3>
+                    <p><strong>Average Confidence:</strong> 0.923</p>
+                    <p><strong>Description:</strong> Party-Court filing relationships indicating which court a case or party has filed documents in.</p>
+                </div>
+
+                <div class="relationship-type">
+                    <h3>REPRESENTS <span class="badge badge-represents">3 (5.1%)</span></h3>
+                    <p><strong>Average Confidence:</strong> 0.893</p>
+                    <p><strong>Description:</strong> Attorney-Party representation relationships showing legal counsel assignments.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📈 Confidence Score Distribution</h2>
+                <div class="confidence-bar">
+                    <div class="confidence-marker" style="left: 65%; top: -5px;">
+                        <div style="position: absolute; top: 35px; left: -15px; color: #333; font-weight: bold;">Min: 0.65</div>
+                    </div>
+                    <div class="confidence-marker" style="left: 76%; top: -5px;">
+                        <div style="position: absolute; top: 35px; left: -20px; color: #333; font-weight: bold;">Avg: 0.76</div>
+                    </div>
+                    <div class="confidence-marker" style="left: 95%; top: -5px;">
+                        <div style="position: absolute; top: 35px; left: -20px; color: #333; font-weight: bold;">Max: 0.95</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🕸️ Network Visualization</h2>
+                <div class="network-placeholder">
+                    <div>
+                        <p>Interactive Network Graph</p>
+                        <p style="font-size: 0.6em; margin-top: 10px;">
+                            Load relationship_network.json with D3.js, Cytoscape, or vis.js<br>
+                            to visualize entity connections
+                        </p>
+                    </div>
+                </div>
+                <p style="color: #666; text-align: center; margin-top: 10px;">
+                    <strong>Integration Instructions:</strong> Load <code>relationship_network.json</code> and render using your preferred graph library.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>📋 Test Breakdown</h2>
+                <div class="test-list">
+                    <div class="test-card">
+                        <h3>Test 1</h3>
+                        <div class="metric">
+                            <span class="metric-label">Test ID:</span>
+                            <span class="metric-value">test_1760575089802</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Document:</span>
+                            <span class="metric-value">case_001</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entities:</span>
+                            <span class="metric-value">14</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Relationships:</span>
+                            <span class="metric-value">10</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Ratio:</span>
+                            <span class="metric-value">0.71 rel/entity</span>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <h3>Test 2</h3>
+                        <div class="metric">
+                            <span class="metric-label">Test ID:</span>
+                            <span class="metric-value">test_1760575126888</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Document:</span>
+                            <span class="metric-value">case_002</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entities:</span>
+                            <span class="metric-value">5</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Relationships:</span>
+                            <span class="metric-value">9</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Ratio:</span>
+                            <span class="metric-value">1.80 rel/entity</span>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <h3>Test 3</h3>
+                        <div class="metric">
+                            <span class="metric-label">Test ID:</span>
+                            <span class="metric-value">test_1760575189645</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Document:</span>
+                            <span class="metric-value">case_003</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entities:</span>
+                            <span class="metric-value">15</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Relationships:</span>
+                            <span class="metric-value">10</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Ratio:</span>
+                            <span class="metric-value">0.67 rel/entity</span>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <h3>Test 4</h3>
+                        <div class="metric">
+                            <span class="metric-label">Test ID:</span>
+                            <span class="metric-value">test_1760575343531</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Document:</span>
+                            <span class="metric-value">case_004</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entities:</span>
+                            <span class="metric-value">6</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Relationships:</span>
+                            <span class="metric-value">10</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Ratio:</span>
+                            <span class="metric-value">1.67 rel/entity</span>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <h3>Test 5</h3>
+                        <div class="metric">
+                            <span class="metric-label">Test ID:</span>
+                            <span class="metric-value">test_1760575386296</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Document:</span>
+                            <span class="metric-value">case_005</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entities:</span>
+                            <span class="metric-value">6</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Relationships:</span>
+                            <span class="metric-value">10</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Ratio:</span>
+                            <span class="metric-value">1.67 rel/entity</span>
+                        </div>
+                    </div>
+
+                    <div class="test-card">
+                        <h3>Test 6</h3>
+                        <div class="metric">
+                            <span class="metric-label">Test ID:</span>
+                            <span class="metric-value">test_1760575420481</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Document:</span>
+                            <span class="metric-value">case_006</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entities:</span>
+                            <span class="metric-value">6</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Relationships:</span>
+                            <span class="metric-value">10</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Ratio:</span>
+                            <span class="metric-value">1.67 rel/entity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Entity Extraction Service - Test Dashboard</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                Generated: 2025-10-15 |
+                <a href="README_RELATIONSHIPS.md">Documentation</a> |
+                <a href="analyze_relationships.py">Analysis Tool</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

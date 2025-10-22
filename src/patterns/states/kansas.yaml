@@ -1,0 +1,198 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: kansas
+  state_abbreviation: Kan.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Kansas state citations and entities
+case_citations:
+  kansas_supreme_court:
+    name: kansas_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+315\s+Kan\.\s+456,\s+789\s+\(Kan\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Kansas Reports or Pacific Reporter volume
+      reporter: Kan. or P. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 318 Kan. 234 (Kan. 2023)
+    - Smith v. ABC Corp., 567 P.3d 890 (Kan. 2022)
+    - In re Estate of Brown, 315 Kan. 456, 789 (Kan. 2021)
+  kansas_court_of_appeals:
+    name: kansas_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Kan\.?\s*App\.(?:\s*2d|3d)?|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Kan\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Kansas App Reports or Pacific Reporter volume
+      reporter: Kansas appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 65 Kan. App. 2d 567 (Kan. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 534 P.3d 789 (Kan. Ct. App. 2022)
+    - People v. Brown, 63 Kan. App. 2d 345 (Kan. Ct. App. 2021)
+  kansas_district_court:
+    name: kansas_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Jud\.?\s+Dist\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Kan\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23CV1234 (18th Jud. Dist. Ct. Sedgwick County, Kan.)
+    - ABC Corp. v. XYZ Inc., No. 22-C-5678 (3rd Jud. Dist. Ct. Shawnee County, Kan.
+      2022)
+statute_citations:
+  kansas_statutes_annotated:
+    name: kansas_statutes_annotated_citation
+    pattern: Kan\.\s+Stat\.\s+Ann\.\s+(?:§§?\s*)?(?P<section>[\d-]+(?:\.[\d]+)?(?:[a-z])?(?:\s*[-–]\s*[\d-]+(?:\.[\d]+)?(?:[a-z])?)?(?:\s*to\s*[\d-]+(?:\.[\d]+)?(?:[a-z])?)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Kansas Statutes Annotated section number or range
+      year: Publication year
+    examples:
+    - Kan. Stat. Ann. § 21-5402 (West 2023)
+    - Kan. Stat. Ann. §§ 23-2501 to 23-2513
+    - Kan. Stat. Ann. § 60-2101
+  kansas_constitution:
+    name: kansas_constitution_citation
+    pattern: Kan\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Kan. Const. art. I, § 4
+    - Kan. Const. art. III, § 1
+    - Kan. Const. art. XII, § 2(a)
+regulation_citations:
+  kansas_administrative_regulations:
+    name: kansas_administrative_regulations_citation
+    pattern: Kan\.\s+Admin\.\s+Regs\.\s+(?P<section>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      section: Administrative Regulations section number
+    examples:
+    - Kan. Admin. Regs. 28-4-113
+    - Kan. Admin. Regs. 30-1-1
+    - Kan. Admin. Regs. 109-1-1a
+court_system:
+  court_names:
+    kansas_supreme_court:
+      pattern: (?i)(?:Kan(?:sas)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Kansas)?
+      confidence: 0.95
+      level: supreme
+    kansas_court_of_appeals:
+      pattern: (?i)(?:Kan(?:sas)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Kansas)?
+      confidence: 0.93
+      level: appellate
+    kansas_district_court:
+      pattern: (?i)(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Jud\.?\s+Dist\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Kan(?:sas)?\.?)?
+      confidence: 0.9
+      level: trial
+    kansas_municipal_court:
+      pattern: (?i)(?P<municipality>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:Municipal\s+Court|Mun\.?\s+Ct\.?)(?:\s+Kan(?:sas)?\.?)?
+      confidence: 0.88
+      level: limited_jurisdiction
+entity_types:
+- name: KANSAS_SUPREME_COURT_CASE
+  description: Kansas Supreme Court case citation
+  confidence_threshold: 0.95
+- name: KANSAS_APPELLATE_CASE
+  description: Kansas Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: KANSAS_DISTRICT_COURT_CASE
+  description: Kansas District Court case citation
+  confidence_threshold: 0.85
+- name: KANSAS_MUNICIPAL_COURT_CASE
+  description: Kansas Municipal Court case citation
+  confidence_threshold: 0.83
+- name: KANSAS_STATUTE
+  description: Kansas Statutes Annotated provision
+  confidence_threshold: 0.9
+- name: KANSAS_REGULATION
+  description: Kansas administrative regulation
+  confidence_threshold: 0.88
+- name: KANSAS_CONSTITUTIONAL_PROVISION
+  description: Kansas constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1861
+    max_year: 2025
+  volume_ranges:
+    kansas_reports:
+      kan_1st:
+        min_volume: 1
+        max_volume: 234
+      kan_2d:
+        min_volume: 1
+        max_volume: 50
+    kansas_app_reports:
+      kan_app_1st:
+        min_volume: 1
+        max_volume: 57
+      kan_app_2d:
+        min_volume: 1
+        max_volume: 70
+    pacific_reporter:
+      p_1st:
+        min_volume: 1
+        max_volume: 300
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 600
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  f1_target: 0.93
+  processing_speed: 775_citations_per_second
+dependencies:
+  requires:
+  - kansas_court_abbreviations
+  - kansas_county_names
+  - kansas_judicial_districts
+  optional:
+  - kansas_historical_courts
+  - kansas_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.kansas_supreme_court
+    text: State v. Johnson, 318 Kan. 234 (Kan. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.kansas_statutes_annotated
+    text: Kan. Stat. Ann. § 21-5402 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.kansas_court_of_appeals
+    text: Smith v. Jones, 65 Kan. App. 2d 567 (Kan. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.9 seconds
+    memory_usage: < 137MB
+    accuracy_threshold: 0.93

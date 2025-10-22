@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "test_name": "Creative Extraction (Temperature 0.3)",
+    "temperature": 0.3,
+    "document": "Rahimi.pdf",
+    "text_length": 5000,
+    "timestamp": "2025-10-15T16:30:40.426629",
+    "strategy": "single_pass",
+    "waves_executed": 1,
+    "tokens_used": 5920,
+    "duration_seconds": 31.75953769683838,
+    "total_entities": 5,
+    "entity_types_count": 4,
+    "used_patterns_api": true
+  },
+  "entities": [
+    {
+      "id": "uuid-1",
+      "text": "18 U. S. C. § 922(g)(8)",
+      "entity_type": "STATUTE_CITATION",
+      "start_pos": 100,
+      "end_pos": 115,
+      "confidence": 1.0,
+      "extraction_method": "pattern",
+      "subtype": "federal_statute",
+      "category": "core_legal",
+      "metadata": {
+        "pattern_matched": "statute_citation_bluebook",
+        "pattern_source": "federal_statutes.yaml",
+        "pattern_confidence": 0.95,
+        "sentence_context": "A prosecution under Section 922(g)(8) may proceed only if the restraining order meets certain statutory criteria.",
+        "normalized_value": "18 U.S.C. § 922(g)(8)",
+        "canonical_form": "Blue Book statute citation format",
+        "related_entities": [],
+        "custom_attributes": {
+          "title": "Firearms",
+          "code": "18",
+          "section": "922",
+          "subsection": "g(8)"
+        }
+      },
+      "created_at": 1640995200.0,
+      "prompt_template": "single_pass",
+      "wave_number": null,
+      "context_before": " \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n1 \n(Sl",
+      "context_after": "TOBER TERM, 2023 \nSyllabus \nNOTE: Where it is feas"
+    },
+    {
+      "id": "uuid-2",
+      "text": "New York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022)",
+      "entity_type": "CASE_CITATION",
+      "start_pos": 400,
+      "end_pos": 430,
+      "confidence": 1.0,
+      "extraction_method": "pattern",
+      "subtype": "supreme_court",
+      "category": "core_legal",
+      "metadata": {
+        "pattern_matched": "case_citation_bluebook",
+        "pattern_source": "supreme_court_citations.yaml",
+        "pattern_confidence": 0.95,
+        "sentence_context": "In light of Bruen, the Fifth Circuit reversed, concluding that the Government had not shown that Section 922(g)(8) “fits within our Nation’s historical tradition of firearm regulation.”",
+        "normalized_value": "597 U. S. 1 (2022)",
+        "canonical_form": "Blue Book citation format",
+        "related_entities": [
+          "uuid-1"
+        ],
+        "custom_attributes": {
+          "case_name": "New York State Rifle & Pistol Assn., Inc. v. Bruen",
+          "volume": "597",
+          "reporter": "U. S.",
+          "first_page": "1",
+          "year": "2022"
+        }
+      },
+      "created_at": 1640995200.0,
+      "prompt_template": "single_pass",
+      "wave_number": null,
+      "context_before": "Court but has been \nprepared by the Reporter of De",
+      "context_after": " the reader. \nSee United States v. Detroit Timber "
+    },
+    {
+      "id": "uuid-3",
+      "text": "Zackey Rahimi",
+      "entity_type": "PARTY",
+      "start_pos": 150,
+      "end_pos": 160,
+      "confidence": 1.0,
+      "extraction_method": "pattern",
+      "subtype": "individual",
+      "category": "core_legal",
+      "metadata": {
+        "pattern_matched": "party_name_pattern",
+        "pattern_source": "party_names.yaml",
+        "pattern_confidence": 0.95,
+        "sentence_context": "Respondent Zackey Rahimi was indicted under 18 U. S. C. §922(g)(8)",
+        "normalized_value": "Zackey Rahimi",
+        "canonical_form": "Full name",
+        "related_entities": [],
+        "custom_attributes": {}
+      },
+      "created_at": 1640995200.0,
+      "prompt_template": "single_pass",
+      "wave_number": null,
+      "context_before": "ip Opinion) \nOCTOBER TERM, 2023 \nSyllabus \nNOTE: W",
+      "context_after": " feasible, a syllabus (headnote) will be released,"
+    },
+    {
+      "id": "uuid-4",
+      "text": "June 21, 2024",
+      "entity_type": "HEARING_DATE",
+      "start_pos": 600,
+      "end_pos": 610,
+      "confidence": 1.0,
+      "extraction_method": "pattern",
+      "subtype": "oral_argument",
+      "category": "temporal",
+      "metadata": {
+        "pattern_matched": "hearing_date_pattern",
+        "pattern_source": "hearing_dates.yaml",
+        "pattern_confidence": 0.95,
+        "sentence_context": "Oral argument scheduled for June 21, 2024",
+        "normalized_value": "2024-06-21",
+        "parsed_date": {
+          "year": "2024",
+          "month": "06",
+          "day": "21"
+        },
+        "canonical_form": "ISO 8601 (YYYY-MM-DD)"
+      },
+      "created_at": 1640995200.0,
+      "prompt_template": "single_pass",
+      "wave_number": null,
+      "context_before": "\nSyllabus \nUNITED STATES v. RAHIMI \nCERTIORARI TO ",
+      "context_after": " STATES COURT OF APPEALS FOR \nTHE FIFTH CIRCUIT \nN"
+    },
+    {
+      "id": "uuid-5",
+      "text": "United States v. Rahimi",
+      "entity_type": "CASE_CITATION",
+      "start_pos": 0,
+      "end_pos": 15,
+      "confidence": 1.0,
+      "extraction_method": "pattern",
+      "subtype": "supreme_court",
+      "category": "core_legal",
+      "metadata": {
+        "pattern_matched": "case_citation_bluebook",
+        "pattern_source": "supreme_court_citations.yaml",
+        "pattern_confidence": 0.95,
+        "sentence_context": "SUPREME COURT OF THE UNITED STATES Syllabus UNITED STATES v. RAHIMI CERTIORARI TO THE UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 22–915.",
+        "normalized_value": "United States v. Rahimi",
+        "canonical_form": "Blue Book citation format",
+        "related_entities": [
+          "uuid-2"
+        ],
+        "custom_attributes": {
+          "case_name": "United States v. Rahimi",
+          "volume": "",
+          "reporter": "",
+          "first_page": "",
+          "year": ""
+        }
+      },
+      "created_at": 1640995200.0,
+      "prompt_template": "single_pass",
+      "wave_number": null,
+      "context_before": "",
+      "context_after": "\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "
+    }
+  ],
+  "entity_type_counts": {
+    "STATUTE_CITATION": 1,
+    "CASE_CITATION": 2,
+    "PARTY": 1,
+    "HEARING_DATE": 1
+  }
+}

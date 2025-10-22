@@ -1,0 +1,213 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: maryland
+  state_abbreviation: Md.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Maryland state citations and entities
+case_citations:
+  maryland_court_of_appeals:
+    name: maryland_court_of_appeals_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+A\.2d\s+567,\s+890\s+\(Md\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Atlantic Reporter or Maryland Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 A.3d 456 (Md. 2023)
+    - Brown v. Maryland, 456 Md. 2d 789 (Md. 2022)
+    - In re Estate of Johnson, 234 A.2d 567, 890 (Md. 2021)
+  maryland_court_of_special_appeals:
+    name: maryland_court_of_special_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>A\.(?:2d|3d)?|Md\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Md\.\s*(?:Ct\.\s*)?(?:Spec\.\s*)?App\.(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Atlantic Reporter or Maryland Appellate Reports volume
+      reporter: Maryland appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 A.3d 456 (Md. Ct. Spec. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 Md. App. 2d 789 (Md. App. 2022)
+    - People v. Brown, 234 A.2d 567 (Md. Ct. Spec. App. 2021)
+  maryland_circuit_court:
+    name: maryland_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Cir\.\s*)?Ct\.(?:\s+Md\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-0123456 (Montgomery County Cir. Ct. Md.)
+    - ABC Corp. v. XYZ Inc., 22-CV-987654 (Baltimore County Cir. Ct. 2022)
+  maryland_district_court:
+    name: maryland_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:County\s+)?Dist\.\s*Ct\.(?:\s+Md\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: District court location
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-DC-987 (Anne Arundel County Dist. Ct. Md.)
+    - State v. Brown, 22-CR-12345 (Baltimore Dist. Ct. 2022)
+statute_citations:
+  maryland_code:
+    name: maryland_code_citation
+    pattern: Md\.\s+Code,\s+Commercial\s+Law\s+§§\s+2\-314\s+to\s+2\-318
+    confidence: 0.95
+    priority: 90
+    components:
+      subject: Code subject area
+      section: Section number or range
+      year: Publication year
+    examples:
+    - Md. Code Ann., Crim. Law § 3-203 (2023)
+    - Md. Code, Commercial Law §§ 2-314 to 2-318
+    - Md. Code Ann., Cts. & Jud. Proc. § 5-101
+  maryland_constitution:
+    name: maryland_constitution_citation
+    pattern: Md\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Md. Const. art. III, § 26
+    - Md. Const. art. I, § 19
+    - Md. Const. art. IV, § 18(a)
+regulation_citations:
+  code_of_maryland_regulations:
+    name: code_of_maryland_regulations_citation
+    pattern: Md\.\s+(?:Code\s+)?Regs?\.\s+(?P<title>\d{2})\.(?P<subtitle>\d{2})\.(?P<chapter>\d{2})\.(?P<section>\d{2}(?:\.\d{2})*)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: COMAR title number
+      subtitle: COMAR subtitle number
+      chapter: COMAR chapter number
+      section: COMAR section number
+    examples:
+    - Md. Regs. 13.01.01.02
+    - Md. Code Regs. 10.09.03.01
+    - Md. Regs. 26.04.02.03
+court_system:
+  court_names:
+    maryland_court_of_appeals:
+      pattern: (?i)(?:Md\.|Maryland)\s+(?:Court\s+of\s+Appeals|Ct\.\s+of\s+App\.)
+      confidence: 0.95
+      level: supreme
+    maryland_court_of_special_appeals:
+      pattern: (?i)(?:Md\.|Maryland)\s+(?:Court\s+of\s+Special\s+Appeals|Ct\.\s*(?:Spec\.\s*)?App\.)
+      confidence: 0.93
+      level: appellate
+    maryland_circuit_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Circuit\s+Court|Cir\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Maryland)?
+      confidence: 0.9
+      level: trial
+    maryland_district_court:
+      pattern: (?i)(?P<district>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:County\s+)?(?:District\s+Court|Dist\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Maryland)?
+      confidence: 0.88
+      level: limited
+entity_types:
+- name: MARYLAND_COURT_OF_APPEALS_CASE
+  description: Maryland Court of Appeals case citation
+  confidence_threshold: 0.95
+- name: MARYLAND_SPECIAL_APPEALS_CASE
+  description: Maryland Court of Special Appeals case citation
+  confidence_threshold: 0.9
+- name: MARYLAND_CIRCUIT_COURT_CASE
+  description: Maryland Circuit Court case citation
+  confidence_threshold: 0.85
+- name: MARYLAND_DISTRICT_COURT_CASE
+  description: Maryland District Court case citation
+  confidence_threshold: 0.83
+- name: MARYLAND_STATUTE
+  description: Maryland statutory provision
+  confidence_threshold: 0.9
+- name: MARYLAND_REGULATION
+  description: Maryland administrative regulation
+  confidence_threshold: 0.88
+- name: MARYLAND_CONSTITUTIONAL_PROVISION
+  description: Maryland constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1788
+    max_year: 2025
+  volume_ranges:
+    atlantic_reporter:
+      a_2d:
+        min_volume: 1
+        max_volume: 999
+      a_3d:
+        min_volume: 1
+        max_volume: 999
+    maryland_reports:
+      md_2d:
+        min_volume: 1
+        max_volume: 500
+      md_3d:
+        min_volume: 1
+        max_volume: 200
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  comar_validation:
+    title_range:
+    - 1
+    - 34
+    subtitle_range:
+    - 1
+    - 50
+    chapter_range:
+    - 1
+    - 99
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 780_citations_per_second
+dependencies:
+  requires:
+  - maryland_court_abbreviations
+  - maryland_county_names
+  - maryland_code_subjects
+  optional:
+  - maryland_historical_courts
+  - maryland_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.maryland_court_of_appeals
+    text: State v. Smith, 123 A.3d 456 (Md. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.maryland_code
+    text: Md. Code Ann., Crim. Law § 3-203 (2023)
+    expected_entities: 1
+  - pattern: case_citations.maryland_court_of_special_appeals
+    text: Smith v. Jones, 123 A.3d 456 (Md. Ct. Spec. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.0 seconds
+    memory_usage: < 115MB
+    accuracy_threshold: 0.94

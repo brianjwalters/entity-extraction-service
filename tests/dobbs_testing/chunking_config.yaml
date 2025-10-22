@@ -1,0 +1,172 @@
+# Smart Chunking Configuration for Dobbs.pdf Legal Document
+# Optimized for vLLM processing with legal document structure preservation
+
+chunking:
+  # Primary chunking strategy - legal_aware for court opinions
+  strategy: "legal_aware"
+  
+  # Conservative chunk size for vLLM context (128K available, but staying conservative)
+  max_chunk_size: 3000  # characters
+  
+  # 10% overlap ensures context continuity across chunks
+  overlap_size: 300  # characters
+  
+  # Minimum chunk size to avoid tiny fragments
+  min_chunk_size: 500  # characters
+  
+  # Legal-specific preservation rules
+  preserve_boundaries:
+    # Never split these legal elements
+    citations:
+      enabled: true
+      patterns:
+        # Case name pattern (e.g., "Roe v. Wade", "Dobbs v. Jackson")
+        - pattern: '\b[A-Z][a-z]+\s+v\.\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*'
+          priority: 10
+        # U.S. Reporter citations (e.g., "410 U.S. 113")
+        - pattern: '\d+\s+U\.S\.\s+\d+'
+          priority: 10
+        # Supreme Court Reporter (e.g., "123 S. Ct. 456")
+        - pattern: '\d+\s+S\.\s*Ct\.\s+\d+'
+          priority: 10
+        # Federal Reporter citations (e.g., "123 F.3d 456", "123 F.2d 456")
+        - pattern: '\d+\s+F\.\s*(?:2d|3d|4th)\s+\d+'
+          priority: 10
+        # U.S. Code citations (e.g., "42 U.S.C. § 1983")
+        - pattern: '\d+\s+U\.S\.C\.\s*§?\s*\d+[a-z]?(?:\([a-z0-9]+\))?'
+          priority: 10
+        # Complete case citation with year (e.g., "Roe v. Wade, 410 U.S. 113 (1973)")
+        - pattern: '\b[A-Z][a-z]+\s+v\.\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*,\s*\d+\s+[A-Z]\.\w+\.\s+\d+(?:\s*\(\d{4}\))?'
+          priority: 10
+        # State reporter citations
+        - pattern: '\d+\s+[A-Z]\.\w+\.\s*(?:2d|3d)?\s+\d+'
+          priority: 9
+    
+    quotes:
+      enabled: true
+      # Preserve quoted text blocks
+      start_markers:
+        - '"'
+        - '"'
+        - "'"
+      end_markers:
+        - '"'
+        - '"'
+        - "'"
+      max_quote_length: 2000  # Allow longer quotes but within chunk limits
+    
+    sections:
+      enabled: true
+      # Legal document section markers
+      markers:
+        - pattern: '^[IVX]+\.\s+'  # Roman numerals (I., II., III.)
+          type: "major_section"
+          priority: 8
+        - pattern: '^[A-Z]\.\s+'   # Letter sections (A., B., C.)
+          type: "subsection"
+          priority: 7
+        - pattern: '^\d+\.\s+'     # Numbered sections (1., 2., 3.)
+          type: "numbered_section"
+          priority: 6
+        - pattern: '^\([a-z]\)\s+'  # Sub-points ((a), (b), (c))
+          type: "subpoint"
+          priority: 5
+    
+    paragraphs:
+      enabled: true
+      # Preserve paragraph integrity
+      min_paragraph_length: 100
+      prefer_break_at_paragraph: true
+    
+    footnotes:
+      enabled: true
+      # Keep footnotes with their reference
+      patterns:
+        - pattern: '\[\d+\]'  # Bracketed footnotes [1], [2]
+        - pattern: '\*\d+'    # Asterisk footnotes *1, *2
+        - pattern: '\^\d+'    # Caret footnotes ^1, ^2
+      max_footnote_distance: 500  # Max chars between reference and footnote text
+
+  # Entity boundary tracking
+  entity_tracking:
+    enabled: true
+    track_across_chunks: true
+    entity_types:
+      - "case_citation"
+      - "statute"
+      - "constitutional_provision"
+      - "judge"
+      - "party"
+      - "court"
+      - "legal_concept"
+      - "date"
+      - "precedent"
+    
+    # Metadata to preserve with each chunk
+    chunk_metadata:
+      - source_document
+      - chunk_index
+      - total_chunks
+      - section_context  # What section this chunk belongs to
+      - preceding_section_title
+      - following_section_title
+      - contains_citations  # Boolean flag
+      - citation_count
+      - entity_summary  # List of entities found
+      - page_numbers  # If available from PDF extraction
+
+  # Smart splitting heuristics
+  splitting_rules:
+    # Preferred split points (in order of preference)
+    preferred_splits:
+      1: "paragraph_boundary"  # Best: natural paragraph breaks
+      2: "sentence_boundary"   # Good: complete sentences
+      3: "semicolon"           # Acceptable: major clause breaks
+      4: "comma"               # Last resort: clause breaks
+    
+    # Never split within these contexts
+    forbidden_splits:
+      - "within_citation"
+      - "within_quote"
+      - "within_parenthetical"
+      - "within_footnote_reference"
+      - "mid_sentence_citation"
+    
+    # Context-aware splitting
+    context_rules:
+      - rule: "preserve_opinion_sections"
+        description: "Keep major opinion sections (majority, dissent, concurrence) intact when possible"
+      - rule: "preserve_legal_reasoning"
+        description: "Maintain logical flow of legal arguments"
+      - rule: "group_related_citations"
+        description: "Keep related case citations together"
+
+  # Performance optimization
+  performance:
+    parallel_processing: false  # Process sequentially for legal documents
+    cache_chunks: true         # Cache chunks for reuse
+    validate_chunks: true      # Validate chunk integrity after splitting
+
+  # Quality validation
+  validation:
+    check_citation_integrity: true
+    check_quote_completeness: true
+    check_section_markers: true
+    max_validation_errors: 5  # Stop if too many errors detected
+    
+    # Validation metrics to track
+    metrics:
+      - "citations_preserved"
+      - "quotes_preserved"
+      - "avg_chunk_size"
+      - "chunk_size_variance"
+      - "overlap_consistency"
+      - "entity_continuity"
+
+# Logging configuration
+logging:
+  level: "INFO"
+  log_chunk_boundaries: true
+  log_preservation_decisions: true
+  log_validation_results: true
+  output_file: "chunking_results.log"

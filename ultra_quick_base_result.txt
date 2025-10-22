@@ -1,0 +1,33 @@
+ENDINPUT
+
+BEGININSTRUCTION
+
+ENDINSTRUCTION [/INST] {
+  "entities": [
+    {
+      "text": "Miranda v. Arizona",
+      "entity_type": "CASE",
+      "confidence": 0.9
+    },
+    {
+      "text": "individual persons",
+      "entity_type": "PERSON",
+      "confidence": 0.8
+    },
+    {
+      "text": "Dates and time references",
+      "entity_type": "DATE",
+      "confidence": 0.7
+    },
+    {
+      "text": "Organizations and agencies",
+      "entity_type": "ORGANIZATION",
+      "confidence": 0.6
+    },
+    {
+      "text": "Legal citations",
+      "entity_type": "CITATION",
+      "confidence": 0.5
+    }
+  ]
+}

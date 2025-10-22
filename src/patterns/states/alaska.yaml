@@ -1,0 +1,204 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: alaska
+  state_abbreviation: Alaska
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Alaska state citations and entities
+case_citations:
+  alaska_supreme_court:
+    name: alaska_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Smith,\s+234\s+P\.3d\s+567,\s+890\s+\(Alaska\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Pacific Reporter or Alaska Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Davis, 950 P.2d 123 (Alaska 1997)
+    - Brown v. Superior Court, 456 Alaska 789 (Alaska 2022)
+    - In re Marriage of Smith, 234 P.3d 567, 890 (Alaska 2021)
+  alaska_court_of_appeals:
+    name: alaska_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>P\.(?:\s*2d|3d)?|Alaska\s+(?:Ct\.\s+)?App\.)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Alaska\s+(?:Ct\.\s+)?App\.(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Pacific Reporter or Alaska Court of Appeals Reports volume
+      reporter: Alaska appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 P.3d 456 (Alaska Ct. App. 2023)
+    - People v. Brown, 456 Alaska Ct. App. 789 (Alaska Ct. App. 2022)
+    - Doe v. ABC Corp., 234 P.2d 567 (Alaska App. 2021)
+  alaska_superior_court:
+    name: alaska_superior_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Alaska\s+)?(?:Super\.\s+Ct\.|Superior\s+Court)(?:\s+(?P<district>\d+)(?:st|nd|rd|th)\s+Judicial\s+District)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Superior court case number
+      district: Judicial district number
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 3AN-23-12345 (Alaska Super. Ct. 3rd Judicial District)
+    - ABC Corp. v. XYZ Inc., 1JU-22-00987 (Superior Court 2022)
+  alaska_district_court:
+    name: alaska_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Alaska\s+)?(?:Dist\.\s+Ct\.|District\s+Court)(?:\s+(?P<location>[A-Z][a-z]+))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      location: District court location
+      year: Decision year
+    examples:
+    - State v. Smith, No. 4FA-23-456 (Alaska Dist. Ct. Fairbanks)
+    - City of Anchorage v. Doe, 3AN-22-5678 (Dist. Ct. Anchorage 2022)
+statute_citations:
+  alaska_statutes:
+    name: alaska_statutes_citation
+    pattern: (?:Alaska\s+Stat\.|AS)\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\([\da-z]+\))*(?:\s*[-–]\s*[\d\.]+(?:\([\da-z]+\))*)?(?:\s*to\s*[\d\.]+(?:\([\da-z]+\))*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Alaska Statutes section number or range
+      year: Publication year
+    examples:
+    - Alaska Stat. § 11.41.100 (2022)
+    - AS § 09.10.065 (2023)
+    - Alaska Stat. Ann. §§ 47.12.010-47.12.990
+    - AS § 11.71.010
+    - Alaska Stat. § 23.10.600
+    - AS §§ 13.26.005-13.26.720
+  alaska_constitution:
+    name: alaska_constitution_citation
+    pattern: Alaska\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Alaska Const. art. I, § 7
+    - Alaska Const. art. III, § 16
+    - Alaska Const. art. VII, § 1
+    - Alaska Const. art. VIII, § 2
+    - Alaska Const. art. IX, § 7
+regulation_citations:
+  alaska_administrative_code:
+    name: alaska_administrative_code_citation
+    pattern: Alaska\s+Admin\.\s+Code\s+tit\.\s+(?P<title>\d+),\s+§\s+(?P<section>[\d\.]+)(?:\((?P<subsection>[\da-z]+)\))*
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      section: Section number
+      subsection: Subsection identifier
+    examples:
+    - Alaska Admin. Code tit. 13, § 40.110
+    - Alaska Admin. Code tit. 8, § 64.110
+    - Alaska Admin. Code tit. 20, § 25.010
+    - Alaska Admin. Code tit. 18, § 31.010
+    - Alaska Admin. Code tit. 5, § 95.025
+court_system:
+  court_names:
+    alaska_supreme_court:
+      pattern: (?i)(?:Alaska\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Alaska)?
+      confidence: 0.95
+      level: supreme
+    alaska_court_of_appeals:
+      pattern: (?i)(?:Alaska\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Alaska)?
+      confidence: 0.93
+      level: appellate
+    alaska_superior_court:
+      pattern: (?i)(?:Alaska\s+)?(?:Superior\s+Court|Super\.\s+Ct\.?)(?:\s+(?P<district>\d+)(?:st|nd|rd|th)\s+Judicial\s+District)?
+      confidence: 0.9
+      level: trial
+    alaska_district_court:
+      pattern: (?i)(?:Alaska\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?P<location>[A-Z][a-z]+))?
+      confidence: 0.88
+      level: district
+entity_types:
+- name: ALASKA_SUPREME_COURT_CASE
+  description: Alaska Supreme Court case citation
+  confidence_threshold: 0.95
+- name: ALASKA_APPELLATE_CASE
+  description: Alaska Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: ALASKA_SUPERIOR_COURT_CASE
+  description: Alaska Superior Court case citation
+  confidence_threshold: 0.85
+- name: ALASKA_DISTRICT_COURT_CASE
+  description: Alaska District Court case citation
+  confidence_threshold: 0.83
+- name: ALASKA_STATUTE
+  description: Alaska statutory provision (AS)
+  confidence_threshold: 0.9
+- name: ALASKA_REGULATION
+  description: Alaska administrative regulation
+  confidence_threshold: 0.88
+- name: ALASKA_CONSTITUTIONAL_PROVISION
+  description: Alaska constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1959
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    alaska_reports:
+      min_volume: 1
+      max_volume: 985
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 780_citations_per_second
+dependencies:
+  requires:
+  - alaska_court_abbreviations
+  - alaska_judicial_districts
+  - alaska_as_titles
+  optional:
+  - alaska_historical_courts
+  - alaska_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.alaska_supreme_court
+    text: State v. Davis, 950 P.2d 123 (Alaska 1997)
+    expected_entities: 1
+  - pattern: statute_citations.alaska_statutes
+    text: Alaska Stat. § 11.41.100 (2022)
+    expected_entities: 1
+  - pattern: case_citations.alaska_court_of_appeals
+    text: Smith v. Jones, 123 P.3d 456 (Alaska Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.2 seconds
+    memory_usage: < 118MB
+    accuracy_threshold: 0.95

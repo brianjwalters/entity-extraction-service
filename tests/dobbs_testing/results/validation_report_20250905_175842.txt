@@ -1,0 +1,52 @@
+Smart Chunking Validation Report
+================================================================================
+
+Timestamp: 2025-09-05T17:58:42.363614
+PDF: /srv/luris/be/tests/docs/dobbs.pdf
+Config: /srv/luris/be/entity-extraction-service/tests/dobbs_testing/chunking_config.yaml
+
+Statistics:
+----------------------------------------
+  total_chunks: 160
+  avg_chunk_size: 3063.30625
+  median_chunk_size: 3101.5
+  std_chunk_size: 158.74951579681516
+  min_chunk_size: 1597
+  max_chunk_size: 3199
+
+Quality Metrics:
+----------------------------------------
+  citations_found: 564
+  citations_preserved: 632
+  citations_split: 5
+  citation_preservation_rate: 112.05673758865248
+  quotes_found: 0
+  quotes_preserved: 0
+  quotes_split: 0
+  quote_preservation_rate: 100
+  validation_passed: False
+
+Validation Issues:
+----------------------------------------
+  - {'chunk_id': 'chunk_0000', 'error': 'Chunk size 3151 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0001', 'error': 'Chunk size 3196 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0002', 'error': 'Chunk size 3181 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0004', 'error': 'Chunk size 3049 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0005', 'error': 'Chunk size 3160 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0006', 'error': 'Chunk size 3059 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0007', 'error': 'Chunk size 3143 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0008', 'error': 'Chunk size 3194 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0010', 'error': 'Chunk size 3143 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0012', 'error': 'Chunk size 3187 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0012', 'error': 'Citation split: 945 F. 3d 265...'}
+  - {'chunk_id': 'chunk_0013', 'error': 'Chunk size 3195 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0015', 'error': 'Chunk size 3057 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0016', 'error': 'Chunk size 3121 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0017', 'error': 'Chunk size 3078 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0018', 'error': 'Chunk size 3038 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0019', 'error': 'Chunk size 3163 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0022', 'error': 'Chunk size 3161 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0023', 'error': 'Chunk size 3134 exceeds max 3000'}
+  - {'chunk_id': 'chunk_0025', 'error': 'Chunk size 3071 exceeds max 3000'}
+
+  ... and 103 more issues

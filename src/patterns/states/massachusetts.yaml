@@ -1,0 +1,235 @@
+metadata:
+  jurisdiction: massachusetts
+  state_code: MA
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: massachusetts
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: Massachusetts legal entity extraction patterns
+patterns:
+- name: ma_supreme_judicial_court
+  pattern: (?P<volume>\d+)\s+Mass\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.95
+  entity_type: CASE_CITATION
+  entity_subtype: massachusetts_supreme
+  components:
+    volume: 1
+    reporter: Mass.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Commonwealth v. Johnson, 492 Mass. 123 (2024)
+  - Doe v. Boston Medical Center, 491 Mass. 456, 460 (2023)
+  - Goodridge v. Dept. of Public Health, 440 Mass. 309 (2003)
+  - Commonwealth v. Woodward, 427 Mass. 659 (1998)
+- name: ma_supreme_judicial_court_ne
+  pattern: (?P<volume>\d+)\s+N\.E\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Mass\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.93
+  entity_type: CASE_CITATION
+  entity_subtype: massachusetts_supreme_ne
+  components:
+    volume: 1
+    reporter: N.E.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - Commonwealth v. Smith, 234 N.E.3d 567 (Mass. 2023)
+  - Brown v. City of Cambridge, 123 N.E.2d 890 (Mass. 2022)
+- name: ma_appeals_court
+  pattern: (?P<volume>\d+)\s+Mass\.\s+App\.\s+Ct\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.91
+  entity_type: CASE_CITATION
+  entity_subtype: massachusetts_appeals
+  components:
+    volume: 1
+    reporter: Mass. App. Ct.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Johnson v. State, 105 Mass. App. Ct. 234 (2024)
+  - Smith v. Landlord, 104 Mass. App. Ct. 567, 570 (2023)
+- name: ma_appeals_court_ne
+  pattern: (?P<volume>\d+)\s+N\.E\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Mass\.\s+App\.\s+Ct\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.89
+  entity_type: CASE_CITATION
+  entity_subtype: massachusetts_appeals_ne
+  components:
+    volume: 1
+    reporter: N.E.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - Brown v. Jones, 345 N.E.3d 678 (Mass. App. Ct. 2023)
+- name: ma_superior_court
+  pattern: (?P<volume>\d+)\s+Mass\.\s+Super\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.87
+  entity_type: CASE_CITATION
+  entity_subtype: massachusetts_superior
+  components:
+    volume: 1
+    reporter: Mass. Super.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Commonwealth v. Williams, 45 Mass. Super. 789 (2023)
+- name: ma_district_court
+  pattern: (?P<volume>\d+)\s+Mass\.\s+Dist\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.85
+  entity_type: CASE_CITATION
+  entity_subtype: massachusetts_district
+  components:
+    volume: 1
+    reporter: Mass. Dist.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Commonwealth v. Brown, 78 Mass. Dist. 321 (2022)
+- name: ma_general_laws
+  pattern: "Mass\\.\\s+Gen\\.\\s+Laws(?:\\s+Ann\\.)?\\s+ch\\.\\s+(?P<chapter>\\d+[A-Z]?)(?:,\\s*\xA7\\s*(?P<section>\\d+[A-Z]?(?:\\/\\d+)?(?:\\.\\d+)?))?"
+  confidence_base: 0.94
+  entity_type: STATUTE_CITATION
+  entity_subtype: massachusetts_general_laws
+  components:
+    jurisdiction: Mass. Gen. Laws
+    chapter: 1
+    section: 2
+  examples:
+  - "Mass. Gen. Laws ch. 265, \xA7 13"  # Assault and battery
+  - "Mass. Gen. Laws Ann. ch. 93A, \xA7 2"  # Consumer protection
+  - "Mass. Gen. Laws ch. 151B, \xA7 4"  # Employment discrimination
+  - "Mass. Gen. Laws ch. 209A, \xA7 1"  # Abuse prevention
+  - "Mass. Gen. Laws ch. 258E, \xA7 3"  # Harassment prevention
+  - "Mass. Gen. Laws ch. 90, \xA7 24"  # Operating under the influence
+  - "Mass. Gen. Laws ch. 186, \xA7 15B"  # Security deposits
+- name: ma_constitution
+  pattern: "Mass\\.\\s+Const\\.\\s+(?:amend\\.\\s+art\\.\\s+(?P<amend_num>[CDILMVX]+|\\d+)|pt\\.\\s+(?P<part>(?:the\\s+)?(?:First|Second|\\d+))(?:,\\s*(?P<part_type>Declaration\\s+of\\s+Rights|Frame\\s+of\\s+Government))?(?:,\\s*(?:ch\\.\\s*(?P<chapter>[IVX]+|\\d+)(?:,\\s*\xA7\\s*(?P<section>[IVX]+|\\d+))?))?)"
+  confidence_base: 0.96
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: massachusetts_constitution
+  components:
+    jurisdiction: Mass.
+    part: 1
+    part_type: 2
+    chapter: 3
+    section: 4
+    amendment: 5
+    amend_num: 6
+  examples:
+  - Mass. Const. pt. the First, Declaration of Rights, art. XIV
+  - "Mass. Const. pt. the Second, Frame of Government, ch. I, \xA7 I, art. II"
+  - Mass. Const. amend. art. CXIV
+- name: ma_code_regulations
+  pattern: (?P<title>\d+)\s+Mass\.\s+Code\s+Regs\.\s+(?P<section>\d+(?:\.\d+)*(?:\([a-z]\))?)
+  confidence_base: 0.9
+  entity_type: REGULATION_CITATION
+  entity_subtype: massachusetts_code_regulations
+  components:
+    title: 1
+    jurisdiction: Mass. Code Regs.
+    section: 2
+  examples:
+  - 940 Mass. Code Regs. 3.05
+  - 105 Mass. Code Regs. 140.000
+  - 760 Mass. Code Regs. 56.03(1)
+entity_patterns:
+- name: ma_supreme_judicial_court_entity
+  pattern: (?:Massachusetts\s+Supreme\s+Judicial\s+Court|Mass\.\s+Sup\.\s+Jud\.\s+Ct\.|Supreme\s+Judicial\s+Court\s+of\s+Massachusetts|SJC)
+  entity_type: COURT
+  entity_subtype: massachusetts_supreme
+  confidence_base: 0.97
+  attributes:
+    jurisdiction: Massachusetts
+    court_level: supreme
+    authority_level: 1
+- name: ma_appeals_court_entity
+  pattern: (?:Massachusetts\s+Appeals\s+Court|Mass\.\s+App\.\s+Ct\.|Appeals\s+Court\s+of\s+Massachusetts)
+  entity_type: COURT
+  entity_subtype: massachusetts_appeals
+  confidence_base: 0.94
+  attributes:
+    jurisdiction: Massachusetts
+    court_level: appellate
+    authority_level: 2
+- name: ma_superior_court_entity
+  pattern: (?:Massachusetts\s+Superior\s+Court|Mass\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+Massachusetts)
+  entity_type: COURT
+  entity_subtype: massachusetts_superior
+  confidence_base: 0.91
+  attributes:
+    jurisdiction: Massachusetts
+    court_level: trial
+    authority_level: 3
+- name: ma_district_court_entity
+  pattern: (?:Massachusetts\s+District\s+Court|Mass\.\s+Dist\.\s+Ct\.|District\s+Court\s+of\s+Massachusetts)
+  entity_type: COURT
+  entity_subtype: massachusetts_district
+  confidence_base: 0.89
+  attributes:
+    jurisdiction: Massachusetts
+    court_level: trial
+    authority_level: 4
+- name: ma_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+Massachusetts\s+Supreme\s+Judicial\s+Court|\s+\(Mass\.\s+Sup\.\s+Jud\.\s+Ct\.\)|\s+\(SJC\))?
+  entity_type: JUDGE
+  entity_subtype: massachusetts_justice
+  confidence_base: 0.93
+  attributes:
+    jurisdiction: Massachusetts
+    court_type: supreme
+validation:
+  year_range:
+  - 1692
+  - 2030
+  volume_limits:
+    mass_reports:
+    - 1
+    - 495
+    mass_app_ct:
+    - 1
+    - 110
+    ne_reporter:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  processing_speed: 880
+  memory_usage_mb: 130
+  accuracy_threshold: 0.91
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: Commonwealth v. Johnson, 492 Mass. 123 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.95
+  - text: Massachusetts Supreme Judicial Court held
+    expected_type: COURT
+    expected_confidence: 0.97
+  - text: "Mass. Gen. Laws ch. 265, \xA7 13"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.94
+  performance_benchmarks:
+    citation_extraction_rate: 880
+    entity_recognition_rate: 1250
+    memory_efficiency: 0.87
+entity_types:
+- name: MASSACHUSETTS_LEGAL_ENTITY
+  description: Massachusetts legal entity or citation
+  confidence_threshold: 0.8

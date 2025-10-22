@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Extraction Test Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.1em;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .card-value {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-container {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .chart-container h2 {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            margin-top: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background: #f7fafc;
+        }
+
+        .status-passed {
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        .status-failed {
+            color: #f56565;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Entity Extraction Test Dashboard</h1>
+            <p class="subtitle">Generated on 2025-10-20 21:57:21</p>
+        </header>
+
+        <div class="summary-cards">
+            
+        <div class="card">
+            <div class="card-title">Total Tests</div>
+            <div class="card-value">20</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Duration</div>
+            <div class="card-value">42.56s</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Entities</div>
+            <div class="card-value">4</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Avg Confidence</div>
+            <div class="card-value">0.893</div>
+        </div>
+        <div class="card">
+            <div class="card-title">Pass Rate</div>
+            <div class="card-value">95.0%</div>
+        </div>
+        
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h2>Performance Over Time</h2>
+                <canvas id="performanceChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Wave Execution Times</h2>
+                <canvas id="waveTimesChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Entities Per Wave</h2>
+                <canvas id="entitiesPerWaveChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Confidence Distribution</h2>
+                <canvas id="confidenceChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Top Entity Types</h2>
+                <canvas id="entityTypesChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h2>Throughput Metrics</h2>
+                <canvas id="throughputChart"></canvas>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h2>Recent Test Results</h2>
+            
+        <table>
+            <thead>
+                <tr>
+                    <th>Test ID</th>
+                    <th>Timestamp</th>
+                    <th>Document</th>
+                    <th>Strategy</th>
+                    <th>Duration</th>
+                    <th>Entities</th>
+                    <th>Confidence</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td>test_1761019041406</td>
+                <td>2025-10-20 21:57:21</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>37.90s</td>
+                <td>3</td>
+                <td>0.943</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1761018580820</td>
+                <td>2025-10-20 21:49:40</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>50.66s</td>
+                <td>6</td>
+                <td>0.953</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760999975308</td>
+                <td>2025-10-20 16:39:35</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>63.25s</td>
+                <td>7</td>
+                <td>0.943</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760999706357</td>
+                <td>2025-10-20 16:35:06</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>40.26s</td>
+                <td>3</td>
+                <td>0.960</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760967071657</td>
+                <td>2025-10-20 07:31:11</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>28.04s</td>
+                <td>3</td>
+                <td>0.933</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760966712149</td>
+                <td>2025-10-20 07:25:12</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>34.77s</td>
+                <td>4</td>
+                <td>0.925</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760916134954</td>
+                <td>2025-10-19 17:22:14</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>27.98s</td>
+                <td>3</td>
+                <td>0.933</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760890762186</td>
+                <td>2025-10-19 10:19:22</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>28.06s</td>
+                <td>3</td>
+                <td>0.933</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760890230066</td>
+                <td>2025-10-19 10:10:30</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>23.43s</td>
+                <td>2</td>
+                <td>0.925</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            <tr>
+                <td>test_1760890104306</td>
+                <td>2025-10-19 10:08:24</td>
+                <td>rahimi_2024</td>
+                <td>single_pass</td>
+                <td>23.46s</td>
+                <td>2</td>
+                <td>0.925</td>
+                <td class="status-passed">✅ PASSED</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+        </div>
+    </div>
+
+    <script>
+        
+        // Performance Over Time
+        new Chart(document.getElementById('performanceChart'), {
+            type: 'line',
+            data: {
+                labels: ["18:38:09", "18:38:46", "18:39:49", "18:42:23", "18:43:06", "18:43:40", "17:22:41", "01:31:22", "01:33:14", "08:46:29", "10:08:24", "10:10:30", "10:19:22", "17:22:14", "07:25:12", "07:31:11", "16:35:06", "16:39:35", "21:49:40", "21:57:21"],
+                datasets: [{
+                    label: 'Duration (seconds)',
+                    data: [45.03421664237976, 22.525972366333008, 48.24732255935669, 139.50665307044983, 28.407291173934937, 20.254563331604004, 102.77627444267273, 28.427839279174805, 23.36800742149353, 34.83216094970703, 23.457475662231445, 23.433209896087646, 28.05735206604004, 27.98114275932312, 34.765859842300415, 28.037332773208618, 40.25622248649597, 63.25029516220093, 50.6611692905426, 37.89672136306763],
+                    borderColor: 'rgb(102, 126, 234)',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+
+        // Wave Execution Times
+        (function() {
+            const waveLabels = [];
+            const waveDurations = [];
+            const canvas = document.getElementById('waveTimesChart');
+
+            if (waveLabels.length === 0 || waveDurations.length === 0) {
+                // Display informative message when no wave data
+                const ctx = canvas.getContext('2d');
+                canvas.height = 200;
+                ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = '#718096';
+                ctx.textAlign = 'center';
+                ctx.fillText('No multi-wave test data available.', canvas.width / 2, canvas.height / 2 - 20);
+                ctx.font = '14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText('Run a three_wave or four_wave test to see wave breakdown.', canvas.width / 2, canvas.height / 2 + 10);
+            } else {
+                new Chart(canvas, {
+                    type: 'bar',
+                    data: {
+                        labels: waveLabels,
+                        datasets: [{
+                            label: 'Duration (seconds)',
+                            data: waveDurations,
+                            backgroundColor: 'rgba(102, 126, 234, 0.7)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+        })();
+
+        // Entities Per Wave
+        (function() {
+            const waveLabels = [];
+            const waveEntities = [];
+            const canvas = document.getElementById('entitiesPerWaveChart');
+
+            if (waveLabels.length === 0 || waveEntities.length === 0) {
+                // Display informative message when no wave data
+                const ctx = canvas.getContext('2d');
+                canvas.height = 200;
+                ctx.font = '16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = '#718096';
+                ctx.textAlign = 'center';
+                ctx.fillText('No multi-wave test data available.', canvas.width / 2, canvas.height / 2 - 20);
+                ctx.font = '14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+                ctx.fillText('Run a three_wave or four_wave test to see wave breakdown.', canvas.width / 2, canvas.height / 2 + 10);
+            } else {
+                new Chart(canvas, {
+                    type: 'bar',
+                    data: {
+                        labels: waveLabels,
+                        datasets: [{
+                            label: 'Entities Extracted',
+                            data: waveEntities,
+                            backgroundColor: 'rgba(118, 75, 162, 0.7)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false }
+                        }
+                    }
+                });
+            }
+        })();
+
+        // Confidence Distribution
+        new Chart(document.getElementById('confidenceChart'), {
+            type: 'pie',
+            data: {
+                labels: ["Low (<0.7)", "Medium (0.7-0.9)", "High (\u22650.9)"],
+                datasets: [{
+                    data: [0, 0, 3],
+                    backgroundColor: [
+                        'rgba(245, 101, 101, 0.7)',
+                        'rgba(237, 137, 54, 0.7)',
+                        'rgba(72, 187, 120, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        // Top Entity Types
+        new Chart(document.getElementById('entityTypesChart'), {
+            type: 'bar',
+            data: {
+                labels: ["UNKNOWN"],
+                datasets: [{
+                    label: 'Count',
+                    data: [3],
+                    backgroundColor: 'rgba(102, 126, 234, 0.7)'
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // Throughput Metrics
+        new Chart(document.getElementById('throughputChart'), {
+            type: 'line',
+            data: {
+                labels: ["18:38:09", "18:38:46", "18:39:49", "18:42:23", "18:43:06", "18:43:40", "17:22:41", "01:31:22", "01:33:14", "08:46:29", "10:08:24", "10:10:30", "10:19:22", "17:22:14", "07:25:12", "07:31:11", "16:35:06", "16:39:35", "21:49:40", "21:57:21"],
+                datasets: [{
+                    label: 'Entities/Second',
+                    data: [0.31087473134428195, 0.22196600078729242, 0.3108980810602727, 0.04300870150594212, 0.21121338051075036, 0.2962295410554697, 0.0, 0.10553035601962511, 0.08558710051420264, 0.11483640092773639, 0.08526066610058013, 0.08534895598463936, 0.10692384630376897, 0.1072150635806474, 0.11505540257437007, 0.10700019236019066, 0.07452264059317427, 0.11067142030007912, 0.11843390281005765, 0.07916252098060546],
+                    borderColor: 'rgb(72, 187, 120)',
+                    backgroundColor: 'rgba(72, 187, 120, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true }
+                }
+            }
+        });
+        
+    </script>
+</body>
+</html>

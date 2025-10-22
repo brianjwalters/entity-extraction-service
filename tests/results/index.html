@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Extraction Test Dashboard - Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Header */
+        .main-nav {
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #667eea;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            font-size: 1.8em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .nav-link.active {
+            color: #667eea;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-icon {
+            color: #cbd5e0;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 8px;
+        }
+
+        .nav-icon:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-stat-label {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+
+        /* Quick Stats Dashboard */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .stat-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-card-icon {
+            font-size: 2.5em;
+        }
+
+        .stat-card-title {
+            color: #2d3748;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .stat-card-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .stat-detail {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            color: #718096;
+        }
+
+        .stat-chart {
+            height: 60px;
+            margin-top: 15px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin: 60px 0 30px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #cbd5e0;
+            font-size: 1.1em;
+        }
+
+        /* Navigation Tiles */
+        .nav-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .nav-tile {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-decoration: none;
+            color: #2d3748;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .nav-tile:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nav-tile:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+            border-color: #667eea;
+        }
+
+        .nav-tile-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .nav-tile-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .nav-tile-description {
+            color: #718096;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .nav-tile-category {
+            display: inline-block;
+            background: #edf2f7;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* Global Search */
+        .search-section {
+            margin: 60px 0 40px;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 20px 60px 20px 25px;
+            font-size: 1.1em;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            background: white;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #cbd5e0;
+            pointer-events: none;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 16px;
+            margin-top: 10px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 15px 25px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-result-item:hover {
+            background: #f7fafc;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Recent Tests */
+        .recent-tests {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .recent-tests h2 {
+            color: #2d3748;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f7fafc;
+            color: #2d3748;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background: #f7fafc;
+        }
+
+        .test-id {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            color: #667eea;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-warning {
+            background: #feebc8;
+            color: #7c2d12;
+        }
+
+        .badge-info {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .relative-time {
+            color: #718096;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(26, 32, 44, 0.95);
+            color: #cbd5e0;
+            padding: 40px 30px;
+            margin-top: 80px;
+            border-top: 2px solid #667eea;
+        }
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-link {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #667eea;
+        }
+
+        .footer-info {
+            font-size: 0.9em;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-tiles {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="nav-logo-icon">🏷️</span>
+                <span>Entity Extraction Dashboard</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="entities.html" class="nav-link">Entities</a>
+                <a href="relationships.html" class="nav-link">Relationships</a>
+                <a href="documents.html" class="nav-link">Documents</a>
+            </div>
+            <div class="nav-actions">
+                <span class="nav-icon" title="Search">🔍</span>
+                <span class="nav-icon" title="Settings">⚙️</span>
+                <span class="nav-icon" title="Help">❓</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Entity Extraction Test Dashboard</h1>
+            <p class="hero-subtitle">Comprehensive analysis and visualization of entity extraction results</p>
+
+            <div class="hero-stats" id="heroStats">
+                <!-- Live stats populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Quick Stats Dashboard -->
+        <div class="quick-stats">
+            <div class="stat-card fade-in">
+                <div class="stat-card-header">
+                    <span class="stat-card-icon">📊</span>
+                </div>
+                <div class="stat-card-title">Tests</div>
+                <div class="stat-card-value" id="totalTests">0</div>
+                <div class="stat-card-details">
+                    <div class="stat-detail">
+                        <span>Today</span>
+                        <span id="testsToday">0</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>This Week</span>
+                        <span id="testsWeek">0</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>Success Rate</span>
+                        <span id="successRate">0%</span>
+                    </div>
+                </div>
+                <div class="stat-chart">
+                    <canvas id="testFrequencyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stat-card fade-in">
+                <div class="stat-card-header">
+                    <span class="stat-card-icon">🏷️</span>
+                </div>
+                <div class="stat-card-title">Entities</div>
+                <div class="stat-card-value" id="totalEntities">0</div>
+                <div class="stat-card-details">
+                    <div class="stat-detail">
+                        <span>Per Test Avg</span>
+                        <span id="avgEntities">0</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>Most Common</span>
+                        <span id="mostCommonType">-</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>Unique Types</span>
+                        <span id="uniqueTypes">0</span>
+                    </div>
+                </div>
+                <div class="stat-chart">
+                    <canvas id="entityDistChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stat-card fade-in">
+                <div class="stat-card-header">
+                    <span class="stat-card-icon">⚡</span>
+                </div>
+                <div class="stat-card-title">Performance</div>
+                <div class="stat-card-value" id="avgExecTime">0s</div>
+                <div class="stat-card-details">
+                    <div class="stat-detail">
+                        <span>Fastest</span>
+                        <span id="fastestTest">0s</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>Slowest</span>
+                        <span id="slowestTest">0s</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>Throughput</span>
+                        <span id="throughput">0/s</span>
+                    </div>
+                </div>
+                <div class="stat-chart">
+                    <canvas id="perfTrendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="stat-card fade-in">
+                <div class="stat-card-header">
+                    <span class="stat-card-icon">✅</span>
+                </div>
+                <div class="stat-card-title">Quality</div>
+                <div class="stat-card-value" id="avgConfidence">0.00</div>
+                <div class="stat-card-details">
+                    <div class="stat-detail">
+                        <span>Range</span>
+                        <span id="confidenceRange">0.0 - 0.0</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>Pattern Coverage</span>
+                        <span id="patternCoverage">0%</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span>High Quality</span>
+                        <span id="highQuality">0</span>
+                    </div>
+                </div>
+                <div class="stat-chart">
+                    <canvas id="confidenceDistChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Global Search -->
+        <div class="search-section">
+            <div class="search-container">
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search entities, documents, test IDs..."
+                    id="globalSearch"
+                >
+                <span class="search-icon">🔍</span>
+                <div class="search-results" id="searchResults">
+                    <!-- Search results populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Header -->
+        <div class="section-header">
+            <h2 class="section-title">Explore Dashboard</h2>
+            <p class="section-subtitle">Navigate to detailed analysis and visualization pages</p>
+        </div>
+
+        <!-- Navigation Tiles -->
+        <div class="nav-tiles">
+            <!-- Analysis Pages -->
+            <a href="dashboard.html" class="nav-tile">
+                <div class="nav-tile-icon">📊</div>
+                <div class="nav-tile-title">Dashboard</div>
+                <div class="nav-tile-description">Overview and summary metrics with interactive charts</div>
+                <span class="nav-tile-category">ANALYSIS</span>
+            </a>
+
+            <a href="entities.html" class="nav-tile">
+                <div class="nav-tile-icon">🏷️</div>
+                <div class="nav-tile-title">Entities</div>
+                <div class="nav-tile-description">All extracted entities with filtering and search</div>
+                <span class="nav-tile-category">ANALYSIS</span>
+            </a>
+
+            <a href="relationships.html" class="nav-tile">
+                <div class="nav-tile-icon">🔗</div>
+                <div class="nav-tile-title">Relationships</div>
+                <div class="nav-tile-description">Entity relationships and connections</div>
+                <span class="nav-tile-category">ANALYSIS</span>
+            </a>
+
+            <a href="graph.html" class="nav-tile">
+                <div class="nav-tile-icon">🕸️</div>
+                <div class="nav-tile-title">Knowledge Graph</div>
+                <div class="nav-tile-description">Interactive graph visualization</div>
+                <span class="nav-tile-category">ANALYSIS</span>
+            </a>
+
+            <!-- Detailed Views -->
+            <a href="documents.html" class="nav-tile">
+                <div class="nav-tile-icon">📄</div>
+                <div class="nav-tile-title">Documents</div>
+                <div class="nav-tile-description">Document analysis and entity overlays</div>
+                <span class="nav-tile-category">DETAILED VIEW</span>
+            </a>
+
+            <a href="waves.html" class="nav-tile">
+                <div class="nav-tile-icon">🌊</div>
+                <div class="nav-tile-title">Waves</div>
+                <div class="nav-tile-description">Wave-by-wave extraction analysis</div>
+                <span class="nav-tile-category">DETAILED VIEW</span>
+            </a>
+
+            <a href="test_comparison.html" class="nav-tile">
+                <div class="nav-tile-icon">⚖️</div>
+                <div class="nav-tile-title">Test Comparison</div>
+                <div class="nav-tile-description">Side-by-side test comparison</div>
+                <span class="nav-tile-category">DETAILED VIEW</span>
+            </a>
+
+            <a href="timeline.html" class="nav-tile">
+                <div class="nav-tile-icon">📈</div>
+                <div class="nav-tile-title">Timeline</div>
+                <div class="nav-tile-description">Temporal analysis of tests</div>
+                <span class="nav-tile-category">DETAILED VIEW</span>
+            </a>
+
+            <!-- Quality & Performance -->
+            <a href="confidence.html" class="nav-tile">
+                <div class="nav-tile-icon">✅</div>
+                <div class="nav-tile-title">Confidence Analysis</div>
+                <div class="nav-tile-description">Confidence distribution and quality metrics</div>
+                <span class="nav-tile-category">QUALITY</span>
+            </a>
+
+            <a href="patterns.html" class="nav-tile">
+                <div class="nav-tile-icon">🎯</div>
+                <div class="nav-tile-title">Pattern Coverage</div>
+                <div class="nav-tile-description">Pattern validation dashboard</div>
+                <span class="nav-tile-category">QUALITY</span>
+            </a>
+
+            <a href="performance.html" class="nav-tile">
+                <div class="nav-tile-icon">⚡</div>
+                <div class="nav-tile-title">Performance</div>
+                <div class="nav-tile-description">Execution time and optimization insights</div>
+                <span class="nav-tile-category">PERFORMANCE</span>
+            </a>
+        </div>
+
+        <!-- Recent Tests Section -->
+        <div class="recent-tests">
+            <h2>Recent Tests</h2>
+            <table id="recentTestsTable">
+                <thead>
+                    <tr>
+                        <th>Test ID</th>
+                        <th>Document</th>
+                        <th>Time</th>
+                        <th>Entities</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="recentTestsBody">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <div>Entity Extraction Test Framework v1.0</div>
+                <div>Last Updated: <span id="lastUpdate">-</span></div>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Documentation</a>
+                <a href="#" class="footer-link">GitHub</a>
+                <a href="#" class="footer-link">API Reference</a>
+                <a href="#" class="footer-link">Report Issue</a>
+            </div>
+            <div class="footer-info">
+                © 2025 Luris Entity Extraction
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load test history data
+        let testData = null;
+
+        async function loadTestData() {
+            try {
+                const response = await fetch('test_history.json');
+                testData = await response.json();
+                initializeDashboard();
+            } catch (error) {
+                console.error('Error loading test data:', error);
+            }
+        }
+
+        function initializeDashboard() {
+            if (!testData || !testData.tests) return;
+
+            const tests = testData.tests;
+
+            // Calculate statistics
+            const totalTests = tests.length;
+            const totalEntities = tests.reduce((sum, t) => sum + (t.entity_distribution?.total_entities || 0), 0);
+            const avgEntitiesPerTest = totalTests > 0 ? Math.round(totalEntities / totalTests) : 0;
+
+            // Calculate confidence metrics
+            const avgConfidence = tests.reduce((sum, t) => sum + (t.entity_distribution?.avg_confidence || 0), 0) / totalTests;
+            const allConfidences = tests.map(t => t.entity_distribution?.avg_confidence || 0);
+            const minConfidence = Math.min(...allConfidences);
+            const maxConfidence = Math.max(...allConfidences);
+
+            // Calculate performance metrics
+            const durations = tests.map(t => t.performance?.total_duration_seconds || 0);
+            const avgDuration = durations.reduce((a, b) => a + b, 0) / durations.length;
+            const fastestTest = Math.min(...durations);
+            const slowestTest = Math.max(...durations);
+            const avgThroughput = tests.reduce((sum, t) => sum + (t.performance?.entities_per_second || 0), 0) / totalTests;
+
+            // Success rate
+            const passedTests = tests.filter(t => t.quality?.validation_passed).length;
+            const successRate = totalTests > 0 ? ((passedTests / totalTests) * 100).toFixed(1) : 0;
+
+            // Entity types
+            const entityTypes = {};
+            tests.forEach(t => {
+                if (t.entity_distribution?.entities_by_type) {
+                    Object.entries(t.entity_distribution.entities_by_type).forEach(([type, count]) => {
+                        entityTypes[type] = (entityTypes[type] || 0) + count;
+                    });
+                }
+            });
+            const mostCommonType = Object.entries(entityTypes).sort((a, b) => b[1] - a[1])[0]?.[0] || 'N/A';
+            const uniqueTypes = Object.keys(entityTypes).length;
+
+            // High quality count
+            const highQuality = tests.reduce((sum, t) => sum + (t.quality?.high_confidence_count || 0), 0);
+
+            // Time-based metrics
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+            const testsToday = tests.filter(t => new Date(t.timestamp * 1000) >= today).length;
+            const testsWeek = tests.filter(t => new Date(t.timestamp * 1000) >= weekAgo).length;
+
+            // Update Hero Stats
+            const heroStats = document.getElementById('heroStats');
+            heroStats.innerHTML = `
+                <div class="hero-stat">
+                    <div class="hero-stat-value">${totalTests}</div>
+                    <div class="hero-stat-label">Total Tests Run</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">${totalEntities}</div>
+                    <div class="hero-stat-label">Total Entities Extracted</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">${avgConfidence.toFixed(3)}</div>
+                    <div class="hero-stat-label">Average Confidence</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">${formatRelativeTime(tests[tests.length - 1].timestamp)}</div>
+                    <div class="hero-stat-label">Last Test</div>
+                </div>
+            `;
+
+            // Update Quick Stats
+            document.getElementById('totalTests').textContent = totalTests;
+            document.getElementById('testsToday').textContent = testsToday;
+            document.getElementById('testsWeek').textContent = testsWeek;
+            document.getElementById('successRate').textContent = successRate + '%';
+
+            document.getElementById('totalEntities').textContent = totalEntities;
+            document.getElementById('avgEntities').textContent = avgEntitiesPerTest;
+            document.getElementById('mostCommonType').textContent = mostCommonType;
+            document.getElementById('uniqueTypes').textContent = uniqueTypes;
+
+            document.getElementById('avgExecTime').textContent = avgDuration.toFixed(1) + 's';
+            document.getElementById('fastestTest').textContent = fastestTest.toFixed(1) + 's';
+            document.getElementById('slowestTest').textContent = slowestTest.toFixed(1) + 's';
+            document.getElementById('throughput').textContent = avgThroughput.toFixed(2) + '/s';
+
+            document.getElementById('avgConfidence').textContent = avgConfidence.toFixed(3);
+            document.getElementById('confidenceRange').textContent = `${minConfidence.toFixed(2)} - ${maxConfidence.toFixed(2)}`;
+            document.getElementById('patternCoverage').textContent = '0%';
+            document.getElementById('highQuality').textContent = highQuality;
+
+            // Update last update time
+            const lastTest = tests[tests.length - 1];
+            document.getElementById('lastUpdate').textContent = new Date(lastTest.timestamp * 1000).toLocaleString();
+
+            // Populate recent tests table
+            populateRecentTests(tests);
+
+            // Create mini charts
+            createMiniCharts(tests);
+        }
+
+        function populateRecentTests(tests) {
+            const tbody = document.getElementById('recentTestsBody');
+            const recentTests = tests.slice(-5).reverse();
+
+            tbody.innerHTML = recentTests.map(test => `
+                <tr>
+                    <td class="test-id">${test.test_id.substring(0, 20)}...</td>
+                    <td>${test.document_id}</td>
+                    <td class="relative-time">${formatRelativeTime(test.timestamp)}</td>
+                    <td><span class="badge badge-info">${test.entity_distribution?.total_entities || 0}</span></td>
+                    <td>${test.performance?.total_duration_seconds?.toFixed(2) || 0}s</td>
+                    <td><span class="badge ${test.quality?.validation_passed ? 'badge-success' : 'badge-warning'}">
+                        ${test.quality?.validation_passed ? '✅ Success' : '⚠️ Warning'}
+                    </span></td>
+                    <td><a href="#" class="btn btn-primary">View Details</a></td>
+                </tr>
+            `).join('');
+        }
+
+        function createMiniCharts(tests) {
+            // Test frequency sparkline
+            const testCounts = tests.map((_, i) => i + 1);
+            new Chart(document.getElementById('testFrequencyChart'), {
+                type: 'line',
+                data: {
+                    labels: testCounts,
+                    datasets: [{
+                        data: testCounts,
+                        borderColor: '#667eea',
+                        borderWidth: 2,
+                        fill: false,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    }
+                }
+            });
+
+            // Entity distribution mini pie
+            const entityCounts = tests.map(t => t.entity_distribution?.total_entities || 0);
+            new Chart(document.getElementById('entityDistChart'), {
+                type: 'bar',
+                data: {
+                    labels: entityCounts.map((_, i) => i + 1),
+                    datasets: [{
+                        data: entityCounts,
+                        backgroundColor: '#764ba2'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    }
+                }
+            });
+
+            // Performance trend sparkline
+            const perfData = tests.map(t => t.performance?.total_duration_seconds || 0);
+            new Chart(document.getElementById('perfTrendChart'), {
+                type: 'line',
+                data: {
+                    labels: perfData.map((_, i) => i + 1),
+                    datasets: [{
+                        data: perfData,
+                        borderColor: '#48bb78',
+                        borderWidth: 2,
+                        fill: false,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    }
+                }
+            });
+
+            // Confidence distribution mini histogram
+            const confData = tests.map(t => t.entity_distribution?.avg_confidence || 0);
+            new Chart(document.getElementById('confidenceDistChart'), {
+                type: 'bar',
+                data: {
+                    labels: confData.map((_, i) => i + 1),
+                    datasets: [{
+                        data: confData,
+                        backgroundColor: '#ed8936'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    }
+                }
+            });
+        }
+
+        function formatRelativeTime(timestamp) {
+            const now = Date.now() / 1000;
+            const diff = now - timestamp;
+
+            if (diff < 60) return 'just now';
+            if (diff < 3600) return Math.floor(diff / 60) + ' mins ago';
+            if (diff < 86400) return Math.floor(diff / 3600) + ' hours ago';
+            if (diff < 604800) return Math.floor(diff / 86400) + ' days ago';
+
+            return new Date(timestamp * 1000).toLocaleDateString();
+        }
+
+        // Global search functionality
+        document.getElementById('globalSearch').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+
+            if (query.length < 2) {
+                resultsDiv.style.display = 'none';
+                return;
+            }
+
+            // Simple search implementation
+            const results = [];
+            if (testData && testData.tests) {
+                testData.tests.forEach(test => {
+                    if (test.test_id.toLowerCase().includes(query) ||
+                        test.document_id.toLowerCase().includes(query)) {
+                        results.push({
+                            type: 'Test',
+                            title: test.test_id,
+                            subtitle: test.document_id,
+                            link: '#'
+                        });
+                    }
+                });
+            }
+
+            if (results.length > 0) {
+                resultsDiv.innerHTML = results.slice(0, 5).map(r => `
+                    <div class="search-result-item">
+                        <div><strong>${r.type}:</strong> ${r.title}</div>
+                        <div style="font-size: 0.9em; color: #718096;">${r.subtitle}</div>
+                    </div>
+                `).join('');
+                resultsDiv.style.display = 'block';
+            } else {
+                resultsDiv.innerHTML = '<div class="search-result-item">No results found</div>';
+                resultsDiv.style.display = 'block';
+            }
+        });
+
+        // Hide search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+
+        // Load data on page load
+        loadTestData();
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "entities": [
+    {
+      "text": "Zackey Rahimi",
+      "entity_type": "PERSON",
+      "confidence": 0.8
+    },
+    {
+      "text": "Supreme Court",
+      "entity_type": "COURT",
+      "confidence": 0.8
+    },
+    {
+      "text": "June 21, 2024",
+      "entity_type": "DATE",
+      "confidence": 0.8
+    }
+  ]
+}

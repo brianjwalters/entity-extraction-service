@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Comparison - Entity Extraction Analysis</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <!-- jsPDF for export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-tertiary: #1f2937;
+            --border-color: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --blue-accent: #3b82f6;
+            --blue-dim: #1e40af;
+            --purple-accent: #8b5cf6;
+            --purple-dim: #6d28d9;
+            --green-accent: #10b981;
+            --yellow-accent: #f59e0b;
+            --red-accent: #ef4444;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--card-shadow);
+        }
+
+        .nav-container {
+            max-width: 1800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--blue-accent);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-muted);
+            user-select: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-tertiary);
+        }
+
+        .nav-link.active {
+            color: var(--blue-accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Header */
+        header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Test Selection Panel */
+        .selection-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .selection-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .test-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .test-selector label {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .test-selector.test-a label {
+            color: var(--blue-accent);
+        }
+
+        .test-selector.test-b label {
+            color: var(--purple-accent);
+        }
+
+        select {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:hover {
+            border-color: var(--blue-accent);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--blue-accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .swap-button {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.2s;
+            align-self: end;
+        }
+
+        .swap-button:hover {
+            background: var(--bg-secondary);
+            border-color: var(--blue-accent);
+            transform: rotate(180deg);
+        }
+
+        .action-buttons {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--blue-accent) 0%, var(--blue-dim) 100%);
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+        }
+
+        button.export-btn {
+            background: linear-gradient(135deg, var(--purple-accent) 0%, var(--purple-dim) 100%);
+        }
+
+        /* Summary Banner */
+        .summary-banner {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .summary-banner.show {
+            display: block;
+        }
+
+        .winner-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .winner-badge.test-a {
+            background: linear-gradient(135deg, var(--blue-accent) 0%, var(--blue-dim) 100%);
+        }
+
+        .winner-badge.test-b {
+            background: linear-gradient(135deg, var(--purple-accent) 0%, var(--purple-dim) 100%);
+        }
+
+        .insights {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .insight-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            border-left: 3px solid var(--blue-accent);
+        }
+
+        /* Split View */
+        .split-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .split-view.show {
+            display: grid;
+        }
+
+        .test-column {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .test-column.test-a {
+            border-color: var(--blue-accent);
+        }
+
+        .test-column.test-b {
+            border-color: var(--purple-accent);
+        }
+
+        .column-header {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .test-a .column-header {
+            background: linear-gradient(135deg, var(--blue-accent) 0%, var(--blue-dim) 100%);
+        }
+
+        .test-b .column-header {
+            background: linear-gradient(135deg, var(--purple-accent) 0%, var(--purple-dim) 100%);
+        }
+
+        .metadata-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .metadata-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metadata-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chart-container {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            height: 250px;
+        }
+
+        /* Comparison Metrics */
+        .comparison-metrics {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            display: none;
+        }
+
+        .comparison-metrics.show {
+            display: block;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value.positive {
+            color: var(--green-accent);
+        }
+
+        .metric-value.negative {
+            color: var(--red-accent);
+        }
+
+        .metric-value.neutral {
+            color: var(--yellow-accent);
+        }
+
+        .metric-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Comparison Table */
+        .table-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            display: none;
+        }
+
+        .table-section.show {
+            display: block;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+
+        table.dataTable {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table.dataTable thead th {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        table.dataTable tbody td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        table.dataTable tbody tr {
+            transition: background 0.2s;
+        }
+
+        table.dataTable tbody tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        table.dataTable tbody tr.exact-match {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        table.dataTable tbody tr.partial-match {
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        table.dataTable tbody tr.unique-a {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        table.dataTable tbody tr.unique-b {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .match-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .match-badge.exact {
+            background: var(--green-accent);
+            color: white;
+        }
+
+        .match-badge.partial {
+            background: var(--yellow-accent);
+            color: var(--bg-primary);
+        }
+
+        .match-badge.unique-a {
+            background: var(--blue-accent);
+            color: white;
+        }
+
+        .match-badge.unique-b {
+            background: var(--purple-accent);
+            color: white;
+        }
+
+        /* Visualizations */
+        .visualizations {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            display: none;
+        }
+
+        .visualizations.show {
+            display: block;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .chart-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Differences Panel */
+        .differences-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            display: none;
+        }
+
+        .differences-panel.show {
+            display: block;
+        }
+
+        .diff-section {
+            margin-bottom: 2rem;
+        }
+
+        .diff-section h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .diff-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .diff-item {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .diff-text {
+            font-weight: 600;
+        }
+
+        .diff-confidence {
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .confidence-bar {
+            height: 4px;
+            background: var(--bg-primary);
+            border-radius: 2px;
+            margin-top: 0.25rem;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: var(--blue-accent);
+            transition: width 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .split-view {
+                grid-template-columns: 1fr;
+            }
+
+            .selection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .swap-button {
+                transform: rotate(90deg);
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .breadcrumb {
+                font-size: 0.75rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .nav-link svg {
+                display: none;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--blue-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="breadcrumb">
+                <a href="test_dashboard.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Dashboard
+                </a>
+                <span class="breadcrumb-separator">/</span>
+                <a href="test_results.html">Test Results</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Comparison</span>
+            </div>
+            <div class="nav-actions">
+                <a href="test_results.html" class="nav-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    View All Tests
+                </a>
+                <a href="test_dashboard.html" class="nav-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-link active">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="18" r="3"></circle>
+                        <circle cx="6" cy="6" r="3"></circle>
+                        <path d="M6 21V9a9 9 0 0 0 9 9"></path>
+                    </svg>
+                    Comparison Tool
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>Test Comparison Tool</h1>
+        <p class="subtitle">Side-by-side analysis of entity extraction test results</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Test Selection -->
+        <div class="selection-panel">
+            <div class="selection-grid">
+                <div class="test-selector test-a">
+                    <label>Test A (Left)</label>
+                    <select id="testASelect">
+                        <option value="">Select Test A...</option>
+                    </select>
+                </div>
+
+                <button class="swap-button" id="swapBtn" title="Swap Tests">↔</button>
+
+                <div class="test-selector test-b">
+                    <label>Test B (Right)</label>
+                    <select id="testBSelect">
+                        <option value="">Select Test B...</option>
+                    </select>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="compareBtn">Compare Tests</button>
+                    <button class="export-btn" id="exportBtn">Export Report</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Banner -->
+        <div class="summary-banner" id="summaryBanner">
+            <div id="winnerBadge"></div>
+            <div class="insights" id="insights"></div>
+        </div>
+
+        <!-- Split View -->
+        <div class="split-view" id="splitView">
+            <!-- Test A Column -->
+            <div class="test-column test-a">
+                <div class="column-header">Test A</div>
+                <div class="metadata-card">
+                    <div class="metadata-grid" id="metadataA"></div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartA"></canvas>
+                </div>
+            </div>
+
+            <!-- Test B Column -->
+            <div class="test-column test-b">
+                <div class="column-header">Test B</div>
+                <div class="metadata-card">
+                    <div class="metadata-grid" id="metadataB"></div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="chartB"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Metrics -->
+        <div class="comparison-metrics" id="comparisonMetrics">
+            <h2>Comparison Metrics</h2>
+            <div class="metrics-grid" id="metricsGrid"></div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Performance Comparison</h3>
+            <div class="chart-card">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Visualizations -->
+        <div class="visualizations" id="visualizations">
+            <h2>Visual Analysis</h2>
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <div class="chart-title">Entity Type Distribution</div>
+                    <canvas id="entityTypeChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Confidence Distribution</div>
+                    <canvas id="confidenceChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Entity Overlap</div>
+                    <canvas id="overlapChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Wave Comparison</div>
+                    <canvas id="waveChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="table-section" id="tableSection">
+            <h2>Entity Comparison Table</h2>
+
+            <div class="filters">
+                <div class="filter-group">
+                    <label>
+                        <input type="checkbox" id="showDifferencesOnly"> Show Only Differences
+                    </label>
+                </div>
+                <div class="filter-group">
+                    <label>Match Status:</label>
+                    <select id="matchFilter">
+                        <option value="">All</option>
+                        <option value="exact">Exact Match</option>
+                        <option value="partial">Partial Match</option>
+                        <option value="unique-a">Unique to A</option>
+                        <option value="unique-b">Unique to B</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Min Confidence:</label>
+                    <input type="number" id="minConfidence" min="0" max="1" step="0.1" value="0" style="width: 100px;">
+                </div>
+            </div>
+
+            <table id="comparisonTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Entity Text</th>
+                        <th>Type (A)</th>
+                        <th>Type (B)</th>
+                        <th>Confidence (A)</th>
+                        <th>Confidence (B)</th>
+                        <th>Difference</th>
+                        <th>Wave (A)</th>
+                        <th>Wave (B)</th>
+                        <th>Match Status</th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonTableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- Differences Panel -->
+        <div class="differences-panel" id="differencesPanel">
+            <h2>Detailed Differences</h2>
+
+            <div class="diff-section">
+                <h3 style="color: var(--blue-accent);">Only in Test A (<span id="countOnlyA">0</span>)</h3>
+                <div class="diff-list" id="onlyInA"></div>
+            </div>
+
+            <div class="diff-section">
+                <h3 style="color: var(--purple-accent);">Only in Test B (<span id="countOnlyB">0</span>)</h3>
+                <div class="diff-list" id="onlyInB"></div>
+            </div>
+
+            <div class="diff-section">
+                <h3 style="color: var(--yellow-accent);">Different Confidence (<span id="countDiffConf">0</span>)</h3>
+                <div class="diff-list" id="differentConfidence"></div>
+            </div>
+
+            <div class="diff-section">
+                <h3 style="color: var(--red-accent);">Different Type (<span id="countDiffType">0</span>)</h3>
+                <div class="diff-list" id="differentType"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let testData = null;
+        let testA = null;
+        let testB = null;
+        let charts = {};
+
+        // Load test history
+        async function loadTestHistory() {
+            try {
+                const response = await fetch('test_history.json');
+                testData = await response.json();
+                populateTestSelectors();
+            } catch (error) {
+                console.error('Error loading test history:', error);
+                alert('Failed to load test history. Please ensure test_history.json exists.');
+            }
+        }
+
+        // Populate test selectors
+        function populateTestSelectors() {
+            const testASelect = document.getElementById('testASelect');
+            const testBSelect = document.getElementById('testBSelect');
+
+            testData.tests.forEach((test, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                const date = new Date(test.timestamp * 1000);
+                option.textContent = `${test.test_id} - ${test.document_id} - ${date.toLocaleString()}`;
+
+                testASelect.appendChild(option.cloneNode(true));
+                testBSelect.appendChild(option);
+            });
+        }
+
+        // Swap tests
+        document.getElementById('swapBtn').addEventListener('click', () => {
+            const testASelect = document.getElementById('testASelect');
+            const testBSelect = document.getElementById('testBSelect');
+
+            const tempValue = testASelect.value;
+            testASelect.value = testBSelect.value;
+            testBSelect.value = tempValue;
+        });
+
+        // Compare tests
+        document.getElementById('compareBtn').addEventListener('click', () => {
+            const testAIndex = document.getElementById('testASelect').value;
+            const testBIndex = document.getElementById('testBSelect').value;
+
+            if (!testAIndex || !testBIndex) {
+                alert('Please select both Test A and Test B');
+                return;
+            }
+
+            testA = testData.tests[testAIndex];
+            testB = testData.tests[testBIndex];
+
+            performComparison();
+        });
+
+        // Perform comparison
+        function performComparison() {
+            // Show all sections
+            document.getElementById('summaryBanner').classList.add('show');
+            document.getElementById('splitView').classList.add('show');
+            document.getElementById('comparisonMetrics').classList.add('show');
+            document.getElementById('visualizations').classList.add('show');
+            document.getElementById('tableSection').classList.add('show');
+            document.getElementById('differencesPanel').classList.add('show');
+
+            // Generate comparison
+            generateSummary();
+            generateMetadata();
+            generateComparisonMetrics();
+            generateVisualizations();
+            generateComparisonTable();
+            generateDifferences();
+        }
+
+        // Generate summary
+        function generateSummary() {
+            const winnerBadge = document.getElementById('winnerBadge');
+            const insights = document.getElementById('insights');
+
+            // Determine winner based on multiple factors
+            let scoreA = 0;
+            let scoreB = 0;
+
+            // Performance (faster is better)
+            if (testA.performance.total_duration_seconds < testB.performance.total_duration_seconds) scoreA++;
+            else scoreB++;
+
+            // Entity count (more is better)
+            if (testA.entity_distribution.total_entities > testB.entity_distribution.total_entities) scoreA++;
+            else scoreB++;
+
+            // Confidence (higher is better)
+            if (testA.entity_distribution.avg_confidence > testB.entity_distribution.avg_confidence) scoreA++;
+            else scoreB++;
+
+            const winner = scoreA > scoreB ? 'A' : (scoreB > scoreA ? 'B' : 'TIE');
+
+            if (winner !== 'TIE') {
+                winnerBadge.innerHTML = `<div class="winner-badge test-${winner.toLowerCase()}">Winner: Test ${winner}</div>`;
+            } else {
+                winnerBadge.innerHTML = '<div class="winner-badge" style="background: var(--yellow-accent);">Performance Tie</div>';
+            }
+
+            // Generate insights
+            const timeDiff = ((testB.performance.total_duration_seconds - testA.performance.total_duration_seconds) / testB.performance.total_duration_seconds * 100).toFixed(1);
+            const confDiff = ((testA.entity_distribution.avg_confidence - testB.entity_distribution.avg_confidence) * 100).toFixed(1);
+            const entityDiff = Math.abs(testA.entity_distribution.total_entities - testB.entity_distribution.total_entities);
+
+            insights.innerHTML = `
+                <div class="insight-item">
+                    <strong>Speed:</strong> Test ${timeDiff > 0 ? 'A' : 'B'} is ${Math.abs(timeDiff)}% faster
+                </div>
+                <div class="insight-item">
+                    <strong>Confidence:</strong> Test ${confDiff > 0 ? 'A' : 'B'} has ${Math.abs(confDiff)}% higher avg confidence
+                </div>
+                <div class="insight-item">
+                    <strong>Entity Count:</strong> ${entityDiff} entities differ between tests
+                </div>
+                <div class="insight-item">
+                    <strong>Recommendation:</strong> ${winner === 'A' ? 'Use Test A configuration' : winner === 'B' ? 'Use Test B configuration' : 'Both perform similarly'}
+                </div>
+            `;
+        }
+
+        // Generate metadata
+        function generateMetadata() {
+            const metadataA = document.getElementById('metadataA');
+            const metadataB = document.getElementById('metadataB');
+
+            const createMetadata = (test) => `
+                <div class="metadata-item">
+                    <div class="metadata-label">Test ID</div>
+                    <div class="metadata-value">${test.test_id}</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Document</div>
+                    <div class="metadata-value">${test.document_id}</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Strategy</div>
+                    <div class="metadata-value">${test.routing.strategy}</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Duration</div>
+                    <div class="metadata-value">${test.performance.total_duration_seconds.toFixed(2)}s</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Total Entities</div>
+                    <div class="metadata-value">${test.entity_distribution.total_entities}</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Avg Confidence</div>
+                    <div class="metadata-value">${(test.entity_distribution.avg_confidence * 100).toFixed(1)}%</div>
+                </div>
+            `;
+
+            metadataA.innerHTML = createMetadata(testA);
+            metadataB.innerHTML = createMetadata(testB);
+
+            // Create pie charts
+            createPieChart('chartA', testA);
+            createPieChart('chartB', testB);
+        }
+
+        // Create pie chart
+        function createPieChart(canvasId, test) {
+            const ctx = document.getElementById(canvasId);
+
+            if (charts[canvasId]) {
+                charts[canvasId].destroy();
+            }
+
+            const entityTypes = test.entity_distribution.entities_by_type;
+            const labels = Object.keys(entityTypes);
+            const data = Object.values(entityTypes);
+            const colors = ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b', '#ef4444', '#06b6d4', '#f97316', '#ec4899'];
+
+            charts[canvasId] = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors.slice(0, labels.length),
+                        borderColor: '#1f2937',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#d1d5db',
+                                font: { size: 11 }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Entity Type Distribution',
+                            color: '#9ca3af',
+                            font: { size: 12 }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Generate comparison metrics
+        function generateComparisonMetrics() {
+            const metricsGrid = document.getElementById('metricsGrid');
+
+            const executionTimeDiff = ((testA.performance.total_duration_seconds - testB.performance.total_duration_seconds) / testB.performance.total_duration_seconds * 100).toFixed(1);
+            const entityCountDiff = testA.entity_distribution.total_entities - testB.entity_distribution.total_entities;
+            const confidenceDiff = ((testA.entity_distribution.avg_confidence - testB.entity_distribution.avg_confidence) * 100).toFixed(2);
+            const throughputA = testA.performance.entities_per_second;
+            const throughputB = testB.performance.entities_per_second;
+            const throughputDiff = ((throughputA - throughputB) / throughputB * 100).toFixed(1);
+
+            metricsGrid.innerHTML = `
+                <div class="metric-card">
+                    <div class="metric-label">Execution Time</div>
+                    <div class="metric-value ${executionTimeDiff < 0 ? 'positive' : executionTimeDiff > 0 ? 'negative' : 'neutral'}">
+                        ${executionTimeDiff > 0 ? '+' : ''}${executionTimeDiff}%
+                    </div>
+                    <div class="metric-subtitle">${Math.abs(executionTimeDiff)}% ${executionTimeDiff < 0 ? 'faster' : 'slower'} in Test A</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Entity Count</div>
+                    <div class="metric-value ${entityCountDiff > 0 ? 'positive' : entityCountDiff < 0 ? 'negative' : 'neutral'}">
+                        ${entityCountDiff > 0 ? '+' : ''}${entityCountDiff}
+                    </div>
+                    <div class="metric-subtitle">${Math.abs(entityCountDiff)} ${entityCountDiff > 0 ? 'more' : 'fewer'} in Test A</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Confidence</div>
+                    <div class="metric-value ${confidenceDiff > 0 ? 'positive' : confidenceDiff < 0 ? 'negative' : 'neutral'}">
+                        ${confidenceDiff > 0 ? '+' : ''}${confidenceDiff}%
+                    </div>
+                    <div class="metric-subtitle">${Math.abs(confidenceDiff)}% ${confidenceDiff > 0 ? 'higher' : 'lower'} in Test A</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Throughput</div>
+                    <div class="metric-value ${throughputDiff > 0 ? 'positive' : throughputDiff < 0 ? 'negative' : 'neutral'}">
+                        ${throughputDiff > 0 ? '+' : ''}${throughputDiff}%
+                    </div>
+                    <div class="metric-subtitle">${throughputA.toFixed(2)} vs ${throughputB.toFixed(2)} ent/s</div>
+                </div>
+            `;
+
+            // Performance comparison chart
+            const ctx = document.getElementById('performanceChart');
+
+            if (charts.performanceChart) {
+                charts.performanceChart.destroy();
+            }
+
+            charts.performanceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Execution Time (s)', 'Entities Found', 'Avg Confidence (%)', 'Throughput (ent/s)'],
+                    datasets: [
+                        {
+                            label: 'Test A',
+                            data: [
+                                testA.performance.total_duration_seconds,
+                                testA.entity_distribution.total_entities,
+                                testA.entity_distribution.avg_confidence * 100,
+                                testA.performance.entities_per_second
+                            ],
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderColor: '#3b82f6',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Test B',
+                            data: [
+                                testB.performance.total_duration_seconds,
+                                testB.entity_distribution.total_entities,
+                                testB.entity_distribution.avg_confidence * 100,
+                                testB.performance.entities_per_second
+                            ],
+                            backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                            borderColor: '#8b5cf6',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#d1d5db' },
+                            grid: { color: '#374151' }
+                        },
+                        x: {
+                            ticks: { color: '#d1d5db' },
+                            grid: { color: '#374151' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { color: '#d1d5db' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Generate visualizations
+        function generateVisualizations() {
+            // Entity type comparison
+            const entityTypesA = testA.entity_distribution.entities_by_type;
+            const entityTypesB = testB.entity_distribution.entities_by_type;
+            const allTypes = new Set([...Object.keys(entityTypesA), ...Object.keys(entityTypesB)]);
+
+            const ctx1 = document.getElementById('entityTypeChart');
+            if (charts.entityTypeChart) charts.entityTypeChart.destroy();
+
+            charts.entityTypeChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: Array.from(allTypes),
+                    datasets: [
+                        {
+                            label: 'Test A',
+                            data: Array.from(allTypes).map(type => entityTypesA[type] || 0),
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderColor: '#3b82f6',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Test B',
+                            data: Array.from(allTypes).map(type => entityTypesB[type] || 0),
+                            backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                            borderColor: '#8b5cf6',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: { beginAtZero: true, ticks: { color: '#d1d5db' }, grid: { color: '#374151' } },
+                        x: { ticks: { color: '#d1d5db' }, grid: { color: '#374151' } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#d1d5db' } }
+                    }
+                }
+            });
+
+            // Confidence distribution
+            const ctx2 = document.getElementById('confidenceChart');
+            if (charts.confidenceChart) charts.confidenceChart.destroy();
+
+            charts.confidenceChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: ['Min', 'Avg', 'Max'],
+                    datasets: [
+                        {
+                            label: 'Test A',
+                            data: [
+                                testA.entity_distribution.min_confidence * 100,
+                                testA.entity_distribution.avg_confidence * 100,
+                                testA.entity_distribution.max_confidence * 100
+                            ],
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Test B',
+                            data: [
+                                testB.entity_distribution.min_confidence * 100,
+                                testB.entity_distribution.avg_confidence * 100,
+                                testB.entity_distribution.max_confidence * 100
+                            ],
+                            borderColor: '#8b5cf6',
+                            backgroundColor: 'rgba(139, 92, 246, 0.2)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: { beginAtZero: true, max: 100, ticks: { color: '#d1d5db' }, grid: { color: '#374151' } },
+                        x: { ticks: { color: '#d1d5db' }, grid: { color: '#374151' } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#d1d5db' } }
+                    }
+                }
+            });
+
+            // Entity overlap (Venn diagram approximation)
+            const entitiesA = new Set(testA.raw_response.entities.map(e => e.text.toLowerCase()));
+            const entitiesB = new Set(testB.raw_response.entities.map(e => e.text.toLowerCase()));
+            const intersection = new Set([...entitiesA].filter(x => entitiesB.has(x)));
+            const onlyA = entitiesA.size - intersection.size;
+            const onlyB = entitiesB.size - intersection.size;
+
+            const ctx3 = document.getElementById('overlapChart');
+            if (charts.overlapChart) charts.overlapChart.destroy();
+
+            charts.overlapChart = new Chart(ctx3, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Only in A', 'Both', 'Only in B'],
+                    datasets: [{
+                        data: [onlyA, intersection.size, onlyB],
+                        backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6'],
+                        borderColor: '#1f2937',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#d1d5db' } }
+                    }
+                }
+            });
+
+            // Wave comparison
+            const ctx4 = document.getElementById('waveChart');
+            if (charts.waveChart) charts.waveChart.destroy();
+
+            const wavesA = testA.routing.strategy === 'three_wave' ? 3 : 1;
+            const wavesB = testB.routing.strategy === 'three_wave' ? 3 : 1;
+
+            charts.waveChart = new Chart(ctx4, {
+                type: 'bar',
+                data: {
+                    labels: ['Waves Executed'],
+                    datasets: [
+                        {
+                            label: 'Test A',
+                            data: [wavesA],
+                            backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                            borderColor: '#3b82f6',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Test B',
+                            data: [wavesB],
+                            backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                            borderColor: '#8b5cf6',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: { beginAtZero: true, ticks: { color: '#d1d5db', stepSize: 1 }, grid: { color: '#374151' } },
+                        x: { ticks: { color: '#d1d5db' }, grid: { color: '#374151' } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#d1d5db' } }
+                    }
+                }
+            });
+        }
+
+        // String similarity (for fuzzy matching)
+        function similarity(s1, s2) {
+            const longer = s1.length > s2.length ? s1 : s2;
+            const shorter = s1.length > s2.length ? s2 : s1;
+            if (longer.length === 0) return 1.0;
+            return (longer.length - editDistance(longer, shorter)) / parseFloat(longer.length);
+        }
+
+        function editDistance(s1, s2) {
+            s1 = s1.toLowerCase();
+            s2 = s2.toLowerCase();
+            const costs = [];
+            for (let i = 0; i <= s1.length; i++) {
+                let lastValue = i;
+                for (let j = 0; j <= s2.length; j++) {
+                    if (i === 0) {
+                        costs[j] = j;
+                    } else if (j > 0) {
+                        let newValue = costs[j - 1];
+                        if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
+                            newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                        }
+                        costs[j - 1] = lastValue;
+                        lastValue = newValue;
+                    }
+                }
+                if (i > 0) costs[s2.length] = lastValue;
+            }
+            return costs[s2.length];
+        }
+
+        // Generate comparison table
+        function generateComparisonTable() {
+            const tbody = document.getElementById('comparisonTableBody');
+            tbody.innerHTML = '';
+
+            const entitiesA = testA.raw_response.entities;
+            const entitiesB = testB.raw_response.entities;
+
+            // Create entity map
+            const entityMap = new Map();
+
+            // Add entities from A
+            entitiesA.forEach(entity => {
+                const key = entity.text.toLowerCase();
+                if (!entityMap.has(key)) {
+                    entityMap.set(key, { a: null, b: null, text: entity.text });
+                }
+                entityMap.get(key).a = entity;
+            });
+
+            // Add entities from B
+            entitiesB.forEach(entity => {
+                const key = entity.text.toLowerCase();
+                if (!entityMap.has(key)) {
+                    entityMap.set(key, { a: null, b: null, text: entity.text });
+                }
+                entityMap.get(key).b = entity;
+            });
+
+            // Generate table rows
+            entityMap.forEach((value, key) => {
+                const { a, b, text } = value;
+
+                let matchStatus = '';
+                let rowClass = '';
+
+                if (a && b) {
+                    if (a.entity_type === b.entity_type && Math.abs(a.confidence - b.confidence) < 0.01) {
+                        matchStatus = '<span class="match-badge exact">Exact Match</span>';
+                        rowClass = 'exact-match';
+                    } else {
+                        matchStatus = '<span class="match-badge partial">Partial Match</span>';
+                        rowClass = 'partial-match';
+                    }
+                } else if (a && !b) {
+                    matchStatus = '<span class="match-badge unique-a">Unique to A</span>';
+                    rowClass = 'unique-a';
+                } else {
+                    matchStatus = '<span class="match-badge unique-b">Unique to B</span>';
+                    rowClass = 'unique-b';
+                }
+
+                const typeA = a ? a.entity_type : '-';
+                const typeB = b ? b.entity_type : '-';
+                const confA = a ? (a.confidence * 100).toFixed(1) + '%' : '-';
+                const confB = b ? (b.confidence * 100).toFixed(1) + '%' : '-';
+                const diff = (a && b) ? ((a.confidence - b.confidence) * 100).toFixed(1) + '%' : '-';
+                const waveA = a ? (a.wave_number || 'N/A') : '-';
+                const waveB = b ? (b.wave_number || 'N/A') : '-';
+
+                const row = `
+                    <tr class="${rowClass}">
+                        <td>${text}</td>
+                        <td>${typeA}</td>
+                        <td>${typeB}</td>
+                        <td>${confA}</td>
+                        <td>${confB}</td>
+                        <td>${diff}</td>
+                        <td>${waveA}</td>
+                        <td>${waveB}</td>
+                        <td>${matchStatus}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+
+            // Initialize DataTable
+            if ($.fn.DataTable.isDataTable('#comparisonTable')) {
+                $('#comparisonTable').DataTable().destroy();
+            }
+
+            $('#comparisonTable').DataTable({
+                pageLength: 25,
+                order: [[5, 'desc']], // Sort by difference
+                language: {
+                    search: 'Search entities:',
+                    lengthMenu: 'Show _MENU_ entries',
+                    info: 'Showing _START_ to _END_ of _TOTAL_ entities',
+                    paginate: {
+                        first: 'First',
+                        last: 'Last',
+                        next: 'Next',
+                        previous: 'Previous'
+                    }
+                }
+            });
+
+            // Add filters
+            document.getElementById('showDifferencesOnly').addEventListener('change', applyFilters);
+            document.getElementById('matchFilter').addEventListener('change', applyFilters);
+            document.getElementById('minConfidence').addEventListener('input', applyFilters);
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const showDifferencesOnly = document.getElementById('showDifferencesOnly').checked;
+            const matchFilter = document.getElementById('matchFilter').value;
+            const minConfidence = parseFloat(document.getElementById('minConfidence').value);
+
+            const table = $('#comparisonTable').DataTable();
+
+            table.rows().every(function() {
+                const row = this.node();
+                const confA = parseFloat(row.cells[3].textContent) / 100 || 0;
+                const confB = parseFloat(row.cells[4].textContent) / 100 || 0;
+                const maxConf = Math.max(confA, confB);
+
+                let show = true;
+
+                if (showDifferencesOnly && row.classList.contains('exact-match')) {
+                    show = false;
+                }
+
+                if (matchFilter) {
+                    if (!row.classList.contains(matchFilter)) {
+                        show = false;
+                    }
+                }
+
+                if (maxConf < minConfidence) {
+                    show = false;
+                }
+
+                $(row).toggle(show);
+            });
+        }
+
+        // Generate differences
+        function generateDifferences() {
+            const entitiesA = testA.raw_response.entities;
+            const entitiesB = testB.raw_response.entities;
+
+            const onlyInA = [];
+            const onlyInB = [];
+            const differentConfidence = [];
+            const differentType = [];
+
+            const mapA = new Map(entitiesA.map(e => [e.text.toLowerCase(), e]));
+            const mapB = new Map(entitiesB.map(e => [e.text.toLowerCase(), e]));
+
+            // Find entities only in A
+            mapA.forEach((entity, key) => {
+                if (!mapB.has(key)) {
+                    onlyInA.push(entity);
+                }
+            });
+
+            // Find entities only in B and differences
+            mapB.forEach((entityB, key) => {
+                if (!mapA.has(key)) {
+                    onlyInB.push(entityB);
+                } else {
+                    const entityA = mapA.get(key);
+                    if (Math.abs(entityA.confidence - entityB.confidence) >= 0.05) {
+                        differentConfidence.push({ a: entityA, b: entityB });
+                    }
+                    if (entityA.entity_type !== entityB.entity_type) {
+                        differentType.push({ a: entityA, b: entityB });
+                    }
+                }
+            });
+
+            // Update counts
+            document.getElementById('countOnlyA').textContent = onlyInA.length;
+            document.getElementById('countOnlyB').textContent = onlyInB.length;
+            document.getElementById('countDiffConf').textContent = differentConfidence.length;
+            document.getElementById('countDiffType').textContent = differentType.length;
+
+            // Render lists
+            document.getElementById('onlyInA').innerHTML = onlyInA.map(e => `
+                <div class="diff-item">
+                    <div class="diff-text">${e.text}</div>
+                    <div class="diff-confidence">
+                        <strong>${(e.confidence * 100).toFixed(1)}%</strong>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${e.confidence * 100}%; background: var(--blue-accent);"></div>
+                        </div>
+                    </div>
+                    <div>${e.entity_type}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('onlyInB').innerHTML = onlyInB.map(e => `
+                <div class="diff-item">
+                    <div class="diff-text">${e.text}</div>
+                    <div class="diff-confidence">
+                        <strong>${(e.confidence * 100).toFixed(1)}%</strong>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${e.confidence * 100}%; background: var(--purple-accent);"></div>
+                        </div>
+                    </div>
+                    <div>${e.entity_type}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('differentConfidence').innerHTML = differentConfidence.map(({ a, b }) => `
+                <div class="diff-item">
+                    <div class="diff-text">${a.text}</div>
+                    <div class="diff-confidence">
+                        <strong>A: ${(a.confidence * 100).toFixed(1)}%</strong>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${a.confidence * 100}%; background: var(--blue-accent);"></div>
+                        </div>
+                    </div>
+                    <div class="diff-confidence">
+                        <strong>B: ${(b.confidence * 100).toFixed(1)}%</strong>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: ${b.confidence * 100}%; background: var(--purple-accent);"></div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('differentType').innerHTML = differentType.map(({ a, b }) => `
+                <div class="diff-item">
+                    <div class="diff-text">${a.text}</div>
+                    <div><strong>A:</strong> ${a.entity_type}</div>
+                    <div><strong>B:</strong> ${b.entity_type}</div>
+                </div>
+            `).join('');
+        }
+
+        // Export report
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            if (!testA || !testB) {
+                alert('Please compare two tests first');
+                return;
+            }
+
+            // Generate CSV
+            const csv = generateCSV();
+            downloadCSV(csv, `comparison_${testA.test_id}_vs_${testB.test_id}.csv`);
+        });
+
+        function generateCSV() {
+            let csv = 'Entity Text,Type (A),Type (B),Confidence (A),Confidence (B),Difference,Match Status\n';
+
+            const table = document.getElementById('comparisonTable');
+            const rows = table.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const rowData = [
+                    `"${cells[0].textContent}"`,
+                    cells[1].textContent,
+                    cells[2].textContent,
+                    cells[3].textContent,
+                    cells[4].textContent,
+                    cells[5].textContent,
+                    cells[8].textContent.replace(/\s+/g, ' ')
+                ];
+                csv += rowData.join(',') + '\n';
+            });
+
+            return csv;
+        }
+
+        function downloadCSV(csv, filename) {
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Initialize
+        loadTestHistory();
+    </script>
+</body>
+</html>

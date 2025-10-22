@@ -1,0 +1,199 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: idaho
+  state_abbreviation: Idaho
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Idaho state citations and entities
+case_citations:
+  idaho_supreme_court:
+    name: idaho_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Smith,\s+234\s+P\.2d\s+567,\s+890\s+\(Idaho\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Pacific Reporter or Idaho Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Davis, 123 P.3d 456 (Idaho 2023)
+    - Brown v. Superior Court, 456 Idaho 789 (Idaho 2022)
+    - In re Marriage of Smith, 234 P.2d 567, 890 (Idaho 2021)
+  idaho_court_of_appeals:
+    name: idaho_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>P\.(?:\s*2d|3d)?|Idaho\s+(?:Ct\.\s+)?App\.)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Idaho\s+(?:Ct\.\s+)?App\.(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Pacific Reporter or Idaho Court of Appeals Reports volume
+      reporter: Idaho appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 P.3d 456 (Idaho Ct. App. 2023)
+    - People v. Brown, 456 Idaho Ct. App. 789 (Idaho Ct. App. 2022)
+    - Doe v. ABC Corp., 234 P.2d 567 (Idaho App. 2021)
+  idaho_district_court:
+    name: idaho_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?(?:CV-)?[A-Z0-9-]+)(?:\s*\((?:Idaho\s+)?(?:Dist\.\s+Ct\.|District\s+Court)(?:\s+(?P<district>\d+)(?:st|nd|rd|th)\s+Judicial\s+District)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. CV-2023-123 (Idaho Dist. Ct. 4th Judicial District Ada County)
+    - ABC Corp. v. XYZ Inc., CV22-987 (District Court Canyon County 2022)
+  idaho_magistrate_court:
+    name: idaho_magistrate_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Idaho\s+)?(?:Magistrate\s+Court|Mag\.\s+Ct\.)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: Magistrate court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - State v. Smith, No. CR-2023-456 (Idaho Magistrate Court Ada County)
+    - City of Boise v. Doe, IM22-5678 (Mag. Ct. Ada County 2022)
+statute_citations:
+  idaho_code:
+    name: idaho_code_citation
+    pattern: (?:Idaho\s+Code|I\.C\.)\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d-]+(?:\([\da-z]+\))*(?:\s*[-–]\s*[\d-]+(?:\([\da-z]+\))*)?(?:\s*to\s*[\d-]+(?:\([\da-z]+\))*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Idaho Code section number or range
+      year: Publication year
+    examples:
+    - Idaho Code § 18-901
+    - I.C. § 5-201 (2023)
+    - Idaho Code Ann. §§ 28-3-301 to 28-3-312
+  idaho_constitution:
+    name: idaho_constitution_citation
+    pattern: Idaho\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Idaho Const. art. I, § 13
+    - Idaho Const. art. III, § 1
+    - Idaho Const. art. IX, § 1
+regulation_citations:
+  idaho_administrative_code:
+    name: idaho_administrative_code_citation
+    pattern: Idaho\s+Admin\.\s+Code\s+r\.\s+(?P<agency>\d+)\.(?P<chapter>\d+)\.(?P<section>\d+)(?:\.(?P<subsection>\d+))*
+    confidence: 0.92
+    priority: 80
+    components:
+      agency: Agency number
+      chapter: Chapter number
+      section: Section number
+      subsection: Subsection number
+    examples:
+    - Idaho Admin. Code r. 58.01.06.011
+    - Idaho Admin. Code r. 02.04.19.010
+    - Idaho Admin. Code r. 37.03.09.004
+court_system:
+  court_names:
+    idaho_supreme_court:
+      pattern: (?i)(?:Idaho\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Idaho)?
+      confidence: 0.95
+      level: supreme
+    idaho_court_of_appeals:
+      pattern: (?i)(?:Idaho\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Idaho)?
+      confidence: 0.93
+      level: appellate
+    idaho_district_court:
+      pattern: (?i)(?:Idaho\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?P<district>\d+)(?:st|nd|rd|th)\s+Judicial\s+District)?(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    idaho_magistrate_court:
+      pattern: (?i)(?:Idaho\s+)?(?:Magistrate\s+Court|Mag\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: magistrate
+entity_types:
+- name: IDAHO_SUPREME_COURT_CASE
+  description: Idaho Supreme Court case citation
+  confidence_threshold: 0.95
+- name: IDAHO_APPELLATE_CASE
+  description: Idaho Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: IDAHO_DISTRICT_COURT_CASE
+  description: Idaho District Court case citation
+  confidence_threshold: 0.85
+- name: IDAHO_MAGISTRATE_COURT_CASE
+  description: Idaho Magistrate Court case citation
+  confidence_threshold: 0.83
+- name: IDAHO_STATUTE
+  description: Idaho statutory provision (Idaho Code)
+  confidence_threshold: 0.9
+- name: IDAHO_REGULATION
+  description: Idaho administrative regulation
+  confidence_threshold: 0.88
+- name: IDAHO_CONSTITUTIONAL_PROVISION
+  description: Idaho constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1890
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    idaho_reports:
+      min_volume: 1
+      max_volume: 175
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 795_citations_per_second
+dependencies:
+  requires:
+  - idaho_court_abbreviations
+  - idaho_county_names
+  - idaho_code_titles
+  optional:
+  - idaho_historical_courts
+  - idaho_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.idaho_supreme_court
+    text: State v. Davis, 123 P.3d 456 (Idaho 2023)
+    expected_entities: 1
+  - pattern: statute_citations.idaho_code
+    text: Idaho Code § 18-901
+    expected_entities: 1
+  - pattern: case_citations.idaho_court_of_appeals
+    text: Smith v. Jones, 123 P.3d 456 (Idaho Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2.9 seconds
+    memory_usage: < 112MB
+    accuracy_threshold: 0.95

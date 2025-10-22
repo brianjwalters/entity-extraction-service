@@ -1,0 +1,194 @@
+metadata:
+  pattern_type: federal_supreme_court
+  jurisdiction: federal
+  court_level: supreme
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for U.S. Supreme Court citations and entities
+case_citations:
+  primary_citation:
+    name: us_reports_citation
+    pattern: "(?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?)\\s+v\\.\\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?))\\s*,\\s*(?P<volume>\\d{1,3})\\s+U\\.S\\.\\s+(?P<page>\\d{1,4})(?:\\s*,\\s*(?P<pinpoint>\\d{1,4}(?:[-\u2013]\\d{1,4})?))?(?:\\s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.98
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: U.S. Reports volume number
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Brown v. Board of Education, 347 U.S. 483 (1954)
+    - Miranda v. Arizona, 384 U.S. 436, 444 (1966)
+    - Roe v. Wade, 410 U.S. 113 (1973)
+  supreme_court_reporter:
+    name: supreme_court_reporter_citation
+    pattern: "(?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?)\\s+v\\.\\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?))\\s*,\\s*(?P<volume>\\d{1,3})\\s+S\\.\\s*Ct\\.\\s+(?P<page>\\d{1,4})(?:\\s*,\\s*(?P<pinpoint>\\d{1,4}(?:[-\u2013]\\d{1,4})?))?(?:\\s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.95
+    components:
+      case_name: Full case name with parties
+      volume: Supreme Court Reporter volume
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Brown v. Board of Education, 74 S. Ct. 686 (1954)
+    - Miranda v. Arizona, 86 S. Ct. 1602 (1966)
+  lawyers_edition:
+    name: lawyers_edition_citation
+    pattern: "(?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?)\\s+v\\.\\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?))\\s*,\\s*(?P<volume>\\d{1,3})\\s+L\\.\\s*Ed\\.\\s*(?P<series>2d\\s+)?(?P<page>\\d{1,4})(?:\\s*,\\s*(?P<pinpoint>\\d{1,4}(?:[-\u2013]\\d{1,4})?))?(?:\\s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.92
+    components:
+      case_name: Full case name with parties
+      volume: Lawyers' Edition volume
+      series: Series indicator (2d)
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Brown v. Board of Education, 98 L. Ed. 873 (1954)
+    - Miranda v. Arizona, 16 L. Ed. 2d 694 (1966)
+justices:
+  justice_name:
+    name: supreme_court_justice
+    pattern: (?P<justice_name>(?:Chief\s+)?Justice\s+(?P<name>[A-Z][a-z]+(?:(?:\s+[A-Z]\.)*\s+[A-Z][a-z]+)?(?:\s+(?:Jr\.|Sr\.|III?|IV))?))
+    confidence: 0.95
+    components:
+      justice_name: Full justice title and name
+      name: Justice's personal name
+    examples:
+    - Chief Justice Roberts
+    - Justice Thomas
+    - Justice Ginsburg
+    - Chief Justice John G. Roberts
+    - Justice Clarence Thomas
+    - Justice Ruth Bader Ginsburg
+  opinion_author:
+    name: opinion_author
+    pattern: (?P<opinion_type>(?:majority|dissenting|concurring))\s+opinion\s+by\s+(?P<justice>(?:Chief\s+)?Justice\s+[A-Z][a-z]+)
+    confidence: 0.88
+    components:
+      opinion_type: Type of opinion
+      justice: Authoring justice
+    examples:
+    - majority opinion by Justice Kennedy
+    - dissenting opinion by Chief Justice Roberts
+procedural:
+  cert_petition:
+    name: certiorari_petition
+    pattern: (?P<petition_type>cert\.\s*(?:granted|denied|dismissed))
+    confidence: 0.9
+    components:
+      petition_type: Certiorari petition status
+    examples:
+    - cert. granted
+    - cert. denied
+  docket_number:
+    name: supreme_court_docket
+    pattern: No\.\s*(?P<docket_number>\d{2}-\d{1,4})
+    confidence: 0.93
+    components:
+      docket_number: Supreme Court docket number
+    examples:
+    - No. 20-1650
+    - No. 19-123
+short_forms:
+  id_citation:
+    name: id_citation
+    pattern: "Id\\.(?:\\s+at\\s+(?P<pinpoint>\\d+(?:[-\u2013]\\d+)?))?"
+    confidence: 0.97
+    components:
+      pinpoint: Referenced page number
+    examples:
+    - Id.
+    - Id. at 123
+  case_short_form:
+    name: case_short_form
+    pattern: (?P<short_name>[A-Z][a-z]+(?:\s+v\.\s+[A-Z][a-z]+)?),\s*(?P<volume>\d+)\s+U\.S\.\s+at\s+(?P<pinpoint>\d+)
+    confidence: 0.9
+    components:
+      short_name: Abbreviated case name
+      volume: U.S. Reports volume
+      pinpoint: Specific page reference
+    examples:
+    - Brown, 347 U.S. at 495
+    - Miranda, 384 U.S. at 444
+constitutional:
+  us_constitution:
+    name: us_constitution_citation
+    pattern: "U\\.S\\.\\s+CONST\\.\\s+(?:(?P<amendment>amend\\.\\s*(?P<amend_num>[IVXLCDM]+|\\d+))(?:\\s*,\\s*\xA7\\s*(?P<amend_section>\\d+))?|(?P<article>art\\.\\s*(?P<art_num>[IVXLCDM]+))(?:\\s*,\\s*\xA7\\s*(?P<section>\\d+))?(?:\\s*,\\s*cl\\.\\s*(?P<clause>\\d+))?|(?P<preamble>pmbl\\.))"
+    confidence: 0.95
+    components:
+      amendment: Constitutional amendment reference
+      amend_num: Amendment number
+      amend_section: Amendment section
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section
+      clause: Article clause
+      preamble: Preamble reference
+    examples:
+    - U.S. CONST. amend. I
+    - "U.S. CONST. art. III, \xA7 2"
+    - "U.S. CONST. amend. XIV, \xA7 1"
+entity_types:
+- name: SUPREME_COURT_CASE
+  description: U.S. Supreme Court case citation
+  confidence_threshold: 0.85
+- name: SUPREME_COURT_JUSTICE
+  description: U.S. Supreme Court Justice
+  confidence_threshold: 0.9
+- name: CONSTITUTIONAL_PROVISION
+  description: U.S. Constitutional provision
+  confidence_threshold: 0.93
+- name: CERTIORARI_ACTION
+  description: Certiorari petition action
+  confidence_threshold: 0.88
+- name: SUPREME_COURT_DOCKET
+  description: Supreme Court docket number
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1789
+    max_year: 2025
+  volume_ranges:
+    us_reports:
+      min_volume: 1
+      max_volume: 600
+    supreme_court_reporter:
+      min_volume: 1
+      max_volume: 150
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.98
+  recall_target: 0.95
+  f1_target: 0.96
+  processing_speed: 1000_citations_per_second
+dependencies:
+  requires:
+  - federal_court_abbreviations
+  - justice_names_database
+  - constitutional_provisions
+  optional:
+  - historical_court_names
+  - foreign_supreme_courts
+testing:
+  test_cases:
+  - pattern: case_citations.primary_citation
+    text: Brown v. Board of Education, 347 U.S. 483 (1954)
+    expected_entities: 1
+  - pattern: justices.justice_name
+    text: Chief Justice Roberts delivered the opinion
+    expected_entities: 1
+  - pattern: constitutional.us_constitution
+    text: U.S. CONST. amend. I
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2 seconds
+    memory_usage: < 100MB
+    accuracy_threshold: 0.95

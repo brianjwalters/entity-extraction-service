@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Relationships Explorer - Luris Test Results</title>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Cytoscape.js for graph visualization -->
+    <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+
+    <!-- noUiSlider for range slider -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%);
+            padding: 20px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb a {
+            color: #6c9bcf;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #8bb4e7;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Summary Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #2d2d44 0%, #252538 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #6c9bcf;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .card-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .card-change {
+            font-size: 13px;
+            color: #4caf50;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            background: linear-gradient(135deg, #2d2d44 0%, #252538 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .filters-header h3 {
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-label {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        select, input {
+            background: #1a1a2e;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #6c9bcf;
+        }
+
+        select[multiple] {
+            min-height: 120px;
+        }
+
+        /* Slider styling */
+        .confidence-slider {
+            margin: 15px 10px;
+        }
+
+        .noUi-target {
+            background: #1a1a2e;
+            border: 1px solid #444;
+        }
+
+        .noUi-connect {
+            background: #6c9bcf;
+        }
+
+        .noUi-handle {
+            background: #fff;
+            border: 2px solid #6c9bcf;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #6c9bcf;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #5a8ab8;
+        }
+
+        .btn-secondary {
+            background: #444;
+            color: #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            background: #555;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Graph Preview */
+        .graph-preview {
+            background: linear-gradient(135deg, #2d2d44 0%, #252538 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+        }
+
+        .graph-preview h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        #graphPreview {
+            width: 100%;
+            height: 400px;
+            background: #1a1a2e;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        .graph-controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .graph-legend {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        /* Charts Section */
+        .charts-section {
+            background: linear-gradient(135deg, #2d2d44 0%, #252538 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .chart-container {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        .chart-title {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Table Section */
+        .table-section {
+            background: linear-gradient(135deg, #2d2d44 0%, #252538 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .table-section h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* DataTables styling */
+        table.dataTable {
+            width: 100% !important;
+            background: #1a1a2e;
+            border-collapse: collapse;
+        }
+
+        table.dataTable thead th {
+            background: #252538;
+            color: #888;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 12px 8px;
+            border-bottom: 2px solid #444;
+        }
+
+        table.dataTable tbody td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #333;
+            color: #e0e0e0;
+            font-size: 13px;
+        }
+
+        table.dataTable tbody tr:hover {
+            background: #252538;
+        }
+
+        .dataTables_wrapper {
+            color: #e0e0e0;
+        }
+
+        .dataTables_filter input {
+            background: #1a1a2e;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .dataTables_length select {
+            background: #1a1a2e;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 6px;
+            border-radius: 6px;
+        }
+
+        .dataTables_info {
+            color: #888;
+        }
+
+        .dataTables_paginate .paginate_button {
+            background: #444;
+            color: #e0e0e0 !important;
+            border-radius: 4px;
+            padding: 6px 12px;
+            margin: 0 2px;
+        }
+
+        .dataTables_paginate .paginate_button.current {
+            background: #6c9bcf !important;
+            color: #fff !important;
+        }
+
+        .dataTables_paginate .paginate_button:hover {
+            background: #555 !important;
+            color: #fff !important;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-relationship {
+            background: rgba(108, 155, 207, 0.2);
+            color: #6c9bcf;
+            border: 1px solid #6c9bcf;
+        }
+
+        .badge-entity {
+            background: rgba(156, 204, 101, 0.2);
+            color: #9ccc65;
+            border: 1px solid #9ccc65;
+        }
+
+        .badge-judge {
+            background: rgba(255, 152, 0, 0.2);
+            color: #ff9800;
+            border: 1px solid #ff9800;
+        }
+
+        .badge-case {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196f3;
+            border: 1px solid #2196f3;
+        }
+
+        .badge-statute {
+            background: rgba(233, 30, 99, 0.2);
+            color: #e91e63;
+            border: 1px solid #e91e63;
+        }
+
+        .badge-court {
+            background: rgba(156, 39, 176, 0.2);
+            color: #9c27b0;
+            border: 1px solid #9c27b0;
+        }
+
+        .badge-person {
+            background: rgba(0, 188, 212, 0.2);
+            color: #00bcd4;
+            border: 1px solid #00bcd4;
+        }
+
+        .badge-date {
+            background: rgba(255, 235, 59, 0.2);
+            color: #ffc107;
+            border: 1px solid #ffc107;
+        }
+
+        /* Progress bar for confidence */
+        .confidence-bar {
+            width: 100%;
+            height: 20px;
+            background: #1a1a2e;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            transition: width 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .confidence-fill.medium {
+            background: linear-gradient(90deg, #ff9800, #ffc107);
+        }
+
+        .confidence-fill.low {
+            background: linear-gradient(90deg, #f44336, #ff5722);
+        }
+
+        /* Action buttons */
+        .action-btn {
+            padding: 4px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s;
+            margin-right: 5px;
+        }
+
+        .action-btn-view {
+            background: #6c9bcf;
+            color: #fff;
+        }
+
+        .action-btn-view:hover {
+            background: #5a8ab8;
+        }
+
+        .action-btn-graph {
+            background: #9ccc65;
+            color: #1a1a2e;
+        }
+
+        .action-btn-graph:hover {
+            background: #8bb750;
+        }
+
+        .action-btn-copy {
+            background: #444;
+            color: #e0e0e0;
+        }
+
+        .action-btn-copy:hover {
+            background: #555;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #2d2d44 0%, #252538 100%);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .modal-body {
+            color: #e0e0e0;
+        }
+
+        .detail-row {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #888;
+            width: 150px;
+            flex-shrink: 0;
+        }
+
+        .detail-value {
+            color: #e0e0e0;
+            flex: 1;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            background: linear-gradient(135deg, #2d2d44 0%, #1f1f2e 100%);
+            padding: 15px 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #888;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link:hover {
+            background: rgba(108, 155, 207, 0.2);
+            color: #6c9bcf;
+        }
+
+        .nav-link.active {
+            background: #6c9bcf;
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="entities.html" class="nav-link">Entities</a>
+                <a href="citations.html" class="nav-link">Citations</a>
+                <a href="relationships.html" class="nav-link active">Relationships</a>
+                <a href="graph.html" class="nav-link">Graph</a>
+                <a href="timeline.html" class="nav-link">Timeline</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>></span>
+                <span>Relationships</span>
+            </div>
+            <h1>Entity Relationships Explorer</h1>
+            <p class="subtitle">Interactive analysis of entity relationships across test documents</p>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="card">
+                <div class="card-label">Total Relationships</div>
+                <div class="card-value" id="totalRelationships">-</div>
+                <div class="card-change" id="relationshipsChange">Loading...</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Unique Types</div>
+                <div class="card-value" id="uniqueTypes">-</div>
+                <div class="card-change" id="typesChange">Loading...</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Avg Confidence</div>
+                <div class="card-value" id="avgConfidence">-</div>
+                <div class="card-change" id="confidenceChange">Loading...</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Most Connected</div>
+                <div class="card-value" id="mostConnected" style="font-size: 18px;">-</div>
+                <div class="card-change" id="connectionsCount">Loading...</div>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filters-header">
+                <h3>Filters</h3>
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                    <button class="btn btn-secondary" id="resetFilters">Reset</button>
+                </div>
+            </div>
+
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label class="filter-label">Relationship Type</label>
+                    <select id="filterRelType" multiple>
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Source Entity Type</label>
+                    <select id="filterSourceType" multiple>
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Target Entity Type</label>
+                    <select id="filterTargetType" multiple>
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label class="filter-label">Document ID</label>
+                    <select id="filterDocId">
+                        <option value="">All Documents</option>
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Confidence Range</label>
+                <div class="confidence-slider" id="confidenceSlider"></div>
+                <div class="slider-values">
+                    <span id="minConfidence">0.00</span>
+                    <span id="maxConfidence">1.00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <div class="chart-title">Relationship Type Distribution</div>
+                        <canvas id="typeDistChart"></canvas>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-title">Confidence Distribution</div>
+                        <canvas id="confidenceDistChart"></canvas>
+                    </div>
+
+                    <div class="chart-container" style="grid-column: 1 / -1;">
+                        <div class="chart-title">Top 10 Most Connected Entities</div>
+                        <canvas id="connectedEntitiesChart"></canvas>
+                    </div>
+
+                    <div class="chart-container" style="grid-column: 1 / -1;">
+                        <div class="chart-title">Relationships per Document</div>
+                        <canvas id="docDistChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graph Preview -->
+            <div class="graph-preview">
+                <h3>Network Preview</h3>
+                <div id="graphPreview"></div>
+                <div class="graph-controls">
+                    <button class="btn btn-primary" id="viewFullGraph">View Full Graph</button>
+                    <button class="btn btn-secondary" id="resetGraph">Reset View</button>
+                </div>
+                <div class="graph-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #6c9bcf;"></div>
+                        <span>Entity Nodes</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #9ccc65;"></div>
+                        <span>Relationships</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-section">
+            <h3>Relationship Details</h3>
+            <table id="relationshipsTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Source Entity</th>
+                        <th>Target Entity</th>
+                        <th>Confidence</th>
+                        <th>Position</th>
+                        <th>Context</th>
+                        <th>Test ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for relationship details -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Relationship Details</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global data storage
+        let relationshipsData = [];
+        let entitiesData = {};
+        let cy; // Cytoscape instance
+        let table; // DataTable instance
+        let confidenceSlider;
+
+        // Entity type color mapping
+        const entityTypeColors = {
+            'JUDGE': '#ff9800',
+            'CASE_CITATION': '#2196f3',
+            'STATUTE': '#e91e63',
+            'COURT': '#9c27b0',
+            'PERSON': '#00bcd4',
+            'DATE': '#ffc107',
+            'ORGANIZATION': '#4caf50',
+            'LOCATION': '#9ccc65',
+            'default': '#6c9bcf'
+        };
+
+        // Relationship type colors
+        const relationshipColors = {
+            'CITES': '#2196f3',
+            'PRESIDES_OVER': '#ff9800',
+            'FILED_AGAINST': '#e91e63',
+            'REPRESENTED_BY': '#9c27b0',
+            'OCCURRED_ON': '#ffc107',
+            'default': '#9ccc65'
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Load data
+                await loadRelationshipsData();
+
+                // Initialize UI components
+                initializeFilters();
+                initializeSlider();
+                initializeTable();
+                initializeCharts();
+                initializeGraph();
+                updateSummaryCards();
+
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                alert('Error loading data. Please check the console for details.');
+            }
+        });
+
+        // Load relationships data from JSON file
+        async function loadRelationshipsData() {
+            try {
+                const response = await fetch('entity_relationships.json');
+                const data = await response.json();
+
+                // Parse relationships from all tests
+                relationshipsData = [];
+
+                for (const [testId, testData] of Object.entries(data.relationships_by_test)) {
+                    for (const rel of testData.relationships) {
+                        relationshipsData.push({
+                            ...rel,
+                            test_id: testId,
+                            document_id: testData.document_id,
+                            // For demo, create mock entity names from IDs
+                            source_entity_text: generateEntityName(rel.source_entity_id),
+                            target_entity_text: generateEntityName(rel.target_entity_id),
+                            source_entity_type: inferEntityType(rel.source_entity_id, rel.relationship_type, 'source'),
+                            target_entity_type: inferEntityType(rel.target_entity_id, rel.relationship_type, 'target')
+                        });
+                    }
+                }
+
+                console.log(`Loaded ${relationshipsData.length} relationships`);
+
+            } catch (error) {
+                console.error('Error loading relationships data:', error);
+                throw error;
+            }
+        }
+
+        // Generate mock entity name from ID
+        function generateEntityName(entityId) {
+            const names = {
+                'uuid-string-1': 'United States of America',
+                'uuid-string-2': 'Michael Henderson',
+                'uuid-string-3': 'Bank Robbery Statute',
+                'uuid-string-4': 'Chief Justice Roberts',
+                'uuid-string-5': 'Southern District of New York',
+                'uuid-string-6': '21 U.S.C. § 841(a)(1)',
+                'uuid-string-7': '18 U.S.C. § 2',
+                'uuid-string-8': 'March 15, 2023',
+                'uuid-string-9': '1969',
+                'uuid-string-10': 'Interstate 95',
+                'uuid-string-11': 'Officer Sarah Martinez',
+                'uuid-string-12': 'New York Police Department',
+                'uuid-string-13': 'New York',
+                'uuid-string-14': 'United States v. Henderson',
+                'entity_1': 'Summary Judgment Motion',
+                'entity_2': '$4.5 Million',
+                'entity_3': '$875,000'
+            };
+
+            return names[entityId] || entityId.substring(0, 20);
+        }
+
+        // Infer entity type from relationship context
+        function inferEntityType(entityId, relType, position) {
+            // Simple heuristic based on relationship type
+            const typeMap = {
+                'PRESIDED_OVER_BY': position === 'target' ? 'JUDGE' : 'CASE_CITATION',
+                'PRESIDES_OVER': position === 'source' ? 'JUDGE' : 'CASE_CITATION',
+                'CITES': position === 'target' ? 'STATUTE' : 'CASE_CITATION',
+                'FILED_IN': position === 'target' ? 'COURT' : 'CASE_CITATION',
+                'LOCATED_IN': position === 'target' ? 'LOCATION' : 'COURT',
+                'ARRESTED_ON': position === 'target' ? 'DATE' : 'PERSON',
+                'OCCURRED_ON': position === 'target' ? 'DATE' : 'CASE_CITATION',
+                'EMPLOYED_BY': position === 'target' ? 'ORGANIZATION' : 'PERSON',
+                'REPRESENTED_BY': position === 'target' ? 'PERSON' : 'ORGANIZATION'
+            };
+
+            return typeMap[relType] || 'ENTITY';
+        }
+
+        // Initialize filter dropdowns
+        function initializeFilters() {
+            // Relationship types
+            const relTypes = [...new Set(relationshipsData.map(r => r.relationship_type))].sort();
+            const relTypeSelect = document.getElementById('filterRelType');
+            relTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type.replace(/_/g, ' ');
+                relTypeSelect.appendChild(option);
+            });
+
+            // Source entity types
+            const sourceTypes = [...new Set(relationshipsData.map(r => r.source_entity_type))].sort();
+            const sourceTypeSelect = document.getElementById('filterSourceType');
+            sourceTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type.replace(/_/g, ' ');
+                sourceTypeSelect.appendChild(option);
+            });
+
+            // Target entity types
+            const targetTypes = [...new Set(relationshipsData.map(r => r.target_entity_type))].sort();
+            const targetTypeSelect = document.getElementById('filterTargetType');
+            targetTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type.replace(/_/g, ' ');
+                targetTypeSelect.appendChild(option);
+            });
+
+            // Document IDs
+            const docIds = [...new Set(relationshipsData.map(r => r.document_id))].sort();
+            const docIdSelect = document.getElementById('filterDocId');
+            docIds.forEach(docId => {
+                const option = document.createElement('option');
+                option.value = docId;
+                option.textContent = docId;
+                docIdSelect.appendChild(option);
+            });
+
+            // Event listeners
+            document.getElementById('applyFilters').addEventListener('click', applyFilters);
+            document.getElementById('resetFilters').addEventListener('click', resetFilters);
+        }
+
+        // Initialize confidence slider
+        function initializeSlider() {
+            const slider = document.getElementById('confidenceSlider');
+
+            noUiSlider.create(slider, {
+                start: [0, 1],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 1
+                },
+                step: 0.01,
+                format: {
+                    to: value => value.toFixed(2),
+                    from: value => Number(value)
+                }
+            });
+
+            confidenceSlider = slider;
+
+            slider.noUiSlider.on('update', function(values) {
+                document.getElementById('minConfidence').textContent = values[0];
+                document.getElementById('maxConfidence').textContent = values[1];
+            });
+        }
+
+        // Initialize DataTable
+        function initializeTable() {
+            table = $('#relationshipsTable').DataTable({
+                data: relationshipsData,
+                columns: [
+                    {
+                        data: 'id',
+                        render: function(data) {
+                            return `<span style="font-family: monospace; font-size: 11px;">${data.substring(0, 8)}...</span>`;
+                        }
+                    },
+                    {
+                        data: 'relationship_type',
+                        render: function(data) {
+                            return `<span class="badge badge-relationship">${data.replace(/_/g, ' ')}</span>`;
+                        }
+                    },
+                    {
+                        data: 'source_entity_text',
+                        render: function(data, type, row) {
+                            const badge = getBadgeClass(row.source_entity_type);
+                            return `<div>${data}</div><span class="badge ${badge}">${row.source_entity_type}</span>`;
+                        }
+                    },
+                    {
+                        data: 'target_entity_text',
+                        render: function(data, type, row) {
+                            const badge = getBadgeClass(row.target_entity_type);
+                            return `<div>${data}</div><span class="badge ${badge}">${row.target_entity_type}</span>`;
+                        }
+                    },
+                    {
+                        data: 'confidence',
+                        render: function(data) {
+                            const percent = Math.round(data * 100);
+                            const level = data >= 0.9 ? '' : data >= 0.7 ? 'medium' : 'low';
+                            return `<div class="confidence-bar">
+                                <div class="confidence-fill ${level}" style="width: ${percent}%">${percent}%</div>
+                            </div>`;
+                        }
+                    },
+                    {
+                        data: 'start_pos',
+                        render: function(data, type, row) {
+                            return `${data}-${row.end_pos}`;
+                        }
+                    },
+                    {
+                        data: 'context',
+                        render: function(data) {
+                            const truncated = data.length > 50 ? data.substring(0, 50) + '...' : data;
+                            return `<span title="${data}" class="tooltip-text">${truncated}</span>`;
+                        }
+                    },
+                    {
+                        data: 'test_id',
+                        render: function(data) {
+                            return `<span style="font-family: monospace; font-size: 11px;">${data.substring(5, 18)}...</span>`;
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function(data, type, row) {
+                            return `
+                                <button class="action-btn action-btn-view" onclick="viewDetails('${row.id}')">View</button>
+                                <button class="action-btn action-btn-graph" onclick="viewInGraph('${row.id}')">Graph</button>
+                                <button class="action-btn action-btn-copy" onclick="copyId('${row.id}')">Copy</button>
+                            `;
+                        }
+                    }
+                ],
+                pageLength: 25,
+                lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "All"]],
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5'
+                ],
+                order: [[4, 'desc']], // Sort by confidence descending
+                responsive: true
+            });
+        }
+
+        // Get badge class for entity type
+        function getBadgeClass(entityType) {
+            const typeMap = {
+                'JUDGE': 'badge-judge',
+                'CASE_CITATION': 'badge-case',
+                'STATUTE': 'badge-statute',
+                'COURT': 'badge-court',
+                'PERSON': 'badge-person',
+                'DATE': 'badge-date'
+            };
+            return typeMap[entityType] || 'badge-entity';
+        }
+
+        // Initialize charts
+        function initializeCharts() {
+            // Chart defaults
+            Chart.defaults.color = '#888';
+            Chart.defaults.borderColor = '#444';
+
+            // Relationship Type Distribution
+            const typeCount = {};
+            relationshipsData.forEach(r => {
+                typeCount[r.relationship_type] = (typeCount[r.relationship_type] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('typeDistChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(typeCount).map(t => t.replace(/_/g, ' ')),
+                    datasets: [{
+                        label: 'Count',
+                        data: Object.values(typeCount),
+                        backgroundColor: '#6c9bcf',
+                        borderColor: '#5a8ab8',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Confidence Distribution
+            const confidenceBuckets = [0, 0, 0, 0, 0]; // 0-0.2, 0.2-0.4, 0.4-0.6, 0.6-0.8, 0.8-1.0
+            relationshipsData.forEach(r => {
+                const bucket = Math.min(Math.floor(r.confidence * 5), 4);
+                confidenceBuckets[bucket]++;
+            });
+
+            new Chart(document.getElementById('confidenceDistChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['0-20%', '20-40%', '40-60%', '60-80%', '80-100%'],
+                    datasets: [{
+                        label: 'Count',
+                        data: confidenceBuckets,
+                        backgroundColor: ['#f44336', '#ff9800', '#ffc107', '#8bc34a', '#4caf50'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Top 10 Most Connected Entities
+            const entityConnections = {};
+            relationshipsData.forEach(r => {
+                entityConnections[r.source_entity_text] = (entityConnections[r.source_entity_text] || 0) + 1;
+                entityConnections[r.target_entity_text] = (entityConnections[r.target_entity_text] || 0) + 1;
+            });
+
+            const topEntities = Object.entries(entityConnections)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            new Chart(document.getElementById('connectedEntitiesChart'), {
+                type: 'bar',
+                data: {
+                    labels: topEntities.map(e => e[0]),
+                    datasets: [{
+                        label: 'Connections',
+                        data: topEntities.map(e => e[1]),
+                        backgroundColor: '#9ccc65',
+                        borderColor: '#8bb750',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Relationships per Document
+            const docCount = {};
+            relationshipsData.forEach(r => {
+                docCount[r.document_id] = (docCount[r.document_id] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('docDistChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(docCount),
+                    datasets: [{
+                        label: 'Relationships',
+                        data: Object.values(docCount),
+                        backgroundColor: '#ff9800',
+                        borderColor: '#e68900',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        }
+
+        // Initialize Cytoscape graph
+        function initializeGraph() {
+            // Get top 20 most connected entities for preview
+            const entityConnections = {};
+            relationshipsData.forEach(r => {
+                entityConnections[r.source_entity_id] = (entityConnections[r.source_entity_id] || 0) + 1;
+                entityConnections[r.target_entity_id] = (entityConnections[r.target_entity_id] || 0) + 1;
+            });
+
+            const topEntityIds = Object.entries(entityConnections)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 20)
+                .map(e => e[0]);
+
+            // Build graph elements
+            const nodes = new Set();
+            const edges = [];
+
+            relationshipsData.forEach(r => {
+                if (topEntityIds.includes(r.source_entity_id) && topEntityIds.includes(r.target_entity_id)) {
+                    nodes.add(r.source_entity_id);
+                    nodes.add(r.target_entity_id);
+                    edges.push({
+                        data: {
+                            id: r.id,
+                            source: r.source_entity_id,
+                            target: r.target_entity_id,
+                            label: r.relationship_type,
+                            color: relationshipColors[r.relationship_type] || relationshipColors.default
+                        }
+                    });
+                }
+            });
+
+            const elements = [
+                ...Array.from(nodes).map(nodeId => {
+                    const rel = relationshipsData.find(r => r.source_entity_id === nodeId || r.target_entity_id === nodeId);
+                    const entityType = rel?.source_entity_id === nodeId ? rel.source_entity_type : rel.target_entity_type;
+                    const entityText = rel?.source_entity_id === nodeId ? rel.source_entity_text : rel.target_entity_text;
+
+                    return {
+                        data: {
+                            id: nodeId,
+                            label: entityText,
+                            type: entityType,
+                            color: entityTypeColors[entityType] || entityTypeColors.default
+                        }
+                    };
+                }),
+                ...edges
+            ];
+
+            cy = cytoscape({
+                container: document.getElementById('graphPreview'),
+                elements: elements,
+                style: [
+                    {
+                        selector: 'node',
+                        style: {
+                            'background-color': 'data(color)',
+                            'label': 'data(label)',
+                            'color': '#e0e0e0',
+                            'text-wrap': 'wrap',
+                            'text-max-width': '100px',
+                            'font-size': '10px',
+                            'text-valign': 'center',
+                            'text-halign': 'center',
+                            'width': 30,
+                            'height': 30
+                        }
+                    },
+                    {
+                        selector: 'edge',
+                        style: {
+                            'width': 2,
+                            'line-color': 'data(color)',
+                            'target-arrow-color': 'data(color)',
+                            'target-arrow-shape': 'triangle',
+                            'curve-style': 'bezier',
+                            'opacity': 0.6
+                        }
+                    }
+                ],
+                layout: {
+                    name: 'cose',
+                    animate: true,
+                    nodeRepulsion: 8000,
+                    idealEdgeLength: 100,
+                    edgeElasticity: 100
+                }
+            });
+
+            // Event listeners
+            cy.on('tap', 'node', function(evt) {
+                const nodeId = evt.target.id();
+                filterTableByEntity(nodeId);
+            });
+
+            document.getElementById('viewFullGraph').addEventListener('click', function() {
+                window.location.href = 'graph.html';
+            });
+
+            document.getElementById('resetGraph').addEventListener('click', function() {
+                cy.fit();
+            });
+        }
+
+        // Update summary cards
+        function updateSummaryCards() {
+            const total = relationshipsData.length;
+            const uniqueTypes = new Set(relationshipsData.map(r => r.relationship_type)).size;
+            const avgConf = relationshipsData.reduce((sum, r) => sum + r.confidence, 0) / total;
+
+            // Most connected entity
+            const entityConnections = {};
+            relationshipsData.forEach(r => {
+                entityConnections[r.source_entity_text] = (entityConnections[r.source_entity_text] || 0) + 1;
+                entityConnections[r.target_entity_text] = (entityConnections[r.target_entity_text] || 0) + 1;
+            });
+
+            const mostConnected = Object.entries(entityConnections)
+                .sort((a, b) => b[1] - a[1])[0];
+
+            document.getElementById('totalRelationships').textContent = total;
+            document.getElementById('relationshipsChange').textContent = `Across ${new Set(relationshipsData.map(r => r.test_id)).size} tests`;
+
+            document.getElementById('uniqueTypes').textContent = uniqueTypes;
+            document.getElementById('typesChange').textContent = `${uniqueTypes} distinct types`;
+
+            document.getElementById('avgConfidence').textContent = avgConf.toFixed(2);
+            document.getElementById('confidenceChange').textContent = `Range: ${Math.min(...relationshipsData.map(r => r.confidence)).toFixed(2)} - ${Math.max(...relationshipsData.map(r => r.confidence)).toFixed(2)}`;
+
+            document.getElementById('mostConnected').textContent = mostConnected[0];
+            document.getElementById('connectionsCount').textContent = `${mostConnected[1]} connections`;
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const relTypes = Array.from(document.getElementById('filterRelType').selectedOptions).map(o => o.value);
+            const sourceTypes = Array.from(document.getElementById('filterSourceType').selectedOptions).map(o => o.value);
+            const targetTypes = Array.from(document.getElementById('filterTargetType').selectedOptions).map(o => o.value);
+            const docId = document.getElementById('filterDocId').value;
+            const [minConf, maxConf] = confidenceSlider.noUiSlider.get().map(Number);
+
+            const filtered = relationshipsData.filter(r => {
+                if (relTypes.length > 0 && !relTypes.includes(r.relationship_type)) return false;
+                if (sourceTypes.length > 0 && !sourceTypes.includes(r.source_entity_type)) return false;
+                if (targetTypes.length > 0 && !targetTypes.includes(r.target_entity_type)) return false;
+                if (docId && r.document_id !== docId) return false;
+                if (r.confidence < minConf || r.confidence > maxConf) return false;
+                return true;
+            });
+
+            table.clear();
+            table.rows.add(filtered);
+            table.draw();
+        }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('filterRelType').selectedIndex = -1;
+            document.getElementById('filterSourceType').selectedIndex = -1;
+            document.getElementById('filterTargetType').selectedIndex = -1;
+            document.getElementById('filterDocId').value = '';
+            confidenceSlider.noUiSlider.set([0, 1]);
+
+            table.clear();
+            table.rows.add(relationshipsData);
+            table.draw();
+        }
+
+        // Filter table by entity
+        function filterTableByEntity(entityId) {
+            const filtered = relationshipsData.filter(r =>
+                r.source_entity_id === entityId || r.target_entity_id === entityId
+            );
+
+            table.clear();
+            table.rows.add(filtered);
+            table.draw();
+        }
+
+        // View relationship details
+        function viewDetails(relId) {
+            const rel = relationshipsData.find(r => r.id === relId);
+            if (!rel) return;
+
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="detail-row">
+                    <div class="detail-label">Relationship ID</div>
+                    <div class="detail-value" style="font-family: monospace;">${rel.id}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Type</div>
+                    <div class="detail-value">
+                        <span class="badge badge-relationship">${rel.relationship_type.replace(/_/g, ' ')}</span>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Source Entity</div>
+                    <div class="detail-value">
+                        ${rel.source_entity_text}<br>
+                        <span class="badge ${getBadgeClass(rel.source_entity_type)}">${rel.source_entity_type}</span>
+                        <br><small style="color: #666;">ID: ${rel.source_entity_id}</small>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Target Entity</div>
+                    <div class="detail-value">
+                        ${rel.target_entity_text}<br>
+                        <span class="badge ${getBadgeClass(rel.target_entity_type)}">${rel.target_entity_type}</span>
+                        <br><small style="color: #666;">ID: ${rel.target_entity_id}</small>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Confidence</div>
+                    <div class="detail-value">
+                        <div class="confidence-bar">
+                            <div class="confidence-fill ${rel.confidence >= 0.9 ? '' : rel.confidence >= 0.7 ? 'medium' : 'low'}"
+                                 style="width: ${Math.round(rel.confidence * 100)}%">
+                                ${Math.round(rel.confidence * 100)}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Position</div>
+                    <div class="detail-value">${rel.start_pos} - ${rel.end_pos} (${rel.end_pos - rel.start_pos} chars)</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Context</div>
+                    <div class="detail-value">${rel.context}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Metadata</div>
+                    <div class="detail-value">
+                        <pre style="background: #1a1a2e; padding: 10px; border-radius: 4px; overflow-x: auto;">${JSON.stringify(rel.metadata, null, 2)}</pre>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Document ID</div>
+                    <div class="detail-value">${rel.document_id}</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Test ID</div>
+                    <div class="detail-value" style="font-family: monospace;">${rel.test_id}</div>
+                </div>
+            `;
+
+            document.getElementById('detailModal').classList.add('active');
+        }
+
+        // View in graph
+        function viewInGraph(relId) {
+            window.location.href = `graph.html?highlight=${relId}`;
+        }
+
+        // Copy relationship ID
+        function copyId(relId) {
+            navigator.clipboard.writeText(relId).then(() => {
+                alert('Relationship ID copied to clipboard');
+            });
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('detailModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

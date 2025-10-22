@@ -1,0 +1,689 @@
+{
+  "regex": {
+    "document_id": "test_doc_regex",
+    "extraction_id": "bad1bdd1-a039-4d91-9701-cdcaa882c5e9",
+    "timestamp": 1757087182.436261,
+    "processing_time_ms": 3924.0,
+    "extraction_mode": "regex",
+    "total_entities": 52,
+    "entities": [
+      {
+        "type": "PARTY",
+        "text": "United States",
+        "confidence": 0.87,
+        "start_position": 0,
+        "end_position": 13,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Depart",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "GOVERNMENT_ENTITY",
+        "text": "United States",
+        "confidence": 0.92,
+        "start_position": 0,
+        "end_position": 13,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Depart",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "United States v. Microsoft Corporation",
+        "confidence": 0.9384,
+        "start_position": 0,
+        "end_position": 38,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Microsoft Corporation",
+        "confidence": 0.87,
+        "start_position": 17,
+        "end_position": 38,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "D.C. Cir",
+        "confidence": 0.8721,
+        "start_position": 53,
+        "end_position": 61,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing an antitrust action aga",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "GOVERNMENT_ENTITY",
+        "text": "United States",
+        "confidence": 0.92,
+        "start_position": 93,
+        "end_position": 106,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing an antitrust action against Microsoft Corporation in the United Stat",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "United States Department",
+        "confidence": 0.87,
+        "start_position": 93,
+        "end_position": 117,
+        "context": "United States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "FEDERAL_AGENCY",
+        "text": "Department of Justice",
+        "confidence": 0.93,
+        "start_position": 107,
+        "end_position": 128,
+        "context": "States v. Microsoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "JUDGE",
+        "text": "Justice",
+        "confidence": 0.8,
+        "start_position": 121,
+        "end_position": 128,
+        "context": "osoft Corporation, 253 F.3d 34 (D.C. Cir. 2001) This case involves the United States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Microsoft Corporation",
+        "confidence": 0.87,
+        "start_position": 166,
+        "end_position": 187,
+        "context": "1) This case involves the United States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson pre",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "GOVERNMENT_ENTITY",
+        "text": "United States",
+        "confidence": 0.92,
+        "start_position": 195,
+        "end_position": 208,
+        "context": "ited States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial.",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "United States District",
+        "confidence": 0.87,
+        "start_position": 195,
+        "end_position": 217,
+        "context": "ited States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "ADDRESS",
+        "text": "United States District Court",
+        "confidence": 0.9282,
+        "start_position": 195,
+        "end_position": 223,
+        "context": "ited States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case was a",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "United States District Court",
+        "confidence": 0.88434,
+        "start_position": 195,
+        "end_position": 223,
+        "context": "ited States Department of Justice bringing an antitrust action against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case was a",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "ADDRESS",
+        "text": "District of Columbia",
+        "confidence": 0.93,
+        "start_position": 232,
+        "end_position": 252,
+        "context": "nging an antitrust action against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case was argued by David Boies for the",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "JUDGE",
+        "text": "Judge Thomas",
+        "confidence": 0.9588,
+        "start_position": 254,
+        "end_position": 266,
+        "context": "ion against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case was argued by David Boies for the plaintiffs and",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Judge Thomas Penfield",
+        "confidence": 0.87,
+        "start_position": 254,
+        "end_position": 275,
+        "context": "ion against Microsoft Corporation in the United States District Court for the District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case was argued by David Boies for the plaintiffs and William",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "David Boies",
+        "confidence": 0.87,
+        "start_position": 332,
+        "end_position": 343,
+        "context": "District of Columbia. Judge Thomas Penfield Jackson presided over the trial. The case was argued by David Boies for the plaintiffs and William H. Neukom for Microsoft. The court found violations of Sections 1 a",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "William H. Neukom",
+        "confidence": 0.87,
+        "start_position": 367,
+        "end_position": 384,
+        "context": "Penfield Jackson presided over the trial. The case was argued by David Boies for the plaintiffs and William H. Neukom for Microsoft. The court found violations of Sections 1 and 2 of the Sherman Act, 15 U.S.C. \u00a7\u00a7 1-2",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Sherman Act",
+        "confidence": 0.87,
+        "start_position": 455,
+        "end_position": 466,
+        "context": "intiffs and William H. Neukom for Microsoft. The court found violations of Sections 1 and 2 of the Sherman Act, 15 U.S.C. \u00a7\u00a7 1-2. The Federal Rules of Civil Procedure, particularly Rule 23, were discussed regar",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "LEGAL_CONCEPT",
+        "text": "\u00a7 1",
+        "confidence": 0.8075,
+        "start_position": 479,
+        "end_position": 482,
+        "context": "eukom for Microsoft. The court found violations of Sections 1 and 2 of the Sherman Act, 15 U.S.C. \u00a7\u00a7 1-2. The Federal Rules of Civil Procedure, particularly Rule 23, were discussed regarding class certi",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "The Federal Rules",
+        "confidence": 0.87,
+        "start_position": 486,
+        "end_position": 503,
+        "context": "or Microsoft. The court found violations of Sections 1 and 2 of the Sherman Act, 15 U.S.C. \u00a7\u00a7 1-2. The Federal Rules of Civil Procedure, particularly Rule 23, were discussed regarding class certification issues. The",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Civil Procedure",
+        "confidence": 0.87,
+        "start_position": 507,
+        "end_position": 522,
+        "context": "urt found violations of Sections 1 and 2 of the Sherman Act, 15 U.S.C. \u00a7\u00a7 1-2. The Federal Rules of Civil Procedure, particularly Rule 23, were discussed regarding class certification issues. The judgment was enter",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PROCEDURAL_RULE",
+        "text": "Rule 23",
+        "confidence": 0.855,
+        "start_position": 537,
+        "end_position": 544,
+        "context": "ns 1 and 2 of the Sherman Act, 15 U.S.C. \u00a7\u00a7 1-2. The Federal Rules of Civil Procedure, particularly Rule 23, were discussed regarding class certification issues. The judgment was entered on June 7, 2000, wi",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PROCEDURAL_RULE",
+        "text": "class certification",
+        "confidence": 0.9,
+        "start_position": 571,
+        "end_position": 590,
+        "context": "U.S.C. \u00a7\u00a7 1-2. The Federal Rules of Civil Procedure, particularly Rule 23, were discussed regarding class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "DECISION_DATE",
+        "text": "entered on June 7, 2000",
+        "confidence": 0.94,
+        "start_position": 617,
+        "end_position": 640,
+        "context": "edure, particularly Rule 23, were discussed regarding class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Cour",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "DATE",
+        "text": "June 7, 2000",
+        "confidence": 0.95,
+        "start_position": 628,
+        "end_position": 640,
+        "context": "icularly Rule 23, were discussed regarding class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Cour",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "DECISION_DATE",
+        "text": "June 7, 2000",
+        "confidence": 0.92,
+        "start_position": 628,
+        "end_position": 640,
+        "context": "icularly Rule 23, were discussed regarding class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Cour",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "DATE",
+        "text": "June 7, 2000",
+        "confidence": 0.89,
+        "start_position": 628,
+        "end_position": 640,
+        "context": "icularly Rule 23, were discussed regarding class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Cour",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "DAMAGES",
+        "text": "damages of $1.5 billion",
+        "confidence": 0.93,
+        "start_position": 656,
+        "end_position": 679,
+        "context": "ssed regarding class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. S",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "MONETARY_AMOUNT",
+        "text": "$1.5 billion",
+        "confidence": 0.98,
+        "start_position": 667,
+        "end_position": 679,
+        "context": "ing class certification issues. The judgment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. S",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PROCEDURAL_RULE",
+        "text": "appealed",
+        "confidence": 0.874,
+        "start_position": 707,
+        "end_position": 715,
+        "context": "gment was entered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "the D.C. Circuit Court",
+        "confidence": 0.9588,
+        "start_position": 719,
+        "end_position": 741,
+        "context": "tered on June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Circuit Court",
+        "confidence": 0.87,
+        "start_position": 728,
+        "end_position": 741,
+        "context": "June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "Circuit Court of Appeals",
+        "confidence": 0.92,
+        "start_position": 728,
+        "end_position": 752,
+        "context": "June 7, 2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, In",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "ADDRESS",
+        "text": "Court",
+        "confidence": 0.8644999999999999,
+        "start_position": 736,
+        "end_position": 741,
+        "context": "2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "Court of Appeals",
+        "confidence": 0.87,
+        "start_position": 736,
+        "end_position": 752,
+        "context": "2000, with monetary damages of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, In",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Apple Inc",
+        "confidence": 0.8265,
+        "start_position": 764,
+        "end_position": 773,
+        "context": "of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 75",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CORPORATION",
+        "text": "Apple Inc",
+        "confidence": 0.8265,
+        "start_position": 764,
+        "end_position": 773,
+        "context": "of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 75",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Apple Inc. v. Samsung Electronics Co",
+        "confidence": 0.8976000000000001,
+        "start_position": 764,
+        "end_position": 800,
+        "context": "of $1.5 billion. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Samsung Electronics Co",
+        "confidence": 0.87,
+        "start_position": 778,
+        "end_position": 800,
+        "context": "n. The case was subsequently appealed to the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "Fed. Cir",
+        "confidence": 0.8721,
+        "start_position": 817,
+        "end_position": 825,
+        "context": "o the D.C. Circuit Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014).",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Oracle America",
+        "confidence": 0.87,
+        "start_position": 834,
+        "end_position": 848,
+        "context": "t Court of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014).",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "LAW_FIRM",
+        "text": "America, Inc",
+        "confidence": 0.88,
+        "start_position": 841,
+        "end_position": 853,
+        "context": "of Appeals. See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014).",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "PARTY",
+        "text": "Google Inc",
+        "confidence": 0.87,
+        "start_position": 858,
+        "end_position": 868,
+        "context": "also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014).",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CORPORATION",
+        "text": "Google Inc",
+        "confidence": 0.87,
+        "start_position": 858,
+        "end_position": 868,
+        "context": "also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014).",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "COURT",
+        "text": "Fed. Cir",
+        "confidence": 0.8721,
+        "start_position": 886,
+        "end_position": 894,
+        "context": "Electronics Co., 786 F.3d 983 (Fed. Cir. 2015); Oracle America, Inc. v. Google Inc., 750 F.3d 1339 (Fed. Cir. 2014).",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CASE_CITATION",
+        "text": "United States v. Microsoft Corporation, 253 F.3d 34",
+        "confidence": 1.0,
+        "start_position": 0,
+        "end_position": 51,
+        "context": "",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CASE_CITATION",
+        "text": "253 F.3d 34 (D.C. Cir. 2001)",
+        "confidence": 0.9738144000000002,
+        "start_position": 40,
+        "end_position": 68,
+        "context": "",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CASE_CITATION",
+        "text": "See also Apple Inc. v. Samsung Electronics Co., 786 F.3d 983 (Fed. Cir. 2015)",
+        "confidence": 1.0,
+        "start_position": 755,
+        "end_position": 832,
+        "context": "",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CASE_CITATION",
+        "text": "786 F.3d 983 (Fed. Cir. 2015)",
+        "confidence": 0.9738144000000002,
+        "start_position": 803,
+        "end_position": 832,
+        "context": "",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      },
+      {
+        "type": "CASE_CITATION",
+        "text": "750 F.3d 1339 (Fed. Cir. 2014)",
+        "confidence": 0.9738144000000002,
+        "start_position": 871,
+        "end_position": 901,
+        "context": "",
+        "extraction_method": "regex_only",
+        "metadata": {}
+      }
+    ],
+    "document_metadata": {
+      "content_length": 904,
+      "document_type": null,
+      "extraction_mode": "regex",
+      "entity_types_requested": null,
+      "request_id": "extract_1757087178507",
+      "processing_summary": {
+        "total_processing_time_ms": 3924,
+        "regex_stage_time_ms": 268,
+        "ai_enhancement_time_ms": 0,
+        "entities_found": 47,
+        "citations_found": 5,
+        "relationships_found": 0,
+        "ai_enhancements_applied": 0,
+        "confidence_distribution": {
+          "0.0-0.2": 0,
+          "0.2-0.4": 0,
+          "0.4-0.6": 0,
+          "0.6-0.8": 0,
+          "0.8-1.0": 52
+        },
+        "processing_stages_completed": [
+          "regex_extraction",
+          "relationship_extraction",
+          "confidence_scoring",
+          "result_compilation"
+        ],
+        "pattern_matches": {},
+        "ai_discoveries": 0,
+        "bluebook_compliance_rate": null,
+        "avg_confidence_score": 0.8976516000000001
+      }
+    },
+    "extraction_statistics": {
+      "entities_found": 47,
+      "citations_found": 5,
+      "relationships_found": 0,
+      "ai_enhancements_applied": 0,
+      "processing_stages": [
+        "regex_extraction",
+        "relationship_extraction",
+        "confidence_scoring",
+        "result_compilation"
+      ]
+    }
+  },
+  "ai_enhanced": {
+    "document_id": "test_doc_ai_enhanced",
+    "extraction_id": "b004f02d-a832-41b4-9a9a-e690591a2245",
+    "timestamp": 1757087182.4739807,
+    "processing_time_ms": 7.0,
+    "extraction_mode": "ai_enhanced",
+    "total_entities": 0,
+    "entities": [],
+    "document_metadata": {
+      "content_length": 904,
+      "document_type": null,
+      "extraction_mode": "ai_enhanced",
+      "entity_types_requested": null,
+      "request_id": "ai_enhanced_1757087182465",
+      "processing_summary": {
+        "total_processing_time_ms": 7,
+        "regex_stage_time_ms": 0,
+        "ai_enhancement_time_ms": 7,
+        "entities_found": 0,
+        "citations_found": 0,
+        "relationships_found": 0,
+        "ai_enhancements_applied": 0,
+        "confidence_distribution": {
+          "0.0-0.2": 0,
+          "0.2-0.4": 0,
+          "0.4-0.6": 0,
+          "0.6-0.8": 0,
+          "0.8-1.0": 0
+        },
+        "processing_stages_completed": [
+          "ai_deep_analysis",
+          "nlp_enhancement",
+          "confidence_scoring"
+        ],
+        "pattern_matches": {},
+        "ai_discoveries": 0,
+        "bluebook_compliance_rate": null,
+        "avg_confidence_score": 0.0
+      }
+    },
+    "extraction_statistics": {
+      "entities_found": 0,
+      "citations_found": 0,
+      "relationships_found": 0,
+      "ai_enhancements_applied": 0,
+      "processing_stages": [
+        "ai_deep_analysis",
+        "nlp_enhancement",
+        "confidence_scoring"
+      ]
+    }
+  },
+  "hybrid": {
+    "document_id": "test_doc_hybrid",
+    "extraction_id": "171e7d4f-6ee0-4fd7-a7d3-5b8cdd342e34",
+    "timestamp": 1757087192.3536856,
+    "processing_time_ms": 9817.0,
+    "extraction_mode": "hybrid",
+    "total_entities": 0,
+    "entities": [],
+    "document_metadata": {
+      "content_length": 904,
+      "document_type": null,
+      "extraction_mode": "hybrid",
+      "entity_types_requested": null,
+      "request_id": "multipass_1757087182535",
+      "processing_summary": {
+        "total_processing_time_ms": 9817,
+        "regex_stage_time_ms": 0,
+        "ai_enhancement_time_ms": 9817,
+        "entities_found": 0,
+        "citations_found": 0,
+        "relationships_found": 0,
+        "ai_enhancements_applied": 0,
+        "confidence_distribution": {
+          "0.0-0.2": 0,
+          "0.2-0.4": 0,
+          "0.4-0.6": 0,
+          "0.6-0.8": 0,
+          "0.8-1.0": 0
+        },
+        "processing_stages_completed": [
+          "multipass_1",
+          "multipass_2",
+          "multipass_3",
+          "multipass_4",
+          "multipass_5",
+          "multipass_6",
+          "multipass_7"
+        ],
+        "pattern_matches": {},
+        "ai_discoveries": 0,
+        "bluebook_compliance_rate": null,
+        "avg_confidence_score": 0.0
+      }
+    },
+    "extraction_statistics": {
+      "entities_found": 0,
+      "citations_found": 0,
+      "relationships_found": 0,
+      "ai_enhancements_applied": 0,
+      "processing_stages": [
+        "multipass_1",
+        "multipass_2",
+        "multipass_3",
+        "multipass_4",
+        "multipass_5",
+        "multipass_6",
+        "multipass_7"
+      ]
+    }
+  }
+}

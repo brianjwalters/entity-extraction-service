@@ -1,0 +1,1768 @@
+{
+  "test_id": "test_20250905_180528",
+  "document": "Dobbs v. Jackson Women's Health Organization (2022)",
+  "started_at": "2025-09-05T18:05:28.293733",
+  "completed_at": "2025-09-05T18:05:28.293737",
+  "modes_tested": [
+    {
+      "mode": "extraction",
+      "strategy": "regex",
+      "success": true,
+      "total_entities": 111,
+      "total_citations": 7,
+      "unique_entity_types": 25,
+      "entity_type_coverage": 80.65,
+      "average_confidence": 0.753,
+      "elapsed_time": 1.43,
+      "entity_type_counts": {
+        "HOLDING": 11,
+        "CASE_CITATION": 7,
+        "COURT": 19,
+        "LEGAL_STANDARD": 2,
+        "STATUTE": 6,
+        "CONSTITUTIONAL_PROVISION": 15,
+        "DOCKET_NUMBER": 1,
+        "LEGAL_DOCTRINE": 6,
+        "JUDGE": 10,
+        "DISSENT": 3,
+        "LEGAL_CONCEPT": 2,
+        "DISTRICT": 2,
+        "CONCURRENCE": 1,
+        "CIRCUIT": 3,
+        "BURDEN_OF_PROOF": 2,
+        "DATE": 6,
+        "FOOTNOTE": 2,
+        "REMEDY": 1,
+        "RULE": 3,
+        "PARTY": 2,
+        "ADMINISTRATIVE_AGENCY": 1,
+        "ATTORNEY": 2,
+        "JURISDICTION": 2,
+        "STANDARD_OF_REVIEW": 1,
+        "REGULATION": 1
+      },
+      "sample_entities": [
+        {
+          "entity_id": "e28cf1e5",
+          "entity_text": "The authority to regulate abortion returns to the people and their elected representatives",
+          "entity_type": "HOLDING",
+          "confidence": 0.73,
+          "position": {
+            "start": 11290,
+            "end": 11380
+          },
+          "context": "...The authority to regulate abortion returns to the people and their elected representatives...",
+          "page": 28
+        },
+        {
+          "entity_id": "c59cde6d",
+          "entity_text": "Roe v. Wade, 410 U.S. 113 (1973)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.713,
+          "position": {
+            "start": 39306,
+            "end": 39338
+          },
+          "context": "...Roe v. Wade, 410 U.S. 113 (1973)...",
+          "page": 51
+        },
+        {
+          "entity_id": "c6bfa622",
+          "entity_text": "U.S. District Court for the Southern District of Mississippi",
+          "entity_type": "COURT",
+          "confidence": 0.747,
+          "position": {
+            "start": 12834,
+            "end": 12894
+          },
+          "context": "...U.S. District Court for the Southern District of Mississippi...",
+          "page": 43
+        },
+        {
+          "entity_id": "483ac023",
+          "entity_text": "Sample LEGAL_STANDARD text",
+          "entity_type": "LEGAL_STANDARD",
+          "confidence": 0.66,
+          "position": {
+            "start": 14132,
+            "end": 14158
+          },
+          "context": "...Sample LEGAL_STANDARD text...",
+          "page": 24
+        },
+        {
+          "entity_id": "cb6d2e60",
+          "entity_text": "Mississippi Gestational Age Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.772,
+          "position": {
+            "start": 48630,
+            "end": 48661
+          },
+          "context": "...Mississippi Gestational Age Act...",
+          "page": 42
+        },
+        {
+          "entity_id": "09b8aa95",
+          "entity_text": "Due Process Clause",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.737,
+          "position": {
+            "start": 23464,
+            "end": 23482
+          },
+          "context": "...Due Process Clause...",
+          "page": 74
+        },
+        {
+          "entity_id": "de88c2a4",
+          "entity_text": "Sample DOCKET_NUMBER text",
+          "entity_type": "DOCKET_NUMBER",
+          "confidence": 0.857,
+          "position": {
+            "start": 6931,
+            "end": 6956
+          },
+          "context": "...Sample DOCKET_NUMBER text...",
+          "page": 70
+        },
+        {
+          "entity_id": "89c34ea6",
+          "entity_text": "constitutional right to privacy",
+          "entity_type": "LEGAL_DOCTRINE",
+          "confidence": 0.677,
+          "position": {
+            "start": 47782,
+            "end": 47813
+          },
+          "context": "...constitutional right to privacy...",
+          "page": 70
+        },
+        {
+          "entity_id": "f0af69a3",
+          "entity_text": "The authority to regulate abortion returns to the people and their elected representatives",
+          "entity_type": "HOLDING",
+          "confidence": 0.674,
+          "position": {
+            "start": 42168,
+            "end": 42258
+          },
+          "context": "...The authority to regulate abortion returns to the people and their elected representatives...",
+          "page": 22
+        },
+        {
+          "entity_id": "ecfbbf41",
+          "entity_text": "Justice Gorsuch",
+          "entity_type": "JUDGE",
+          "confidence": 0.763,
+          "position": {
+            "start": 15310,
+            "end": 15325
+          },
+          "context": "...Justice Gorsuch...",
+          "page": 61
+        },
+        {
+          "entity_id": "7a0bff45",
+          "entity_text": "Sample DISSENT text",
+          "entity_type": "DISSENT",
+          "confidence": 0.75,
+          "position": {
+            "start": 39906,
+            "end": 39925
+          },
+          "context": "...Sample DISSENT text...",
+          "page": 25
+        },
+        {
+          "entity_id": "e72bf9fd",
+          "entity_text": "Women's Health Protection Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.815,
+          "position": {
+            "start": 42867,
+            "end": 42896
+          },
+          "context": "...Women's Health Protection Act...",
+          "page": 40
+        },
+        {
+          "entity_id": "0cd3ad01",
+          "entity_text": "Justice Sotomayor",
+          "entity_type": "JUDGE",
+          "confidence": 0.789,
+          "position": {
+            "start": 48648,
+            "end": 48665
+          },
+          "context": "...Justice Sotomayor...",
+          "page": 19
+        },
+        {
+          "entity_id": "e3022253",
+          "entity_text": "stare decisis",
+          "entity_type": "LEGAL_DOCTRINE",
+          "confidence": 0.621,
+          "position": {
+            "start": 13437,
+            "end": 13450
+          },
+          "context": "...stare decisis...",
+          "page": 61
+        },
+        {
+          "entity_id": "537fdc6b",
+          "entity_text": "Sample LEGAL_CONCEPT text",
+          "entity_type": "LEGAL_CONCEPT",
+          "confidence": 0.583,
+          "position": {
+            "start": 47434,
+            "end": 47459
+          },
+          "context": "...Sample LEGAL_CONCEPT text...",
+          "page": 8
+        },
+        {
+          "entity_id": "fb57bb12",
+          "entity_text": "The authority to regulate abortion returns to the people and their elected representatives",
+          "entity_type": "HOLDING",
+          "confidence": 0.622,
+          "position": {
+            "start": 26905,
+            "end": 26995
+          },
+          "context": "...The authority to regulate abortion returns to the people and their elected representatives...",
+          "page": 35
+        },
+        {
+          "entity_id": "88e92d5b",
+          "entity_text": "Sample LEGAL_CONCEPT text",
+          "entity_type": "LEGAL_CONCEPT",
+          "confidence": 0.716,
+          "position": {
+            "start": 24278,
+            "end": 24303
+          },
+          "context": "...Sample LEGAL_CONCEPT text...",
+          "page": 21
+        },
+        {
+          "entity_id": "27f4ae9c",
+          "entity_text": "Ninth Amendment",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.736,
+          "position": {
+            "start": 5048,
+            "end": 5063
+          },
+          "context": "...Ninth Amendment...",
+          "page": 26
+        },
+        {
+          "entity_id": "0e84d787",
+          "entity_text": "Tenth Amendment",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.756,
+          "position": {
+            "start": 49329,
+            "end": 49344
+          },
+          "context": "...Tenth Amendment...",
+          "page": 5
+        },
+        {
+          "entity_id": "7962bb39",
+          "entity_text": "Equal Protection Clause",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.822,
+          "position": {
+            "start": 33866,
+            "end": 33889
+          },
+          "context": "...Equal Protection Clause...",
+          "page": 36
+        }
+      ],
+      "confidence_distribution": {
+        "min": 0.583,
+        "max": 0.88,
+        "mean": 0.753,
+        "count_with_confidence": 111
+      },
+      "error": null
+    },
+    {
+      "mode": "extraction",
+      "strategy": "nlp_spacy",
+      "success": true,
+      "total_entities": 128,
+      "total_citations": 9,
+      "unique_entity_types": 23,
+      "entity_type_coverage": 74.19,
+      "average_confidence": 0.866,
+      "elapsed_time": 3.17,
+      "entity_type_counts": {
+        "JURISDICTION": 2,
+        "PRECEDENT": 1,
+        "COURT": 18,
+        "STATUTE": 10,
+        "JUDGE": 15,
+        "CASE_CITATION": 9,
+        "FOOTNOTE": 3,
+        "HOLDING": 10,
+        "PROCEDURAL_POSTURE": 2,
+        "PARTY": 2,
+        "DATE": 11,
+        "OPINION_TYPE": 1,
+        "DISTRICT": 1,
+        "ATTORNEY": 10,
+        "EVIDENCE": 1,
+        "LEGAL_DOCTRINE": 11,
+        "LEGAL_STANDARD": 1,
+        "CONSTITUTIONAL_PROVISION": 13,
+        "ADMINISTRATIVE_AGENCY": 2,
+        "CIRCUIT": 1,
+        "RULE": 2,
+        "DISSENT": 1,
+        "BURDEN_OF_PROOF": 1
+      },
+      "sample_entities": [
+        {
+          "entity_id": "9b89341d",
+          "entity_text": "Sample JURISDICTION text",
+          "entity_type": "JURISDICTION",
+          "confidence": 0.811,
+          "position": {
+            "start": 23476,
+            "end": 23500
+          },
+          "context": "...Sample JURISDICTION text...",
+          "page": 27
+        },
+        {
+          "entity_id": "404bde9e",
+          "entity_text": "Sample PRECEDENT text",
+          "entity_type": "PRECEDENT",
+          "confidence": 0.72,
+          "position": {
+            "start": 45083,
+            "end": 45104
+          },
+          "context": "...Sample PRECEDENT text...",
+          "page": 30
+        },
+        {
+          "entity_id": "b5b42676",
+          "entity_text": "U.S. District Court for the Southern District of Mississippi",
+          "entity_type": "COURT",
+          "confidence": 0.798,
+          "position": {
+            "start": 15670,
+            "end": 15730
+          },
+          "context": "...U.S. District Court for the Southern District of Mississippi...",
+          "page": 66
+        },
+        {
+          "entity_id": "122fe7e0",
+          "entity_text": "Supreme Court of the United States",
+          "entity_type": "COURT",
+          "confidence": 0.837,
+          "position": {
+            "start": 8944,
+            "end": 8978
+          },
+          "context": "...Supreme Court of the United States...",
+          "page": 65
+        },
+        {
+          "entity_id": "412ae38d",
+          "entity_text": "Women's Health Protection Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.918,
+          "position": {
+            "start": 1206,
+            "end": 1235
+          },
+          "context": "...Women's Health Protection Act...",
+          "page": 47
+        },
+        {
+          "entity_id": "09ccbc86",
+          "entity_text": "Justice Alito",
+          "entity_type": "JUDGE",
+          "confidence": 0.874,
+          "position": {
+            "start": 19105,
+            "end": 19118
+          },
+          "context": "...Justice Alito...",
+          "page": 32
+        },
+        {
+          "entity_id": "5a3e0778",
+          "entity_text": "Mississippi Gestational Age Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.79,
+          "position": {
+            "start": 45928,
+            "end": 45959
+          },
+          "context": "...Mississippi Gestational Age Act...",
+          "page": 63
+        },
+        {
+          "entity_id": "64aca496",
+          "entity_text": "Webster v. Reproductive Health Services, 492 U.S. 490 (1989)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.93,
+          "position": {
+            "start": 24467,
+            "end": 24527
+          },
+          "context": "...Webster v. Reproductive Health Services, 492 U.S. 490 (1989)...",
+          "page": 50
+        },
+        {
+          "entity_id": "c55448a3",
+          "entity_text": "Court of Appeals for the Fifth Circuit",
+          "entity_type": "COURT",
+          "confidence": 0.837,
+          "position": {
+            "start": 20276,
+            "end": 20314
+          },
+          "context": "...Court of Appeals for the Fifth Circuit...",
+          "page": 58
+        },
+        {
+          "entity_id": "14044409",
+          "entity_text": "Sample FOOTNOTE text",
+          "entity_type": "FOOTNOTE",
+          "confidence": 0.949,
+          "position": {
+            "start": 3285,
+            "end": 3305
+          },
+          "context": "...Sample FOOTNOTE text...",
+          "page": 50
+        },
+        {
+          "entity_id": "4e11704a",
+          "entity_text": "Supreme Court of the United States",
+          "entity_type": "COURT",
+          "confidence": 0.949,
+          "position": {
+            "start": 29099,
+            "end": 29133
+          },
+          "context": "...Supreme Court of the United States...",
+          "page": 33
+        },
+        {
+          "entity_id": "f8e1c9fe",
+          "entity_text": "Mississippi Gestational Age Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.867,
+          "position": {
+            "start": 34059,
+            "end": 34090
+          },
+          "context": "...Mississippi Gestational Age Act...",
+          "page": 74
+        },
+        {
+          "entity_id": "98d9dd24",
+          "entity_text": "The authority to regulate abortion returns to the people and their elected representatives",
+          "entity_type": "HOLDING",
+          "confidence": 0.93,
+          "position": {
+            "start": 15411,
+            "end": 15501
+          },
+          "context": "...The authority to regulate abortion returns to the people and their elected representatives...",
+          "page": 36
+        },
+        {
+          "entity_id": "296d5f8a",
+          "entity_text": "Sample FOOTNOTE text",
+          "entity_type": "FOOTNOTE",
+          "confidence": 0.928,
+          "position": {
+            "start": 8971,
+            "end": 8991
+          },
+          "context": "...Sample FOOTNOTE text...",
+          "page": 51
+        },
+        {
+          "entity_id": "b7ccb0ed",
+          "entity_text": "Court of Appeals for the Fifth Circuit",
+          "entity_type": "COURT",
+          "confidence": 0.901,
+          "position": {
+            "start": 4487,
+            "end": 4525
+          },
+          "context": "...Court of Appeals for the Fifth Circuit...",
+          "page": 66
+        },
+        {
+          "entity_id": "061e91d0",
+          "entity_text": "Sample PROCEDURAL_POSTURE text",
+          "entity_type": "PROCEDURAL_POSTURE",
+          "confidence": 0.747,
+          "position": {
+            "start": 41612,
+            "end": 41642
+          },
+          "context": "...Sample PROCEDURAL_POSTURE text...",
+          "page": 33
+        },
+        {
+          "entity_id": "a690de83",
+          "entity_text": "Fifth Circuit Court of Appeals",
+          "entity_type": "COURT",
+          "confidence": 0.837,
+          "position": {
+            "start": 8039,
+            "end": 8069
+          },
+          "context": "...Fifth Circuit Court of Appeals...",
+          "page": 29
+        },
+        {
+          "entity_id": "498306a5",
+          "entity_text": "Sample PROCEDURAL_POSTURE text",
+          "entity_type": "PROCEDURAL_POSTURE",
+          "confidence": 0.7,
+          "position": {
+            "start": 8646,
+            "end": 8676
+          },
+          "context": "...Sample PROCEDURAL_POSTURE text...",
+          "page": 58
+        },
+        {
+          "entity_id": "ddcee3e7",
+          "entity_text": "Sample PARTY text",
+          "entity_type": "PARTY",
+          "confidence": 0.769,
+          "position": {
+            "start": 33072,
+            "end": 33089
+          },
+          "context": "...Sample PARTY text...",
+          "page": 42
+        },
+        {
+          "entity_id": "206e0e5e",
+          "entity_text": "Sample DATE text",
+          "entity_type": "DATE",
+          "confidence": 0.945,
+          "position": {
+            "start": 47265,
+            "end": 47281
+          },
+          "context": "...Sample DATE text...",
+          "page": 4
+        }
+      ],
+      "confidence_distribution": {
+        "min": 0.657,
+        "max": 0.987,
+        "mean": 0.866,
+        "count_with_confidence": 128
+      },
+      "error": null
+    },
+    {
+      "mode": "extraction",
+      "strategy": "ai_enhanced",
+      "success": true,
+      "total_entities": 151,
+      "total_citations": 17,
+      "unique_entity_types": 23,
+      "entity_type_coverage": 74.19,
+      "average_confidence": 0.902,
+      "elapsed_time": 8.12,
+      "entity_type_counts": {
+        "LEGAL_DOCTRINE": 15,
+        "CONSTITUTIONAL_PROVISION": 23,
+        "HOLDING": 14,
+        "DATE": 9,
+        "JUDGE": 15,
+        "ATTORNEY": 10,
+        "COURT": 19,
+        "CASE_CITATION": 17,
+        "PROCEDURAL_POSTURE": 2,
+        "BURDEN_OF_PROOF": 2,
+        "PRECEDENT": 2,
+        "CONCURRENCE": 3,
+        "ADMINISTRATIVE_AGENCY": 1,
+        "PARTY": 1,
+        "STATUTE": 8,
+        "OPINION_TYPE": 2,
+        "DOCKET_NUMBER": 1,
+        "JURISDICTION": 1,
+        "REGULATION": 1,
+        "CIRCUIT": 1,
+        "DISTRICT": 1,
+        "REMEDY": 2,
+        "EVIDENCE": 1
+      },
+      "sample_entities": [
+        {
+          "entity_id": "5bfc5ad7",
+          "entity_text": "stare decisis",
+          "entity_type": "LEGAL_DOCTRINE",
+          "confidence": 0.844,
+          "position": {
+            "start": 49147,
+            "end": 49160
+          },
+          "context": "...stare decisis...",
+          "page": 63
+        },
+        {
+          "entity_id": "bfb11575",
+          "entity_text": "Tenth Amendment",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.956,
+          "position": {
+            "start": 41600,
+            "end": 41615
+          },
+          "context": "...Tenth Amendment...",
+          "page": 16
+        },
+        {
+          "entity_id": "7cd9ff64",
+          "entity_text": "Ninth Amendment",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.925,
+          "position": {
+            "start": 14047,
+            "end": 14062
+          },
+          "context": "...Ninth Amendment...",
+          "page": 16
+        },
+        {
+          "entity_id": "42494f90",
+          "entity_text": "Due Process Clause",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.895,
+          "position": {
+            "start": 34855,
+            "end": 34873
+          },
+          "context": "...Due Process Clause...",
+          "page": 23
+        },
+        {
+          "entity_id": "1bc555eb",
+          "entity_text": "The Constitution does not confer a right to abortion",
+          "entity_type": "HOLDING",
+          "confidence": 0.844,
+          "position": {
+            "start": 7292,
+            "end": 7344
+          },
+          "context": "...The Constitution does not confer a right to abortion...",
+          "page": 14
+        },
+        {
+          "entity_id": "1d9e9d71",
+          "entity_text": "Sample DATE text",
+          "entity_type": "DATE",
+          "confidence": 0.997,
+          "position": {
+            "start": 5739,
+            "end": 5755
+          },
+          "context": "...Sample DATE text...",
+          "page": 35
+        },
+        {
+          "entity_id": "640676c4",
+          "entity_text": "Justice Sotomayor",
+          "entity_type": "JUDGE",
+          "confidence": 0.931,
+          "position": {
+            "start": 37080,
+            "end": 37097
+          },
+          "context": "...Justice Sotomayor...",
+          "page": 4
+        },
+        {
+          "entity_id": "4e321e36",
+          "entity_text": "Sample ATTORNEY text",
+          "entity_type": "ATTORNEY",
+          "confidence": 0.784,
+          "position": {
+            "start": 49167,
+            "end": 49187
+          },
+          "context": "...Sample ATTORNEY text...",
+          "page": 26
+        },
+        {
+          "entity_id": "23e2ce33",
+          "entity_text": "Equal Protection Clause",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.945,
+          "position": {
+            "start": 47902,
+            "end": 47925
+          },
+          "context": "...Equal Protection Clause...",
+          "page": 54
+        },
+        {
+          "entity_id": "dd605ed3",
+          "entity_text": "Court of Appeals for the Fifth Circuit",
+          "entity_type": "COURT",
+          "confidence": 0.844,
+          "position": {
+            "start": 44372,
+            "end": 44410
+          },
+          "context": "...Court of Appeals for the Fifth Circuit...",
+          "page": 11
+        },
+        {
+          "entity_id": "2e8f81fd",
+          "entity_text": "Roe v. Wade, 410 U.S. 113 (1973)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.919,
+          "position": {
+            "start": 40741,
+            "end": 40773
+          },
+          "context": "...Roe v. Wade, 410 U.S. 113 (1973)...",
+          "page": 38
+        },
+        {
+          "entity_id": "ec371968",
+          "entity_text": "Sample ATTORNEY text",
+          "entity_type": "ATTORNEY",
+          "confidence": 0.932,
+          "position": {
+            "start": 46760,
+            "end": 46780
+          },
+          "context": "...Sample ATTORNEY text...",
+          "page": 1
+        },
+        {
+          "entity_id": "d987f70f",
+          "entity_text": "Planned Parenthood v. Casey, 505 U.S. 833 (1992)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.973,
+          "position": {
+            "start": 26164,
+            "end": 26212
+          },
+          "context": "...Planned Parenthood v. Casey, 505 U.S. 833 (1992)...",
+          "page": 64
+        },
+        {
+          "entity_id": "c59b9fc2",
+          "entity_text": "Sample PROCEDURAL_POSTURE text",
+          "entity_type": "PROCEDURAL_POSTURE",
+          "confidence": 0.845,
+          "position": {
+            "start": 10418,
+            "end": 10448
+          },
+          "context": "...Sample PROCEDURAL_POSTURE text...",
+          "page": 35
+        },
+        {
+          "entity_id": "6365d326",
+          "entity_text": "Sample ATTORNEY text",
+          "entity_type": "ATTORNEY",
+          "confidence": 0.891,
+          "position": {
+            "start": 22232,
+            "end": 22252
+          },
+          "context": "...Sample ATTORNEY text...",
+          "page": 24
+        },
+        {
+          "entity_id": "3450cdef",
+          "entity_text": "Sample BURDEN_OF_PROOF text",
+          "entity_type": "BURDEN_OF_PROOF",
+          "confidence": 0.884,
+          "position": {
+            "start": 14104,
+            "end": 14131
+          },
+          "context": "...Sample BURDEN_OF_PROOF text...",
+          "page": 24
+        },
+        {
+          "entity_id": "8ecbe001",
+          "entity_text": "Sample PRECEDENT text",
+          "entity_type": "PRECEDENT",
+          "confidence": 0.78,
+          "position": {
+            "start": 17540,
+            "end": 17561
+          },
+          "context": "...Sample PRECEDENT text...",
+          "page": 33
+        },
+        {
+          "entity_id": "9fbeaeb0",
+          "entity_text": "Sample DATE text",
+          "entity_type": "DATE",
+          "confidence": 0.965,
+          "position": {
+            "start": 10012,
+            "end": 10028
+          },
+          "context": "...Sample DATE text...",
+          "page": 51
+        },
+        {
+          "entity_id": "9bf6773b",
+          "entity_text": "Justice Alito",
+          "entity_type": "JUDGE",
+          "confidence": 1.0,
+          "position": {
+            "start": 31765,
+            "end": 31778
+          },
+          "context": "...Justice Alito...",
+          "page": 51
+        },
+        {
+          "entity_id": "8041f635",
+          "entity_text": "Sample CONCURRENCE text",
+          "entity_type": "CONCURRENCE",
+          "confidence": 0.856,
+          "position": {
+            "start": 9697,
+            "end": 9720
+          },
+          "context": "...Sample CONCURRENCE text...",
+          "page": 70
+        }
+      ],
+      "confidence_distribution": {
+        "min": 0.702,
+        "max": 1.0,
+        "mean": 0.902,
+        "count_with_confidence": 151
+      },
+      "error": null
+    },
+    {
+      "mode": "combined",
+      "strategy": "hybrid",
+      "success": true,
+      "total_entities": 130,
+      "total_citations": 10,
+      "unique_entity_types": 27,
+      "entity_type_coverage": 87.1,
+      "average_confidence": 0.887,
+      "elapsed_time": 5.18,
+      "entity_type_counts": {
+        "JUDGE": 20,
+        "HOLDING": 9,
+        "COURT": 23,
+        "STATUTE": 8,
+        "REMEDY": 2,
+        "PRECEDENT": 1,
+        "DOCKET_NUMBER": 2,
+        "CASE_CITATION": 10,
+        "CONSTITUTIONAL_PROVISION": 10,
+        "ATTORNEY": 7,
+        "DISTRICT": 2,
+        "EVIDENCE": 1,
+        "DATE": 8,
+        "JURISDICTION": 3,
+        "LEGAL_DOCTRINE": 7,
+        "STANDARD_OF_REVIEW": 2,
+        "OPINION_TYPE": 3,
+        "FOOTNOTE": 1,
+        "CIRCUIT": 1,
+        "PROCEDURAL_POSTURE": 1,
+        "DISSENT": 1,
+        "LEGAL_CONCEPT": 1,
+        "EXCEPTION": 1,
+        "REGULATION": 2,
+        "PARTY": 1,
+        "BURDEN_OF_PROOF": 1,
+        "CLAIM": 2
+      },
+      "sample_entities": [
+        {
+          "entity_id": "70bb6250",
+          "entity_text": "Justice Alito",
+          "entity_type": "JUDGE",
+          "confidence": 0.929,
+          "position": {
+            "start": 11993,
+            "end": 12006
+          },
+          "context": "...Justice Alito...",
+          "page": 65
+        },
+        {
+          "entity_id": "0cb8d3e8",
+          "entity_text": "The Constitution does not confer a right to abortion",
+          "entity_type": "HOLDING",
+          "confidence": 0.81,
+          "position": {
+            "start": 11094,
+            "end": 11146
+          },
+          "context": "...The Constitution does not confer a right to abortion...",
+          "page": 55
+        },
+        {
+          "entity_id": "1ac6c866",
+          "entity_text": "Supreme Court of the United States",
+          "entity_type": "COURT",
+          "confidence": 0.921,
+          "position": {
+            "start": 16416,
+            "end": 16450
+          },
+          "context": "...Supreme Court of the United States...",
+          "page": 38
+        },
+        {
+          "entity_id": "e776da6e",
+          "entity_text": "Mississippi Gestational Age Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.895,
+          "position": {
+            "start": 40821,
+            "end": 40852
+          },
+          "context": "...Mississippi Gestational Age Act...",
+          "page": 27
+        },
+        {
+          "entity_id": "b239cfa4",
+          "entity_text": "Supreme Court of the United States",
+          "entity_type": "COURT",
+          "confidence": 0.949,
+          "position": {
+            "start": 39414,
+            "end": 39448
+          },
+          "context": "...Supreme Court of the United States...",
+          "page": 53
+        },
+        {
+          "entity_id": "107ba566",
+          "entity_text": "Sample REMEDY text",
+          "entity_type": "REMEDY",
+          "confidence": 0.733,
+          "position": {
+            "start": 41954,
+            "end": 41972
+          },
+          "context": "...Sample REMEDY text...",
+          "page": 14
+        },
+        {
+          "entity_id": "d8ee097f",
+          "entity_text": "Sample PRECEDENT text",
+          "entity_type": "PRECEDENT",
+          "confidence": 0.86,
+          "position": {
+            "start": 38378,
+            "end": 38399
+          },
+          "context": "...Sample PRECEDENT text...",
+          "page": 58
+        },
+        {
+          "entity_id": "4c8b1c65",
+          "entity_text": "Supreme Court of the United States",
+          "entity_type": "COURT",
+          "confidence": 0.966,
+          "position": {
+            "start": 13713,
+            "end": 13747
+          },
+          "context": "...Supreme Court of the United States...",
+          "page": 28
+        },
+        {
+          "entity_id": "924740de",
+          "entity_text": "Chief Justice Roberts",
+          "entity_type": "JUDGE",
+          "confidence": 0.886,
+          "position": {
+            "start": 31990,
+            "end": 32011
+          },
+          "context": "...Chief Justice Roberts...",
+          "page": 36
+        },
+        {
+          "entity_id": "b0e61759",
+          "entity_text": "The Constitution does not confer a right to abortion",
+          "entity_type": "HOLDING",
+          "confidence": 0.922,
+          "position": {
+            "start": 10504,
+            "end": 10556
+          },
+          "context": "...The Constitution does not confer a right to abortion...",
+          "page": 3
+        },
+        {
+          "entity_id": "4bbeaf7b",
+          "entity_text": "Sample DOCKET_NUMBER text",
+          "entity_type": "DOCKET_NUMBER",
+          "confidence": 0.955,
+          "position": {
+            "start": 45207,
+            "end": 45232
+          },
+          "context": "...Sample DOCKET_NUMBER text...",
+          "page": 1
+        },
+        {
+          "entity_id": "9804244b",
+          "entity_text": "Webster v. Reproductive Health Services, 492 U.S. 490 (1989)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.935,
+          "position": {
+            "start": 12034,
+            "end": 12094
+          },
+          "context": "...Webster v. Reproductive Health Services, 492 U.S. 490 (1989)...",
+          "page": 43
+        },
+        {
+          "entity_id": "9235dd20",
+          "entity_text": "Justice Kavanaugh",
+          "entity_type": "JUDGE",
+          "confidence": 0.905,
+          "position": {
+            "start": 20093,
+            "end": 20110
+          },
+          "context": "...Justice Kavanaugh...",
+          "page": 5
+        },
+        {
+          "entity_id": "829fb5f2",
+          "entity_text": "Ninth Amendment",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.931,
+          "position": {
+            "start": 19195,
+            "end": 19210
+          },
+          "context": "...Ninth Amendment...",
+          "page": 46
+        },
+        {
+          "entity_id": "58c1a6f1",
+          "entity_text": "Sample ATTORNEY text",
+          "entity_type": "ATTORNEY",
+          "confidence": 0.872,
+          "position": {
+            "start": 26993,
+            "end": 27013
+          },
+          "context": "...Sample ATTORNEY text...",
+          "page": 56
+        },
+        {
+          "entity_id": "b8f06075",
+          "entity_text": "Justice Kagan",
+          "entity_type": "JUDGE",
+          "confidence": 0.968,
+          "position": {
+            "start": 13758,
+            "end": 13771
+          },
+          "context": "...Justice Kagan...",
+          "page": 69
+        },
+        {
+          "entity_id": "c12bd7c3",
+          "entity_text": "Fifth Circuit Court of Appeals",
+          "entity_type": "COURT",
+          "confidence": 0.794,
+          "position": {
+            "start": 17992,
+            "end": 18022
+          },
+          "context": "...Fifth Circuit Court of Appeals...",
+          "page": 69
+        },
+        {
+          "entity_id": "50f41ab6",
+          "entity_text": "Equal Protection Clause",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.853,
+          "position": {
+            "start": 22314,
+            "end": 22337
+          },
+          "context": "...Equal Protection Clause...",
+          "page": 44
+        },
+        {
+          "entity_id": "e359a8ea",
+          "entity_text": "Justice Sotomayor",
+          "entity_type": "JUDGE",
+          "confidence": 0.928,
+          "position": {
+            "start": 14819,
+            "end": 14836
+          },
+          "context": "...Justice Sotomayor...",
+          "page": 65
+        },
+        {
+          "entity_id": "bd2ad4fe",
+          "entity_text": "Roe and Casey are overruled",
+          "entity_type": "HOLDING",
+          "confidence": 0.923,
+          "position": {
+            "start": 25238,
+            "end": 25265
+          },
+          "context": "...Roe and Casey are overruled...",
+          "page": 25
+        }
+      ],
+      "confidence_distribution": {
+        "min": 0.716,
+        "max": 0.999,
+        "mean": 0.887,
+        "count_with_confidence": 130
+      },
+      "error": null
+    },
+    {
+      "mode": "specialized",
+      "strategy": "legal_specialized",
+      "success": true,
+      "total_entities": 191,
+      "total_citations": 22,
+      "unique_entity_types": 29,
+      "entity_type_coverage": 93.55,
+      "average_confidence": 0.917,
+      "elapsed_time": 10.07,
+      "entity_type_counts": {
+        "JUDGE": 22,
+        "LEGAL_CONCEPT": 3,
+        "STATUTE": 15,
+        "HOLDING": 15,
+        "COURT": 23,
+        "CONCURRENCE": 2,
+        "OPINION_TYPE": 2,
+        "CASE_CITATION": 22,
+        "LEGAL_DOCTRINE": 15,
+        "EXCEPTION": 3,
+        "DATE": 10,
+        "CONSTITUTIONAL_PROVISION": 17,
+        "DISSENT": 2,
+        "DISTRICT": 4,
+        "REGULATION": 3,
+        "DOCKET_NUMBER": 4,
+        "REMEDY": 2,
+        "JURISDICTION": 2,
+        "PROCEDURAL_POSTURE": 4,
+        "BURDEN_OF_PROOF": 1,
+        "CIRCUIT": 5,
+        "ADMINISTRATIVE_AGENCY": 2,
+        "ATTORNEY": 4,
+        "STANDARD_OF_REVIEW": 3,
+        "LEGAL_STANDARD": 1,
+        "PARTY": 1,
+        "FOOTNOTE": 1,
+        "EVIDENCE": 2,
+        "PRECEDENT": 1
+      },
+      "sample_entities": [
+        {
+          "entity_id": "fdd2b8c2",
+          "entity_text": "Justice Kavanaugh",
+          "entity_type": "JUDGE",
+          "confidence": 0.936,
+          "position": {
+            "start": 28110,
+            "end": 28127
+          },
+          "context": "...Justice Kavanaugh...",
+          "page": 45
+        },
+        {
+          "entity_id": "b12633d3",
+          "entity_text": "Sample LEGAL_CONCEPT text",
+          "entity_type": "LEGAL_CONCEPT",
+          "confidence": 0.907,
+          "position": {
+            "start": 21354,
+            "end": 21379
+          },
+          "context": "...Sample LEGAL_CONCEPT text...",
+          "page": 33
+        },
+        {
+          "entity_id": "f372e49e",
+          "entity_text": "Women's Health Protection Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.999,
+          "position": {
+            "start": 19216,
+            "end": 19245
+          },
+          "context": "...Women's Health Protection Act...",
+          "page": 56
+        },
+        {
+          "entity_id": "4566ca2d",
+          "entity_text": "The authority to regulate abortion returns to the people and their elected representatives",
+          "entity_type": "HOLDING",
+          "confidence": 0.914,
+          "position": {
+            "start": 9393,
+            "end": 9483
+          },
+          "context": "...The authority to regulate abortion returns to the people and their elected representatives...",
+          "page": 58
+        },
+        {
+          "entity_id": "92df4701",
+          "entity_text": "Texas Heartbeat Act",
+          "entity_type": "STATUTE",
+          "confidence": 0.891,
+          "position": {
+            "start": 42689,
+            "end": 42708
+          },
+          "context": "...Texas Heartbeat Act...",
+          "page": 25
+        },
+        {
+          "entity_id": "862a802c",
+          "entity_text": "U.S. District Court for the Southern District of Mississippi",
+          "entity_type": "COURT",
+          "confidence": 0.957,
+          "position": {
+            "start": 17853,
+            "end": 17913
+          },
+          "context": "...U.S. District Court for the Southern District of Mississippi...",
+          "page": 13
+        },
+        {
+          "entity_id": "275b1bdb",
+          "entity_text": "Sample CONCURRENCE text",
+          "entity_type": "CONCURRENCE",
+          "confidence": 0.853,
+          "position": {
+            "start": 14981,
+            "end": 15004
+          },
+          "context": "...Sample CONCURRENCE text...",
+          "page": 16
+        },
+        {
+          "entity_id": "885471a3",
+          "entity_text": "Sample OPINION_TYPE text",
+          "entity_type": "OPINION_TYPE",
+          "confidence": 0.972,
+          "position": {
+            "start": 9482,
+            "end": 9506
+          },
+          "context": "...Sample OPINION_TYPE text...",
+          "page": 22
+        },
+        {
+          "entity_id": "db4e8cdb",
+          "entity_text": "The authority to regulate abortion returns to the people and their elected representatives",
+          "entity_type": "HOLDING",
+          "confidence": 0.864,
+          "position": {
+            "start": 3096,
+            "end": 3186
+          },
+          "context": "...The authority to regulate abortion returns to the people and their elected representatives...",
+          "page": 2
+        },
+        {
+          "entity_id": "e28d9dbe",
+          "entity_text": "Stenberg v. Carhart, 530 U.S. 914 (2000)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.901,
+          "position": {
+            "start": 40258,
+            "end": 40298
+          },
+          "context": "...Stenberg v. Carhart, 530 U.S. 914 (2000)...",
+          "page": 37
+        },
+        {
+          "entity_id": "72450090",
+          "entity_text": "Justice Alito",
+          "entity_type": "JUDGE",
+          "confidence": 0.998,
+          "position": {
+            "start": 28505,
+            "end": 28518
+          },
+          "context": "...Justice Alito...",
+          "page": 52
+        },
+        {
+          "entity_id": "c4870ee3",
+          "entity_text": "substantive due process",
+          "entity_type": "LEGAL_DOCTRINE",
+          "confidence": 0.732,
+          "position": {
+            "start": 45005,
+            "end": 45028
+          },
+          "context": "...substantive due process...",
+          "page": 70
+        },
+        {
+          "entity_id": "8c2cfad2",
+          "entity_text": "Sample EXCEPTION text",
+          "entity_type": "EXCEPTION",
+          "confidence": 0.842,
+          "position": {
+            "start": 14180,
+            "end": 14201
+          },
+          "context": "...Sample EXCEPTION text...",
+          "page": 31
+        },
+        {
+          "entity_id": "ae3008aa",
+          "entity_text": "Sample DATE text",
+          "entity_type": "DATE",
+          "confidence": 0.991,
+          "position": {
+            "start": 4000,
+            "end": 4016
+          },
+          "context": "...Sample DATE text...",
+          "page": 26
+        },
+        {
+          "entity_id": "a39fee81",
+          "entity_text": "The Constitution does not confer a right to abortion",
+          "entity_type": "HOLDING",
+          "confidence": 0.814,
+          "position": {
+            "start": 35751,
+            "end": 35803
+          },
+          "context": "...The Constitution does not confer a right to abortion...",
+          "page": 22
+        },
+        {
+          "entity_id": "f89c973d",
+          "entity_text": "Sample DATE text",
+          "entity_type": "DATE",
+          "confidence": 0.98,
+          "position": {
+            "start": 32793,
+            "end": 32809
+          },
+          "context": "...Sample DATE text...",
+          "page": 22
+        },
+        {
+          "entity_id": "af850287",
+          "entity_text": "Liberty Interest",
+          "entity_type": "CONSTITUTIONAL_PROVISION",
+          "confidence": 0.94,
+          "position": {
+            "start": 43956,
+            "end": 43972
+          },
+          "context": "...Liberty Interest...",
+          "page": 49
+        },
+        {
+          "entity_id": "fece8ca3",
+          "entity_text": "Roe v. Wade, 410 U.S. 113 (1973)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.97,
+          "position": {
+            "start": 22210,
+            "end": 22242
+          },
+          "context": "...Roe v. Wade, 410 U.S. 113 (1973)...",
+          "page": 66
+        },
+        {
+          "entity_id": "db511bf2",
+          "entity_text": "Webster v. Reproductive Health Services, 492 U.S. 490 (1989)",
+          "entity_type": "CASE_CITATION",
+          "confidence": 0.927,
+          "position": {
+            "start": 20278,
+            "end": 20338
+          },
+          "context": "...Webster v. Reproductive Health Services, 492 U.S. 490 (1989)...",
+          "page": 14
+        },
+        {
+          "entity_id": "cfd458bb",
+          "entity_text": "Sample DISSENT text",
+          "entity_type": "DISSENT",
+          "confidence": 0.963,
+          "position": {
+            "start": 14216,
+            "end": 14235
+          },
+          "context": "...Sample DISSENT text...",
+          "page": 28
+        }
+      ],
+      "confidence_distribution": {
+        "min": 0.732,
+        "max": 0.999,
+        "mean": 0.917,
+        "count_with_confidence": 191
+      },
+      "error": null
+    }
+  ],
+  "entity_type_coverage_summary": {
+    "DOCKET_NUMBER": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 8,
+      "coverage_percent": 80.0
+    },
+    "CONCURRENCE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 6,
+      "coverage_percent": 60.0
+    },
+    "JUDGE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 82,
+      "coverage_percent": 100.0
+    },
+    "COURT": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 102,
+      "coverage_percent": 100.0
+    },
+    "DISTRICT": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 10,
+      "coverage_percent": 100.0
+    },
+    "CONSTITUTIONAL_PROVISION": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 78,
+      "coverage_percent": 100.0
+    },
+    "LEGAL_CONCEPT": {
+      "found_by": [
+        "extraction_regex",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 6,
+      "coverage_percent": 60.0
+    },
+    "CASE_CITATION": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 65,
+      "coverage_percent": 100.0
+    },
+    "JURISDICTION": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 10,
+      "coverage_percent": 100.0
+    },
+    "REGULATION": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 7,
+      "coverage_percent": 80.0
+    },
+    "PRECEDENT": {
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 5,
+      "coverage_percent": 80.0
+    },
+    "STANDARD_OF_REVIEW": {
+      "found_by": [
+        "extraction_regex",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 6,
+      "coverage_percent": 60.0
+    },
+    "HOLDING": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 59,
+      "coverage_percent": 100.0
+    },
+    "DISSENT": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 7,
+      "coverage_percent": 80.0
+    },
+    "EXCEPTION": {
+      "found_by": [
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 4,
+      "coverage_percent": 40.0
+    },
+    "OPINION_TYPE": {
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 8,
+      "coverage_percent": 80.0
+    },
+    "PROCEDURAL_POSTURE": {
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 9,
+      "coverage_percent": 80.0
+    },
+    "ADMINISTRATIVE_AGENCY": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 6,
+      "coverage_percent": 80.0
+    },
+    "LEGAL_DOCTRINE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 54,
+      "coverage_percent": 100.0
+    },
+    "FOOTNOTE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 7,
+      "coverage_percent": 80.0
+    },
+    "BURDEN_OF_PROOF": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 7,
+      "coverage_percent": 100.0
+    },
+    "ATTORNEY": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 33,
+      "coverage_percent": 100.0
+    },
+    "EVIDENCE": {
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 5,
+      "coverage_percent": 80.0
+    },
+    "RULE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy"
+      ],
+      "total_count": 5,
+      "coverage_percent": 40.0
+    },
+    "STATUTE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 47,
+      "coverage_percent": 100.0
+    },
+    "LEGAL_STANDARD": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 4,
+      "coverage_percent": 60.0
+    },
+    "PARTY": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 7,
+      "coverage_percent": 100.0
+    },
+    "REMEDY": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 7,
+      "coverage_percent": 80.0
+    },
+    "DATE": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 44,
+      "coverage_percent": 100.0
+    },
+    "CLAIM": {
+      "found_by": [
+        "combined_hybrid"
+      ],
+      "total_count": 2,
+      "coverage_percent": 20.0
+    },
+    "CIRCUIT": {
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ],
+      "total_count": 11,
+      "coverage_percent": 100.0
+    }
+  },
+  "aggregate_metrics": {
+    "total_tests": 5,
+    "successful_tests": 5,
+    "failed_tests": 0,
+    "overall_coverage": 81.936,
+    "total_unique_entity_types": 31,
+    "average_extraction_time": 5.593999999999999
+  }
+}

@@ -1,0 +1,207 @@
+metadata:
+  jurisdiction: rhode_island
+  state_code: RI
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: rhode_island
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: Rhode_Island legal entity extraction patterns
+patterns:
+- name: ri_supreme_court
+  pattern: (?P<volume>\d+)\s+R\.I\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.93
+  entity_type: CASE_CITATION
+  entity_subtype: rhode_island_supreme
+  components:
+    volume: 1
+    reporter: R.I.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Johnson, 267 R.I. 123 (2024)
+  - Doe v. City of Providence, 266 R.I. 456, 460 (2023)
+- name: ri_supreme_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(R\.I\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.91
+  entity_type: CASE_CITATION
+  entity_subtype: rhode_island_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Brown, 345 A.3d 678 (R.I. 2023)
+  - Smith v. Town of Warwick, 234 A.2d 890 (R.I. 2022)
+- name: ri_superior_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(R\.I\.\s*Super\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.87
+  entity_type: CASE_CITATION
+  entity_subtype: rhode_island_superior
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - Johnson v. State, 456 A.3d 789 (R.I. Super. Ct. 2023)
+- name: ri_family_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(R\.I\.\s*Fam\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.85
+  entity_type: CASE_CITATION
+  entity_subtype: rhode_island_family
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - In re A.B., 321 A.3d 654 (R.I. Fam. Ct. 2022)
+- name: ri_district_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(R\.I\.\s*Dist\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.83
+  entity_type: CASE_CITATION
+  entity_subtype: rhode_island_district
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - State v. Williams, 789 A.3d 321 (R.I. Dist. Ct. 2022)
+- name: ri_general_laws
+  pattern: "R\\.I\\.\\s+Gen\\.\\s+Laws(?:\\s+Ann\\.)?\\s*\xA7\\s*(?P<section>\\d+(?:-\\d+)?(?:-\\d+)?(?:[A-Z])?(?:\\.\\d+)?(?:\\([a-z]\\))?)"
+  confidence_base: 0.92
+  entity_type: STATUTE_CITATION
+  entity_subtype: rhode_island_general_laws
+  components:
+    jurisdiction: R.I. Gen. Laws
+    section: 1
+  examples:
+  - "R.I. Gen. Laws \xA7 11-23-1"
+  - "R.I. Gen. Laws Ann. \xA7 28-5-6"
+  - "R.I. Gen. Laws \xA7 42-17.1-2"
+- name: ri_constitution
+  pattern: "R\\.I\\.\\s+Const\\.\\s+art\\.\\s+(?P<article>[IVX]+|\\d+)(?:,\\s*\xA7\\s*(?P<section>\\d+))?"
+  confidence_base: 0.95
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: rhode_island_constitution
+  components:
+    jurisdiction: R.I.
+    article: 1
+    section: 2
+  examples:
+  - "R.I. Const. art. I, \xA7 17"
+  - "R.I. Const. art. III, \xA7 7"
+  - "R.I. Const. art. XIV, \xA7 1"
+- name: ri_administrative_rules
+  pattern: (?P<title>\d+)-(?P<agency>\d+)-(?P<chapter>\d+)\s+R\.I\.\s+Code\s+R\.\s+(?P<section>\d+(?:\.\d+)*(?:\([a-z]\))?)
+  confidence_base: 0.88
+  entity_type: REGULATION_CITATION
+  entity_subtype: rhode_island_administrative_rules
+  components:
+    title: 1
+    agency: 2
+    chapter: 3
+    jurisdiction: R.I. Code R.
+    section: 4
+  examples:
+  - 230-20-10 R.I. Code R. 3.1
+  - 216-20-15 R.I. Code R. 1.7(a)
+entity_patterns:
+- name: ri_supreme_court_entity
+  pattern: (?:Rhode\s+Island\s+Supreme\s+Court|R\.I\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+Rhode\s+Island)
+  entity_type: COURT
+  entity_subtype: rhode_island_supreme
+  confidence_base: 0.96
+  attributes:
+    jurisdiction: Rhode Island
+    court_level: supreme
+    authority_level: 1
+- name: ri_superior_court_entity
+  pattern: (?:Rhode\s+Island\s+Superior\s+Court|R\.I\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+Rhode\s+Island)
+  entity_type: COURT
+  entity_subtype: rhode_island_superior
+  confidence_base: 0.91
+  attributes:
+    jurisdiction: Rhode Island
+    court_level: trial
+    authority_level: 2
+- name: ri_family_court_entity
+  pattern: (?:Rhode\s+Island\s+Family\s+Court|R\.I\.\s+Fam\.\s+Ct\.|Family\s+Court\s+of\s+Rhode\s+Island)
+  entity_type: COURT
+  entity_subtype: rhode_island_family
+  confidence_base: 0.89
+  attributes:
+    jurisdiction: Rhode Island
+    court_level: specialized
+    authority_level: 3
+- name: ri_district_court_entity
+  pattern: (?:Rhode\s+Island\s+District\s+Court|R\.I\.\s+Dist\.\s+Ct\.|District\s+Court\s+of\s+Rhode\s+Island)
+  entity_type: COURT
+  entity_subtype: rhode_island_district
+  confidence_base: 0.87
+  attributes:
+    jurisdiction: Rhode Island
+    court_level: trial
+    authority_level: 4
+- name: ri_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+Rhode\s+Island\s+Supreme\s+Court|\s+\(R\.I\.\s+Sup\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: rhode_island_justice
+  confidence_base: 0.92
+  attributes:
+    jurisdiction: Rhode Island
+    court_type: supreme
+validation:
+  year_range:
+  - 1842
+  - 2030
+  volume_limits:
+    ri_reports:
+    - 1
+    - 270
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.91
+  processing_speed: 810
+  memory_usage_mb: 112
+  accuracy_threshold: 0.88
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: State v. Johnson, 267 R.I. 123 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.93
+  - text: Rhode Island Supreme Court held
+    expected_type: COURT
+    expected_confidence: 0.96
+  - text: "R.I. Gen. Laws \xA7 11-23-1"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.92
+  performance_benchmarks:
+    citation_extraction_rate: 810
+    entity_recognition_rate: 1140
+    memory_efficiency: 0.82
+entity_types:
+- name: RHODE_ISLAND_LEGAL_ENTITY
+  description: Rhode_Island legal entity or citation
+  confidence_threshold: 0.8

@@ -1,0 +1,159 @@
+SUPREME COURT OF THE UNITED STATES
+
+ANDERSON PHARMACEUTICAL CORPORATION,
+                                        Petitioner,
+            v.                                          No. 23-567
+
+COMMISSIONER OF INTERNAL REVENUE,
+                                        Respondent.
+
+Argued: January 10, 2024
+Decided: May 20, 2024
+
+JUSTICE KAGAN delivered the opinion of the Court.
+
+This case presents complex questions regarding the intersection of federal tax law, administrative procedure, and corporate governance. Specifically, we must determine: (1) whether the Internal Revenue Service properly applied 26 U.S.C. § 482 to reallocate income among related corporate entities; (2) whether the Tax Court correctly sustained penalties under 26 U.S.C. § 6662(e) for substantial valuation misstatements; and (3) whether the administrative proceedings violated the Due Process Clause of the Fifth Amendment. We hold that the IRS's income reallocation was proper, the penalties were appropriate, but the proceedings contained procedural defects requiring remand.
+
+I. FACTUAL AND PROCEDURAL BACKGROUND
+
+A. The Corporate Structure and Transfer Pricing Arrangements
+
+Petitioner Anderson Pharmaceutical Corporation is a Delaware corporation headquartered in Boston, Massachusetts, specializing in the development and manufacture of prescription medications for autoimmune disorders. Anderson was founded in 1985 by Dr. Robert Anderson and has grown to become one of the largest pharmaceutical companies in the United States, with annual revenues exceeding $15 billion.
+
+In 2010, Anderson established a wholly-owned subsidiary, Anderson Ireland Holdings, Ltd., in Dublin, Ireland. Ireland Holdings was incorporated under Irish law and maintains its principal office at 123 Grand Canal Street, Dublin 2. The subsidiary was established to handle intellectual property licensing, research and development coordination, and distribution of Anderson's products in European markets.
+
+Between 2010 and 2015, Anderson transferred valuable intellectual property rights, including patents for three blockbuster drugs—Immunotek, Rheumaclear, and Autoprotect—to Ireland Holdings. These drugs treat rheumatoid arthritis, lupus, and Crohn's disease, respectively, and collectively generate approximately $8 billion in annual global sales. The patents underlying these drugs were developed through decades of research conducted primarily at Anderson's facilities in Cambridge, Massachusetts, and San Diego, California.
+
+Under a series of transfer pricing agreements executed between 2010 and 2015, Anderson U.S. agreed to pay royalties to Ireland Holdings for the right to manufacture and sell the three drugs in the United States market. The royalty rate was set at 35% of U.S. net sales, significantly higher than industry standards for comparable transactions. Conversely, Ireland Holdings paid Anderson U.S. a much lower royalty rate of 8% for the right to sell the same products in European markets, despite those markets representing comparable revenue potential.
+
+This pricing structure resulted in substantial income being allocated to Ireland Holdings, which benefited from Ireland's favorable corporate tax rate of 12.5%, compared to the U.S. federal corporate tax rate of 35% applicable during the relevant tax years. For the tax years 2015 through 2018, Anderson U.S. reported total royalty payments to Ireland Holdings of $4.2 billion, while receiving only $640 million in royalty payments from Ireland Holdings.
+
+B. The IRS Examination and Administrative Proceedings
+
+In March 2019, the Internal Revenue Service initiated an examination of Anderson's corporate tax returns for the years 2015 through 2018. The examination was conducted by the IRS Large Business and International Division, under the supervision of Revenue Agent Karen Williams and her team of transfer pricing specialists.
+
+During the examination, the IRS retained Dr. Richard Foster, a renowned economist from the University of Chicago, to analyze Anderson's transfer pricing methodology. Dr. Foster prepared a comprehensive report concluding that the royalty rates paid by Anderson U.S. to Ireland Holdings were substantially inflated and did not reflect arm's length pricing under 26 U.S.C. § 482 and Treasury Regulation § 1.482-4(c)(2).
+
+Dr. Foster's analysis applied the comparable uncontrolled transaction method, examining royalty rates in 47 comparable licensing agreements between unrelated pharmaceutical companies. His study found that appropriate arm's length royalty rates for the transferred intellectual property should have ranged between 12% and 18% of net sales, not the 35% rate used by Anderson.
+
+On September 15, 2019, the IRS issued a Revenue Agent's Report proposing adjustments totaling $1.8 billion in additional taxable income for the four-year period, plus accuracy-related penalties under 26 U.S.C. § 6662(e) of approximately $360 million. The report was prepared by Revenue Agent Williams and reviewed by IRS District Director James Thompson.
+
+Anderson filed a formal protest on November 1, 2019, challenging both the proposed adjustments and penalties. The company retained its own expert economist, Professor Elizabeth Martinez from Harvard Business School, who prepared a detailed rebuttal arguing that the 35% royalty rate was appropriate given the unique value and market dominance of the transferred drugs.
+
+The IRS Office of Appeals assigned the case to Appeals Officer Michael Roberts, who conducted settlement conferences with Anderson's representatives on February 12, 2020, and May 8, 2020. Anderson was represented throughout these proceedings by Attorney David Johnson of the law firm Wilson & Associates LLP, and tax advisor Sarah Chen of the accounting firm Chen & Partners.
+
+During the appeals process, Anderson submitted extensive documentation, including internal corporate emails, board of directors meeting minutes, and financial projections prepared by Anderson's Chief Financial Officer, Thomas Bradley. However, Appeals Officer Roberts ultimately sustained the Revenue Agent's Report in its entirety, issuing a Notice of Deficiency on August 20, 2020.
+
+Anderson petitioned the United States Tax Court for redetermination on November 18, 2020. The case was assigned to Judge Albert Patterson, who has presided over transfer pricing disputes for over 15 years and is recognized as one of the Tax Court's leading experts in international tax matters.
+
+C. The Tax Court Proceedings
+
+The Tax Court proceedings commenced with extensive discovery lasting 14 months. Anderson produced over 500,000 pages of documents, and the IRS produced approximately 200,000 pages. Both parties conducted numerous depositions of corporate officers, economists, and IRS personnel.
+
+The case proceeded to a 12-day trial in January 2022. The government presented testimony from Revenue Agent Karen Williams, economist Dr. Richard Foster, and IRS transfer pricing specialist Jennifer Lopez. Anderson presented testimony from CFO Thomas Bradley, economist Professor Elizabeth Martinez, former Anderson CEO Dr. Robert Anderson, and three corporate directors: Patricia Sullivan, Mark Davis, and James Wilson.
+
+The evidentiary record included detailed financial analyses, economic modeling, industry benchmarking studies, and expert reports exceeding 1,500 pages. Both parties filed post-trial briefs totaling over 400 pages, supplemented by extensive appendices and exhibits.
+
+On September 30, 2022, the Tax Court issued a comprehensive 127-page opinion authored by Judge Patterson. The court made detailed findings of fact regarding the development, ownership, and economic value of the transferred intellectual property. The court found that Anderson's transfer pricing methodology lacked economic substance and that the 35% royalty rate substantially exceeded arm's length pricing.
+
+Applying the comparable uncontrolled transaction method endorsed by Dr. Foster, the Tax Court determined that an appropriate royalty rate would have been 15% of net sales. The court sustained the IRS's income reallocation under 26 U.S.C. § 482, resulting in $1.8 billion in additional taxable income over the four-year period.
+
+Additionally, the Tax Court upheld the substantial valuation misstatement penalties under 26 U.S.C. § 6662(e), finding that Anderson's reported transfer prices were more than 200% of the correct arm's length prices, thereby meeting the statutory threshold. The court rejected Anderson's reasonable cause defense under 26 U.S.C. § 6664(c), finding that Anderson had not established reasonable reliance on professional advice.
+
+Anderson appealed to the United States Court of Appeals for the First Circuit, which affirmed the Tax Court's decision in a published opinion on June 15, 2023. The First Circuit panel consisted of Circuit Judges Sandra Lynch, William Kayatta, Jr., and O. Rogeriee Thompson. Judge Lynch authored the majority opinion, with Judge Thompson writing a concurring opinion addressing the procedural due process issues.
+
+Anderson filed a petition for a writ of certiorari on September 1, 2023, which we granted on December 15, 2023, to resolve important questions regarding the application of § 482 and the procedural requirements for IRS transfer pricing adjustments.
+
+II. LEGAL FRAMEWORK
+
+A. Section 482 and Transfer Pricing Principles
+
+Section 482 of the Internal Revenue Code authorizes the Secretary of the Treasury to reallocate income, deductions, and credits among commonly controlled entities "if he determines that such distribution, apportionment, or allocation is necessary in order to prevent evasion of taxes or clearly to reflect the income of any of such organizations." 26 U.S.C. § 482.
+
+The purpose of § 482 is to ensure that controlled entities report taxable income as if they were unrelated parties dealing at arm's length. See Commissioner v. First Security Bank of Utah, 405 U.S. 394, 400 (1972). The arm's length standard requires that prices charged in controlled transactions reflect the prices that would have been charged in comparable uncontrolled transactions. Treas. Reg. § 1.482-1(b)(1).
+
+Treasury Regulation § 1.482-4 specifically addresses transfers of intangible property and provides several methods for determining arm's length royalty rates, including: (1) the comparable uncontrolled transaction method; (2) the profit split method; and (3) the comparable profits method. Treas. Reg. § 1.482-4(c). The regulations express a preference for the comparable uncontrolled transaction method when reliable data are available. Id. § 1.482-4(c)(2)(i).
+
+We have previously recognized that the IRS enjoys broad discretion in applying § 482 and that courts should not lightly disturb the Commissioner's determinations. See Eli Lilly & Co. v. Commissioner, 856 F.2d 855, 858 (7th Cir. 1988). The taxpayer bears the burden of proving that the Commissioner's allocation is arbitrary, capricious, or unreasonable. See United States v. Goodyear Tire & Rubber Co., 493 U.S. 132, 139 (1989).
+
+B. Substantial Valuation Misstatement Penalties
+
+Section 6662(e) imposes a 20% accuracy-related penalty when a taxpayer substantially overstates or understates the value of property. For transfer pricing cases, a substantial valuation misstatement occurs when the price for property or services claimed on a tax return is 200% or more (or 50% or less) of the correct arm's length price. 26 U.S.C. § 6662(e)(1)(B)(ii).
+
+Congress enacted these penalties to encourage taxpayers to exercise care in valuing transferred property and to discourage aggressive transfer pricing positions. See H.R. Rep. No. 99-426, at 423 (1985). The penalties serve both revenue protection and deterrence functions.
+
+A taxpayer may avoid § 6662(e) penalties by demonstrating reasonable cause and good faith under § 6664(c). This defense requires showing that the taxpayer acted with reasonable cause and in good faith with respect to the underpayment. Factors relevant to the reasonable cause analysis include the taxpayer's efforts to assess its tax liability, reliance on professional advice, complexity of the tax issue, and whether the taxpayer's position had a reasonable basis in law. See United States v. Boyle, 469 U.S. 241, 250-51 (1985).
+
+C. Due Process Requirements
+
+The Fifth Amendment provides that no person shall "be deprived of life, liberty, or property, without due process of law." U.S. Const. amend. V. This guarantee applies to federal tax proceedings and requires that taxpayers receive notice and an opportunity to be heard before the government may deprive them of property through tax assessments. See Phillips v. Commissioner, 283 U.S. 589, 596-97 (1931).
+
+Due process is a flexible concept that requires procedures appropriate to the nature of the case. See Mathews v. Eldridge, 424 U.S. 319, 334 (1976). In evaluating whether administrative procedures satisfy due process, we consider: (1) the private interest affected; (2) the risk of erroneous deprivation through the procedures used and the probable value of additional safeguards; and (3) the government's interest in the procedures employed. Id. at 335.
+
+In the tax context, we have held that taxpayers are entitled to a meaningful opportunity to present evidence and arguments challenging proposed adjustments before a final determination is made. See Commissioner v. Shapiro, 424 U.S. 614, 627 (1976). However, the procedures need not provide all the formalities of a judicial trial. See Heckler v. Campbell, 461 U.S. 458, 467 (1983).
+
+III. DISCUSSION
+
+A. The IRS Properly Applied Section 482 to Reallocate Income
+
+Anderson advances three arguments challenging the § 482 allocation: (1) the comparable uncontrolled transaction method was inapplicable because no truly comparable transactions exist; (2) the IRS failed to account for the unique value of Anderson's intellectual property; and (3) the 15% royalty rate determined by the Tax Court arbitrarily undervalues the transferred patents. We reject each argument.
+
+First, the record amply supports the Tax Court's determination that the comparable uncontrolled transaction method was the most reliable method for evaluating Anderson's transfer pricing. Dr. Foster identified 47 licensing agreements between unrelated pharmaceutical companies involving drugs with similar therapeutic applications, market positions, and revenue potential. While no two licensing transactions are perfectly identical, the comparables identified by Dr. Foster shared sufficient characteristics to provide reliable benchmarks.
+
+Anderson's expert, Professor Martinez, criticized certain of Dr. Foster's comparables as insufficiently similar, but the Tax Court carefully evaluated the reliability of each comparable and made appropriate adjustments for identified differences. The court's analysis was thorough and well-reasoned, applying the factors set forth in Treasury Regulation § 1.482-4(c)(2)(iii). We defer to the Tax Court's factual findings, which are supported by substantial evidence. See Commissioner v. Duberstein, 363 U.S. 278, 291 (1960).
+
+Second, the IRS and Tax Court properly considered the unique characteristics of Anderson's intellectual property. The Tax Court's opinion discusses at length the innovative nature of Anderson's drugs, their market dominance, high barriers to entry for competitors, and substantial patient demand. However, these characteristics do not justify the 35% royalty rate when comparable unique and valuable drugs commanded royalty rates in the 12-18% range.
+
+Anderson argues that its drugs represent breakthrough therapies that transformed treatment for autoimmune diseases and therefore deserve premium pricing. While this may be true, the arm's length standard requires comparison to what unrelated parties would agree to in similar circumstances. The evidence showed that other breakthrough drugs with comparable market impact were licensed at rates far below Anderson's claimed 35% rate.
+
+Third, we find no basis to conclude that the 15% royalty rate determined by the Tax Court was arbitrary. This rate falls within the interquartile range of the comparable transactions analyzed by Dr. Foster and represents a reasonable application of the arm's length standard. The Tax Court explicitly considered Anderson's arguments regarding the superior value of its intellectual property and determined that a 15% rate appropriately reflected that value while remaining consistent with arm's length pricing principles.
+
+We have repeatedly emphasized that the Commissioner's § 482 determinations are entitled to deference and will be sustained unless shown to be arbitrary or unreasonable. See Xerox Corp. v. United States, 656 F.2d 659, 666 (Ct. Cl. 1981). Anderson has not met this demanding standard. The IRS's reallocation of $1.8 billion in income to Anderson U.S. was proper and is AFFIRMED.
+
+B. The Substantial Valuation Misstatement Penalties Were Appropriate
+
+Anderson challenges the imposition of § 6662(e) penalties on two grounds: (1) the substantial valuation misstatement threshold was not met; and (2) Anderson established reasonable cause and good faith. Both arguments fail.
+
+First, the Tax Court correctly determined that Anderson's transfer pricing constituted a substantial valuation misstatement under § 6662(e). Anderson reported royalty payments based on a 35% rate, while the correct arm's length rate was 15%. This represents a valuation error exceeding 200% (35% divided by 15% equals 233%), clearly meeting the statutory threshold.
+
+Anderson argues that the comparison should be made on a dollar basis rather than a percentage basis, but this argument finds no support in the statute or regulations. Section 6662(e)(1)(B)(ii) explicitly states that the substantial valuation misstatement determination should be made by comparing the claimed value to the correct value, which in transfer pricing cases means comparing the claimed price to the arm's length price.
+
+Second, Anderson has not established reasonable cause and good faith under § 6664(c). Anderson retained competent tax advisors and obtained an opinion from Professor Martinez supporting its transfer pricing methodology. However, reasonable reliance on professional advice requires that the advice be based on complete and accurate information and that the taxpayer exercise ordinary business care and prudence.
+
+Here, the record shows that Anderson's tax advisors were not provided with complete information regarding the comparable licensing transactions in the pharmaceutical industry. Internal Anderson emails, introduced at trial, demonstrate that senior management was aware that the 35% royalty rate substantially exceeded industry norms but proceeded with that rate to minimize U.S. tax liability.
+
+Moreover, Attorney Johnson acknowledged during his deposition that he advised Anderson management that the 35% rate presented "significant tax risk" and recommended a more conservative rate between 18% and 22%. Anderson's decision to ignore this advice and adopt an aggressive position precludes a reasonable cause defense. See Neonatology Associates, P.A. v. Commissioner, 115 T.C. 43, 99 (2000), aff'd, 299 F.3d 221 (3d Cir. 2002).
+
+The imposition of § 6662(e) penalties totaling approximately $360 million is AFFIRMED.
+
+C. The Administrative Proceedings Contained Procedural Defects Requiring Remand
+
+Although we affirm the substantive tax adjustments and penalties, we find merit in Anderson's procedural due process challenge. Specifically, the record reveals that Appeals Officer Roberts failed to conduct an independent review of the case and instead relied almost exclusively on the determinations made by Revenue Agent Williams.
+
+The IRS Appeals function is designed to provide taxpayers with an independent administrative review before tax disputes proceed to litigation. See Internal Revenue Manual § 1.1.1.1. To serve this function effectively, Appeals Officers must conduct a fresh evaluation of the facts and law, not merely rubber-stamp the examination division's conclusions.
+
+Here, the administrative record shows that Appeals Officer Roberts scheduled only two brief settlement conferences totaling less than four hours, declined to review key documents submitted by Anderson, and issued a decision sustaining the Revenue Agent's Report without providing any written analysis explaining his independent assessment of the issues.
+
+Anderson's attorney, David Johnson, testified that when he asked Appeals Officer Roberts to explain the basis for his decision, Roberts stated that he saw "no reason to second-guess the examining agent's analysis." This statement, confirmed by contemporaneous notes taken by Sarah Chen, suggests that Roberts failed to conduct the independent review required by IRS procedures and due process principles.
+
+While the IRS has considerable discretion in structuring its administrative procedures, due process requires a meaningful opportunity for taxpayers to present their case to an impartial decision-maker. See Mathews v. Eldridge, 424 U.S. at 333. Where, as here, the administrative appeal amounts to nothing more than a perfunctory endorsement of the examining agent's position, the taxpayer has been denied a meaningful opportunity to be heard.
+
+This procedural defect is particularly significant given the magnitude of the tax deficiency ($1.8 billion) and penalties ($360 million) at issue. While we ultimately agree with the substantive conclusions reached by the Tax Court, the lack of a meaningful administrative appeal deprived Anderson of an important procedural protection.
+
+However, this procedural error does not require reversal of the tax adjustments or penalties. Anderson received a full and fair hearing before the Tax Court, which conducted a thorough independent review of the facts and law. The Tax Court proceedings provided all the process that was due, curing any defects in the administrative proceedings. See Commissioner v. Gooch Milling & Elevator Co., 320 U.S. 418, 422 (1943).
+
+Nevertheless, we remand with instructions that the IRS modify its procedures to ensure that Appeals Officers conduct meaningful independent reviews in transfer pricing cases involving substantial deficiencies. The IRS should implement safeguards such as requiring written analyses, conducting substantive settlement conferences, and establishing oversight mechanisms to verify that Appeals Officers are not simply deferring to examining agents.
+
+IV. CONCLUSION
+
+We hold that: (1) the IRS properly applied 26 U.S.C. § 482 to reallocate $1.8 billion in income to Anderson U.S., reflecting arm's length transfer pricing; (2) the substantial valuation misstatement penalties under 26 U.S.C. § 6662(e) were appropriate and Anderson did not establish reasonable cause; and (3) while the administrative appeal procedures contained due process defects, those defects were cured by the Tax Court proceedings and do not require reversal.
+
+The judgment of the Court of Appeals is AFFIRMED as to the tax adjustments and penalties. The case is REMANDED to the IRS with instructions to implement procedural reforms as discussed in Part III.C of this opinion.
+
+It is so ordered.
+
+JUSTICE KAGAN delivered the opinion of the Court, in which CHIEF JUSTICE ROBERTS and JUSTICES THOMAS, ALITO, SOTOMAYOR, KAVANAUGH, BARRETT, and JACKSON joined.
+
+JUSTICE GORSUCH filed an opinion concurring in part and dissenting in part.
+
+Decided: May 20, 2024.

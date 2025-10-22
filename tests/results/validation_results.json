@@ -1,0 +1,39 @@
+{
+  "schema_validation": {
+    "status": "passed",
+    "issues": []
+  },
+  "data_integrity": {
+    "status": "passed",
+    "issues": []
+  },
+  "statistics": {
+    "total_tests": 6,
+    "date_range": {
+      "earliest": "2025-10-15 18:38:09",
+      "latest": "2025-10-15 18:43:40",
+      "duration_seconds": 330.67857122421265
+    },
+    "unique_documents": [
+      "case_001",
+      "case_002",
+      "case_003",
+      "case_004",
+      "case_005",
+      "case_006"
+    ],
+    "total_entities": 52,
+    "routing_strategies": {
+      "single_pass": 5,
+      "three_wave": 1
+    },
+    "entity_types": {
+      "UNKNOWN": 52
+    },
+    "confidence_stats": {
+      "min": 0.93,
+      "max": 1.0,
+      "avg": 0.0
+    }
+  }
+}

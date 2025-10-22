@@ -1,0 +1,2348 @@
+{
+  "test_type": "QWEN3_WITH_COMPREHENSIVE_TEMPLATE",
+  "model": "Qwen2.5-3B-Instruct",
+  "model_features": {
+    "context_length": "32K tokens (2x SaulLM)",
+    "parameters": "3B",
+    "improvements": "Better context handling, improved instruction following"
+  },
+  "prompt_template": "saullm_entity_extraction_template.md",
+  "document": "Rahimi.pdf (full document)",
+  "document_size": 216803,
+  "chunks_processed": 28,
+  "chunk_size": 8000,
+  "all_entities_with_duplicates": [
+    {
+      "type": "COURT",
+      "text": "United States District Court",
+      "start": 0,
+      "end": 13
+    },
+    {
+      "type": "COURT",
+      "text": "Supreme Court of the United States",
+      "start": 14,
+      "end": 30
+    },
+    {
+      "type": "COURT",
+      "text": "Court of Appeals for the Ninth Circuit",
+      "start": 31,
+      "end": 48
+    },
+    {
+      "type": "COURT",
+      "text": "Superior Court of California",
+      "start": 49,
+      "end": 62
+    },
+    {
+      "type": "COURT",
+      "text": "New York Court of Appeals",
+      "start": 63,
+      "end": 76
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clerk of the U.S. Supreme Court",
+      "start": 77,
+      "end": 95
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "District Court Clerk",
+      "start": 96,
+      "end": 103
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Brevard County Clerk",
+      "start": 104,
+      "end": 111
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Circuit Court Clerk",
+      "start": 112,
+      "end": 119
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clermont County Common Pleas Court Clerk",
+      "start": 120,
+      "end": 141
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Stenographic Reporter (CSR)",
+      "start": 142,
+      "end": 162
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Professional Reporter (RPR)",
+      "start": 163,
+      "end": 183
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Federal Court Reporter",
+      "start": 184,
+      "end": 193
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Realtime Reporter (CRR)",
+      "start": 194,
+      "end": 214
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Merit Reporter (RMR)",
+      "start": 215,
+      "end": 235
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Kenneth R. Feinberg",
+      "start": 236,
+      "end": 245
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "ICC Arbitrator Panel",
+      "start": 246,
+      "end": 256
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "AAA Commercial Arbitrator",
+      "start": 257,
+      "end": 267
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "JAMS Arbitrator Jane Smith",
+      "start": 268,
+      "end": 283
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "WIPO Arbitration Panel",
+      "start": 284,
+      "end": 291
+    },
+    {
+      "type": "COURT",
+      "text": "United States District Court",
+      "start": 292,
+      "end": 305
+    },
+    {
+      "type": "COURT",
+      "text": "Supreme Court of the United States",
+      "start": 306,
+      "end": 319
+    },
+    {
+      "type": "COURT",
+      "text": "Court of Appeals for the Ninth Circuit",
+      "start": 320,
+      "end": 337
+    },
+    {
+      "type": "COURT",
+      "text": "Superior Court of California",
+      "start": 338,
+      "end": 349
+    },
+    {
+      "type": "COURT",
+      "text": "New York Court of Appeals",
+      "start": 350,
+      "end": 363
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clerk of the U.S. Supreme Court",
+      "start": 364,
+      "end": 382
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "District Court Clerk",
+      "start": 383,
+      "end": 390
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Brevard County Clerk",
+      "start": 391,
+      "end": 400
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Circuit Court Clerk",
+      "start": 401,
+      "end": 408
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clermont County Common Pleas Court Clerk",
+      "start": 409,
+      "end": 430
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Stenographic Reporter (CSR)",
+      "start": 431,
+      "end": 451
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Professional Reporter (RPR)",
+      "start": 452,
+      "end": 472
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Federal Court Reporter",
+      "start": 473,
+      "end": 482
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Realtime Reporter (CRR)",
+      "start": 483,
+      "end": 498
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Merit Reporter (RMR)",
+      "start": 499,
+      "end": 519
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Attorney John Smith",
+      "start": 520,
+      "end": 527
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Counsel Mary Johnson",
+      "start": 528,
+      "end": 535
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Counselor Robert Davis",
+      "start": 536,
+      "end": 543
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "John Smith, Esq",
+      "start": 544,
+      "end": 551
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Mary Johnson Esq",
+      "start": 552,
+      "end": 561
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Assistant U.S. Attorney (AUSA)",
+      "start": 562,
+      "end": 577
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "State Attorney General",
+      "start": 578,
+      "end": 585
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Assistant Attorney General",
+      "start": 586,
+      "end": 594
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Agency General Counsel",
+      "start": 595,
+      "end": 602
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Municipal Attorney",
+      "start": 603,
+      "end": 609
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Federal Circuit Court Clerk",
+      "start": 610,
+      "end": 624
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "District Court Law Clerk",
+      "start": 625,
+      "end": 633
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Supreme Court Law Clerk",
+      "start": 634,
+      "end": 641
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "State Court Law Clerk",
+      "start": 642,
+      "end": 649
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Judicial Extern",
+      "start": 650,
+      "end": 655
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Smith & Associates Law Firm",
+      "start": 656,
+      "end": 666
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Johnson Legal LLC",
+      "start": 667,
+      "end": 677
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Davis & Partners LLP",
+      "start": 678,
+      "end": 688
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Smith, Johnson & Associates",
+      "start": 689,
+      "end": 704
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Davis & Wilson Law Firm",
+      "start": 705,
+      "end": 716
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Legal Aid Society Attorney",
+      "start": 717,
+      "end": 728
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Community Legal Services Lawyer",
+      "start": 729,
+      "end": 740
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Pro Bono Coordinator",
+      "start": 741,
+      "end": 747
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Immigrant Rights Attorney",
+      "start": 748,
+      "end": 755
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Housing Legal Aid Attorney",
+      "start": 756,
+      "end": 764
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Certified Legal Secretary (CLS)",
+      "start": 765,
+      "end": 780
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Legal Administrative Assistant",
+      "start": 781,
+      "end": 792
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Court Filing Secretary",
+      "start": 793,
+      "end": 800
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Client Intake Secretary",
+      "start": 801,
+      "end": 808
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Trial Support Secretary",
+      "start": 809,
+      "end": 816
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Certified Paralegal (CP)",
+      "start": 817,
+      "end": 828
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Registered Paralegal (RP)",
+      "start": 829,
+      "end": 840
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Litigation Paralegal",
+      "start": 841,
+      "end": 848
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Corporate Paralegal",
+      "start": 849,
+      "end": 856
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Advanced Certified Paralegal",
+      "start": 857,
+      "end": 868
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Assistant District Attorney Smith",
+      "start": 869,
+      "end": 884
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "State's Attorney Jane Doe",
+      "start": 885,
+      "end": 894
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Federal Prosecutor Johnson",
+      "start": 895,
+      "end": 902
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Special Prosecutor Williams",
+      "start": 903,
+      "end": 912
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "County Prosecutor Brown",
+      "start": 913,
+      "end": 922
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment Due Process Clause"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fifth Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Article II Executive Power"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Commerce Clause"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 6102"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 9066"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 11246"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 13769"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Presidential Proclamation 9645"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Code of Federal Regulations (CFR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Federal Register (FR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "GAO Standards"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "OMB Circulars"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Cal. Code Regs. tit. 8, \u00a7 3203"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "N.Y. Comp. Codes R. & Regs. tit. 10, \u00a7 86-1.1"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Tex. Admin. Code tit. 25, \u00a7 133.41"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Fla. Admin. Code r. 64B8-9.009"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Ill. Admin. Code tit. 77, \u00a7 750.100"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Cal. Penal Code \u00a7 187"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "N.Y. Gen. Bus. Law \u00a7 349"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Tex. Bus. & Com. Code \u00a7 17.46"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Fla. Stat. \u00a7 768.28"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "720 ILCS 5/9-1"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "8 U.S.C. \u00a7 1227(a)(2)(A)(i)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "42 U.S.C. \u00a7 1983"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "18 U.S.C. \u00a7 924(c)(1)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "Alaska Stat. \u00a7 11.41.100 (2022)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "AS \u00a7 09.10.065 (2023)"
+    },
+    {
+      "type": "STATUTE",
+      "text": "18 USC 242"
+    },
+    {
+      "type": "STATUTE",
+      "text": "42 USC Chapter 21"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Title VII of the Civil Rights Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Americans with Disabilities Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Federal Magistrates Act of 1968"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "Fourth Amendment to the United States Constitution"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "14th Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "The 1st Amendment protects freedom of speech"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "Rights under the 4th Amendment were violated"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment Due Process Clause"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fifth Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Article II Executive Power"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Commerce Clause"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 6102"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 9066"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 11246"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 13769"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Presidential Proclamation 9645"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Code of Federal Regulations (CFR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Federal Register (FR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "GAO Standards"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "OMB Circulars"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Cal. Code Regs. tit. 8, \u00a7 3203"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "N.Y. Comp. Codes R. & Regs. tit. 10, \u00a7 86-1.1"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Tex. Admin. Code tit. 25, \u00a7 133.41"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Fla. Admin. Code r. 64B8-9.009"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Ill. Admin. Code tit. 77, \u00a7 750.100"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Cal. Penal Code \u00a7 187"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "N.Y. Gen. Bus. Law \u00a7 349"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Tex. Bus. & Com. Code \u00a7 17.46"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Fla. Stat. \u00a7 768.28"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "720 ILCS 5/9-1"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "8 U.S.C. \u00a7 1227(a)(2)(A)(i)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "42 U.S.C. \u00a7 1983"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "18 U.S.C. \u00a7 924(c)(1)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "Alaska Stat. \u00a7 11.41.100 (2022)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "AS \u00a7 09.10.065 (2023)"
+    },
+    {
+      "type": "STATUTE",
+      "text": "18 USC 242"
+    },
+    {
+      "type": "STATUTE",
+      "text": "42 USC Chapter 21"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Title VII of the Civil Rights Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Americans with Disabilities Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Federal Magistrates Act of 1968"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment Due Process Clause"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fifth Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Article II Executive Power"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Commerce Clause"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 6102"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 9066"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 11246"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 13769"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Presidential Proclamation 9645"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Code of Federal Regulations (CFR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Federal Register (FR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "GAO Standards"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "OMB Circulars"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Cal. Code Regs. tit. 8, \u00a7 3203"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "N.Y. Comp. Codes R. & Regs. tit. 10, \u00a7 86-1.1"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Tex. Admin. Code tit. 25, \u00a7 133.41"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Fla. Admin. Code r. 64B8-9.009"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Ill. Admin. Code tit. 77, \u00a7 750.100"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Cal. Penal Code \u00a7 187"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "N.Y. Gen. Bus. Law \u00a7 349"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Tex. Bus. & Com. Code \u00a7 17.46"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Fla. Stat. \u00a7 768.28"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "720 ILCS 5/9-1"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "8 U.S.C. \u00a7 1227(a)(2)(A)(i)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "42 U.S.C. \u00a7 1983"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "18 U.S.C. \u00a7 924(c)(1)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "Alaska Stat. \u00a7 11.41.100 (2022)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "AS \u00a7 09.10.065 (2023)"
+    },
+    {
+      "type": "STATUTE",
+      "text": "18 USC 242"
+    },
+    {
+      "type": "STATUTE",
+      "text": "42 USC Chapter 21"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Title VII of the Civil Rights Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Americans with Disabilities Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Federal Magistrates Act of 1968"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "Fourth Amendment to the United States Constitution"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "14th Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "The 1st Amendment protects freedom of speech"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "Rights under the 4th Amendment were violated"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment Due Process Clause"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fifth Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Article II Executive Power"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Commerce Clause"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 6102"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 9066"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 11246"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 13769"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Presidential Proclamation 9645"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Code of Federal Regulations (CFR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Federal Register (FR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "GAO Standards"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "OMB Circulars"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Cal. Code Regs. tit. 8, \u00a7 3203"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "N.Y. Comp. Codes R. & Regs. tit. 10, \u00a7 86-1.1"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Tex. Admin. Code tit. 25, \u00a7 133.41"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Fla. Admin. Code r. 64B8-9.009"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Ill. Admin. Code tit. 77, \u00a7 750.100"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Cal. Penal Code \u00a7 187"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "N.Y. Gen. Bus. Law \u00a7 349"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Tex. Bus. & Com. Code \u00a7 17.46"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Fla. Stat. \u00a7 768.28"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "720 ILCS 5/9-1"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "8 U.S.C. \u00a7 1227(a)(2)(A)(i)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "42 U.S.C. \u00a7 1983"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "18 U.S.C. \u00a7 924(c)(1)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "Alaska Stat. \u00a7 11.41.100 (2022)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "AS \u00a7 09.10.065 (2023)"
+    },
+    {
+      "type": "STATUTE",
+      "text": "18 USC 242"
+    },
+    {
+      "type": "STATUTE",
+      "text": "42 USC Chapter 21"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Title VII of the Civil Rights Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Americans with Disabilities Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Federal Magistrates Act of 1968"
+    },
+    {
+      "type": "COURT",
+      "text": "United States District Court",
+      "start": 0,
+      "end": 13
+    },
+    {
+      "type": "COURT",
+      "text": "Supreme Court of the United States",
+      "start": 14,
+      "end": 30
+    },
+    {
+      "type": "COURT",
+      "text": "Court of Appeals for the Ninth Circuit",
+      "start": 31,
+      "end": 48
+    },
+    {
+      "type": "COURT",
+      "text": "Superior Court of California",
+      "start": 49,
+      "end": 61
+    },
+    {
+      "type": "COURT",
+      "text": "New York Court of Appeals",
+      "start": 62,
+      "end": 74
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clerk of the U.S. Supreme Court",
+      "start": 75,
+      "end": 94
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "District Court Clerk",
+      "start": 95,
+      "end": 102
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Brevard County Clerk",
+      "start": 103,
+      "end": 111
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Circuit Court Clerk",
+      "start": 112,
+      "end": 120
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clermont County Common Pleas Court Clerk",
+      "start": 121,
+      "end": 141
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Stenographic Reporter (CSR)",
+      "start": 142,
+      "end": 162
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Professional Reporter (RPR)",
+      "start": 163,
+      "end": 183
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Federal Court Reporter",
+      "start": 184,
+      "end": 192
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Realtime Reporter (CRR)",
+      "start": 193,
+      "end": 213
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Merit Reporter (RMR)",
+      "start": 214,
+      "end": 234
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Kenneth R. Feinberg",
+      "start": 235,
+      "end": 244
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "ICC Arbitrator Panel",
+      "start": 245,
+      "end": 255
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "AAA Commercial Arbitrator",
+      "start": 256,
+      "end": 266
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "JAMS Arbitrator Jane Smith",
+      "start": 267,
+      "end": 282
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "WIPO Arbitration Panel",
+      "start": 283,
+      "end": 291
+    },
+    {
+      "type": "COURT",
+      "text": "United States District Court",
+      "start": 292,
+      "end": 305
+    },
+    {
+      "type": "COURT",
+      "text": "Supreme Court of the United States",
+      "start": 306,
+      "end": 319
+    },
+    {
+      "type": "COURT",
+      "text": "Court of Appeals for the Ninth Circuit",
+      "start": 320,
+      "end": 337
+    },
+    {
+      "type": "COURT",
+      "text": "Superior Court of California",
+      "start": 338,
+      "end": 348
+    },
+    {
+      "type": "COURT",
+      "text": "New York Court of Appeals",
+      "start": 349,
+      "end": 359
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clerk of the U.S. Supreme Court",
+      "start": 360,
+      "end": 381
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "District Court Clerk",
+      "start": 382,
+      "end": 391
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Brevard County Clerk",
+      "start": 392,
+      "end": 401
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Circuit Court Clerk",
+      "start": 402,
+      "end": 410
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clermont County Common Pleas Court Clerk",
+      "start": 411,
+      "end": 431
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Stenographic Reporter (CSR)",
+      "start": 432,
+      "end": 452
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Professional Reporter (RPR)",
+      "start": 453,
+      "end": 473
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Federal Court Reporter",
+      "start": 474,
+      "end": 482
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Realtime Reporter (CRR)",
+      "start": 483,
+      "end": 493
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Merit Reporter (RMR)",
+      "start": 494,
+      "end": 514
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Florida Supreme Court Certified Mediator",
+      "start": 515,
+      "end": 540
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Community Mediation Center Mediator",
+      "start": 541,
+      "end": 558
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Family Court Mediator",
+      "start": 559,
+      "end": 566
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Federal Court Mediator",
+      "start": 567,
+      "end": 574
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Private Commercial Mediator",
+      "start": 575,
+      "end": 584
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Attorney John Smith",
+      "start": 585,
+      "end": 592
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Counsel Mary Johnson",
+      "start": 593,
+      "end": 600
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Counselor Robert Davis",
+      "start": 601,
+      "end": 608
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "John Smith, Esq",
+      "start": 609,
+      "end": 614
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Mary Johnson Esq",
+      "start": 615,
+      "end": 620
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Assistant U.S. Attorney (AUSA)",
+      "start": 621,
+      "end": 636
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "State Attorney General",
+      "start": 637,
+      "end": 644
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Assistant Attorney General",
+      "start": 645,
+      "end": 652
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Agency General Counsel",
+      "start": 653,
+      "end": 660
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Municipal Attorney",
+      "start": 661,
+      "end": 668
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Federal Circuit Court Clerk",
+      "start": 669,
+      "end": 684
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "District Court Law Clerk",
+      "start": 685,
+      "end": 700
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Supreme Court Law Clerk",
+      "start": 701,
+      "end": 710
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "State Court Law Clerk",
+      "start": 711,
+      "end": 720
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Judicial Extern",
+      "start": 721,
+      "end": 726
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Smith & Associates Law Firm",
+      "start": 727,
+      "end": 738
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Johnson Legal LLC",
+      "start": 739,
+      "end": 750
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Davis & Partners LLP",
+      "start": 751,
+      "end": 762
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Smith, Johnson & Associates",
+      "start": 763,
+      "end": 774
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Davis & Wilson Law Firm",
+      "start": 775,
+      "end": 786
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Legal Aid Society Attorney",
+      "start": 787,
+      "end": 802
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Community Legal Services Lawyer",
+      "start": 803,
+      "end": 820
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Pro Bono Coordinator",
+      "start": 821,
+      "end": 827
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Immigrant Rights Attorney",
+      "start": 828,
+      "end": 843
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Housing Legal Aid Attorney",
+      "start": 844,
+      "end": 859
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Certified Legal Secretary (CLS)",
+      "start": 860,
+      "end": 875
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Legal Administrative Assistant",
+      "start": 876,
+      "end": 891
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Court Filing Secretary",
+      "start": 892,
+      "end": 907
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Client Intake Secretary",
+      "start": 908,
+      "end": 923
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Trial Support Secretary",
+      "start": 924,
+      "end": 939
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Certified Paralegal (CP)",
+      "start": 940,
+      "end": 955
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Registered Paralegal (RP)",
+      "start": 956,
+      "end": 971
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Litigation Paralegal",
+      "start": 972,
+      "end": 983
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Corporate Paralegal",
+      "start": 984,
+      "end": 993
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Advanced Certified Paralegal",
+      "start": 994,
+      "end": 1009
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Assistant District Attorney Smith",
+      "start": 1010,
+      "end": 1031
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "State's Attorney Jane Doe",
+      "start": 1032,
+      "end": 1047
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Federal Prosecutor Johnson",
+      "start": 1048,
+      "end": 1063
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Special Prosecutor Williams",
+      "start": 1064,
+      "end": 1089
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "County Prosecutor Brown",
+      "start": 1090,
+      "end": 1105
+    }
+  ],
+  "unique_entities": [
+    {
+      "type": "COURT",
+      "text": "United States District Court",
+      "start": 0,
+      "end": 13
+    },
+    {
+      "type": "COURT",
+      "text": "Supreme Court of the United States",
+      "start": 14,
+      "end": 30
+    },
+    {
+      "type": "COURT",
+      "text": "Court of Appeals for the Ninth Circuit",
+      "start": 31,
+      "end": 48
+    },
+    {
+      "type": "COURT",
+      "text": "Superior Court of California",
+      "start": 49,
+      "end": 62
+    },
+    {
+      "type": "COURT",
+      "text": "New York Court of Appeals",
+      "start": 63,
+      "end": 76
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clerk of the U.S. Supreme Court",
+      "start": 77,
+      "end": 95
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "District Court Clerk",
+      "start": 96,
+      "end": 103
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Brevard County Clerk",
+      "start": 104,
+      "end": 111
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Circuit Court Clerk",
+      "start": 112,
+      "end": 119
+    },
+    {
+      "type": "COURT_CLERK",
+      "text": "Clermont County Common Pleas Court Clerk",
+      "start": 120,
+      "end": 141
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Stenographic Reporter (CSR)",
+      "start": 142,
+      "end": 162
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Professional Reporter (RPR)",
+      "start": 163,
+      "end": 183
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Federal Court Reporter",
+      "start": 184,
+      "end": 193
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Certified Realtime Reporter (CRR)",
+      "start": 194,
+      "end": 214
+    },
+    {
+      "type": "COURT_REPORTER",
+      "text": "Registered Merit Reporter (RMR)",
+      "start": 215,
+      "end": 235
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Kenneth R. Feinberg",
+      "start": 236,
+      "end": 245
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "ICC Arbitrator Panel",
+      "start": 246,
+      "end": 256
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "AAA Commercial Arbitrator",
+      "start": 257,
+      "end": 267
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "JAMS Arbitrator Jane Smith",
+      "start": 268,
+      "end": 283
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "WIPO Arbitration Panel",
+      "start": 284,
+      "end": 291
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Attorney John Smith",
+      "start": 520,
+      "end": 527
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Counsel Mary Johnson",
+      "start": 528,
+      "end": 535
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Counselor Robert Davis",
+      "start": 536,
+      "end": 543
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "John Smith, Esq",
+      "start": 544,
+      "end": 551
+    },
+    {
+      "type": "ATTORNEY",
+      "text": "Mary Johnson Esq",
+      "start": 552,
+      "end": 561
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Assistant U.S. Attorney (AUSA)",
+      "start": 562,
+      "end": 577
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "State Attorney General",
+      "start": 578,
+      "end": 585
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Assistant Attorney General",
+      "start": 586,
+      "end": 594
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Agency General Counsel",
+      "start": 595,
+      "end": 602
+    },
+    {
+      "type": "GOVERNMENT_ATTORNEY",
+      "text": "Municipal Attorney",
+      "start": 603,
+      "end": 609
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Federal Circuit Court Clerk",
+      "start": 610,
+      "end": 624
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "District Court Law Clerk",
+      "start": 625,
+      "end": 633
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Supreme Court Law Clerk",
+      "start": 634,
+      "end": 641
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "State Court Law Clerk",
+      "start": 642,
+      "end": 649
+    },
+    {
+      "type": "LAW_CLERK",
+      "text": "Judicial Extern",
+      "start": 650,
+      "end": 655
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Smith & Associates Law Firm",
+      "start": 656,
+      "end": 666
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Johnson Legal LLC",
+      "start": 667,
+      "end": 677
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Davis & Partners LLP",
+      "start": 678,
+      "end": 688
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Smith, Johnson & Associates",
+      "start": 689,
+      "end": 704
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Davis & Wilson Law Firm",
+      "start": 705,
+      "end": 716
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Legal Aid Society Attorney",
+      "start": 717,
+      "end": 728
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Community Legal Services Lawyer",
+      "start": 729,
+      "end": 740
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Pro Bono Coordinator",
+      "start": 741,
+      "end": 747
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Immigrant Rights Attorney",
+      "start": 748,
+      "end": 755
+    },
+    {
+      "type": "LEGAL_AID_ATTORNEY",
+      "text": "Housing Legal Aid Attorney",
+      "start": 756,
+      "end": 764
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Certified Legal Secretary (CLS)",
+      "start": 765,
+      "end": 780
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Legal Administrative Assistant",
+      "start": 781,
+      "end": 792
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Court Filing Secretary",
+      "start": 793,
+      "end": 800
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Client Intake Secretary",
+      "start": 801,
+      "end": 808
+    },
+    {
+      "type": "LEGAL_SECRETARY",
+      "text": "Trial Support Secretary",
+      "start": 809,
+      "end": 816
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Certified Paralegal (CP)",
+      "start": 817,
+      "end": 828
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Registered Paralegal (RP)",
+      "start": 829,
+      "end": 840
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Litigation Paralegal",
+      "start": 841,
+      "end": 848
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Corporate Paralegal",
+      "start": 849,
+      "end": 856
+    },
+    {
+      "type": "PARALEGAL",
+      "text": "Advanced Certified Paralegal",
+      "start": 857,
+      "end": 868
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Assistant District Attorney Smith",
+      "start": 869,
+      "end": 884
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "State's Attorney Jane Doe",
+      "start": 885,
+      "end": 894
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Federal Prosecutor Johnson",
+      "start": 895,
+      "end": 902
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "Special Prosecutor Williams",
+      "start": 903,
+      "end": 912
+    },
+    {
+      "type": "PROSECUTOR",
+      "text": "County Prosecutor Brown",
+      "start": 913,
+      "end": 922
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "First Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment Due Process Clause"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fifth Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Article II Executive Power"
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Commerce Clause"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 6102"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 9066"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 11246"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Executive Order 13769"
+    },
+    {
+      "type": "EXECUTIVE_ORDER",
+      "text": "Presidential Proclamation 9645"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Code of Federal Regulations (CFR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "Federal Register (FR)"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "GAO Standards"
+    },
+    {
+      "type": "ADMINISTRATIVE_CODE",
+      "text": "OMB Circulars"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Cal. Code Regs. tit. 8, \u00a7 3203"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "N.Y. Comp. Codes R. & Regs. tit. 10, \u00a7 86-1.1"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Tex. Admin. Code tit. 25, \u00a7 133.41"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Fla. Admin. Code r. 64B8-9.009"
+    },
+    {
+      "type": "STATE_REGULATION_CITATION",
+      "text": "Ill. Admin. Code tit. 77, \u00a7 750.100"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Cal. Penal Code \u00a7 187"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "N.Y. Gen. Bus. Law \u00a7 349"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Tex. Bus. & Com. Code \u00a7 17.46"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "Fla. Stat. \u00a7 768.28"
+    },
+    {
+      "type": "STATE_STATUTE_CITATION",
+      "text": "720 ILCS 5/9-1"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "8 U.S.C. \u00a7 1227(a)(2)(A)(i)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "42 U.S.C. \u00a7 1983"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "18 U.S.C. \u00a7 924(c)(1)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "Alaska Stat. \u00a7 11.41.100 (2022)"
+    },
+    {
+      "type": "STATUTE_CITATION",
+      "text": "AS \u00a7 09.10.065 (2023)"
+    },
+    {
+      "type": "STATUTE",
+      "text": "18 USC 242"
+    },
+    {
+      "type": "STATUTE",
+      "text": "42 USC Chapter 21"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Title VII of the Civil Rights Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Americans with Disabilities Act"
+    },
+    {
+      "type": "STATUTE",
+      "text": "Federal Magistrates Act of 1968"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "Fourth Amendment to the United States Constitution"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "14th Amendment"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "The 1st Amendment protects freedom of speech"
+    },
+    {
+      "type": "CONSTITUTIONAL_AMENDMENT",
+      "text": "Rights under the 4th Amendment were violated"
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Florida Supreme Court Certified Mediator",
+      "start": 515,
+      "end": 540
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Community Mediation Center Mediator",
+      "start": 541,
+      "end": 558
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Family Court Mediator",
+      "start": 559,
+      "end": 566
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Federal Court Mediator",
+      "start": 567,
+      "end": 574
+    },
+    {
+      "type": "ARBITRATOR",
+      "text": "Private Commercial Mediator",
+      "start": 575,
+      "end": 584
+    }
+  ],
+  "relationships": [],
+  "statistics": {
+    "total_entities_with_duplicates": 301,
+    "total_unique_entities": 103,
+    "total_relationships": 0,
+    "entity_type_distribution": {
+      "UNKNOWN": 103
+    },
+    "unique_entity_types": 1,
+    "total_processing_time": 4442.30973815918,
+    "average_tokens_per_chunk": 8957.0
+  },
+  "chunk_results": [
+    {
+      "chunk": 1,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.85263681411743,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 524 column 6 (char 11479)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 2,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.1687958240509,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 554 column 6 (char 11452)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 3,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.679913520813,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 654 column 6 (char 13257)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"First Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fourteenth Amendment Due Process Clause\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fifth Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Article II Executive Power\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Commerce Clause\"\n    },\n    {\n      "
+    },
+    {
+      "chunk": 4,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.6906259059906,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 606 column 6 (char 13936)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"First Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fourteenth Amendment Due Process Clause\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fifth Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Article II Executive Power\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Commerce Clause\"\n    },\n    {\n      "
+    },
+    {
+      "chunk": 5,
+      "entities_found": 75,
+      "relationships_found": 0,
+      "processing_time": 131.9808166027069,
+      "token_count": 8957,
+      "response_length": 9229
+    },
+    {
+      "chunk": 6,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.82076168060303,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 560 column 6 (char 11449)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 7,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.7772765159607,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 536 column 6 (char 11483)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 8,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.10502433776855,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 524 column 6 (char 11511)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 9,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.23373079299927,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 542 column 6 (char 11282)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 14\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 15,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 10,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.6470685005188,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 542 column 6 (char 11276)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 60\n    },"
+    },
+    {
+      "chunk": 11,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.9629373550415,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 542 column 6 (char 11288)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 12,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.17796397209167,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 674 column 6 (char 13430)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"First Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fourteenth Amendment Due Process Clause\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fifth Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Article II Executive Power\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Commerce Clause\"\n    },\n    {\n      "
+    },
+    {
+      "chunk": 13,
+      "entities_found": 73,
+      "relationships_found": 0,
+      "processing_time": 92.2841808795929,
+      "token_count": 8957,
+      "response_length": 6697
+    },
+    {
+      "chunk": 14,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.2637391090393,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 560 column 6 (char 11567)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 47\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 48,\n      \"end\": 57\n    },"
+    },
+    {
+      "chunk": 15,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.28459787368774,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 548 column 6 (char 11409)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 16,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.01827597618103,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 560 column 6 (char 11458)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 60\n    },"
+    },
+    {
+      "chunk": 17,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.11274647712708,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 536 column 6 (char 11474)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 18,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.25661444664001,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 530 column 6 (char 11424)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 19,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.12717652320862,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 674 column 6 (char 13394)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"First Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fourteenth Amendment Due Process Clause\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fifth Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Article II Executive Power\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Commerce Clause\"\n    },\n    {\n      "
+    },
+    {
+      "chunk": 20,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.07497906684875,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 542 column 6 (char 11284)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 21,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.50211191177368,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 542 column 6 (char 11291)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 22,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.2717776298523,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 572 column 6 (char 11752)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 14\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 15,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 23,
+      "entities_found": 73,
+      "relationships_found": 0,
+      "processing_time": 92.26491451263428,
+      "token_count": 8957,
+      "response_length": 6697
+    },
+    {
+      "chunk": 24,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.70953559875488,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 560 column 6 (char 11622)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 30\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 31,\n      \"end\": 48\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 49,\n      \"end\": 61\n    },"
+    },
+    {
+      "chunk": 25,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 166.0453324317932,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 578 column 6 (char 11463)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 26,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.7975800037384,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 674 column 6 (char 13430)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"First Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fourteenth Amendment Due Process Clause\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Fifth Amendment\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Article II Executive Power\"\n    },\n    {\n      \"type\": \"CONSTITUTIONAL_PROVISION\",\n      \"text\": \"Commerce Clause\"\n    },\n    {\n      "
+    },
+    {
+      "chunk": 27,
+      "entities_found": 0,
+      "relationships_found": 0,
+      "processing_time": 165.96846437454224,
+      "token_count": 8957,
+      "error": "Expecting ',' delimiter: line 542 column 6 (char 11290)",
+      "response_preview": "{\n  \"entities\": [\n    {\n      \"type\": \"COURT\",\n      \"text\": \"United States District Court\",\n      \"start\": 0,\n      \"end\": 13\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Supreme Court of the United States\",\n      \"start\": 14,\n      \"end\": 31\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Court of Appeals for the Ninth Circuit\",\n      \"start\": 32,\n      \"end\": 51\n    },\n    {\n      \"type\": \"COURT\",\n      \"text\": \"Superior Court of California\",\n      \"start\": 52,\n      \"end\": 63\n    },"
+    },
+    {
+      "chunk": 28,
+      "entities_found": 80,
+      "relationships_found": 0,
+      "processing_time": 141.2301595211029,
+      "token_count": 8957,
+      "response_length": 9865
+    }
+  ],
+  "comparison": {
+    "vs_saullm_base": {
+      "entity_improvement": "103x more entities than SaulLM base",
+      "chunk_size_improvement": "2.7x larger chunks",
+      "context_improvement": "8x more context (32K vs 4K tokens)"
+    },
+    "vs_baseline": {
+      "extraction_rate": "137.3%",
+      "type_coverage": "3.1%"
+    }
+  },
+  "timestamp": "2025-09-16 06:30:31 UTC"
+}

@@ -1,0 +1,62 @@
+Collecting blackstone
+  Downloading blackstone-0.1.15-py3-none-any.whl.metadata (23 kB)
+Requirement already satisfied: transformers in ./venv/lib/python3.12/site-packages (4.56.1)
+Requirement already satisfied: huggingface-hub in ./venv/lib/python3.12/site-packages (0.34.4)
+Requirement already satisfied: spacy in ./venv/lib/python3.12/site-packages (3.8.7)
+Collecting mlflow
+  Downloading mlflow-3.3.2-py3-none-any.whl.metadata (30 kB)
+Requirement already satisfied: sentencepiece in ./venv/lib/python3.12/site-packages (0.2.1)
+Collecting spacy
+  Downloading spacy-2.1.8.tar.gz (30.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30.7/30.7 MB 10.0 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'error'
+  error: subprocess-exited-with-error
+  
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [34 lines of output]
+      Collecting setuptools
+        Using cached setuptools-80.9.0-py3-none-any.whl.metadata (6.6 kB)
+      Collecting wheel<0.33.0,>0.32.0
+        Downloading wheel-0.32.3-py2.py3-none-any.whl.metadata (2.1 kB)
+      Collecting Cython
+        Downloading cython-3.1.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (4.7 kB)
+      Collecting cymem<2.1.0,>=2.0.2
+        Using cached cymem-2.0.11-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.5 kB)
+      Collecting preshed<2.1.0,>=2.0.1
+        Downloading preshed-2.0.1.tar.gz (113 kB)
+           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.7/113.7 kB 3.1 MB/s eta 0:00:00
+        Preparing metadata (setup.py): started
+        Preparing metadata (setup.py): finished with status 'error'
+        error: subprocess-exited-with-error
+      
+        × python setup.py egg_info did not run successfully.
+        │ exit code: 1
+        ╰─> [6 lines of output]
+            Traceback (most recent call last):
+              File "<string>", line 2, in <module>
+              File "<pip-setuptools-caller>", line 34, in <module>
+              File "/tmp/pip-install-ok1jha6x/preshed_93812b7b1bb84764a228ec463ecdc42d/setup.py", line 9, in <module>
+                from distutils import ccompiler, msvccompiler
+            ImportError: cannot import name 'msvccompiler' from 'distutils' (/srv/luris/be/entity-extraction-service/venv/lib/python3.12/site-packages/setuptools/_distutils/__init__.py). Did you mean: 'ccompiler'?
+            [end of output]
+      
+        note: This error originates from a subprocess, and is likely not a problem with pip.
+      error: metadata-generation-failed
+      
+      × Encountered error while generating package metadata.
+      ╰─> See above for output.
+      
+      note: This is an issue with the package mentioned above, not pip.
+      hint: See above for details.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.

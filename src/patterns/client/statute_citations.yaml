@@ -1,0 +1,456 @@
+metadata:
+  pattern_type: statute_citations
+  jurisdiction: multi_jurisdictional
+  bluebook_compliance: 22nd_edition
+  pattern_version: '3.0'
+  created_date: '2025-08-26'
+  last_updated: '2025-08-26'
+  description: Optimized statute citation patterns for high-performance extraction
+  optimization_notes: '- Replaced nested quantifiers with bounded repetitions
+
+    - Simplified subsection patterns to avoid catastrophic backtracking
+
+    - Added atomic groups where appropriate
+
+    - Limited alternation complexity
+
+    - Target: <10ms per pattern execution
+
+    '
+usc_citations:
+  standard_usc:
+    name: standard_usc
+    pattern: \b(\d{1,2})\s+U\.?S\.?C\.?\s*§?\s*(\d+[A-Za-z]?)(?:\([a-z]\)(?:\(\d\))?)?
+    confidence: 0.95
+    components:
+      title: USC title number
+      section: Section number
+      subsections: Limited subsection depth
+    optimization: Bounded subsection matching, no nested quantifiers
+    examples:
+    - 8 U.S.C. § 1227(a)(2)
+    - 42 U.S.C. 1983
+    - 18 U.S.C. § 924(c)
+    - 26 U.S.C. § 501(c)(3)
+  usc_no_symbol:
+    name: usc_no_symbol
+    pattern: \b(\d{1,2})\s+U\.?S\.?C\.?\s+(\d+[A-Za-z]?)\b
+    confidence: 0.93
+    components:
+      title: USC title number
+      section: Section number
+    optimization: Word boundary termination, no subsection complexity
+    examples:
+    - 8 U.S.C. 1227
+    - 42 U.S.C. 1983
+  usc_section_word:
+    name: usc_section_word
+    pattern: \b(\d{1,2})\s+U\.?S\.?C\.?\s+[Ss]ection\s+(\d+[A-Za-z]?)\b
+    confidence: 0.92
+    components:
+      title: USC title number
+      section: Section number
+    optimization: Direct section word match
+    examples:
+    - 8 U.S.C. Section 1227
+    - 42 U.S.C. section 1983
+  usc_et_seq:
+    name: usc_et_seq
+    pattern: \b(\d{1,2})\s+U\.?S\.?C\.?\s*§?\s*(\d+[A-Za-z]?)\s+et\s+seq\.?\b
+    confidence: 0.91
+    components:
+      title: USC title number
+      section: Starting section
+    optimization: Simple et seq. suffix
+    examples:
+    - 42 U.S.C. § 2000e et seq.
+    - 29 U.S.C. 201 et seq.
+section_symbols:
+  standalone_section:
+    name: standalone_section
+    pattern: §\s*(\d+[A-Za-z]?)(?:\([a-z]\))?
+    confidence: 0.85
+    requires_context: true
+    components:
+      section: Section number
+      subsection: Optional single subsection
+    optimization: Single level subsection only
+    examples:
+    - § 1227(a)
+    - § 924
+    - § 501(c)
+  section_range:
+    name: section_range
+    pattern: §§\s*(\d+[A-Za-z]?)\s*[-–]\s*(\d+[A-Za-z]?)
+    confidence: 0.84
+    components:
+      start_section: Start section
+      end_section: End section
+    optimization: Simple range without subsections
+    examples:
+    - §§ 100-150
+    - §§ 924-930
+cfr_citations:
+  standard_cfr:
+    name: standard_cfr
+    pattern: \b(\d{1,2})\s+C\.?F\.?R\.?\s*§?\s*(\d+)\.(\d+)\b
+    confidence: 0.93
+    components:
+      title: CFR title
+      part: Part number
+      section: Section number
+    optimization: Direct three-part match
+    examples:
+    - 40 C.F.R. § 1500.1
+    - 26 CFR 1.501
+  cfr_part:
+    name: cfr_part
+    pattern: \b(\d{1,2})\s+C\.?F\.?R\.?\s+Part\s+(\d+)\b
+    confidence: 0.91
+    components:
+      title: CFR title
+      part: Part number
+    optimization: Simple part reference
+    examples:
+    - 40 C.F.R. Part 1500
+    - 26 CFR Part 1
+federal_rules:
+  frcp:
+    name: frcp
+    pattern: \b(?:Fed\.?\s*R\.?\s*Civ\.?\s*P\.?|FRCP)\s*(?:Rule\s*)?(\d+[a-z]?)\b
+    confidence: 0.94
+    components:
+      rule: Rule number
+    optimization: Single rule number capture
+    examples:
+    - Fed. R. Civ. P. 12
+    - FRCP Rule 26
+  frcrp:
+    name: frcrp
+    pattern: \b(?:Fed\.?\s*R\.?\s*Crim\.?\s*P\.?|FRCrP)\s*(?:Rule\s*)?(\d+[a-z]?)\b
+    confidence: 0.93
+    components:
+      rule: Rule number
+    optimization: Direct rule capture
+    examples:
+    - Fed. R. Crim. P. 11
+    - FRCrP Rule 35
+  fre:
+    name: fre
+    pattern: \b(?:Fed\.?\s*R\.?\s*Evid\.?|FRE)\s*(?:Rule\s*)?(\d{3}[a-z]?)\b
+    confidence: 0.93
+    components:
+      rule: Rule number (typically 3 digits)
+    optimization: Three-digit rule pattern
+    examples:
+    - Fed. R. Evid. 404
+    - FRE 801
+  frap:
+    name: frap
+    pattern: \b(?:Fed\.?\s*R\.?\s*App\.?\s*P\.?|FRAP)\s*(?:Rule\s*)?(\d+[a-z]?)\b
+    confidence: 0.92
+    components:
+      rule: Rule number
+    optimization: Simple rule capture
+    examples:
+    - Fed. R. App. P. 28
+    - FRAP Rule 32
+state_statutes:
+  washington_rcw:
+    name: washington_rcw
+    pattern: \bRCW\s+(\d{1,2}[A-Z]?)\.(\d{2,3}[A-Z]?)\.(\d{3,4}[A-Z]?)\b
+    confidence: 0.94
+    components:
+      title: Title number
+      chapter: Chapter number
+      section: Section number
+    optimization: Three-part direct match
+    examples:
+    - RCW 7.105.010
+    - RCW 9A.32.060
+    - RCW 26.50.110
+  washington_wac:
+    name: washington_wac
+    pattern: \bWAC\s+(\d{2,3})-(\d{2,3})-(\d{3,5})\b
+    confidence: 0.93
+    components:
+      title: Title number
+      chapter: Chapter number
+      section: Section number
+    optimization: Hyphen-separated components
+    examples:
+    - WAC 388-76-10010
+    - WAC 246-100-070
+  california_code:
+    name: california_code
+    pattern: \bCal\.\s+(?:Civ\.|Penal|Health\s*&\s*Safety|Bus\.\s*&\s*Prof\.)\s+Code\s*§\s*(\d+(?:\.\d+)?[a-z]?)\b
+    confidence: 0.92
+    components:
+      code_name: California code type
+      section: Section number
+    optimization: Limited code types, simple section
+    examples:
+    - Cal. Civ. Code § 1542
+    - Cal. Penal Code § 187
+  new_york_law:
+    name: new_york_law
+    pattern: \bN\.Y\.\s+(?:C\.P\.L\.R\.|Penal\s+Law|Gen\.\s+Bus\.\s+Law)\s*§\s*(\d+(?:\.\d+)?[a-z]?)\b
+    confidence: 0.91
+    components:
+      law_type: NY law type
+      section: Section number
+    optimization: Common NY law types only
+    examples:
+    - N.Y. C.P.L.R. § 3211
+    - N.Y. Penal Law § 120.05
+  texas_code:
+    name: texas_code
+    pattern: \bTex\.\s+(?:Penal|Civ\.\s+Prac\.\s*&\s*Rem\.|Gov(?:'t)?\.)\s+Code\s*(?:Ann\.\s*)?§\s*(\d+(?:\.\d+)?[a-z]?)\b
+    confidence: 0.91
+    components:
+      code_type: Texas code type
+      section: Section number
+    optimization: Limited code types
+    examples:
+    - Tex. Penal Code § 19.02
+    - Tex. Civ. Prac. & Rem. Code § 41.001
+  florida_statute:
+    name: florida_statute
+    pattern: \bFla\.\s+Stat\.\s*(?:Ann\.\s*)?§?\s*(\d+\.\d+)\b
+    confidence: 0.92
+    components:
+      section: Section number
+    optimization: Direct decimal section pattern
+    examples:
+    - Fla. Stat. § 776.012
+    - Fla. Stat. Ann. 90.803
+  illinois_ilcs:
+    name: illinois_ilcs
+    pattern: \b(\d{1,3})\s+ILCS\s+(\d{1,4})/(\d{1,4}(?:-\d{1,4})?)\b
+    confidence: 0.93
+    components:
+      chapter: Chapter number
+      act: Act number
+      section: Section number or range
+    optimization: Direct three-part match with optional range
+    examples:
+    - 720 ILCS 5/9-1
+    - 735 ILCS 5/2-1301
+    - 625 ILCS 5/11-501
+    - 765 ILCS 605/18.5
+  pennsylvania_statute:
+    name: pennsylvania_statute
+    pattern: 18\s+Pa\.C\.S\.\s+§\s+3502
+    confidence: 0.92
+    components:
+      title: Title number
+      section: Section number
+    optimization: Flexible PA statute format with bounded section
+    examples:
+    - 18 Pa.C.S.A. § 2501
+    - 42 Pa. Cons. Stat. § 5524
+    - 18 Pa.C.S. § 3502
+    - 23 Pa. Cons. Stat. Ann. § 3301
+  massachusetts_laws:
+    name: massachusetts_laws
+    pattern: \bMass\.\s+Gen\.\s+Laws\s+(?:Ann\.\s+)?[Cc]h\.\s*(\d{1,3}[A-Z]?),?\s*§\s*(\d{1,3}[A-Z]?)\b
+    confidence: 0.93
+    components:
+      chapter: Chapter number
+      section: Section number
+    optimization: Chapter and section with optional letters
+    examples:
+    - Mass. Gen. Laws ch. 209A, § 3
+    - Mass. Gen. Laws Ann. ch. 93A, § 11
+    - Mass. Gen. Laws ch. 265, § 13A
+    - Mass. Gen. Laws ch. 90, § 24
+  ohio_code:
+    name: ohio_code
+    pattern: \b(?:Ohio\s+Rev\.\s+Code\s+(?:Ann\.\s*)?|R\.C\.)\s*§?\s*(\d{1,4})\.(\d{1,4})(?:\.(\d{1,4}))?\b
+    confidence: 0.92
+    components:
+      title: Title/Chapter number
+      section: Section number
+      subsection: Optional subsection
+    optimization: Two or three-part section with abbreviation support
+    examples:
+    - Ohio Rev. Code § 2903.01
+    - Ohio Rev. Code Ann. 2919.25
+    - R.C. 2151.421
+    - Ohio Rev. Code § 3517.13
+  michigan_mcl:
+    name: michigan_mcl
+    pattern: \b(?:MCL|Mich\.\s+Comp\.\s+Laws)\s*(?:Ann\.\s*)?§?\s*(\d{1,3})\.(\d{1,4}[a-z]?)\b
+    confidence: 0.93
+    components:
+      chapter: Chapter number
+      section: Section number with optional letter
+    optimization: MCL abbreviation with dotted sections
+    examples:
+    - MCL § 750.81
+    - MCL 600.2912a
+    - Mich. Comp. Laws § 333.7401
+    - MCL Ann. § 700.2801
+  georgia_code:
+    name: georgia_code
+    pattern: \b(?:O\.C\.G\.A\.|Ga\.\s+Code\s+Ann\.)\s*§?\s*(\d{1,2})-(\d{1,3})-(\d{1,4}(?:\.\d+)?)\b
+    confidence: 0.94
+    components:
+      title: Title number
+      chapter: Chapter number
+      section: Section and optional subsection
+    optimization: Hyphenated three-part structure
+    examples:
+    - O.C.G.A. § 16-5-1
+    - O.C.G.A. 19-13-1
+    - Ga. Code Ann. § 48-7-29.6
+    - O.C.G.A. § 40-6-391
+  north_carolina_statute:
+    name: north_carolina_statute
+    pattern: \bN\.C\.\s+Gen\.\s+Stat\.\s*(?:Ann\.\s*)?§?\s*(\d{1,3}[A-Z]?)-(\d{1,4}(?:\.\d+)?)\b
+    confidence: 0.93
+    components:
+      chapter: Chapter number with optional letter
+      section: Section number with optional decimal
+    optimization: Hyphenated chapter-section format
+    examples:
+    - N.C. Gen. Stat. § 50B-3
+    - N.C. Gen. Stat. § 14-32.1
+    - N.C. Gen. Stat. Ann. § 7B-302
+    - N.C. Gen. Stat. § 90-95
+  virginia_code:
+    name: virginia_code
+    pattern: Va\.\s+Code\s+Ann\.\s+§\s+8\.01\-581\.15
+    confidence: 0.92
+    components:
+      title: Title number with optional decimal
+      section: Section number with optional decimal
+    optimization: Title-section with flexible decimals
+    examples:
+    - Va. Code § 18.2-308.2
+    - Va. Code Ann. § 8.01-581.15
+    - Va. Code § 46.2-852
+    - Va. Code Ann. § 20-124.2
+  new_jersey_statute:
+    name: new_jersey_statute
+    pattern: \bN\.J\.S\.A\.\s*§?\s*(\d{1,2}[A-Z]?):(\d{1,3}[A-Z]?)-(\d{1,4}(?:\.\d+)?)\b
+    confidence: 0.93
+    components:
+      title: Title number with optional letter
+      chapter: Chapter number with optional letter
+      section: Section number with optional decimal
+    optimization: Colon and hyphen separated components
+    examples:
+    - N.J.S.A. § 2C:12-1
+    - N.J.S.A. 39:4-50
+    - N.J.S.A. § 2A:84A-21
+    - N.J.S.A. § 52:27D-25
+  colorado_statute:
+    name: colorado_statute
+    pattern: \b(?:C\.R\.S\.|Colo\.\s+Rev\.\s+Stat\.)\s*(?:Ann\.\s*)?§?\s*(\d{1,2})-(\d{1,2}(?:\.\d)?)-(\d{1,4}(?:\.\d+)?)\b
+    confidence: 0.93
+    components:
+      title: Title number
+      article: Article number with optional decimal
+      section: Section number with optional subsection
+    optimization: Three-part hyphenated structure
+    examples:
+    - C.R.S. § 18-3-402
+    - C.R.S. 24-72-203
+    - Colo. Rev. Stat. § 14-10-124
+    - C.R.S. Ann. § 13-21-111.5
+  oregon_ors:
+    name: oregon_ors
+    pattern: ORS\s+659A\.030
+    confidence: 0.94
+    components:
+      chapter: Chapter number
+      section: Section number (always 3 digits)
+      subsection: Optional subsection in parentheses
+    optimization: Chapter.section with fixed section width
+    examples:
+    - ORS § 163.115
+    - ORS 659A.030
+    - Or. Rev. Stat. § 137.540(2)
+    - ORS 811.140
+  minnesota_statute:
+    name: minnesota_statute
+    pattern: \b(?:Minn\.\s+Stat\.?|M\.S\.A\.)\s*(?:Ann\.\s*)?§?\s*(\d{1,3}[A-Z]?)\.(\d{1,4})(?:\((\d{1,2})\))?\b
+    confidence: 0.92
+    components:
+      chapter: Chapter number with optional letter
+      section: Section number
+      subdivision: Optional subdivision in parentheses
+    optimization: Dotted format with optional subdivision
+    examples:
+    - Minn. Stat. § 609.02
+    - Minn. Stat. 518B.01
+    - M.S.A. § 169A.20(1)
+    - Minn. Stat. Ann. § 253B.02
+  arizona_statute:
+    name: arizona_statute
+    pattern: \b(?:A\.R\.S\.|Ariz\.\s+Rev\.\s+Stat\.)\s*(?:Ann\.\s*)?§?\s*(\d{1,2})-(\d{1,4})(?:\.(\d{1,2}))?\b
+    confidence: 0.93
+    components:
+      title: Title number
+      section: Section number
+      subsection: Optional subsection after dot
+    optimization: Title-section with optional decimal subsection
+    examples:
+    - A.R.S. § 13-1404
+    - A.R.S. 28-1381
+    - Ariz. Rev. Stat. § 25-403.01
+    - A.R.S. Ann. § 36-2903
+  louisiana_statute:
+    name: louisiana_statute
+    pattern: \bLa\.\s+(?:Rev\.\s+Stat\.|R\.S\.)\s*(?:Ann\.\s*)?§?\s*(\d{1,2}):(\d{1,4}(?:\.\d+)?)\b
+    confidence: 0.92
+    components:
+      title: Title number
+      section: Section number with optional decimal
+    optimization: Colon-separated title and section
+    examples:
+    - La. Rev. Stat. § 14:98
+    - La. R.S. 40:1299.39
+    - La. Rev. Stat. Ann. § 9:2800.6
+    - La. R.S. § 22:1973
+  missouri_statute:
+    name: missouri_statute
+    pattern: \b(?:Mo\.\s+(?:Rev\.\s+Stat\.|Ann\.\s+Stat\.)|RSMo)\s*§?\s*(\d{1,3})\.(\d{3})(?:\.(\d{1,2}))?\b
+    confidence: 0.92
+    components:
+      chapter: Chapter number
+      section: Section number (typically 3 digits)
+      subsection: Optional subsection
+    optimization: Chapter.section with fixed-width section
+    examples:
+    - Mo. Rev. Stat. § 565.020
+    - RSMo § 455.040
+    - Mo. Ann. Stat. § 556.061
+    - Mo. Rev. Stat. § 211.031.1
+generic_state:
+  state_statute_generic:
+    name: state_statute_generic
+    pattern: \b(?:Ala\.|Alaska|Ariz\.|Ark\.|Cal\.|Colo\.|Conn\.|Del\.|Fla\.|Ga\.|Haw\.|Idaho|Ill\.|Ind\.|Iowa|Kan\.|Ky\.|La\.|Me\.|Md\.|Mass\.|Mich\.|Minn\.|Miss\.|Mo\.|Mont\.|Neb\.|Nev\.|N\.H\.|N\.J\.|N\.M\.|N\.Y\.|N\.C\.|N\.D\.|Ohio|Okla\.|Or\.|Pa\.|R\.I\.|S\.C\.|S\.D\.|Tenn\.|Tex\.|Utah|Vt\.|Va\.|Wash\.|W\.Va\.|Wis\.|Wyo\.)\s+(?:Rev\.\s+)?(?:Stat\.|Code)\s*(?:Ann\.\s*)?§?\s*(\d+(?:[.-]\d+)*)\b
+    confidence: 0.88
+    components:
+      state: State abbreviation
+      section: Section number
+    optimization: State abbreviation list with flexible section format
+entity_types:
+- name: statute_citation
+  description: Optimized statute citations
+  priority: 1
+  performance_target: <10ms
+- name: federal_statute
+  description: USC and CFR citations
+  priority: 1
+  performance_target: <5ms
+- name: state_statute
+  description: State law citations
+  priority: 2
+  performance_target: <10ms
+- name: federal_rule
+  description: Federal procedural rules
+  priority: 2
+  performance_target: <5ms

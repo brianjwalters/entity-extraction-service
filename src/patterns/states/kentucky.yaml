@@ -1,0 +1,235 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: kentucky
+  state_abbreviation: Ky.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Kentucky state citations and entities
+case_citations:
+  kentucky_supreme_court:
+    name: kentucky_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+S\.W\.2d\s+567,\s+890\s+\(Ky\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: South Western Reporter or Kentucky Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Commonwealth v. Smith, 123 S.W.3d 456 (Ky. 2023)
+    - Brown v. Kentucky, 456 Ky. 2d 789 (Ky. 2022)
+    - In re Estate of Johnson, 234 S.W.2d 567, 890 (Ky. 2021)
+  kentucky_court_of_appeals:
+    name: kentucky_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.W\.(?:2d|3d)?|Ky\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Ky\.(?:\s+Ct\.)?(?:\s+App\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: South Western Reporter or Kentucky Court of Appeals Reports volume
+      reporter: Kentucky appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 S.W.3d 456 (Ky. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 Ky. App. 2d 789 (Ky. App. 2022)
+    - Commonwealth v. Brown, 234 S.W.2d 567 (Ky. Ct. App. 2021)
+  kentucky_circuit_court:
+    name: kentucky_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<circuit>\d{1,2})(?:st|d|nd|rd|th)\s+(?:Jud\.\s+)?Cir\.(?:\s+Ct\.)?(?:\s+Ky\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-CI-123456 (30th Jud. Cir. Ct. Ky.)
+    - Commonwealth v. Brown, 22-CR-987654 (16th Jud. Cir. 2022)
+  kentucky_district_court:
+    name: kentucky_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d{1,2})(?:st|d|nd|rd|th)\s+Dist\.(?:\s+Ct\.)?(?:\s+Ky\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: District court number
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-F-987 (56th Dist. Ct. Ky.)
+    - Commonwealth v. Brown, 22-M-12345 (23rd Dist. 2022)
+  kentucky_family_court:
+    name: kentucky_family_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Brown,\s+22\-DR\-987\s+\(Fayette\s+County\s+Fam\.\s+Ct\.\s+2022\)
+    confidence: 0.88
+    priority: 78
+    components:
+      case_name: Full case name with parties
+      docket_number: Family court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-D-123 (Jefferson County Fam. Ct. Ky.)
+    - In re Marriage of Brown, 22-DR-987 (Fayette County Fam. Ct. 2022)
+statute_citations:
+  kentucky_revised_statutes:
+    name: kentucky_revised_statutes_citation
+    pattern: Ky\.\s+Rev\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)*(?:\([a-z0-9]+\))?(?:\s*to\s*[\d\.]+(?:\([a-z0-9]+\))?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Kentucky Revised Statutes section number or range
+      year: Publication year
+    examples:
+    - Ky. Rev. Stat. Ann. § 506.010 (2023)
+    - Ky. Rev. Stat. §§ 431.005 to 431.120
+    - Ky. Rev. Stat. Ann. § 186.412(1)(a)
+  kentucky_constitution:
+    name: kentucky_constitution_citation
+    pattern: Ky\.\s+Const\.\s+(?:(?P<section>§\s*(?P<sect_num>\d+(?:[a-z])?))(?:\s*,\s*(?P<subsection>(?:[a-z]|\d+)(?:\((?:[a-z]|\d+)\))?))?)
+    confidence: 0.93
+    priority: 85
+    components:
+      section: Constitutional section reference
+      sect_num: Section number
+      subsection: Section subsection with possible sub-subsections
+    examples:
+    - Ky. Const. § 2
+    - Ky. Const. § 54, a(1)
+    - Ky. Const. § 196
+regulation_citations:
+  kentucky_administrative_regulations:
+    name: kentucky_administrative_regulations_citation
+    pattern: (?P<title>\d{1,3})\s+Ky\.\s+Admin\.\s+Regs?\.\s+(?P<chapter>\d{1,2}):(?P<section>\d{3})(?:\.(?P<subsection>\d{3}))?
+    confidence: 0.92
+    priority: 80
+    components:
+      title: KAR title number
+      chapter: Chapter number
+      section: Section number
+      subsection: Subsection number
+    examples:
+    - 902 Ky. Admin. Regs. 2:090
+    - 201 Ky. Admin. Reg. 11:050.001
+    - 13 Ky. Admin. Regs. 1:020
+court_system:
+  court_names:
+    kentucky_supreme_court:
+      pattern: (?i)(?:Ky\.|Kentucky)\s+(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Kentucky)?
+      confidence: 0.95
+      level: supreme
+    kentucky_court_of_appeals:
+      pattern: (?i)(?:Ky\.|Kentucky)\s+(?:Court\s+of\s+Appeals|Ct\.\s+of\s+App\.|App\.)
+      confidence: 0.93
+      level: appellate
+    kentucky_circuit_court:
+      pattern: (?i)(?P<circuit>\d{1,2})(?:st|d|nd|rd|th)\s+(?:Judicial\s+Circuit|Jud\.\s*Cir\.)(?:\s+Court)?(?:\s+(?:of\s+|for\s+)Kentucky)?
+      confidence: 0.9
+      level: trial
+    kentucky_district_court:
+      pattern: (?i)(?P<district>\d{1,2})(?:st|d|nd|rd|th)\s+(?:District\s+Court|Dist\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Kentucky)?
+      confidence: 0.88
+      level: limited
+    kentucky_family_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+Family\s+Court(?:\s+(?:of\s+|for\s+)Kentucky)?
+      confidence: 0.9
+      level: family
+entity_types:
+- name: KENTUCKY_SUPREME_COURT_CASE
+  description: Kentucky Supreme Court case citation
+  confidence_threshold: 0.95
+- name: KENTUCKY_APPELLATE_CASE
+  description: Kentucky Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: KENTUCKY_CIRCUIT_COURT_CASE
+  description: Kentucky Circuit Court case citation
+  confidence_threshold: 0.85
+- name: KENTUCKY_DISTRICT_COURT_CASE
+  description: Kentucky District Court case citation
+  confidence_threshold: 0.83
+- name: KENTUCKY_FAMILY_COURT_CASE
+  description: Kentucky Family Court case citation
+  confidence_threshold: 0.85
+- name: KENTUCKY_STATUTE
+  description: Kentucky statutory provision
+  confidence_threshold: 0.9
+- name: KENTUCKY_REGULATION
+  description: Kentucky administrative regulation
+  confidence_threshold: 0.88
+- name: KENTUCKY_CONSTITUTIONAL_PROVISION
+  description: Kentucky constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1792
+    max_year: 2025
+  volume_ranges:
+    southwestern_reporter:
+      sw_2d:
+        min_volume: 1
+        max_volume: 999
+      sw_3d:
+        min_volume: 1
+        max_volume: 999
+    kentucky_reports:
+      ky_2d:
+        min_volume: 1
+        max_volume: 300
+      ky_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  circuit_validation:
+    min_circuit: 1
+    max_circuit: 57
+  district_validation:
+    min_district: 1
+    max_district: 60
+  kar_validation:
+    title_range:
+    - 1
+    - 999
+    chapter_range:
+    - 1
+    - 99
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 765_citations_per_second
+dependencies:
+  requires:
+  - kentucky_court_abbreviations
+  - kentucky_county_names
+  - kentucky_judicial_circuits
+  optional:
+  - kentucky_historical_courts
+  - kentucky_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.kentucky_supreme_court
+    text: Commonwealth v. Smith, 123 S.W.3d 456 (Ky. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.kentucky_revised_statutes
+    text: Ky. Rev. Stat. Ann. § 506.010 (2023)
+    expected_entities: 1
+  - pattern: case_citations.kentucky_court_of_appeals
+    text: Smith v. Jones, 123 S.W.3d 456 (Ky. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.2 seconds
+    memory_usage: < 120MB
+    accuracy_threshold: 0.94

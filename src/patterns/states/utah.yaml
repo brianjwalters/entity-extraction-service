@@ -1,0 +1,183 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: utah
+  state_abbreviation: Utah
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Utah state citations and entities
+case_citations:
+  utah_supreme_court:
+    name: utah_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+Utah\s+2d\s+567,\s+890\s+\(Utah\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Utah Reports or Pacific Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Utah, 123 Utah 456 (Utah 2023)
+    - Johnson v. ABC Corp., 456 P.3d 789 (Utah 2022)
+    - Ex parte Brown, 234 Utah 2d 567, 890 (Utah 2021)
+  utah_court_of_appeals:
+    name: utah_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Utah\s*(?:Ct\.\s*)?App\.|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Utah\s+(?:Ct\.\s+)?App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Utah Appeals or Pacific Reporter volume
+      reporter: Utah appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 Utah Ct. App. 456 (Utah Ct. App. 2023)
+    - State v. Johnson, 456 P.3d 789 (Utah App. 2022)
+    - People v. Brown, 234 Utah App. 567 (Utah Ct. App. 2021)
+  utah_district_court:
+    name: utah_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+District\s+Court(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Utah)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 230123456 (3rd District Court, Salt Lake County, Utah)
+    - ABC Corp. v. XYZ Inc., 22-CV-987654 (4th District Court, Utah County, Utah 2022)
+statute_citations:
+  utah_code:
+    name: utah_code_citation
+    pattern: Utah\s+Code\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Utah Code section number
+      year: Publication year
+    examples:
+    - Utah Code Ann. § 76-5-203 (2023)
+    - Utah Code §§ 78B-5-101 to 78B-5-120
+    - Utah Code Ann. § 53A-1-402.5
+  utah_constitution:
+    name: utah_constitution_citation
+    pattern: Utah\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Utah Const. art. I, § 7
+    - Utah Const. art. V, § 1
+    - Utah Const. art. XIII, § 3(1)
+regulation_citations:
+  utah_administrative_code:
+    name: utah_administrative_code_citation
+    pattern: Utah\s+Admin\.\s+Code\s+(?:§§?\s*)?(?P<rule>[A-Z]?\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*[A-Z]?\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      rule: Administrative code rule number
+    examples:
+    - Utah Admin. Code § R313-15-301
+    - Utah Admin. Code §§ R645-301-200-210
+    - Utah Admin. Code § R156-1-102
+court_system:
+  court_names:
+    utah_supreme_court:
+      pattern: (?i)(?:Utah\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Utah)?
+      confidence: 0.95
+      level: supreme
+    utah_court_of_appeals:
+      pattern: (?i)(?:Utah\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Utah)?
+      confidence: 0.94
+      level: appellate
+    utah_district_court:
+      pattern: (?i)(?:Utah\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    utah_justice_court:
+      pattern: (?i)(?:Utah\s+)?(?P<location>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:Justice\s+Court|Just\.\s+Ct\.?)
+      confidence: 0.88
+      level: trial
+entity_types:
+- name: UTAH_SUPREME_COURT_CASE
+  description: Utah Supreme Court case citation
+  confidence_threshold: 0.95
+- name: UTAH_APPEALS_CASE
+  description: Utah Court of Appeals case citation
+  confidence_threshold: 0.92
+- name: UTAH_DISTRICT_COURT_CASE
+  description: Utah District Court case citation
+  confidence_threshold: 0.85
+- name: UTAH_JUSTICE_COURT_CASE
+  description: Utah Justice Court case citation
+  confidence_threshold: 0.83
+- name: UTAH_STATUTE
+  description: Utah statutory provision
+  confidence_threshold: 0.9
+- name: UTAH_REGULATION
+  description: Utah administrative regulation
+  confidence_threshold: 0.88
+- name: UTAH_CONSTITUTIONAL_PROVISION
+  description: Utah constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1896
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    utah_reports:
+      min_volume: 1
+      max_volume: 150
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 780_citations_per_second
+dependencies:
+  requires:
+  - utah_court_abbreviations
+  - utah_county_names
+  - utah_judicial_districts
+  optional:
+  - utah_historical_courts
+  - utah_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.utah_supreme_court
+    text: Smith v. State of Utah, 123 Utah 456 (Utah 2023)
+    expected_entities: 1
+  - pattern: statute_citations.utah_code
+    text: Utah Code Ann. § 76-5-203 (2023)
+    expected_entities: 1
+  - pattern: case_citations.utah_court_of_appeals
+    text: State v. Johnson, 456 P.3d 789 (Utah App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2.9 seconds
+    memory_usage: < 120MB
+    accuracy_threshold: 0.94

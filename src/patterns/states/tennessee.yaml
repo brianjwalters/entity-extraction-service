@@ -1,0 +1,262 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: tennessee
+  state_abbreviation: Tenn.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Tennessee state citations and entities
+case_citations:
+  tennessee_supreme_court:
+    name: tennessee_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+S\.W\.2d\s+567,\s+890\s+\(Tenn\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: South Western Reporter or Tennessee Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 S.W.3d 456 (Tenn. 2023)
+    - Brown v. Tennessee, 456 Tenn. 2d 789 (Tenn. 2022)
+    - In re Estate of Johnson, 234 S.W.2d 567, 890 (Tenn. 2021)
+  tennessee_court_of_appeals:
+    name: tennessee_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.W\.(?:2d|3d)?|Tenn\.\s*(?:Ct\.\s*)?App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Tenn\.(?:\s+Ct\.)?(?:\s+App\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: South Western Reporter or Tennessee Court of Appeals Reports volume
+      reporter: Tennessee appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 S.W.3d 456 (Tenn. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 Tenn. Ct. App. 2d 789 (Tenn. App. 2022)
+    - State v. Brown, 234 S.W.2d 567 (Tenn. Ct. App. 2021)
+  tennessee_court_of_criminal_appeals:
+    name: tennessee_court_of_criminal_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.W\.(?:2d|3d)?|Tenn\.\s*Crim\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Tenn\.(?:\s+Ct\.)?(?:\s+Crim\.)?(?:\s+App\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.96
+    priority: 92
+    components:
+      case_name: Full case name with parties
+      volume: South Western Reporter or Tennessee Criminal Appeals Reports volume
+      reporter: Tennessee criminal appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 S.W.3d 456 (Tenn. Ct. Crim. App. 2023)
+    - Commonwealth v. Jones, 456 Tenn. Crim. App. 789 (Tenn. Crim. App. 2022)
+    - State v. Brown, 234 S.W.2d 567 (Tenn. Ct. Crim. App. 2021)
+  tennessee_circuit_court:
+    name: tennessee_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<circuit>\d{1,2})(?:st|d|nd|rd|th)\s+(?:Jud\.\s+)?Cir\.(?:\s+Ct\.)?(?:\s+Tenn\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-CV-123456 (20th Jud. Cir. Ct. Tenn.)
+    - State v. Brown, 22-CR-987654 (11th Jud. Cir. 2022)
+  tennessee_chancery_court:
+    name: tennessee_chancery_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Ch\.|Chancery)\s*Ct\.(?:\s+Tenn\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 76
+    components:
+      case_name: Full case name with parties
+      docket_number: Chancery court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-CH-123 (Davidson County Ch. Ct. Tenn.)
+    - Brown v. Estate, 22-PR-987 (Hamilton County Chancery Ct. 2022)
+  tennessee_general_sessions_court:
+    name: tennessee_general_sessions_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Gen\.\s*)?(?:Sess\.\s*)?Ct\.(?:\s+Tenn\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: General Sessions court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-GS-987 (Knox County Gen. Sess. Ct. Tenn.)
+    - State v. Brown, 22-CR-12345 (Shelby County Gen. Sess. Ct. 2022)
+statute_citations:
+  tennessee_code_annotated:
+    name: tennessee_code_annotated_citation
+    pattern: Tenn\.\s+Code\s+Ann\.\s+(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)*(?:\([a-z0-9]+\)(?:\([a-z0-9]+\))?)*(?:\s*to\s*[\d\.]+(?:\([a-z0-9]+\)(?:\([a-z0-9]+\))?)*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Tennessee Code Annotated section number or range
+      year: Publication year
+    examples:
+    - Tenn. Code Ann. § 39-13-102 (2023)
+    - Tenn. Code Ann. §§ 36-5-101 to 36-5-130
+    - Tenn. Code Ann. § 68-202-301(a)(1)
+  tennessee_constitution:
+    name: tennessee_constitution_citation
+    pattern: Tenn\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Tenn. Const. art. I, § 8
+    - Tenn. Const. art. VI, § 3
+    - Tenn. Const. art. XI, § 9(a)
+regulation_citations:
+  tennessee_rules_and_regulations:
+    name: tennessee_rules_and_regulations_citation
+    pattern: Tenn\.\s+(?:Comp\.\s+)?R\.\s+&\s+Regs?\.\s+(?P<chapter>\d{4})-(?P<subchapter>\d{2})-(?P<rule>\d{2})(?:\.(?P<section>\d{2}(?:\.\d{2})*))?
+    confidence: 0.92
+    priority: 80
+    components:
+      chapter: Tennessee Rules and Regulations chapter number
+      subchapter: Subchapter number
+      rule: Rule number
+      section: Section number
+    examples:
+    - Tenn. Comp. R. & Regs. 1200-23-01
+    - Tenn. R. & Regs. 0940-05-06.02
+    - Tenn. Comp. R. & Regs. 1340-02-02.01
+court_system:
+  court_names:
+    tennessee_supreme_court:
+      pattern: (?i)(?:Tenn\.|Tennessee)\s+(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Tennessee)?
+      confidence: 0.95
+      level: supreme
+    tennessee_court_of_appeals:
+      pattern: (?i)(?:Tenn\.|Tennessee)\s+(?:Court\s+of\s+Appeals|Ct\.\s+of\s+App\.|App\.)
+      confidence: 0.93
+      level: appellate
+    tennessee_court_of_criminal_appeals:
+      pattern: (?i)(?:Tenn\.|Tennessee)\s+(?:Court\s+of\s+Criminal\s+Appeals|Ct\.\s+of\s+Crim\.\s+App\.|Crim\.\s+App\.)
+      confidence: 0.95
+      level: appellate
+    tennessee_circuit_court:
+      pattern: (?i)(?P<circuit>\d{1,2})(?:st|d|nd|rd|th)\s+(?:Judicial\s+Circuit|Jud\.\s*Cir\.)(?:\s+Court)?(?:\s+(?:of\s+|for\s+)Tennessee)?
+      confidence: 0.9
+      level: trial
+    tennessee_chancery_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Chancery\s+Court|Ch\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Tennessee)?
+      confidence: 0.9
+      level: equity
+    tennessee_general_sessions_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:General\s+Sessions\s+Court|Gen\.\s*Sess\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Tennessee)?
+      confidence: 0.88
+      level: limited
+    tennessee_juvenile_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+Juvenile\s+Court(?:\s+(?:of\s+|for\s+)Tennessee)?
+      confidence: 0.87
+      level: juvenile
+entity_types:
+- name: TENNESSEE_SUPREME_COURT_CASE
+  description: Tennessee Supreme Court case citation
+  confidence_threshold: 0.95
+- name: TENNESSEE_APPELLATE_CASE
+  description: Tennessee Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: TENNESSEE_CRIMINAL_APPEALS_CASE
+  description: Tennessee Court of Criminal Appeals case citation
+  confidence_threshold: 0.92
+- name: TENNESSEE_CIRCUIT_COURT_CASE
+  description: Tennessee Circuit Court case citation
+  confidence_threshold: 0.85
+- name: TENNESSEE_CHANCERY_COURT_CASE
+  description: Tennessee Chancery Court case citation
+  confidence_threshold: 0.85
+- name: TENNESSEE_GENERAL_SESSIONS_CASE
+  description: Tennessee General Sessions Court case citation
+  confidence_threshold: 0.83
+- name: TENNESSEE_STATUTE
+  description: Tennessee statutory provision
+  confidence_threshold: 0.9
+- name: TENNESSEE_REGULATION
+  description: Tennessee administrative regulation
+  confidence_threshold: 0.88
+- name: TENNESSEE_CONSTITUTIONAL_PROVISION
+  description: Tennessee constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1796
+    max_year: 2025
+  volume_ranges:
+    southwestern_reporter:
+      sw_2d:
+        min_volume: 1
+        max_volume: 999
+      sw_3d:
+        min_volume: 1
+        max_volume: 999
+    tennessee_reports:
+      tenn_2d:
+        min_volume: 1
+        max_volume: 250
+      tenn_3d:
+        min_volume: 1
+        max_volume: 80
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  circuit_validation:
+    min_circuit: 1
+    max_circuit: 31
+  regulation_validation:
+    chapter_range:
+    - 100
+    - 9999
+    subchapter_range:
+    - 1
+    - 99
+    rule_range:
+    - 1
+    - 99
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 770_citations_per_second
+dependencies:
+  requires:
+  - tennessee_court_abbreviations
+  - tennessee_county_names
+  - tennessee_judicial_circuits
+  optional:
+  - tennessee_historical_courts
+  - tennessee_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.tennessee_supreme_court
+    text: State v. Smith, 123 S.W.3d 456 (Tenn. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.tennessee_code_annotated
+    text: Tenn. Code Ann. § 39-13-102 (2023)
+    expected_entities: 1
+  - pattern: case_citations.tennessee_court_of_criminal_appeals
+    text: State v. Smith, 123 S.W.3d 456 (Tenn. Ct. Crim. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.1 seconds
+    memory_usage: < 118MB
+    accuracy_threshold: 0.94

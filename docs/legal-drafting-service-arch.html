@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Document Drafting Service - GraphRAG Architecture</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .service-layer {
+            grid-column: span 4;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .layer-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .service-box {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        
+        .service-name {
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .service-port {
+            color: #a0aec0;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .service-features {
+            font-size: 0.85em;
+            color: #718096;
+            line-height: 1.4;
+        }
+        
+        .flow-diagram {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .flow-title {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        
+        .flow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .flow-step {
+            flex: 1;
+            min-width: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 5px;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #cbd5e0;
+            font-size: 1.5em;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            font-size: 0.8em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .step-name {
+            font-weight: bold;
+            font-size: 1em;
+        }
+        
+        .integration-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .integration-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .integration-title {
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .integration-details {
+            font-size: 0.9em;
+            color: #718096;
+            line-height: 1.6;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .primary-service {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%) !important;
+        }
+        
+        .primary-service .service-name {
+            color: white;
+        }
+        
+        .primary-service .service-port {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .primary-service .service-features {
+            color: rgba(255,255,255,0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏛️ Legal Document Drafting Service</h1>
+        <div class="subtitle">GraphRAG-Powered Intelligent Document Generation System</div>
+        
+        <!-- Core Services Layer -->
+        <div class="service-layer">
+            <div class="layer-title">📝 Document Drafting Services</div>
+            <div class="services-container">
+                <div class="service-box primary-service">
+                    <div class="service-name">Legal Drafting Service</div>
+                    <div class="service-port">Port: 8011</div>
+                    <div class="service-features">
+                        • Template Management<br>
+                        • Document Generation<br>
+                        • Version Control<br>
+                        • Clause Library<br>
+                        • Auto-completion
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Template Engine</div>
+                    <div class="service-port">Port: 8012</div>
+                    <div class="service-features">
+                        • Contract Templates<br>
+                        • Motion Templates<br>
+                        • Brief Templates<br>
+                        • Discovery Templates<br>
+                        • Custom Templates
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Clause Analyzer</div>
+                    <div class="service-port">Port: 8013</div>
+                    <div class="service-features">
+                        • Clause Extraction<br>
+                        • Risk Assessment<br>
+                        • Precedent Matching<br>
+                        • Compliance Check<br>
+                        • Language Optimization
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Citation Validator</div>
+                    <div class="service-port">Port: 8014</div>
+                    <div class="service-features">
+                        • Bluebook Validation<br>
+                        • Citation Formatting<br>
+                        • Cross-references<br>
+                        • Authority Checking<br>
+                        • Parallel Citations
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GraphRAG Intelligence Layer -->
+        <div class="service-layer">
+            <div class="layer-title">🧠 GraphRAG Intelligence Layer</div>
+            <div class="services-container">
+                <div class="service-box">
+                    <div class="service-name">GraphRAG Service</div>
+                    <div class="service-port">Port: 8010</div>
+                    <div class="service-features">
+                        • Knowledge Graph<br>
+                        • Entity Relations<br>
+                        • Community Detection<br>
+                        • Semantic Search<br>
+                        • Graph Analytics
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Context Engine</div>
+                    <div class="service-port">Port: 8015</div>
+                    <div class="service-features">
+                        • Case Context<br>
+                        • Party Analysis<br>
+                        • Jurisdiction Rules<br>
+                        • Precedent Context<br>
+                        • Temporal Context
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Precedent Finder</div>
+                    <div class="service-port">Port: 8016</div>
+                    <div class="service-features">
+                        • Similar Cases<br>
+                        • Winning Arguments<br>
+                        • Judge Preferences<br>
+                        • Jurisdiction Patterns<br>
+                        • Success Metrics
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Suggestion Engine</div>
+                    <div class="service-port">Port: 8017</div>
+                    <div class="service-features">
+                        • Language Suggestions<br>
+                        • Clause Recommendations<br>
+                        • Argument Strength<br>
+                        • Risk Mitigation<br>
+                        • Alternative Phrasing
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foundation Services -->
+        <div class="service-layer">
+            <div class="layer-title">🔧 Foundation Services</div>
+            <div class="services-container">
+                <div class="service-box">
+                    <div class="service-name">Document Service</div>
+                    <div class="service-port">Port: 8005</div>
+                    <div class="service-features">
+                        • Document Storage<br>
+                        • MarkItDown Convert<br>
+                        • OCR Processing<br>
+                        • Metadata Extract
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Entity Extraction</div>
+                    <div class="service-port">Port: 8007</div>
+                    <div class="service-features">
+                        • 31 Legal Entities<br>
+                        • Citation Extract<br>
+                        • Relationship Map<br>
+                        • Confidence Scoring
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Chunking Service</div>
+                    <div class="service-port">Port: 8009</div>
+                    <div class="service-features">
+                        • Contextual Chunks<br>
+                        • BM25 Indexing<br>
+                        • Embeddings<br>
+                        • Semantic Segments
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-name">Prompt Service</div>
+                    <div class="service-port">Port: 8003</div>
+                    <div class="service-features">
+                        • LLM Integration<br>
+                        • Chain of Thought<br>
+                        • Template Engine<br>
+                        • Response Validation
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Generation Flow -->
+        <div class="flow-diagram">
+            <div class="flow-title">📋 Document Drafting Pipeline</div>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">Step 1</div>
+                    <div class="step-name">Request Analysis</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">Step 2</div>
+                    <div class="step-name">Context Retrieval</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">Step 3</div>
+                    <div class="step-name">Template Selection</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">Step 4</div>
+                    <div class="step-name">Graph Query</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">Step 5</div>
+                    <div class="step-name">Content Generation</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">Step 6</div>
+                    <div class="step-name">Review & Validate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integration Details -->
+        <div class="integration-matrix">
+            <div class="integration-card">
+                <div class="integration-title">🎯 Input Processing</div>
+                <div class="integration-details">
+                    <strong>Request Types:</strong><br>
+                    <span class="feature-badge">Contract Draft</span>
+                    <span class="feature-badge">Motion Draft</span>
+                    <span class="feature-badge">Brief Draft</span>
+                    <span class="feature-badge">Discovery Response</span>
+                    <span class="feature-badge">Legal Memo</span><br><br>
+                    
+                    <strong>Context Sources:</strong><br>
+                    • Case history from GraphRAG<br>
+                    • Party relationships<br>
+                    • Prior documents<br>
+                    • Jurisdiction requirements
+                </div>
+            </div>
+            
+            <div class="integration-card">
+                <div class="integration-title">🔄 GraphRAG Integration</div>
+                <div class="integration-details">
+                    <strong>Knowledge Retrieval:</strong><br>
+                    • Semantic search for precedents<br>
+                    • Entity relationship mapping<br>
+                    • Community-based suggestions<br>
+                    • Cross-document references<br><br>
+                    
+                    <strong>Graph Queries:</strong><br>
+                    <span class="feature-badge">Similar Cases</span>
+                    <span class="feature-badge">Winning Arguments</span>
+                    <span class="feature-badge">Judge History</span>
+                    <span class="feature-badge">Party Patterns</span>
+                </div>
+            </div>
+            
+            <div class="integration-card">
+                <div class="integration-title">✨ Smart Features</div>
+                <div class="integration-details">
+                    <strong>AI Capabilities:</strong><br>
+                    • Auto-complete clauses<br>
+                    • Risk assessment<br>
+                    • Language optimization<br>
+                    • Citation formatting<br><br>
+                    
+                    <strong>Quality Assurance:</strong><br>
+                    <span class="feature-badge">Compliance Check</span>
+                    <span class="feature-badge">Consistency</span>
+                    <span class="feature-badge">Completeness</span>
+                    <span class="feature-badge">Accuracy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced Features -->
+        <div class="flow-diagram" style="margin-top: 30px;">
+            <div class="flow-title">🚀 Advanced Drafting Features</div>
+            <div class="integration-matrix">
+                <div class="integration-card">
+                    <div class="integration-title">📊 Version Control</div>
+                    <div class="integration-details">
+                        • Track all document versions<br>
+                        • Compare changes<br>
+                        • Collaborative editing<br>
+                        • Audit trail<br>
+                        • Rollback capability
+                    </div>
+                </div>
+                
+                <div class="integration-card">
+                    <div class="integration-title">🔍 Intelligent Search</div>
+                    <div class="integration-details">
+                        • Search across all drafts<br>
+                        • Find similar clauses<br>
+                        • Precedent matching<br>
+                        • Contextual retrieval<br>
+                        • Semantic understanding
+                    </div>
+                </div>
+                
+                <div class="integration-card">
+                    <div class="integration-title">🎨 Customization</div>
+                    <div class="integration-details">
+                        • Custom templates<br>
+                        • Firm-specific language<br>
+                        • Jurisdiction rules<br>
+                        • Client preferences<br>
+                        • Style guides
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Endpoints -->
+        <div class="flow-diagram" style="margin-top: 30px;">
+            <div class="flow-title">🔌 API Endpoints</div>
+            <div class="integration-matrix">
+                <div class="integration-card">
+                    <div class="integration-title">Draft Creation</div>
+                    <div class="integration-details">
+                        <code>POST /api/v1/draft/create</code><br>
+                        <code>POST /api/v1/draft/from-template</code><br>
+                        <code>POST /api/v1/draft/auto-generate</code><br>
+                        <code>GET /api/v1/draft/{id}</code><br>
+                        <code>PUT /api/v1/draft/{id}/update</code>
+                    </div>
+                </div>
+                
+                <div class="integration-card">
+                    <div class="integration-title">Template Management</div>
+                    <div class="integration-details">
+                        <code>GET /api/v1/templates/list</code><br>
+                        <code>POST /api/v1/templates/create</code><br>
+                        <code>GET /api/v1/templates/suggest</code><br>
+                        <code>POST /api/v1/templates/customize</code><br>
+                        <code>GET /api/v1/templates/library</code>
+                    </div>
+                </div>
+                
+                <div class="integration-card">
+                    <div class="integration-title">Intelligence APIs</div>
+                    <div class="integration-details">
+                        <code>POST /api/v1/suggest/clauses</code><br>
+                        <code>POST /api/v1/analyze/risk</code><br>
+                        <code>POST /api/v1/validate/citations</code><br>
+                        <code>GET /api/v1/precedents/find</code><br>
+                        <code>POST /api/v1/optimize/language</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

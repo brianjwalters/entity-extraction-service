@@ -1,0 +1,182 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: north_dakota
+  state_abbreviation: N.D.
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for North Dakota state citations and entities
+case_citations:
+  north_dakota_supreme_court:
+    name: north_dakota_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+956\s+N\.W\.2d\s+456,\s+789\s+\(N\.D\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: North Dakota Reports or North Western Reporter volume
+      reporter: N.D. or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 967 N.W.2d 234 (N.D. 2023)
+    - Smith v. ABC Corp., 890 N.D. 567 (N.D. 2022)
+    - In re Estate of Brown, 956 N.W.2d 456, 789 (N.D. 2021)
+  north_dakota_court_of_appeals:
+    name: north_dakota_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>N\.W\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(N\.D\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: North Western Reporter volume
+      reporter: North Western appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 956 N.W.2d 567 (N.D. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 934 N.W.2d 789 (N.D. Ct. App. 2022)
+    - People v. Brown, 912 N.W.2d 345 (N.D. Ct. App. 2021)
+  north_dakota_district_court:
+    name: north_dakota_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<district>[A-Z][a-z]+)\s+County\s+Dist\.(?:\s+Ct\.)?(?:\s+N\.D\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 20-2023-CV-00123 (Cass County Dist. Ct. N.D.)
+    - ABC Corp. v. XYZ Inc., No. 09-2022-CV-00456 (Grand Forks County Dist. Ct. 2022)
+statute_citations:
+  north_dakota_century_code:
+    name: north_dakota_century_code_citation
+    pattern: N\.D\.\s+Cent\.\s+Code\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d-]+(?:\.\d+)?(?:\s*[-–]\s*[\d-]+(?:\.\d+)?)?(?:\s*to\s*[\d-]+(?:\.\d+)?)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: North Dakota Century Code section number or range
+      year: Publication year
+    examples:
+    - N.D. Cent. Code Ann. § 12.1-16-01 (West 2023)
+    - N.D. Cent. Code §§ 14-09-01 to 14-09-25
+    - N.D. Cent. Code § 32-03-34
+  north_dakota_constitution:
+    name: north_dakota_constitution_citation
+    pattern: N\.D\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - N.D. Const. art. I, § 12
+    - N.D. Const. art. IV, § 61
+    - N.D. Const. art. XI, § 25(a)
+regulation_citations:
+  north_dakota_administrative_code:
+    name: north_dakota_administrative_code_citation
+    pattern: N\.D\.\s+Admin\.\s+Code\s+(?P<section>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      section: Administrative Code section number
+    examples:
+    - N.D. Admin. Code 75-02-01.2-05
+    - N.D. Admin. Code 33-15-02.1-04
+    - N.D. Admin. Code 67-20-02-03
+court_system:
+  court_names:
+    north_dakota_supreme_court:
+      pattern: (?i)(?:N(?:orth)?\.?\s*D(?:akota)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+North\s+Dakota)?
+      confidence: 0.95
+      level: supreme
+    north_dakota_court_of_appeals:
+      pattern: (?i)(?:N(?:orth)?\.?\s*D(?:akota)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+North\s+Dakota)?
+      confidence: 0.93
+      level: appellate
+    north_dakota_district_court:
+      pattern: (?i)(?P<district>[A-Z][a-z]+)\s+County\s+(?:District\s+Court|Dist\.?\s+Ct\.?)(?:\s+N(?:orth)?\.?\s*D(?:akota)?\.?)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: NORTH_DAKOTA_SUPREME_COURT_CASE
+  description: North Dakota Supreme Court case citation
+  confidence_threshold: 0.95
+- name: NORTH_DAKOTA_APPELLATE_CASE
+  description: North Dakota Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: NORTH_DAKOTA_DISTRICT_COURT_CASE
+  description: North Dakota District Court case citation
+  confidence_threshold: 0.85
+- name: NORTH_DAKOTA_STATUTE
+  description: North Dakota Century Code provision
+  confidence_threshold: 0.9
+- name: NORTH_DAKOTA_REGULATION
+  description: North Dakota administrative regulation
+  confidence_threshold: 0.88
+- name: NORTH_DAKOTA_CONSTITUTIONAL_PROVISION
+  description: North Dakota constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1889
+    max_year: 2025
+  volume_ranges:
+    north_dakota_reports:
+      nd_1st:
+        min_volume: 1
+        max_volume: 79
+      nd_2d:
+        min_volume: 1
+        max_volume: 50
+    north_western_reporter:
+      nw_1st:
+        min_volume: 1
+        max_volume: 300
+      nw_2d:
+        min_volume: 1
+        max_volume: 999
+      nw_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.9
+  f1_target: 0.92
+  processing_speed: 750_citations_per_second
+dependencies:
+  requires:
+  - north_dakota_court_abbreviations
+  - north_dakota_county_names
+  - north_dakota_judicial_districts
+  optional:
+  - north_dakota_historical_courts
+  - north_dakota_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.north_dakota_supreme_court
+    text: State v. Johnson, 967 N.W.2d 234 (N.D. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.north_dakota_century_code
+    text: N.D. Cent. Code Ann. § 12.1-16-01 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.north_dakota_court_of_appeals
+    text: Smith v. Jones, 956 N.W.2d 567 (N.D. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 4.2 seconds
+    memory_usage: < 140MB
+    accuracy_threshold: 0.91

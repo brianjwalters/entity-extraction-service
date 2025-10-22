@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave-by-Wave Extraction Analysis | Entity Extraction Test Results</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+    <!-- Date Range Picker -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid #00d9ff;
+        }
+
+        .header h1 {
+            color: #00d9ff;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0, 217, 255, 0.3);
+        }
+
+        .header p {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: rgba(15, 52, 96, 0.5);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .breadcrumb a {
+            color: #00d9ff;
+            text-decoration: none;
+            margin-right: 0.5rem;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #7f8c8d;
+            margin: 0 0.5rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            color: #00d9ff;
+            font-size: 1.8rem;
+            margin: 2rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-header::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, #00d9ff 0%, #0066cc 100%);
+            border-radius: 2px;
+        }
+
+        /* Wave Overview Cards */
+        .wave-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .wave-card {
+            background: linear-gradient(135deg, rgba(30, 39, 73, 0.95) 0%, rgba(21, 32, 67, 0.95) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--wave-color) 0%, transparent 100%);
+        }
+
+        .wave-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .wave-card.wave-1 { --wave-color: #3498db; }
+        .wave-card.wave-2 { --wave-color: #2ecc71; }
+        .wave-card.wave-3 { --wave-color: #9b59b6; }
+        .wave-card.wave-4 { --wave-color: #e67e22; }
+        .wave-card.single-pass { --wave-color: #1abc9c; }
+
+        .wave-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .wave-badge {
+            background: var(--wave-color);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .wave-card h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            flex: 1;
+        }
+
+        .wave-description {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .wave-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .wave-metric {
+            background: rgba(0, 217, 255, 0.05);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--wave-color);
+        }
+
+        .wave-metric-label {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .wave-metric-value {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.3rem;
+        }
+
+        .wave-metric-value.small {
+            font-size: 1.2rem;
+        }
+
+        .entity-types-list {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .entity-types-list h4 {
+            color: #00d9ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .entity-type-tag {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.1);
+            color: #00d9ff;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin: 0.2rem;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .sparkline-container {
+            margin-top: 1rem;
+            height: 60px;
+        }
+
+        /* Filters */
+        .filters-section {
+            background: linear-gradient(135deg, rgba(30, 39, 73, 0.95) 0%, rgba(21, 32, 67, 0.95) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            color: #00d9ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: #fff;
+            padding: 0.7rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #00d9ff;
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+
+        .wave-checkboxes {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .wave-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .wave-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .wave-checkbox label {
+            color: #e0e0e0;
+            cursor: pointer;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        /* Charts */
+        .chart-container {
+            background: linear-gradient(135deg, rgba(30, 39, 73, 0.95) 0%, rgba(21, 32, 67, 0.95) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-header h3 {
+            color: #00d9ff;
+            font-size: 1.4rem;
+        }
+
+        .chart-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .toggle-btn {
+            background: rgba(0, 217, 255, 0.1);
+            color: #00d9ff;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active {
+            background: #00d9ff;
+            color: #1a1a2e;
+        }
+
+        .toggle-btn:hover:not(.active) {
+            background: rgba(0, 217, 255, 0.2);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+        }
+
+        /* Table */
+        .table-container {
+            background: linear-gradient(135deg, rgba(30, 39, 73, 0.95) 0%, rgba(21, 32, 67, 0.95) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow-x: auto;
+        }
+
+        table.dataTable {
+            width: 100% !important;
+            color: #e0e0e0;
+            border-collapse: collapse;
+        }
+
+        table.dataTable thead th {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: #00d9ff;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid #00d9ff;
+            font-weight: 600;
+        }
+
+        table.dataTable tbody td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        table.dataTable tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+        table.dataTable tbody tr:hover {
+            background: rgba(0, 217, 255, 0.05);
+        }
+
+        table.dataTable tbody tr.wave-1 {
+            border-left: 3px solid #3498db;
+        }
+
+        table.dataTable tbody tr.wave-2 {
+            border-left: 3px solid #2ecc71;
+        }
+
+        table.dataTable tbody tr.wave-3 {
+            border-left: 3px solid #9b59b6;
+        }
+
+        table.dataTable tbody tr.wave-4 {
+            border-left: 3px solid #e67e22;
+        }
+
+        table.dataTable tbody tr.single-pass {
+            border-left: 3px solid #1abc9c;
+        }
+
+        .dataTables_wrapper .dataTables_filter input {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .dataTables_wrapper .dataTables_length select {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            color: #b0b0b0;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            color: #00d9ff !important;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 6px;
+            margin: 0 2px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: #00d9ff !important;
+            color: #1a1a2e !important;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            background: linear-gradient(135deg, rgba(30, 39, 73, 0.95) 0%, rgba(21, 32, 67, 0.95) 100%);
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .tabs-nav {
+            display: flex;
+            background: rgba(15, 52, 96, 0.5);
+            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem;
+            background: transparent;
+            border: none;
+            color: #b0b0b0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: rgba(0, 217, 255, 0.05);
+            color: #00d9ff;
+        }
+
+        .tab-btn.active {
+            color: #00d9ff;
+        }
+
+        .tab-btn.active::after {
+            background: #00d9ff;
+        }
+
+        .tab-btn.wave-1.active::after { background: #3498db; }
+        .tab-btn.wave-2.active::after { background: #2ecc71; }
+        .tab-btn.wave-3.active::after { background: #9b59b6; }
+        .tab-btn.wave-4.active::after { background: #e67e22; }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wave-deep-dive {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .wave-purpose {
+            background: rgba(0, 217, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--wave-color);
+        }
+
+        .wave-purpose h4 {
+            color: #00d9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .wave-purpose p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* Badges */
+        .badge-container {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, rgba(30, 39, 73, 0.95) 0%, rgba(21, 32, 67, 0.95) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--badge-color);
+            min-width: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--badge-color) 0%, transparent 70%);
+            opacity: 0.1;
+        }
+
+        .badge.efficient { --badge-color: #2ecc71; }
+        .badge.accurate { --badge-color: #3498db; }
+        .badge.largest { --badge-color: #e67e22; }
+
+        .badge-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge h4 {
+            color: var(--badge-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .badge p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        .badge-value {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        .navigation {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 2px solid rgba(0, 217, 255, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #00d9ff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .nav-brand:hover {
+            color: #00b8d4;
+            transform: translateY(-2px);
+        }
+
+        .nav-brand-icon {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .nav-link {
+            color: #b0b0b0;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #00d9ff;
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .nav-link.active {
+            color: #00d9ff;
+            background: rgba(0, 217, 255, 0.15);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: #00d9ff;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-action-btn {
+            background: rgba(0, 217, 255, 0.1);
+            color: #00d9ff;
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-action-btn:hover {
+            background: rgba(0, 217, 255, 0.2);
+            border-color: #00d9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+        }
+
+        .nav-action-btn.primary {
+            background: #00d9ff;
+            color: #1a1a2e;
+            border-color: #00d9ff;
+        }
+
+        .nav-action-btn.primary:hover {
+            background: #00b8d4;
+            border-color: #00b8d4;
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #00d9ff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .wave-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chart-wrapper {
+                height: 300px;
+            }
+
+            .tabs-nav {
+                flex-direction: column;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            .nav-action-btn {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .nav-mobile-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="nav-brand-icon">📊</span>
+                <span>Entity Extraction Results</span>
+            </a>
+
+            <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Overview</a>
+                <a href="entities.html" class="nav-link">Entities</a>
+                <a href="waves.html" class="nav-link active">Wave Analysis</a>
+                <a href="performance.html" class="nav-link">Performance</a>
+                <a href="quality.html" class="nav-link">Quality Metrics</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="test_history.json" class="nav-action-btn" download>
+                    <span>📥</span>
+                    <span>Export Data</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Wave-by-Wave Extraction Analysis</h1>
+        <p>Comprehensive analysis of entity extraction performance across different wave strategies</p>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">Test Results</a>
+        <span>/</span>
+        <span style="color: #fff;">Wave Analysis</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <h3 style="color: #00d9ff; margin-bottom: 1rem;">Filters</h3>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="documentFilter">Document ID</label>
+                    <select id="documentFilter">
+                        <option value="all">All Documents</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="strategyFilter">Extraction Strategy</label>
+                    <select id="strategyFilter">
+                        <option value="all">All Strategies</option>
+                        <option value="single_pass">Single Pass</option>
+                        <option value="three_wave">Three Wave</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="dateRange">Date Range</label>
+                    <input type="text" id="dateRange" readonly>
+                </div>
+
+                <div class="filter-group">
+                    <label>Wave Number</label>
+                    <div class="wave-checkboxes">
+                        <div class="wave-checkbox">
+                            <input type="checkbox" id="wave1" value="1" checked>
+                            <label for="wave1">Wave 1</label>
+                        </div>
+                        <div class="wave-checkbox">
+                            <input type="checkbox" id="wave2" value="2" checked>
+                            <label for="wave2">Wave 2</label>
+                        </div>
+                        <div class="wave-checkbox">
+                            <input type="checkbox" id="wave3" value="3" checked>
+                            <label for="wave3">Wave 3</label>
+                        </div>
+                        <div class="wave-checkbox">
+                            <input type="checkbox" id="wave4" value="4" checked>
+                            <label for="wave4">Wave 4</label>
+                        </div>
+                        <div class="wave-checkbox">
+                            <input type="checkbox" id="waveSingle" value="single" checked>
+                            <label for="waveSingle">Single Pass</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Insights Badges -->
+        <h2 class="section-header">Performance Insights</h2>
+        <div class="badge-container" id="insightsBadges">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
+        <!-- Section 1: Wave Overview Cards -->
+        <h2 class="section-header">Wave Overview</h2>
+        <div class="wave-cards-grid" id="waveCards">
+            <!-- Cards will be populated by JavaScript -->
+        </div>
+
+        <!-- Section 2: Wave Comparison Chart -->
+        <h2 class="section-header">Wave Comparison</h2>
+        <div class="chart-container">
+            <div class="chart-header">
+                <h3>Performance Comparison Across Waves</h3>
+                <div class="chart-toggle">
+                    <button class="toggle-btn active" onclick="switchComparisonChart('time')">Execution Time</button>
+                    <button class="toggle-btn" onclick="switchComparisonChart('entities')">Entity Count</button>
+                </div>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Additional Charts -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Entities per Wave Distribution</h3>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Wave Performance Trend</h3>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Wave Performance Table -->
+        <h2 class="section-header">Wave Performance Details</h2>
+        <div class="table-container">
+            <table id="waveTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Test ID</th>
+                        <th>Strategy</th>
+                        <th>Wave Number</th>
+                        <th>Entities Extracted</th>
+                        <th>Execution Time (ms)</th>
+                        <th>Tokens Used</th>
+                        <th>Throughput (ent/sec)</th>
+                        <th>Confidence Avg</th>
+                        <th>Prompt Template</th>
+                    </tr>
+                </thead>
+                <tbody id="waveTableBody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: Wave Deep Dive Tabs -->
+        <h2 class="section-header">Wave Deep Dive</h2>
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn wave-1 active" onclick="switchTab('wave1Tab')">Wave 1: Actor Entities</button>
+                <button class="tab-btn wave-2" onclick="switchTab('wave2Tab')">Wave 2: Citation Entities</button>
+                <button class="tab-btn wave-3" onclick="switchTab('wave3Tab')">Wave 3: Conceptual Entities</button>
+                <button class="tab-btn wave-4" onclick="switchTab('wave4Tab')">Wave 4: Relationships</button>
+            </div>
+
+            <div id="wave1Tab" class="tab-content active">
+                <div class="wave-deep-dive">
+                    <div class="wave-purpose" style="--wave-color: #3498db;">
+                        <h4>Wave 1 Purpose: Actor Entities</h4>
+                        <p>Extracts legal actors including parties, attorneys, judges, and witnesses. This is the foundational wave that identifies all human participants in legal proceedings.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Target Entity Types:</strong> PARTY, ATTORNEY, JUDGE, WITNESS</p>
+                    </div>
+
+                    <div class="chart-wrapper" style="height: 300px;">
+                        <canvas id="wave1ConfidenceChart"></canvas>
+                    </div>
+
+                    <div>
+                        <a href="entities.html?wave=1" style="color: #3498db; text-decoration: none; font-weight: 600;">
+                            View All Wave 1 Entities →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wave2Tab" class="tab-content">
+                <div class="wave-deep-dive">
+                    <div class="wave-purpose" style="--wave-color: #2ecc71;">
+                        <h4>Wave 2 Purpose: Citation Entities</h4>
+                        <p>Identifies legal citations including case law, statutes, and USC citations. This wave ensures all legal references are properly extracted with their components.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Target Entity Types:</strong> CASE_CITATION, STATUTE_CITATION, USC_CITATIONS</p>
+                    </div>
+
+                    <div class="chart-wrapper" style="height: 300px;">
+                        <canvas id="wave2ConfidenceChart"></canvas>
+                    </div>
+
+                    <div>
+                        <a href="entities.html?wave=2" style="color: #2ecc71; text-decoration: none; font-weight: 600;">
+                            View All Wave 2 Entities →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wave3Tab" class="tab-content">
+                <div class="wave-deep-dive">
+                    <div class="wave-purpose" style="--wave-color: #9b59b6;">
+                        <h4>Wave 3 Purpose: Conceptual Entities</h4>
+                        <p>Extracts abstract legal concepts, causes of action, and remedies. This wave captures the conceptual framework of legal arguments.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Target Entity Types:</strong> LEGAL_CONCEPT, CAUSE_OF_ACTION, REMEDY</p>
+                    </div>
+
+                    <div class="chart-wrapper" style="height: 300px;">
+                        <canvas id="wave3ConfidenceChart"></canvas>
+                    </div>
+
+                    <div>
+                        <a href="entities.html?wave=3" style="color: #9b59b6; text-decoration: none; font-weight: 600;">
+                            View All Wave 3 Entities →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wave4Tab" class="tab-content">
+                <div class="wave-deep-dive">
+                    <div class="wave-purpose" style="--wave-color: #e67e22;">
+                        <h4>Wave 4 Purpose: Relationships</h4>
+                        <p>Establishes connections between entities to build the knowledge graph. This wave creates the relational structure that enables advanced querying.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Target:</strong> Entity-to-Entity Relationships, Semantic Links</p>
+                    </div>
+
+                    <div class="chart-wrapper" style="height: 300px;">
+                        <canvas id="wave4ConfidenceChart"></canvas>
+                    </div>
+
+                    <div>
+                        <a href="entities.html?wave=4" style="color: #e67e22; text-decoration: none; font-weight: 600;">
+                            View All Wave 4 Entities →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Load test history data
+        let testData = [];
+        let comparisonChart = null;
+        let currentComparisonMode = 'time';
+
+        // Fetch data
+        fetch('test_history.json')
+            .then(response => response.json())
+            .then(data => {
+                testData = data.tests;
+                initializePage();
+            })
+            .catch(error => {
+                console.error('Error loading test data:', error);
+            });
+
+        function initializePage() {
+            populateFilters();
+            createWaveCards();
+            createInsightsBadges();
+            createComparisonChart();
+            createPieChart();
+            createTrendChart();
+            populateTable();
+            createWaveConfidenceCharts();
+            initializeDateRangePicker();
+        }
+
+        function populateFilters() {
+            const documentFilter = document.getElementById('documentFilter');
+            const documents = [...new Set(testData.map(t => t.document_id))];
+
+            documents.forEach(doc => {
+                const option = document.createElement('option');
+                option.value = doc;
+                option.textContent = doc;
+                documentFilter.appendChild(option);
+            });
+        }
+
+        function createWaveCards() {
+            const container = document.getElementById('waveCards');
+
+            // Analyze data by strategy
+            const strategies = {};
+
+            testData.forEach(test => {
+                const strategy = test.routing.strategy;
+
+                if (!strategies[strategy]) {
+                    strategies[strategy] = {
+                        totalEntities: 0,
+                        totalTime: 0,
+                        totalConfidence: 0,
+                        count: 0,
+                        entityTypes: new Set()
+                    };
+                }
+
+                strategies[strategy].totalEntities += test.entity_distribution.total_entities;
+                strategies[strategy].totalTime += test.performance.total_duration_seconds * 1000;
+                strategies[strategy].totalConfidence += test.quality.avg_confidence_score;
+                strategies[strategy].count += 1;
+
+                // Collect entity types from entities
+                if (test.raw_response && test.raw_response.entities) {
+                    test.raw_response.entities.forEach(entity => {
+                        strategies[strategy].entityTypes.add(entity.entity_type);
+                    });
+                }
+            });
+
+            // Create cards for each strategy
+            Object.keys(strategies).forEach(strategyKey => {
+                const data = strategies[strategyKey];
+                const avgEntities = Math.round(data.totalEntities / data.count);
+                const avgTime = Math.round(data.totalTime / data.count);
+                const avgConfidence = (data.totalConfidence / data.count).toFixed(3);
+
+                const cardClass = strategyKey === 'single_pass' ? 'single-pass' : 'wave-1';
+                const badgeText = strategyKey === 'single_pass' ? 'Single Pass' : 'Multi-Wave';
+                const description = strategyKey === 'single_pass'
+                    ? 'All entities extracted in a single LLM pass for smaller documents'
+                    : 'Entities extracted in multiple specialized waves for larger documents';
+
+                const card = `
+                    <div class="wave-card ${cardClass}">
+                        <div class="wave-card-header">
+                            <span class="wave-badge">${badgeText}</span>
+                            <h3>${strategyKey.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}</h3>
+                        </div>
+                        <p class="wave-description">${description}</p>
+
+                        <div class="wave-metrics">
+                            <div class="wave-metric">
+                                <div class="wave-metric-label">Avg Entities</div>
+                                <div class="wave-metric-value">${avgEntities}</div>
+                            </div>
+                            <div class="wave-metric">
+                                <div class="wave-metric-label">Avg Time</div>
+                                <div class="wave-metric-value small">${avgTime}ms</div>
+                            </div>
+                            <div class="wave-metric">
+                                <div class="wave-metric-label">Avg Confidence</div>
+                                <div class="wave-metric-value small">${avgConfidence}</div>
+                            </div>
+                            <div class="wave-metric">
+                                <div class="wave-metric-label">Tests</div>
+                                <div class="wave-metric-value">${data.count}</div>
+                            </div>
+                        </div>
+
+                        <div class="entity-types-list">
+                            <h4>Entity Types Extracted:</h4>
+                            ${Array.from(data.entityTypes).map(type =>
+                                `<span class="entity-type-tag">${type}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += card;
+            });
+        }
+
+        function createInsightsBadges() {
+            const container = document.getElementById('insightsBadges');
+
+            // Calculate insights
+            let fastestStrategy = null;
+            let fastestTime = Infinity;
+            let mostAccurate = null;
+            let highestConfidence = 0;
+            let largestExtraction = null;
+            let maxEntities = 0;
+
+            testData.forEach(test => {
+                const time = test.performance.total_duration_seconds * 1000;
+                const confidence = test.quality.avg_confidence_score;
+                const entities = test.entity_distribution.total_entities;
+
+                if (time < fastestTime) {
+                    fastestTime = time;
+                    fastestStrategy = test.routing.strategy;
+                }
+
+                if (confidence > highestConfidence) {
+                    highestConfidence = confidence;
+                    mostAccurate = test.routing.strategy;
+                }
+
+                if (entities > maxEntities) {
+                    maxEntities = entities;
+                    largestExtraction = test.routing.strategy;
+                }
+            });
+
+            container.innerHTML = `
+                <div class="badge efficient">
+                    <div class="badge-icon">⚡</div>
+                    <h4>Most Efficient Strategy</h4>
+                    <p>${fastestStrategy.replace('_', ' ').toUpperCase()}</p>
+                    <div class="badge-value">${Math.round(fastestTime)}ms</div>
+                </div>
+
+                <div class="badge accurate">
+                    <div class="badge-icon">🎯</div>
+                    <h4>Most Accurate Strategy</h4>
+                    <p>${mostAccurate.replace('_', ' ').toUpperCase()}</p>
+                    <div class="badge-value">${highestConfidence.toFixed(3)}</div>
+                </div>
+
+                <div class="badge largest">
+                    <div class="badge-icon">📊</div>
+                    <h4>Largest Extraction</h4>
+                    <p>${largestExtraction.replace('_', ' ').toUpperCase()}</p>
+                    <div class="badge-value">${maxEntities} entities</div>
+                </div>
+            `;
+        }
+
+        function createComparisonChart() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+
+            const labels = testData.map((t, i) => `Test ${i + 1}`);
+            const timeData = testData.map(t => (t.performance.total_duration_seconds * 1000).toFixed(0));
+            const entitiesData = testData.map(t => t.entity_distribution.total_entities);
+
+            const colors = testData.map(t => {
+                if (t.routing.strategy === 'single_pass') return 'rgba(26, 188, 156, 0.7)';
+                if (t.routing.strategy === 'three_wave') return 'rgba(52, 152, 219, 0.7)';
+                return 'rgba(155, 89, 182, 0.7)';
+            });
+
+            comparisonChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Execution Time (ms)',
+                        data: timeData,
+                        backgroundColor: colors,
+                        borderColor: colors.map(c => c.replace('0.7', '1')),
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#00d9ff',
+                            bodyColor: '#e0e0e0',
+                            callbacks: {
+                                afterLabel: function(context) {
+                                    const test = testData[context.dataIndex];
+                                    return [
+                                        `Strategy: ${test.routing.strategy}`,
+                                        `Entities: ${test.entity_distribution.total_entities}`,
+                                        `Confidence: ${test.quality.avg_confidence_score.toFixed(3)}`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: '#b0b0b0'
+                            },
+                            grid: {
+                                color: 'rgba(0, 217, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#b0b0b0'
+                            },
+                            grid: {
+                                color: 'rgba(0, 217, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function switchComparisonChart(mode) {
+            currentComparisonMode = mode;
+
+            // Update button states
+            document.querySelectorAll('.chart-toggle .toggle-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update chart data
+            if (mode === 'time') {
+                const timeData = testData.map(t => (t.performance.total_duration_seconds * 1000).toFixed(0));
+                comparisonChart.data.datasets[0].label = 'Execution Time (ms)';
+                comparisonChart.data.datasets[0].data = timeData;
+            } else {
+                const entitiesData = testData.map(t => t.entity_distribution.total_entities);
+                comparisonChart.data.datasets[0].label = 'Entity Count';
+                comparisonChart.data.datasets[0].data = entitiesData;
+            }
+
+            comparisonChart.update();
+        }
+
+        function createPieChart() {
+            const ctx = document.getElementById('pieChart').getContext('2d');
+
+            const strategies = {};
+            testData.forEach(test => {
+                const strategy = test.routing.strategy;
+                if (!strategies[strategy]) strategies[strategy] = 0;
+                strategies[strategy] += test.entity_distribution.total_entities;
+            });
+
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(strategies).map(s => s.replace('_', ' ').toUpperCase()),
+                    datasets: [{
+                        data: Object.values(strategies),
+                        backgroundColor: [
+                            'rgba(26, 188, 156, 0.7)',
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(155, 89, 182, 0.7)',
+                            'rgba(230, 126, 34, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(26, 188, 156, 1)',
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(155, 89, 182, 1)',
+                            'rgba(230, 126, 34, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#e0e0e0',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#00d9ff',
+                            bodyColor: '#e0e0e0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createTrendChart() {
+            const ctx = document.getElementById('trendChart').getContext('2d');
+
+            const labels = testData.map((t, i) => `Test ${i + 1}`);
+            const confidenceData = testData.map(t => (t.quality.avg_confidence_score * 100).toFixed(1));
+            const entitiesData = testData.map(t => t.entity_distribution.total_entities);
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Confidence %',
+                            data: confidenceData,
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            tension: 0.4,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Entity Count',
+                            data: entitiesData,
+                            borderColor: 'rgba(46, 204, 113, 1)',
+                            backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#e0e0e0',
+                                font: { size: 12 }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#00d9ff',
+                            bodyColor: '#e0e0e0'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Confidence %',
+                                color: '#52a7db'
+                            },
+                            ticks: {
+                                color: '#b0b0b0'
+                            },
+                            grid: {
+                                color: 'rgba(0, 217, 255, 0.1)'
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Entity Count',
+                                color: '#2ecc71'
+                            },
+                            ticks: {
+                                color: '#b0b0b0'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#b0b0b0'
+                            },
+                            grid: {
+                                color: 'rgba(0, 217, 255, 0.1)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateTable() {
+            const tbody = document.getElementById('waveTableBody');
+
+            testData.forEach((test, index) => {
+                const strategy = test.routing.strategy;
+                const waveClass = strategy === 'single_pass' ? 'single-pass' : 'wave-1';
+
+                const row = `
+                    <tr class="${waveClass}">
+                        <td>${test.test_id}</td>
+                        <td>${strategy.replace('_', ' ').toUpperCase()}</td>
+                        <td>${strategy === 'single_pass' ? 'Single' : test.raw_response.processing_stats.waves_executed}</td>
+                        <td>${test.entity_distribution.total_entities}</td>
+                        <td>${(test.performance.total_duration_seconds * 1000).toFixed(0)}</td>
+                        <td>${test.routing.estimated_tokens}</td>
+                        <td>${test.performance.entities_per_second.toFixed(3)}</td>
+                        <td>${test.quality.avg_confidence_score.toFixed(3)}</td>
+                        <td>${test.routing.prompt_version}</td>
+                    </tr>
+                `;
+
+                tbody.innerHTML += row;
+            });
+
+            // Initialize DataTable
+            $('#waveTable').DataTable({
+                pageLength: 10,
+                order: [[0, 'desc']],
+                dom: 'Bfrtip',
+                buttons: ['csv']
+            });
+        }
+
+        function createWaveConfidenceCharts() {
+            // For demonstration, create confidence distribution charts
+            const waves = ['wave1', 'wave2', 'wave3', 'wave4'];
+
+            waves.forEach(wave => {
+                const ctx = document.getElementById(`${wave}ConfidenceChart`).getContext('2d');
+
+                // Sample data - in real implementation, filter by actual wave data
+                const confidenceRanges = {
+                    'High (>0.9)': Math.floor(Math.random() * 50) + 30,
+                    'Medium (0.7-0.9)': Math.floor(Math.random() * 30) + 10,
+                    'Low (<0.7)': Math.floor(Math.random() * 10)
+                };
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(confidenceRanges),
+                        datasets: [{
+                            label: 'Entity Count',
+                            data: Object.values(confidenceRanges),
+                            backgroundColor: [
+                                'rgba(46, 204, 113, 0.7)',
+                                'rgba(241, 196, 15, 0.7)',
+                                'rgba(231, 76, 60, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(46, 204, 113, 1)',
+                                'rgba(241, 196, 15, 1)',
+                                'rgba(231, 76, 60, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Confidence Distribution',
+                                color: '#00d9ff'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: '#b0b0b0'
+                                },
+                                grid: {
+                                    color: 'rgba(0, 217, 255, 0.1)'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: '#b0b0b0'
+                                },
+                                grid: {
+                                    color: 'rgba(0, 217, 255, 0.1)'
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        function switchTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active to clicked button
+            event.target.classList.add('active');
+        }
+
+        function initializeDateRangePicker() {
+            $('#dateRange').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                }
+            });
+
+            $('#dateRange').on('apply.daterangepicker', function(ev, picker) {
+                $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+            });
+
+            $('#dateRange').on('cancel.daterangepicker', function(ev, picker) {
+                $(this).val('');
+            });
+        }
+
+        function toggleMobileNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('mobile-active');
+        }
+    </script>
+</body>
+</html>

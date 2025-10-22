@@ -1,0 +1,199 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: montana
+  state_abbreviation: Mont.
+  court_system: single_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Montana state citations and entities
+case_citations:
+  montana_supreme_court:
+    name: montana_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Smith,\s+234\s+P\.2d\s+567,\s+890\s+\(Mont\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Pacific Reporter or Montana Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Davis, 123 P.3d 456 (Mont. 2023)
+    - Brown v. Superior Court, 456 Mont. 789 (Mont. 2022)
+    - In re Marriage of Smith, 234 P.2d 567, 890 (Mont. 2021)
+  montana_district_court:
+    name: montana_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?(?:D[CV]|ADV|BK)-?[A-Z0-9-]+)(?:\s*\((?:Mont\.\s+)?(?:Dist\.\s+Ct\.|District\s+Court)(?:\s+(?P<district>\d+)(?:st|nd|rd|th)\s+Judicial\s+District)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. DV-23-123 (Mont. Dist. Ct. 1st Judicial District Lewis &
+      Clark County)
+    - ABC Corp. v. XYZ Inc., DC22-987 (District Court Yellowstone County 2022)
+  montana_justice_court:
+    name: montana_justice_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Mont\.\s+)?(?:Justice\s+Court|J\.\s+Ct\.)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: Justice court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - State v. Smith, No. CR-2023-456 (Mont. Justice Court Gallatin County)
+    - City of Billings v. Doe, JC22-5678 (J. Ct. Yellowstone County 2022)
+  montana_municipal_court:
+    name: montana_municipal_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+)?(?:Municipal\s+Court|Mun\.\s+Ct\.?)(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.83
+    priority: 65
+    components:
+      case_name: Full case name with parties
+      docket_number: Municipal court case number
+      city: City court jurisdiction
+      year: Decision year
+    examples:
+    - City of Missoula v. Smith, No. MC-2023-789 (Missoula Municipal Court)
+    - Great Falls v. Doe, MV22-456 (Great Falls Mun. Ct. 2022)
+statute_citations:
+  montana_code_annotated:
+    name: montana_code_annotated_citation
+    pattern: (?:Mont\.\s*Code\s*Ann\.|M\.C\.A\.)\s+(?:§§?\s*)?(?P<section>[\d-]+(?:\([\da-z]+\))*(?:\s*[-–]\s*[\d-]+(?:\([\da-z]+\))*)?(?:\s*to\s*[\d-]+(?:\([\da-z]+\))*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Montana Code Annotated section number or range
+      year: Publication year
+    examples:
+    - Mont. Code Ann. § 45-5-102
+    - M.C.A. § 27-1-302 (2023)
+    - Mont. Code Ann. §§ 30-10-101 to 30-10-111
+  montana_constitution:
+    name: montana_constitution_citation
+    pattern: Mont\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Mont. Const. art. II, § 10
+    - Mont. Const. art. III, § 4
+    - Mont. Const. art. VIII, § 1
+regulation_citations:
+  montana_administrative_rules:
+    name: montana_administrative_rules_citation
+    pattern: Mont\.\s+Admin\.\s+R\.\s+(?P<title>\d+)\.(?P<chapter>\d+)\.(?P<section>\d+)(?:\.(?P<subsection>\d+))*
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      chapter: Chapter number
+      section: Section number
+      subsection: Subsection number
+    examples:
+    - Mont. Admin. R. 17.8.102
+    - Mont. Admin. R. 42.2.503
+    - Mont. Admin. R. 18.8.1201
+court_system:
+  court_names:
+    montana_supreme_court:
+      pattern: (?i)(?:Mont(?:ana)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Montana)?
+      confidence: 0.95
+      level: supreme
+    montana_district_court:
+      pattern: (?i)(?:Mont(?:ana)?\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?P<district>\d+)(?:st|nd|rd|th)\s+Judicial\s+District)?(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z&][a-z&\s]+\s+County))?
+      confidence: 0.9
+      level: trial
+    montana_justice_court:
+      pattern: (?i)(?:Mont(?:ana)?\.\s+)?(?:Justice\s+Court|J\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: justice
+    montana_municipal_court:
+      pattern: (?i)(?:(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+)?(?:Municipal\s+Court|Mun\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<city_alt>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*))?
+      confidence: 0.85
+      level: municipal
+entity_types:
+- name: MONTANA_SUPREME_COURT_CASE
+  description: Montana Supreme Court case citation
+  confidence_threshold: 0.95
+- name: MONTANA_DISTRICT_COURT_CASE
+  description: Montana District Court case citation
+  confidence_threshold: 0.85
+- name: MONTANA_JUSTICE_COURT_CASE
+  description: Montana Justice Court case citation
+  confidence_threshold: 0.83
+- name: MONTANA_MUNICIPAL_COURT_CASE
+  description: Montana Municipal Court case citation
+  confidence_threshold: 0.8
+- name: MONTANA_STATUTE
+  description: Montana statutory provision (MCA)
+  confidence_threshold: 0.9
+- name: MONTANA_REGULATION
+  description: Montana administrative regulation
+  confidence_threshold: 0.88
+- name: MONTANA_CONSTITUTIONAL_PROVISION
+  description: Montana constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1889
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    montana_reports:
+      min_volume: 1
+      max_volume: 385
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 810_citations_per_second
+dependencies:
+  requires:
+  - montana_court_abbreviations
+  - montana_county_names
+  - montana_mca_titles
+  - montana_judicial_districts
+  optional:
+  - montana_historical_courts
+  - montana_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.montana_supreme_court
+    text: State v. Davis, 123 P.3d 456 (Mont. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.montana_code_annotated
+    text: Mont. Code Ann. § 45-5-102
+    expected_entities: 1
+  - pattern: case_citations.montana_district_court
+    text: Smith v. Jones, No. DV-23-123 (Mont. Dist. Ct. 1st Judicial District Lewis
+      & Clark County)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2.7 seconds
+    memory_usage: < 108MB
+    accuracy_threshold: 0.95

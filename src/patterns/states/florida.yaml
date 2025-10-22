@@ -1,0 +1,217 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: florida
+  state_abbreviation: Fla.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Florida state citations and entities
+case_citations:
+  florida_supreme_court:
+    name: florida_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+So\.2d\s+567,\s+890\s+\(Fla\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Southern Reporter or Florida Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Florida v. Smith, 123 So.3d 456 (Fla. 2023)
+    - Brown v. State, 456 Fla. 2d 789 (Fla. 2022)
+    - In re Estate of Johnson, 234 So.2d 567, 890 (Fla. 2021)
+  florida_district_court_of_appeal:
+    name: florida_district_court_of_appeal_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>So\.(?:\s*2d|3d)?|Fla\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Fla\.(?:\s+(?P<district>\d+)(?:st|d|nd|rd|th)\s+DCA)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Southern Reporter or Florida Appellate Reports volume
+      reporter: Florida appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      district: District Court of Appeal number
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 So.3d 456 (Fla. 1st DCA 2023)
+    - ABC Corp. v. XYZ Inc., 456 Fla. App. 2d 789 (Fla. 3d DCA 2022)
+    - People v. Brown, 234 So.2d 567 (Fla. 5th DCA 2021)
+  florida_circuit_court:
+    name: florida_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\(Fla\.(?:\s+(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+(?:Jud\.\s+)?Cir\.(?:\s+Ct\.)?)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-CA-123456 (Fla. 11th Jud. Cir. Miami-Dade County)
+    - ABC Corp. v. XYZ Inc., 22-987654 (Fla. 6th Cir. Ct. Pinellas County 2022)
+  florida_county_court:
+    name: florida_county_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+)\s+County\s+(?:Ct\.|Court)(?:\s+Fla\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: County court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-CC-987 (Orange County Ct. Fla.)
+    - ABC Corp. v. XYZ Inc., 22-SC-12345 (Broward County Court 2022)
+statute_citations:
+  florida_statutes:
+    name: florida_statutes_citation
+    pattern: Fla\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Statute section number or range
+      year: Publication year
+    examples:
+    - Fla. Stat. § 784.011 (2023)
+    - Fla. Stat. Ann. §§ 627.4137-627.4145
+    - Fla. Stat. § 90.803
+    - Fla. Stat. § 768.28
+    - Fla. Stat. § 119.07
+    - Fla. Stat. § 718.111
+    - Fla. Stat. § 316.193
+    - Fla. Stat. § 893.13
+  florida_constitution:
+    name: florida_constitution_citation
+    pattern: Fla\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Fla. Const. art. I, § 3
+    - Fla. Const. art. VII, § 9
+    - Fla. Const. art. X, § 4(c)
+    - Fla. Const. art. V, § 3(b)(3)
+    - Fla. Const. art. III, § 11(a)(21)
+regulation_citations:
+  florida_administrative_code:
+    name: florida_administrative_code_citation
+    pattern: Fla\.\s+Admin\.\s+Code\s+(?:Ann\.\s+)?r\.\s+(?P<rule>[\d\.]+[A-Z]*(?:-[\d\.]+[A-Z]*)*)
+    confidence: 0.92
+    priority: 80
+    components:
+      rule: Administrative rule number
+    examples:
+    - Fla. Admin. Code r. 64B8-30.001
+    - Fla. Admin. Code Ann. r. 62-302.530
+    - Fla. Admin. Code r. 6A-1.09401
+court_system:
+  court_names:
+    florida_supreme_court:
+      pattern: (?i)(?:Fla(?:orida)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Florida)?
+      confidence: 0.95
+      level: supreme
+    florida_district_court_of_appeal:
+      pattern: (?i)(?:Fla(?:orida)?\.\s+)?(?:District\s+Court\s+of\s+Appeals?|Dist\.\s+Ct\.?\s+of\s+App\.?|DCA)(?:\s+(?P<district>\d+)(?:st|d|nd|rd|th)(?:\s+Dist(?:rict)?\.?)?)?
+      confidence: 0.93
+      level: appellate
+      districts:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    florida_circuit_court:
+      pattern: (?i)(?:Fla(?:orida)?\.\s+)?(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:Circuit\s+Court|Cir\.\s+Ct\.?)(?:\s+(?:of\s+|in\s+and\s+for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    florida_county_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+County\s+(?:Court|Ct\.?)(?:\s+(?:of\s+|in\s+and\s+for\s+)Florida)?
+      confidence: 0.88
+      level: trial
+entity_types:
+- name: FLORIDA_SUPREME_COURT_CASE
+  description: Florida Supreme Court case citation
+  confidence_threshold: 0.95
+- name: FLORIDA_APPELLATE_CASE
+  description: Florida District Court of Appeal case citation
+  confidence_threshold: 0.9
+- name: FLORIDA_CIRCUIT_COURT_CASE
+  description: Florida Circuit Court case citation
+  confidence_threshold: 0.85
+- name: FLORIDA_COUNTY_COURT_CASE
+  description: Florida County Court case citation
+  confidence_threshold: 0.83
+- name: FLORIDA_STATUTE
+  description: Florida statutory provision
+  confidence_threshold: 0.9
+- name: FLORIDA_REGULATION
+  description: Florida administrative regulation
+  confidence_threshold: 0.88
+- name: FLORIDA_CONSTITUTIONAL_PROVISION
+  description: Florida constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1845
+    max_year: 2025
+  volume_ranges:
+    southern_reporter:
+      so_2d:
+        min_volume: 1
+        max_volume: 999
+      so_3d:
+        min_volume: 1
+        max_volume: 999
+    florida_reports:
+      fla_2d:
+        min_volume: 1
+        max_volume: 50
+      fla_3d:
+        min_volume: 1
+        max_volume: 20
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  circuit_validation:
+    min_circuit: 1
+    max_circuit: 20
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 770_citations_per_second
+dependencies:
+  requires:
+  - florida_court_abbreviations
+  - florida_county_names
+  - florida_judicial_circuits
+  optional:
+  - florida_historical_courts
+  - florida_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.florida_supreme_court
+    text: Florida v. Smith, 123 So.3d 456 (Fla. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.florida_statutes
+    text: Fla. Stat. § 784.011 (2023)
+    expected_entities: 1
+  - pattern: case_citations.florida_district_court_of_appeal
+    text: Smith v. Jones, 123 So.3d 456 (Fla. 1st DCA 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.1 seconds
+    memory_usage: < 120MB
+    accuracy_threshold: 0.94

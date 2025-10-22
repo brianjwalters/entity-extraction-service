@@ -1,0 +1,185 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: mississippi
+  state_abbreviation: Miss.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Mississippi state citations and entities
+case_citations:
+  mississippi_supreme_court:
+    name: mississippi_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+So\.\s+2d\s+567,\s+890\s+\(Miss\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Mississippi Reports or Southern Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Mississippi, 123 Miss. 456 (Miss. 2023)
+    - Johnson v. ABC Corp., 456 So. 3d 789 (Miss. 2022)
+    - Ex parte Brown, 234 So. 2d 567, 890 (Miss. 2021)
+  mississippi_court_of_appeals:
+    name: mississippi_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>So\.\s*(?:2d|3d)?|Miss\.\s*Ct\.\s*App\.)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Miss\.\s+Ct\.\s+App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Southern Reporter or Mississippi Court of Appeals volume
+      reporter: Mississippi appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 So. 3d 456 (Miss. Ct. App. 2023)
+    - State v. Johnson, 456 Miss. Ct. App. 789 (Miss. Ct. App. 2022)
+    - People v. Brown, 234 So. 2d 567 (Miss. Ct. App. 2021)
+  mississippi_circuit_court:
+    name: mississippi_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Circuit\s+Court(?:\s+District)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Miss\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      district: Circuit court district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-12345 (7th Circuit Court District, Hinds County, Miss.)
+    - ABC Corp. v. XYZ Inc., CV-22-987654 (10th Circuit Court, Harrison County, Miss.
+      2022)
+statute_citations:
+  mississippi_code:
+    name: mississippi_code_citation
+    pattern: Miss\.\s+Code\s+Ann\.\s+(?:§§?\s*)?(?P<section>\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Code section number
+      year: Publication year
+    examples:
+    - Miss. Code Ann. § 97-3-7 (2023)
+    - Miss. Code Ann. §§ 11-1-1 to 11-1-10
+    - Miss. Code Ann. § 25-1-12.1
+  mississippi_constitution:
+    name: mississippi_constitution_citation
+    pattern: Miss\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Miss. Const. art. III, § 14
+    - Miss. Const. art. IV, § 104
+    - Miss. Const. art. VII, § 182(a)
+regulation_citations:
+  mississippi_administrative_code:
+    name: mississippi_administrative_code_citation
+    pattern: (?P<title>\d+)\s+Miss\.\s+Admin\.\s+Code\s+(?:§§?\s*)?(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      section: Regulation section number
+    examples:
+    - 30 Miss. Admin. Code § 101.1
+    - 15 Miss. Admin. Code §§ 16-1.1-16-1.5
+    - 31 Miss. Admin. Code § 104.03
+court_system:
+  court_names:
+    mississippi_supreme_court:
+      pattern: (?i)(?:Miss(?:issippi)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Mississippi)?
+      confidence: 0.95
+      level: supreme
+    mississippi_court_of_appeals:
+      pattern: (?i)(?:Miss(?:issippi)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Mississippi)?
+      confidence: 0.94
+      level: appellate
+    mississippi_circuit_court:
+      pattern: (?i)(?:Miss(?:issippi)?\.\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Circuit\s+Court|Circuit\s+Ct\.?)(?:\s+District)?(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    mississippi_chancery_court:
+      pattern: (?i)(?:Miss(?:issippi)?\.\s+)?(?:Chancery\s+Court|Ch\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.89
+      level: trial
+entity_types:
+- name: MISSISSIPPI_SUPREME_COURT_CASE
+  description: Mississippi Supreme Court case citation
+  confidence_threshold: 0.95
+- name: MISSISSIPPI_APPEALS_CASE
+  description: Mississippi Court of Appeals case citation
+  confidence_threshold: 0.92
+- name: MISSISSIPPI_CIRCUIT_COURT_CASE
+  description: Mississippi Circuit Court case citation
+  confidence_threshold: 0.85
+- name: MISSISSIPPI_CHANCERY_COURT_CASE
+  description: Mississippi Chancery Court case citation
+  confidence_threshold: 0.85
+- name: MISSISSIPPI_STATUTE
+  description: Mississippi statutory provision
+  confidence_threshold: 0.9
+- name: MISSISSIPPI_REGULATION
+  description: Mississippi administrative regulation
+  confidence_threshold: 0.88
+- name: MISSISSIPPI_CONSTITUTIONAL_PROVISION
+  description: Mississippi constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1817
+    max_year: 2025
+  volume_ranges:
+    southern_reporter:
+      so_2d:
+        min_volume: 1
+        max_volume: 999
+      so_3d:
+        min_volume: 1
+        max_volume: 999
+    mississippi_reports:
+      min_volume: 1
+      max_volume: 300
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 745_citations_per_second
+dependencies:
+  requires:
+  - mississippi_court_abbreviations
+  - mississippi_county_names
+  - mississippi_circuit_districts
+  optional:
+  - mississippi_historical_courts
+  - mississippi_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.mississippi_supreme_court
+    text: Smith v. State of Mississippi, 123 Miss. 456 (Miss. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.mississippi_code
+    text: Miss. Code Ann. § 97-3-7 (2023)
+    expected_entities: 1
+  - pattern: case_citations.mississippi_court_of_appeals
+    text: State v. Johnson, 456 So. 3d 789 (Miss. Ct. App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.6 seconds
+    memory_usage: < 135MB
+    accuracy_threshold: 0.94

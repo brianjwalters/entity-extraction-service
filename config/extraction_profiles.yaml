@@ -1,0 +1,228 @@
+# Entity Extraction Profiles Configuration
+# 
+# This configuration defines different extraction profiles for various use cases.
+# Each profile specifies which passes to execute, parallelism settings, and other options.
+
+profiles:
+  # Default profile - all 7 passes with balanced settings
+  default:
+    name: "Complete Extraction"
+    description: "Full 7-pass extraction for comprehensive entity discovery"
+    enabled_passes: [1, 2, 3, 4, 5, 6, 7]
+    parallel_execution: true
+    max_workers: 4
+    use_registry: true
+    timeout_per_pass: 30
+    retry_count: 2
+    pass_overrides: {}
+
+  # Fast profile - critical passes only
+  fast:
+    name: "Fast Extraction"
+    description: "Quick extraction focusing on most important entities"
+    enabled_passes: [1, 2, 4]  # Citations, Statutes, Named Entities
+    parallel_execution: true
+    max_workers: 3
+    use_registry: true
+    timeout_per_pass: 20
+    retry_count: 1
+    pass_overrides:
+      1:
+        max_tokens: 400
+      2:
+        max_tokens: 400
+      4:
+        max_tokens: 600
+
+  # Citations-focused profile
+  citations:
+    name: "Citations Focus"
+    description: "Specialized extraction for legal citations and references"
+    enabled_passes: [1, 2, 3]  # Citations, Statutes, Regulations
+    parallel_execution: true
+    max_workers: 3
+    use_registry: true
+    timeout_per_pass: 40
+    retry_count: 2
+    pass_overrides:
+      1:
+        max_tokens: 800
+        temperature: 0.0
+      2:
+        max_tokens: 800
+        temperature: 0.0
+      3:
+        max_tokens: 700
+        temperature: 0.0
+
+  # Entities-focused profile
+  entities:
+    name: "Named Entities Focus"
+    description: "Focus on persons, organizations, courts, and judges"
+    enabled_passes: [4, 5]  # Named Entities, Courts/Judges
+    parallel_execution: true
+    max_workers: 2
+    use_registry: true
+    timeout_per_pass: 35
+    retry_count: 2
+    pass_overrides:
+      4:
+        max_tokens: 1000
+        temperature: 0.0
+      5:
+        max_tokens: 800
+        temperature: 0.0
+
+  # Temporal analysis profile
+  temporal:
+    name: "Temporal Analysis"
+    description: "Extract dates, deadlines, and time-related information"
+    enabled_passes: [6]  # Temporal entities only
+    parallel_execution: false
+    max_workers: 1
+    use_registry: false
+    timeout_per_pass: 25
+    retry_count: 1
+    pass_overrides:
+      6:
+        max_tokens: 600
+        temperature: 0.0
+
+  # Discovery profile - aggressive extraction
+  discovery:
+    name: "Discovery Mode"
+    description: "Aggressive extraction with higher token limits and catch-all"
+    enabled_passes: [1, 2, 3, 4, 5, 6, 7]
+    parallel_execution: true
+    max_workers: 7  # All passes in parallel
+    use_registry: true
+    timeout_per_pass: 45
+    retry_count: 3
+    pass_overrides:
+      1:
+        max_tokens: 1000
+      2:
+        max_tokens: 1000
+      3:
+        max_tokens: 900
+      4:
+        max_tokens: 1200
+      5:
+        max_tokens: 900
+      6:
+        max_tokens: 800
+      7:
+        max_tokens: 1500
+        temperature: 0.2  # Higher for discovery
+
+  # Litigation profile
+  litigation:
+    name: "Litigation Documents"
+    description: "Optimized for court filings and litigation documents"
+    enabled_passes: [1, 2, 4, 5, 6]  # Skip regulations, skip catch-all
+    parallel_execution: true
+    max_workers: 5
+    use_registry: true
+    timeout_per_pass: 35
+    retry_count: 2
+    pass_overrides:
+      1:
+        max_tokens: 900
+      5:
+        max_tokens: 900
+
+  # Contract analysis profile
+  contract:
+    name: "Contract Analysis"
+    description: "Optimized for contract and agreement analysis"
+    enabled_passes: [2, 4, 6, 7]  # Statutes, Entities, Temporal, Concepts
+    parallel_execution: true
+    max_workers: 4
+    use_registry: true
+    timeout_per_pass: 30
+    retry_count: 2
+    pass_overrides:
+      4:
+        max_tokens: 1000
+      7:
+        max_tokens: 1200
+        temperature: 0.1
+
+  # Minimal profile - single pass
+  minimal:
+    name: "Minimal Extraction"
+    description: "Single-pass extraction for basic entity discovery"
+    enabled_passes: [4]  # Named entities only
+    parallel_execution: false
+    max_workers: 1
+    use_registry: false
+    timeout_per_pass: 20
+    retry_count: 1
+    pass_overrides: {}
+
+  # Debug profile - sequential with logging
+  debug:
+    name: "Debug Mode"
+    description: "Sequential execution with extended timeouts for debugging"
+    enabled_passes: [1, 2, 3, 4, 5, 6, 7]
+    parallel_execution: false  # Sequential for easier debugging
+    max_workers: 1
+    use_registry: true
+    timeout_per_pass: 60  # Longer timeout for debugging
+    retry_count: 0  # No retries to see failures immediately
+    pass_overrides:
+      7:
+        temperature: 0.3  # Higher temperature for catch-all debugging
+
+# Performance settings based on system resources
+performance:
+  # High-performance server settings
+  high:
+    max_parallel_workers: 7
+    connection_pool_size: 20
+    timeout_multiplier: 1.0
+    memory_limit_gb: 16
+    
+  # Medium server settings
+  medium:
+    max_parallel_workers: 4
+    connection_pool_size: 10
+    timeout_multiplier: 1.2
+    memory_limit_gb: 8
+    
+  # Low-resource settings
+  low:
+    max_parallel_workers: 2
+    connection_pool_size: 5
+    timeout_multiplier: 1.5
+    memory_limit_gb: 4
+
+# Pass-specific default configurations
+pass_defaults:
+  1:  # Citations
+    entity_types: ["case_citation", "case_reference", "docket_number", "reporter_citation"]
+    confidence_threshold: 0.85
+    
+  2:  # Statutes
+    entity_types: ["statute", "code_section", "legislative_act", "public_law"]
+    confidence_threshold: 0.85
+    
+  3:  # Regulations
+    entity_types: ["regulation", "administrative_code", "executive_order", "cfr_citation"]
+    confidence_threshold: 0.80
+    
+  4:  # Named Entities
+    entity_types: ["person", "organization", "government_entity", "law_firm", "company"]
+    confidence_threshold: 0.75
+    
+  5:  # Courts and Judges
+    entity_types: ["court", "judge", "justice", "magistrate", "tribunal"]
+    confidence_threshold: 0.80
+    
+  6:  # Temporal
+    entity_types: ["date", "deadline", "time_period", "filing_date", "effective_date"]
+    confidence_threshold: 0.90
+    
+  7:  # Catch-all
+    entity_types: ["legal_concept", "doctrine", "standard", "procedure", "principle", "test", "rule"]
+    confidence_threshold: 0.70

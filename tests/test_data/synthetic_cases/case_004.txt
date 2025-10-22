@@ -1,0 +1,109 @@
+COURT OF APPEAL, SECOND APPELLATE DISTRICT
+DIVISION THREE
+STATE OF CALIFORNIA
+
+TECHVISION SOLUTIONS, INC.,
+                                        Plaintiff and Respondent,
+            v.                                          Case No. B312456
+
+GLOBAL ENTERPRISES CORPORATION,
+                                        Defendant and Appellant.
+
+Appeal from the Superior Court of Los Angeles County, Case No. LC109876
+Honorable Judge Patricia Anderson, Judge
+
+OPINION
+
+PRESIDING JUSTICE WILLIAM MORRISON delivered the opinion of the Court.
+
+Defendant and Appellant Global Enterprises Corporation appeals from a judgment entered after a bench trial in favor of Plaintiff and Respondent TechVision Solutions, Inc. The trial court found that Global Enterprises materially breached a software development contract and awarded TechVision $4.5 million in damages plus attorney fees. We affirm.
+
+I. FACTUAL AND PROCEDURAL BACKGROUND
+
+A. The Parties and the Contract
+
+TechVision Solutions, Inc. is a California corporation specializing in custom enterprise software development, with its principal place of business in Los Angeles. The company was founded in 2015 by CEO Sarah Mitchell and CTO David Park. Global Enterprises Corporation, a Delaware corporation headquartered in New York, provides logistics and supply chain management services to Fortune 500 companies.
+
+On January 15, 2021, the parties executed a Master Software Development Agreement (the "Agreement") pursuant to which TechVision would design, develop, and implement a proprietary warehouse management system for Global Enterprises. The project had an estimated duration of 18 months and a total contract value of $8.2 million, payable in milestone-based installments.
+
+The Agreement contained detailed specifications for the software, including integration with Global Enterprises's existing SAP enterprise resource planning system, real-time inventory tracking capabilities, and predictive analytics for demand forecasting. The contract required TechVision to deliver a fully functional beta version by September 1, 2021, and a production-ready system by July 1, 2022.
+
+Section 7.2 of the Agreement provided that Global Enterprises would make milestone payments upon TechVision's completion of specified deliverables: 20% upon execution of the Agreement, 30% upon delivery of the beta version, 30% upon user acceptance testing, and 20% upon final deployment. The Agreement also included a limitation of liability clause capping damages at the total contract value and a provision requiring mediation before litigation.
+
+B. Performance and Breach
+
+TechVision began work immediately after contract execution and assembled a team of 15 software engineers and project managers. The company's Chief Technology Officer, David Park, served as the technical lead, working closely with Global Enterprises's Director of Information Technology, Michael Chen.
+
+Between January and August 2021, TechVision completed the requirements analysis, system architecture design, and core development phases. The company provided Global Enterprises with weekly progress reports and conducted biweekly demonstrations of the developing system. On August 29, 2021, two days ahead of schedule, TechVision delivered the beta version of the warehouse management system.
+
+During the beta testing phase, Global Enterprises's IT team, led by Michael Chen, identified several minor bugs and requested enhancements beyond the original scope of work. TechVision's project manager, Jennifer Rodriguez, documented these requests and provided cost estimates for the additional features. The parties discussed these modifications during a meeting on October 15, 2021, but never executed a formal change order.
+
+On November 3, 2021, Global Enterprises's new Chief Financial Officer, Robert Taylor, sent a letter to TechVision claiming that the beta version failed to meet contractual specifications and withholding the second milestone payment of $2.46 million. The letter, drafted by Global Enterprises's outside counsel Attorney Lisa Hampton of Morrison & Associates LLP, alleged material breach and demanded substantial modifications at no additional cost.
+
+TechVision's CEO, Sarah Mitchell, immediately responded, disputing the allegations and providing detailed technical documentation demonstrating that the beta version met all contractual specifications. TechVision offered to address any legitimate defects promptly and reiterated its commitment to delivering the final system on schedule.
+
+Despite TechVision's efforts to resolve the dispute, Global Enterprises refused to release the milestone payment and ceased all cooperation with the project. On December 10, 2021, Global Enterprises sent a formal notice of contract termination, citing alleged material breach by TechVision. The termination letter indicated that Global Enterprises intended to hire a different vendor to complete the warehouse management system.
+
+In accordance with the Agreement's mediation requirement, the parties participated in a full-day mediation session on February 8, 2022, before mediator Judge Harold Patterson (Ret.). The mediation was unsuccessful, with the parties unable to agree on the scope of TechVision's obligations or the adequacy of its performance.
+
+C. The Trial Court Proceedings
+
+TechVision filed this action on March 15, 2022, alleging causes of action for breach of contract, quantum meruit, and declaratory relief. Global Enterprises filed a cross-complaint alleging breach of contract and seeking damages for costs incurred in hiring a replacement vendor.
+
+The case proceeded to a five-day bench trial before Judge Patricia Anderson in October 2023. TechVision presented testimony from CEO Sarah Mitchell, CTO David Park, Project Manager Jennifer Rodriguez, and three independent software engineering experts: Dr. Thomas Wright, Professor Emily Sanders, and consultant Mark Johnson.
+
+Dr. Wright, a professor of computer science at Stanford University with 25 years of industry experience, testified that the beta version delivered by TechVision met or exceeded industry standards for comparable systems. He explained that the bugs identified by Global Enterprises were minor defects typical of beta software and could have been remedied within weeks. Professor Sanders, who had reviewed the contract specifications and the delivered software, opined that TechVision had substantially performed its obligations under the Agreement.
+
+Global Enterprises presented testimony from CFO Robert Taylor, IT Director Michael Chen, and one software engineering expert, Dr. Patricia Williams. Dr. Williams identified several functionality gaps in the beta version but acknowledged on cross-examination that these gaps related to features requested by Global Enterprises after contract execution, not original specifications.
+
+The trial court issued a detailed Statement of Decision on December 18, 2023. The court found that TechVision had substantially performed its contractual obligations and that Global Enterprises's termination constituted an anticipatory repudiation and material breach of contract. See Taylor v. Johnston, 15 Cal.3d 130, 137 (1975) (explaining that substantial performance satisfies contractual obligations even if minor defects exist).
+
+The court awarded TechVision $4.5 million in damages, representing the unpaid milestone payments ($2.46 million) plus lost profits from the final two milestones ($2.04 million), and $875,000 in attorney fees pursuant to the Agreement's prevailing party fee provision. The court denied Global Enterprises's cross-complaint in its entirety.
+
+II. DISCUSSION
+
+A. Standard of Review
+
+We review the trial court's factual findings for substantial evidence, viewing the evidence in the light most favorable to the prevailing party and drawing all reasonable inferences in support of the judgment. Tribeca Companies, LLC v. First American Title Insurance Co., 239 Cal.App.4th 1088, 1102 (2015). We review questions of law de novo. Parsons v. Bristol Development Co., 62 Cal.2d 861, 865 (1965).
+
+B. Substantial Performance
+
+Global Enterprises contends that the trial court erred in finding that TechVision substantially performed its contractual obligations. We disagree.
+
+Under California law, the doctrine of substantial performance permits a party that has performed in all material respects to recover on the contract despite technical or minor defects in performance. See Posner v. Grunwald-Marx, Inc., 56 Cal.2d 169, 182 (1961). The doctrine "serves to prevent injustice that would result if, after one party has received the benefits of the other's performance, that party were allowed to escape all liability on the contract by relying upon minor deviations from its terms." Marek v. Zanol Products Co., 92 Cal.App.2d 22, 29 (1949).
+
+Here, substantial evidence supports the trial court's finding that TechVision substantially performed. The beta version incorporated all core functionalities specified in the Agreement, including SAP integration, real-time inventory tracking, and predictive analytics. The expert testimony established that the minor bugs were typical of beta software and could have been resolved quickly. Global Enterprises's complaints related primarily to enhancement requests made after contract execution, which fall outside the scope of TechVision's original obligations.
+
+Moreover, Global Enterprises accepted and used the beta system for several weeks before claiming breach, suggesting that the system provided substantial value. This conduct is inconsistent with Global Enterprises's current position that the software was fundamentally deficient. See Brown v. Grimes, 192 Cal.App.4th 265, 277 (2011) (holding that continued use of delivered goods suggests substantial performance).
+
+C. Breach of Contract and Anticipatory Repudiation
+
+Global Enterprises argues that its termination was justified because TechVision failed to deliver a conforming beta version. This argument lacks merit.
+
+A party's refusal to perform remaining contractual obligations constitutes an anticipatory repudiation when the refusal is unequivocal and unqualified. Taylor v. Johnston, 15 Cal.3d at 137. Here, Global Enterprises's November 3, 2021 letter withholding payment and December 10, 2021 termination notice constitute clear anticipatory repudiation. Global Enterprises refused to make milestone payments despite TechVision's substantial performance and hired a replacement vendor before the contract's completion date.
+
+This anticipatory repudiation relieved TechVision of any further obligation to perform and entitled TechVision to immediate damages for the entire contract amount. See Rochester v. Huggins, 97 Cal.App.2d 631, 634 (1950). The trial court correctly applied these principles in awarding damages for both unpaid milestone payments and lost profits on unperformed portions of the contract.
+
+D. Damages
+
+Global Enterprises challenges the damages award as speculative and excessive. We find no error.
+
+California law permits recovery of lost profits when they can be calculated with reasonable certainty. See Grupe v. Glick, 26 Cal.2d 680, 692 (1945). Here, the contract explicitly specified the payment amounts for each milestone, eliminating any uncertainty about TechVision's expected compensation. The trial court properly awarded the full value of unpaid milestones, less any costs TechVision avoided by not completing performance.
+
+TechVision presented detailed evidence of its actual costs incurred through the beta delivery and projected costs for the remaining work. CFO Sarah Mitchell testified regarding profit margins on comparable projects. This evidence provided a sufficient basis for calculating lost profits with reasonable certainty. See Vista Holding Corp. v. Holtzbrinck Publishers, LLC, 221 Cal.App.4th 354, 369 (2013).
+
+Furthermore, the damages award does not exceed the limitation of liability provision in Section 8.4 of the Agreement, which caps damages at the total contract value of $8.2 million. The trial court's award of $4.5 million in compensatory damages falls well within this limit.
+
+E. Attorney Fees
+
+Finally, Global Enterprises challenges the award of attorney fees. This challenge is meritless. Section 12.5 of the Agreement contains a prevailing party attorney fee provision, and TechVision clearly prevailed on its contract claim. The trial court reviewed detailed billing records and reduced the requested fees from $1.1 million to $875,000, demonstrating careful consideration of reasonableness. We find no abuse of discretion. See PLCM Group, Inc. v. Drexler, 22 Cal.4th 1084, 1095 (2000).
+
+III. CONCLUSION
+
+The judgment is AFFIRMED. TechVision Solutions, Inc. is entitled to costs on appeal.
+
+PRESIDING JUSTICE WILLIAM MORRISON, for the Court.
+ASSOCIATE JUSTICE KAREN PHILLIPS, concurring.
+ASSOCIATE JUSTICE ROBERT CHANG, concurring.
+
+Filed: February 28, 2024.

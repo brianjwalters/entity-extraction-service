@@ -1,0 +1,437 @@
+metadata:
+  pattern_type: procedural_terms
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '2.0'
+  created_date: '2025-01-21'
+  last_updated: '2025-01-21'
+  description: Legal procedure patterns including motions, discovery, court procedures,
+    and litigation terms
+procedural_terms:
+  summary_judgment:
+    name: summary_judgment_extraction
+    pattern: \b(?:motion\s+for\s+)?summary\s+judgment(?:\s+(?:motion|granted|denied|pending))?\b
+    confidence: 0.95
+    entity_types:
+    - motion
+    - procedural_term
+    - summary_judgment
+    components:
+      motion_type: Summary judgment
+      status: Motion status
+    examples:
+    - summary judgment
+    - motion for summary judgment
+    - summary judgment granted
+    - summary judgment denied
+    - partial summary judgment
+    - cross-motion for summary judgment
+    validation_rules:
+    - case_insensitive: true
+  motion_to_dismiss:
+    name: motion_dismiss_extraction
+    pattern: \b(?:motion\s+to\s+dismiss|Rule\s+12\(b\)(?:\([1-7]\))?|failure\s+to\s+state\s+a\s+claim|dismissal\s+(?:with|without)\s+prejudice)
+    confidence: 0.94
+    entity_types:
+    - motion
+    - procedural_term
+    - dismissal
+    components:
+      motion_type: Motion to dismiss
+      rule_reference: Federal rule reference
+      prejudice_status: With or without prejudice
+    examples:
+    - motion to dismiss
+    - Rule 12(b)(6)
+    - failure to state a claim
+    - dismissal with prejudice
+    - dismissal without prejudice
+    - Rule 12(b)(1)
+    - Rule 12(b)(2)
+  motion_to_compel:
+    name: motion_compel_extraction
+    pattern: '\b(?:motion\s+to\s+compel|compel\s+(?:discovery|production|responses?|deposition)|Rule\s+37(?:\([a-z]\)(?:\([0-9]\))?(?:\([A-Z]\))?)?)\b'
+    confidence: 0.92
+    entity_types:
+    - motion
+    - procedural_term
+    - discovery
+    components:
+      motion_type: Motion to compel
+      compel_target: What to compel
+    examples:
+    - motion to compel
+    - compel discovery
+    - compel production
+    - Rule 37
+    - compel responses
+    - compel deposition
+    - Rule 37(a)(3)(B)
+  motion_in_limine:
+    name: motion_limine_extraction
+    pattern: \b(?:motion(?:s)?\s+in\s+limine|in\s+limine\s+(?:motion|ruling|order)|exclude\s+evidence|preclude\s+(?:evidence|testimony))\b
+    confidence: 0.91
+    entity_types:
+    - motion
+    - procedural_term
+    - evidentiary
+    components:
+      motion_type: Motion in limine
+      purpose: Evidentiary exclusion
+    examples:
+    - motion in limine
+    - motions in limine
+    - in limine ruling
+    - exclude evidence
+    - preclude testimony
+    - in limine order
+    - omnibus motion in limine
+  discovery_terms:
+    name: discovery_extraction
+    pattern: \b(?:discovery|initial\s+disclosures?|Rule\s+26|discovery\s+(?:dispute|conference|deadline|cutoff|period)|meet\s+and\s+confer)\b
+    confidence: 0.9
+    entity_types:
+    - discovery
+    - procedural_term
+    components:
+      discovery_type: Type of discovery
+      rule_reference: Federal rule reference
+    examples:
+    - discovery
+    - initial disclosures
+    - Rule 26
+    - discovery dispute
+    - discovery deadline
+    - meet and confer
+  deposition:
+    name: deposition_extraction
+    pattern: \b(?:deposition(?:s)?|depose(?:d)?|Rule\s+30|deposition\s+(?:notice|testimony|transcript)|(?:oral|written)\s+deposition|30\(b\)\(6\)\s+deposition)\b
+    confidence: 0.93
+    entity_types:
+    - deposition
+    - discovery
+    - procedural_term
+    components:
+      deposition_type: Type of deposition
+      rule_reference: Federal rule reference
+    examples:
+    - deposition
+    - depositions
+    - deposed
+    - Rule 30
+    - deposition notice
+    - oral deposition
+    - 30(b)(6) deposition
+    - video deposition
+    - telephonic deposition
+  interrogatories:
+    name: interrogatory_extraction
+    pattern: \b(?:interrogator(?:y|ies)|Rule\s+33|written\s+questions?|responses?\s+to\s+interrogator(?:y|ies))\b
+    confidence: 0.91
+    entity_types:
+    - interrogatory
+    - discovery
+    - procedural_term
+    components:
+      discovery_type: Interrogatories
+      rule_reference: Federal rule reference
+    examples:
+    - interrogatory
+    - interrogatories
+    - Rule 33
+    - written questions
+    - responses to interrogatories
+    - supplemental interrogatories
+    - contention interrogatories
+  requests_for_production:
+    name: production_request_extraction
+    pattern: '\b(?:requests?\s+for\s+production(?:\s+of\s+documents?)?|RFP|Rule\s+34(?:\([a-z]\))?|produce\s+documents?|document\s+production|ESI\s+production)\b'
+    confidence: 0.9
+    entity_types:
+    - production_request
+    - discovery
+    - procedural_term
+    components:
+      request_type: Production request
+      rule_reference: Federal rule reference
+    examples:
+    - request for production
+    - requests for production
+    - RFP
+    - Rule 34
+    - produce documents
+    - document production
+    - Rule 34(b)
+    - ESI production
+  requests_for_admission:
+    name: admission_request_extraction
+    pattern: \b(?:request(?:s)?\s+for\s+admission(?:s)?|RFA|Rule\s+36|admit\s+or\s+deny|deemed\s+admitted)\b
+    confidence: 0.89
+    entity_types:
+    - admission_request
+    - discovery
+    - procedural_term
+    components:
+      request_type: Admission request
+      rule_reference: Federal rule reference
+    examples:
+    - request for admission
+    - requests for admissions
+    - RFA
+    - Rule 36
+    - admit or deny
+    - deemed admitted
+  protective_order:
+    name: protective_order_extraction
+    pattern: \b(?:protective\s+order|Rule\s+26(?:\(c\))?|confidentiality\s+(?:order|agreement)|seal(?:ed|ing)?\s+(?:documents?|filing))
+    confidence: 0.88
+    entity_types:
+    - protective_order
+    - procedural_term
+    components:
+      order_type: Protective order
+      protection_scope: Scope of protection
+    examples:
+    - protective order
+    - Rule 26(c)
+    - confidentiality order
+    - sealed documents
+    - sealing order
+    - attorneys' eyes only
+    - stipulated protective order
+  demurrer:
+    name: demurrer_extraction
+    pattern: \b(?:demurrer|general\s+demurrer|special\s+demurrer|sustained\s+(?:with|without)\s+leave\s+to\s+amend)\b
+    confidence: 0.87
+    entity_types:
+    - demurrer
+    - procedural_term
+    - state_procedure
+    components:
+      demurrer_type: Type of demurrer
+      ruling: Court ruling
+    examples:
+    - demurrer
+    - general demurrer
+    - special demurrer
+    - sustained with leave to amend
+    - sustained without leave to amend
+  plea_agreement:
+    name: plea_extraction
+    pattern: \b(?:plea\s+(?:agreement|bargain|deal|negotiation)|guilty\s+plea|no\s+contest|nolo\s+contendere|Alford\s+plea)\b
+    confidence: 0.91
+    entity_types:
+    - plea
+    - procedural_term
+    - criminal_procedure
+    components:
+      plea_type: Type of plea
+      agreement_status: Agreement status
+    examples:
+    - plea agreement
+    - plea bargain
+    - guilty plea
+    - no contest
+    - nolo contendere
+    - Alford plea
+    - deferred prosecution agreement
+    - plea colloquy
+  sentencing:
+    name: sentencing_extraction
+    pattern: \b(?:sentenc(?:ing|ed?)|sentencing\s+(?:hearing|guidelines|memorandum)|pre-sentence\s+(?:report|investigation)|PSR|downward\s+departure|upward\s+departure)\b
+    confidence: 0.9
+    entity_types:
+    - sentencing
+    - procedural_term
+    - criminal_procedure
+    components:
+      sentencing_phase: Phase of sentencing
+      departure_type: Departure from guidelines
+    examples:
+    - sentencing
+    - sentenced
+    - sentencing hearing
+    - sentencing guidelines
+    - pre-sentence report
+    - PSR
+    - downward departure
+  appeal:
+    name: appeal_extraction
+    pattern: \b(?:appeal(?:s|ed|ing)?|notice\s+of\s+appeal|appellate\s+(?:court|jurisdiction|brief)|interlocutory\s+appeal|final\s+(?:judgment|order))\b
+    confidence: 0.92
+    entity_types:
+    - appeal
+    - procedural_term
+    components:
+      appeal_type: Type of appeal
+      appeal_stage: Stage of appeal
+    examples:
+    - appeal
+    - notice of appeal
+    - appellate court
+    - appellate brief
+    - interlocutory appeal
+    - final judgment
+  writ_of_certiorari:
+    name: certiorari_extraction
+    pattern: \b(?:writ\s+of\s+certiorari|cert(?:iorari)?\s+(?:petition|granted|denied)|petition\s+for\s+(?:cert|certiorari)|cert\.?\s+petition)\b
+    confidence: 0.89
+    entity_types:
+    - certiorari
+    - procedural_term
+    - appellate_procedure
+    components:
+      writ_type: Certiorari
+      status: Grant or denial status
+    examples:
+    - writ of certiorari
+    - cert petition
+    - certiorari granted
+    - cert denied
+    - petition for certiorari
+    - cert. granted in part
+    - GVR order
+  injunctive_relief:
+    name: injunction_extraction
+    pattern: \b(?:injunctive\s+relief|temporary\s+restraining\s+order|TRO|preliminary\s+injunction|permanent\s+injunction|mandatory\s+injunction|prohibitory\s+injunction)\b
+    confidence: 0.91
+    entity_types:
+    - injunction
+    - procedural_term
+    - equitable_relief
+    components:
+      injunction_type: Type of injunction
+      duration: Temporary or permanent
+    examples:
+    - injunctive relief
+    - temporary restraining order
+    - TRO
+    - preliminary injunction
+    - permanent injunction
+    - mandatory injunction
+  default_judgment:
+    name: default_judgment_extraction
+    pattern: \b(?:default\s+judgment|entry\s+of\s+default|motion\s+for\s+default|Rule\s+55|failure\s+to\s+(?:appear|answer|respond))\b
+    confidence: 0.88
+    entity_types:
+    - default_judgment
+    - procedural_term
+    components:
+      default_type: Type of default
+      rule_reference: Federal rule reference
+    examples:
+    - default judgment
+    - entry of default
+    - motion for default
+    - Rule 55
+    - failure to appear
+    - failure to answer
+  class_action:
+    name: class_action_extraction
+    pattern: '\b(?:class\s+action(?:\s+(?:lawsuit|suit|litigation|complaint|settlement))?|Rule\s+23(?:\([a-z]\)(?:\([0-9]\))?)?|class\s+certification|certified\s+class|class\s+representative|opt[\s-]?out|commonality|numerosity|typicality|adequacy)\b'
+    confidence: 0.9
+    entity_types:
+    - class_action
+    - procedural_term
+    components:
+      class_type: Class action component
+      certification_status: Certification status
+    examples:
+    - class action
+    - Rule 23
+    - class certification
+    - certified class
+    - class representative
+    - opt out
+    - Rule 23(b)(3)
+    - commonality
+  settlement:
+    name: settlement_extraction
+    pattern: \b(?:settl(?:e|ed|ement|ing)|settlement\s+(?:agreement|conference|negotiations?)|mediation|alternative\s+dispute\s+resolution|ADR)\b
+    confidence: 0.89
+    entity_types:
+    - settlement
+    - procedural_term
+    components:
+      settlement_type: Type of settlement
+      resolution_method: Method of resolution
+    examples:
+    - settlement
+    - settled
+    - settlement agreement
+    - settlement conference
+    - mediation
+    - alternative dispute resolution
+    - ADR
+  jurisdiction:
+    name: jurisdiction_extraction
+    pattern: \b(?:jurisdiction(?:al)?|subject\s+matter\s+jurisdiction|personal\s+jurisdiction|in\s+personam|in\s+rem|quasi\s+in\s+rem|diversity\s+jurisdiction|federal\s+question|removal|remand)\b
+    confidence: 0.87
+    entity_types:
+    - jurisdiction
+    - procedural_term
+    components:
+      jurisdiction_type: Type of jurisdiction
+      jurisdictional_basis: Basis for jurisdiction
+    examples:
+    - jurisdiction
+    - subject matter jurisdiction
+    - personal jurisdiction
+    - in personam
+    - diversity jurisdiction
+    - federal question
+    - removal
+    - remand
+    - supplemental jurisdiction
+    - pendent jurisdiction
+  venue:
+    name: venue_extraction
+    pattern: \b(?:venue|change\s+of\s+venue|transfer\s+(?:of\s+)?venue|forum\s+non\s+conveniens|improper\s+venue|28\s+U\.?S\.?C\.?\s+§?\s*1404)\b
+    confidence: 0.86
+    entity_types:
+    - venue
+    - procedural_term
+    components:
+      venue_issue: Venue matter
+      statutory_reference: Statutory basis
+    examples:
+    - venue
+    - change of venue
+    - transfer venue
+    - forum non conveniens
+    - improper venue
+    - 28 U.S.C. § 1404
+entity_types:
+- name: procedural_terms
+  description: General procedural terminology
+  priority: 1
+  requires_context: false
+- name: motions
+  description: Legal motions filed with court
+  priority: 1
+  requires_type: true
+- name: discovery
+  description: Discovery-related procedures
+  priority: 2
+  subcategories:
+  - deposition
+  - interrogatory
+  - production
+  - admission
+- name: criminal_procedure
+  description: Criminal case procedures
+  priority: 2
+  requires_context: false
+- name: appellate_procedure
+  description: Appeal-related procedures
+  priority: 2
+  requires_context: false
+- name: equitable_relief
+  description: Equitable remedies
+  priority: 3
+  requires_type: true
+- name: settlement
+  description: Settlement and resolution procedures
+  priority: 3
+  requires_context: false

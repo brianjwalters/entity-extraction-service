@@ -1,0 +1,186 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: arizona
+  state_abbreviation: Ariz.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Arizona state citations and entities
+case_citations:
+  arizona_supreme_court:
+    name: arizona_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+P\.2d\s+567,\s+890\s+\(Ariz\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Arizona Reports or Pacific Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Arizona, 123 Ariz. 456 (Ariz. 2023)
+    - Johnson v. ABC Corp., 456 P.3d 789 (Ariz. 2022)
+    - Ex parte Brown, 234 P.2d 567, 890 (Ariz. 2021)
+  arizona_court_of_appeals:
+    name: arizona_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Ariz\.\s*App\.|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Ariz\.\s+(?:Ct\.\s+)?App\.\s+(?P<division>Div\.\s+\d+)?\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Arizona Appeals or Pacific Reporter volume
+      reporter: Arizona appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      division: Court of Appeals division
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 Ariz. App. 456 (Ariz. Ct. App. Div. 1 2023)
+    - State v. Johnson, 456 P.3d 789 (Ariz. App. 2022)
+    - People v. Brown, 234 P.2d 567 (Ariz. Ct. App. Div. 2 2021)
+  arizona_superior_court:
+    name: arizona_superior_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Superior\s+Court|Sup\.\s+Ct\.?)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Ariz\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Superior court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. CV2023-012345 (Superior Court, Maricopa County, Ariz.)
+    - ABC Corp. v. XYZ Inc., CV-22-987654 (Sup. Ct. Pima County, Ariz. 2022)
+statute_citations:
+  arizona_revised_statutes:
+    name: arizona_revised_statutes_citation
+    pattern: Ariz\.\s+Rev\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Arizona Revised Statutes section number
+      year: Publication year
+    examples:
+    - Ariz. Rev. Stat. Ann. § 13-1203 (2023)
+    - Ariz. Rev. Stat. §§ 28-1381 to 28-1395
+    - Ariz. Rev. Stat. Ann. § 23-351.1
+  arizona_constitution:
+    name: arizona_constitution_citation
+    pattern: Ariz\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Ariz. Const. art. II, § 13
+    - Ariz. Const. art. IV, pt. 1, § 1
+    - Ariz. Const. art. XVIII, § 8(A)
+regulation_citations:
+  arizona_administrative_code:
+    name: arizona_administrative_code_citation
+    pattern: 9\s+A\.A\.C\.\s+22\s+§\s+302
+    confidence: 0.92
+    priority: 80
+    components:
+      rule: Administrative code rule number
+    examples:
+    - Ariz. Admin. Code § R9-10-301
+    - Ariz. Admin. Code § R18-2-406.1
+    - 9 A.A.C. 22 § 302
+court_system:
+  court_names:
+    arizona_supreme_court:
+      pattern: (?i)(?:Ariz(?:ona)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Arizona)?
+      confidence: 0.95
+      level: supreme
+    arizona_court_of_appeals:
+      pattern: (?i)(?:Ariz(?:ona)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+(?P<division>Div(?:ision)?\.\s+\d+))?(?:\s+of\s+Arizona)?
+      confidence: 0.94
+      level: appellate
+      divisions:
+      - Div. 1
+      - Div. 2
+    arizona_superior_court:
+      pattern: (?i)(?:Ariz(?:ona)?\.\s+)?(?:Superior\s+Court|Sup\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+|in\s+and\s+for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    arizona_justice_court:
+      pattern: (?i)(?:Ariz(?:ona)?\.\s+)?(?:Justice\s+Court|Just\.\s+Ct\.?)(?:\s+(?P<precinct>Precinct\s+\d+))?(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: trial
+entity_types:
+- name: ARIZONA_SUPREME_COURT_CASE
+  description: Arizona Supreme Court case citation
+  confidence_threshold: 0.95
+- name: ARIZONA_APPEALS_CASE
+  description: Arizona Court of Appeals case citation
+  confidence_threshold: 0.92
+- name: ARIZONA_SUPERIOR_COURT_CASE
+  description: Arizona Superior Court case citation
+  confidence_threshold: 0.85
+- name: ARIZONA_JUSTICE_COURT_CASE
+  description: Arizona Justice Court case citation
+  confidence_threshold: 0.83
+- name: ARIZONA_STATUTE
+  description: Arizona statutory provision
+  confidence_threshold: 0.9
+- name: ARIZONA_REGULATION
+  description: Arizona administrative regulation
+  confidence_threshold: 0.88
+- name: ARIZONA_CONSTITUTIONAL_PROVISION
+  description: Arizona constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1912
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    arizona_reports:
+      min_volume: 1
+      max_volume: 200
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 770_citations_per_second
+dependencies:
+  requires:
+  - arizona_court_abbreviations
+  - arizona_county_names
+  - arizona_appellate_divisions
+  optional:
+  - arizona_historical_courts
+  - arizona_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.arizona_supreme_court
+    text: Smith v. State of Arizona, 123 Ariz. 456 (Ariz. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.arizona_revised_statutes
+    text: Ariz. Rev. Stat. Ann. § 13-1203 (2023)
+    expected_entities: 1
+  - pattern: case_citations.arizona_court_of_appeals
+    text: State v. Johnson, 456 P.3d 789 (Ariz. App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.1 seconds
+    memory_usage: < 124MB
+    accuracy_threshold: 0.94

@@ -1,0 +1,106 @@
+# Configuration Inventory - Entity Extraction Service Configuration Consolidation
+# Generated: 2025-10-14
+# Status: Phase 1 Complete - Consolidation from 299 to 56 Variables
+
+Category,Variable_Name,Current_Value,Source,Status,Usage_Count,Notes
+Service Configuration,PORT,8007,.env,KEEP,High,Service port - essential
+Service Configuration,HOST,0.0.0.0,.env,KEEP,High,Bind address - essential
+Service Configuration,ENVIRONMENT,production,.env,KEEP,High,Environment mode - essential
+Service Configuration,SERVICE_NAME,entity-extraction-service,.env,KEEP,High,Service identifier - essential
+Service Configuration,SERVICE_URL,http://10.10.0.87:8007,.env,KEEP,Medium,External service URL
+Service Configuration,DEBUG_MODE,false,.env,KEEP,Medium,Debug toggle - essential
+Service Configuration,LOG_LEVEL,INFO,.env,KEEP,High,Logging verbosity - essential
+
+Database - Supabase,SUPABASE_URL,https://tqfshsnwyhfnkchaiudg.supabase.co,.env,KEEP,High,Supabase project URL - CRITICAL
+Database - Supabase,SUPABASE_KEY,[anon_key],.env,KEEP,High,Anon key for client operations - CRITICAL
+Database - Supabase,SUPABASE_API_KEY,[anon_key],.env,KEEP,High,API key for authenticated requests - CRITICAL
+Database - Supabase,SUPABASE_SERVICE_KEY,[service_role_key],.env,KEEP,High,Service role key for admin operations - CRITICAL
+
+vLLM Direct Integration,AI_EXTRACTION_ENABLED,true,.env,KEEP,High,Enable AI extraction feature
+vLLM Direct Integration,AI_EXTRACTION_USE_VLLM,true,.env,KEEP,High,Use vLLM for AI operations
+vLLM Direct Integration,AI_EXTRACTION_VLLM_URL,http://10.10.0.87:8080/v1,.env,KEEP,High,vLLM API endpoint
+vLLM Direct Integration,AI_EXTRACTION_MODEL_NAME,granite-128k,.env,KEEP,High,Model name for AI extraction
+vLLM Direct Integration,AI_EXTRACTION_TIMEOUT,2700,.env,KEEP,Medium,AI extraction timeout (45 minutes)
+
+Core Extraction Settings,EXTRACTION_DEFAULT_MODE,ai_enhanced,.env,KEEP,High,Default extraction mode
+Core Extraction Settings,EXTRACTION_FALLBACK_MODE,regex,.env,KEEP,Medium,Fallback mode when primary fails
+Core Extraction Settings,EXTRACTION_CONFIDENCE_THRESHOLD,0.7,.env,KEEP,High,Minimum confidence for entity acceptance
+Core Extraction Settings,EXTRACTION_MIN_CONFIDENCE_REGEX,0.6,.env,KEEP,Medium,Regex mode confidence threshold
+Core Extraction Settings,EXTRACTION_MIN_CONFIDENCE_AI,0.8,.env,KEEP,Medium,AI mode confidence threshold
+Core Extraction Settings,NO_ENTITY_LIMIT,true,.env,KEEP,Medium,No limit on entities for GraphRAG
+Core Extraction Settings,EXTRACTION_MIN_ENTITY_LENGTH,3,.env,KEEP,Low,Minimum entity text length
+Core Extraction Settings,EXTRACTION_MAX_ENTITY_LENGTH,500,.env,KEEP,Low,Maximum entity text length
+Core Extraction Settings,EXTRACTION_PATTERN_DIR,/srv/luris/be/entity-extraction-service/src/patterns,.env,KEEP,High,Pattern files location
+
+Chunking Configuration,SMART_CHUNK_ENABLED,true,.env,KEEP,High,Enable smart chunking
+Chunking Configuration,SMART_CHUNK_MIN_SIZE,100,.env,KEEP,Medium,Minimum chunk size (characters)
+Chunking Configuration,SMART_CHUNK_MAX_SIZE,5000,.env,KEEP,Medium,Maximum chunk size (characters)
+Chunking Configuration,SMART_CHUNK_TARGET_SIZE,1500,.env,KEEP,Medium,Target chunk size (characters)
+Chunking Configuration,SMART_CHUNK_OVERLAP_SIZE,1000,.env,KEEP,Medium,Overlap between chunks (characters)
+Chunking Configuration,SMART_CHUNK_OVERLAP_PERCENTAGE,0.20,.env,KEEP,Low,Overlap as percentage (20%)
+Chunking Configuration,SMART_CHUNK_PRESERVE_BOUNDARIES,true,.env,KEEP,Medium,Respect document boundaries
+Chunking Configuration,SMART_CHUNK_USE_SEMANTIC_SPLITTING,true,.env,KEEP,Medium,Use semantic analysis for splits
+Chunking Configuration,SMART_CHUNK_RESPECT_HEADERS,true,.env,KEEP,Medium,Preserve header structures
+Chunking Configuration,SMART_CHUNK_RESPECT_SENTENCES,true,.env,KEEP,Medium,Avoid mid-sentence splits
+Chunking Configuration,SMART_CHUNK_RESPECT_PARAGRAPHS,true,.env,KEEP,Medium,Preserve paragraph structures
+Chunking Configuration,SMART_CHUNK_THRESHOLD,500000,.env,KEEP,Medium,Threshold for triggering chunking
+Chunking Configuration,CHUNKING_BYPASS,true,.env,KEEP,High,Bypass external chunking service
+Chunking Configuration,FORCE_UNIFIED_PROCESSING,true,.env,KEEP,High,Force unified document processing
+Chunking Configuration,DISABLE_MICRO_CHUNKING,true,.env,KEEP,Medium,Disable micro-chunking
+
+Service URLs,LOG_SERVICE_URL,http://10.10.0.87:8001,.env,KEEP,High,Centralized logging service
+Service URLs,PROMPT_SERVICE_URL,http://10.10.0.87:8003,.env,KEEP,High,Prompt management service
+Service URLs,DOCUMENT_UPLOAD_SERVICE_URL,http://10.10.0.87:8008,.env,KEEP,Medium,Document upload service
+Service URLs,GRAPHRAG_SERVICE_URL,http://10.10.0.87:8010,.env,KEEP,High,GraphRAG knowledge graph service
+Service URLs,DOCUMENT_PROCESSING_SERVICE_URL,http://10.10.0.87:8000,.env,KEEP,High,Main document orchestrator
+Service URLs,WEBSOCKET_SERVICE_URL,http://10.10.0.87:8085,.env,KEEP,Medium,Real-time WebSocket service
+Service URLs,WEBSOCKET_NOTIFICATIONS_ENABLED,true,.env,KEEP,Low,Enable WebSocket notifications
+
+Performance & Resource Management,MAX_CONCURRENT_EXTRACTIONS,10,.env,KEEP,High,Maximum parallel extractions
+Performance & Resource Management,MAX_DOCUMENT_SIZE,52428800,.env,KEEP,High,Maximum document size (50MB)
+Performance & Resource Management,MAX_PROCESSING_TIME,2700,.env,KEEP,High,Maximum processing time (45 minutes)
+Performance & Resource Management,CACHE_ENABLED,true,.env,KEEP,Medium,Enable result caching
+Performance & Resource Management,CACHE_TTL_EXTRACTION,3600,.env,KEEP,Medium,Cache TTL for extractions (1 hour)
+Performance & Resource Management,METRICS_ENABLED,true,.env,KEEP,Medium,Enable performance metrics
+
+Security,JWT_SECRET,your-secure-jwt-secret-change-this-in-production,.env,KEEP,High,JWT signing secret - CHANGE IN PRODUCTION
+Security,JWT_ALGORITHM,HS256,.env,KEEP,Medium,JWT algorithm
+Security,API_KEY_REQUIRED,false,.env,KEEP,Medium,API key enforcement disabled
+
+# REMOVED VARIABLES (243 total - consolidated from original 299)
+# Categories of removed variables:
+# - Legacy AI provider keys (8): ANTHROPIC_API_KEY, PERPLEXITY_API_KEY, OPENAI_API_KEY, GOOGLE_API_KEY, MISTRAL_API_KEY, XAI_API_KEY, AZURE_OPENAI_API_KEY, OLLAMA_API_KEY
+# - Duplicate extraction settings (25+): Multiple timeout definitions, redundant confidence thresholds
+# - SpaCy configuration (15): SPACY_ENABLED, SPACY_MODEL_NAME, etc. (consolidated into config.py)
+# - Detailed pattern configuration (20+): Individual pattern settings moved to config.py
+# - Granular legal-specific settings (30+): LEGAL_CITATION_FORMATS, LEGAL_JURISDICTION_DETECTION, etc.
+# - AI extraction details (20+): Prompt style, batch processing, temperature variations
+# - Legal chunking specifics (10+): LEGAL_CHUNK_SECTION_MARKERS, LEGAL_CHUNK_CITATION_PRESERVATION, etc.
+# - Cache backend configuration (10+): CACHE_BACKEND, CACHE_EVICTION_POLICY, etc.
+# - Batching and queuing (8): BATCH_PROCESSING_ENABLED, QUEUE_MAX_SIZE, etc.
+# - Detailed monitoring (15+): Individual metric flags, alert thresholds
+# - Error handling details (8): ERROR_RECOVERY_ENABLED, ERROR_EXPONENTIAL_BACKOFF, etc.
+# - Development and testing (10): TEST_MODE, MOCK_EXTERNAL_SERVICES, etc.
+# - Feature flags (10): FEATURE_AI_EXTRACTION, FEATURE_PATTERN_LEARNING, etc.
+# - Additional service URLs (5): CHUNKING_SERVICE_URL, CHUNKING_SERVICE_ENABLED, CHUNKING_SERVICE_TIMEOUT, etc.
+# - Rate limiting details (3): RATE_LIMITING_ENABLED, RATE_LIMIT_REQUESTS, RATE_LIMIT_PERIOD
+# - Resource limits (5): MEMORY_LIMIT, CPU_CORES_LIMIT, etc.
+# - Prompt service details (3): PROMPT_SERVICE_ENABLED, PROMPT_SERVICE_TIMEOUT, PROMPT_SERVICE_RETRY_COUNT
+# - Log service details (3): LOG_SERVICE_ENABLED, LOG_SERVICE_BATCH_SIZE, LOG_SERVICE_FLUSH_INTERVAL
+
+# VARIABLES TO ADD (15 - from chunking integration in config.py)
+# These are already in config.py ChunkingIntegrationSettings and will be mapped from .env:
+# CHUNKING_MAX_SIZE, CHUNKING_MIN_SIZE, CHUNKING_OVERLAP, CHUNKING_ENABLE_SMART
+# CHUNKING_PRESERVE_SENTENCES, CHUNKING_PRESERVE_PARAGRAPHS, CHUNKING_BATCH_SIZE
+# CHUNKING_MAX_CHUNKS_PER_DOC, CONTEXT_WINDOW_SIZE, CONTEXT_WINDOW_BUFFER
+# DISCOVERY_CHUNK_SIZE, MAX_UNIFIED_DOCUMENT_SIZE
+# Note: These are already defined in config.py (lines 889-979) with proper env variable mapping
+
+# SUMMARY STATISTICS
+# Total variables in original .env: 299
+# Total variables after consolidation: 56
+# Total variables removed: 243
+# Variables kept: 56 (100% essential)
+# Configuration managed by config.py: 11 Settings classes
+# Supabase keys present: 4/4 (SUPABASE_URL, SUPABASE_KEY, SUPABASE_API_KEY, SUPABASE_SERVICE_KEY)
+# Critical services: vLLM (AI extraction), Supabase (database), Log Service, GraphRAG, Document Processing

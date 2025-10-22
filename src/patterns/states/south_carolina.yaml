@@ -1,0 +1,235 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: south_carolina
+  state_abbreviation: S.C.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for South Carolina state citations and entities
+case_citations:
+  south_carolina_supreme_court:
+    name: south_carolina_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+S\.E\.2d\s+567,\s+890\s+\(S\.C\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: South Eastern Reporter or South Carolina Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 S.E.3d 456 (S.C. 2023)
+    - Brown v. South Carolina, 456 S.C. 2d 789 (S.C. 2022)
+    - In re Estate of Johnson, 234 S.E.2d 567, 890 (S.C. 2021)
+  south_carolina_court_of_appeals:
+    name: south_carolina_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.E\.(?:2d|3d)?|S\.C\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(S\.C\.(?:\s+Ct\.)?(?:\s+App\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: South Eastern Reporter or South Carolina Court of Appeals Reports volume
+      reporter: South Carolina appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 S.E.3d 456 (S.C. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 S.C. App. 2d 789 (S.C. App. 2022)
+    - State v. Brown, 234 S.E.2d 567 (S.C. Ct. App. 2021)
+  south_carolina_circuit_court:
+    name: south_carolina_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<circuit>\d{1,2})(?:st|d|nd|rd|th)\s+(?:Jud\.\s+)?Cir\.(?:\s+Ct\.)?(?:\s+S\.C\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-CP-23-123456 (5th Jud. Cir. Ct. S.C.)
+    - State v. Brown, 22-GS-987654 (13th Jud. Cir. 2022)
+  south_carolina_magistrate_court:
+    name: south_carolina_magistrate_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Mag\.\s*)?Ct\.(?:\s+S\.C\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: Magistrate court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-M-987 (Charleston County Mag. Ct. S.C.)
+    - State v. Brown, 22-TR-12345 (Richland County Mag. Ct. 2022)
+  south_carolina_family_court:
+    name: south_carolina_family_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Brown,\s+22\-FAM\-987\s+\(York\s+County\s+Fam\.\s+Ct\.\s+2022\)
+    confidence: 0.88
+    priority: 78
+    components:
+      case_name: Full case name with parties
+      docket_number: Family court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-DR-123 (Greenville County Fam. Ct. S.C.)
+    - In re Marriage of Brown, 22-FAM-987 (York County Fam. Ct. 2022)
+statute_citations:
+  south_carolina_code:
+    name: south_carolina_code_citation
+    pattern: S\.C\.\s+Code\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)*(?:-[\d\.]+)*(?:\s*to\s*[\d\.]+(?:-[\d\.]+)*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Code section number or range
+      year: Publication year
+    examples:
+    - S.C. Code Ann. § 16-3-20 (2023)
+    - S.C. Code §§ 15-78-120 to 15-78-150
+    - S.C. Code Ann. § 44-53-370
+  south_carolina_constitution:
+    name: south_carolina_constitution_citation
+    pattern: S\.C\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - S.C. Const. art. I, § 3
+    - S.C. Const. art. XVII, § 15
+    - S.C. Const. art. X, § 5(a)
+regulation_citations:
+  south_carolina_code_of_regulations:
+    name: south_carolina_code_of_regulations_citation
+    pattern: S\.C\.\s+Code\s+Regs?\.\s+(?P<chapter>\d{1,3})-(?P<agency>\d{1,4})(?:\.(?P<section>\d{1,3}(?:\.\d{1,3})*))?
+    confidence: 0.92
+    priority: 80
+    components:
+      chapter: Regulation chapter number
+      agency: Agency number
+      section: Section number
+    examples:
+    - S.C. Code Regs. 61-25
+    - S.C. Code Reg. 126-147.1
+    - S.C. Code Regs. 89-9.1.3
+court_system:
+  court_names:
+    south_carolina_supreme_court:
+      pattern: (?i)(?:S\.C\.|South\s+Carolina)\s+(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+South\s+Carolina)?
+      confidence: 0.95
+      level: supreme
+    south_carolina_court_of_appeals:
+      pattern: (?i)(?:S\.C\.|South\s+Carolina)\s+(?:Court\s+of\s+Appeals|Ct\.\s+of\s+App\.|App\.)
+      confidence: 0.93
+      level: appellate
+    south_carolina_circuit_court:
+      pattern: (?i)(?P<circuit>\d{1,2})(?:st|d|nd|rd|th)\s+(?:Judicial\s+Circuit|Jud\.\s*Cir\.)(?:\s+Court)?(?:\s+(?:of\s+|for\s+)South\s+Carolina)?
+      confidence: 0.9
+      level: trial
+    south_carolina_magistrate_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Magistrate\s+Court|Mag\.\s*Court|Mag\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)South\s+Carolina)?
+      confidence: 0.88
+      level: limited
+    south_carolina_family_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+Family\s+Court(?:\s+(?:of\s+|for\s+)South\s+Carolina)?
+      confidence: 0.9
+      level: family
+    south_carolina_municipal_court:
+      pattern: (?i)(?P<municipality>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:Municipal\s+Court|Mun\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)South\s+Carolina)?
+      confidence: 0.85
+      level: limited
+entity_types:
+- name: SOUTH_CAROLINA_SUPREME_COURT_CASE
+  description: South Carolina Supreme Court case citation
+  confidence_threshold: 0.95
+- name: SOUTH_CAROLINA_APPELLATE_CASE
+  description: South Carolina Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: SOUTH_CAROLINA_CIRCUIT_COURT_CASE
+  description: South Carolina Circuit Court case citation
+  confidence_threshold: 0.85
+- name: SOUTH_CAROLINA_MAGISTRATE_COURT_CASE
+  description: South Carolina Magistrate Court case citation
+  confidence_threshold: 0.83
+- name: SOUTH_CAROLINA_FAMILY_COURT_CASE
+  description: South Carolina Family Court case citation
+  confidence_threshold: 0.85
+- name: SOUTH_CAROLINA_STATUTE
+  description: South Carolina statutory provision
+  confidence_threshold: 0.9
+- name: SOUTH_CAROLINA_REGULATION
+  description: South Carolina administrative regulation
+  confidence_threshold: 0.88
+- name: SOUTH_CAROLINA_CONSTITUTIONAL_PROVISION
+  description: South Carolina constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1788
+    max_year: 2025
+  volume_ranges:
+    southeastern_reporter:
+      se_2d:
+        min_volume: 1
+        max_volume: 999
+      se_3d:
+        min_volume: 1
+        max_volume: 999
+    south_carolina_reports:
+      sc_2d:
+        min_volume: 1
+        max_volume: 450
+      sc_3d:
+        min_volume: 1
+        max_volume: 200
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  circuit_validation:
+    min_circuit: 1
+    max_circuit: 16
+  regulation_validation:
+    chapter_range:
+    - 1
+    - 200
+    agency_range:
+    - 1
+    - 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 785_citations_per_second
+dependencies:
+  requires:
+  - south_carolina_court_abbreviations
+  - south_carolina_county_names
+  - south_carolina_judicial_circuits
+  optional:
+  - south_carolina_historical_courts
+  - south_carolina_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.south_carolina_supreme_court
+    text: State v. Smith, 123 S.E.3d 456 (S.C. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.south_carolina_code
+    text: S.C. Code Ann. § 16-3-20 (2023)
+    expected_entities: 1
+  - pattern: case_citations.south_carolina_court_of_appeals
+    text: Smith v. Jones, 123 S.E.3d 456 (S.C. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.0 seconds
+    memory_usage: < 115MB
+    accuracy_threshold: 0.94

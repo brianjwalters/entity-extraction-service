@@ -1,0 +1,186 @@
+metadata:
+  jurisdiction: maine
+  state_code: ME
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: maine
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: Maine legal entity extraction patterns
+patterns:
+- name: me_supreme_judicial_court
+  pattern: (?P<volume>\d+)\s+Me\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.92
+  entity_type: CASE_CITATION
+  entity_subtype: maine_supreme
+  components:
+    volume: 1
+    reporter: Me.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Smith, 678 Me. 123 (2024)
+  - Doe v. Roe, 675 Me. 456, 460 (2023)
+- name: me_supreme_judicial_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Me\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.9
+  entity_type: CASE_CITATION
+  entity_subtype: maine_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Johnson, 234 A.3d 567 (Me. 2023)
+  - Brown v. City of Portland, 123 A.2d 890 (Me. 2022)
+- name: me_superior_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(Me\.\s*Super\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.85
+  entity_type: CASE_CITATION
+  entity_subtype: maine_superior
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - Johnson v. State, 456 A.3d 789 (Me. Super. Ct. 2023)
+- name: me_district_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(Me\.\s*Dist\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.82
+  entity_type: CASE_CITATION
+  entity_subtype: maine_district
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - State v. Williams, 321 A.3d 654 (Me. Dist. Ct. 2022)
+- name: me_revised_statutes
+  pattern: "(?P<title>\\d+(?:-[A-Z])?)[\\s-]+M\\.R\\.S(?:\\.A)?\\.\\s*\xA7\\s*(?P<section>\\d+(?:\\.\\d+)?)"
+  confidence_base: 0.92
+  entity_type: STATUTE_CITATION
+  entity_subtype: maine_revised_statutes
+  components:
+    title: 1
+    jurisdiction: M.R.S.
+    section: 2
+  examples:
+  - "17-A M.R.S. \xA7 201"
+  - "14 M.R.S.A. \xA7 6001"
+  - "29-A M.R.S. \xA7 2411"
+  - "30-A M.R.S. \xA7 4301"
+- name: me_constitution
+  pattern: "Me\\.\\s+Const\\.\\s+art\\.\\s+(?P<article>[IVX]+)(?:,\\s*\xA7\\s*(?P<section>\\d+))?"
+  confidence_base: 0.95
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: maine_constitution
+  components:
+    jurisdiction: Me.
+    article: 1
+    section: 2
+  examples:
+  - "Me. Const. art. I, \xA7 5"
+  - "Me. Const. art. IV, \xA7 3"
+- name: me_administrative_rules
+  pattern: "(?P<chapter>\\d+)-(?P<department>\\d+)\\s+C\\.M\\.R\\.\\s+ch\\.\\s+(?P<chapter_num>\\d+)(?:\\s*,\\s*\xA7\\s*(?P<section>\\d+(?:\\.\\d+)?))?"
+  confidence_base: 0.88
+  entity_type: REGULATION_CITATION
+  entity_subtype: maine_administrative_rules
+  components:
+    chapter: 1
+    department: 2
+    jurisdiction: C.M.R.
+    chapter_num: 3
+    section: 4
+  examples:
+  - "02-381 C.M.R. ch. 5, \xA7 3.1"
+  - 10-144 C.M.R. ch. 101
+entity_patterns:
+- name: me_supreme_judicial_court_entity
+  pattern: (?:Maine\s+Supreme\s+Judicial\s+Court|Me\.\s+Sup\.\s+Jud\.\s+Ct\.|Supreme\s+Judicial\s+Court\s+of\s+Maine)
+  entity_type: COURT
+  entity_subtype: maine_supreme
+  confidence_base: 0.95
+  attributes:
+    jurisdiction: Maine
+    court_level: supreme
+    authority_level: 1
+- name: me_superior_court_entity
+  pattern: (?:Maine\s+Superior\s+Court|Me\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+Maine)
+  entity_type: COURT
+  entity_subtype: maine_superior
+  confidence_base: 0.9
+  attributes:
+    jurisdiction: Maine
+    court_level: trial
+    authority_level: 2
+- name: me_district_court_entity
+  pattern: (?:Maine\s+District\s+Court|Me\.\s+Dist\.\s+Ct\.|District\s+Court\s+of\s+Maine)
+  entity_type: COURT
+  entity_subtype: maine_district
+  confidence_base: 0.88
+  attributes:
+    jurisdiction: Maine
+    court_level: trial
+    authority_level: 3
+- name: me_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+Maine\s+Supreme\s+Judicial\s+Court|\s+\(Me\.\s+Sup\.\s+Jud\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: maine_justice
+  confidence_base: 0.9
+  attributes:
+    jurisdiction: Maine
+    court_type: supreme
+validation:
+  year_range:
+  - 1820
+  - 2030
+  volume_limits:
+    maine_reports:
+    - 1
+    - 700
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.93
+  recall_target: 0.9
+  processing_speed: 820
+  memory_usage_mb: 120
+  accuracy_threshold: 0.88
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: State v. Smith, 678 Me. 123 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.92
+  - text: Maine Supreme Judicial Court held
+    expected_type: COURT
+    expected_confidence: 0.95
+  - text: "17-A M.R.S. \xA7 201"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.92
+  performance_benchmarks:
+    citation_extraction_rate: 820
+    entity_recognition_rate: 1150
+    memory_efficiency: 0.83
+entity_types:
+- name: MAINE_LEGAL_ENTITY
+  description: Maine legal entity or citation
+  confidence_threshold: 0.8

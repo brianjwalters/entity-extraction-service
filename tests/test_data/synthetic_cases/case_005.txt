@@ -1,0 +1,89 @@
+UNITED STATES COURT OF APPEALS
+FOR THE SEVENTH CIRCUIT
+
+UNITED STATES OF AMERICA,
+                                        Plaintiff-Appellee,
+            v.                                          Case No. 23-2456
+
+MARCUS THOMPSON,
+                                        Defendant-Appellant.
+
+Appeal from the United States District Court
+for the Northern District of Illinois, Eastern Division
+No. 1:22-cr-00789 - Honorable Judge Susan Martinez
+
+Before CIRCUIT JUDGES EASTERBROOK, WOOD, and HAMILTON
+
+OPINION
+
+WOOD, Circuit Judge.
+
+Marcus Thompson appeals his conviction and sentence for bank robbery in violation of 18 U.S.C. § 2113(a) and brandishing a firearm during a crime of violence in violation of 18 U.S.C. § 924(c)(1)(A)(ii). Thompson raises three arguments on appeal: (1) the district court erred in denying his motion to suppress identification evidence; (2) trial counsel provided ineffective assistance by failing to call an alibi witness; and (3) his 180-month sentence is substantively unreasonable. We affirm.
+
+I. BACKGROUND
+
+On March 12, 2022, at approximately 3:45 p.m., an individual later identified as Marcus Thompson entered the First National Bank of Chicago located at 125 West Monroe Street in downtown Chicago. Surveillance video showed Thompson wearing a black hooded sweatshirt, dark sunglasses, and a blue surgical mask. He approached teller Jessica Martinez and handed her a note that read: "This is a robbery. Put all the money in a bag. I have a gun. No alarms or someone gets hurt."
+
+Teller Martinez testified that she immediately complied with the demand and placed approximately $8,400 in cash into a bank deposit bag. As she handed the bag to Thompson, he lifted his sweatshirt to reveal what appeared to be a black semi-automatic handgun tucked in his waistband. Thompson then fled the bank on foot, heading east on Monroe Street.
+
+Chicago Police Department Officer David Wilson was conducting a routine patrol two blocks away when he received a radio dispatch about the robbery at 3:47 p.m. Officer Wilson observed a man matching the suspect's description—wearing a black hooded sweatshirt and carrying a blue bank bag—running east on Monroe Street. Officer Wilson pursued the suspect on foot and apprehended him after a brief chase lasting approximately 90 seconds.
+
+During a pat-down search, Officer Wilson recovered the stolen cash, the robbery note, and a realistic-looking BB gun that closely resembled a Glock 19 semi-automatic pistol. Thompson was arrested and transported to the 1st District police station at 1718 South State Street.
+
+At the police station, teller Jessica Martinez viewed a showup identification procedure at approximately 5:15 p.m., less than two hours after the robbery. Martinez positively identified Thompson as the person who had robbed the bank. FBI Special Agent Robert Chen subsequently interviewed Thompson, who invoked his right to counsel and declined to make any statements.
+
+Thompson was charged by criminal complaint on March 13, 2022, and a grand jury returned a two-count indictment on April 5, 2022. Count One charged bank robbery in violation of 18 U.S.C. § 2113(a), and Count Two charged brandishing a firearm during and in relation to a crime of violence in violation of 18 U.S.C. § 924(c)(1)(A)(ii).
+
+Prior to trial, Thompson moved to suppress the showup identification, arguing that the procedure was unnecessarily suggestive and created a substantial likelihood of misidentification. The district court held an evidentiary hearing and denied the motion in a detailed written order dated September 15, 2022.
+
+The case proceeded to a four-day jury trial in November 2022. The government presented testimony from teller Jessica Martinez, Officer David Wilson, FBI Special Agent Robert Chen, and bank security director Michael Johnson. The defense did not call any witnesses. On November 18, 2022, the jury returned guilty verdicts on both counts after deliberating for approximately three hours.
+
+At sentencing on February 10, 2023, the district court calculated Thompson's advisory Sentencing Guidelines range as 151 to 188 months' imprisonment based on a total offense level of 27 and a criminal history category of III. Thompson had three prior felony convictions: aggravated assault in 2015, residential burglary in 2017, and possession of a controlled substance in 2019.
+
+The court heard extensive argument from defense counsel Attorney Lisa Patterson regarding mitigating factors, including Thompson's troubled childhood, substance abuse issues, and acceptance of responsibility. The government, represented by Assistant United States Attorney James Morrison, argued for a sentence at the high end of the Guidelines range given Thompson's criminal history and the danger he posed to bank employees and customers.
+
+Judge Martinez sentenced Thompson to 96 months' imprisonment on Count One and a consecutive 84-month sentence on Count Two, for a total sentence of 180 months' imprisonment. The court also imposed three years of supervised release and ordered restitution of $8,400 to First National Bank. Thompson timely appealed.
+
+II. DISCUSSION
+
+A. Showup Identification Procedure
+
+Thompson argues that the district court erred in denying his motion to suppress the showup identification because the procedure was impermissibly suggestive. We review the district court's factual findings for clear error and its legal conclusions de novo. United States v. Martin, 712 F.3d 1080, 1086 (7th Cir. 2013).
+
+To warrant suppression, a pretrial identification procedure must be "so impermissibly suggestive as to give rise to a very substantial likelihood of irreparable misidentification." Simmons v. United States, 390 U.S. 377, 384 (1968). Even if a procedure is suggestive, we must determine whether the identification was nonetheless reliable under the totality of the circumstances. Neil v. Biggers, 409 U.S. 188, 199 (1972).
+
+Relevant factors include: (1) the witness's opportunity to view the criminal at the time of the crime; (2) the witness's degree of attention; (3) the accuracy of the witness's prior description; (4) the witness's level of certainty; and (5) the length of time between the crime and the confrontation. Id. at 199-200.
+
+Here, the showup identification took place less than two hours after the robbery and only two blocks from the crime scene. While showup procedures are inherently suggestive, they are permissible when conducted near the time and place of the crime for prompt verification. See United States v. Love, 706 F.3d 832, 846 (7th Cir. 2013).
+
+Moreover, the Biggers factors weigh heavily in favor of reliability. Martinez had an extended face-to-face encounter with the robber at close range in good lighting. She was understandably focused on the perpetrator during the frightening event. Her description to police—male, approximately 5'10", medium build, black hooded sweatshirt—matched Thompson. She expressed certainty in her identification, and the brief time interval minimized the risk of memory degradation.
+
+The district court properly denied the motion to suppress. See United States v. Rogers, 659 F.3d 549, 555 (7th Cir. 2011).
+
+B. Ineffective Assistance of Counsel
+
+Thompson argues that trial counsel was ineffective for failing to call his girlfriend, Angela Davis, who allegedly could have provided alibi testimony. Claims of ineffective assistance are generally not appropriate for direct appeal because they require development of a factual record outside the trial proceedings. See United States v. Redcross, 696 F.3d 604, 607 (7th Cir. 2012).
+
+Nevertheless, even assuming arguendo that we could reach the merits, Thompson has not demonstrated deficient performance or prejudice under Strickland v. Washington, 466 U.S. 668, 687 (1984). Thompson has not provided any affidavit or sworn statement from Davis describing the nature of her proposed testimony. Without such evidence, we cannot evaluate whether counsel's decision not to call her as a witness fell below an objective standard of reasonableness or whether there is a reasonable probability that the result would have been different.
+
+Thompson may pursue this claim through a motion under 28 U.S.C. § 2255 with proper factual development.
+
+C. Substantive Reasonableness of Sentence
+
+Finally, Thompson argues that his 180-month sentence is substantively unreasonable. We review sentences for reasonableness under a deferential abuse-of-discretion standard. Gall v. United States, 552 U.S. 38, 51 (2007).
+
+Here, the district court properly calculated the Guidelines range, considered the factors set forth in 18 U.S.C. § 3553(a), and imposed a sentence within the advisory range. The court adequately explained its reasoning, noting Thompson's extensive criminal history, the traumatic impact on the victim, and the need to protect the public and promote respect for the law.
+
+A sentence within the properly calculated Guidelines range is presumptively reasonable. United States v. Perez-Arellano, 741 F.3d 783, 788 (7th Cir. 2013). Thompson has not overcome this presumption. His sentence reflects appropriate consideration of the statutory factors and is not substantively unreasonable.
+
+III. CONCLUSION
+
+For the foregoing reasons, we AFFIRM Thompson's conviction and sentence.
+
+AFFIRMED.
+
+WOOD, Circuit Judge, delivered the opinion of the Court.
+EASTERBROOK, Circuit Judge, concurring.
+HAMILTON, Circuit Judge, concurring.
+
+Decided: August 22, 2023.

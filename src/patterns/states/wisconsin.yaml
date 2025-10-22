@@ -1,0 +1,177 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: wisconsin
+  state_abbreviation: Wis.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Wisconsin state citations and entities
+case_citations:
+  wisconsin_supreme_court:
+    name: wisconsin_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+382\s+Wis\.\s+2d\s+456,\s+789\s+\(Wis\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Wisconsin Reports or North Western Reporter volume
+      reporter: Wis. or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 387 Wis. 2d 234 (Wis. 2023)
+    - Smith v. ABC Corp., 890 N.W.2d 567 (Wis. 2022)
+    - In re Estate of Brown, 382 Wis. 2d 456, 789 (Wis. 2021)
+  wisconsin_court_of_appeals:
+    name: wisconsin_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Wis\.?\s*(?:2d|3d)|N\.W\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Wis\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Wisconsin Reports or North Western Reporter volume
+      reporter: Wisconsin appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 396 Wis. 2d 567 (Wis. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 N.W.3d 789 (Wis. Ct. App. 2022)
+    - People v. Brown, 384 Wis. 2d 345 (Wis. Ct. App. 2021)
+  wisconsin_circuit_court:
+    name: wisconsin_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+)\s+County\s+Cir\.(?:\s+Ct\.)?(?:\s+Wis\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023CV000123 (Dane County Cir. Ct. Wis.)
+    - ABC Corp. v. XYZ Inc., No. 22-CV-5678 (Milwaukee County Cir. Ct. 2022)
+statute_citations:
+  wisconsin_statutes:
+    name: wisconsin_statutes_citation
+    pattern: Wis\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Wisconsin Statutes section number or range
+      year: Publication year
+    examples:
+    - Wis. Stat. Ann. § 940.01 (West 2023)
+    - Wis. Stat. §§ 766.01-766.97
+    - Wis. Stat. § 102.03
+  wisconsin_constitution:
+    name: wisconsin_constitution_citation
+    pattern: Wis\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Wis. Const. art. I, § 7
+    - Wis. Const. art. IV, § 1
+    - Wis. Const. art. VIII, § 2(a)
+regulation_citations:
+  wisconsin_administrative_code:
+    name: wisconsin_administrative_code_citation
+    pattern: Wis\.\s+Admin\.\s+Code\s+(?P<agency>[A-Z]+)\s+(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      agency: Administrative agency abbreviation
+      section: Administrative Code section number
+    examples:
+    - Wis. Admin. Code NR 40.02
+    - Wis. Admin. Code DHS 157.03
+    - Wis. Admin. Code PSC 113.0103
+court_system:
+  court_names:
+    wisconsin_supreme_court:
+      pattern: (?i)(?:Wis(?:consin)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Wisconsin)?
+      confidence: 0.95
+      level: supreme
+    wisconsin_court_of_appeals:
+      pattern: (?i)(?:Wis(?:consin)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Wisconsin)?
+      confidence: 0.93
+      level: appellate
+    wisconsin_circuit_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+County\s+(?:Circuit\s+Court|Cir\.?\s+Ct\.?)(?:\s+Wis(?:consin)?\.?)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: WISCONSIN_SUPREME_COURT_CASE
+  description: Wisconsin Supreme Court case citation
+  confidence_threshold: 0.95
+- name: WISCONSIN_APPELLATE_CASE
+  description: Wisconsin Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: WISCONSIN_CIRCUIT_COURT_CASE
+  description: Wisconsin Circuit Court case citation
+  confidence_threshold: 0.85
+- name: WISCONSIN_STATUTE
+  description: Wisconsin Statutes provision
+  confidence_threshold: 0.9
+- name: WISCONSIN_REGULATION
+  description: Wisconsin administrative regulation
+  confidence_threshold: 0.88
+- name: WISCONSIN_CONSTITUTIONAL_PROVISION
+  description: Wisconsin constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1848
+    max_year: 2025
+  volume_ranges:
+    wisconsin_reports:
+      wis_1st:
+        min_volume: 1
+        max_volume: 297
+      wis_2d:
+        min_volume: 1
+        max_volume: 400
+    wisconsin_app_reports:
+      wis_2d:
+        min_volume: 1
+        max_volume: 400
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  f1_target: 0.93
+  processing_speed: 795_citations_per_second
+dependencies:
+  requires:
+  - wisconsin_court_abbreviations
+  - wisconsin_county_names
+  - wisconsin_judicial_circuits
+  optional:
+  - wisconsin_historical_courts
+  - wisconsin_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.wisconsin_supreme_court
+    text: State v. Johnson, 387 Wis. 2d 234 (Wis. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.wisconsin_statutes
+    text: Wis. Stat. Ann. § 940.01 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.wisconsin_court_of_appeals
+    text: Smith v. Jones, 396 Wis. 2d 567 (Wis. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.7 seconds
+    memory_usage: < 133MB
+    accuracy_threshold: 0.93

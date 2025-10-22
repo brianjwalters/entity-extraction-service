@@ -1,0 +1,146 @@
+# Party and Litigation Relationships
+pattern_type: relationship
+jurisdiction: federal
+description: Relationships between parties, attorneys, and courts in litigation
+
+patterns:
+  - relationship_type: REPRESENTS
+    description: Attorney representing a party
+    source_entity: ATTORNEY
+    target_entity: PARTY
+    indicators:
+      - "represents"
+      - "representing"
+      - "on behalf of"
+      - "counsel for"
+      - "attorney for"
+      - "appearing for"
+    examples:
+      - "John Smith, Esq. representing Plaintiff"
+      - "Smith & Associates on behalf of Defendant"
+      - "Counsel for Appellant"
+
+  - relationship_type: EMPLOYS
+    description: Party employing an attorney or firm
+    source_entity: PARTY
+    target_entity: LAW_FIRM
+    indicators:
+      - "represented by"
+      - "retained"
+      - "hired"
+      - "engaged"
+      - "counsel"
+    examples:
+      - "ABC Corp represented by Jones Law Firm"
+      - "Plaintiff retained Smith & Associates"
+
+  - relationship_type: SUES
+    description: Plaintiff suing defendant
+    source_entity: PLAINTIFF
+    target_entity: DEFENDANT
+    indicators:
+      - "v."
+      - "versus"
+      - "against"
+      - "sues"
+      - "sued"
+      - "brings action"
+    examples:
+      - "Smith v. Jones"
+      - "Plaintiff brings action against Defendant"
+      - "ABC Corp sues XYZ Inc"
+
+  - relationship_type: APPEALS_FROM
+    description: Party appealing from another party
+    source_entity: APPELLANT
+    target_entity: APPELLEE
+    indicators:
+      - "appeals from"
+      - "appellant"
+      - "appellee"
+      - "on appeal from"
+    examples:
+      - "Smith, Appellant v. Jones, Appellee"
+      - "On appeal from the District Court"
+
+  - relationship_type: PRESIDES_OVER
+    description: Judge presiding over case
+    source_entity: JUDGE
+    target_entity: CASE_CITATION
+    indicators:
+      - "presiding"
+      - "before Judge"
+      - "Hon."
+      - "Honorable"
+      - "assigned to"
+    examples:
+      - "Before the Honorable John Smith"
+      - "Judge Jones presiding"
+      - "Assigned to Judge Brown"
+
+  - relationship_type: OPPOSES
+    description: Opposing parties in litigation
+    source_entity: PARTY
+    target_entity: PARTY
+    indicators:
+      - "v."
+      - "versus"
+      - "opposing"
+      - "adverse to"
+      - "against"
+    examples:
+      - "Plaintiff opposes Defendant's motion"
+      - "Parties adverse to each other"
+
+  - relationship_type: JOINS
+    description: Party joining another party
+    source_entity: PARTY
+    target_entity: PARTY
+    indicators:
+      - "joins"
+      - "joined by"
+      - "consolidated with"
+      - "intervenes"
+      - "intervenor"
+    examples:
+      - "XYZ Corp joins as intervenor"
+      - "Cases consolidated for trial"
+
+  - relationship_type: SETTLES_WITH
+    description: Parties settling dispute
+    source_entity: PARTY
+    target_entity: PARTY
+    indicators:
+      - "settles with"
+      - "settlement between"
+      - "resolved"
+      - "agreement reached"
+    examples:
+      - "Plaintiff settles with Defendant"
+      - "Settlement agreement between the parties"
+
+  - relationship_type: WITNESS_FOR
+    description: Witness testifying for a party
+    source_entity: WITNESS_BLOCK
+    target_entity: PARTY
+    indicators:
+      - "witness for"
+      - "testifies for"
+      - "on behalf of"
+      - "called by"
+    examples:
+      - "Expert witness for Plaintiff"
+      - "Witness called by Defendant"
+
+  - relationship_type: FILES_IN
+    description: Party filing in a court
+    source_entity: PARTY
+    target_entity: COURT
+    indicators:
+      - "filed in"
+      - "files with"
+      - "brought before"
+      - "commenced in"
+    examples:
+      - "Action filed in District Court"
+      - "Case brought before the Supreme Court"

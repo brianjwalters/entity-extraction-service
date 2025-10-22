@@ -1,0 +1,418 @@
+{
+  "dashboard_version": "2.0",
+  "generated_at": "2025-09-05T18:07:44.797241",
+  "test_summary": {
+    "test_id": "test_20250905_180528",
+    "document": "Dobbs v. Jackson Women's Health Organization (2022)",
+    "strategies_tested": 5,
+    "aggregate_metrics": {
+      "total_tests": 5,
+      "successful_tests": 5,
+      "failed_tests": 0,
+      "overall_coverage": 81.936,
+      "total_unique_entity_types": 31,
+      "average_extraction_time": 5.593999999999999
+    }
+  },
+  "strategy_rankings": [
+    {
+      "strategy": "specialized_legal_specialized",
+      "composite_score": 74.87,
+      "metrics": {
+        "entities": 191,
+        "coverage": 93.55,
+        "confidence": 0.917,
+        "time": 10.07
+      }
+    },
+    {
+      "strategy": "combined_hybrid",
+      "composite_score": 66.12,
+      "metrics": {
+        "entities": 130,
+        "coverage": 87.1,
+        "confidence": 0.887,
+        "time": 5.18
+      }
+    },
+    {
+      "strategy": "extraction_ai_enhanced",
+      "composite_score": 64.66,
+      "metrics": {
+        "entities": 151,
+        "coverage": 74.19,
+        "confidence": 0.902,
+        "time": 8.12
+      }
+    },
+    {
+      "strategy": "extraction_nlp_spacy",
+      "composite_score": 61.65,
+      "metrics": {
+        "entities": 128,
+        "coverage": 74.19,
+        "confidence": 0.866,
+        "time": 3.17
+      }
+    },
+    {
+      "strategy": "extraction_regex",
+      "composite_score": 59.19,
+      "metrics": {
+        "entities": 111,
+        "coverage": 80.65,
+        "confidence": 0.753,
+        "time": 1.43
+      }
+    }
+  ],
+  "entity_type_analysis": {
+    "DOCKET_NUMBER": {
+      "total_occurrences": 8,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "CONCURRENCE": {
+      "total_occurrences": 6,
+      "strategies_found": 3,
+      "coverage_percent": 60.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "specialized_legal_specialized"
+      ]
+    },
+    "JUDGE": {
+      "total_occurrences": 82,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "COURT": {
+      "total_occurrences": 102,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "DISTRICT": {
+      "total_occurrences": 10,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "CONSTITUTIONAL_PROVISION": {
+      "total_occurrences": 78,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "LEGAL_CONCEPT": {
+      "total_occurrences": 6,
+      "strategies_found": 3,
+      "coverage_percent": 60.0,
+      "found_by": [
+        "extraction_regex",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "CASE_CITATION": {
+      "total_occurrences": 65,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "JURISDICTION": {
+      "total_occurrences": 10,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "REGULATION": {
+      "total_occurrences": 7,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "PRECEDENT": {
+      "total_occurrences": 5,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "STANDARD_OF_REVIEW": {
+      "total_occurrences": 6,
+      "strategies_found": 3,
+      "coverage_percent": 60.0,
+      "found_by": [
+        "extraction_regex",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "HOLDING": {
+      "total_occurrences": 59,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "DISSENT": {
+      "total_occurrences": 7,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "EXCEPTION": {
+      "total_occurrences": 4,
+      "strategies_found": 2,
+      "coverage_percent": 40.0,
+      "found_by": [
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "OPINION_TYPE": {
+      "total_occurrences": 8,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "PROCEDURAL_POSTURE": {
+      "total_occurrences": 9,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "ADMINISTRATIVE_AGENCY": {
+      "total_occurrences": 6,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "specialized_legal_specialized"
+      ]
+    },
+    "LEGAL_DOCTRINE": {
+      "total_occurrences": 54,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "FOOTNOTE": {
+      "total_occurrences": 7,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "BURDEN_OF_PROOF": {
+      "total_occurrences": 7,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "ATTORNEY": {
+      "total_occurrences": 33,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "EVIDENCE": {
+      "total_occurrences": 5,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "RULE": {
+      "total_occurrences": 5,
+      "strategies_found": 2,
+      "coverage_percent": 40.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy"
+      ]
+    },
+    "STATUTE": {
+      "total_occurrences": 47,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "LEGAL_STANDARD": {
+      "total_occurrences": 4,
+      "strategies_found": 3,
+      "coverage_percent": 60.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "specialized_legal_specialized"
+      ]
+    },
+    "PARTY": {
+      "total_occurrences": 7,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "REMEDY": {
+      "total_occurrences": 7,
+      "strategies_found": 4,
+      "coverage_percent": 80.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "DATE": {
+      "total_occurrences": 44,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    },
+    "CLAIM": {
+      "total_occurrences": 2,
+      "strategies_found": 1,
+      "coverage_percent": 20.0,
+      "found_by": [
+        "combined_hybrid"
+      ]
+    },
+    "CIRCUIT": {
+      "total_occurrences": 11,
+      "strategies_found": 5,
+      "coverage_percent": 100.0,
+      "found_by": [
+        "extraction_regex",
+        "extraction_nlp_spacy",
+        "extraction_ai_enhanced",
+        "combined_hybrid",
+        "specialized_legal_specialized"
+      ]
+    }
+  },
+  "confidence_analysis": {},
+  "performance_analysis": {},
+  "recommendations": {}
+}

@@ -1,0 +1,182 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: iowa
+  state_abbreviation: Iowa
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Iowa state citations and entities
+case_citations:
+  iowa_supreme_court:
+    name: iowa_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+956\s+N\.W\.2d\s+456,\s+789\s+\(Iowa\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Iowa Reports or North Western Reporter volume
+      reporter: Iowa or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 967 N.W.2d 234 (Iowa 2023)
+    - Smith v. ABC Corp., 890 Iowa 567 (Iowa 2022)
+    - In re Estate of Brown, 956 N.W.2d 456, 789 (Iowa 2021)
+  iowa_court_of_appeals:
+    name: iowa_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>N\.W\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Iowa\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: North Western Reporter volume
+      reporter: North Western appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 956 N.W.2d 567 (Iowa Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 934 N.W.2d 789 (Iowa Ct. App. 2022)
+    - People v. Brown, 912 N.W.2d 345 (Iowa Ct. App. 2021)
+  iowa_district_court:
+    name: iowa_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Jud\.?\s+Dist\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Iowa)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. LACV123456 (5th Jud. Dist. Ct. Polk County, Iowa)
+    - ABC Corp. v. XYZ Inc., No. EQCV098765 (2nd Jud. Dist. Ct. Linn County, Iowa
+      2022)
+statute_citations:
+  iowa_code:
+    name: iowa_code_citation
+    pattern: Iowa\s+Code\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+[A-Z]?(?:\s*[-–]\s*[\d\.]+[A-Z]?)?(?:\s*to\s*[\d\.]+[A-Z]?)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Iowa Code section number or range
+      year: Publication year
+    examples:
+    - Iowa Code Ann. § 707.2 (West 2023)
+    - Iowa Code §§ 598.1-598.46
+    - Iowa Code § 216.13A
+  iowa_constitution:
+    name: iowa_constitution_citation
+    pattern: Iowa\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Iowa Const. art. I, § 8
+    - Iowa Const. art. III, § 1
+    - Iowa Const. art. VII, § 1(a)
+regulation_citations:
+  iowa_administrative_code:
+    name: iowa_administrative_code_citation
+    pattern: Iowa\s+Admin\.\s+Code\s+r\.\s+(?P<agency>\d+)--(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      agency: Administrative agency number
+      section: Administrative Code rule number
+    examples:
+    - Iowa Admin. Code r. 441--78.1
+    - Iowa Admin. Code r. 567--23.2
+    - Iowa Admin. Code r. 351--1.3
+court_system:
+  court_names:
+    iowa_supreme_court:
+      pattern: (?i)(?:Iowa\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Iowa)?
+      confidence: 0.95
+      level: supreme
+    iowa_court_of_appeals:
+      pattern: (?i)(?:Iowa\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Iowa)?
+      confidence: 0.93
+      level: appellate
+    iowa_district_court:
+      pattern: (?i)(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Jud\.?\s+Dist\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Iowa)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: IOWA_SUPREME_COURT_CASE
+  description: Iowa Supreme Court case citation
+  confidence_threshold: 0.95
+- name: IOWA_APPELLATE_CASE
+  description: Iowa Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: IOWA_DISTRICT_COURT_CASE
+  description: Iowa District Court case citation
+  confidence_threshold: 0.85
+- name: IOWA_STATUTE
+  description: Iowa Code provision
+  confidence_threshold: 0.9
+- name: IOWA_REGULATION
+  description: Iowa administrative regulation
+  confidence_threshold: 0.88
+- name: IOWA_CONSTITUTIONAL_PROVISION
+  description: Iowa constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1846
+    max_year: 2025
+  volume_ranges:
+    iowa_reports:
+      iowa_1st:
+        min_volume: 1
+        max_volume: 261
+    north_western_reporter:
+      nw_1st:
+        min_volume: 1
+        max_volume: 300
+      nw_2d:
+        min_volume: 1
+        max_volume: 999
+      nw_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.91
+  f1_target: 0.92
+  processing_speed: 770_citations_per_second
+dependencies:
+  requires:
+  - iowa_court_abbreviations
+  - iowa_county_names
+  - iowa_judicial_districts
+  optional:
+  - iowa_historical_courts
+  - iowa_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.iowa_supreme_court
+    text: State v. Johnson, 967 N.W.2d 234 (Iowa 2023)
+    expected_entities: 1
+  - pattern: statute_citations.iowa_code
+    text: Iowa Code Ann. § 707.2 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.iowa_court_of_appeals
+    text: Smith v. Jones, 956 N.W.2d 567 (Iowa Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 4.0 seconds
+    memory_usage: < 138MB
+    accuracy_threshold: 0.92

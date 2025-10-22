@@ -1,0 +1,40 @@
+{
+  "regex_none": {
+    "mode": "regex",
+    "strategy": "none",
+    "total_entities": 6031,
+    "unique_types": 1,
+    "entity_types": {
+      "null": 6031
+    },
+    "chunks_tested": 0,
+    "total_chunks": 0,
+    "total_time": 0.4517993927001953
+  },
+  "ai_enhanced_unified": {
+    "mode": "ai_enhanced",
+    "strategy": "unified",
+    "total_entities": 5,
+    "unique_types": 1,
+    "entity_types": {
+      "null": 5
+    },
+    "chunks_tested": 5,
+    "total_chunks": 100,
+    "total_time": 8.171350479125977,
+    "avg_time_per_chunk": 1.6342700958251952
+  },
+  "hybrid_unified": {
+    "mode": "hybrid",
+    "strategy": "unified",
+    "total_entities": 111,
+    "unique_types": 1,
+    "entity_types": {
+      "null": 111
+    },
+    "chunks_tested": 5,
+    "total_chunks": 100,
+    "total_time": 32.19901633262634,
+    "avg_time_per_chunk": 6.439803266525269
+  }
+}

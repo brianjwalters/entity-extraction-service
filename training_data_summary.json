@@ -1,0 +1,2607 @@
+{
+  "entity_types_with_examples": {
+    "ADDRESS": {
+      "examples": [
+        "1523 New Hampshire Avenue",
+        "319 Swede Street",
+        "950 Pennsylvania Avenue",
+        "P.O. Box 4148",
+        "PO Box 12345",
+        "Post Office Box 999",
+        "Suite 320",
+        "Room 1500",
+        "Floor 15",
+        "Liberty Center"
+      ],
+      "example_count": 10,
+      "description": "Patterns for identifying addresses, locations, and geographic entities"
+    },
+    "AGENCIES": {
+      "examples": [
+        "Securities Act Release No. 33-10889 (May 21, 2021)",
+        "Release No. 34-92038",
+        "Rev. Rul. 2021-15",
+        "Notice 2022-41",
+        "29 C.F.R. \u00a7 1910.95 (Occupational noise exposure)",
+        "29 C.F.R. \u00a7 1926.95(a)(1)"
+      ],
+      "example_count": 6,
+      "description": "Complete pattern library for Code of Federal Regulations citations and regulatory entities"
+    },
+    "APPEAL": {
+      "examples": [
+        "appeal",
+        "notice of appeal",
+        "appellate court",
+        "The defendant filed an appeal of the conviction",
+        "Notice of appeal must be filed within 30 days",
+        "The appellate court reversed the lower court's decision"
+      ],
+      "example_count": 6,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "ATTORNEY": {
+      "examples": [
+        "Attorney John Smith",
+        "Counsel Mary Johnson",
+        "Counselor Robert Davis",
+        "John Smith, Esq",
+        "Mary Johnson Esq",
+        "Robert K. Davis, Esquire",
+        "Attorney for the Plaintiff John Smith",
+        "Counsel for Defendant Mary Johnson",
+        "Attorney for Appellant Robert Davis",
+        "Lead Attorney John Smith of Smith & Associates"
+      ],
+      "example_count": 10,
+      "description": "Attorney name and designation patterns for legal document extraction"
+    },
+    "CASE_CITATION": {
+      "examples": [
+        "Brown v. Board, 98 F. Supp. 797 (D. Kan. 1951)",
+        "Smith v. Microsoft Corp., 87 F. Supp. 2d 30 (D.D.C. 2000)",
+        "Apple Inc. v. Samsung Corp., 909 F. Supp. 2d 1147 (N.D. Cal. 2012)",
+        "Smith v. Jones, 2023 WL 1234567 (S.D.N.Y. Mar. 15, 2023)",
+        "Oracle Corp. v. Google Inc., 2021 WL 987654 (N.D. Cal. June 30, 2021)",
+        "Brown v. Board of Education, 347 U.S. 483 (1954)",
+        "Miranda v. Arizona, 384 U.S. 436, 444 (1966)",
+        "Roe v. Wade, 410 U.S. 113 (1973)",
+        "Brown v. Board of Education, 74 S. Ct. 686 (1954)",
+        "Miranda v. Arizona, 86 S. Ct. 1602 (1966)"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "CASE_PARTIES": {
+      "examples": [
+        "Smith v. Jones",
+        "Brown v. Board of Education",
+        "United States v. Microsoft",
+        "Range v. Garland",
+        "Brown v. Board"
+      ],
+      "example_count": 5,
+      "description": "Enhanced legal party patterns with comprehensive case caption and name support"
+    },
+    "CERTIORARI": {
+      "examples": [
+        "writ of certiorari",
+        "cert petition",
+        "certiorari granted",
+        "The petition for writ of certiorari was filed yesterday",
+        "The Supreme Court granted cert. petition in this case",
+        "Cert. denied without opinion"
+      ],
+      "example_count": 6,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "CFR_CITATIONS": {
+      "examples": [
+        "17 C.F.R. \u00a7 240.10b-5",
+        "29 C.F.R. \u00a7 1910.95(a)(1)",
+        "40 C.F.R. \u00a7 122.21 (2023)",
+        "17 C.F.R. \u00a7\u00a7 240.1-240.10",
+        "29 C.F.R. \u00a7\u00a7 1910.95-1910.97",
+        "17 C.F.R. pt. 240",
+        "29 C.F.R. part 1910, subpart G",
+        "40 C.F.R. \u00a7 1500.1",
+        "26 CFR 1.501",
+        "40 C.F.R. Part 1500"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for Code of Federal Regulations citations and regulatory entities"
+    },
+    "CFR_TITLES": {
+      "examples": [
+        "17 C.F.R. \u00a7 240.10b-5",
+        "17 C.F.R. \u00a7 240.14a-9(a)",
+        "29 C.F.R. \u00a7 1910.95",
+        "29 C.F.R. \u00a7 1926.95(a)",
+        "8 C.F.R. \u00a7 214.2(h)",
+        "8 C.F.R. \u00a7 245.1(a)",
+        "26 C.F.R. \u00a7 1.162-1",
+        "26 C.F.R. \u00a7 301.9100-1(a)"
+      ],
+      "example_count": 8,
+      "description": "Complete pattern library for Code of Federal Regulations citations and regulatory entities"
+    },
+    "CIRCUITS": {
+      "examples": [
+        "9th Cir.",
+        "2nd Circuit",
+        "11th Cir.",
+        "D.C. Cir.",
+        "Fed. Circuit"
+      ],
+      "example_count": 5,
+      "description": "Complete pattern library for U.S. Courts of Appeals citations and entities"
+    },
+    "CLASS_ACTION": {
+      "examples": [
+        "class action",
+        "Rule 23",
+        "class certification",
+        "The class representative seeks certification",
+        "Plaintiff sues on behalf of a class of consumers",
+        "Named plaintiffs act on behalf of class members",
+        "The class action lawsuit seeks damages for all affected consumers",
+        "Rule 23 certification was granted by the court",
+        "The class action settlement totals $100 million"
+      ],
+      "example_count": 9,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "CONSTITUTIONAL_AMENDMENT": {
+      "examples": [
+        "First Amendment",
+        "Fourth Amendment to the United States Constitution",
+        "14th Amendment",
+        "The 1st Amendment protects freedom of speech",
+        "Rights under the 4th Amendment were violated",
+        "The 5th Amendment privilege against self-incrimination",
+        "The First Amendment prohibits government censorship",
+        "Fourth Amendment protections against unreasonable searches",
+        "Fifth Amendment right to remain silent"
+      ],
+      "example_count": 9,
+      "description": "Constitutional and legal doctrine patterns including amendments, principles, and established doctrines"
+    },
+    "DATE": {
+      "examples": [
+        "January 15, 2024",
+        "December 31st, 2023",
+        "March 1, 2022",
+        "Jan. 15, 2024",
+        "Dec 31, 2023",
+        "Sept. 1, 2022",
+        "2024-01-15",
+        "2023-12-31",
+        "2022-03-01",
+        "1/15/2024"
+      ],
+      "example_count": 10,
+      "description": "Legal date patterns for extracting filing dates, decision dates, and various date formats"
+    },
+    "DECISION_DATE": {
+      "examples": [
+        "decided January 15, 2024",
+        "Issued on December 31, 2023",
+        "entered March 1st, 2022",
+        "June 6, 2023",
+        "November 16, 2021",
+        "March 15, 2024",
+        "Decided June 6, 2023",
+        "decided March 15, 2024",
+        "DECIDED December 31st, 2022"
+      ],
+      "example_count": 9,
+      "description": "Legal date patterns for extracting filing dates, decision dates, and various date formats"
+    },
+    "DEFENDANT": {
+      "examples": [
+        "Defendant denies all allegations",
+        "The Defendants filed an answer",
+        "Defendant moves for summary judgment",
+        "Defendant Michael Davis answered the complaint",
+        "Defendant-Appellant James Wilson seeks reversal",
+        "Defendants Patricia Miller and Thomas Anderson dispute liability"
+      ],
+      "example_count": 6,
+      "description": "Enhanced legal party patterns with comprehensive case caption and name support"
+    },
+    "DEFINED_TERM": {
+      "examples": [
+        "\"Agreement\" means this Service Agreement",
+        "\"Confidential Information\" shall mean any proprietary data",
+        "\"Effective Date\" means the date first written above",
+        "Company means ABC Corporation, a Delaware corporation",
+        "Services shall mean the consulting services described herein",
+        "Term means the period from the Effective Date"
+      ],
+      "example_count": 6,
+      "description": "Comprehensive legal document structure patterns for markers, headers, terms, parties, and signatures"
+    },
+    "DISCOVERY": {
+      "examples": [
+        "discovery",
+        "initial disclosures",
+        "Rule 26",
+        "The deposition of the corporate representative is scheduled for Monday",
+        "Plaintiff was deposed for seven hours",
+        "Rule 30 governs the taking of depositions",
+        "Defendant served thirty interrogatories on plaintiff",
+        "The responses to the interrogatory were evasive",
+        "Plaintiff objected to interrogatories 5 through 12",
+        "The request for production of documents was overly broad"
+      ],
+      "example_count": 10,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "DISTRICT": {
+      "examples": [
+        "N.D. Cal.",
+        "S.D. New York",
+        "E.D. Va.",
+        "D.D.C.",
+        "D. P.R.",
+        "D. V.I."
+      ],
+      "example_count": 6,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "DUE_PROCESS": {
+      "examples": [
+        "due process",
+        "substantive due process",
+        "procedural due process",
+        "The termination violated plaintiff's due process rights",
+        "The due process clause requires notice and hearing",
+        "Procedural due process was denied"
+      ],
+      "example_count": 6,
+      "description": "Constitutional and legal doctrine patterns including amendments, principles, and established doctrines"
+    },
+    "ELECTRONIC_CITATION": {
+      "examples": [
+        "2023 WL 123456 (S.D.N.Y. Jan. 15, 2023)",
+        "2022 WL 987654",
+        "2021 WL 555666 (9th Cir. Dec. 31, 2021)",
+        "2023 U.S. LEXIS 12345 (Jan. 15, 2023)",
+        "2022 LEXIS 98765",
+        "2021 U.S. Dist. LEXIS 111222 (S.D.N.Y. Dec. 1, 2021)",
+        "2023 BL 123456",
+        "2022 BL 987654 (S.D.N.Y. Oct. 15, 2022)",
+        "2021 BL 555666"
+      ],
+      "example_count": 9,
+      "description": "Comprehensive citation type patterns for legal documents with CitationType enum support"
+    },
+    "ELECTRONIC_CITATIONS": {
+      "examples": [
+        "2023 WL 123456 (S.D.N.Y. Jan. 15, 2023)",
+        "2022 WL 987654",
+        "2021 WL 111222 (9th Cir. Dec. 1, 2021)",
+        "2023 U.S. LEXIS 12345 (Jan. 15, 2023)",
+        "2022 LEXIS 98765",
+        "2021 U.S. Dist. LEXIS 111222 (S.D.N.Y. Dec. 1, 2021)"
+      ],
+      "example_count": 6,
+      "description": "Enhanced case citation patterns with precise pinpoint citation matching to eliminate false positives"
+    },
+    "ENHANCED_CASE_CITATIONS": {
+      "examples": [
+        "Ex parte Johnson",
+        "Ex parte Smith, 123 U.S. 456 (2023)",
+        "Ex parte ABC Corp., 789 F.3d 123 (5th Cir. 2022)",
+        "In re Marriage of Smith",
+        "In re ABC Corp., 456 F.3d 789 (9th Cir. 2021)",
+        "In re Estate of Johnson, 123 Cal. App. 4th 567 (2020)",
+        "Commonwealth v. Smith, 67 Pa. D. & C.5th 123 (Philadelphia County C.P. 2023)",
+        "Brown v. Jones, 45 Pa. D. & C.4th 456 (Allegheny County Common Pleas 2022)",
+        "Smith v. Jones",
+        "United States v. Nixon"
+      ],
+      "example_count": 10,
+      "description": "Enhanced general case patterns to fill coverage gaps for all court levels"
+    },
+    "ENHANCED_COURT_PATTERNS": {
+      "examples": [
+        "U.S. District Court for the Southern District of New York",
+        "Court of Appeals for the Fifth Circuit",
+        "U.S. Supreme Court",
+        "Massachusetts Supreme Judicial Court",
+        "Superior Court of Los Angeles County",
+        "Pennsylvania Court of Common Pleas"
+      ],
+      "example_count": 6,
+      "description": "Enhanced general case patterns to fill coverage gaps for all court levels"
+    },
+    "ENHANCED_PARTY_PATTERNS": {
+      "examples": [
+        "United States",
+        "Commonwealth of Massachusetts",
+        "State of California",
+        "ABC Corp.",
+        "XYZ Inc.",
+        "Johnson & Associates LLC"
+      ],
+      "example_count": 6,
+      "description": "Enhanced general case patterns to fill coverage gaps for all court levels"
+    },
+    "EQUAL_PROTECTION": {
+      "examples": [
+        "equal protection",
+        "equal protection clause",
+        "equal protection of the laws",
+        "The law violates equal protection guarantees",
+        "The equal protection clause prohibits discrimination",
+        "Plaintiff alleges an equal protection violation"
+      ],
+      "example_count": 6,
+      "description": "Constitutional and legal doctrine patterns including amendments, principles, and established doctrines"
+    },
+    "FEDERAL_AGENCY": {
+      "examples": [
+        "The FBI conducted the investigation",
+        "SEC filed enforcement action against the company",
+        "EPA issued new regulations on emissions",
+        "Department of Justice",
+        "Federal Bureau of Investigation",
+        "Securities and Exchange Commission"
+      ],
+      "example_count": 6,
+      "description": "Enhanced legal party patterns with comprehensive case caption and name support"
+    },
+    "FEDERAL_COURTS": {
+      "examples": [
+        "Supreme Court of the United States",
+        "U.S. Supreme Court",
+        "the Supreme Court",
+        "U.S Supreme Court",
+        "United States Court of Appeals for the Ninth Circuit",
+        "Court of Appeals for the 9th Circuit",
+        "the Court of Appeals for the D.C. Circuit",
+        "Ninth Circuit Court of Appeals",
+        "9th Circuit Court of Appeals",
+        "D.C. Circuit Court of Appeals"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. Courts of Appeals citations and entities"
+    },
+    "FEDERAL_RULES": {
+      "examples": [
+        "Fed. R. Civ. P. 12(b)(6)",
+        "Fed. R. Civ. P. 56",
+        "Fed. R. Civ. P. 26(a)",
+        "Fed. R. Crim. P. 11",
+        "Fed. R. Crim. P. 16(a)",
+        "Fed. R. Evid. 403",
+        "Fed. R. Evid. 702",
+        "Fed. R. Evid. 801(c)",
+        "Fed. R. Civ. P. 12",
+        "FRCP Rule 26"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "FIFTH_AMENDMENT": {
+      "examples": [
+        "self-incrimination",
+        "Fifth Amendment right",
+        "right to remain silent",
+        "The witness invoked the privilege against self-incrimination",
+        "Fifth Amendment right to remain silent was waived",
+        "Miranda rights must be read before custodial interrogation"
+      ],
+      "example_count": 6,
+      "description": "Constitutional and legal doctrine patterns including amendments, principles, and established doctrines"
+    },
+    "FREE_SPEECH": {
+      "examples": [
+        "freedom of speech",
+        "free speech",
+        "protected speech",
+        "The regulation violates freedom of speech",
+        "First Amendment speech protections apply",
+        "The restriction on free speech is unconstitutional"
+      ],
+      "example_count": 6,
+      "description": "Constitutional and legal doctrine patterns including amendments, principles, and established doctrines"
+    },
+    "INDIVIDUAL_PARTY": {
+      "examples": [
+        "John A. Smith, an individual residing in California (\"Employee\")",
+        "Mary Johnson (\"Contractor\")",
+        "Robert P. Williams, an individual (\"Consultant\")",
+        "Bryan David Range",
+        "Merrick B. Garland",
+        "John Smith Jr."
+      ],
+      "example_count": 6,
+      "description": "Comprehensive legal document structure patterns for markers, headers, terms, parties, and signatures"
+    },
+    "INJUNCTION": {
+      "examples": [
+        "injunctive relief",
+        "temporary restraining order",
+        "TRO",
+        "The court issued a preliminary injunction preventing the merger",
+        "Plaintiff seeks a permanent injunction against infringement",
+        "The temporary injunction will remain in effect pending trial",
+        "The court granted an emergency TRO",
+        "The temporary restraining order expires in 14 days",
+        "Plaintiff obtained a TRO ex parte"
+      ],
+      "example_count": 9,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "JUDGE": {
+      "examples": [
+        "District Judge Williams A. Smith",
+        "District Judge Smith B. Jones",
+        "U.S. District Judge Roberts C. Davis",
+        "Magistrate Judge Johnson E. Brown",
+        "U.S. Magistrate Judge Davis F. Wilson",
+        "Chief Magistrate Judge Wilson G. Taylor",
+        "visiting Judge John Thompson",
+        "sitting by designation Judge John Miller",
+        "Chief Justice Roberts",
+        "Justice Thomas"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "JUDGMENT": {
+      "examples": [
+        "judgment for $750,000",
+        "jury awarded $2 million",
+        "verdict in the amount of $500,000",
+        "Plaintiff moved for entry of default judgment",
+        "The court entered default judgment against defendant",
+        "Default judgment was set aside for good cause"
+      ],
+      "example_count": 6,
+      "description": "Monetary amount patterns for extracting currency, damages, fees, costs, and financial values"
+    },
+    "JURISDICTION": {
+      "examples": [
+        "jurisdiction",
+        "subject matter jurisdiction",
+        "personal jurisdiction",
+        "The court lacks subject matter jurisdiction over state law claims",
+        "Federal subject matter jurisdiction exists under 28 U.S.C. 1331",
+        "Defendant challenges subject matter jurisdiction",
+        "The court lacks personal jurisdiction over the defendant",
+        "In personam jurisdiction was established through service of process",
+        "Defendant waived personal jurisdiction by appearing",
+        "Diversity jurisdiction requires complete diversity of citizenship"
+      ],
+      "example_count": 10,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "LATIN_TERM": {
+      "examples": [
+        "The court considered, inter alia, the defendant's prior convictions",
+        "Inter alia, the contract included provisions for dispute resolution",
+        "The evidence showed, inter alia, that the parties had agreed to arbitration",
+        "The plaintiff established a prima facie case of discrimination",
+        "Prima facie evidence of negligence was presented to the jury",
+        "There was no prima facie showing of breach of contract",
+        "The court granted an ex parte temporary restraining order",
+        "Ex parte communications with the judge are prohibited",
+        "The emergency ex parte motion was filed yesterday",
+        "The defendant filed a writ of habeas corpus challenging his detention"
+      ],
+      "example_count": 10,
+      "description": "Optimized legal terminology patterns for high-performance extraction"
+    },
+    "LAW_FIRM": {
+      "examples": [
+        "Smith & Associates Law Firm",
+        "Johnson Legal LLC",
+        "Davis & Partners LLP",
+        "Smith, Johnson & Associates",
+        "Davis & Wilson Law Firm",
+        "Brown, Miller & Thompson",
+        "Cravath Swaine & Moore LLP",
+        "Skadden Arps Slate Meagher & Flom LLP",
+        "Sullivan & Cromwell LLP",
+        "John Smith Law Office"
+      ],
+      "example_count": 10,
+      "description": "Law firm name and organization patterns for legal document extraction with negative lookaheads"
+    },
+    "LEGAL_MARKER": {
+      "examples": [
+        "WHEREAS, the parties desire to enter into this agreement",
+        "WHEREAS the Company wishes to retain the services of Consultant",
+        "WHEREAS, pursuant to the terms of the Purchase Agreement",
+        "NOW, THEREFORE, the parties agree as follows",
+        "NOW THEREFORE, in consideration of the mutual covenants",
+        "NOW, THEREFORE, BE IT RESOLVED that",
+        "IN WITNESS WHEREOF, the parties have executed this Agreement",
+        "IN WITNESS WHEREOF, I have hereunto set my hand",
+        "IN WITNESS WHEREOF, the undersigned has caused this instrument to be executed",
+        "BE IT RESOLVED THAT the Board approves the merger"
+      ],
+      "example_count": 10,
+      "description": "Comprehensive legal document structure patterns for markers, headers, terms, parties, and signatures"
+    },
+    "MONETARY_AMOUNT": {
+      "examples": [
+        "$1,000,000",
+        "$50,000.00",
+        "$2.5 million",
+        "100,000 dollars",
+        "50,000.00 USD",
+        "1,500 US dollars"
+      ],
+      "example_count": 6,
+      "description": "Monetary amount patterns for extracting currency, damages, fees, costs, and financial values"
+    },
+    "MOTION": {
+      "examples": [
+        "summary judgment",
+        "motion for summary judgment",
+        "summary judgment granted",
+        "motion to dismiss",
+        "Rule 12(b)(6)",
+        "failure to state a claim",
+        "motion to compel",
+        "compel discovery",
+        "compel production",
+        "motion in limine"
+      ],
+      "example_count": 10,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "PARTY": {
+      "examples": [
+        "RANGE, Appellant",
+        "Bryan David Range, Appellant",
+        "Smith, Appellant",
+        "Garland, Appellee",
+        "Attorney General, Appellee",
+        "United States, Appellee"
+      ],
+      "example_count": 6,
+      "description": "Enhanced legal party patterns with comprehensive case caption and name support"
+    },
+    "PINPOINT_CITATIONS": {
+      "examples": [
+        "347 U.S. 483, 495 (1954)",
+        "384 U.S. 436, 444-45 (1966)",
+        "123 F.3d 456, 460 (9th Cir. 2020)",
+        "id. at 495",
+        "Id. at 24-25",
+        "id. at 367-68",
+        "at *12",
+        "at *12-15",
+        "at *3-*4",
+        "\u00b6 12"
+      ],
+      "example_count": 10,
+      "description": "Enhanced case citation patterns with precise pinpoint citation matching to eliminate false positives"
+    },
+    "PLAINTIFF": {
+      "examples": [
+        "Plaintiff alleges breach of contract",
+        "The Plaintiffs filed a joint motion",
+        "Plaintiff seeks injunctive relief",
+        "Plaintiff John Smith filed the complaint",
+        "Plaintiff-Appellant Mary K. Johnson appeals",
+        "Plaintiffs Robert Brown and David Lee seek damages"
+      ],
+      "example_count": 6,
+      "description": "Enhanced legal party patterns with comprehensive case caption and name support"
+    },
+    "PLEA": {
+      "examples": [
+        "plea agreement",
+        "plea bargain",
+        "guilty plea",
+        "The defendant entered into a plea agreement with the government",
+        "The plea bargain included a sentencing recommendation",
+        "Defendant entered a guilty plea to count one"
+      ],
+      "example_count": 6,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "PROCEDURAL_RULE": {
+      "examples": [
+        "motion for summary judgment",
+        "motion to dismiss",
+        "motion for preliminary injunction",
+        "No. 1:23-cv-12345",
+        "Case No. 2:22-cr-98765-ABC",
+        "No. 3:21-misc-45678",
+        "GRANTED",
+        "SUMMARY JUDGMENT GRANTED",
+        "PRELIMINARY INJUNCTION DENIED",
+        "cert. granted"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "REGULATION_CITATION": {
+      "examples": [
+        "40 C.F.R. \u00a7 122.2",
+        "29 C.F.R. 1910.95",
+        "21 C.F.R. \u00a7 314.50(a)",
+        "Alaska Admin. Code tit. 13, \u00a7 40.110",
+        "Alaska Admin. Code tit. 8, \u00a7 64.110",
+        "Alaska Admin. Code tit. 20, \u00a7 25.010"
+      ],
+      "example_count": 6,
+      "description": "Comprehensive citation type patterns for legal documents with CitationType enum support"
+    },
+    "SECTION_HEADER": {
+      "examples": [
+        "ARTICLE I: DEFINITIONS",
+        "ARTICLE VII - TERMINATION",
+        "ARTICLE 12. INDEMNIFICATION",
+        "SECTION 1: BACKGROUND",
+        "SECTION 4.2 - PAYMENT TERMS",
+        "SECTION 15a. GOVERNING LAW"
+      ],
+      "example_count": 6,
+      "description": "Comprehensive legal document structure patterns for markers, headers, terms, parties, and signatures"
+    },
+    "SECTION_REFERENCE": {
+      "examples": [
+        "See Section 42 of the contract for termination provisions",
+        "Section 1983 provides the basis for civil rights claims",
+        "Sec. 7.2a provides the relevant standard",
+        "Section 2(a) defines the scope of services",
+        "Section 506(b)(1) allows creditor fee recovery",
+        "Sec. 12(d)(3) prohibits certain transactions"
+      ],
+      "example_count": 6,
+      "description": "Optimized legal terminology patterns for high-performance extraction"
+    },
+    "SECTION_SYMBOLS": {
+      "examples": [
+        "\u00a7 1227(a)",
+        "\u00a7 924",
+        "\u00a7 501(c)",
+        "\u00a7\u00a7 100-150",
+        "\u00a7\u00a7 924-930"
+      ],
+      "example_count": 5,
+      "description": "Optimized statute citation patterns for high-performance extraction"
+    },
+    "SENTENCING": {
+      "examples": [
+        "sentencing",
+        "sentenced",
+        "sentencing hearing",
+        "The sentencing hearing is scheduled for next month",
+        "Defendant was sentenced to five years imprisonment",
+        "The sentencing guidelines recommend 24-30 months"
+      ],
+      "example_count": 6,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "SETTLEMENT": {
+      "examples": [
+        "settlement",
+        "settled",
+        "settlement agreement",
+        "settled for $500,000",
+        "settlement of $2.5 million",
+        "agreed to pay $100,000",
+        "The parties reached a settlement before trial",
+        "The settlement agreement includes a confidentiality clause",
+        "A $2 million settlement was approved by the court",
+        "The court ordered the parties to mediation"
+      ],
+      "example_count": 10,
+      "description": "Legal procedure patterns including motions, discovery, court procedures, and litigation terms"
+    },
+    "SHORT_FORMS": {
+      "examples": [
+        "Brown, 98 F. Supp. at 800",
+        "Microsoft, 87 F. Supp. 2d at 45",
+        "Order at 15",
+        "Memorandum Opinion dated March 15, 2023",
+        "\u00a7 240.10b-5",
+        "\u00a7 1910.95(a)",
+        "pt. 240",
+        "part 1910, subpart G",
+        "\u00a7 1983",
+        "\u00a7 78j(b)"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "SPECIALIZED_COURTS": {
+      "examples": [
+        "United States Court of Federal Claims",
+        "Court of Federal Claims",
+        "U.S. Court of Claims",
+        "United States Court of International Trade",
+        "Court of International Trade",
+        "U.S. Court of International Trade",
+        "Patent Trial and Appeal Board",
+        "PTAB",
+        "Trademark Trial and Appeal Board",
+        "Immigration Court"
+      ],
+      "example_count": 10,
+      "description": "Enhanced court name patterns for comprehensive legal entity extraction with circuit court identification improvements"
+    },
+    "SPECIALIZED_COURT_CITATIONS": {
+      "examples": [
+        "123 B.R. 456 (Bankr. S.D.N.Y. 2023)",
+        "456 B.R. 789 (Bankr. C.D. Cal. 2022)",
+        "789 BR 123 (Bankr. D. Del. 2021)",
+        "123 T.C. 456 (2023)",
+        "T.C. Memo. 2023-45",
+        "T.C. Memo 2022-123",
+        "23 I&N Dec. 456 (BIA 2023)",
+        "24 I. & N. Dec. 789 (A.G. 2022)",
+        "25 I&N Dec. 123 (BIA 2021)"
+      ],
+      "example_count": 9,
+      "description": "Enhanced case citation patterns with precise pinpoint citation matching to eliminate false positives"
+    },
+    "STATE_COURTS": {
+      "examples": [
+        "Washington State Supreme Court",
+        "California Supreme Court",
+        "New York Supreme Court",
+        "Supreme Court of Washington",
+        "Supreme Court of California",
+        "Supreme Court of the United States",
+        "Washington Court of Appeals",
+        "California Court of Appeals",
+        "Texas Court of Appeals",
+        "Superior Court of Washington"
+      ],
+      "example_count": 10,
+      "description": "Enhanced court name patterns for comprehensive legal entity extraction with circuit court identification improvements"
+    },
+    "STATE_STATUTES": {
+      "examples": [
+        "RCW 7.105.010",
+        "RCW 9A.32.060",
+        "RCW 26.50.110",
+        "WAC 388-76-10010",
+        "WAC 246-100-070",
+        "Cal. Civ. Code \u00a7 1542",
+        "Cal. Penal Code \u00a7 187",
+        "N.Y. C.P.L.R. \u00a7 3211",
+        "N.Y. Penal Law \u00a7 120.05",
+        "Tex. Penal Code \u00a7 19.02"
+      ],
+      "example_count": 10,
+      "description": "Optimized statute citation patterns for high-performance extraction"
+    },
+    "STATUTE_CITATION": {
+      "examples": [
+        "8 U.S.C. \u00a7 1227(a)(2)(A)(i)",
+        "42 U.S.C. \u00a7 1983",
+        "18 U.S.C. \u00a7 924(c)(1)",
+        "Alaska Stat. \u00a7 11.41.100 (2022)",
+        "AS \u00a7 09.10.065 (2023)",
+        "Alaska Stat. Ann. \u00a7\u00a7 47.12.010-47.12.990",
+        "Alaska Const. art. I, \u00a7 7",
+        "Alaska Const. art. III, \u00a7 16",
+        "Alaska Const. art. VII, \u00a7 1"
+      ],
+      "example_count": 9,
+      "description": "Comprehensive citation type patterns for legal documents with CitationType enum support"
+    },
+    "USC_CITATIONS": {
+      "examples": [
+        "42 U.S.C. \u00a7 1983",
+        "28 U.S.C. \u00a7 1331(a)",
+        "18 U.S.C. \u00a7 922(g)(1)",
+        "42 U.S.C. \u00a7\u00a7 1981-1988",
+        "28 U.S.C. \u00a7\u00a7 1331-1367",
+        "42 U.S.C. \u00a7\u00a7 1981, 1983, 1988",
+        "15 U.S.C. \u00a7\u00a7 78a, 78j, 78u",
+        "8 U.S.C. \u00a7 1227(a)(2)",
+        "42 U.S.C. 1983",
+        "18 U.S.C. \u00a7 924(c)"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. Code citations and statutory entities"
+    },
+    "USC_TITLES": {
+      "examples": [
+        "42 U.S.C. \u00a7 1983",
+        "42 U.S.C. \u00a7 2000a(a)",
+        "28 U.S.C. \u00a7 1331",
+        "28 U.S.C. \u00a7 1404(a)",
+        "15 U.S.C. \u00a7 78j(b)",
+        "15 U.S.C. \u00a7 80b-6",
+        "17 U.S.C. \u00a7 107",
+        "17 U.S.C. \u00a7 501(a)",
+        "18 U.S.C. \u00a7 922(g)(1)",
+        "18 U.S.C. \u00a7 924(c)"
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. Code citations and statutory entities"
+    },
+    "VENUE": {
+      "examples": [
+        "venue is proper",
+        "transfer of venue",
+        "28 U.S.C. \u00a7 1404",
+        "federal question jurisdiction",
+        "diversity jurisdiction",
+        "28 U.S.C. \u00a7 1331",
+        "venue",
+        "change of venue",
+        "transfer venue",
+        "San Francisco, 9th Cir."
+      ],
+      "example_count": 10,
+      "description": "Complete pattern library for U.S. District Court citations and entities"
+    },
+    "COURT": {
+      "examples": [
+        "United States District Court",
+        "Supreme Court of the United States",
+        "Court of Appeals for the Ninth Circuit",
+        "Superior Court of California",
+        "New York Court of Appeals"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: court"
+    },
+    "MAGISTRATE": {
+      "examples": [
+        "Magistrate Judge Virginia K. DeMarchi",
+        "U.S. Magistrate Judge P. Casey Pitts",
+        "Chief Magistrate Judge",
+        "Federal Magistrate",
+        "Magistrate Judge Smith"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: magistrate"
+    },
+    "ARBITRATOR": {
+      "examples": [
+        "Kenneth R. Feinberg",
+        "ICC Arbitrator Panel",
+        "AAA Commercial Arbitrator",
+        "JAMS Arbitrator Jane Smith",
+        "WIPO Arbitration Panel"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: arbitrator"
+    },
+    "MEDIATOR": {
+      "examples": [
+        "Florida Supreme Court Certified Mediator",
+        "Community Mediation Center Mediator",
+        "Family Court Mediator",
+        "Federal Court Mediator",
+        "Private Commercial Mediator"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: mediator"
+    },
+    "SPECIAL_MASTER": {
+      "examples": [
+        "Raymond J. Dearie",
+        "Kenneth R. Feinberg",
+        "Professor Lawrence Lessig",
+        "Vincent McKusick",
+        "Federal Court Special Master"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: special master"
+    },
+    "COURT_CLERK": {
+      "examples": [
+        "Clerk of the U.S. Supreme Court",
+        "District Court Clerk",
+        "Brevard County Clerk",
+        "Circuit Court Clerk",
+        "Clermont County Common Pleas Court Clerk"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: court clerk"
+    },
+    "COURT_REPORTER": {
+      "examples": [
+        "Certified Stenographic Reporter (CSR)",
+        "Registered Professional Reporter (RPR)",
+        "Federal Court Reporter",
+        "Certified Realtime Reporter (CRR)",
+        "Registered Merit Reporter (RMR)"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: court reporter"
+    },
+    "THIRD_PARTY": {
+      "examples": [
+        "Third-Party Defendant ABC Corp.",
+        "Third-Party Plaintiff John Smith",
+        "Third-Party Claimant",
+        "Third-Party Beneficiary",
+        "Third-Party Witness"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: third party"
+    },
+    "CLASS_REPRESENTATIVE": {
+      "examples": [
+        "Class Representative Jane Doe",
+        "Named Plaintiff John Smith",
+        "Lead Plaintiff ABC Pension Fund",
+        "Class Action Representative",
+        "Settlement Class Representative"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: class representative"
+    },
+    "PROSECUTOR": {
+      "examples": [
+        "Assistant District Attorney Smith",
+        "State's Attorney Jane Doe",
+        "Federal Prosecutor Johnson",
+        "Special Prosecutor Williams",
+        "County Prosecutor Brown"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: prosecutor"
+    },
+    "PUBLIC_DEFENDER": {
+      "examples": [
+        "Public Defender John Smith",
+        "Assistant Public Defender Jane Doe",
+        "Federal Public Defender",
+        "Chief Public Defender Johnson",
+        "Court-Appointed Counsel Williams"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: public defender"
+    },
+    "PARALEGAL": {
+      "examples": [
+        "Certified Paralegal (CP)",
+        "Registered Paralegal (RP)",
+        "Litigation Paralegal",
+        "Corporate Paralegal",
+        "Advanced Certified Paralegal"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: paralegal"
+    },
+    "LEGAL_SECRETARY": {
+      "examples": [
+        "Certified Legal Secretary (CLS)",
+        "Legal Administrative Assistant",
+        "Court Filing Secretary",
+        "Client Intake Secretary",
+        "Trial Support Secretary"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal secretary"
+    },
+    "LAW_CLERK": {
+      "examples": [
+        "Federal Circuit Court Clerk",
+        "District Court Law Clerk",
+        "Supreme Court Law Clerk",
+        "State Court Law Clerk",
+        "Judicial Extern"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: law clerk"
+    },
+    "LEGAL_AID_ATTORNEY": {
+      "examples": [
+        "Legal Aid Society Attorney",
+        "Community Legal Services Lawyer",
+        "Pro Bono Coordinator",
+        "Immigrant Rights Attorney",
+        "Housing Legal Aid Attorney"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal aid attorney"
+    },
+    "CORPORATE_COUNSEL": {
+      "examples": [
+        "General Counsel",
+        "Deputy General Counsel",
+        "Assistant General Counsel",
+        "Chief Legal Officer",
+        "In-House Counsel"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: corporate counsel"
+    },
+    "GOVERNMENT_ATTORNEY": {
+      "examples": [
+        "Assistant U.S. Attorney (AUSA)",
+        "State Attorney General",
+        "Assistant Attorney General",
+        "Agency General Counsel",
+        "Municipal Attorney"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: government attorney"
+    },
+    "STATUTE": {
+      "examples": [
+        "18 USC 242",
+        "42 USC Chapter 21",
+        "Title VII of the Civil Rights Act",
+        "Americans with Disabilities Act",
+        "Federal Magistrates Act of 1968"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: statute"
+    },
+    "REGULATION": {
+      "examples": [
+        "40 CFR Part 1500",
+        "21 CFR 211.67(a)",
+        "29 CFR \u00a7 1910.134",
+        "17 CFR \u00a7 240.10b-5",
+        "28 CFR Part 52"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: regulation"
+    },
+    "CASE_LAW": {
+      "examples": [
+        "Brown v. Board of Education, 347 U.S. 483 (1954)",
+        "Miranda v. Arizona, 384 U.S. 436 (1966)",
+        "Marbury v. Madison (1803)",
+        "Gideon v. Wainwright (1963)",
+        "Roe v. Wade, 410 U.S. 113 (1973)"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: case law"
+    },
+    "CONSTITUTIONAL_PROVISION": {
+      "examples": [
+        "First Amendment",
+        "Fourteenth Amendment Due Process Clause",
+        "Fifth Amendment",
+        "Article II Executive Power",
+        "Commerce Clause"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: constitutional provision"
+    },
+    "TREATY": {
+      "examples": [
+        "Paris Climate Agreement (2016)",
+        "United Nations Framework Convention on Climate Change",
+        "Kyoto Protocol (1997)",
+        "Montreal Protocol (1987)",
+        "NATO Treaty"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: treaty"
+    },
+    "EXECUTIVE_ORDER": {
+      "examples": [
+        "Executive Order 6102",
+        "Executive Order 9066",
+        "Executive Order 11246",
+        "Executive Order 13769",
+        "Presidential Proclamation 9645"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: executive order"
+    },
+    "ADMINISTRATIVE_CODE": {
+      "examples": [
+        "Code of Federal Regulations (CFR)",
+        "Federal Register (FR)",
+        "Administrative Procedure Act",
+        "GAO Standards",
+        "OMB Circulars"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: administrative code"
+    },
+    "LEGAL_RULE": {
+      "examples": [
+        "Federal Rules of Civil Procedure",
+        "Federal Rules of Evidence",
+        "Federal Rules of Criminal Procedure",
+        "Local Rule 16.1",
+        "Bankruptcy Rule 3001"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal rule"
+    },
+    "ORDINANCE": {
+      "examples": [
+        "City Ordinance No. 2021-15",
+        "County Zoning Ordinance",
+        "Municipal Code \u00a7 10.24.010",
+        "Local Ordinance 456",
+        "Town Bylaw Article XII"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: ordinance"
+    },
+    "COMPLAINT": {
+      "examples": [
+        "Civil Rights Complaint",
+        "Personal Injury Complaint",
+        "Employment Discrimination Complaint",
+        "Contract Breach Complaint",
+        "Class Action Complaint"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: complaint"
+    },
+    "BRIEF": {
+      "examples": [
+        "Appellate Brief",
+        "Supreme Court Brief",
+        "Amicus Curiae Brief",
+        "Reply Brief",
+        "Trial Brief"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: brief"
+    },
+    "ORDER": {
+      "examples": [
+        "Preliminary Injunction Order",
+        "Default Judgment Order",
+        "Discovery Order",
+        "Sanctions Order",
+        "Case Management Order"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: order"
+    },
+    "DISCOVERY_REQUEST": {
+      "examples": [
+        "Interrogatories",
+        "Request for Production of Documents",
+        "Request for Admissions",
+        "Deposition Notice",
+        "Subpoena Duces Tecum"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: discovery request"
+    },
+    "ANSWER": {
+      "examples": [
+        "Defendant's Answer",
+        "Answer and Counterclaim",
+        "Amended Answer",
+        "Answer to Complaint",
+        "Verified Answer"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: answer"
+    },
+    "COUNTERCLAIM": {
+      "examples": [
+        "Defendant's Counterclaim",
+        "Compulsory Counterclaim",
+        "Permissive Counterclaim",
+        "Amended Counterclaim",
+        "Counterclaim for Damages"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: counterclaim"
+    },
+    "CROSSCLAIM": {
+      "examples": [
+        "Defendant's Crossclaim",
+        "Co-Defendant Crossclaim",
+        "Third-Party Crossclaim",
+        "Crossclaim for Indemnification",
+        "Crossclaim for Contribution"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: crossclaim"
+    },
+    "CASE_NUMBER": {
+      "examples": [
+        "Case No. 1:21-cv-00123",
+        "Civil Action No. 20-4567",
+        "Criminal No. 19-cr-890",
+        "Bankruptcy No. 18-12345",
+        "Appeal No. 21-1234"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: case number"
+    },
+    "DOCKET_NUMBER": {
+      "examples": [
+        "Docket No. 19-1392",
+        "Supreme Court Docket 20-123",
+        "MDL Docket No. 2875",
+        "Consolidated Docket Nos. 18-1234, 18-5678",
+        "Master Docket No. 17-MD-2800"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: docket number"
+    },
+    "CASE_CAPTION": {
+      "examples": [
+        "Smith v. Jones",
+        "United States v. Doe",
+        "In re ABC Corporation",
+        "Ex parte Johnson",
+        "State of California v. XYZ Corp."
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: case caption"
+    },
+    "CASE_TITLE": {
+      "examples": [
+        "Brown v. Board of Education",
+        "Miranda v. Arizona",
+        "Citizens United v. FEC",
+        "Obergefell v. Hodges",
+        "District of Columbia v. Heller"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: case title"
+    },
+    "CASE_STATUS": {
+      "examples": [
+        "Pending",
+        "Active",
+        "Closed",
+        "Settled",
+        "On Appeal"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: case status"
+    },
+    "USC_CITATION": {
+      "examples": [
+        "42 U.S.C. \u00a7 1983",
+        "18 U.S.C. \u00a7 242",
+        "28 U.S.C. \u00a7 1331",
+        "15 U.S.C. \u00a7 78j(b)",
+        "26 U.S.C. \u00a7 501(c)(3)"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: usc citation"
+    },
+    "CFR_CITATION": {
+      "examples": [
+        "40 C.F.R. \u00a7 1500.1",
+        "21 C.F.R. Part 211",
+        "29 C.F.R. \u00a7 1910.134",
+        "17 C.F.R. \u00a7 240.10b-5",
+        "14 C.F.R. Part 91"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: cfr citation"
+    },
+    "STATE_STATUTE_CITATION": {
+      "examples": [
+        "Cal. Penal Code \u00a7 187",
+        "N.Y. Gen. Bus. Law \u00a7 349",
+        "Tex. Bus. & Com. Code \u00a7 17.46",
+        "Fla. Stat. \u00a7 768.28",
+        "720 ILCS 5/9-1"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: state statute citation"
+    },
+    "STATE_REGULATION_CITATION": {
+      "examples": [
+        "Cal. Code Regs. tit. 8, \u00a7 3203",
+        "N.Y. Comp. Codes R. & Regs. tit. 10, \u00a7 86-1.1",
+        "Tex. Admin. Code tit. 25, \u00a7 133.41",
+        "Fla. Admin. Code r. 64B8-9.009",
+        "Ill. Admin. Code tit. 77, \u00a7 750.100"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: state regulation citation"
+    },
+    "EXPIRATION_DATE": {
+      "examples": [
+        "Expires December 31, 2024",
+        "Valid until June 30, 2025",
+        "Expiration: January 1, 2025",
+        "Terminates on March 31, 2024",
+        "Sunset Date: December 31, 2025"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: expiration date"
+    },
+    "FILING": {
+      "examples": [
+        "Emergency Filing",
+        "Electronic Filing",
+        "Pro Se Filing",
+        "Joint Filing",
+        "Amended Filing"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: filing"
+    },
+    "HEARING": {
+      "examples": [
+        "Preliminary Hearing",
+        "Motion Hearing",
+        "Status Hearing",
+        "Evidentiary Hearing",
+        "Oral Argument"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: hearing"
+    },
+    "PROCEEDING": {
+      "examples": [
+        "Bankruptcy Proceeding",
+        "Administrative Proceeding",
+        "Arbitration Proceeding",
+        "Criminal Proceeding",
+        "Civil Proceeding"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: proceeding"
+    },
+    "LEGAL_ACTION": {
+      "examples": [
+        "File a lawsuit",
+        "Initiate legal proceedings",
+        "Commence action",
+        "Institute proceedings",
+        "Bring suit"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal action"
+    },
+    "RULING": {
+      "examples": [
+        "Court's Ruling",
+        "Preliminary Ruling",
+        "Final Ruling",
+        "Adverse Ruling",
+        "Favorable Ruling"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: ruling"
+    },
+    "VERDICT": {
+      "examples": [
+        "Guilty Verdict",
+        "Not Guilty Verdict",
+        "Jury Verdict",
+        "Directed Verdict",
+        "Special Verdict"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: verdict"
+    },
+    "EXHIBIT": {
+      "examples": [
+        "Exhibit A",
+        "Plaintiff's Exhibit 1",
+        "Defense Exhibit D-12",
+        "Government Exhibit 5",
+        "Trial Exhibit 100"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: exhibit"
+    },
+    "TESTIMONY": {
+      "examples": [
+        "Expert Testimony",
+        "Witness Testimony",
+        "Deposition Testimony",
+        "Trial Testimony",
+        "Sworn Testimony"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: testimony"
+    },
+    "AFFIDAVIT": {
+      "examples": [
+        "Affidavit of John Smith",
+        "Supporting Affidavit",
+        "Sworn Affidavit",
+        "Affidavit in Support of Motion",
+        "Affidavit of Service"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: affidavit"
+    },
+    "TRANSCRIPT": {
+      "examples": [
+        "Trial Transcript",
+        "Hearing Transcript",
+        "Deposition Transcript",
+        "Official Transcript",
+        "Court Reporter's Transcript"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: transcript"
+    },
+    "DISCOVERY_MATERIAL": {
+      "examples": [
+        "Document Production",
+        "Discovery Responses",
+        "Produced Documents",
+        "Discovery Materials",
+        "Responsive Documents"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: discovery material"
+    },
+    "FORENSIC_EVIDENCE": {
+      "examples": [
+        "DNA Evidence",
+        "Fingerprint Analysis",
+        "Ballistics Report",
+        "Digital Forensics",
+        "Toxicology Report"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: forensic evidence"
+    },
+    "WITNESS_STATEMENT": {
+      "examples": [
+        "Written Witness Statement",
+        "Recorded Statement",
+        "Sworn Statement",
+        "Eyewitness Account",
+        "Police Statement"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: witness statement"
+    },
+    "LEGAL_DOCTRINE": {
+      "examples": [
+        "Doctrine of Res Judicata",
+        "Stare Decisis",
+        "Qualified Immunity",
+        "Sovereign Immunity",
+        "Collateral Estoppel"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal doctrine"
+    },
+    "LEGAL_STANDARD": {
+      "examples": [
+        "Beyond a Reasonable Doubt",
+        "Preponderance of the Evidence",
+        "Clear and Convincing Evidence",
+        "Probable Cause",
+        "Reasonable Suspicion"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal standard"
+    },
+    "LEGAL_TEST": {
+      "examples": [
+        "Lemon Test",
+        "Chevron Deference",
+        "Rational Basis Test",
+        "Strict Scrutiny",
+        "Intermediate Scrutiny"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal test"
+    },
+    "BURDEN_OF_PROOF": {
+      "examples": [
+        "Plaintiff bears the burden of proof",
+        "Burden shifts to defendant",
+        "Prima facie burden",
+        "Ultimate burden of persuasion",
+        "Burden of production"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: burden of proof"
+    },
+    "CAUSE_OF_ACTION": {
+      "examples": [
+        "Negligence",
+        "Breach of Contract",
+        "Fraud",
+        "Defamation",
+        "Wrongful Termination"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: cause of action"
+    },
+    "CLAIM": {
+      "examples": [
+        "First Claim for Relief",
+        "Counterclaim",
+        "Cross-claim",
+        "Third-Party Claim",
+        "Statutory Claim"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: claim"
+    },
+    "DEFENSE": {
+      "examples": [
+        "Affirmative Defense",
+        "Statute of Limitations Defense",
+        "Immunity Defense",
+        "Self-Defense",
+        "Contributory Negligence"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: defense"
+    },
+    "REMEDY": {
+      "examples": [
+        "Injunctive Relief",
+        "Monetary Damages",
+        "Declaratory Judgment",
+        "Specific Performance",
+        "Restitution"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: remedy"
+    },
+    "SETTLEMENT_AMOUNT": {
+      "examples": [
+        "$1.5 million settlement",
+        "$500,000 in damages",
+        "Settlement of $10 million",
+        "$250,000 payment",
+        "$5 million class settlement"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: settlement amount"
+    },
+    "PENALTY": {
+      "examples": [
+        "Civil penalty",
+        "Criminal penalty",
+        "Administrative penalty",
+        "Monetary penalty",
+        "Statutory penalty"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: penalty"
+    },
+    "AWARD": {
+      "examples": [
+        "Jury award",
+        "Arbitration award",
+        "Damage award",
+        "Attorney's fee award",
+        "Court award"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: award"
+    },
+    "COMPENSATION": {
+      "examples": [
+        "Workers' compensation",
+        "Victim compensation",
+        "Fair compensation",
+        "Unemployment compensation",
+        "Just compensation"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: compensation"
+    },
+    "CHARGES": {
+      "examples": [
+        "First-degree murder",
+        "Grand theft auto",
+        "Aggravated assault",
+        "Wire fraud charges",
+        "RICO charges"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: charges"
+    },
+    "SENTENCE": {
+      "examples": [
+        "Life sentence",
+        "10 years imprisonment",
+        "5 years probation",
+        "Death sentence",
+        "Concurrent sentences"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: sentence"
+    },
+    "CONVICTION": {
+      "examples": [
+        "Felony conviction",
+        "Misdemeanor conviction",
+        "Prior conviction",
+        "Criminal conviction",
+        "Conviction reversed"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: conviction"
+    },
+    "ACQUITTAL": {
+      "examples": [
+        "Full acquittal",
+        "Jury acquittal",
+        "Acquittal on all charges",
+        "Partial acquittal",
+        "Directed acquittal"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: acquittal"
+    },
+    "PAROLE": {
+      "examples": [
+        "Granted parole",
+        "Parole violation",
+        "Parole hearing",
+        "Parole board",
+        "Life without parole"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: parole"
+    },
+    "PROBATION": {
+      "examples": [
+        "5 years probation",
+        "Supervised probation",
+        "Probation violation",
+        "Probation officer",
+        "Terms of probation"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: probation"
+    },
+    "ORGANIZATION": {
+      "examples": [
+        "Microsoft Corporation",
+        "American Civil Liberties Union",
+        "Federal Bureau of Investigation",
+        "World Health Organization",
+        "Securities and Exchange Commission"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: organization"
+    },
+    "GOVERNMENT_AGENCY": {
+      "examples": [
+        "Department of Justice",
+        "Environmental Protection Agency",
+        "Internal Revenue Service",
+        "Federal Trade Commission",
+        "Department of Health and Human Services"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: government agency"
+    },
+    "ADMINISTRATIVE_AGENCY": {
+      "examples": [
+        "National Labor Relations Board",
+        "Federal Communications Commission",
+        "Food and Drug Administration",
+        "Occupational Safety and Health Administration",
+        "Equal Employment Opportunity Commission"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: administrative agency"
+    },
+    "REGULATORY_BODY": {
+      "examples": [
+        "Securities and Exchange Commission",
+        "Federal Reserve Board",
+        "Consumer Financial Protection Bureau",
+        "Nuclear Regulatory Commission",
+        "Federal Energy Regulatory Commission"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: regulatory body"
+    },
+    "LEGISLATIVE_BODY": {
+      "examples": [
+        "United States Congress",
+        "House of Representatives",
+        "United States Senate",
+        "State Legislature",
+        "City Council"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legislative body"
+    },
+    "LAW_ENFORCEMENT": {
+      "examples": [
+        "Federal Bureau of Investigation",
+        "Drug Enforcement Administration",
+        "U.S. Marshals Service",
+        "Bureau of Alcohol, Tobacco, Firearms and Explosives",
+        "Department of Homeland Security"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: law enforcement"
+    },
+    "PATENT": {
+      "examples": [
+        "U.S. Patent No. 7,123,456",
+        "Patent Application No. 15/123,456",
+        "European Patent EP1234567",
+        "PCT/US2023/12345",
+        "Design Patent D123,456"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: patent"
+    },
+    "TRADEMARK": {
+      "examples": [
+        "COCA-COLA\u00ae",
+        "Nike Swoosh Logo",
+        "Registration No. 1,234,567",
+        "Serial No. 88/123,456",
+        "McDonald's Golden Arches\u2122"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: trademark"
+    },
+    "COPYRIGHT": {
+      "examples": [
+        "\u00a9 2024 John Smith",
+        "Copyright Registration No. TX0001234567",
+        "All Rights Reserved",
+        "Published Work Copyright",
+        "Sound Recording Copyright"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: copyright"
+    },
+    "TRADE_SECRET": {
+      "examples": [
+        "Confidential Formula",
+        "Proprietary Algorithm",
+        "Trade Secret Information",
+        "Confidential Business Information",
+        "Protected Process"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: trade secret"
+    },
+    "CITY": {
+      "examples": [
+        "New York",
+        "Los Angeles",
+        "Chicago",
+        "Houston",
+        "Washington, D.C."
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: city"
+    },
+    "STATE": {
+      "examples": [
+        "California",
+        "New York",
+        "Texas",
+        "Florida",
+        "Illinois"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: state"
+    },
+    "COUNTY": {
+      "examples": [
+        "Los Angeles County",
+        "Cook County",
+        "Harris County",
+        "Miami-Dade County",
+        "King County"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: county"
+    },
+    "COUNTRY": {
+      "examples": [
+        "United States",
+        "Canada",
+        "United Kingdom",
+        "Germany",
+        "Japan"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: country"
+    },
+    "PERSON": {
+      "examples": [
+        "John Smith",
+        "Jane Doe",
+        "Dr. Robert Johnson",
+        "Ms. Sarah Williams",
+        "Prof. Michael Brown"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: person"
+    },
+    "PHONE_NUMBER": {
+      "examples": [
+        "(555) 123-4567",
+        "1-800-555-1234",
+        "+1 212-555-0100",
+        "555.123.4567",
+        "800-CALL-NOW"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: phone number"
+    },
+    "EMAIL": {
+      "examples": [
+        "john.smith@example.com",
+        "legal@lawfirm.com",
+        "clerk@court.gov",
+        "contact@company.org",
+        "attorney@law.net"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: email"
+    },
+    "URL": {
+      "examples": [
+        "https://www.supremecourt.gov",
+        "http://www.uscourts.gov",
+        "www.justice.gov",
+        "https://law.cornell.edu",
+        "pacer.uscourts.gov"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: url"
+    },
+    "PERCENTAGE": {
+      "examples": [
+        "51%",
+        "100 percent",
+        "25.5%",
+        "ninety percent",
+        "33\u2153%"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: percentage"
+    },
+    "LEGAL_TERM": {
+      "examples": [
+        "pro se",
+        "habeas corpus",
+        "amicus curiae",
+        "certiorari",
+        "mandamus"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal term"
+    },
+    "LEGAL_AID": {
+      "examples": [
+        "Legal Aid Society of New York",
+        "Bay Area Legal Aid",
+        "Texas RioGrande Legal Aid",
+        "Community Legal Services",
+        "Pro Bono Legal Services"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal aid"
+    },
+    "EXPERT_WITNESS": {
+      "examples": [
+        "Dr. Michael Baden, Forensic Pathologist",
+        "Professor John Doe, Economics Expert",
+        "Jane Smith, CPA, Financial Expert",
+        "Dr. Robert Johnson, Medical Expert",
+        "Engineering Expert Witness"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: expert witness"
+    },
+    "LAY_WITNESS": {
+      "examples": [
+        "Eyewitness John Smith",
+        "Character Witness Jane Doe",
+        "Fact Witness Robert Johnson",
+        "Occurrence Witness",
+        "Bystander Witness"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: lay witness"
+    },
+    "STATE_AGENCY": {
+      "examples": [
+        "California Department of Motor Vehicles",
+        "Texas Education Agency",
+        "New York State Department of Health",
+        "Florida Department of Revenue",
+        "Illinois Department of Children and Family Services"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: state agency"
+    },
+    "LOCAL_AGENCY": {
+      "examples": [
+        "Los Angeles Department of Building and Safety",
+        "Chicago Police Department",
+        "New York City Department of Finance",
+        "Houston Fire Department",
+        "San Francisco Planning Department"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: local agency"
+    },
+    "EXECUTIVE_OFFICE": {
+      "examples": [
+        "Office of the President",
+        "Office of the Governor",
+        "Office of the Mayor",
+        "Office of the Attorney General",
+        "Office of Management and Budget"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: executive office"
+    },
+    "DOCUMENT": {
+      "examples": [
+        "Contract Agreement",
+        "Memorandum of Understanding",
+        "Letter of Intent",
+        "Power of Attorney",
+        "Deed of Trust"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: document"
+    },
+    "DECLARATION": {
+      "examples": [
+        "Declaration of John Smith",
+        "Declaration Under Penalty of Perjury",
+        "Declaration in Support of Motion",
+        "Expert Declaration",
+        "Witness Declaration"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: declaration"
+    },
+    "AGREEMENT": {
+      "examples": [
+        "Settlement Agreement",
+        "Purchase Agreement",
+        "Non-Disclosure Agreement",
+        "Employment Agreement",
+        "Licensing Agreement"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: agreement"
+    },
+    "FEDERAL_JURISDICTION": {
+      "examples": [
+        "Federal Question Jurisdiction",
+        "Diversity Jurisdiction",
+        "Supplemental Jurisdiction",
+        "Removal Jurisdiction",
+        "Exclusive Federal Jurisdiction"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: federal jurisdiction"
+    },
+    "STATE_JURISDICTION": {
+      "examples": [
+        "State Court Jurisdiction",
+        "General Jurisdiction",
+        "Limited Jurisdiction",
+        "Concurrent State Jurisdiction",
+        "State Criminal Jurisdiction"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: state jurisdiction"
+    },
+    "FORUM": {
+      "examples": [
+        "Forum Selection Clause",
+        "Chosen Forum",
+        "Arbitration Forum",
+        "Judicial Forum",
+        "Administrative Forum"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: forum"
+    },
+    "CIRCUIT": {
+      "examples": [
+        "Ninth Circuit",
+        "Second Circuit",
+        "Fifth Circuit",
+        "D.C. Circuit",
+        "Federal Circuit"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: circuit"
+    },
+    "DIVISION": {
+      "examples": [
+        "Civil Division",
+        "Criminal Division",
+        "Appellate Division",
+        "Tax Division",
+        "Antitrust Division"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: division"
+    },
+    "CONVENTION": {
+      "examples": [
+        "Geneva Convention",
+        "Hague Convention",
+        "Vienna Convention",
+        "New York Convention",
+        "UN Convention on Contracts"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: convention"
+    },
+    "STANDARD_OF_REVIEW": {
+      "examples": [
+        "De Novo Review",
+        "Abuse of Discretion",
+        "Clear Error",
+        "Substantial Evidence",
+        "Arbitrary and Capricious"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: standard of review"
+    },
+    "ELEMENT": {
+      "examples": [
+        "Element of the Crime",
+        "Essential Element",
+        "Prima Facie Element",
+        "Required Element",
+        "Statutory Element"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: element"
+    },
+    "FACTOR": {
+      "examples": [
+        "Daubert Factors",
+        "Sentencing Factors",
+        "Mitigating Factor",
+        "Aggravating Factor",
+        "Best Interest Factors"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: factor"
+    },
+    "CIVIL_PROCEDURE": {
+      "examples": [
+        "Federal Rules of Civil Procedure",
+        "Service of Process",
+        "Pleading Requirements",
+        "Discovery Rules",
+        "Summary Judgment Standard"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: civil procedure"
+    },
+    "CRIMINAL_PROCEDURE": {
+      "examples": [
+        "Federal Rules of Criminal Procedure",
+        "Miranda Rights",
+        "Arraignment Procedure",
+        "Grand Jury Proceedings",
+        "Sentencing Guidelines"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: criminal procedure"
+    },
+    "LOCAL_RULE": {
+      "examples": [
+        "Local Rule 16.1",
+        "E.D. Cal. Local Rule 230",
+        "S.D.N.Y. Local Civil Rule 7.1",
+        "N.D. Ill. LR 5.2",
+        "C.D. Cal. L.R. 83-2.1"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: local rule"
+    },
+    "STANDING_ORDER": {
+      "examples": [
+        "Judge Smith's Standing Order",
+        "Court's Standing Order on Discovery",
+        "Standing Order Re: Electronic Filing",
+        "Standing Order on Case Management",
+        "COVID-19 Standing Order"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: standing order"
+    },
+    "EVIDENCE_TYPE": {
+      "examples": [
+        "Direct Evidence",
+        "Circumstantial Evidence",
+        "Real Evidence",
+        "Documentary Evidence",
+        "Testimonial Evidence"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: evidence type"
+    },
+    "PHYSICAL_EVIDENCE": {
+      "examples": [
+        "Murder Weapon",
+        "Fingerprints",
+        "Blood Sample",
+        "Clothing Fibers",
+        "Vehicle Damage"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: physical evidence"
+    },
+    "DOCUMENTARY_EVIDENCE": {
+      "examples": [
+        "Email Correspondence",
+        "Financial Records",
+        "Medical Records",
+        "Business Documents",
+        "Contracts and Agreements"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: documentary evidence"
+    },
+    "TESTIMONIAL_EVIDENCE": {
+      "examples": [
+        "Sworn Testimony",
+        "Oral Testimony",
+        "Written Testimony",
+        "Video Testimony",
+        "Remote Testimony"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: testimonial evidence"
+    },
+    "DEMONSTRATIVE_EVIDENCE": {
+      "examples": [
+        "Crime Scene Reconstruction",
+        "Computer Animation",
+        "Scale Model",
+        "Timeline Chart",
+        "Accident Diagram"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: demonstrative evidence"
+    },
+    "DIGITAL_EVIDENCE": {
+      "examples": [
+        "Computer Hard Drive",
+        "Cell Phone Data",
+        "Social Media Posts",
+        "Digital Photographs",
+        "GPS Location Data"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: digital evidence"
+    },
+    "HEARSAY": {
+      "examples": [
+        "Out-of-Court Statement",
+        "Second-Hand Information",
+        "Inadmissible Hearsay",
+        "Multiple Hearsay",
+        "Hearsay Within Hearsay"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: hearsay"
+    },
+    "HEARSAY_EXCEPTION": {
+      "examples": [
+        "Excited Utterance",
+        "Business Records Exception",
+        "Dying Declaration",
+        "Statement Against Interest",
+        "Present Sense Impression"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: hearsay exception"
+    },
+    "COUNT": {
+      "examples": [
+        "Count One: Wire Fraud",
+        "Count Two: Conspiracy",
+        "Multiple Counts",
+        "First Count",
+        "Amended Count"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: count"
+    },
+    "CHARGE": {
+      "examples": [
+        "Criminal Charge",
+        "Felony Charge",
+        "Misdemeanor Charge",
+        "Federal Charge",
+        "State Charge"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: charge"
+    },
+    "ALLEGATION": {
+      "examples": [
+        "Plaintiff alleges",
+        "Factual Allegation",
+        "Legal Allegation",
+        "Conclusory Allegation",
+        "Amended Allegation"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: allegation"
+    },
+    "AFFIRMATIVE_DEFENSE": {
+      "examples": [
+        "Statute of Limitations",
+        "Self-Defense",
+        "Duress",
+        "Necessity",
+        "Qualified Immunity"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: affirmative defense"
+    },
+    "CROSS_CLAIM": {
+      "examples": [
+        "Co-Defendant's Cross-Claim",
+        "Cross-Claim for Indemnification",
+        "Cross-Claim for Contribution",
+        "Third-Party Cross-Claim",
+        "Amended Cross-Claim"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: cross claim"
+    },
+    "COMPENSATORY_DAMAGES": {
+      "examples": [
+        "Actual Damages",
+        "Economic Damages",
+        "Non-Economic Damages",
+        "Lost Wages",
+        "Medical Expenses"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: compensatory damages"
+    },
+    "PUNITIVE_DAMAGES": {
+      "examples": [
+        "Exemplary Damages",
+        "Treble Damages",
+        "Punitive Award",
+        "Deterrent Damages",
+        "Enhanced Damages"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: punitive damages"
+    },
+    "STATUTORY_DAMAGES": {
+      "examples": [
+        "Copyright Statutory Damages",
+        "FDCPA Statutory Damages",
+        "TCPA Statutory Damages",
+        "Minimum Statutory Damages",
+        "Maximum Statutory Damages"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: statutory damages"
+    },
+    "LIQUIDATED_DAMAGES": {
+      "examples": [
+        "Contractual Liquidated Damages",
+        "Pre-Determined Damages",
+        "Agreed Damages",
+        "Liquidated Damages Clause",
+        "Daily Liquidated Damages"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: liquidated damages"
+    },
+    "NOMINAL_DAMAGES": {
+      "examples": [
+        "One Dollar Damages",
+        "Token Damages",
+        "Symbolic Damages",
+        "Minimal Damages",
+        "Technical Violation Damages"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: nominal damages"
+    },
+    "RELIEF_REQUESTED": {
+      "examples": [
+        "Prayer for Relief",
+        "Demand for Relief",
+        "Request for Relief",
+        "Relief Sought",
+        "Forms of Relief"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: relief requested"
+    },
+    "DECLARATORY_RELIEF": {
+      "examples": [
+        "Declaratory Judgment",
+        "Declaration of Rights",
+        "Judicial Declaration",
+        "Declaratory Decree",
+        "Declaratory Order"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: declaratory relief"
+    },
+    "EQUITABLE_RELIEF": {
+      "examples": [
+        "Permanent Injunction",
+        "Preliminary Injunction",
+        "Specific Performance",
+        "Rescission",
+        "Reformation"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: equitable relief"
+    },
+    "LEGAL_CONCEPT": {
+      "examples": [
+        "Due Process",
+        "Equal Protection",
+        "Reasonable Doubt",
+        "Good Faith",
+        "Fair Use"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal concept"
+    },
+    "PRINCIPLE": {
+      "examples": [
+        "Principle of Law",
+        "Legal Principle",
+        "Guiding Principle",
+        "Constitutional Principle",
+        "Equitable Principle"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: principle"
+    },
+    "LEGAL_THEORY": {
+      "examples": [
+        "Negligence Theory",
+        "Contract Theory",
+        "Tort Theory",
+        "Constitutional Theory",
+        "Agency Theory"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal theory"
+    },
+    "LEGAL_DEFINITION": {
+      "examples": [
+        "Legal Definition of Fraud",
+        "Statutory Definition",
+        "Common Law Definition",
+        "Regulatory Definition",
+        "Term of Art Definition"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal definition"
+    },
+    "SERVICE_DATE": {
+      "examples": [
+        "Date of Service: January 1, 2024",
+        "Served on December 31, 2023",
+        "Service Date: March 15, 2024",
+        "Electronic Service Date",
+        "Personal Service Date"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: service date"
+    },
+    "HEARING_DATE": {
+      "examples": [
+        "Hearing scheduled for January 15, 2024",
+        "Motion Hearing Date: February 1, 2024",
+        "Status Hearing: March 20, 2024",
+        "Preliminary Hearing Date",
+        "Oral Argument Date"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: hearing date"
+    },
+    "TRIAL_DATE": {
+      "examples": [
+        "Trial Date: June 1, 2024",
+        "Jury Trial begins July 15, 2024",
+        "Bench Trial Date",
+        "Trial Setting: September 2024",
+        "Trial Calendar Date"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: trial date"
+    },
+    "STATUTE_OF_LIMITATIONS": {
+      "examples": [
+        "Two-year statute of limitations",
+        "Six-year limitations period",
+        "One-year filing deadline",
+        "Statute of limitations expires",
+        "Tolling of limitations period"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: statute of limitations"
+    },
+    "FEE": {
+      "examples": [
+        "Attorney's Fees",
+        "Filing Fee",
+        "Expert Witness Fee",
+        "Court Costs",
+        "Service Fee"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: fee"
+    },
+    "CASE_TYPE": {
+      "examples": [
+        "Civil Rights Case",
+        "Personal Injury Case",
+        "Contract Dispute",
+        "Criminal Case",
+        "Family Law Case"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: case type"
+    },
+    "LLC": {
+      "examples": [
+        "Smith Holdings, LLC",
+        "ABC Properties, L.L.C.",
+        "Johnson Enterprises, LLC",
+        "Tech Solutions, LLC",
+        "Real Estate Ventures, LLC"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: llc"
+    },
+    "PARTNERSHIP": {
+      "examples": [
+        "Smith & Jones Partnership",
+        "ABC Limited Partnership",
+        "General Partnership",
+        "Limited Liability Partnership",
+        "Professional Partnership"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: partnership"
+    },
+    "NONPROFIT": {
+      "examples": [
+        "Red Cross",
+        "United Way",
+        "501(c)(3) Organization",
+        "Charitable Foundation",
+        "Tax-Exempt Organization"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: nonprofit"
+    },
+    "TRUST": {
+      "examples": [
+        "Smith Family Trust",
+        "Revocable Living Trust",
+        "Irrevocable Trust",
+        "Charitable Trust",
+        "Estate Trust"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: trust"
+    },
+    "UNION": {
+      "examples": [
+        "International Brotherhood of Teamsters",
+        "Service Employees International Union",
+        "United Auto Workers",
+        "American Federation of Teachers",
+        "Labor Union Local 123"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: union"
+    },
+    "ASSOCIATION": {
+      "examples": [
+        "American Bar Association",
+        "Homeowners Association",
+        "Trade Association",
+        "Professional Association",
+        "Industry Association"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: association"
+    },
+    "OFFENSE": {
+      "examples": [
+        "Criminal Offense",
+        "First Offense",
+        "Repeat Offense",
+        "Violent Offense",
+        "Drug Offense"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: offense"
+    },
+    "FELONY": {
+      "examples": [
+        "Class A Felony",
+        "First-Degree Felony",
+        "Violent Felony",
+        "Federal Felony",
+        "Aggravated Felony"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: felony"
+    },
+    "MISDEMEANOR": {
+      "examples": [
+        "Class B Misdemeanor",
+        "Gross Misdemeanor",
+        "Simple Misdemeanor",
+        "High Court Misdemeanor",
+        "Petty Misdemeanor"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: misdemeanor"
+    },
+    "INFRACTION": {
+      "examples": [
+        "Traffic Infraction",
+        "Civil Infraction",
+        "Parking Infraction",
+        "Moving Violation",
+        "Code Infraction"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: infraction"
+    },
+    "BAR_NUMBER": {
+      "examples": [
+        "State Bar No. 123456",
+        "Bar ID: 987654",
+        "Attorney Bar #234567",
+        "Bar License No. 345678",
+        "Bar Membership Number 456789"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: bar number"
+    },
+    "LEGAL_CITATION": {
+      "examples": [
+        "See Smith v. Jones, 123 F.3d 456",
+        "Citing Brown, 789 U.S. at 234",
+        "Per 42 U.S.C. \u00a7 1983",
+        "Under Rule 12(b)(6)",
+        "Pursuant to 28 U.S.C. \u00a7 1331"
+      ],
+      "example_count": 5,
+      "description": "Legal entity type: legal citation"
+    }
+  },
+  "total_training_ready_types": 219,
+  "total_examples": 1275,
+  "recommended_for_immediate_training": [
+    "USC_TITLES",
+    "LATIN_TERM",
+    "FEDERAL_RULES",
+    "LEGAL_MARKER",
+    "FEDERAL_COURTS",
+    "CFR_CITATIONS",
+    "USC_CITATIONS",
+    "MOTION",
+    "DATE",
+    "CASE_CITATION"
+  ]
+}

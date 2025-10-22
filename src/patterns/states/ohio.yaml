@@ -1,0 +1,199 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: ohio
+  state_abbreviation: Ohio
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Ohio state citations and entities
+case_citations:
+  ohio_supreme_court:
+    name: ohio_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+123\s+Ohio\s+St\.\s+2d\s+456,\s+789\s+\(Ohio\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Ohio State Reports or North Eastern Reporter volume
+      reporter: Ohio St. or N.E. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 156 Ohio St. 3d 234 (Ohio 2023)
+    - Smith v. ABC Corp., 890 N.E.2d 567 (Ohio 2022)
+    - In re Estate of Brown, 123 Ohio St. 2d 456, 789 (Ohio 2021)
+    - State v. Moore, 149 Ohio St. 3d 557 (Ohio 2017)
+    - Oberholzer v. Galapo, 144 Ohio St. 3d 128 (Ohio 2015)
+  ohio_court_of_appeals:
+    name: ohio_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Ohio\s+App\.(?:\s*2d|3d)?|N\.E\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist\.(?:\s+Ohio)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Ohio App Reports or North Eastern Reporter volume
+      reporter: Ohio appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      district: Court of Appeals district number
+      year: Decision year
+    examples:
+    - Smith v. Jones, 234 Ohio App. 3d 567 (1st Dist. Ohio 2023)
+    - ABC Corp. v. XYZ Inc., 456 N.E.3d 789 (12th Dist. Ohio 2022)
+    - People v. Brown, 178 Ohio App. 2d 345 (8th Dist. 2021)
+  ohio_common_pleas:
+    name: ohio_common_pleas_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+)\s+County\s+C\.P\.(?:\s+Ohio)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Common Pleas court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-CV-1234 (Hamilton County C.P. Ohio)
+    - ABC Corp. v. XYZ Inc., No. CV-22-5678 (Cuyahoga County C.P. 2022)
+statute_citations:
+  ohio_revised_code:
+    name: ohio_revised_code_citation
+    pattern: Ohio\s+Rev\.\s+Code\s+Ann\.\s+(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Revised Code section number or range
+      year: Publication year
+    examples:
+    - Ohio Rev. Code Ann. § 2903.01 (West 2023)
+    - Ohio Rev. Code Ann. §§ 1343.01-1343.09
+    - Ohio Rev. Code Ann. § 5321.04
+    - Ohio Rev. Code Ann. § 4511.19
+    - Ohio Rev. Code Ann. § 3105.01
+    - Ohio Rev. Code Ann. § 2151.03
+    - Ohio Rev. Code Ann. § 4123.01
+  ohio_constitution:
+    name: ohio_constitution_citation
+    pattern: Ohio\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Ohio Const. art. I, § 7
+    - Ohio Const. art. II, § 1
+    - Ohio Const. art. VIII, § 2(a)
+regulation_citations:
+  ohio_administrative_code:
+    name: ohio_administrative_code_citation
+    pattern: Ohio\s+Admin\.\s+Code\s+(?P<section>\d+(?:-\d+)*(?::\d+(?:-\d+)*)*(?:\s*[-–]\s*\d+(?:-\d+)*(?::\d+(?:-\d+)*)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      section: Administrative Code section number
+    examples:
+    - Ohio Admin. Code 3745-1-05
+    - Ohio Admin. Code 5160:1-3-05.2
+    - Ohio Admin. Code 4906-5-08
+court_system:
+  court_names:
+    ohio_supreme_court:
+      pattern: (?i)(?:Ohio\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Ohio)?
+      confidence: 0.95
+      level: supreme
+    ohio_court_of_appeals:
+      pattern: (?i)(?:Ohio\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+(?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist(?:rict)?\.?)?
+      confidence: 0.93
+      level: appellate
+      districts:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+    ohio_common_pleas:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+County\s+(?:Court\s+of\s+)?(?:Common\s+Pleas|C\.P\.?)(?:\s+Ohio)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: OHIO_SUPREME_COURT_CASE
+  description: Ohio Supreme Court case citation
+  confidence_threshold: 0.95
+- name: OHIO_APPELLATE_CASE
+  description: Ohio Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: OHIO_COMMON_PLEAS_CASE
+  description: Ohio Common Pleas Court case citation
+  confidence_threshold: 0.85
+- name: OHIO_STATUTE
+  description: Ohio Revised Code provision
+  confidence_threshold: 0.9
+- name: OHIO_REGULATION
+  description: Ohio administrative regulation
+  confidence_threshold: 0.88
+- name: OHIO_CONSTITUTIONAL_PROVISION
+  description: Ohio constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1803
+    max_year: 2025
+  volume_ranges:
+    ohio_state_reports:
+      ohio_st_2d:
+        min_volume: 1
+        max_volume: 70
+      ohio_st_3d:
+        min_volume: 1
+        max_volume: 200
+    ohio_app_reports:
+      ohio_app_2d:
+        min_volume: 1
+        max_volume: 200
+      ohio_app_3d:
+        min_volume: 1
+        max_volume: 300
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 820_citations_per_second
+dependencies:
+  requires:
+  - ohio_court_abbreviations
+  - ohio_county_names
+  - ohio_judicial_districts
+  optional:
+  - ohio_historical_courts
+  - ohio_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.ohio_supreme_court
+    text: State v. Johnson, 156 Ohio St. 3d 234 (Ohio 2023)
+    expected_entities: 1
+  - pattern: statute_citations.ohio_revised_code
+    text: Ohio Rev. Code Ann. § 2903.01 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.ohio_court_of_appeals
+    text: Smith v. Jones, 234 Ohio App. 3d 567 (1st Dist. Ohio 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.5 seconds
+    memory_usage: < 130MB
+    accuracy_threshold: 0.94

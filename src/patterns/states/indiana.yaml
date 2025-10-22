@@ -1,0 +1,184 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: indiana
+  state_abbreviation: Ind.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Indiana state citations and entities
+case_citations:
+  indiana_supreme_court:
+    name: indiana_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+175\s+Ind\.\s+456,\s+789\s+\(Ind\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Indiana Reports or North Eastern Reporter volume
+      reporter: Ind. or N.E. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 180 Ind. 234 (Ind. 2023)
+    - Smith v. ABC Corp., 890 N.E.2d 567 (Ind. 2022)
+    - In re Estate of Brown, 175 Ind. 456, 789 (Ind. 2021)
+  indiana_court_of_appeals:
+    name: indiana_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Ind\.?\s*App\.(?:\s*2d|3d)?|N\.E\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Ind\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Indiana App Reports or North Eastern Reporter volume
+      reporter: Indiana appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 156 Ind. App. 567 (Ind. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 N.E.3d 789 (Ind. Ct. App. 2022)
+    - People v. Brown, 134 Ind. App. 345 (Ind. Ct. App. 2021)
+  indiana_trial_court:
+    name: indiana_trial_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+)\s+(?:Super\.|Cir\.|County)\s+(?:Ct\.)?(?:\s+Ind\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Trial court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 49G01-2301-CT-001234 (Marion Super. Ct. Ind.)
+    - ABC Corp. v. XYZ Inc., No. 02C01-2201-PL-005678 (Allen Cir. Ct. 2022)
+statute_citations:
+  indiana_code:
+    name: indiana_code_citation
+    pattern: Ind\.\s+Code\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d-]+(?:\s*[-–]\s*[\d-]+)?(?:\s*to\s*[\d-]+)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Indiana Code section number or range
+      year: Publication year
+    examples:
+    - Ind. Code Ann. § 35-42-1-1 (West 2023)
+    - Ind. Code §§ 23-17-1-1 to 23-17-30-5
+    - Ind. Code § 34-6-2-38
+  indiana_constitution:
+    name: indiana_constitution_citation
+    pattern: Ind\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Ind. Const. art. I, § 12
+    - Ind. Const. art. IV, § 1
+    - Ind. Const. art. VIII, § 1(a)
+regulation_citations:
+  indiana_administrative_code:
+    name: indiana_administrative_code_citation
+    pattern: (?P<title>\d+)\s+Ind\.\s+Admin\.\s+Code\s+(?P<section>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Administrative Code title number
+      section: Administrative Code section number
+    examples:
+    - 326 Ind. Admin. Code 2-7-1
+    - 170 Ind. Admin. Code 1-1-4
+    - 405 Ind. Admin. Code 5-20-1
+court_system:
+  court_names:
+    indiana_supreme_court:
+      pattern: (?i)(?:Ind(?:iana)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Indiana)?
+      confidence: 0.95
+      level: supreme
+    indiana_court_of_appeals:
+      pattern: (?i)(?:Ind(?:iana)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Indiana)?
+      confidence: 0.93
+      level: appellate
+    indiana_superior_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+(?:County\s+)?(?:Superior\s+Court|Super\.?\s+Ct\.?)(?:\s+Ind(?:iana)?\.?)?
+      confidence: 0.9
+      level: trial
+    indiana_circuit_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+(?:County\s+)?(?:Circuit\s+Court|Cir\.?\s+Ct\.?)(?:\s+Ind(?:iana)?\.?)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: INDIANA_SUPREME_COURT_CASE
+  description: Indiana Supreme Court case citation
+  confidence_threshold: 0.95
+- name: INDIANA_APPELLATE_CASE
+  description: Indiana Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: INDIANA_TRIAL_COURT_CASE
+  description: Indiana trial court case citation
+  confidence_threshold: 0.85
+- name: INDIANA_STATUTE
+  description: Indiana Code provision
+  confidence_threshold: 0.9
+- name: INDIANA_REGULATION
+  description: Indiana administrative regulation
+  confidence_threshold: 0.88
+- name: INDIANA_CONSTITUTIONAL_PROVISION
+  description: Indiana constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1816
+    max_year: 2025
+  volume_ranges:
+    indiana_reports:
+      ind_1st:
+        min_volume: 1
+        max_volume: 280
+      ind_2d:
+        min_volume: 1
+        max_volume: 50
+    indiana_app_reports:
+      ind_app_1st:
+        min_volume: 1
+        max_volume: 180
+      ind_app_2d:
+        min_volume: 1
+        max_volume: 200
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  f1_target: 0.93
+  processing_speed: 790_citations_per_second
+dependencies:
+  requires:
+  - indiana_court_abbreviations
+  - indiana_county_names
+  - indiana_judicial_circuits
+  optional:
+  - indiana_historical_courts
+  - indiana_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.indiana_supreme_court
+    text: State v. Johnson, 180 Ind. 234 (Ind. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.indiana_code
+    text: Ind. Code Ann. § 35-42-1-1 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.indiana_court_of_appeals
+    text: Smith v. Jones, 156 Ind. App. 567 (Ind. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.6 seconds
+    memory_usage: < 132MB
+    accuracy_threshold: 0.93

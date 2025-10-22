@@ -1,0 +1,189 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: wyoming
+  state_abbreviation: Wyo.
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Wyoming state citations and entities
+case_citations:
+  wyoming_supreme_court:
+    name: wyoming_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+P\.2d\s+567,\s+890\s+\(Wyo\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Wyoming Reports or Pacific Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Wyoming, 123 Wyo. 456 (Wyo. 2023)
+    - Johnson v. ABC Corp., 456 P.3d 789 (Wyo. 2022)
+    - Ex parte Brown, 234 P.2d 567, 890 (Wyo. 2021)
+  wyoming_district_court:
+    name: wyoming_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Judicial\s+District(?:\s+Court)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Wyo\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 85
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-CV-123 (1st Judicial District, Laramie County, Wyo.)
+    - ABC Corp. v. XYZ Inc., CV-22-456 (2nd Judicial District, Albany County, Wyo.
+      2022)
+  wyoming_circuit_court:
+    name: wyoming_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Circuit\s+Court|Cir\.\s+Ct\.?)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Wyo\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 80
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-12345 (Circuit Court, Campbell County, Wyo.)
+    - ABC Corp. v. XYZ Inc., CR-22-987 (Cir. Ct. Natrona County, Wyo. 2022)
+statute_citations:
+  wyoming_statutes:
+    name: wyoming_statutes_citation
+    pattern: Wyo\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Wyoming Statutes section number
+      year: Publication year
+    examples:
+    - Wyo. Stat. Ann. § 6-2-101 (2023)
+    - Wyo. Stat. §§ 1-1-101 to 1-1-120
+    - Wyo. Stat. Ann. § 35-7-1037.1
+    - Wyo. Stat. § 20-2-201
+    - Wyo. Stat. Ann. § 31-5-234
+    - Wyo. Stat. § 27-14-601
+  wyoming_constitution:
+    name: wyoming_constitution_citation
+    pattern: Wyo\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Wyo. Const. art. I, § 6
+    - Wyo. Const. art. III, § 1
+    - Wyo. Const. art. XVI, § 6(b)
+    - Wyo. Const. art. VII, § 12
+    - Wyo. Const. art. XV, § 19
+regulation_citations:
+  wyoming_administrative_rules:
+    name: wyoming_administrative_rules_citation
+    pattern: Wyo\.\s+(?:Admin\.\s+Rules?|Code\s+R\.)\s+(?P<rule>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      rule: Administrative rule number
+    examples:
+    - Wyo. Admin. Rules § 020-0001-2
+    - Wyo. Code R. §§ 048-0004-1-5
+    - Wyo. Admin. Rules § 046-0002-3.1
+    - Wyo. Admin. Rules § 041-0001-8
+    - Wyo. Code R. § 024-0003-4
+court_system:
+  court_names:
+    wyoming_supreme_court:
+      pattern: (?i)(?:Wyo(?:ming)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Wyoming)?
+      confidence: 0.95
+      level: supreme
+    wyoming_district_court:
+      pattern: (?i)(?:Wyo(?:ming)?\.\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    wyoming_circuit_court:
+      pattern: (?i)(?:Wyo(?:ming)?\.\s+)?(?:Circuit\s+Court|Cir\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: trial
+    wyoming_municipal_court:
+      pattern: (?i)(?:Wyo(?:ming)?\.\s+)?(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:Municipal\s+Court|Mun\.\s+Ct\.?)
+      confidence: 0.86
+      level: trial
+entity_types:
+- name: WYOMING_SUPREME_COURT_CASE
+  description: Wyoming Supreme Court case citation
+  confidence_threshold: 0.95
+- name: WYOMING_DISTRICT_COURT_CASE
+  description: Wyoming District Court case citation
+  confidence_threshold: 0.85
+- name: WYOMING_CIRCUIT_COURT_CASE
+  description: Wyoming Circuit Court case citation
+  confidence_threshold: 0.83
+- name: WYOMING_MUNICIPAL_COURT_CASE
+  description: Wyoming Municipal Court case citation
+  confidence_threshold: 0.8
+- name: WYOMING_STATUTE
+  description: Wyoming statutory provision
+  confidence_threshold: 0.9
+- name: WYOMING_REGULATION
+  description: Wyoming administrative regulation
+  confidence_threshold: 0.88
+- name: WYOMING_CONSTITUTIONAL_PROVISION
+  description: Wyoming constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1890
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    wyoming_reports:
+      min_volume: 1
+      max_volume: 80
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 785_citations_per_second
+dependencies:
+  requires:
+  - wyoming_court_abbreviations
+  - wyoming_county_names
+  - wyoming_judicial_districts
+  optional:
+  - wyoming_historical_courts
+  - wyoming_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.wyoming_supreme_court
+    text: Smith v. State of Wyoming, 123 Wyo. 456 (Wyo. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.wyoming_statutes
+    text: Wyo. Stat. Ann. § 6-2-101 (2023)
+    expected_entities: 1
+  - pattern: case_citations.wyoming_district_court
+    text: ABC Corp. v. XYZ Inc., CV-22-456 (2nd Judicial District, Albany County,
+      Wyo. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2.8 seconds
+    memory_usage: < 118MB
+    accuracy_threshold: 0.94

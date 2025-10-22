@@ -1,0 +1,213 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: north_carolina
+  state_abbreviation: N.C.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for North Carolina state citations and entities
+case_citations:
+  north_carolina_supreme_court:
+    name: north_carolina_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+S\.E\.2d\s+567,\s+890\s+\(N\.C\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: South Eastern Reporter or North Carolina Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 S.E.3d 456 (N.C. 2023)
+    - Brown v. North Carolina, 456 N.C. 2d 789 (N.C. 2022)
+    - In re Estate of Johnson, 234 S.E.2d 567, 890 (N.C. 2021)
+  north_carolina_court_of_appeals:
+    name: north_carolina_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.E\.(?:2d|3d)?|N\.C\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(N\.C\.(?:\s+Ct\.)?(?:\s+App\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: South Eastern Reporter or North Carolina Court of Appeals Reports volume
+      reporter: North Carolina appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 S.E.3d 456 (N.C. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 N.C. App. 2d 789 (N.C. App. 2022)
+    - State v. Brown, 234 S.E.2d 567 (N.C. Ct. App. 2021)
+  north_carolina_superior_court:
+    name: north_carolina_superior_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Super\.\s*)?Ct\.(?:\s+N\.C\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Superior court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23CVS123456 (Wake County Super. Ct. N.C.)
+    - State v. Brown, 22CR987654 (Mecklenburg County Super. Ct. 2022)
+  north_carolina_district_court:
+    name: north_carolina_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:(?P<district>\d{1,2}[A-Z]?)\s+(?:Jud\.\s+)?Dist\.\s+|(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+)Dist\.\s*Ct\.(?:\s+N\.C\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-CVD-987 (10th Jud. Dist. Dist. Ct. N.C.)
+    - State v. Brown, 22-CRS-12345 (Durham County Dist. Ct. 2022)
+statute_citations:
+  north_carolina_general_statutes:
+    name: north_carolina_general_statutes_citation
+    pattern: N\.C\.\s+Gen\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)*(?:[A-Za-z](?::\d+)?)?(?:\s*to\s*[\d\.]+(?:[A-Za-z](?::\d+)?)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: General Statutes section number or range
+      year: Publication year
+    examples:
+    - N.C. Gen. Stat. Ann. § 14-32 (2023)
+    - N.C. Gen. Stat. §§ 15A-1340.13 to 15A-1340.17
+    - N.C. Gen. Stat. Ann. § 50-13.1A
+  north_carolina_constitution:
+    name: north_carolina_constitution_citation
+    pattern: N\.C\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - N.C. Const. art. I, § 19
+    - N.C. Const. art. IX, § 2
+    - N.C. Const. art. IV, § 12(1)
+regulation_citations:
+  north_carolina_administrative_code:
+    name: north_carolina_administrative_code_citation
+    pattern: (?P<title>\d{1,2})\s+N\.C\.A\.C\.\s+(?P<chapter>\d{1,2}[A-Z]?)\.(?P<subchapter>\d{4})(?:\.(?P<section>\d{4}))?
+    confidence: 0.92
+    priority: 80
+    components:
+      title: NCAC title number
+      chapter: Chapter number
+      subchapter: Subchapter number
+      section: Section number
+    examples:
+    - 21 N.C.A.C. 32C.0101
+    - 10A N.C.A.C. 41A.0101
+    - 15A N.C.A.C. 02D.0530.0001
+court_system:
+  court_names:
+    north_carolina_supreme_court:
+      pattern: (?i)(?:N\.C\.|North\s+Carolina)\s+(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+North\s+Carolina)?
+      confidence: 0.95
+      level: supreme
+    north_carolina_court_of_appeals:
+      pattern: (?i)(?:N\.C\.|North\s+Carolina)\s+(?:Court\s+of\s+Appeals|Ct\.\s+of\s+App\.|App\.)
+      confidence: 0.93
+      level: appellate
+    north_carolina_superior_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+(?:Superior\s+Court|Super\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)North\s+Carolina)?
+      confidence: 0.9
+      level: trial
+    north_carolina_district_court:
+      pattern: (?i)(?:(?P<district>\d{1,2}[A-Z]?)\s+(?:Judicial\s+District|Jud\.\s*Dist\.)\s+|(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County\s+)(?:District\s+Court|Dist\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)North\s+Carolina)?
+      confidence: 0.88
+      level: limited
+entity_types:
+- name: NORTH_CAROLINA_SUPREME_COURT_CASE
+  description: North Carolina Supreme Court case citation
+  confidence_threshold: 0.95
+- name: NORTH_CAROLINA_APPELLATE_CASE
+  description: North Carolina Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: NORTH_CAROLINA_SUPERIOR_COURT_CASE
+  description: North Carolina Superior Court case citation
+  confidence_threshold: 0.85
+- name: NORTH_CAROLINA_DISTRICT_COURT_CASE
+  description: North Carolina District Court case citation
+  confidence_threshold: 0.83
+- name: NORTH_CAROLINA_STATUTE
+  description: North Carolina statutory provision
+  confidence_threshold: 0.9
+- name: NORTH_CAROLINA_REGULATION
+  description: North Carolina administrative regulation
+  confidence_threshold: 0.88
+- name: NORTH_CAROLINA_CONSTITUTIONAL_PROVISION
+  description: North Carolina constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1789
+    max_year: 2025
+  volume_ranges:
+    southeastern_reporter:
+      se_2d:
+        min_volume: 1
+        max_volume: 999
+      se_3d:
+        min_volume: 1
+        max_volume: 999
+    north_carolina_reports:
+      nc_2d:
+        min_volume: 1
+        max_volume: 400
+      nc_3d:
+        min_volume: 1
+        max_volume: 150
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  ncac_validation:
+    title_range:
+    - 1
+    - 25
+    chapter_range:
+    - 1
+    - 99
+  judicial_district_validation:
+    min_district: 1
+    max_district: 46
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 775_citations_per_second
+dependencies:
+  requires:
+  - north_carolina_court_abbreviations
+  - north_carolina_county_names
+  - north_carolina_judicial_districts
+  optional:
+  - north_carolina_historical_courts
+  - north_carolina_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.north_carolina_supreme_court
+    text: State v. Smith, 123 S.E.3d 456 (N.C. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.north_carolina_general_statutes
+    text: N.C. Gen. Stat. Ann. § 14-32 (2023)
+    expected_entities: 1
+  - pattern: case_citations.north_carolina_court_of_appeals
+    text: Smith v. Jones, 123 S.E.3d 456 (N.C. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.1 seconds
+    memory_usage: < 118MB
+    accuracy_threshold: 0.94

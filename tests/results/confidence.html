@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidence Score Analysis - Entity Extraction</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .breadcrumb {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Overview Cards */
+        .overview-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .trend {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+        }
+
+        .trend.up {
+            color: #22c55e;
+        }
+
+        .trend.down {
+            color: #ef4444;
+        }
+
+        .sparkline {
+            height: 40px;
+            margin-top: 10px;
+        }
+
+        /* Chart Containers */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-container {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            min-height: 400px;
+        }
+
+        .chart-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+        }
+
+        /* Tabs */
+        .tabs {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            background: rgba(96, 165, 250, 0.1);
+            color: #60a5fa;
+        }
+
+        .tab-button.active {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Statistical Panel */
+        .stats-panel {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+
+        /* Confidence Colors */
+        .confidence-very-low {
+            color: #ef4444;
+        }
+
+        .confidence-low {
+            color: #f97316;
+        }
+
+        .confidence-medium {
+            color: #eab308;
+        }
+
+        .confidence-high {
+            color: #84cc16;
+        }
+
+        .confidence-very-high {
+            color: #22c55e;
+        }
+
+        /* Threshold Simulator */
+        .threshold-simulator {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ef4444, #f97316, #eab308, #84cc16, #22c55e);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #60a5fa;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #60a5fa;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .threshold-value {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            color: #60a5fa;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .impact-item {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        /* DataTable Styling */
+        .dataTables_wrapper {
+            color: #e2e8f0;
+        }
+
+        table.dataTable {
+            background: rgba(15, 23, 42, 0.6);
+            color: #e2e8f0;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table.dataTable thead th {
+            background: rgba(30, 41, 59, 0.9);
+            color: #e2e8f0;
+            padding: 12px;
+            border-bottom: 2px solid #334155;
+        }
+
+        table.dataTable tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #334155;
+        }
+
+        table.dataTable tbody tr:hover {
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .dataTables_filter input,
+        .dataTables_length select {
+            background: rgba(30, 41, 59, 0.8);
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .dataTables_info,
+        .dataTables_paginate {
+            color: #94a3b8;
+        }
+
+        /* Export Button */
+        .export-btn {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+        }
+
+        /* Gauge Chart */
+        .gauge-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gauge {
+            text-align: center;
+        }
+
+        .gauge-title {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .gauge-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Filters */
+        .filters {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .filter-item label {
+            display: block;
+            margin-bottom: 5px;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .filter-item select,
+        .filter-item input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .filter-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            color: #e2e8f0;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: rgba(30, 41, 59, 0.9);
+            border-bottom: 2px solid #334155;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-brand {
+            font-size: 1.3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav .nav-link:hover {
+            background: rgba(96, 165, 250, 0.1);
+            color: #60a5fa;
+        }
+
+        nav .nav-link.active {
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        nav .nav-icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-brand">Entity Extraction Test Suite</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <span class="nav-icon">&#127968;</span> Home
+                </a>
+                <a href="confidence.html" class="nav-link active">
+                    <span class="nav-icon">&#128202;</span> Confidence Analysis
+                </a>
+                <a href="entity_types.html" class="nav-link">
+                    <span class="nav-icon">&#128203;</span> Entity Types
+                </a>
+                <a href="performance.html" class="nav-link">
+                    <span class="nav-icon">&#9889;</span> Performance
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Confidence Score Analysis</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> > Confidence Analysis
+            </div>
+        </header>
+
+        <!-- Section 1: Overview Cards -->
+        <div class="overview-cards">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Overall Confidence</div>
+                </div>
+                <div class="card-value" id="overall-confidence">0.95</div>
+                <div class="card-subtitle">Average across all entities</div>
+                <canvas class="sparkline" id="overall-sparkline"></canvas>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">High Confidence</div>
+                </div>
+                <div class="card-value confidence-very-high" id="high-confidence-count">48</div>
+                <div class="card-subtitle">Confidence >= 0.9 (92.3%)</div>
+                <canvas class="sparkline" id="high-sparkline"></canvas>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Medium Confidence</div>
+                </div>
+                <div class="card-value confidence-medium" id="medium-confidence-count">4</div>
+                <div class="card-subtitle">0.7 <= Confidence < 0.9 (7.7%)</div>
+                <canvas class="sparkline" id="medium-sparkline"></canvas>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Low Confidence</div>
+                </div>
+                <div class="card-value confidence-low" id="low-confidence-count">0</div>
+                <div class="card-subtitle">Confidence < 0.7 (0%)</div>
+                <canvas class="sparkline" id="low-sparkline"></canvas>
+            </div>
+        </div>
+
+        <!-- Section 2: Confidence Distribution Analysis -->
+        <div class="chart-grid">
+            <div class="chart-container">
+                <h3 class="chart-title">Confidence Distribution Histogram</h3>
+                <canvas id="histogram-chart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Box Plot Analysis</h3>
+                <canvas id="boxplot-chart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Cumulative Distribution</h3>
+                <canvas id="cumulative-chart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3 class="chart-title">Confidence Density (Violin Plot)</h3>
+                <canvas id="violin-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Statistical Analysis Panel -->
+        <div class="stats-panel">
+            <h3 class="chart-title">Statistical Analysis</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Mean</div>
+                    <div class="stat-value" id="stat-mean">0.95</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Median</div>
+                    <div class="stat-value" id="stat-median">0.95</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Mode</div>
+                    <div class="stat-value" id="stat-mode">0.95</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Std Deviation</div>
+                    <div class="stat-value" id="stat-stddev">0.024</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">95% CI</div>
+                    <div class="stat-value" id="stat-ci">0.90-1.00</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Skewness</div>
+                    <div class="stat-value" id="stat-skewness">-1.23</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Kurtosis</div>
+                    <div class="stat-value" id="stat-kurtosis">2.45</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Outliers</div>
+                    <div class="stat-value confidence-low" id="stat-outliers">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confidence Quality Metrics -->
+        <div class="stats-panel">
+            <h3 class="chart-title">Confidence Quality Metrics</h3>
+            <div class="gauge-container">
+                <div class="gauge">
+                    <div class="gauge-title">Reliability Score</div>
+                    <canvas id="reliability-gauge"></canvas>
+                    <div class="gauge-value confidence-very-high" id="reliability-value">92.3%</div>
+                    <div class="card-subtitle">High confidence entities</div>
+                </div>
+                <div class="gauge">
+                    <div class="gauge-title">Consistency Score</div>
+                    <canvas id="consistency-gauge"></canvas>
+                    <div class="gauge-value confidence-very-high" id="consistency-value">97.5%</div>
+                    <div class="card-subtitle">Low variance = high consistency</div>
+                </div>
+                <div class="gauge">
+                    <div class="gauge-title">Coverage Score</div>
+                    <canvas id="coverage-gauge"></canvas>
+                    <div class="gauge-value confidence-high" id="coverage-value">100%</div>
+                    <div class="card-subtitle">Entities above 0.8 threshold</div>
+                </div>
+                <div class="gauge">
+                    <div class="gauge-title">Risk Score</div>
+                    <canvas id="risk-gauge"></canvas>
+                    <div class="gauge-value confidence-very-high" id="risk-value">0%</div>
+                    <div class="card-subtitle">Low confidence entities</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confidence Threshold Simulator -->
+        <div class="threshold-simulator">
+            <h3 class="chart-title">Confidence Threshold Simulator</h3>
+            <div class="slider-container">
+                <label for="threshold-slider" style="color: #94a3b8; font-size: 0.9rem;">Adjust Confidence Threshold:</label>
+                <div class="threshold-value" id="threshold-display">0.80</div>
+                <input type="range" id="threshold-slider" class="slider" min="0" max="1" step="0.01" value="0.80">
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="stat-label">Entities Retained</div>
+                    <div class="stat-value confidence-very-high" id="retained-count">52</div>
+                    <div class="card-subtitle" id="retained-percent">100%</div>
+                </div>
+                <div class="impact-item">
+                    <div class="stat-label">Entities Filtered</div>
+                    <div class="stat-value confidence-low" id="filtered-count">0</div>
+                    <div class="card-subtitle" id="filtered-percent">0%</div>
+                </div>
+                <div class="impact-item">
+                    <div class="stat-label">Avg Confidence (Retained)</div>
+                    <div class="stat-value confidence-very-high" id="retained-avg">0.95</div>
+                    <div class="card-subtitle">of retained set</div>
+                </div>
+                <div class="impact-item">
+                    <div class="stat-label">Quality vs Quantity</div>
+                    <div class="stat-value" id="quality-score">Optimal</div>
+                    <div class="card-subtitle" id="quality-desc">Maximum coverage</div>
+                </div>
+            </div>
+
+            <canvas id="threshold-impact-chart" style="margin-top: 20px; max-height: 300px;"></canvas>
+        </div>
+
+        <!-- Section 3: Confidence by Dimension (Tabs) -->
+        <div class="tabs">
+            <h3 class="chart-title">Confidence by Dimension</h3>
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="entity-type">By Entity Type</button>
+                <button class="tab-button" data-tab="wave">By Wave</button>
+                <button class="tab-button" data-tab="document">By Document</button>
+                <button class="tab-button" data-tab="test">By Test Timeline</button>
+            </div>
+
+            <div class="tab-content active" id="entity-type">
+                <canvas id="entity-type-chart" style="max-height: 400px;"></canvas>
+                <div style="margin-top: 20px; overflow-x: auto;">
+                    <table id="entity-type-table" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Entity Type</th>
+                                <th>Count</th>
+                                <th>Avg Confidence</th>
+                                <th>Min</th>
+                                <th>Max</th>
+                                <th>Std Dev</th>
+                            </tr>
+                        </thead>
+                        <tbody id="entity-type-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="wave">
+                <canvas id="wave-chart" style="max-height: 400px;"></canvas>
+                <div style="margin-top: 20px;">
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Wave comparison shows extraction quality across different processing stages.</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="document">
+                <canvas id="document-chart" style="max-height: 400px;"></canvas>
+                <div style="margin-top: 20px;">
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Document-level analysis helps identify problematic documents requiring attention.</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="test">
+                <canvas id="test-timeline-chart" style="max-height: 400px;"></canvas>
+                <div style="margin-top: 20px;">
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Timeline shows extraction quality improvements over time.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <h3 class="chart-title">Filters</h3>
+            <div class="filter-grid">
+                <div class="filter-item">
+                    <label>Confidence Range</label>
+                    <input type="range" id="min-confidence" min="0" max="1" step="0.01" value="0" style="width: 48%; display: inline-block;">
+                    <input type="range" id="max-confidence" min="0" max="1" step="0.01" value="1" style="width: 48%; display: inline-block;">
+                    <div style="color: #94a3b8; font-size: 0.85rem; margin-top: 5px;">
+                        <span id="min-conf-display">0.00</span> - <span id="max-conf-display">1.00</span>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label>Entity Type</label>
+                    <select id="entity-type-filter" multiple style="height: 100px;">
+                        <option value="all" selected>All Types</option>
+                    </select>
+                </div>
+
+                <div class="filter-item">
+                    <label>Wave Number</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="1" checked> Wave 1
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="2" checked> Wave 2
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="3" checked> Wave 3
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-item">
+                    <label>Document</label>
+                    <select id="document-filter">
+                        <option value="all" selected>All Documents</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Low Confidence Entities Table -->
+        <div class="card">
+            <h3 class="chart-title">Low Confidence Entities (< 0.8)</h3>
+            <div style="margin-bottom: 10px;">
+                <button class="export-btn" onclick="exportLowConfidence()">Export Low Confidence CSV</button>
+                <button class="export-btn" onclick="exportAllCharts()">Export All Charts</button>
+            </div>
+            <table id="low-confidence-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Entity Text</th>
+                        <th>Type</th>
+                        <th>Confidence</th>
+                        <th>Wave</th>
+                        <th>Document</th>
+                        <th>Test ID</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="low-confidence-tbody"></tbody>
+            </table>
+        </div>
+
+        <!-- Outlier Detection -->
+        <div class="card" style="margin-top: 30px;">
+            <h3 class="chart-title">Outlier Detection (Z-Score > 2)</h3>
+            <div id="outlier-analysis">
+                <p style="color: #22c55e; font-size: 1.1rem;">No statistical outliers detected. All entities fall within 2 standard deviations of the mean.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load test data
+        let testData = null;
+        let allEntities = [];
+
+        fetch('test_history.json')
+            .then(response => response.json())
+            .then(data => {
+                testData = data;
+                processData();
+                initializeCharts();
+                initializeTables();
+                initializeFilters();
+                initializeThresholdSimulator();
+            })
+            .catch(error => {
+                console.error('Error loading test data:', error);
+            });
+
+        function processData() {
+            // Extract all entities with their metadata
+            allEntities = [];
+            testData.tests.forEach(test => {
+                if (test.raw_response && test.raw_response.entities) {
+                    test.raw_response.entities.forEach(entity => {
+                        allEntities.push({
+                            text: entity.text,
+                            type: entity.entity_type,
+                            confidence: entity.confidence,
+                            wave: entity.wave_number || 1,
+                            document: test.document_id,
+                            testId: test.test_id,
+                            timestamp: test.timestamp,
+                            category: entity.category || 'unknown'
+                        });
+                    });
+                }
+            });
+
+            console.log(`Loaded ${allEntities.length} entities`);
+            updateOverviewCards();
+            updateStatistics();
+        }
+
+        function updateOverviewCards() {
+            const confidences = allEntities.map(e => e.confidence);
+            const avgConfidence = confidences.reduce((a, b) => a + b, 0) / confidences.length;
+
+            const highCount = confidences.filter(c => c >= 0.9).length;
+            const mediumCount = confidences.filter(c => c >= 0.7 && c < 0.9).length;
+            const lowCount = confidences.filter(c => c < 0.7).length;
+
+            document.getElementById('overall-confidence').textContent = avgConfidence.toFixed(3);
+            document.getElementById('high-confidence-count').textContent = highCount;
+            document.getElementById('medium-confidence-count').textContent = mediumCount;
+            document.getElementById('low-confidence-count').textContent = lowCount;
+
+            // Update percentages
+            document.querySelector('#high-confidence-count').nextElementSibling.textContent =
+                `Confidence >= 0.9 (${(highCount/confidences.length*100).toFixed(1)}%)`;
+            document.querySelector('#medium-confidence-count').nextElementSibling.textContent =
+                `0.7 <= Confidence < 0.9 (${(mediumCount/confidences.length*100).toFixed(1)}%)`;
+            document.querySelector('#low-confidence-count').nextElementSibling.textContent =
+                `Confidence < 0.7 (${(lowCount/confidences.length*100).toFixed(1)}%)`;
+        }
+
+        function updateStatistics() {
+            const confidences = allEntities.map(e => e.confidence).sort((a, b) => a - b);
+            const n = confidences.length;
+
+            // Mean
+            const mean = confidences.reduce((a, b) => a + b, 0) / n;
+
+            // Median
+            const median = n % 2 === 0
+                ? (confidences[n/2 - 1] + confidences[n/2]) / 2
+                : confidences[Math.floor(n/2)];
+
+            // Mode (most common range)
+            const binCounts = {};
+            confidences.forEach(c => {
+                const bin = Math.floor(c * 100) / 100;
+                binCounts[bin] = (binCounts[bin] || 0) + 1;
+            });
+            const mode = Object.keys(binCounts).reduce((a, b) => binCounts[a] > binCounts[b] ? a : b);
+
+            // Standard Deviation
+            const variance = confidences.reduce((sum, c) => sum + Math.pow(c - mean, 2), 0) / n;
+            const stdDev = Math.sqrt(variance);
+
+            // 95% Confidence Interval
+            const sem = stdDev / Math.sqrt(n);
+            const ci = 1.96 * sem;
+            const ciLower = Math.max(0, mean - ci);
+            const ciUpper = Math.min(1, mean + ci);
+
+            // Skewness
+            const skewness = confidences.reduce((sum, c) => sum + Math.pow((c - mean) / stdDev, 3), 0) / n;
+
+            // Kurtosis
+            const kurtosis = confidences.reduce((sum, c) => sum + Math.pow((c - mean) / stdDev, 4), 0) / n - 3;
+
+            // Outliers (z-score > 2)
+            const outliers = confidences.filter(c => Math.abs((c - mean) / stdDev) > 2);
+
+            // Update UI
+            document.getElementById('stat-mean').textContent = mean.toFixed(3);
+            document.getElementById('stat-median').textContent = median.toFixed(3);
+            document.getElementById('stat-mode').textContent = mode;
+            document.getElementById('stat-stddev').textContent = stdDev.toFixed(3);
+            document.getElementById('stat-ci').textContent = `${ciLower.toFixed(2)}-${ciUpper.toFixed(2)}`;
+            document.getElementById('stat-skewness').textContent = skewness.toFixed(2);
+            document.getElementById('stat-kurtosis').textContent = kurtosis.toFixed(2);
+            document.getElementById('stat-outliers').textContent = outliers.length;
+
+            // Update quality metrics
+            const reliability = (confidences.filter(c => c >= 0.9).length / n * 100).toFixed(1);
+            const consistency = ((1 - stdDev) * 100).toFixed(1);
+            const coverage = (confidences.filter(c => c >= 0.8).length / n * 100).toFixed(1);
+            const risk = (confidences.filter(c => c < 0.7).length / n * 100).toFixed(1);
+
+            document.getElementById('reliability-value').textContent = `${reliability}%`;
+            document.getElementById('consistency-value').textContent = `${consistency}%`;
+            document.getElementById('coverage-value').textContent = `${coverage}%`;
+            document.getElementById('risk-value').textContent = `${risk}%`;
+
+            // Create gauge charts
+            createGaugeChart('reliability-gauge', parseFloat(reliability));
+            createGaugeChart('consistency-gauge', parseFloat(consistency));
+            createGaugeChart('coverage-gauge', parseFloat(coverage));
+            createGaugeChart('risk-gauge', 100 - parseFloat(risk)); // Invert for gauge
+        }
+
+        function createGaugeChart(canvasId, value) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return;
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [value, 100 - value],
+                        backgroundColor: [
+                            value >= 90 ? '#22c55e' : value >= 70 ? '#eab308' : '#ef4444',
+                            'rgba(51, 65, 85, 0.3)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    circumference: 180,
+                    rotation: -90,
+                    cutout: '75%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    },
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        function initializeCharts() {
+            createHistogramChart();
+            createBoxPlotChart();
+            createCumulativeChart();
+            createViolinChart();
+            createEntityTypeChart();
+            createWaveChart();
+            createDocumentChart();
+            createTestTimelineChart();
+            createSparklines();
+        }
+
+        function createHistogramChart() {
+            const confidences = allEntities.map(e => e.confidence);
+            const bins = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+            const binCounts = new Array(bins.length - 1).fill(0);
+
+            confidences.forEach(c => {
+                for (let i = 0; i < bins.length - 1; i++) {
+                    if (c >= bins[i] && c < bins[i + 1]) {
+                        binCounts[i]++;
+                        break;
+                    }
+                    if (c === 1.0 && i === bins.length - 2) {
+                        binCounts[i]++;
+                    }
+                }
+            });
+
+            const ctx = document.getElementById('histogram-chart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: bins.slice(0, -1).map((b, i) => `${b.toFixed(1)}-${bins[i+1].toFixed(1)}`),
+                    datasets: [{
+                        label: 'Frequency',
+                        data: binCounts,
+                        backgroundColor: bins.slice(0, -1).map(b =>
+                            b < 0.5 ? '#ef4444' : b < 0.7 ? '#f97316' : b < 0.85 ? '#eab308' : b < 0.95 ? '#84cc16' : '#22c55e'
+                        ),
+                        borderColor: '#334155',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Distribution of Confidence Scores',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createBoxPlotChart() {
+            const confidences = allEntities.map(e => e.confidence).sort((a, b) => a - b);
+            const n = confidences.length;
+
+            const q1 = confidences[Math.floor(n * 0.25)];
+            const median = n % 2 === 0
+                ? (confidences[n/2 - 1] + confidences[n/2]) / 2
+                : confidences[Math.floor(n/2)];
+            const q3 = confidences[Math.floor(n * 0.75)];
+            const min = confidences[0];
+            const max = confidences[n - 1];
+
+            const ctx = document.getElementById('boxplot-chart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Confidence Distribution'],
+                    datasets: [{
+                        label: 'Min',
+                        data: [min],
+                        backgroundColor: '#ef4444'
+                    }, {
+                        label: 'Q1',
+                        data: [q1],
+                        backgroundColor: '#eab308'
+                    }, {
+                        label: 'Median',
+                        data: [median],
+                        backgroundColor: '#22c55e'
+                    }, {
+                        label: 'Q3',
+                        data: [q3],
+                        backgroundColor: '#84cc16'
+                    }, {
+                        label: 'Max',
+                        data: [max],
+                        backgroundColor: '#60a5fa'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        y: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#e2e8f0' }
+                        },
+                        title: {
+                            display: true,
+                            text: `Box Plot: Min=${min.toFixed(2)}, Q1=${q1.toFixed(2)}, Median=${median.toFixed(2)}, Q3=${q3.toFixed(2)}, Max=${max.toFixed(2)}`,
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createCumulativeChart() {
+            const confidences = allEntities.map(e => e.confidence).sort((a, b) => a - b);
+            const n = confidences.length;
+
+            const thresholds = [];
+            const percentages = [];
+
+            for (let i = 0; i <= 100; i++) {
+                const threshold = i / 100;
+                const count = confidences.filter(c => c <= threshold).length;
+                thresholds.push(threshold.toFixed(2));
+                percentages.push((count / n * 100).toFixed(1));
+            }
+
+            const ctx = document.getElementById('cumulative-chart');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: thresholds,
+                    datasets: [{
+                        label: 'Cumulative %',
+                        data: percentages,
+                        borderColor: '#60a5fa',
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#94a3b8',
+                                callback: value => value + '%'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#94a3b8',
+                                maxTicksLimit: 11
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#e2e8f0' }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Cumulative Distribution Function',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createViolinChart() {
+            // Simplified violin plot using histogram approach
+            const confidences = allEntities.map(e => e.confidence);
+            const bins = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
+            const binCounts = new Array(bins.length - 1).fill(0);
+
+            confidences.forEach(c => {
+                for (let i = 0; i < bins.length - 1; i++) {
+                    if (c >= bins[i] && c < bins[i + 1]) {
+                        binCounts[i]++;
+                        break;
+                    }
+                    if (c === 1.0 && i === bins.length - 2) {
+                        binCounts[i]++;
+                    }
+                }
+            });
+
+            const ctx = document.getElementById('violin-chart');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: bins.slice(0, -1).map((b, i) => `${b.toFixed(1)}-${bins[i+1].toFixed(1)}`),
+                    datasets: [{
+                        label: 'Density',
+                        data: binCounts,
+                        borderColor: '#a78bfa',
+                        backgroundColor: 'rgba(167, 139, 250, 0.2)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#a78bfa'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Density Distribution (Violin Plot Approximation)',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createEntityTypeChart() {
+            const typeStats = {};
+
+            allEntities.forEach(e => {
+                if (!typeStats[e.type]) {
+                    typeStats[e.type] = [];
+                }
+                typeStats[e.type].push(e.confidence);
+            });
+
+            const types = Object.keys(typeStats).sort((a, b) => {
+                const avgA = typeStats[a].reduce((sum, c) => sum + c, 0) / typeStats[a].length;
+                const avgB = typeStats[b].reduce((sum, c) => sum + c, 0) / typeStats[b].length;
+                return avgB - avgA;
+            });
+
+            const avgConfidences = types.map(type => {
+                const confidences = typeStats[type];
+                return (confidences.reduce((sum, c) => sum + c, 0) / confidences.length).toFixed(3);
+            });
+
+            const ctx = document.getElementById('entity-type-chart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: types,
+                    datasets: [{
+                        label: 'Average Confidence',
+                        data: avgConfidences,
+                        backgroundColor: avgConfidences.map(c =>
+                            parseFloat(c) >= 0.95 ? '#22c55e' :
+                            parseFloat(c) >= 0.85 ? '#84cc16' :
+                            parseFloat(c) >= 0.7 ? '#eab308' :
+                            parseFloat(c) >= 0.5 ? '#f97316' : '#ef4444'
+                        ),
+                        borderColor: '#334155',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        y: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Average Confidence by Entity Type',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+
+            // Populate table
+            const tbody = document.getElementById('entity-type-tbody');
+            tbody.innerHTML = '';
+
+            types.forEach(type => {
+                const confidences = typeStats[type];
+                const avg = (confidences.reduce((sum, c) => sum + c, 0) / confidences.length).toFixed(3);
+                const min = Math.min(...confidences).toFixed(3);
+                const max = Math.max(...confidences).toFixed(3);
+                const stdDev = Math.sqrt(confidences.reduce((sum, c) => sum + Math.pow(c - parseFloat(avg), 2), 0) / confidences.length).toFixed(3);
+
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${type}</td>
+                    <td>${confidences.length}</td>
+                    <td class="${getConfidenceClass(parseFloat(avg))}">${avg}</td>
+                    <td>${min}</td>
+                    <td>${max}</td>
+                    <td>${stdDev}</td>
+                `;
+            });
+
+            // Initialize DataTable
+            $('#entity-type-table').DataTable({
+                pageLength: 10,
+                order: [[2, 'desc']],
+                destroy: true
+            });
+        }
+
+        function createWaveChart() {
+            const waveStats = { 1: [], 2: [], 3: [] };
+
+            allEntities.forEach(e => {
+                const wave = e.wave || 1;
+                if (waveStats[wave]) {
+                    waveStats[wave].push(e.confidence);
+                }
+            });
+
+            const waves = Object.keys(waveStats).filter(w => waveStats[w].length > 0);
+            const avgConfidences = waves.map(wave => {
+                const confidences = waveStats[wave];
+                return (confidences.reduce((sum, c) => sum + c, 0) / confidences.length).toFixed(3);
+            });
+
+            const ctx = document.getElementById('wave-chart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: waves.map(w => `Wave ${w}`),
+                    datasets: [{
+                        label: 'Average Confidence',
+                        data: avgConfidences,
+                        backgroundColor: ['#60a5fa', '#a78bfa', '#ec4899'],
+                        borderColor: '#334155',
+                        borderWidth: 1
+                    }, {
+                        label: 'Entity Count',
+                        data: waves.map(w => waveStats[w].length),
+                        backgroundColor: 'rgba(96, 165, 250, 0.3)',
+                        borderColor: '#60a5fa',
+                        borderWidth: 1,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            position: 'left',
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' },
+                            title: {
+                                display: true,
+                                text: 'Average Confidence',
+                                color: '#e2e8f0'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            ticks: { color: '#94a3b8' },
+                            grid: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Entity Count',
+                                color: '#e2e8f0'
+                            }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#e2e8f0' }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Confidence Comparison Across Processing Waves',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createDocumentChart() {
+            const docStats = {};
+
+            allEntities.forEach(e => {
+                if (!docStats[e.document]) {
+                    docStats[e.document] = [];
+                }
+                docStats[e.document].push(e.confidence);
+            });
+
+            const docs = Object.keys(docStats).sort();
+            const avgConfidences = docs.map(doc => {
+                const confidences = docStats[doc];
+                return (confidences.reduce((sum, c) => sum + c, 0) / confidences.length).toFixed(3);
+            });
+
+            const ctx = document.getElementById('document-chart');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: docs,
+                    datasets: [{
+                        label: 'Average Confidence',
+                        data: avgConfidences,
+                        backgroundColor: avgConfidences.map(c =>
+                            parseFloat(c) >= 0.95 ? '#22c55e' :
+                            parseFloat(c) >= 0.9 ? '#84cc16' : '#eab308'
+                        ),
+                        borderColor: '#334155',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Average Confidence by Document',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createTestTimelineChart() {
+            const testStats = {};
+
+            testData.tests.forEach(test => {
+                const date = new Date(test.timestamp * 1000).toLocaleDateString();
+                if (!testStats[date]) {
+                    testStats[date] = [];
+                }
+                testStats[date].push(test.entity_distribution.avg_confidence);
+            });
+
+            const dates = Object.keys(testStats).sort();
+            const avgConfidences = dates.map(date => {
+                const confidences = testStats[date];
+                return (confidences.reduce((sum, c) => sum + c, 0) / confidences.length).toFixed(3);
+            });
+
+            const ctx = document.getElementById('test-timeline-chart');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Average Confidence',
+                        data: avgConfidences,
+                        borderColor: '#60a5fa',
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointBackgroundColor: '#60a5fa',
+                        pointBorderColor: '#1e293b',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 1,
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        },
+                        x: {
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Confidence Trend Over Time',
+                            color: '#e2e8f0'
+                        }
+                    }
+                }
+            });
+        }
+
+        function createSparklines() {
+            // Simple sparkline for overall confidence trend
+            const confidencesByTest = testData.tests.map(t => t.entity_distribution.avg_confidence);
+
+            createSimpleSparkline('overall-sparkline', confidencesByTest, '#60a5fa');
+            createSimpleSparkline('high-sparkline', testData.tests.map(t => t.quality.high_confidence_count), '#22c55e');
+            createSimpleSparkline('medium-sparkline', testData.tests.map(t => t.quality.medium_confidence_count), '#eab308');
+            createSimpleSparkline('low-sparkline', testData.tests.map(t => t.quality.low_confidence_count), '#ef4444');
+        }
+
+        function createSimpleSparkline(canvasId, data, color) {
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return;
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map((_, i) => i),
+                    datasets: [{
+                        data: data,
+                        borderColor: color,
+                        backgroundColor: color + '20',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { display: false }
+                    }
+                }
+            });
+        }
+
+        function initializeTables() {
+            // Low confidence table
+            const tbody = document.getElementById('low-confidence-tbody');
+            tbody.innerHTML = '';
+
+            const lowConfEntities = allEntities.filter(e => e.confidence < 0.8);
+
+            if (lowConfEntities.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: #22c55e;">No low confidence entities found! All entities have confidence >= 0.8</td></tr>';
+            } else {
+                lowConfEntities.forEach(entity => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${entity.text.substring(0, 50)}${entity.text.length > 50 ? '...' : ''}</td>
+                        <td>${entity.type}</td>
+                        <td class="${getConfidenceClass(entity.confidence)}">${entity.confidence.toFixed(3)}</td>
+                        <td>Wave ${entity.wave}</td>
+                        <td>${entity.document}</td>
+                        <td>${entity.testId}</td>
+                        <td><a href="entity_detail.html?id=${entity.testId}" style="color: #60a5fa;">View Details</a></td>
+                    `;
+                });
+            }
+
+            $('#low-confidence-table').DataTable({
+                pageLength: 10,
+                order: [[2, 'asc']],
+                destroy: true
+            });
+        }
+
+        function initializeFilters() {
+            // Entity type filter
+            const entityTypes = [...new Set(allEntities.map(e => e.type))];
+            const typeFilter = document.getElementById('entity-type-filter');
+            entityTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type;
+                typeFilter.appendChild(option);
+            });
+
+            // Document filter
+            const documents = [...new Set(allEntities.map(e => e.document))];
+            const docFilter = document.getElementById('document-filter');
+            documents.forEach(doc => {
+                const option = document.createElement('option');
+                option.value = doc;
+                option.textContent = doc;
+                docFilter.appendChild(option);
+            });
+
+            // Confidence range sliders
+            const minConfSlider = document.getElementById('min-confidence');
+            const maxConfSlider = document.getElementById('max-confidence');
+            const minDisplay = document.getElementById('min-conf-display');
+            const maxDisplay = document.getElementById('max-conf-display');
+
+            minConfSlider.addEventListener('input', (e) => {
+                minDisplay.textContent = parseFloat(e.target.value).toFixed(2);
+            });
+
+            maxConfSlider.addEventListener('input', (e) => {
+                maxDisplay.textContent = parseFloat(e.target.value).toFixed(2);
+            });
+        }
+
+        function initializeThresholdSimulator() {
+            const slider = document.getElementById('threshold-slider');
+            const display = document.getElementById('threshold-display');
+
+            slider.addEventListener('input', (e) => {
+                const threshold = parseFloat(e.target.value);
+                display.textContent = threshold.toFixed(2);
+                updateThresholdImpact(threshold);
+            });
+
+            // Initial update
+            updateThresholdImpact(0.80);
+        }
+
+        function updateThresholdImpact(threshold) {
+            const retained = allEntities.filter(e => e.confidence >= threshold);
+            const filtered = allEntities.filter(e => e.confidence < threshold);
+
+            const retainedCount = retained.length;
+            const filteredCount = filtered.length;
+            const retainedPercent = (retainedCount / allEntities.length * 100).toFixed(1);
+            const filteredPercent = (filteredCount / allEntities.length * 100).toFixed(1);
+
+            const retainedAvg = retainedCount > 0
+                ? (retained.reduce((sum, e) => sum + e.confidence, 0) / retainedCount).toFixed(3)
+                : '0.000';
+
+            document.getElementById('retained-count').textContent = retainedCount;
+            document.getElementById('filtered-count').textContent = filteredCount;
+            document.getElementById('retained-percent').textContent = `${retainedPercent}%`;
+            document.getElementById('filtered-percent').textContent = `${filteredPercent}%`;
+            document.getElementById('retained-avg').textContent = retainedAvg;
+
+            // Quality assessment
+            let quality, desc;
+            if (retainedPercent >= 95 && parseFloat(retainedAvg) >= 0.9) {
+                quality = 'Optimal';
+                desc = 'Maximum coverage with high quality';
+            } else if (retainedPercent >= 80 && parseFloat(retainedAvg) >= 0.85) {
+                quality = 'Good';
+                desc = 'Balanced quality and quantity';
+            } else if (retainedPercent >= 60) {
+                quality = 'Moderate';
+                desc = 'Quality prioritized over quantity';
+            } else {
+                quality = 'Strict';
+                desc = 'Very high quality, low coverage';
+            }
+
+            document.getElementById('quality-score').textContent = quality;
+            document.getElementById('quality-desc').textContent = desc;
+
+            // Update chart
+            updateThresholdChart(threshold);
+        }
+
+        function updateThresholdChart(threshold) {
+            const thresholds = [];
+            const retainedCounts = [];
+            const avgConfidences = [];
+
+            for (let t = 0; t <= 1; t += 0.05) {
+                const retained = allEntities.filter(e => e.confidence >= t);
+                thresholds.push(t.toFixed(2));
+                retainedCounts.push(retained.length);
+                avgConfidences.push(retained.length > 0
+                    ? retained.reduce((sum, e) => sum + e.confidence, 0) / retained.length
+                    : 0);
+            }
+
+            const ctx = document.getElementById('threshold-impact-chart');
+            const existingChart = Chart.getChart(ctx);
+            if (existingChart) {
+                existingChart.destroy();
+            }
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: thresholds,
+                    datasets: [{
+                        label: 'Entities Retained',
+                        data: retainedCounts,
+                        borderColor: '#60a5fa',
+                        backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                        yAxisID: 'y',
+                        tension: 0.4
+                    }, {
+                        label: 'Avg Confidence (Retained)',
+                        data: avgConfidences,
+                        borderColor: '#22c55e',
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        yAxisID: 'y1',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            position: 'left',
+                            ticks: { color: '#94a3b8' },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' },
+                            title: {
+                                display: true,
+                                text: 'Entity Count',
+                                color: '#e2e8f0'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            max: 1,
+                            position: 'right',
+                            ticks: { color: '#94a3b8' },
+                            grid: { display: false },
+                            title: {
+                                display: true,
+                                text: 'Avg Confidence',
+                                color: '#e2e8f0'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#94a3b8',
+                                maxTicksLimit: 11
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.5)' }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { color: '#e2e8f0' }
+                        },
+                        annotation: {
+                            annotations: [{
+                                type: 'line',
+                                xMin: threshold.toFixed(2),
+                                xMax: threshold.toFixed(2),
+                                borderColor: '#ef4444',
+                                borderWidth: 2,
+                                label: {
+                                    enabled: true,
+                                    content: `Threshold: ${threshold.toFixed(2)}`,
+                                    position: 'top'
+                                }
+                            }]
+                        }
+                    }
+                }
+            });
+        }
+
+        function getConfidenceClass(confidence) {
+            if (confidence < 0.5) return 'confidence-very-low';
+            if (confidence < 0.7) return 'confidence-low';
+            if (confidence < 0.85) return 'confidence-medium';
+            if (confidence < 0.95) return 'confidence-high';
+            return 'confidence-very-high';
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Export functions
+        function exportLowConfidence() {
+            const lowConfEntities = allEntities.filter(e => e.confidence < 0.8);
+
+            let csv = 'Entity Text,Type,Confidence,Wave,Document,Test ID\n';
+            lowConfEntities.forEach(entity => {
+                csv += `"${entity.text}",${entity.type},${entity.confidence},${entity.wave},${entity.document},${entity.testId}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'low_confidence_entities.csv';
+            a.click();
+        }
+
+        function exportAllCharts() {
+            alert('Chart export functionality would download all charts as PNG images. Implementation requires additional library (html2canvas or similar).');
+        }
+    </script>
+</body>
+</html>

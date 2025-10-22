@@ -1,0 +1,363 @@
+metadata:
+  pattern_type: citation_types
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-08-22'
+  last_updated: '2025-08-22'
+  description: Comprehensive citation type patterns for legal documents with CitationType enum support
+citation_types:
+  case_citation_full:
+    name: full_case_citation
+    pattern: \b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+v\.?\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*,?\s+\d+\s+[A-Z][a-z]*\.?(?:\s*\d+d?)?\s+\d+(?:\s+\([A-Za-z0-9\s.,]+\s+\d{4}\))?\b
+    confidence: 0.95
+    entity_types:
+    - case_citation
+    - citation
+    components:
+      case_name: Case parties
+      volume: Reporter volume
+      reporter: Reporter abbreviation
+      page: Page number
+      court_year: Court and year
+    examples:
+    - Brown v. Board, 347 Fed. 483 (1954)
+    - Roe v. Wade, 410 Fed. 113 (1973)
+    - Miranda v. Arizona, 384 Fed. 436 (1966)
+    - Marbury v. Madison, 5 Fed. 137 (1803)
+    - Citizens v. Federal, 558 Fed. 310 (2010)
+  statute_citation_usc:
+    name: usc_statute_citation
+    pattern: "\\b\\d+\\s+U\\.S\\.C\\.?\\s+\xA7\\s*\\d+(?:[a-z])?(?:\\(\\d+\\))*(?:\\([a-zA-Z]+\\))*\\b"
+    confidence: 0.92
+    entity_types:
+    - statute_citation
+    - citation
+    components:
+      title: USC title number
+      code: USC designation
+      section: Section number
+      subsection: Subsection designation
+    examples:
+    - "8 U.S.C. \xA7 1227(a)(2)(A)(i)"
+    - "42 U.S.C. \xA7 1983"
+    - "18 U.S.C. \xA7 924(c)(1)"
+    - "26 U.S.C. \xA7 501(c)(3)"
+    - "15 U.S.C. \xA7 1"
+    - "5 U.S.C. \xA7 706(2)(A)"
+  regulation_citation_cfr:
+    name: cfr_regulation_citation
+    pattern: "\\b\\d+\\s+C\\.F\\.R\\.?\\s+\xA7?\\s*\\d+(?:\\.\\d+[a-z]?(?:-\\d+)?)*(?:\\([a-zA-Z0-9]+\\))*\\b"
+    confidence: 0.9
+    entity_types:
+    - regulation_citation
+    - citation
+    components:
+      title: CFR title number
+      code: CFR designation
+      section: Section number
+      subsection: Subsection designation
+    examples:
+    - "40 C.F.R. \xA7 122.2"
+    - 29 C.F.R. 1910.95
+    - "21 C.F.R. \xA7 314.50(a)"
+    - "20 C.F.R. \xA7 404.1520(a)(4)(i)"
+    - "8 C.F.R. \xA7 214.2(h)(4)(iii)(A)"
+    - "40 C.F.R. \xA7 261.3(a)(2)"
+    - "17 C.F.R. \xA7 240.10b-5"
+  constitutional_citation:
+    name: constitutional_provision_citation
+    pattern: "\\b(?:U\\.S\\.?\\s+)?(?:Constitution|Const\\.)(?:\\s+(?:art\\.|article)\\s+[IVX]+)?(?:\\s*,\\s*)?(?:\xA7\\s*\\\
+      d+)?(?:\\s*,\\s*)?(?:cl\\.|clause\\s+\\d+)?(?:\\s+\\(\\d{4}\\))?\\b|\\b(?:First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh|Twelfth|Thirteenth|Fourteenth|Fifteenth|Sixteenth|Seventeenth|Eighteenth|Nineteenth|Twentieth|Twenty-first|Twenty-second|Twenty-third|Twenty-fourth|Twenty-fifth|Twenty-sixth|Twenty-seventh)\\\
+      s+Amendment\\b"
+    confidence: 0.93
+    entity_types:
+    - constitutional_citation
+    - citation
+    components:
+      document: Constitutional document
+      provision: Article, section, or amendment
+    examples:
+    - "U.S. Constitution art. II, \xA7 1"
+    - First Amendment
+    - Fourteenth Amendment
+    - "Constitution art. I, \xA7 8, cl. 3"
+    - Fourteenth Amendment
+  court_rule_citation:
+    name: court_rule_citation
+    pattern: \b(?:Fed\.|Federal)\s+R\.?\s+(?:Civ\.|Civil)\s+P\.?\s+\d+(?:\([a-zA-Z0-9]+\))*|\b(?:Fed\.|Federal)\s+R\.?\s+(?:Crim\.|Criminal)\s+P\.?\s+\d+(?:\([a-zA-Z0-9]+\))*|\b(?:Fed\.|Federal)\s+R\.?\s+(?:Evid\.|Evidence)\s+\d+(?:\([a-zA-Z0-9]+\))*\b
+    confidence: 0.88
+    entity_types:
+    - court_rule_citation
+    - citation
+    components:
+      rule_type: Type of court rule
+      rule_number: Rule number
+      subsection: Rule subsection
+    examples:
+    - Fed. R. Civ. P. 12(b)(6)
+    - Fed. R. Crim. P. 11
+    - Fed. R. Evid. 404(a)
+    - Fed. R. Civ. P. 32(a)
+    - Fed. R. Evid. 9014
+  law_review_citation:
+    name: law_review_article_citation
+    pattern: \b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*,\s+[A-Z][a-zA-Z\s:]+,\s+\d+\s+[A-Z][a-z]+\.?\s+(?:L\.?\s+)?(?:Rev\.|Review|J\.|Journal)\s+\d+(?:\s+\(\d{4}\))?\b
+    confidence: 0.85
+    entity_types:
+    - law_review_citation
+    - citation
+    components:
+      author: Article author
+      title: Article title
+      volume: Journal volume
+      journal: Journal name
+      page: Page number
+      year: Publication year
+    examples:
+    - Smith, The Future of Privacy, 95 Harv. L. Rev. 1234 (2021)
+    - Johnson, Constitutional Interpretation, 78 Yale L. Rev. 567 (2020)
+    - Doe & Jones, Corporate Compliance, 123 Stan. L. Rev. 456, 478-82 (2023)
+    - Brown, Digital Rights Analysis, 45 Colum. L. Rev. 789 (2022)
+    - Green, Tax Reform Analysis Study, 89 Chicago L. Rev. 1023 (2021)
+  treatise_citation:
+    name: treatise_book_citation
+    pattern: "\\b(?:[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*,\\s+[A-Z][a-zA-Z\\s:]+|\\d+\\s+[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*(?:\\s+[A-Z][a-zA-Z\\\
+      s]+)?)\\s+\xA7\\s*\\d+(?:\\.\\d+)*(?:\\s+\\((?:\\d+(?:st|nd|rd|th)\\s+ed\\.?\\s+)?\\d{4}\\))?"
+    confidence: 0.82
+    entity_types:
+    - treatise_citation
+    - citation
+    components:
+      author: Treatise author
+      title: Treatise title
+      section: Section number
+      edition: Edition information
+      year: Publication year
+    examples:
+    - "Wright, Federal Practice Procedure \xA7 12.3 (3rd ed. 2020)"
+    - "1 Moore Federal Practice \xA7 1.01 (2021)"
+    - "Black, Law Dictionary Guide \xA7 456 (11th ed. 2019)"
+    - "Prosser, Torts Handbook \xA7 65 (5th ed. 1984)"
+    - "2 McCarthy Trademarks Guide \xA7 11.1 (5th ed. 2023)"
+  restatement_citation:
+    name: restatement_citation
+    pattern: "\\bRestatement\\s+\\((?:First|Second|Third)\\)\\s+of\\s+[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*\\s+\xA7\\s*\\d+(?:\\\
+      .\\d+)*(?:\\s+\\(\\d{4}\\))?\\b"
+    confidence: 0.9
+    entity_types:
+    - restatement_citation
+    - citation
+    components:
+      series: Restatement series
+      subject: Subject area
+      section: Section number
+      year: Publication year
+    examples:
+    - "Restatement (Second) of Contracts \xA7 90"
+    - "Restatement (Third) of Torts \xA7 1.02 (2018)"
+    - "Restatement (Second) of Agency \xA7 219(2)(d)"
+    - "Restatement (Third) of Property \xA7 3.1 (2000)"
+    - "Restatement (Second) of Trusts \xA7 170 cmt. a"
+  uniform_law_citation:
+    name: uniform_code_citation
+    pattern: "\\b(?:Uniform\\s+)?[A-Z][a-z]+(?:\\s+[A-Z][a-z]+)*\\s+(?:Code|Act)\\s+\xA7\\s*\\d+(?:\\.\\d+)*(?:\\s+\\(\\d{4}\\\
+      ))?\\b"
+    confidence: 0.87
+    entity_types:
+    - uniform_law_citation
+    - citation
+    components:
+      code_name: Uniform code name
+      section: Section number
+      year: Enactment year
+    examples:
+    - "Uniform Commercial Code \xA7 2-207"
+    - "Model Penal Code \xA7 3.02 (1985)"
+    - "Uniform Commercial Code \xA7 9-102"
+    - "Uniform Probate Code \xA7 2-502"
+    - "Model Professional Conduct Code \xA7 1.6"
+  administrative_citation:
+    name: administrative_decision_citation
+    pattern: \b(?:[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*,\s+\d+\s+[A-Z\.]+\s+\d+(?:\s+\([A-Za-z\s]+\s+\d{4}\))?|[A-Z]{2,}\s+(?:Dec\.|Decision|Release|Opinion\s+Letter)\s+No\.\s+[\d-]+(?:\s+\([^)]+\s+\d{4}\))?|[A-Z]{2,}\s+Opinion\s+Letter\s+[\d-]+|In\s+re\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*,\s+\d+\s+[A-Z]{2,}\s+\d+)
+    confidence: 0.84
+    entity_types:
+    - administrative_citation
+    - citation
+    components:
+      case_name: Administrative case name
+      volume: Reporter volume
+      reporter: Administrative reporter
+      page: Page number
+      agency_year: Agency and year
+    examples:
+    - Smith, 123 EPA 456 (Agency 2020)
+    - NLRB Dec. No. 12-345
+    - SEC Release No. 34-12345 (Jan. 15, 2023)
+    - FTC Opinion Letter 98-1
+    - In re Jones, 234 NLRB 567 (2022)
+entity_types:
+- name: case_citations
+  description: Case law citations
+  priority: 1
+  requires_case_name: true
+- name: statute_citations
+  description: Statutory citations
+  priority: 1
+  requires_code_reference: true
+- name: regulation_citations
+  description: Regulatory citations
+  priority: 2
+  requires_regulation_reference: true
+- name: constitutional_citations
+  description: Constitutional provisions
+  priority: 1
+  requires_constitutional_reference: true
+- name: court_rule_citations
+  description: Court procedural rules
+  priority: 2
+  requires_rule_reference: true
+- name: law_review_citations
+  description: Law review articles
+  priority: 3
+  requires_author_title: true
+- name: treatise_citations
+  description: Legal treatises and books
+  priority: 3
+  requires_author_title: true
+- name: restatement_citations
+  description: Restatement provisions
+  priority: 2
+  requires_series_subject: true
+- name: uniform_law_citations
+  description: Uniform codes and acts
+  priority: 2
+  requires_code_name: true
+- name: administrative_citations
+  description: Administrative decisions
+  priority: 3
+  requires_agency_reference: true
+electronic_citations:
+  westlaw_citation:
+    name: westlaw_electronic_citation
+    pattern: \b\d{4}\s+WL\s+\d+(?:\s+\((?:[A-Za-z.\s]+)?\s*(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+\d{1,2},\s+\d{4}\))?\b
+    confidence: 0.86
+    entity_types:
+    - electronic_citation
+    - citation
+    components:
+      year: Year of publication
+      westlaw_id: Westlaw document ID
+      court_date: Court and date
+    examples:
+    - 2023 WL 123456 (S.D.N.Y. Jan. 15, 2023)
+    - 2022 WL 987654
+    - 2021 WL 555666 (9th Cir. Dec. 31, 2021)
+    - 2024 WL 111222 (D. Mass. Mar. 1, 2024)
+  lexis_citation:
+    name: lexis_electronic_citation
+    pattern: \b\d{4}\s+(?:U\.S\.\s+)?(?:Dist\.\s+)?(?:LEXIS|Lexis)\s+\d+(?:\s+\((?:[A-Za-z.\s]+)?\s*(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+\d{1,2},\s+\d{4}\))?\b
+    confidence: 0.86
+    entity_types:
+    - electronic_citation
+    - citation
+    components:
+      year: Year of publication
+      lexis_id: Lexis document ID
+      court_date: Court and date
+    examples:
+    - 2023 U.S. LEXIS 12345 (Jan. 15, 2023)
+    - 2022 LEXIS 98765
+    - 2021 U.S. Dist. LEXIS 111222 (S.D.N.Y. Dec. 1, 2021)
+    - 2024 LEXIS 333444
+  bloomberg_citation:
+    name: bloomberg_law_citation
+    pattern: \b\d{4}\s+BL\s+\d+(?:\s+\([^)]+\s+\d{4}\))?\b
+    confidence: 0.84
+    entity_types:
+    - electronic_citation
+    - citation
+    components:
+      year: Year of publication
+      bloomberg_id: Bloomberg Law document ID
+    examples:
+    - 2023 BL 123456
+    - 2022 BL 987654 (S.D.N.Y. Oct. 15, 2022)
+    - 2021 BL 555666
+international_citations:
+  international_court_citation:
+    name: international_court_cases
+    pattern: \b(?:ICJ|I\.C\.J\.)\s+(?:Reports?|Rep\.)\s+\d{4}(?:\s+at\s+\d+)?|\[\d{4}\]\s+(?:ICJ|ECR|ECHR)\s+[A-Z]?-?\d+\b
+    confidence: 0.83
+    entity_types:
+    - international_citation
+    - citation
+    components:
+      court: International court
+      year: Report year
+      page: Page reference
+    examples:
+    - ICJ Reports 2023 at 45
+    - '[2023] ICJ 12'
+    - '[2022] ECR I-1234'
+    - '[2021] ECHR 567'
+  treaty_citation:
+    name: treaty_convention_citation
+    pattern: \b\d+\s+(?:U\.N\.T\.S\.|I\.L\.M\.)\s+\d+(?:\s+\(\d{4}\))?\b
+    confidence: 0.82
+    entity_types:
+    - treaty_citation
+    - citation
+    components:
+      volume: Treaty series volume
+      series: Treaty series name
+      page: Page number
+      year: Year
+    examples:
+    - 123 U.N.T.S. 456
+    - 45 I.L.M. 789 (2006)
+    - 234 U.N.T.S. 567
+specialized_citations:
+  patent_citation:
+    name: patent_number_citation
+    pattern: \bU\.S\.\s+Patent\s+(?:No\.\s+)?[0-9,]+|Patent\s+No\.\s+[0-9,]+\b
+    confidence: 0.85
+    entity_types:
+    - patent_citation
+    - citation
+    components:
+      patent_number: Patent number
+      country: Country code
+    examples:
+    - U.S. Patent No. 5,123,456
+    - U.S. Patent 6,789,012
+    - Patent No. 7,234,567
+  sec_filing_citation:
+    name: sec_filing_citation
+    pattern: \b(?:Form|Schedule)\s+(?:10-K|10-Q|8-K|DEF\s+14A|S-1)|\bSEC\s+(?:Release|File)\s+No\.\s+[A-Z0-9-]+\b
+    confidence: 0.84
+    entity_types:
+    - sec_citation
+    - citation
+    components:
+      filing_type: Type of SEC filing
+      file_number: SEC file number
+    examples:
+    - Form 10-K
+    - Schedule DEF 14A
+    - SEC Release No. 34-12345
+    - SEC File No. 001-12345
+parallel_citations:
+  parallel_citation:
+    name: parallel_citations.parallel_citation
+    pattern: (?P<case_name>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+)*\s+v\.\s+[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+)*),\s*(?P<primary_cite>\d+\s+[A-Z](?:[a-zA-Z]*\.?)+\s+\d+)(?:\s*,\s*(?P<parallel_cite1>\d+\s+[A-Z](?:[a-zA-Z\s]*\.?)+\s+\d+))?(?:\s*,\s*(?P<parallel_cite2>\d+\s+[A-Z](?:[a-zA-Z\s]*\.?)+\s+\d+))?(?:\s*\((?P<year>\d{4})\))?
+    confidence: 0.95
+    examples: []
+pinpoint_citations:
+  section_pinpoint:
+    name: pinpoint_citations.section_pinpoint
+    pattern: "(?P<title>\\d+)\\s+U\\.S\\.C\\.\\s+\xA7\\s*(?P<section>\\d+(?:[a-z]+)?(?:\\([a-z0-9]+\\))*),?\\s*(?:(?P<pinpoint_type>subsec\\\
+      .|para\\.|cl\\.)\\s+(?P<pinpoint>[a-z0-9]+(?:\\([a-z0-9]+\\))*))?"
+    confidence: 0.95
+    examples: []

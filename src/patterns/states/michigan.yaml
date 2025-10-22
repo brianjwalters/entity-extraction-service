@@ -1,0 +1,197 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: michigan
+  state_abbreviation: Mich.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Michigan state citations and entities
+case_citations:
+  michigan_supreme_court:
+    name: michigan_supreme_court_citation
+    pattern: "(?P<case_name>(?:In\\s+re\\s+(?:Estate\\s+of\\s+)?[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+)*|(?P<plaintiff>[A-Z][a-zA-Z]+(?:\\\
+      s+[A-Za-z][a-zA-Z]+)*(?:\\s+(?:Inc|Corp|Co|LLC|Ltd)\\.?)?\\s+v\\.\\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+)*(?:\\\
+      s+(?:Inc|Corp|Co|LLC|Ltd)\\.?)?))))\\s*,\\s*(?P<volume>\\d{1,3})\\s+(?P<reporter>Mich\\.(?:\\s*2d)?|N\\.W\\.(?:\\s*2d|3d)?)\\\
+      s+(?P<page>\\d{1,4})(?:\\s*,\\s*(?P<pinpoint>\\d{1,4}(?:[-\u2013]\\d{1,4})?))?(?:\\s*\\(Mich\\.\\s+(?P<year>\\d{4})\\\
+      ))?"
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Michigan Reports or North Western Reporter volume
+      reporter: Mich. or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - People v. Johnson, 512 Mich. 234 (Mich. 2023)
+    - Smith v. ABC Corp., 890 N.W.2d 567 (Mich. 2022)
+    - In re Estate of Brown, 498 Mich. 456, 789 (Mich. 2021)
+  michigan_court_of_appeals:
+    name: michigan_court_of_appeals_citation
+    pattern: "(?P<case_name>(?P<plaintiff>[A-Z][^\\s,v]+(?:\\s+[A-Z][^\\s,v]*)*(?:\\s+[A-Z][a-z]+\\.)*(?:\\s+(?:Inc|Corp|Co|LLC|Ltd)\\\
+      .?)?)\\s+v\\.\\s+(?P<defendant>[A-Z][^\\s,]+(?:\\s+[A-Z][^\\s,]*)*(?:\\s+[A-Z][a-z]+\\.)*(?:\\s+(?:Inc|Corp|Co|LLC|Ltd)\\\
+      .?)?))\\s*,\\s*(?P<volume>\\d{1,3})\\s+(?P<reporter>Mich\\.?\\s*App\\.(?:\\s*2d)?|N\\.W\\.(?:\\s*2d|3d)?)\\s+(?P<page>\\\
+      d{1,4})(?:\\s*,\\s*(?P<pinpoint>\\d{1,4}(?:[-\u2013]\\d{1,4})?))?(?:\\s*\\(Mich\\.\\s*Ct\\.\\s*App\\.\\s*(?P<year>\\\
+      d{4})\\))?"
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Michigan App Reports or North Western Reporter volume
+      reporter: Michigan appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 356 Mich. App. 567 (Mich. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 N.W.3d 789 (Mich. Ct. App. 2022)
+    - People v. Brown, 334 Mich. App. 345 (Mich. Ct. App. 2021)
+  michigan_circuit_court:
+    name: michigan_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Cir\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Mich\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-123456-CZ (3rd Cir. Ct. Wayne County, Mich.)
+    - ABC Corp. v. XYZ Inc., No. 22-CV-5678 (17th Cir. Ct. Kent County, Mich. 2022)
+statute_citations:
+  michigan_compiled_laws:
+    name: michigan_compiled_laws_citation
+    pattern: "Mich\\.\\s+Comp\\.\\s+Laws\\s+(?:Ann\\.\\s+)?(?:\xA7\xA7?\\s*)?(?P<section>[\\d\\.]+(?:\\s*[-\u2013]\\s*[\\\
+      d\\.]+)?(?:\\s*to\\s*[\\d\\.]+)?)(?:\\s+\\(West\\s+(?P<year>\\d{4})\\))?"
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Compiled Laws section number or range
+      year: Publication year
+    examples:
+    - "Mich. Comp. Laws Ann. \xA7 750.316 (West 2023)"
+    - "Mich. Comp. Laws \xA7\xA7 554.601-554.616"
+    - "Mich. Comp. Laws \xA7 168.31"
+  michigan_constitution:
+    name: michigan_constitution_citation
+    pattern: "Mich\\.\\s+Const\\.\\s+(?:(?P<article>art\\.\\s*(?P<art_num>[IVXLCDM]+|\\d+))(?:\\s*,\\s*\xA7\\s*(?P<section>\\\
+      d+(?:[a-z])?(?:\\((?:[a-z]|\\d+)\\))?)))?"
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - "Mich. Const. art. I, \xA7 17"
+    - "Mich. Const. art. IV, \xA7 1"
+    - "Mich. Const. art. IX, \xA7 6(a)"
+regulation_citations:
+  michigan_administrative_code:
+    name: michigan_administrative_code_citation
+    pattern: "Mich\\.\\s+Admin\\.\\s+Code\\s+r\\.\\s+(?P<section>\\d+(?:\\.\\d+)*(?:\\s*[-\u2013]\\s*\\d+(?:\\.\\d+)*)?)"
+    confidence: 0.92
+    priority: 80
+    components:
+      section: Administrative Code rule number
+    examples:
+    - Mich. Admin. Code r. 408.13455
+    - Mich. Admin. Code r. 325.1002
+    - Mich. Admin. Code r. 792.10101
+court_system:
+  court_names:
+    michigan_supreme_court:
+      pattern: (?i)(?:Mich(?:igan)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Michigan)?
+      confidence: 0.95
+      level: supreme
+    michigan_court_of_appeals:
+      pattern: (?i)(?:Mich(?:igan)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Michigan)?
+      confidence: 0.93
+      level: appellate
+    michigan_circuit_court:
+      pattern: (?i)(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:Circuit\s+Court|Cir\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Mich(?:igan)?\.?)?
+      confidence: 0.9
+      level: trial
+    michigan_district_court:
+      pattern: (?i)(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:District\s+Court|Dist\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Mich(?:igan)?\.?)?
+      confidence: 0.88
+      level: limited_jurisdiction
+entity_types:
+- name: MICHIGAN_SUPREME_COURT_CASE
+  description: Michigan Supreme Court case citation
+  confidence_threshold: 0.95
+- name: MICHIGAN_APPELLATE_CASE
+  description: Michigan Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: MICHIGAN_CIRCUIT_COURT_CASE
+  description: Michigan Circuit Court case citation
+  confidence_threshold: 0.85
+- name: MICHIGAN_DISTRICT_COURT_CASE
+  description: Michigan District Court case citation
+  confidence_threshold: 0.83
+- name: MICHIGAN_STATUTE
+  description: Michigan Compiled Laws provision
+  confidence_threshold: 0.9
+- name: MICHIGAN_REGULATION
+  description: Michigan administrative regulation
+  confidence_threshold: 0.88
+- name: MICHIGAN_CONSTITUTIONAL_PROVISION
+  description: Michigan constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1837
+    max_year: 2025
+  volume_ranges:
+    michigan_reports:
+      mich_1st:
+        min_volume: 1
+        max_volume: 480
+      mich_2d:
+        min_volume: 1
+        max_volume: 50
+    michigan_app_reports:
+      mich_app_1st:
+        min_volume: 1
+        max_volume: 300
+      mich_app_2d:
+        min_volume: 1
+        max_volume: 400
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 800_citations_per_second
+dependencies:
+  requires:
+  - michigan_court_abbreviations
+  - michigan_county_names
+  - michigan_judicial_circuits
+  optional:
+  - michigan_historical_courts
+  - michigan_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.michigan_supreme_court
+    text: People v. Johnson, 512 Mich. 234 (Mich. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.michigan_compiled_laws
+    text: "Mich. Comp. Laws Ann. \xA7 750.316 (West 2023)"
+    expected_entities: 1
+  - pattern: case_citations.michigan_court_of_appeals
+    text: Smith v. Jones, 356 Mich. App. 567 (Mich. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.8 seconds
+    memory_usage: < 135MB
+    accuracy_threshold: 0.94

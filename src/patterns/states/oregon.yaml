@@ -1,0 +1,221 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: oregon
+  state_abbreviation: Or.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Oregon state citations and entities
+case_citations:
+  oregon_supreme_court:
+    name: oregon_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Smith,\s+234\s+P\.2d\s+567,\s+890\s+\(Or\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Pacific Reporter or Oregon Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Davis, 123 P.3d 456 (Or. 2023)
+    - Brown v. Superior Court, 456 Or. 789 (Or. 2022)
+    - In re Marriage of Smith, 234 P.2d 567, 890 (Or. 2021)
+  oregon_court_of_appeals:
+    name: oregon_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>P\.(?:\s*2d|3d)?|Or\.?\s+(?:Ct\.\s+)?App\.)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Or\.\s+(?:Ct\.\s+)?App\.(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Pacific Reporter or Oregon Court of Appeals Reports volume
+      reporter: Oregon appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 P.3d 456 (Or. Ct. App. 2023)
+    - People v. Brown, 456 Or. Ct. App. 789 (Or. Ct. App. 2022)
+    - Doe v. ABC Corp., 234 P.2d 567 (Or. App. 2021)
+  oregon_circuit_court:
+    name: oregon_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Or\.\s+)?(?:Circuit\s+Court|Cir\.\s+Ct\.)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23CV12345 (Or. Circuit Court Multnomah County)
+    - ABC Corp. v. XYZ Inc., CV22-987 (Circuit Court Washington County 2022)
+  oregon_district_court:
+    name: oregon_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Or\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - State v. Smith, No. DC-2023-456 (Or. District Court Jackson County)
+    - City of Portland v. Doe, DT22-5678 (Dist. Ct. Multnomah County 2022)
+  oregon_municipal_court:
+    name: oregon_municipal_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+)?(?:Municipal\s+Court|Mun\.\s+Ct\.?)(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.83
+    priority: 65
+    components:
+      case_name: Full case name with parties
+      docket_number: Municipal court case number
+      city: City court jurisdiction
+      year: Decision year
+    examples:
+    - City of Eugene v. Smith, No. MC-2023-789 (Eugene Municipal Court)
+    - Portland v. Doe, MV22-456 (Portland Mun. Ct. 2022)
+statute_citations:
+  oregon_revised_statutes:
+    name: oregon_revised_statutes_citation
+    pattern: (?:Or\.\s*Rev\.\s*Stat\.|O\.R\.S\.)\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\([\da-z]+\))*(?:\s*[-–]\s*[\d\.]+(?:\([\da-z]+\))*)?(?:\s*to\s*[\d\.]+(?:\([\da-z]+\))*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Oregon Revised Statutes section number or range
+      year: Publication year
+    examples:
+    - Or. Rev. Stat. § 161.015
+    - O.R.S. § 30.265 (2023)
+    - Or. Rev. Stat. Ann. §§ 646.605-646.656
+  oregon_constitution:
+    name: oregon_constitution_citation
+    pattern: Or\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Or. Const. art. I, § 20
+    - Or. Const. art. III, § 1
+    - Or. Const. art. VIII, § 2
+regulation_citations:
+  oregon_administrative_rules:
+    name: oregon_administrative_rules_citation
+    pattern: Or\.\s+Admin\.\s+R\.\s+(?P<division>\d+)-(?P<chapter>\d+)-(?P<section>\d+)(?:\((?P<subsection>\d+)\))*
+    confidence: 0.92
+    priority: 80
+    components:
+      division: Division number
+      chapter: Chapter number
+      section: Section number
+      subsection: Subsection number
+    examples:
+    - Or. Admin. R. 137-003-0501
+    - Or. Admin. R. 410-141-3000
+    - Or. Admin. R. 845-025-1400
+court_system:
+  court_names:
+    oregon_supreme_court:
+      pattern: (?i)(?:Or(?:egon)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Oregon)?
+      confidence: 0.95
+      level: supreme
+    oregon_court_of_appeals:
+      pattern: (?i)(?:Or(?:egon)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Oregon)?
+      confidence: 0.93
+      level: appellate
+    oregon_circuit_court:
+      pattern: (?i)(?:Or(?:egon)?\.\s+)?(?:Circuit\s+Court|Cir\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    oregon_district_court:
+      pattern: (?i)(?:Or(?:egon)?\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: district
+    oregon_municipal_court:
+      pattern: (?i)(?:(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+)?(?:Municipal\s+Court|Mun\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<city_alt>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*))?
+      confidence: 0.85
+      level: municipal
+entity_types:
+- name: OREGON_SUPREME_COURT_CASE
+  description: Oregon Supreme Court case citation
+  confidence_threshold: 0.95
+- name: OREGON_APPELLATE_CASE
+  description: Oregon Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: OREGON_CIRCUIT_COURT_CASE
+  description: Oregon Circuit Court case citation
+  confidence_threshold: 0.85
+- name: OREGON_DISTRICT_COURT_CASE
+  description: Oregon District Court case citation
+  confidence_threshold: 0.83
+- name: OREGON_MUNICIPAL_COURT_CASE
+  description: Oregon Municipal Court case citation
+  confidence_threshold: 0.8
+- name: OREGON_STATUTE
+  description: Oregon statutory provision (ORS)
+  confidence_threshold: 0.9
+- name: OREGON_REGULATION
+  description: Oregon administrative regulation
+  confidence_threshold: 0.88
+- name: OREGON_CONSTITUTIONAL_PROVISION
+  description: Oregon constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1859
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    oregon_reports:
+      min_volume: 1
+      max_volume: 365
+    oregon_court_of_appeals:
+      min_volume: 1
+      max_volume: 325
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 805_citations_per_second
+dependencies:
+  requires:
+  - oregon_court_abbreviations
+  - oregon_county_names
+  - oregon_ors_chapters
+  optional:
+  - oregon_historical_courts
+  - oregon_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.oregon_supreme_court
+    text: State v. Davis, 123 P.3d 456 (Or. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.oregon_revised_statutes
+    text: Or. Rev. Stat. § 161.015
+    expected_entities: 1
+  - pattern: case_citations.oregon_court_of_appeals
+    text: Smith v. Jones, 123 P.3d 456 (Or. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.1 seconds
+    memory_usage: < 114MB
+    accuracy_threshold: 0.95

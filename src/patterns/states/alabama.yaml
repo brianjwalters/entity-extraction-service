@@ -1,0 +1,185 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: alabama
+  state_abbreviation: Ala.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Alabama state citations and entities
+case_citations:
+  alabama_supreme_court:
+    name: alabama_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+So\.\s+2d\s+567,\s+890\s+\(Ala\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Alabama Reports or Southern Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Alabama, 123 Ala. 456 (Ala. 2023)
+    - Johnson v. ABC Corp., 456 So. 3d 789 (Ala. 2022)
+    - Ex parte Brown, 234 So. 2d 567, 890 (Ala. 2021)
+  alabama_court_of_appeals:
+    name: alabama_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Ala\.\s*(?:Civ\.\s*App\.|Crim\.\s*App\.)|So\.\s*(?:2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Ala\.\s+(?:Civ\.\s*App\.|Crim\.\s*App\.)\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Alabama Appeals or Southern Reporter volume
+      reporter: Alabama appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 Ala. Civ. App. 456 (Ala. Civ. App. 2023)
+    - State v. Johnson, 456 So. 3d 789 (Ala. Crim. App. 2022)
+    - People v. Brown, 234 So. 2d 567 (Ala. Civ. App. 2021)
+  alabama_circuit_court:
+    name: alabama_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Judicial\s+Circuit(?:\s+Court)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Ala\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. CV-2023-12345 (10th Judicial Circuit, Jefferson County,
+      Ala.)
+    - ABC Corp. v. XYZ Inc., CV-22-987654 (13th Judicial Circuit, Mobile County, Ala.
+      2022)
+statute_citations:
+  alabama_code:
+    name: alabama_code_citation
+    pattern: Ala\.\s+Code\s+§\s+13A\-5\-40\s+\(2023\)
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Code section number
+      year: Publication year
+    examples:
+    - Ala. Code § 13A-5-40 (2023)
+    - Ala. Code §§ 6-5-410 to 6-5-420
+    - Ala. Code § 32-6-19.1
+  alabama_constitution:
+    name: alabama_constitution_citation
+    pattern: Ala\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Ala. Const. art. I, § 3
+    - Ala. Const. art. IV, § 45
+    - Ala. Const. art. XII, § 220(a)
+regulation_citations:
+  alabama_administrative_code:
+    name: alabama_administrative_code_citation
+    pattern: Ala\.\s+Admin\.\s+Code\s+r\.\s+(?P<rule>\d+(?:-\w+)?-\d+(?:-\d+)*(?:\.\d+)*)
+    confidence: 0.92
+    priority: 80
+    components:
+      rule: Administrative rule number
+    examples:
+    - Ala. Admin. Code r. 420-5-1-.01
+    - Ala. Admin. Code r. 660-X-1-.02
+    - Ala. Admin. Code r. 538-X-4-.04
+court_system:
+  court_names:
+    alabama_supreme_court:
+      pattern: (?i)(?:Ala(?:bama)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Alabama)?
+      confidence: 0.95
+      level: supreme
+    alabama_court_of_civil_appeals:
+      pattern: (?i)(?:Ala(?:bama)?\.\s+)?(?:Court\s+of\s+Civil\s+Appeals|Ct\.?\s+of\s+Civ\.?\s+App\.?)(?:\s+of\s+Alabama)?
+      confidence: 0.94
+      level: appellate
+    alabama_court_of_criminal_appeals:
+      pattern: (?i)(?:Ala(?:bama)?\.\s+)?(?:Court\s+of\s+Criminal\s+Appeals|Ct\.?\s+of\s+Crim\.?\s+App\.?)(?:\s+of\s+Alabama)?
+      confidence: 0.94
+      level: appellate
+    alabama_circuit_court:
+      pattern: (?i)(?:Ala(?:bama)?\.\s+)?(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:Circuit\s+Court|Circuit\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: ALABAMA_SUPREME_COURT_CASE
+  description: Alabama Supreme Court case citation
+  confidence_threshold: 0.95
+- name: ALABAMA_CIVIL_APPEALS_CASE
+  description: Alabama Court of Civil Appeals case citation
+  confidence_threshold: 0.92
+- name: ALABAMA_CRIMINAL_APPEALS_CASE
+  description: Alabama Court of Criminal Appeals case citation
+  confidence_threshold: 0.92
+- name: ALABAMA_CIRCUIT_COURT_CASE
+  description: Alabama Circuit Court case citation
+  confidence_threshold: 0.85
+- name: ALABAMA_STATUTE
+  description: Alabama statutory provision
+  confidence_threshold: 0.9
+- name: ALABAMA_REGULATION
+  description: Alabama administrative regulation
+  confidence_threshold: 0.88
+- name: ALABAMA_CONSTITUTIONAL_PROVISION
+  description: Alabama constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1819
+    max_year: 2025
+  volume_ranges:
+    southern_reporter:
+      so_2d:
+        min_volume: 1
+        max_volume: 999
+      so_3d:
+        min_volume: 1
+        max_volume: 999
+    alabama_reports:
+      min_volume: 1
+      max_volume: 300
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 750_citations_per_second
+dependencies:
+  requires:
+  - alabama_court_abbreviations
+  - alabama_county_names
+  - alabama_judicial_circuits
+  optional:
+  - alabama_historical_courts
+  - alabama_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.alabama_supreme_court
+    text: Smith v. State of Alabama, 123 Ala. 456 (Ala. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.alabama_code
+    text: Ala. Code § 13A-5-40 (2023)
+    expected_entities: 1
+  - pattern: case_citations.alabama_court_of_appeals
+    text: State v. Johnson, 456 So. 3d 789 (Ala. Crim. App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.5 seconds
+    memory_usage: < 130MB
+    accuracy_threshold: 0.94

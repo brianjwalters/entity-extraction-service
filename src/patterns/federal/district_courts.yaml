@@ -1,0 +1,392 @@
+metadata:
+  pattern_type: federal_district_courts
+  jurisdiction: federal
+  court_level: district
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for U.S. District Court citations and entities
+case_citations:
+  federal_supplement:
+    name: federal_supplement_citation
+    pattern: "(?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?)\\s+v\\.\\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\\s+[A-Za-z][a-zA-Z]+){0,8}(?:\\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\\.?)?))\\s*,\\s*(?P<volume>\\d{1,4})\\s+F\\.\\s*Supp\\.(?P<series>2d|3d)?\\s+(?P<page>\\d{1,4})(?:\\s*,\\s*(?P<pinpoint>\\d{1,4}(?:[-\u2013]\\d{1,4})?))?(?:\\s*\\((?P<district>[NSEW]\\.?D\\.\\s*[A-Z][a-z]+\\.?(?:\\s+[A-Z][a-z]+\\.?)*|D\\.\\s*[A-Z][a-z]+\\.?(?:\\s+[A-Z][a-z]+\\.?)*)\\s+(?P<year>\\d{4})\\))?"
+    confidence: 0.95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff name
+      defendant: Defendant name
+      volume: Federal Supplement volume number
+      series: Federal Supplement series (2d, 3d)
+      page: Starting page number
+      pinpoint: Specific page or page range
+      district: District court designation
+      year: Decision year
+    examples:
+    - Brown v. Board, 98 F. Supp. 797 (D. Kan. 1951)
+    - Smith v. Microsoft Corp., 87 F. Supp. 2d 30 (D.D.C. 2000)
+    - Apple Inc. v. Samsung Corp., 909 F. Supp. 2d 1147 (N.D. Cal. 2012)
+  district_court_unpublished:
+    name: district_unpublished_citation
+    pattern: '(?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+){0,8}(?:\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+){0,8}(?:\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\.?)?))\s*,\s*(?P<year>\d{4})\s+WL\s+(?P<westlaw_number>\d+)(?:\s*,\s*at\s*\*(?P<pinpoint>\d+))?(?:\s*\((?P<district>[NSEW]\.?D\.\s*[A-Z][a-z]+\.?(?:\s+[A-Z][a-z]+\.?)*|D\.\s*[A-Z][a-z]+\.?(?:\s+[A-Z][a-z]+\.?)*)\s+(?P<month>[A-Z][a-z]+\.?)\s+(?P<day>\d{1,2}),?\s*(?P<decision_year>\d{4})\))?'
+    confidence: 0.92
+    components:
+      case_name: Full case name with parties
+      year: Westlaw citation year
+      westlaw_number: Westlaw citation number
+      pinpoint: Specific page reference
+      district: District court designation
+      month: Decision month
+      day: Decision day
+      decision_year: Decision year
+    examples:
+    - Smith v. Jones, 2023 WL 1234567 (S.D.N.Y. Mar. 15, 2023)
+    - Oracle Corp. v. Google Inc., 2021 WL 987654 (N.D. Cal. June 30, 2021)
+districts:
+  state_districts:
+    name: state_district_courts
+    pattern: (?P<geographic_modifier>[NSEW]\.?D\.|D\.)\s*(?P<state>[A-Z][a-z]+\.?(?:\s+[A-Z][a-z]+\.?)*)
+    confidence: 0.97
+    components:
+      geographic_modifier: Geographic subdivision (N.D., S.D., E.D., W.D., or D.)
+      state: State or territory name
+    geographic_mapping:
+      single_district_states:
+      - Alaska
+      - Delaware
+      - Hawaii
+      - Idaho
+      - Maine
+      - Montana
+      - Nevada
+      - New Hampshire
+      - Rhode Island
+      - South Dakota
+      - Vermont
+      - Wyoming
+      multiple_district_states:
+        Alabama:
+        - N.D. Ala.
+        - M.D. Ala.
+        - S.D. Ala.
+        California:
+        - N.D. Cal.
+        - E.D. Cal.
+        - C.D. Cal.
+        - S.D. Cal.
+        Florida:
+        - N.D. Fla.
+        - M.D. Fla.
+        - S.D. Fla.
+        Georgia:
+        - N.D. Ga.
+        - M.D. Ga.
+        - S.D. Ga.
+        Illinois:
+        - N.D. Ill.
+        - C.D. Ill.
+        - S.D. Ill.
+        New York:
+        - N.D.N.Y.
+        - E.D.N.Y.
+        - S.D.N.Y.
+        - W.D.N.Y.
+        Pennsylvania:
+        - E.D. Pa.
+        - M.D. Pa.
+        - W.D. Pa.
+        Texas:
+        - N.D. Tex.
+        - E.D. Tex.
+        - S.D. Tex.
+        - W.D. Tex.
+    examples:
+    - N.D. Cal.
+    - S.D. New York
+    - E.D. Va.
+    - D. Del.
+  specialty_districts:
+    name: specialty_district_courts
+    pattern: (?P<specialty_court>D\.D\.C\.|D\.\s*(?:P\.R\.|V\.I\.|Guam|N\.\s*Mar\.\s*I\.))
+    confidence: 0.96
+    components:
+      specialty_court: Specialty district court designation
+    jurisdiction:
+      D.D.C.: District of Columbia
+      D. P.R.: Puerto Rico
+      D. V.I.: Virgin Islands
+      D. Guam: Guam
+      D. N. Mar. I.: Northern Mariana Islands
+    examples:
+    - D.D.C.
+    - D. P.R.
+    - D. V.I.
+judges:
+  district_judge:
+    name: district_court_judge_optimized
+    pattern: (?P<judge_title>(?:Chief\s+District|District|U\.S\.?\s+District|U\.S\.?\s+)\s*Judge)\s+(?P<judge_name>[A-Z][a-z]+(?:(?:\s+[A-Z]\.\s*)?[A-Z][a-z]+)?(?:\s+(?:Jr\.|Sr\.|I{1,3}|IV))?)
+    confidence: 0.94
+    components:
+      judge_title: District judicial title (optimized)
+      judge_name: Judge's personal name with bounded repetition
+    examples:
+    - District Judge Williams A. Smith
+    - District Judge Smith B. Jones
+    - U.S. District Judge Roberts C. Davis
+    - U.S. Judge Johnson D. Miller
+    optimization_notes:
+    - Consolidated title matching to prevent backtracking
+    - Limited middle initials to {0,3} instead of unbounded *
+    - Simplified suffix matching patterns
+  magistrate_judge:
+    name: magistrate_judge_optimized
+    pattern: (?P<magistrate_title>(?:Chief\s+)?(?:U\.S\.?\s+)?Magistrate\s+Judge)\s+(?P<judge_name>[A-Z][a-z]+(?:\s+[A-Z]\.\s*){0,2}[A-Z][a-z]+(?:\s+(?:Jr\.|Sr\.|III?))?)
+    confidence: 0.92
+    components:
+      magistrate_title: Magistrate judicial title
+      judge_name: Magistrate judge name with limited repetition
+    examples:
+    - Magistrate Judge Johnson E. Brown
+    - U.S. Magistrate Judge Davis F. Wilson
+    - Chief Magistrate Judge Wilson G. Taylor
+    optimization_notes:
+    - Reduced middle initial limit to {0,2} for performance
+    - Simplified suffix patterns to common cases
+    - Maintained essential optionality without excessive nesting
+  visiting_judge:
+    name: visiting_judge_optimized
+    pattern: (?P<visiting_designation>(?:visiting|sitting\s+by\s+designation))\s+(?P<judge_title>(?:Circuit\s+)?[Jj]udge)\s+(?P<judge_name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)
+    confidence: 0.89
+    components:
+      visiting_designation: Visiting judge designation
+      judge_title: Original judicial title
+      judge_name: Judge's personal name with bounded repetition
+    examples:
+    - visiting Judge John Thompson
+    - sitting by designation Judge John Miller
+    optimization_notes:
+    - Limited middle initials to {0,2} for better performance
+    - Removed optional suffix matching that could cause backtracking
+procedural:
+  motion_types:
+    name: district_court_motions
+    pattern: (?P<motion_type>motion\s+(?:for\s+)?(?:summary\s+judgment|to\s+dismiss|for\s+preliminary\s+injunction|to\s+compel|in\s+limine|for\s+class\s+certification|for\s+sanctions|to\s+strike|for\s+judgment\s+on\s+the\s+pleadings|for\s+more\s+definite\s+statement))
+    confidence: 0.91
+    components:
+      motion_type: Type of motion filed
+    examples:
+    - motion for summary judgment
+    - motion to dismiss
+    - motion for preliminary injunction
+  docket_number:
+    name: district_docket_number
+    pattern: (?:No\.|Case\s+No\.)\s*(?P<docket_number>\d{1,2}:\d{2}-(?:cv|cr|misc|md|mc)-\d{4,5}(?:-[A-Z]{2,4})?)
+    confidence: 0.96
+    components:
+      docket_number: District court docket number
+    format_explanation:
+      structure: YY:YY-TYPE-NNNNN-JUDGE
+      court_code: First two digits identify district
+      year: Year case filed
+      case_type: cv=civil, cr=criminal, misc=miscellaneous, md=multidistrict, mc=miscellaneous criminal
+      sequential: Sequential case number
+      judge_initials: Optional judge initials
+    examples:
+    - No. 1:23-cv-12345
+    - Case No. 2:22-cr-98765-ABC
+    - No. 3:21-misc-45678
+  disposition:
+    name: district_disposition
+    pattern: (?P<disposition>(?:GRANTED|DENIED|DISMISSED|JUDGMENT\s+FOR|SUMMARY\s+JUDGMENT\s+(?:GRANTED|DENIED)|PRELIMINARY\s+INJUNCTION\s+(?:GRANTED|DENIED)|SETTLEMENT\s+APPROVED|CONSENT\s+DECREE))
+    confidence: 0.9
+    components:
+      disposition: Court's ruling or disposition
+    examples:
+    - GRANTED
+    - SUMMARY JUDGMENT GRANTED
+    - PRELIMINARY INJUNCTION DENIED
+federal_rules:
+  civil_rules:
+    name: federal_rules_civil_procedure
+    pattern: (?P<rule_cite>Fed\.\s*R\.\s*Civ\.\s*P\.\s*(?P<rule_number>\d{1,2}(?:\([a-z]\))?(?:\(\d+\))?))
+    confidence: 0.97
+    components:
+      rule_cite: Complete rule citation
+      rule_number: Specific rule number and subdivision
+    common_rules:
+      '8': General rules of pleading
+      '12': Defenses and objections
+      '26': Duty to disclose; general provisions governing discovery
+      '56': Summary judgment
+    examples:
+    - Fed. R. Civ. P. 12(b)(6)
+    - Fed. R. Civ. P. 56
+    - Fed. R. Civ. P. 26(a)
+  criminal_rules:
+    name: federal_rules_criminal_procedure
+    pattern: (?P<rule_cite>Fed\.\s*R\.\s*Crim\.\s*P\.\s*(?P<rule_number>\d{1,2}(?:\([a-z]\))?(?:\(\d+\))?))
+    confidence: 0.97
+    components:
+      rule_cite: Complete rule citation
+      rule_number: Specific rule number and subdivision
+    common_rules:
+      '11': Pleas
+      '16': Discovery and inspection
+      '32': Sentencing and judgment
+    examples:
+    - Fed. R. Crim. P. 11
+    - Fed. R. Crim. P. 16(a)
+  evidence_rules:
+    name: federal_rules_evidence
+    pattern: (?P<rule_cite>Fed\.\s*R\.\s*Evid\.\s*(?P<rule_number>\d{1,3}(?:\([a-z]\))?(?:\(\d+\))?))
+    confidence: 0.96
+    components:
+      rule_cite: Complete evidence rule citation
+      rule_number: Specific rule number and subdivision
+    common_rules:
+      '401': Test for relevant evidence
+      '403': Excluding relevant evidence for prejudice
+      '702': Testimony by expert witnesses
+      '801': Definitions of hearsay
+    examples:
+    - Fed. R. Evid. 403
+    - Fed. R. Evid. 702
+    - Fed. R. Evid. 801(c)
+venue:
+  venue_determination:
+    name: federal_venue_analysis
+    pattern: "(?P<venue_concept>venue\\s+(?:is\\s+)?(?:proper|improper|lies)|(?:transfer|change)\\s+of\\s+venue|28\\s+U\\.S\\.C\\.\\s+\xA7\\s*1404)"
+    confidence: 0.88
+    components:
+      venue_concept: Venue-related legal concept
+    examples:
+    - venue is proper
+    - transfer of venue
+    - "28 U.S.C. \xA7 1404"
+  jurisdiction_basis:
+    name: federal_jurisdiction_basis
+    pattern: "(?P<jurisdiction_type>(?:federal\\s+question|diversity|supplemental|pendant)\\s+jurisdiction|28\\s+U\\.S\\.C\\.\\s+\xA7\\s*(?:1331|1332|1367))"
+    confidence: 0.91
+    components:
+      jurisdiction_type: Basis for federal jurisdiction
+    statutory_basis:
+      '1331': Federal question jurisdiction
+      '1332': Diversity jurisdiction
+      '1367': Supplemental jurisdiction
+    examples:
+    - federal question jurisdiction
+    - diversity jurisdiction
+    - "28 U.S.C. \xA7 1331"
+short_forms:
+  district_short_form:
+    name: district_case_short_form
+    pattern: (?P<short_name>[A-Z][a-z]+(?:\s+v\.\s+[A-Z][a-z]+)?),\s*(?P<volume>\d+)\s+F\.\s*Supp\.\s*(?P<series>2d|3d)?\s+at\s+(?P<pinpoint>\d+)
+    confidence: 0.89
+    components:
+      short_name: Abbreviated case name
+      volume: Federal Supplement volume
+      series: Reporter series
+      pinpoint: Specific page reference
+    examples:
+    - Brown, 98 F. Supp. at 800
+    - Microsoft, 87 F. Supp. 2d at 45
+  order_citation:
+    name: district_court_order
+    pattern: (?P<order_type>(?:Order|Memorandum\s+Opinion|Memorandum\s+and\s+Order))\s+(?:at\s+(?P<page>\d+)|dated\s+(?P<date>[A-Z][a-z]+\s+\d{1,2},\s*\d{4}))
+    confidence: 0.86
+    components:
+      order_type: Type of court order
+      page: Page reference in order
+      date: Date of order
+    examples:
+    - Order at 15
+    - Memorandum Opinion dated March 15, 2023
+entity_types:
+- name: FEDERAL_DISTRICT_CASE
+  description: Federal district court case citation
+  confidence_threshold: 0.85
+- name: DISTRICT_COURT_JUDGE
+  description: Federal district court judge
+  confidence_threshold: 0.9
+- name: MAGISTRATE_JUDGE
+  description: Federal magistrate judge
+  confidence_threshold: 0.88
+- name: DISTRICT_DESIGNATION
+  description: Federal district court identifier
+  confidence_threshold: 0.95
+- name: DISTRICT_DOCKET
+  description: District court docket number
+  confidence_threshold: 0.93
+- name: FEDERAL_RULE
+  description: Federal rule citation
+  confidence_threshold: 0.94
+- name: DISTRICT_MOTION
+  description: District court motion type
+  confidence_threshold: 0.87
+- name: FEDERAL_JURISDICTION
+  description: Federal jurisdiction basis
+  confidence_threshold: 0.89
+validation:
+  year_range:
+    min_year: 1932
+    max_year: 2025
+  volume_ranges:
+    federal_supplement_first:
+      min_volume: 1
+      max_volume: 999
+    federal_supplement_2d:
+      min_volume: 1
+      max_volume: 999
+    federal_supplement_3d:
+      min_volume: 1
+      max_volume: 500
+  district_validation:
+    total_districts: 94
+    states_with_multiple: 30
+    territories_included: 5
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  f1_target: 0.93
+  processing_speed: 750_citations_per_second
+dependencies:
+  requires:
+  - federal_court_abbreviations
+  - district_geographic_boundaries
+  - federal_supplement_volumes
+  - federal_rules_database
+  optional:
+  - judge_biographical_data
+  - local_court_rules
+  - district_court_procedures
+testing:
+  test_cases:
+  - pattern: case_citations.federal_supplement
+    text: Brown v. Board of Education, 98 F. Supp. 797 (D. Kan. 1951)
+    expected_entities: 1
+  - pattern: districts.state_districts
+    text: The S.D.N.Y. granted the motion
+    expected_entities: 1
+  - pattern: federal_rules.civil_rules
+    text: under Fed. R. Civ. P. 12(b)(6)
+    expected_entities: 1
+  - pattern: procedural.docket_number
+    text: No. 1:23-cv-12345
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3 seconds
+    memory_usage: < 150MB
+    accuracy_threshold: 0.93
+historical_notes:
+  federal_supplement_series:
+    first_series: 1932-1998 (volumes 1-999)
+    second_series: 1998-2021 (volumes 1-999)
+    third_series: 2021-present (volume 1-current)
+  district_court_evolution:
+    original_districts: 13 districts established in 1789
+    current_structure: 94 districts across 50 states and territories
+    magistrate_system: Federal Magistrates Act of 1968
+  procedural_milestones:
+    federal_rules_adoption: 1938 - Federal Rules of Civil Procedure
+    criminal_rules: 1946 - Federal Rules of Criminal Procedure
+    evidence_rules: 1975 - Federal Rules of Evidence

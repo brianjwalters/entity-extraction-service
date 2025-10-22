@@ -1,0 +1,119 @@
+# Legal Precedent and Case Relationships
+pattern_type: relationship
+jurisdiction: federal
+description: Relationships between cases, precedents, and legal rulings
+
+patterns:
+  - relationship_type: CITES
+    description: Case citing another case
+    source_entity: CASE_CITATION
+    target_entity: CASE_CITATION
+    indicators:
+      - "citing"
+      - "cited in"
+      - "as noted in"
+      - "following"
+      - "see"
+      - "accord"
+    examples:
+      - "Smith v. Jones, citing Brown v. Board of Education"
+      - "Following the precedent set in Miranda v. Arizona"
+      - "As noted in Marbury v. Madison"
+
+  - relationship_type: OVERRULES
+    description: Case overruling another case
+    source_entity: CASE_CITATION
+    target_entity: CASE_CITATION
+    indicators:
+      - "overrules"
+      - "overruling"
+      - "overruled"
+      - "supersedes"
+      - "abrogates"
+    examples:
+      - "Brown v. Board overruled Plessy v. Ferguson"
+      - "This case supersedes the earlier ruling"
+
+  - relationship_type: DISTINGUISHES
+    description: Case distinguishing from another case
+    source_entity: CASE_CITATION
+    target_entity: CASE_CITATION
+    indicators:
+      - "distinguishes"
+      - "distinguished from"
+      - "distinguishable"
+      - "differs from"
+      - "unlike"
+    examples:
+      - "This case is distinguishable from Smith v. Jones"
+      - "Unlike the situation in Brown v. Board"
+
+  - relationship_type: AFFIRMS
+    description: Higher court affirming lower court decision
+    source_entity: COURT
+    target_entity: COURT
+    indicators:
+      - "affirms"
+      - "affirmed"
+      - "affirming"
+      - "upheld"
+      - "upholds"
+    examples:
+      - "The Supreme Court affirmed the Circuit Court's decision"
+      - "The appellate court upheld the trial court's ruling"
+
+  - relationship_type: REVERSES
+    description: Higher court reversing lower court decision
+    source_entity: COURT
+    target_entity: COURT
+    indicators:
+      - "reverses"
+      - "reversed"
+      - "reversing"
+      - "vacated"
+      - "vacates"
+    examples:
+      - "The Court of Appeals reversed the District Court"
+      - "The Supreme Court vacated the lower court's judgment"
+
+  - relationship_type: REMANDS
+    description: Higher court remanding to lower court
+    source_entity: COURT
+    target_entity: COURT
+    indicators:
+      - "remands"
+      - "remanded"
+      - "remanding"
+      - "sent back"
+      - "returned to"
+    examples:
+      - "The case is remanded to the District Court"
+      - "Remanded for further proceedings"
+
+  - relationship_type: FOLLOWS
+    description: Case following precedent
+    source_entity: CASE_CITATION
+    target_entity: CASE_CITATION
+    indicators:
+      - "follows"
+      - "following"
+      - "pursuant to"
+      - "in accordance with"
+      - "consistent with"
+    examples:
+      - "Following the precedent established in Roe v. Wade"
+      - "Pursuant to the holding in Citizens United"
+
+  - relationship_type: MODIFIES
+    description: Case modifying another case
+    source_entity: CASE_CITATION
+    target_entity: CASE_CITATION
+    indicators:
+      - "modifies"
+      - "modified"
+      - "modifying"
+      - "clarifies"
+      - "clarified"
+    examples:
+      - "This decision modifies the test established in Chevron"
+      - "The court clarified its earlier ruling"

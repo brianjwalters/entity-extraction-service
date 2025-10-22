@@ -1,0 +1,1016 @@
+{
+  "timestamp": "20250905_182143",
+  "document_id": "doc_test_extraction_pipeline_20250903_151735_c87dec8d",
+  "content_length": 461994,
+  "extraction_mode": "regex",
+  "elapsed_time": 32.8747718334198,
+  "total_entities": 6031,
+  "total_citations": 0,
+  "unique_entity_types": 1,
+  "entity_type_counts": {
+    "UNKNOWN": 6031
+  },
+  "processing_time_ms": 32454.0,
+  "entities": [
+    {
+      "type": "PARTY",
+      "text": "Slip Opinion",
+      "confidence": 0.87,
+      "start_position": 1,
+      "end_position": 13,
+      "context": "(Slip Opinion) OCTOBER TERM, 2021 1 Syllabus NOTE: Where it is feasible, a syllabus (headnote) will",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the  Court",
+      "confidence": 0.8,
+      "start_position": 286,
+      "end_position": 296,
+      "context": "t the time the opinion is issued. The syllabus constitutes no part of the opinion of the Court but has been prepared by the Reporter of Decisions for the convenience of the reader.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 291,
+      "end_position": 296,
+      "context": "e time the opinion is issued. The syllabus constitutes no part of the opinion of the Court but has been prepared by the Reporter of Decisions for the convenience of the reader.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "See United States",
+      "confidence": 0.87,
+      "start_position": 397,
+      "end_position": 414,
+      "context": "but has been prepared by the Reporter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "See United States v. Detroit Timber",
+      "confidence": 0.8976000000000001,
+      "start_position": 397,
+      "end_position": 432,
+      "context": "but has been prepared by the Reporter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALT",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "GOVERNMENT_ENTITY",
+      "text": "United States",
+      "confidence": 0.92,
+      "start_position": 401,
+      "end_position": 414,
+      "context": "has been prepared by the Reporter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "United States v. Detroit Timber",
+      "confidence": 0.9384,
+      "start_position": 401,
+      "end_position": 432,
+      "context": "has been prepared by the Reporter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALT",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Detroit Timber",
+      "confidence": 0.87,
+      "start_position": 418,
+      "end_position": 432,
+      "context": "red by the Reporter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALT",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "Detroit Timber & Lumber",
+      "confidence": 0.92,
+      "start_position": 418,
+      "end_position": 442,
+      "context": "red by the Reporter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALTH OFFICER",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Lumber Co",
+      "confidence": 0.8265,
+      "start_position": 435,
+      "end_position": 444,
+      "context": "orter of Decisions for the convenience of the reader. See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALTH OFFICER OF",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "DOBBS, STATE",
+      "confidence": 0.88,
+      "start_position": 514,
+      "end_position": 526,
+      "context": "v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALTH OFFICER OF THE MISSISSIPPI DEPARTMENT OF HEALTH, ET AL. v. JACKSON WOMEN\u2019S HEALTH ORGANIZATI",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "HEALTH, ET",
+      "confidence": 0.88,
+      "start_position": 575,
+      "end_position": 585,
+      "context": "COURT OF THE UNITED STATES Syllabus DOBBS, STATE HEALTH OFFICER OF THE MISSISSIPPI DEPARTMENT OF HEALTH, ET AL. v. JACKSON WOMEN\u2019S HEALTH ORGANIZATION ET AL. CERTIORARI TO THE UNITED STATES COURT OF APPEALS",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Argued December",
+      "confidence": 0.87,
+      "start_position": 723,
+      "end_position": 738,
+      "context": "ATION ET AL. CERTIORARI TO THE UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "DATE",
+      "text": "December 1, 2021",
+      "confidence": 0.95,
+      "start_position": 730,
+      "end_position": 746,
+      "context": "T AL. CERTIORARI TO THE UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medi",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "DECISION_DATE",
+      "text": "December 1, 2021",
+      "confidence": 0.92,
+      "start_position": 730,
+      "end_position": 746,
+      "context": "T AL. CERTIORARI TO THE UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medi",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Decided June",
+      "confidence": 0.87,
+      "start_position": 747,
+      "end_position": 759,
+      "context": "TO THE UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "DECISION_DATE",
+      "text": "Decided June 24, 2022",
+      "confidence": 0.95,
+      "start_position": 747,
+      "end_position": 768,
+      "context": "TO THE UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency or in th",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "DATE",
+      "text": "June 24, 2022",
+      "confidence": 0.95,
+      "start_position": 755,
+      "end_position": 768,
+      "context": "UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency or in th",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "DECISION_DATE",
+      "text": "June 24, 2022",
+      "confidence": 0.92,
+      "start_position": 755,
+      "end_position": 768,
+      "context": "UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency or in th",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "DATE",
+      "text": "June 24, 2022",
+      "confidence": 0.89,
+      "start_position": 755,
+      "end_position": 768,
+      "context": "UNITED STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency or in th",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Mississippi",
+      "confidence": 0.93,
+      "start_position": 770,
+      "end_position": 781,
+      "context": "OURT OF APPEALS FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency or in the case of a s",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Gestational  Age  Act",
+      "confidence": 0.87,
+      "start_position": 785,
+      "end_position": 806,
+      "context": "FOR THE FIFTH CIRCUIT No. 19\u20131392. Argued December 1, 2021\u2014Decided June 24, 2022 Mississippi\u2019s Gestational Age Act provides that \u201c[e]xcept in a medical emergency or in the case of a severe fetal abnormality,",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "STATUTE",
+      "text": "Miss. Code Ann. \u00a741",
+      "confidence": 0.88,
+      "start_position": 1133,
+      "end_position": 1152,
+      "context": "ational age of the unborn hu- man being has been determined to be greater than fifteen (15) weeks.\u201d Miss. Code Ann. \u00a741\u201341\u2013191. Respondents\u2014Jackson Women\u2019s Health Organization, an abortion clinic, and one of its doctor",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Code Ann",
+      "confidence": 0.8265,
+      "start_position": 1139,
+      "end_position": 1147,
+      "context": "l age of the unborn hu- man being has been determined to be greater than fifteen (15) weeks.\u201d Miss. Code Ann. \u00a741\u201341\u2013191. Respondents\u2014Jackson Women\u2019s Health Organization, an abortion clinic, and one of its d",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LEGAL_CONCEPT",
+      "text": "\u00a741",
+      "confidence": 0.8075,
+      "start_position": 1149,
+      "end_position": 1152,
+      "context": "he unborn hu- man being has been determined to be greater than fifteen (15) weeks.\u201d Miss. Code Ann. \u00a741\u201341\u2013191. Respondents\u2014Jackson Women\u2019s Health Organization, an abortion clinic, and one of its doctor",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "RESPONDENT",
+      "text": "Respondents",
+      "confidence": 0.85,
+      "start_position": 1162,
+      "end_position": 1173,
+      "context": "man being has been determined to be greater than fifteen (15) weeks.\u201d Miss. Code Ann. \u00a741\u201341\u2013191. Respondents\u2014Jackson Women\u2019s Health Organization, an abortion clinic, and one of its doctors\u2014challenged the Act",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Jackson Women",
+      "confidence": 0.87,
+      "start_position": 1174,
+      "end_position": 1187,
+      "context": "as been determined to be greater than fifteen (15) weeks.\u201d Miss. Code Ann. \u00a741\u201341\u2013191. Respondents\u2014Jackson Women\u2019s Health Organization, an abortion clinic, and one of its doctors\u2014challenged the Act in Federal Dis",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Health\nOrganization",
+      "confidence": 0.87,
+      "start_position": 1190,
+      "end_position": 1209,
+      "context": "ed to be greater than fifteen (15) weeks.\u201d Miss. Code Ann. \u00a741\u201341\u2013191. Respondents\u2014Jackson Women\u2019s Health Organization, an abortion clinic, and one of its doctors\u2014challenged the Act in Federal District Court, alleging",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Federal District Court",
+      "confidence": 0.867,
+      "start_position": 1276,
+      "end_position": 1298,
+      "context": "ckson Women\u2019s Health Organization, an abortion clinic, and one of its doctors\u2014challenged the Act in Federal District Court, alleging that it violated this Court\u2019s prec- edents establishing a constitutional right to abortio",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Federal District Court",
+      "confidence": 0.87,
+      "start_position": 1276,
+      "end_position": 1298,
+      "context": "ckson Women\u2019s Health Organization, an abortion clinic, and one of its doctors\u2014challenged the Act in Federal District Court, alleging that it violated this Court\u2019s prec- edents establishing a constitutional right to abortio",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "District Court",
+      "confidence": 0.91,
+      "start_position": 1284,
+      "end_position": 1298,
+      "context": "men\u2019s Health Organization, an abortion clinic, and one of its doctors\u2014challenged the Act in Federal District Court, alleging that it violated this Court\u2019s prec- edents establishing a constitutional right to abortio",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 1293,
+      "end_position": 1298,
+      "context": "lth Organization, an abortion clinic, and one of its doctors\u2014challenged the Act in Federal District Court, alleging that it violated this Court\u2019s prec- edents establishing a constitutional right to abortio",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 1331,
+      "end_position": 1336,
+      "context": "and one of its doctors\u2014challenged the Act in Federal District Court, alleging that it violated this Court\u2019s prec- edents establishing a constitutional right to abortion, in particular Roe v. Wade, 410 U. S",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 1331,
+      "end_position": 1336,
+      "context": "and one of its doctors\u2014challenged the Act in Federal District Court, alleging that it violated this Court\u2019s prec- edents establishing a constitutional right to abortion, in particular Roe v. Wade, 410 U. S",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Roe\nv. Wade",
+      "confidence": 0.92,
+      "start_position": 1415,
+      "end_position": 1426,
+      "context": "t violated this Court\u2019s prec- edents establishing a constitutional right to abortion, in particular Roe v. Wade, 410 U. S. 113, and Planned Parenthood of Southeastern Pa. v. Casey, 505 U. S. 833. The Dis",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Planned Parenthood",
+      "confidence": 0.87,
+      "start_position": 1447,
+      "end_position": 1465,
+      "context": "ents establishing a constitutional right to abortion, in particular Roe v. Wade, 410 U. S. 113, and Planned Parenthood of Southeastern Pa. v. Casey, 505 U. S. 833. The District Court granted summary judg- m",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Southeastern Pa",
+      "confidence": 0.87,
+      "start_position": 1469,
+      "end_position": 1484,
+      "context": "nstitutional right to abortion, in particular Roe v. Wade, 410 U. S. 113, and Planned Parenthood of Southeastern Pa. v. Casey, 505 U. S. 833. The District Court granted summary judg- ment in favor of res",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The  District  Court",
+      "confidence": 0.87,
+      "start_position": 1518,
+      "end_position": 1538,
+      "context": "v. Wade, 410 U. S. 113, and Planned Parenthood of Southeastern Pa. v. Casey, 505 U. S. 833. The District Court granted summary judg- ment in favor of respondents and permanently enjoined enforcement of the A",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "District  Court",
+      "confidence": 0.91,
+      "start_position": 1523,
+      "end_position": 1538,
+      "context": "ade, 410 U. S. 113, and Planned Parenthood of Southeastern Pa. v. Casey, 505 U. S. 833. The District Court granted summary judg- ment in favor of respondents and permanently enjoined enforcement of the A",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 1533,
+      "end_position": 1538,
+      "context": ". S. 113, and Planned Parenthood of Southeastern Pa. v. Casey, 505 U. S. 833. The District Court granted summary judg- ment in favor of respondents and permanently enjoined enforcement of the A",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Mississippi",
+      "confidence": 0.93,
+      "start_position": 1657,
+      "end_position": 1668,
+      "context": "judg- ment in favor of respondents and permanently enjoined enforcement of the Act, reasoning that Mississippi\u2019s 15-week restriction on abortion violates this Court\u2019s cases forbidding States to ban abortion pre",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 1717,
+      "end_position": 1722,
+      "context": "enforcement of the Act, reasoning that Mississippi\u2019s 15-week restriction on abortion violates this Court\u2019s cases forbidding States to ban abortion pre-viabil- ity. The Fifth Circuit affirmed. Before thi",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 1717,
+      "end_position": 1722,
+      "context": "enforcement of the Act, reasoning that Mississippi\u2019s 15-week restriction on abortion violates this Court\u2019s cases forbidding States to ban abortion pre-viabil- ity. The Fifth Circuit affirmed. Before thi",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The Fifth Circuit",
+      "confidence": 0.87,
+      "start_position": 1783,
+      "end_position": 1800,
+      "context": "riction on abortion violates this Court\u2019s cases forbidding States to ban abortion pre-viabil- ity. The Fifth Circuit affirmed. Before this Court, petitioners defend the Act on the grounds that Roe and Casey were wro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Fifth Circuit",
+      "confidence": 0.9588,
+      "start_position": 1787,
+      "end_position": 1800,
+      "context": "ion on abortion violates this Court\u2019s cases forbidding States to ban abortion pre-viabil- ity. The Fifth Circuit affirmed. Before this Court, petitioners defend the Act on the grounds that Roe and Casey were wro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 1824,
+      "end_position": 1829,
+      "context": "cases forbidding States to ban abortion pre-viabil- ity. The Fifth Circuit affirmed. Before this Court, petitioners defend the Act on the grounds that Roe and Casey were wrongly decided and that the Act",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 1824,
+      "end_position": 1829,
+      "context": "cases forbidding States to ban abortion pre-viabil- ity. The Fifth Circuit affirmed. Before this Court, petitioners defend the Act on the grounds that Roe and Casey were wrongly decided and that the Act",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The Constitution",
+      "confidence": 0.87,
+      "start_position": 1999,
+      "end_position": 2015,
+      "context": "ongly decided and that the Act is constitutional because it satisfies rational-basis review. Held: The Constitution does not confer a right to abortion; Roe and Casey are overruled; and the authority to regulate abo",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LEGAL_TERM",
+      "text": "stare decisis",
+      "confidence": 0.96,
+      "start_position": 2435,
+      "end_position": 2448,
+      "context": "controlling opinion skipped over that question and reaffirmed Roe solely on the basis of stare decisis. A proper application of stare decisis, however, requires an assessment of the strength of the gro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PRECEDENT",
+      "text": "stare decisis",
+      "confidence": 0.85,
+      "start_position": 2435,
+      "end_position": 2448,
+      "context": "controlling opinion skipped over that question and reaffirmed Roe solely on the basis of stare decisis. A proper application of stare decisis, however, requires an assessment of the strength of the gro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LEGAL_DOCTRINE",
+      "text": "stare decisis",
+      "confidence": 0.85,
+      "start_position": 2435,
+      "end_position": 2448,
+      "context": "controlling opinion skipped over that question and reaffirmed Roe solely on the basis of stare decisis. A proper application of stare decisis, however, requires an assessment of the strength of the gro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LEGAL_TERM",
+      "text": "stare decisis",
+      "confidence": 0.96,
+      "start_position": 2475,
+      "end_position": 2488,
+      "context": "t question and reaffirmed Roe solely on the basis of stare decisis. A proper application of stare decisis, however, requires an assessment of the strength of the grounds on which Roe 2 DOBBS v. JACKSON",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PRECEDENT",
+      "text": "stare decisis",
+      "confidence": 0.85,
+      "start_position": 2475,
+      "end_position": 2488,
+      "context": "t question and reaffirmed Roe solely on the basis of stare decisis. A proper application of stare decisis, however, requires an assessment of the strength of the grounds on which Roe 2 DOBBS v. JACKSON",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LEGAL_DOCTRINE",
+      "text": "stare decisis",
+      "confidence": 0.85,
+      "start_position": 2475,
+      "end_position": 2488,
+      "context": "t question and reaffirmed Roe solely on the basis of stare decisis. A proper application of stare decisis, however, requires an assessment of the strength of the grounds on which Roe 2 DOBBS v. JACKSON",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The Court",
+      "confidence": 0.8265,
+      "start_position": 2639,
+      "end_position": 2648,
+      "context": "f the grounds on which Roe 2 DOBBS v. JACKSON WOMEN\u2019S HEALTH ORGANIZATION Syllabus was based. The Court therefore turns to the question that the Casey plurality did not consider. Pp. 8\u201332. (1) First,",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 2643,
+      "end_position": 2648,
+      "context": "e grounds on which Roe 2 DOBBS v. JACKSON WOMEN\u2019S HEALTH ORGANIZATION Syllabus was based. The Court therefore turns to the question that the Casey plurality did not consider. Pp. 8\u201332. (1) First,",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 2643,
+      "end_position": 2648,
+      "context": "e grounds on which Roe 2 DOBBS v. JACKSON WOMEN\u2019S HEALTH ORGANIZATION Syllabus was based. The Court therefore turns to the question that the Casey plurality did not consider. Pp. 8\u201332. (1) First,",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the  Court",
+      "confidence": 0.8,
+      "start_position": 2748,
+      "end_position": 2758,
+      "context": "therefore turns to the question that the Casey plurality did not consider. Pp. 8\u201332. (1) First, the Court reviews the standard that the Court\u2019s cases have used to determine whether the Fourteenth Am",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 2753,
+      "end_position": 2758,
+      "context": "efore turns to the question that the Casey plurality did not consider. Pp. 8\u201332. (1) First, the Court reviews the standard that the Court\u2019s cases have used to determine whether the Fourteenth Am",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the  Court",
+      "confidence": 0.8,
+      "start_position": 2790,
+      "end_position": 2800,
+      "context": "Casey plurality did not consider. Pp. 8\u201332. (1) First, the Court reviews the standard that the Court\u2019s cases have used to determine whether the Fourteenth Amendment\u2019s refer- ence to \u201cliberty\u201d protect",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 2795,
+      "end_position": 2800,
+      "context": "plurality did not consider. Pp. 8\u201332. (1) First, the Court reviews the standard that the Court\u2019s cases have used to determine whether the Fourteenth Amendment\u2019s refer- ence to \u201cliberty\u201d protect",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment",
+      "confidence": 0.96,
+      "start_position": 2845,
+      "end_position": 2865,
+      "context": ", the Court reviews the standard that the Court\u2019s cases have used to determine whether the Fourteenth Amendment\u2019s refer- ence to \u201cliberty\u201d protects a particular right. The Constitution makes no express referenc",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Fourteenth Amendment",
+      "confidence": 0.87,
+      "start_position": 2845,
+      "end_position": 2865,
+      "context": ", the Court reviews the standard that the Court\u2019s cases have used to determine whether the Fourteenth Amendment\u2019s refer- ence to \u201cliberty\u201d protects a particular right. The Constitution makes no express referenc",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The Constitution",
+      "confidence": 0.87,
+      "start_position": 2923,
+      "end_position": 2939,
+      "context": "determine whether the Fourteenth Amendment\u2019s refer- ence to \u201cliberty\u201d protects a particular right. The Constitution makes no express reference to a right to obtain an abortion, but several con- stitutional provision",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "First, Fourth, Fifth",
+      "confidence": 0.88,
+      "start_position": 3204,
+      "end_position": 3224,
+      "context": "tional right. Roe held that the abortion right is part of a right to privacy that springs from the First, Fourth, Fifth, Ninth, and Fourteenth Amendments. See 410 U. S., at 152\u2013153. The Casey Court grounded its decisi",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "LAW_FIRM",
+      "text": "First, Fourth, Fifth, Ninth",
+      "confidence": 0.8976000000000001,
+      "start_position": 3204,
+      "end_position": 3231,
+      "context": "tional right. Roe held that the abortion right is part of a right to privacy that springs from the First, Fourth, Fifth, Ninth, and Fourteenth Amendments. See 410 U. S., at 152\u2013153. The Casey Court grounded its decision sole",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Fourteenth Amendments",
+      "confidence": 0.87,
+      "start_position": 3237,
+      "end_position": 3258,
+      "context": "abortion right is part of a right to privacy that springs from the First, Fourth, Fifth, Ninth, and Fourteenth Amendments. See 410 U. S., at 152\u2013153. The Casey Court grounded its decision solely on the theory that the r",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The Casey Court",
+      "confidence": 0.87,
+      "start_position": 3289,
+      "end_position": 3304,
+      "context": "rings from the First, Fourth, Fifth, Ninth, and Fourteenth Amendments. See 410 U. S., at 152\u2013153. The Casey Court grounded its decision solely on the theory that the right to obtain an abortion is part of the \u201cli",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 3299,
+      "end_position": 3304,
+      "context": "the First, Fourth, Fifth, Ninth, and Fourteenth Amendments. See 410 U. S., at 152\u2013153. The Casey Court grounded its decision solely on the theory that the right to obtain an abortion is part of the \u201cli",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 3299,
+      "end_position": 3304,
+      "context": "the First, Fourth, Fifth, Ninth, and Fourteenth Amendments. See 410 U. S., at 152\u2013153. The Casey Court grounded its decision solely on the theory that the right to obtain an abortion is part of the \u201cli",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Fourteenth Amend",
+      "confidence": 0.87,
+      "start_position": 3429,
+      "end_position": 3445,
+      "context": "lely on the theory that the right to obtain an abortion is part of the \u201cliberty\u201d protected by the Fourteenth Amend- ment\u2019s Due Process Clause. Others have suggested that support can be found in the Fourteenth Amen",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Due Process Clause",
+      "confidence": 0.87,
+      "start_position": 3454,
+      "end_position": 3472,
+      "context": "he right to obtain an abortion is part of the \u201cliberty\u201d protected by the Fourteenth Amend- ment\u2019s Due Process Clause. Others have suggested that support can be found in the Fourteenth Amendment\u2019s Equal Protection Cl",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment",
+      "confidence": 0.96,
+      "start_position": 3530,
+      "end_position": 3550,
+      "context": "ourteenth Amend- ment\u2019s Due Process Clause. Others have suggested that support can be found in the Fourteenth Amendment\u2019s Equal Protection Clause, but that theory is squarely foreclosed by the Court\u2019s precedents, which",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Fourteenth Amendment",
+      "confidence": 0.87,
+      "start_position": 3530,
+      "end_position": 3550,
+      "context": "ourteenth Amend- ment\u2019s Due Process Clause. Others have suggested that support can be found in the Fourteenth Amendment\u2019s Equal Protection Clause, but that theory is squarely foreclosed by the Court\u2019s precedents, which",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Equal Protection Clause",
+      "confidence": 0.87,
+      "start_position": 3553,
+      "end_position": 3576,
+      "context": "Due Process Clause. Others have suggested that support can be found in the Fourteenth Amendment\u2019s Equal Protection Clause, but that theory is squarely foreclosed by the Court\u2019s precedents, which es- tablish that a State\u2019s",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the Court",
+      "confidence": 0.8,
+      "start_position": 3620,
+      "end_position": 3629,
+      "context": "nd in the Fourteenth Amendment\u2019s Equal Protection Clause, but that theory is squarely foreclosed by the Court\u2019s precedents, which es- tablish that a State\u2019s regulation of abortion is not a sex-based classifi-",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 3624,
+      "end_position": 3629,
+      "context": "n the Fourteenth Amendment\u2019s Equal Protection Clause, but that theory is squarely foreclosed by the Court\u2019s precedents, which es- tablish that a State\u2019s regulation of abortion is not a sex-based classifi-",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "See  Geduldig",
+      "confidence": 0.87,
+      "start_position": 3829,
+      "end_position": 3842,
+      "context": "cation and is thus not subject to the heightened scrutiny that applies to such classifications. See Geduldig v. Aiello, 417 U. S. 484, 496, n. 20; Bray v. Alexandria Women\u2019s Health Clinic, 506 U. S. 263",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "See  Geduldig  v.  Aiello",
+      "confidence": 0.9384,
+      "start_position": 3829,
+      "end_position": 3854,
+      "context": "cation and is thus not subject to the heightened scrutiny that applies to such classifications. See Geduldig v. Aiello, 417 U. S. 484, 496, n. 20; Bray v. Alexandria Women\u2019s Health Clinic, 506 U. S. 263, 273\u2013 274.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Bray v. Alexandria Women",
+      "confidence": 0.92,
+      "start_position": 3887,
+      "end_position": 3911,
+      "context": "that applies to such classifications. See Geduldig v. Aiello, 417 U. S. 484, 496, n. 20; Bray v. Alexandria Women\u2019s Health Clinic, 506 U. S. 263, 273\u2013 274. Rather, regulations and prohibitions of abortion are gov",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Alexandria Women",
+      "confidence": 0.87,
+      "start_position": 3895,
+      "end_position": 3911,
+      "context": "lies to such classifications. See Geduldig v. Aiello, 417 U. S. 484, 496, n. 20; Bray v. Alexandria Women\u2019s Health Clinic, 506 U. S. 263, 273\u2013 274. Rather, regulations and prohibitions of abortion are gov",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Health Clinic",
+      "confidence": 0.87,
+      "start_position": 3914,
+      "end_position": 3927,
+      "context": "sifications. See Geduldig v. Aiello, 417 U. S. 484, 496, n. 20; Bray v. Alexandria Women\u2019s Health Clinic, 506 U. S. 263, 273\u2013 274. Rather, regulations and prohibitions of abortion are governed by the sa",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the Court",
+      "confidence": 0.8,
+      "start_position": 4116,
+      "end_position": 4125,
+      "context": "by the same standard of review as other health and safety measures. Pp. 9\u201311. (2) Next, the Court examines whether the right to obtain an abor- tion is rooted in the Nation\u2019s history and tradition",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 4120,
+      "end_position": 4125,
+      "context": "the same standard of review as other health and safety measures. Pp. 9\u201311. (2) Next, the Court examines whether the right to obtain an abor- tion is rooted in the Nation\u2019s history and tradition",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The  Court",
+      "confidence": 0.87,
+      "start_position": 4295,
+      "end_position": 4305,
+      "context": "ation\u2019s history and tradition and whether it is an essential component of \u201cordered liberty.\u201d The Court finds that the right to abortion is not deeply rooted in the Nation\u2019s history and tradi- tion.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 4300,
+      "end_position": 4305,
+      "context": "\u2019s history and tradition and whether it is an essential component of \u201cordered liberty.\u201d The Court finds that the right to abortion is not deeply rooted in the Nation\u2019s history and tradi- tion.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 4300,
+      "end_position": 4305,
+      "context": "\u2019s history and tradition and whether it is an essential component of \u201cordered liberty.\u201d The Court finds that the right to abortion is not deeply rooted in the Nation\u2019s history and tradi- tion.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Due Process Clause",
+      "confidence": 0.87,
+      "start_position": 4493,
+      "end_position": 4511,
+      "context": "adi- tion. The underlying theory on which Casey rested\u2014that the Four- teenth Amendment\u2019s Due Process Clause provides substantive, as well as procedural, protection for \u201cliberty\u201d\u2014has long been controversial.",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "The  Court",
+      "confidence": 0.87,
+      "start_position": 4612,
+      "end_position": 4622,
+      "context": "provides substantive, as well as procedural, protection for \u201cliberty\u201d\u2014has long been controversial. The Court\u2019s decisions have held that the Due Process Clause pro- tects two categories of substantive",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 4617,
+      "end_position": 4622,
+      "context": "des substantive, as well as procedural, protection for \u201cliberty\u201d\u2014has long been controversial. The Court\u2019s decisions have held that the Due Process Clause pro- tects two categories of substantive",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "Court",
+      "confidence": 0.8,
+      "start_position": 4617,
+      "end_position": 4622,
+      "context": "des substantive, as well as procedural, protection for \u201cliberty\u201d\u2014has long been controversial. The Court\u2019s decisions have held that the Due Process Clause pro- tects two categories of substantive",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Due  Process  Clause",
+      "confidence": 0.87,
+      "start_position": 4660,
+      "end_position": 4680,
+      "context": "tection for \u201cliberty\u201d\u2014has long been controversial. The Court\u2019s decisions have held that the Due Process Clause pro- tects two categories of substantive rights\u2014those rights guaranteed by the first eight Amen",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Timbs v. Indiana",
+      "confidence": 0.92,
+      "start_position": 5144,
+      "end_position": 5160,
+      "context": "tradition\u201d and whether it is essential to this Nation\u2019s \u201cscheme of or- dered liberty.\u201d Timbs v. Indiana, 586 U. S. ___, ___ (internal quotation marks omitted). The term \u201cliberty\u201d alone provides",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Indiana",
+      "confidence": 0.8835,
+      "start_position": 5153,
+      "end_position": 5160,
+      "context": "n\u201d and whether it is essential to this Nation\u2019s \u201cscheme of or- dered liberty.\u201d Timbs v. Indiana, 586 U. S. ___, ___ (internal quotation marks omitted). The term \u201cliberty\u201d alone provides",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the Court",
+      "confidence": 0.8,
+      "start_position": 5328,
+      "end_position": 5337,
+      "context": "rm \u201cliberty\u201d alone provides little guidance. Thus, historical inquiries are essential whenever the Court is asked to recognize a new component of the \u201cliberty\u201d interest protected by the Due Proce",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 5332,
+      "end_position": 5337,
+      "context": "\u201cliberty\u201d alone provides little guidance. Thus, historical inquiries are essential whenever the Court is asked to recognize a new component of the \u201cliberty\u201d interest protected by the Due Proce",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "PARTY",
+      "text": "Due Process Clause",
+      "confidence": 0.87,
+      "start_position": 5428,
+      "end_position": 5446,
+      "context": "the Court is asked to recognize a new component of the \u201cliberty\u201d interest protected by the Due Process Clause. In interpreting what is meant by \u201cliberty,\u201d the Court must guard against the natural human",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "COURT",
+      "text": "the\nCourt",
+      "confidence": 0.8,
+      "start_position": 5493,
+      "end_position": 5502,
+      "context": "rty\u201d interest protected by the Due Process Clause. In interpreting what is meant by \u201cliberty,\u201d the Court must guard against the natural human tendency to confuse what the Fourteenth Amendment pro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "ADDRESS",
+      "text": "Court",
+      "confidence": 0.8644999999999999,
+      "start_position": 5497,
+      "end_position": 5502,
+      "context": "interest protected by the Due Process Clause. In interpreting what is meant by \u201cliberty,\u201d the Court must guard against the natural human tendency to confuse what the Fourteenth Amendment pro",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    },
+    {
+      "type": "CONSTITUTIONAL_PROVISION",
+      "text": "Fourteenth Amendment",
+      "confidence": 0.96,
+      "start_position": 5578,
+      "end_position": 5598,
+      "context": "by \u201cliberty,\u201d the Court must guard against the natural human tendency to confuse what the Fourteenth Amendment protects with the Court\u2019s own ardent views about the liberty that Americans should enjoy. For this",
+      "extraction_method": "regex_only",
+      "metadata": {}
+    }
+  ]
+}

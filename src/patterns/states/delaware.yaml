@@ -1,0 +1,210 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: delaware
+  state_abbreviation: Del.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Delaware state citations and entities
+case_citations:
+  delaware_supreme_court:
+    name: delaware_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+A\.2d\s+567,\s+890\s+\(Del\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Atlantic Reporter or Delaware Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 A.3d 456 (Del. 2023)
+    - Brown v. Delaware Corp., 456 Del. 789 (Del. 2022)
+    - In re Estate of Johnson, 234 A.2d 567, 890 (Del. 2021)
+  delaware_superior_court:
+    name: delaware_superior_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>A\.(?:2d|3d)?|Del\.\s*Super\.)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Del\.\s*Super\.(?:\s+Ct\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Atlantic Reporter or Delaware Superior Court Reports volume
+      reporter: Delaware Superior Court reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 A.3d 456 (Del. Super. Ct. 2023)
+    - ABC Corp. v. XYZ Inc., 456 Del. Super. 789 (Del. Super. 2022)
+    - People v. Brown, 234 A.2d 567 (Del. Super. Ct. 2021)
+  delaware_court_of_chancery:
+    name: delaware_court_of_chancery_citation
+    pattern: In\s+re\s+XYZ\s+Corporation,\s+234\s+A\.2d\s+567\s+\(Del\.\s+Ch\.\s+2021\)
+    confidence: 0.96
+    priority: 92
+    components:
+      case_name: Full case name with parties
+      volume: Atlantic Reporter or Delaware Chancery Reports volume
+      reporter: Delaware Court of Chancery reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Delaware Corp. v. Smith, 123 A.3d 456 (Del. Ch. 2023)
+    - Merger Co. v. Target Inc., 456 Del. Ch. 789 (Del. Ch. 2022)
+    - In re XYZ Corporation, 234 A.2d 567 (Del. Ch. 2021)
+  delaware_family_court:
+    name: delaware_family_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Brown,\s+22\-FM\-987\s+\(Del\.\s+Fam\.\s+Ct\.\s+2022\)
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Family court case number
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. FM-2023-0123 (Del. Fam. Ct. 2023)
+    - In re Marriage of Brown, 22-FM-987 (Del. Fam. Ct. 2022)
+statute_citations:
+  delaware_code:
+    name: delaware_code_citation
+    pattern: Del\.\s+Code\s+(?:Ann\.\s+)?(?:tit\.\s*(?P<title>\d{1,2})(?:\s*,\s*)?)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      title: Delaware Code title number
+      section: Section number or range
+      year: Publication year
+    examples:
+    - Del. Code Ann. tit. 8, § 251 (2023)
+    - Del. Code tit. 10, §§ 4001-4010
+    - Del. Code Ann. tit. 29, § 2533
+  delaware_constitution:
+    name: delaware_constitution_citation
+    pattern: Del\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Del. Const. art. I, § 5
+    - Del. Const. art. IV, § 18
+    - Del. Const. art. VIII, § 3(a)
+regulation_citations:
+  delaware_administrative_code:
+    name: delaware_administrative_code_citation
+    pattern: Del\.\s+(?:Admin\.\s+)?Code\s+(?:tit\.\s*(?P<title>\d{1,2})(?:\s*,\s*)?)?(?:§§?\s*)?(?P<section>[\d\.]+(?:-[\d\.]+)*)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Administrative code title
+      section: Regulation section number
+    examples:
+    - Del. Admin. Code tit. 14, § 701.1
+    - Del. Code tit. 29, § 9001
+    - Del. Admin. Code tit. 16, § 3000
+court_system:
+  court_names:
+    delaware_supreme_court:
+      pattern: (?i)(?:Del(?:aware)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Delaware)?
+      confidence: 0.95
+      level: supreme
+    delaware_superior_court:
+      pattern: (?i)(?:Del(?:aware)?\.\s+)?(?:Superior\s+Court|Super\.\s*Ct\.?)(?:\s+of\s+Delaware)?
+      confidence: 0.93
+      level: trial
+    delaware_court_of_chancery:
+      pattern: (?i)(?:Del(?:aware)?\.\s+)?(?:Court\s+of\s+Chancery|Chancery\s+Court|Ch\.)
+      confidence: 0.96
+      level: equity
+    delaware_family_court:
+      pattern: (?i)(?:Del(?:aware)?\.\s+)?Family\s+Court(?:\s+of\s+Delaware)?
+      confidence: 0.9
+      level: family
+    delaware_court_of_common_pleas:
+      pattern: (?i)(?:Del(?:aware)?\.\s+)?(?:Court\s+of\s+)?Common\s+Pleas(?:\s+Court)?(?:\s+of\s+Delaware)?
+      confidence: 0.88
+      level: trial
+    delaware_justice_of_the_peace:
+      pattern: (?i)(?:Del(?:aware)?\.\s+)?Justice\s+of\s+the\s+Peace(?:\s+Court)?(?:\s+(?P<district>\d+))?
+      confidence: 0.85
+      level: limited
+entity_types:
+- name: DELAWARE_SUPREME_COURT_CASE
+  description: Delaware Supreme Court case citation
+  confidence_threshold: 0.95
+- name: DELAWARE_SUPERIOR_COURT_CASE
+  description: Delaware Superior Court case citation
+  confidence_threshold: 0.9
+- name: DELAWARE_CHANCERY_CASE
+  description: Delaware Court of Chancery case citation
+  confidence_threshold: 0.92
+- name: DELAWARE_FAMILY_COURT_CASE
+  description: Delaware Family Court case citation
+  confidence_threshold: 0.85
+- name: DELAWARE_STATUTE
+  description: Delaware statutory provision
+  confidence_threshold: 0.9
+- name: DELAWARE_REGULATION
+  description: Delaware administrative regulation
+  confidence_threshold: 0.88
+- name: DELAWARE_CONSTITUTIONAL_PROVISION
+  description: Delaware constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1787
+    max_year: 2025
+  volume_ranges:
+    atlantic_reporter:
+      a_2d:
+        min_volume: 1
+        max_volume: 999
+      a_3d:
+        min_volume: 1
+        max_volume: 999
+    delaware_reports:
+      del:
+        min_volume: 1
+        max_volume: 600
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  title_validation:
+    min_title: 1
+    max_title: 31
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 800_citations_per_second
+dependencies:
+  requires:
+  - delaware_court_abbreviations
+  - delaware_code_structure
+  optional:
+  - delaware_historical_courts
+  - delaware_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.delaware_supreme_court
+    text: State v. Smith, 123 A.3d 456 (Del. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.delaware_code
+    text: Del. Code Ann. tit. 8, § 251 (2023)
+    expected_entities: 1
+  - pattern: case_citations.delaware_court_of_chancery
+    text: Delaware Corp. v. Smith, 123 A.3d 456 (Del. Ch. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2.8 seconds
+    memory_usage: < 110MB
+    accuracy_threshold: 0.95

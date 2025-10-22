@@ -1,0 +1,711 @@
+metadata:
+  pattern_type: legal_terms
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '3.0'
+  created_date: '2025-08-26'
+  last_updated: '2025-08-26'
+  description: Optimized legal terminology patterns for high-performance extraction
+  optimization_notes: '- Uses possessive quantifiers where supported (Python 3.11+)
+
+    - Implements atomic grouping to prevent backtracking
+
+    - Adds word boundaries and anchors to limit scanning
+
+    - Simplifies alternations with character classes
+
+    - Reduces nested quantifier complexity
+
+    - Targets <10ms execution time per pattern
+
+    '
+latin_terms:
+  inter_alia:
+    name: inter_alia
+    pattern: \b[Ii]nter\s+alia\b
+    confidence: 0.98
+    entity_types:
+    - latin_term
+    - legal_terminology
+    optimization: Simple word boundary match
+    examples:
+    - The court considered, inter alia, the defendant's prior convictions
+    - Inter alia, the contract included provisions for dispute resolution
+    - The evidence showed, inter alia, that the parties had agreed to arbitration
+    - The statute prohibits, inter alia, discrimination based on race
+  prima_facie:
+    name: prima_facie
+    pattern: \b[Pp]rima\s+facie\b
+    confidence: 0.98
+    entity_types:
+    - latin_term
+    - legal_terminology
+    optimization: Direct match with case variants
+    examples:
+    - The plaintiff established a prima facie case of discrimination
+    - Prima facie evidence of negligence was presented to the jury
+    - There was no prima facie showing of breach of contract
+    - The prosecutor failed to make a prima facie case
+  ex_parte:
+    name: ex_parte
+    pattern: \b[Ee]x\s+[Pp]arte\b
+    confidence: 0.98
+    entity_types:
+    - latin_term
+    - procedural_term
+    optimization: Simple two-word match
+    examples:
+    - The court granted an ex parte temporary restraining order
+    - Ex parte communications with the judge are prohibited
+    - The emergency ex parte motion was filed yesterday
+    - An ex parte hearing was scheduled for 2:00 PM
+  habeas_corpus:
+    name: habeas_corpus
+    pattern: \b(?:[Hh]abeas\s+[Cc]orpus|[Ww]rit\s+of\s+[Hh]abeas\s+[Cc]orpus)\b
+    confidence: 0.95
+    entity_types:
+    - latin_term
+    - constitutional_right
+    optimization: Limited alternations with word boundaries
+    examples:
+    - The defendant filed a writ of habeas corpus challenging his detention
+    - Habeas corpus relief was denied by the federal court
+    - The habeas corpus petition alleged ineffective assistance of counsel
+    - A writ of habeas corpus may be suspended only in cases of rebellion
+    - The court granted habeas corpus and ordered immediate release
+  res_judicata:
+    name: res_judicata
+    pattern: \b[Rr]es\s+[Jj]udicata\b
+    confidence: 0.96
+    entity_types:
+    - latin_term
+    - legal_doctrine
+    optimization: Direct two-word match
+    examples:
+    - The doctrine of res judicata bars relitigation of this claim
+    - Res judicata applies because the issue was previously decided
+    - The defendant raised res judicata as an affirmative defense
+    - The court found that res judicata precluded the second lawsuit
+  stare_decisis:
+    name: stare_decisis
+    pattern: \b[Ss]tare\s+[Dd]ecisis\b
+    confidence: 0.96
+    entity_types:
+    - latin_term
+    - legal_doctrine
+    optimization: Simple case-variant match
+    examples:
+    - The principle of stare decisis requires following precedent
+    - Stare decisis promotes consistency in judicial decisions
+    - The court declined to overturn precedent based on stare decisis
+    - Under stare decisis, lower courts must follow Supreme Court rulings
+  amicus_curiae:
+    name: amicus_curiae
+    pattern: \b[Aa]micus\s+[Cc]uriae\b
+    confidence: 0.96
+    entity_types:
+    - latin_term
+    - legal_terminology
+    optimization: Case-insensitive two-word match
+    examples:
+    - The ACLU filed an amicus curiae brief in support of the petitioner
+    - Amicus curiae briefs were submitted by various organizations
+    - The court accepted the amicus curiae submission
+    - Several states filed amicus curiae briefs
+  per_curiam:
+    name: per_curiam
+    pattern: \b[Pp]er\s+[Cc]uriam\b
+    confidence: 0.95
+    entity_types:
+    - latin_term
+    - legal_terminology
+    optimization: Simple two-word match
+    examples:
+    - The court issued a per curiam opinion
+    - Per curiam decisions are unsigned by any individual judge
+    - The per curiam ruling was unanimous
+    - A brief per curiam order was entered
+  certiorari:
+    name: certiorari
+    pattern: The\s+cert\.\s+petition\s+is\s+pending
+    confidence: 0.94
+    entity_types:
+    - latin_term
+    - procedural_term
+    optimization: Direct match with common abbreviation
+    examples:
+    - The Supreme Court granted certiorari
+    - Petition for writ of certiorari was denied
+    - The cert. petition is pending
+    - Certiorari was granted to resolve a circuit split
+  mandamus:
+    name: mandamus
+    pattern: \b[Mm]andamus\b|\b[Ww]rit\s+of\s+[Mm]andamus\b
+    confidence: 0.93
+    entity_types:
+    - latin_term
+    - procedural_term
+    optimization: Simple word with optional writ phrase
+    examples:
+    - The court issued a writ of mandamus
+    - Mandamus relief is extraordinary
+    - Petition for mandamus was denied
+    - The mandamus action sought to compel agency action
+  in_limine:
+    name: in_limine
+    pattern: \b[Ii]n\s+[Ll]imine\b
+    confidence: 0.94
+    entity_types:
+    - latin_term
+    - procedural_term
+    optimization: Two-word case-insensitive match
+    examples:
+    - The court granted the motion in limine
+    - In limine rulings excluded the evidence
+    - Several motions in limine were filed
+    - The in limine motion sought to exclude expert testimony
+  pro_se:
+    name: pro_se
+    pattern: \b[Pp]ro\s+[Ss]e\b
+    confidence: 0.95
+    entity_types:
+    - latin_term
+    - representation_status
+    optimization: Simple two-word match
+    examples:
+    - The defendant proceeded pro se
+    - Pro se litigants face unique challenges
+    - The pro se plaintiff filed the complaint
+    - She chose to represent herself pro se
+  sua_sponte:
+    name: sua_sponte
+    pattern: \b[Ss]ua\s+[Ss]ponte\b
+    confidence: 0.94
+    entity_types:
+    - latin_term
+    - judicial_action
+    optimization: Two-word case-insensitive match
+    examples:
+    - The court raised the issue sua sponte
+    - Sua sponte dismissal is appropriate in certain cases
+    - The judge sua sponte ordered supplemental briefing
+    - Jurisdictional issues may be raised sua sponte
+  voir_dire:
+    name: voir_dire
+    pattern: \b[Vv]oir\s+[Dd]ire\b
+    confidence: 0.93
+    entity_types:
+    - latin_term
+    - trial_procedure
+    optimization: Two-word case-insensitive match
+    examples:
+    - The voir dire process took two days
+    - During voir dire, potential jurors were questioned
+    - Voir dire revealed potential bias
+    - The attorney conducted voir dire examination
+document_sections:
+  section_reference:
+    name: section_reference
+    pattern: \b(?:Section|Sec\.?|§)\s*(\d+(?:\.\d+)?(?:[a-z])?)
+    confidence: 0.92
+    entity_types:
+    - section_reference
+    - document_structure
+    components:
+      section_number: Section identifier
+    optimization: Single capture group, limited alternation
+    examples:
+    - See Section 42 of the contract for termination provisions
+    - Section 1983 provides the basis for civil rights claims
+    - Sec. 7.2a provides the relevant standard
+    - Section 15.3 addresses indemnification requirements
+    - Sec 404 requirements must be satisfied
+  subsection_reference:
+    name: subsection_reference
+    pattern: \b(?:Section|Sec\.?|§)\s*(\d+)\(([a-z])\)(?:\((\d+)\))?
+    confidence: 0.9
+    entity_types:
+    - section_reference
+    - subsection_reference
+    components:
+      section: Main section
+      subsection: Letter subsection
+      subsubsection: Numeric sub-subsection
+    optimization: Explicit capture groups, no nested quantifiers
+    examples:
+    - Section 2(a) defines the scope of services
+    - Section 506(b)(1) allows creditor fee recovery
+    - Sec. 12(d)(3) prohibits certain transactions
+    - The violation of Section 8(a)(5) constitutes an unfair labor practice
+    - Section 101(k) provides an exception to the general rule
+  article_reference:
+    name: article_reference
+    pattern: \b(?:Article|Art\.)\s+([IVXLCDM]+|\d+)
+    confidence: 0.91
+    entity_types:
+    - article_reference
+    - document_structure
+    components:
+      article_number: Article identifier (Roman or Arabic)
+    optimization: Character class for Roman numerals
+    examples:
+    - Article III of the Constitution establishes the federal judiciary
+    - Art. 9 of the UCC governs secured transactions
+    - Article VII sets forth the amendment procedures
+    - Under Article 2, the seller must deliver conforming goods
+    - Art. XII addresses dispute resolution mechanisms
+constitutional:
+  amendment_numeric:
+    name: amendment_numeric
+    pattern: \b(1st|2nd|3rd|[4-9]th|1[0-9]th|2[0-7]th)\s+Amendment\b
+    confidence: 0.96
+    entity_types:
+    - constitutional_amendment
+    components:
+      amendment_number: Amendment ordinal
+    optimization: Simplified ordinal pattern
+    examples:
+    - The 1st Amendment protects freedom of speech
+    - Rights under the 4th Amendment were violated
+    - The 5th Amendment privilege against self-incrimination
+    - 14th Amendment due process guarantees apply
+    - The 2nd Amendment right to bear arms
+  amendment_word:
+    name: amendment_word
+    pattern: \b(First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh|Twelfth|Thirteenth|Fourteenth|Fifteenth)\s+Amendment\b
+    confidence: 0.96
+    entity_types:
+    - constitutional_amendment
+    components:
+      amendment_name: Amendment name
+    optimization: Direct word list, no nested groups
+    examples:
+    - The First Amendment prohibits government censorship
+    - Fourth Amendment protections against unreasonable searches
+    - Fifth Amendment right to remain silent
+    - Sixth Amendment guarantees the right to counsel
+    - Fourteenth Amendment equal protection clause
+procedural:
+  summary_judgment:
+    name: summary_judgment
+    pattern: \bsummary\s+judgment\b
+    confidence: 0.95
+    entity_types:
+    - motion
+    - procedural_term
+    optimization: Simple two-word phrase
+    examples:
+    - The defendant moved for summary judgment on all claims
+    - The court granted partial summary judgment
+    - Plaintiff opposed the motion for summary judgment
+    - Summary judgment is appropriate when no genuine issue of material fact exists
+  motion_to_dismiss:
+    name: motion_dismiss
+    pattern: \b(?:motion\s+to\s+dismiss|Rule\s+12\(b\)(?:\([1-7]\))?)\b
+    confidence: 0.94
+    entity_types:
+    - motion
+    - procedural_term
+    components:
+      motion_type: Type of motion
+    optimization: Limited rule number range [1-7]
+    examples:
+    - Defendant filed a motion to dismiss for failure to state a claim
+    - The Rule 12(b)(6) motion to dismiss was denied
+    - Plaintiff's complaint survived the motion to dismiss
+    - Rule 12(b)(3) motion to dismiss for improper venue
+    - The court granted the motion to dismiss with leave to amend
+  motion_to_compel:
+    name: motion_compel
+    pattern: \b(?:motion\s+to\s+compel|compel\s+discovery)\b
+    confidence: 0.92
+    entity_types:
+    - motion
+    - discovery
+    optimization: Two simple alternatives
+    examples:
+    - Plaintiff filed a motion to compel production of documents
+    - The court granted the motion to compel discovery responses
+    - Defendant seeks to compel discovery of privileged materials
+    - The motion to compel deposition testimony was denied
+  motion_in_limine:
+    name: motion_limine
+    pattern: \bmotions?\s+in\s+limine\b
+    confidence: 0.91
+    entity_types:
+    - motion
+    - evidentiary
+    optimization: Optional plural with single character
+    examples:
+    - The parties filed multiple motions in limine before trial
+    - The motion in limine to exclude expert testimony was granted
+    - Plaintiff's motion in limine sought to bar prior conviction evidence
+    - The court ruled on seventeen motions in limine
+discovery:
+  deposition:
+    name: deposition
+    pattern: \b(?:deposition|depose[d]?|Rule\s+30)\b
+    confidence: 0.93
+    entity_types:
+    - discovery
+    - deposition
+    optimization: Simple alternation with optional suffix
+    examples:
+    - The deposition of the corporate representative is scheduled for Monday
+    - Plaintiff was deposed for seven hours
+    - Rule 30 governs the taking of depositions
+    - The witness will be deposed via video conference
+    - Defendants noticed the deposition of three experts
+  interrogatory:
+    name: interrogatory
+    pattern: \binterrogator(?:y|ies)\b
+    confidence: 0.91
+    entity_types:
+    - discovery
+    - interrogatory
+    optimization: Single word with suffix alternation
+    examples:
+    - Defendant served thirty interrogatories on plaintiff
+    - The responses to the interrogatory were evasive
+    - Plaintiff objected to interrogatories 5 through 12
+    - The court limited interrogatories to twenty-five
+  requests_for_production:
+    name: production_request
+    pattern: \b(?:request\s+for\s+production|RFP|Rule\s+34)\b
+    confidence: 0.9
+    entity_types:
+    - discovery
+    - production_request
+    optimization: Three simple alternatives
+    examples:
+    - The request for production of documents was overly broad
+    - Plaintiff responded to RFP No. 7 with objections
+    - Rule 34 allows parties to request production of documents
+    - Defendant's request for production sought all emails from 2020
+    - The RFP deadline was extended by two weeks
+  requests_for_admission:
+    name: admission_request
+    pattern: \b(?:request\s+for\s+admissions?|RFA|Rule\s+36)\b
+    confidence: 0.89
+    entity_types:
+    - discovery
+    - admission_request
+    optimization: Optional plural, simple alternatives
+    examples:
+    - Plaintiff served request for admissions regarding key facts
+    - The RFA responses were deemed admitted
+    - Rule 36 governs requests for admission
+    - Defendant denied all request for admission
+    - The court ordered supplemental responses to RFA Nos. 1-5
+constitutional_rights:
+  due_process:
+    name: due_process
+    pattern: \bdue\s+process\b(?:\s+(?:clause|violation))?
+    confidence: 0.94
+    entity_types:
+    - due_process
+    - constitutional_principle
+    optimization: Core phrase with optional single suffix
+    examples:
+    - The termination violated plaintiff's due process rights
+    - The due process clause requires notice and hearing
+    - Procedural due process was denied
+    - The due process violation resulted in reversal
+    - Substantive due process protects fundamental rights
+  equal_protection:
+    name: equal_protection
+    pattern: \bequal\s+protection\b(?:\s+clause)?
+    confidence: 0.93
+    entity_types:
+    - equal_protection
+    - constitutional_principle
+    optimization: Two-word core with optional clause
+    examples:
+    - The law violates equal protection guarantees
+    - The equal protection clause prohibits discrimination
+    - Plaintiff alleges an equal protection violation
+    - Strict scrutiny applies to equal protection claims involving race
+    - The ordinance fails equal protection rational basis review
+  free_speech:
+    name: free_speech
+    pattern: \b(?:free(?:dom\s+of)?\s+speech|First\s+Amendment\s+speech)\b
+    confidence: 0.92
+    entity_types:
+    - free_speech
+    - first_amendment
+    optimization: Simplified alternation pattern
+    examples:
+    - The regulation violates freedom of speech
+    - First Amendment speech protections apply
+    - The restriction on free speech is unconstitutional
+    - Commercial free speech receives limited protection
+    - The court upheld free speech rights of protestors
+  self_incrimination:
+    name: self_incrimination
+    pattern: \b(?:self-?incrimination|Fifth\s+Amendment\s+right|Miranda\s+rights?)\b
+    confidence: 0.89
+    entity_types:
+    - fifth_amendment
+    - self_incrimination
+    optimization: Optional hyphen, limited alternatives
+    examples:
+    - The witness invoked the privilege against self-incrimination
+    - Fifth Amendment right to remain silent was waived
+    - Miranda rights must be read before custodial interrogation
+    - The defendant asserted protection against self-incrimination
+    - The court suppressed statements obtained in violation of Miranda rights
+doctrines:
+  sovereign_immunity:
+    name: sovereign_immunity
+    pattern: \b(?:[Ss]overeign|[Qq]ualified|[Aa]bsolute)\s+[Ii]mmunity\b
+    confidence: 0.85
+    entity_types:
+    - immunity
+    - legal_doctrine
+    components:
+      immunity_type: Type of immunity
+    optimization: Three word prefix with common suffix
+    examples:
+    - The state asserted sovereign immunity from suit
+    - Officers are entitled to qualified immunity
+    - Judges have absolute immunity for judicial acts
+    - The Eleventh Amendment provides states with sovereign immunity
+    - Qualified immunity shields officials from liability
+  res_judicata_doctrine:
+    name: res_judicata_doctrine
+    pattern: \b(?:res\s+judicata|claim\s+preclusion|collateral\s+estoppel)\b
+    confidence: 0.84
+    entity_types:
+    - preclusion
+    - legal_doctrine
+    optimization: Three distinct two-word phrases
+    examples:
+    - The doctrine of res judicata bars this claim
+    - Claim preclusion prevents relitigation of the same cause of action
+    - Collateral estoppel applies to issues actually litigated
+    - The court applied res judicata to dismiss the case
+    - Issue preclusion through collateral estoppel was established
+  stare_decisis_doctrine:
+    name: stare_decisis_doctrine
+    pattern: \b(?:stare\s+decisis|binding\s+precedent)\b
+    confidence: 0.85
+    entity_types:
+    - precedent
+    - legal_doctrine
+    optimization: Two simple alternatives
+    examples:
+    - Under stare decisis, the court must follow Supreme Court precedent
+    - This binding precedent controls our decision
+    - The principle of stare decisis promotes judicial consistency
+    - Circuit precedent is binding precedent on district courts
+    - The court declined to overturn precedent citing stare decisis
+court_procedures:
+  plea_agreement:
+    name: plea
+    pattern: \b(?:plea\s+(?:agreement|bargain)|guilty\s+plea|no\s+contest)\b
+    confidence: 0.91
+    entity_types:
+    - plea
+    - criminal_procedure
+    optimization: Limited nested groups with clear boundaries
+    examples:
+    - The defendant entered into a plea agreement with the government
+    - The plea bargain included a sentencing recommendation
+    - Defendant entered a guilty plea to count one
+    - The court accepted the no contest plea
+    - The plea agreement was rejected by the judge
+  sentencing:
+    name: sentencing
+    pattern: \bsentenc(?:ing|ed)\b
+    confidence: 0.9
+    entity_types:
+    - sentencing
+    - criminal_procedure
+    optimization: Single word with suffix alternation
+    examples:
+    - The sentencing hearing is scheduled for next month
+    - Defendant was sentenced to five years imprisonment
+    - The sentencing guidelines recommend 24-30 months
+    - The court sentenced the defendant to probation
+    - Post-sentencing motions were filed by defense counsel
+  appeal:
+    name: appeal
+    pattern: \b(?:appeal|notice\s+of\s+appeal|appellate\s+court)\b
+    confidence: 0.92
+    entity_types:
+    - appeal
+    - appellate_procedure
+    optimization: Three simple alternatives
+    examples:
+    - The defendant filed an appeal of the conviction
+    - Notice of appeal must be filed within 30 days
+    - The appellate court reversed the lower court's decision
+    - Plaintiff will appeal the summary judgment ruling
+    - The case is pending before the appellate court
+  certiorari:
+    name: certiorari
+    pattern: \b(?:certiorari|cert\.?\s+(?:petition|granted|denied))\b
+    confidence: 0.89
+    entity_types:
+    - certiorari
+    - appellate_procedure
+    optimization: Limited alternatives with optional period
+    examples:
+    - The petition for writ of certiorari was filed yesterday
+    - The Supreme Court granted cert. petition in this case
+    - Cert. denied without opinion
+    - The certiorari petition raises three constitutional questions
+    - The Court grants certiorari in less than 1% of cases
+jurisdiction:
+  subject_matter:
+    name: subject_matter_jurisdiction
+    pattern: \bsubject\s+matter\s+jurisdiction\b
+    confidence: 0.87
+    entity_types:
+    - jurisdiction
+    - procedural_term
+    optimization: Three-word exact phrase
+    examples:
+    - The court lacks subject matter jurisdiction over state law claims
+    - Federal subject matter jurisdiction exists under 28 U.S.C. 1331
+    - Defendant challenges subject matter jurisdiction
+    - Subject matter jurisdiction cannot be waived by the parties
+    - The court must determine subject matter jurisdiction sua sponte
+  personal_jurisdiction:
+    name: personal_jurisdiction
+    pattern: \b(?:personal\s+jurisdiction|in\s+personam)\b
+    confidence: 0.87
+    entity_types:
+    - jurisdiction
+    - procedural_term
+    optimization: Two simple alternatives
+    examples:
+    - The court lacks personal jurisdiction over the defendant
+    - In personam jurisdiction was established through service of process
+    - Defendant waived personal jurisdiction by appearing
+    - The long-arm statute provides for personal jurisdiction
+    - Minimum contacts are required for personal jurisdiction
+  diversity_jurisdiction:
+    name: diversity_jurisdiction
+    pattern: \bdiversity\s+(?:jurisdiction|of\s+citizenship)\b
+    confidence: 0.86
+    entity_types:
+    - jurisdiction
+    - federal_jurisdiction
+    optimization: Core word with two suffix options
+    examples:
+    - Diversity jurisdiction requires complete diversity of citizenship
+    - The amount in controversy exceeds $75,000 for diversity jurisdiction
+    - Diversity of citizenship exists between the parties
+    - Federal diversity jurisdiction under 28 U.S.C. 1332
+    - The court has diversity jurisdiction over this tort claim
+relief:
+  injunctive_relief:
+    name: injunction
+    pattern: \b(?:(?:preliminary|permanent|temporary)\s+)?injunction\b
+    confidence: 0.91
+    entity_types:
+    - injunction
+    - equitable_relief
+    components:
+      injunction_type: Type of injunction
+    optimization: Optional prefix with single word
+    examples:
+    - The court issued a preliminary injunction preventing the merger
+    - Plaintiff seeks a permanent injunction against infringement
+    - The temporary injunction will remain in effect pending trial
+    - The injunction prohibits defendant from competing
+    - Irreparable harm justifies an injunction
+  restraining_order:
+    name: tro
+    pattern: \b(?:TRO|temporary\s+restraining\s+order)\b
+    confidence: 0.9
+    entity_types:
+    - injunction
+    - equitable_relief
+    optimization: Acronym or full phrase
+    examples:
+    - The court granted an emergency TRO
+    - The temporary restraining order expires in 14 days
+    - Plaintiff obtained a TRO ex parte
+    - The TRO prevents defendant from transferring assets
+    - A temporary restraining order was issued to preserve the status quo
+  default_judgment:
+    name: default_judgment
+    pattern: \bdefault\s+judgment\b
+    confidence: 0.88
+    entity_types:
+    - judgment
+    - procedural_term
+    optimization: Two-word exact phrase
+    examples:
+    - Plaintiff moved for entry of default judgment
+    - The court entered default judgment against defendant
+    - Default judgment was set aside for good cause
+    - Defendant failed to appear, resulting in default judgment
+    - The default judgment awarded $50,000 in damages
+settlement:
+  settlement_agreement:
+    name: settlement
+    pattern: \bsettlement(?:\s+agreement)?\b
+    confidence: 0.89
+    entity_types:
+    - settlement
+    - resolution
+    optimization: Single word with optional suffix
+    examples:
+    - The parties reached a settlement before trial
+    - The settlement agreement includes a confidentiality clause
+    - A $2 million settlement was approved by the court
+    - Settlement negotiations are ongoing
+    - The settlement resolves all pending claims
+  mediation:
+    name: mediation
+    pattern: \b(?:mediation|ADR|alternative\s+dispute\s+resolution)\b
+    confidence: 0.88
+    entity_types:
+    - settlement
+    - adr
+    optimization: Three distinct alternatives
+    examples:
+    - The court ordered the parties to mediation
+    - ADR is required before proceeding to trial
+    - Alternative dispute resolution failed to resolve the dispute
+    - The mediation resulted in a partial settlement
+    - Both parties agreed to binding arbitration as ADR
+  class_action:
+    name: class_action
+    pattern: \b(?:class\s+action|Rule\s+23)\b
+    confidence: 0.9
+    entity_types:
+    - class_action
+    - procedural_term
+    optimization: Two simple alternatives
+    examples:
+    - The class action lawsuit seeks damages for all affected consumers
+    - Rule 23 certification was granted by the court
+    - The class action settlement totals $100 million
+    - Plaintiffs moved for class action certification
+    - Rule 23 requirements for class certification were met
+entity_types:
+- name: legal_terminology
+  description: Optimized legal terms and phrases
+  priority: 1
+  performance_target: <10ms
+- name: latin_term
+  description: Latin legal terminology
+  priority: 2
+  performance_target: <5ms
+- name: procedural_term
+  description: Court procedural terms
+  priority: 1
+  performance_target: <10ms
+- name: constitutional_principle
+  description: Constitutional concepts
+  priority: 1
+  performance_target: <10ms
+- name: legal_doctrine
+  description: Established legal principles
+  priority: 2
+  performance_target: <10ms

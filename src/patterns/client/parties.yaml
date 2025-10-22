@@ -1,0 +1,528 @@
+metadata:
+  pattern_type: legal_parties
+  jurisdiction: general
+  source_type: judicial
+  bluebook_compliance: 22nd_edition
+  pattern_version: '3.1'
+  created_date: '2025-08-26'
+  last_updated: '2025-08-28'
+  description: Enhanced legal party patterns with comprehensive case caption and name support
+  optimization_notes: |
+    - Eliminated catastrophic backtracking patterns
+    - Replaced nested quantifiers with atomic groups
+    - Added anchors and word boundaries
+    - Simplified complex alternations
+    - Enhanced case_caption_vs to handle "Range v. Garland", "United States v. Range"
+    - Added full_name_party for "Bryan David Range", "Merrick B. Garland"
+    - Added government_official pattern for positions like "Attorney General"
+    - Comprehensive government agency pattern coverage
+    - Target: <10ms per pattern execution
+
+legal_parties:
+  # Optimized plaintiff patterns
+  plaintiff_simple:
+    name: plaintiff_simple
+    pattern: '\bPlaintiffs?\b'
+    confidence: 0.85
+    entity_types:
+      - plaintiff
+      - party
+    optimization: "Simple word match for basic identification"
+    examples:
+      - "Plaintiff alleges breach of contract"
+      - "The Plaintiffs filed a joint motion"
+      - "Plaintiff seeks injunctive relief"
+      - "Plaintiffs' counsel requested a continuance"
+    
+  plaintiff_with_name:
+    name: plaintiff_with_name
+    # Use atomic group to prevent backtracking in name matching
+    pattern: '\bPlaintiffs?(?:-(?:Appellant|Appellee|Respondent|Petitioner)s?)?,?\s+((?>[A-Z][a-z]+(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+){0,3}))'
+    confidence: 0.90
+    entity_types:
+      - plaintiff
+      - party
+    components:
+      party_type: Plaintiff designation
+      party_name: Full name of plaintiff
+    optimization: "Atomic group with limited repetition {0,3}"
+    validation_rules:
+      - must_contain: "Plaintiff"
+      - must_have_name: true
+    examples:
+      - "Plaintiff John Smith filed the complaint"
+      - "Plaintiff-Appellant Mary K. Johnson appeals"
+      - "Plaintiffs Robert Brown and David Lee seek damages"
+      - "Plaintiff-Respondent Sarah Martinez opposes the motion"
+      - "Plaintiff Jennifer Ann Thompson alleges discrimination"
+
+  # Optimized defendant patterns
+  defendant_simple:
+    name: defendant_simple
+    pattern: '\bDefendants?\b'
+    confidence: 0.85
+    entity_types:
+      - defendant
+      - party
+    optimization: "Simple word match"
+    examples:
+      - "Defendant denies all allegations"
+      - "The Defendants filed an answer"
+      - "Defendant moves for summary judgment"
+      - "Defendants' motion to dismiss was granted"
+    
+  defendant_with_name:
+    name: defendant_with_name
+    pattern: '\bDefendants?(?:-(?:Appellant|Appellee|Respondent)s?)?,?\s+((?>[A-Z][a-z]+(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+){0,3}))'
+    confidence: 0.90
+    entity_types:
+      - defendant
+      - party
+    components:
+      party_type: Defendant designation
+      party_name: Full name of defendant
+    optimization: "Atomic group with bounded repetition"
+    validation_rules:
+      - must_contain: "Defendant"
+      - must_have_name: true
+    examples:
+      - "Defendant Michael Davis answered the complaint"
+      - "Defendant-Appellant James Wilson seeks reversal"
+      - "Defendants Patricia Miller and Thomas Anderson dispute liability"
+      - "Defendant-Appellee Christopher Lee filed a brief"
+      - "Defendant William Robert Johnson entered a plea"
+
+  # Enhanced case caption pattern to handle various party types
+  case_caption_vs:
+    name: case_caption_vs
+    pattern: '\b((?:United\s+States|State\s+of\s+\w+|Commonwealth\s+of\s+\w+|City\s+of\s+\w+|County\s+of\s+\w+|Board\s+of\s+\w+|[A-Z][a-z]+(?:\s+(?:[A-Z]\.\s+)?[A-Z][a-z]+){0,4}(?:\s+(?:Inc\.|Corp\.|LLC|Co\.))?))\s+v\.?\s+((?:United\s+States|State\s+of\s+\w+|Commonwealth\s+of\s+\w+|City\s+of\s+\w+|County\s+of\s+\w+|Board\s+of\s+\w+|[A-Z][a-z]+(?:\s+(?:[A-Z]\.\s+)?[A-Z][a-z]+){0,4}(?:\s+(?:Inc\.|Corp\.|LLC|Co\.))?))\b'
+    confidence: 0.88
+    entity_types:
+      - case_parties
+      - plaintiff
+      - defendant
+    components:
+      plaintiff: First party name
+      defendant: Second party name
+    optimization: "Handles government entities, boards, and complex multi-word names"
+    examples:
+      - "Smith v. Jones"
+      - "Brown v. Board of Education"
+      - "United States v. Microsoft"
+      - "Range v. Garland"
+      - "United States v. Range"
+      - "State of California v. Smith"
+      - "Commonwealth of Pennsylvania v. Johnson"
+
+  # Simple case caption pattern for cases like "Range v. Garland"
+  simple_case_caption:
+    name: simple_case_caption
+    pattern: '\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\s+v\.?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)\b'
+    confidence: 0.92
+    entity_types:
+      - case_parties
+      - plaintiff
+      - defendant
+    components:
+      plaintiff: First party name
+      defendant: Second party name
+    optimization: "Optimized for simple two-party case captions like Range v. Garland"
+    examples:
+      - "Range v. Garland"
+      - "Smith v. Jones"
+      - "Brown v. Board"
+      - "Miller v. Davis"
+      - "Johnson v. Wilson"
+      - "Thompson v. Attorney"
+
+  # Optimized government entity patterns
+  government_entity:
+    name: government_entity
+    pattern: '\b(?:United\s+States|State\s+of\s+\w+|City\s+of\s+\w+|County\s+of\s+\w+)\b'
+    confidence: 0.92
+    entity_types:
+      - government_entity
+      - party
+    components:
+      entity_type: Type of government entity
+      jurisdiction: Government jurisdiction
+    optimization: "Use \\w+ instead of complex name patterns"
+    examples:
+      - "United States brings this action under the False Claims Act"
+      - "State of California filed suit against the corporation"
+      - "City of Chicago enacted the ordinance"
+      - "County of Los Angeles seeks injunctive relief"
+      - "State of Texas intervened as a party"
+
+  federal_agency:
+    name: federal_agency
+    pattern: '\b(?:FBI|CIA|NSA|IRS|SEC|FTC|EPA|DEA|ATF|DOJ|DHS|DOD|USDA|FDA|CDC|NIH|OSHA)\b'
+    confidence: 0.95
+    entity_types:
+      - federal_agency
+      - government_entity
+      - party
+    optimization: "Direct acronym list without alternation complexity"
+    examples:
+      - "The FBI conducted the investigation"
+      - "SEC filed enforcement action against the company"
+      - "EPA issued new regulations on emissions"
+      - "IRS assessed penalties for non-compliance"
+      - "The FTC alleged unfair trade practices"
+
+  # Optimized corporate entity patterns
+  corporation_simple:
+    name: corporation_simple
+    pattern: '\b[A-Z]\w+(?:\s+[A-Z]\w+){0,2}\s+(?:Inc\.?|Corp\.?|LLC|L\.L\.C\.|Company|Co\.)\b'
+    confidence: 0.87
+    entity_types:
+      - corporation
+      - party
+    components:
+      company_name: Corporation name
+      entity_type: Corporate designation
+    optimization: "Bounded name components {0,2}, simplified suffixes"
+    examples:
+      - "Apple Inc. filed a patent infringement suit"
+      - "Microsoft Corp. announced the settlement"
+      - "Amazon Services LLC disputes the allegations"
+      - "Tesla Motors Company seeks dismissal"
+      - "Goldman Sachs Inc. entered into the agreement"
+
+  # Full name patterns for individual parties
+  full_name_party:
+    name: full_name_party
+    pattern: '\b([A-Z][a-z]+(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+){1,2}(?:\s+(?:Jr\.|Sr\.|III|IV|V))?)\b'
+    confidence: 0.87
+    entity_types:
+      - individual_party
+      - party
+    components:
+      first_name: First name
+      middle_name: Middle name or initial (optional)
+      last_name: Last name
+      suffix: Name suffix (Jr., Sr., III, etc.)
+    optimization: "Captures full names with middle names, initials, and suffixes"
+    examples:
+      - "Bryan David Range"
+      - "Merrick B. Garland"
+      - "John Smith Jr."
+      - "Mary Elizabeth Johnson"
+      - "Robert J. Williams III"
+      - "Sarah Ann Martinez Sr."
+
+  # Government official patterns
+  government_official:
+    name: government_official
+    pattern: '\b(?:Attorney\s+General|Secretary\s+of\s+(?:State|Defense|Treasury|Commerce|Education|Energy|Health\s+and\s+Human\s+Services|HHS|Homeland\s+Security|Housing\s+and\s+Urban\s+Development|HUD|Interior|Labor|Transportation|Veterans\s+Affairs)|Administrator|Commissioner|Director|Deputy\s+(?:Attorney\s+General|Secretary)|Assistant\s+(?:Attorney\s+General|Secretary)|Acting\s+(?:Attorney\s+General|Secretary|Director))(?:\s+[A-Z][a-z]+(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+){0,2})?\b'
+    confidence: 0.91
+    entity_types:
+      - government_official
+      - government_entity
+      - party
+    components:
+      title: Official title
+      name: Official's name (optional)
+    optimization: "Captures government positions with or without names"
+    examples:
+      - "Attorney General"
+      - "Attorney General Merrick B. Garland"
+      - "Secretary of Defense"
+      - "Secretary of State John Smith"
+      - "Acting Director Mary Johnson"
+      - "Deputy Attorney General"
+      - "Commissioner of Internal Revenue"
+
+  # Enhanced government agency pattern
+  government_agency:
+    name: government_agency
+    pattern: '\b(?:Department\s+of\s+(?:Justice|Defense|State|Treasury|Commerce|Education|Energy|Health\s+and\s+Human\s+Services|HHS|Homeland\s+Security|Housing\s+and\s+Urban\s+Development|HUD|Interior|Labor|Transportation|Veterans\s+Affairs|Agriculture)|Federal\s+(?:Bureau\s+of\s+Investigation|Trade\s+Commission|Communications\s+Commission|Election\s+Commission|Reserve\s+(?:Board|System))|Securities\s+and\s+Exchange\s+Commission|Environmental\s+Protection\s+Agency|Internal\s+Revenue\s+Service|Social\s+Security\s+Administration|Drug\s+Enforcement\s+Administration|Bureau\s+of\s+(?:Alcohol,?\s+Tobacco,?\s+Firearms(?:\s+and\s+Explosives)?|Prisons|Land\s+Management)|(?:Food\s+and\s+Drug|Federal\s+Aviation|Transportation\s+Security|Occupational\s+Safety\s+and\s+Health)\s+Administration)\b'
+    confidence: 0.93
+    entity_types:
+      - federal_agency
+      - government_entity
+      - party
+    optimization: "Comprehensive federal agency patterns"
+    examples:
+      - "Department of Justice"
+      - "Federal Bureau of Investigation"
+      - "Securities and Exchange Commission"
+      - "Environmental Protection Agency"
+      - "Internal Revenue Service"
+      - "Bureau of Alcohol, Tobacco, Firearms and Explosives"
+      - "Food and Drug Administration"
+
+  # Optimized et al. pattern
+  et_al:
+    name: et_al
+    pattern: '\b([A-Z][a-z]+(?:\s+[A-Z]\.)?(?:\s+[A-Z][a-z]+)?),?\s+et\s+al\.?\b'
+    confidence: 0.89
+    entity_types:
+      - party_group
+      - et_al
+    components:
+      lead_party: First named party
+    optimization: "Limited name components with optional middle initial"
+    examples:
+      - "Smith, et al. filed a class action lawsuit"
+      - "Johnson et al brought claims under federal law"
+      - "Brown, et al. seek damages exceeding $1 million"
+      - "Williams J. Davis, et al moved for certification"
+      - "Garcia et al. oppose the settlement"
+
+  # Optimized pro se pattern
+  pro_se:
+    name: pro_se
+    pattern: '\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2}),?\s+pro\s+se\b'
+    confidence: 0.88
+    entity_types:
+      - pro_se_party
+      - individual_party
+    components:
+      party_name: Pro se litigant name
+    optimization: "Bounded name repetition {0,2}"
+    examples:
+      - "John Smith, pro se, filed the complaint"
+      - "Mary Johnson pro se appeared at the hearing"
+      - "Robert James Brown, pro se, seeks relief"
+      - "Linda Davis pro se represents herself"
+      - "Michael Wilson, pro se, submitted the brief"
+
+  # Optimized party role patterns
+  petitioner:
+    name: petitioner
+    pattern: '\bPetitioners?\b'
+    confidence: 0.85
+    entity_types:
+      - petitioner
+      - party
+    optimization: "Simple word match with optional plural"
+    examples:
+      - "Petitioner seeks writ of mandamus"
+      - "The Petitioners filed for certiorari"
+      - "Petitioner challenges the agency decision"
+      - "Petitioners' brief was submitted yesterday"
+
+  respondent:
+    name: respondent
+    pattern: '\bRespondents?\b'
+    confidence: 0.85
+    entity_types:
+      - respondent
+      - party
+    optimization: "Simple word match with optional plural"
+    examples:
+      - "Respondent opposes the petition"
+      - "The Respondents filed an answer"
+      - "Respondent argues jurisdiction is lacking"
+      - "Respondents' motion was denied"
+
+  # Enhanced appellant patterns with context - HIGH PRIORITY
+  appellant_with_context:
+    name: appellant_with_context
+    pattern: '\b([A-Z][a-z]+(?:\s+(?:[A-Z]\.?\s+)?[A-Z][a-z]+){0,3}),?\s+Appellants?\b'
+    confidence: 0.92
+    priority: 1
+    entity_types:
+      - party
+      - appellant
+    components:
+      party_name: Name of the appellant
+      party_role: Appellant designation
+    optimization: "Captures names followed by Appellant role"
+    validation_rules:
+      - must_contain: "Appellant"
+      - entity_type_override: "party"
+    examples:
+      - "RANGE, Appellant"
+      - "Bryan David Range, Appellant"
+      - "Smith, Appellant"
+      - "Johnson Appellants"
+      - "Mary K. Wilson, Appellant"
+  
+  appellant:
+    name: appellant
+    pattern: '\bAppellants?\b'
+    confidence: 0.85
+    priority: 5
+    entity_types:
+      - appellant
+      - party
+    optimization: "Simple word match with optional plural"
+    examples:
+      - "Appellant appeals from the final judgment"
+      - "The Appellants filed their opening brief"
+      - "Appellant seeks reversal of the conviction"
+      - "Appellants' counsel requested oral argument"
+
+  # Enhanced appellee patterns with context - HIGH PRIORITY
+  appellee_with_context:
+    name: appellee_with_context
+    pattern: '\b([A-Z][a-z]+(?:\s+(?:[A-Z]\.?\s+)?[A-Z][a-z]+){0,3}),?\s+Appellees?\b'
+    confidence: 0.92
+    priority: 1
+    entity_types:
+      - party
+      - appellee
+    components:
+      party_name: Name of the appellee
+      party_role: Appellee designation
+    optimization: "Captures names followed by Appellee role"
+    validation_rules:
+      - must_contain: "Appellee"
+      - entity_type_override: "party"
+    examples:
+      - "Garland, Appellee"
+      - "Attorney General, Appellee"
+      - "United States, Appellee"
+  
+  appellee:
+    name: appellee
+    pattern: '\bAppellees?\b'
+    confidence: 0.85
+    priority: 5
+    entity_types:
+      - appellee
+      - party
+    optimization: "Simple word match with optional plural"
+    examples:
+      - "Appellee requests affirmance of the judgment"
+      - "The Appellees filed their response brief"
+      - "Appellee argues the appeal is untimely"
+      - "Appellees' position is supported by precedent"
+
+  # Optimized intervenor pattern
+  intervenor:
+    name: intervenor
+    pattern: '\bIntervenors?\b'
+    confidence: 0.84
+    entity_types:
+      - intervenor
+      - party
+    optimization: "Simple word match"
+    examples:
+      - "Intervenor seeks to protect its interests"
+      - "The Intervenors filed a motion to intervene"
+      - "Intervenor supports plaintiff's position"
+      - "Intervenors' rights would be affected"
+
+  # Optimized amicus curiae pattern
+  amicus_curiae:
+    name: amicus_curiae
+    pattern: '\b(?:Amicus|Amici)\s+Curiae\b'
+    confidence: 0.86
+    entity_types:
+      - amicus_curiae
+      - party
+    optimization: "Two-word phrase with singular/plural"
+    examples:
+      - "Amicus Curiae ACLU filed a brief"
+      - "Amici Curiae support reversal"
+      - "The court granted Amicus Curiae leave to file"
+      - "Multiple Amici Curiae briefed the issue"
+
+  # Optimized class action pattern
+  class_representative:
+    name: class_representative
+    pattern: '\b(?:[Cc]lass\s+[Rr]epresentative|[Oo]n\s+[Bb]ehalf\s+[Oo]f\s+(?:[Aa]\s+)?[Cc]lass)\b'
+    confidence: 0.83
+    entity_types:
+      - class_action
+      - party_representative
+    optimization: "Simple phrase alternatives"
+    examples:
+      - "The class representative seeks certification"
+      - "Plaintiff sues on behalf of a class of consumers"
+      - "Named plaintiffs act on behalf of class members"
+      - "Class representative adequately represents members"
+      - "Action brought on behalf of class members"
+
+  # Optimized law firm pattern
+  law_firm:
+    name: law_firm
+    pattern: '\b[A-Z]\w+(?:\s+(?:&|and)\s+[A-Z]\w+){0,2}(?:,?\s+(?:LLP|P\.C\.|P\.A\.|P\.L\.L\.C\.|PLLC))(?=\s|$|\.)'
+    confidence: 0.86
+    entity_types:
+      - law_firm
+      - legal_representative
+    components:
+      firm_name: Law firm name
+      firm_type: Firm designation
+    optimization: "Bounded partner names {0,2}, limited suffixes"
+    examples:
+      - "Jones & Smith LLP represents the plaintiff"
+      - "Wilson & Brown LLP filed the motion"
+      - "Brown & Johnson PLLC appeared for defendant"
+      - "Miller & Davis LLP entered an appearance"
+      - "Davis and Williams LLP submitted the brief"
+
+  # Optimized trustee/executor patterns
+  trustee:
+    name: trustee
+    pattern: '\b(?:Trustee|Executor|Administrator|Guardian)\b'
+    confidence: 0.85
+    entity_types:
+      - fiduciary
+      - party_role
+    optimization: "Simple role keyword list"
+    examples:
+      - "The Trustee filed a proof of claim"
+      - "Executor of the estate seeks court approval"
+      - "Administrator was appointed by the court"
+      - "Guardian ad litem represents the minor"
+      - "Bankruptcy Trustee objects to discharge"
+
+  estate_party:
+    name: estate
+    pattern: '\b(?:Estate\s+of\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?|In\s+re\s+[A-Z][a-z]+)\b'
+    confidence: 0.84
+    entity_types:
+      - estate
+      - party
+    components:
+      decedent_name: Name of deceased
+    optimization: "Limited name components in estate patterns"
+    examples:
+      - "Estate of John Smith filed a claim"
+      - "In re Williams bankruptcy proceeding"
+      - "Estate of Mary Johnson seeks distribution"
+      - "In re Brown Chapter 11 reorganization"
+      - "Estate of Robert Davis petitions the court"
+
+entity_types:
+  - name: "party"
+    description: "General legal party"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "plaintiff"
+    description: "Plaintiff in legal action"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "defendant"
+    description: "Defendant in legal action"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "individual_party"
+    description: "Individual person as party"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "government_entity"
+    description: "Government party"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "government_official"
+    description: "Government official or position"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "federal_agency"
+    description: "Federal government agency"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "corporation"
+    description: "Corporate entity"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "law_firm"
+    description: "Legal representation"
+    priority: 3
+    performance_target: "<5ms"

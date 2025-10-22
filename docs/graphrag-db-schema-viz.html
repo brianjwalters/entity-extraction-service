@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphRAG Database Schema</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            margin-top: 10px;
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .schema-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .schema-btn {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .schema-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .schema-btn.active {
+            background: white;
+            color: #4f46e5;
+        }
+        
+        .diagram-container {
+            padding: 30px;
+            background: #f9fafb;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #mermaid-diagram {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .legend {
+            padding: 20px 30px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .legend h3 {
+            color: #4b5563;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .legend-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+        }
+        
+        .description {
+            padding: 30px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .description h3 {
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        
+        .description p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #6b7280;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 30px;
+            background: #f3f4f6;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4f46e5;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        
+        .mermaid {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GraphRAG Database Schema</h1>
+            <div class="subtitle">Legal Document Processing with Contextual Retrieval & Knowledge Graph</div>
+            <div class="schema-selector">
+                <button class="schema-btn active" onclick="showDiagram('overview')">Full Overview</button>
+                <button class="schema-btn" onclick="showDiagram('law')">Law Schema</button>
+                <button class="schema-btn" onclick="showDiagram('client')">Client Schema</button>
+                <button class="schema-btn" onclick="showDiagram('graph')">Graph Schema</button>
+                <button class="schema-btn" onclick="showDiagram('simplified')">Simplified Core</button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Database Schemas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Core Tables</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">31</div>
+                <div class="stat-label">Entity Types</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1536</div>
+                <div class="stat-label">Embedding Dimensions</div>
+            </div>
+        </div>
+        
+        <div class="diagram-container">
+            <div id="mermaid-diagram">
+                <div class="loading">Loading diagram...</div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <h3>Schema Color Legend</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="color-box" style="background: #dbeafe;"></div>
+                    <span><strong>Law Schema:</strong> Legal reference materials (statutes, cases, regulations)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #dcfce7;"></div>
+                    <span><strong>Client Schema:</strong> Case-specific documents and data</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #fef3c7;"></div>
+                    <span><strong>Graph Schema:</strong> Knowledge graph and intelligence layer</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #fce7f3;"></div>
+                    <span><strong>Cross-Schema:</strong> Tables that bridge multiple schemas</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="description">
+            <h3>Architecture Overview</h3>
+            <p>
+                This database schema implements a sophisticated legal document processing system combining Microsoft's GraphRAG 
+                with Anthropic's Contextual Retrieval methodology. The architecture is divided into three main schemas:
+            </p>
+            
+            <p>
+                <strong>1. Law Schema (Blue):</strong> Stores legal reference materials like court opinions, statutes, and regulations. 
+                These are immutable reference documents that serve as the knowledge base for legal research and citation validation.
+            </p>
+            
+            <p>
+                <strong>2. Client Schema (Green):</strong> Contains case-specific documents and data for individual clients and matters. 
+                This includes uploaded documents, extracted parties, deadlines, and case metadata.
+            </p>
+            
+            <p>
+                <strong>3. Graph Schema (Yellow):</strong> The intelligence layer that implements GraphRAG with contextual retrieval. 
+                It includes the document registry, contextual chunks with multiple content layers, embeddings, knowledge graph nodes/edges, 
+                and community detection for global search capabilities.
+            </p>
+            
+            <h3>Key Design Decisions</h3>
+            <p>
+                <strong>Centralized Embeddings:</strong> All vector embeddings are stored in a single <code>graph.embeddings</code> table 
+                with 1536 dimensions, linked via foreign keys to their source content. This allows for efficient vector similarity search 
+                and easy model updates.
+            </p>
+            
+            <p>
+                <strong>Contextual Chunks:</strong> The <code>graph.contextual_chunks</code> table implements Anthropic's contextual 
+                retrieval with multiple content layers (original, cleaned, contextual, BM25-optimized) for hybrid search capabilities.
+            </p>
+            
+            <p>
+                <strong>Normalized Relationships:</strong> Instead of JSONB arrays, entity relationships and chunk connections use 
+                separate junction tables for better query performance and referential integrity.
+            </p>
+            
+            <p>
+                <strong>Document Registry:</strong> A central catalog in the graph schema tracks all documents across both law and 
+                client schemas, providing unified document management and processing status tracking.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        const diagrams = {
+            overview: `graph TB
+    subgraph LAW["Law Schema - Legal Reference Materials"]
+        LD[law.documents]
+        LC[law.citations]
+        LE[law.entities]
+        LER[law.entity_relationships]
+        
+        LD -->|contains| LC
+        LD -->|contains| LE
+        LE -->|relates| LER
+    end
+    
+    subgraph CLIENT["Client Schema - Case Documents"]
+        CC[client.cases]
+        CD[client.documents]
+        CP[client.parties]
+        CDL[client.deadlines]
+        
+        CC -->|has| CD
+        CC -->|involves| CP
+        CC -->|tracks| CDL
+    end
+    
+    subgraph GRAPH["Graph Schema - Intelligence Layer"]
+        GDR[graph.document_registry]
+        GCC[graph.contextual_chunks]
+        GE[graph.embeddings]
+        GN[graph.nodes]
+        GED[graph.edges]
+        GC[graph.communities]
+        GEM[graph.entity_mappings]
+        GPS[graph.processing_status]
+        GCA[graph.case_analytics]
+        
+        GDR -->|chunks| GCC
+        GCC -->|vectors| GE
+        GN -->|connects| GED
+        GN -->|groups| GC
+        LE -->|enhanced| GEM
+        GEM -->|creates| GN
+        GDR -->|status| GPS
+        CC -->|analytics| GCA
+    end
+    
+    LD -.->|registered| GDR
+    CD -.->|registered| GDR
+    GE -.->|embeds| GCC
+    GE -.->|embeds| GN
+    GE -.->|embeds| GC
+    
+    classDef lawSchema fill:#dbeafe,stroke:#3b82f6,stroke-width:2px
+    classDef clientSchema fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+    classDef graphSchema fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    
+    class LD,LC,LE,LER lawSchema
+    class CC,CD,CP,CDL clientSchema
+    class GDR,GCC,GE,GN,GED,GC,GEM,GPS,GCA graphSchema`,
+            
+            law: `graph TB
+    subgraph LAW["Law Schema - Detailed View"]
+        LD["law.documents<br/>────────<br/>id: UUID PK<br/>document_id: TEXT UK<br/>title: TEXT<br/>court_name: TEXT<br/>jurisdiction: TEXT<br/>date_filed: DATE<br/>citation: TEXT<br/>content_md: TEXT<br/>storage_path: TEXT"]
+        
+        LC["law.citations<br/>────────<br/>id: UUID PK<br/>citation_id: TEXT UK<br/>document_id: TEXT FK<br/>citation_text: TEXT<br/>citation_type: TEXT<br/>bluebook_format: TEXT<br/>components: JSONB"]
+        
+        LE["law.entities<br/>────────<br/>id: UUID PK<br/>entity_id: TEXT UK<br/>document_id: TEXT FK<br/>entity_type: TEXT<br/>entity_text: TEXT<br/>normalized_text: TEXT<br/>confidence_score: FLOAT<br/>attributes: JSONB"]
+        
+        LER["law.entity_relationships<br/>────────<br/>id: UUID PK<br/>source_entity_id: TEXT FK<br/>target_entity_id: TEXT FK<br/>relationship_type: TEXT<br/>confidence_score: FLOAT<br/>evidence_text: TEXT"]
+        
+        LD -->|1:N| LC
+        LD -->|1:N| LE
+        LE -->|N:M| LER
+    end
+    
+    classDef lawSchema fill:#dbeafe,stroke:#3b82f6,stroke-width:2px
+    class LD,LC,LE,LER lawSchema`,
+            
+            client: `graph TB
+    subgraph CLIENT["Client Schema - Detailed View"]
+        CC["client.cases<br/>────────<br/>id: UUID PK<br/>case_id: UUID UK<br/>client_id: UUID FK<br/>case_number: TEXT<br/>caption: TEXT<br/>court: TEXT<br/>judge: TEXT<br/>status: TEXT"]
+        
+        CD["client.documents<br/>────────<br/>id: UUID PK<br/>document_id: TEXT UK<br/>case_id: UUID FK<br/>client_id: UUID FK<br/>title: TEXT<br/>document_type: TEXT<br/>content_type: TEXT<br/>storage_path: TEXT<br/>content_md: TEXT"]
+        
+        CP["client.parties<br/>────────<br/>id: UUID PK<br/>case_id: UUID FK<br/>party_name: TEXT<br/>party_type: TEXT<br/>representation: TEXT<br/>attorney_name: TEXT<br/>contact_info: JSONB"]
+        
+        CDL["client.deadlines<br/>────────<br/>id: UUID PK<br/>case_id: UUID FK<br/>deadline_date: DATE<br/>description: TEXT<br/>status: TEXT<br/>priority: TEXT"]
+        
+        CC -->|1:N| CD
+        CC -->|1:N| CP
+        CC -->|1:N| CDL
+    end
+    
+    classDef clientSchema fill:#dcfce7,stroke:#22c55e,stroke-width:2px
+    class CC,CD,CP,CDL clientSchema`,
+            
+            graph: `graph TB
+    subgraph GRAPH["Graph Schema - Core Intelligence"]
+        GDR["graph.document_registry<br/>────────<br/>Central Document Catalog<br/>document_id, title, type<br/>schema, status, metadata"]
+        
+        GCC["graph.contextual_chunks<br/>────────<br/>Contextual Retrieval<br/>original_content<br/>contextual_content<br/>bm25_content<br/>quality_scores"]
+        
+        GCEC["graph.chunk_entity_connections<br/>────────<br/>Chunk-Entity Links<br/>chunk_id, entity_id<br/>relevance, position"]
+        
+        GCCR["graph.chunk_cross_references<br/>────────<br/>Chunk Relations<br/>source_chunk, target_chunk<br/>reference_type"]
+        
+        GE["graph.embeddings<br/>────────<br/>Centralized Vectors<br/>source_id, source_type<br/>vector 1536 dims<br/>embedding_type"]
+        
+        GN["graph.nodes<br/>────────<br/>Graph Vertices<br/>node_id, node_type<br/>entity_id, label<br/>importance_score"]
+        
+        GED["graph.edges<br/>────────<br/>Graph Connections<br/>source_node, target_node<br/>edge_type, weight"]
+        
+        GC["graph.communities<br/>────────<br/>Node Clusters<br/>community_id<br/>summary, level"]
+        
+        GNC["graph.node_communities<br/>────────<br/>Node Membership<br/>node_id, community_id"]
+        
+        GDR -->|1:N| GCC
+        GCC -->|1:N| GCEC
+        GCC -->|1:N| GCCR
+        GCC -->|1:1| GE
+        GN -->|1:N| GED
+        GN -->|N:M| GNC
+        GC -->|1:N| GNC
+        GN -->|1:1| GE
+        GC -->|1:1| GE
+    end
+    
+    classDef graphSchema fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
+    class GDR,GCC,GCEC,GCCR,GE,GN,GED,GC,GNC graphSchema`,
+            
+            simplified: `graph LR
+    subgraph INPUT["Input Layer"]
+        D[Documents<br/>PDF/DOCX/etc]
+    end
+    
+    subgraph PROCESS["Processing Layer"]
+        DR[Document Registry<br/>Central Catalog]
+        CC[Contextual Chunks<br/>Enhanced Text]
+        EE[Entity Extraction<br/>31 Legal Types]
+    end
+    
+    subgraph INTEL["Intelligence Layer"]
+        EMB[Embeddings<br/>1536-dim Vectors]
+        KG[Knowledge Graph<br/>Nodes and Edges]
+        COM[Communities<br/>Global Search]
+    end
+    
+    subgraph RETRIEVAL["Retrieval Layer"]
+        VS[Vector Search<br/>Semantic]
+        BM[BM25 Search<br/>Keyword]
+        GS[Graph Search<br/>Relationships]
+    end
+    
+    D --> DR
+    DR --> CC
+    CC --> EE
+    CC --> EMB
+    EE --> KG
+    KG --> COM
+    EMB --> VS
+    CC --> BM
+    KG --> GS
+    
+    classDef input fill:#e0e7ff,stroke:#6366f1
+    classDef process fill:#dcfce7,stroke:#22c55e
+    classDef intel fill:#fef3c7,stroke:#f59e0b
+    classDef retrieval fill:#fce7f3,stroke:#ec4899
+    
+    class D input
+    class DR,CC,EE process
+    class EMB,KG,COM intel
+    class VS,BM,GS retrieval`
+        };
+        
+        let currentDiagram = 'overview';
+        
+        function showDiagram(type) {
+            currentDiagram = type;
+            
+            // Update active button
+            document.querySelectorAll('.schema-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Clear and render new diagram
+            const container = document.getElementById('mermaid-diagram');
+            container.innerHTML = '<div class="mermaid">' + diagrams[type] + '</div>';
+            
+            // Re-initialize mermaid
+            mermaid.init(undefined, container.querySelector('.mermaid'));
+        }
+        
+        // Initialize mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f3f4f6',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#d1d5db',
+                lineColor: '#6b7280',
+                secondaryColor: '#e5e7eb',
+                tertiaryColor: '#f9fafb',
+                background: '#ffffff',
+                mainBkg: '#f3f4f6',
+                secondBkg: '#e5e7eb',
+                tertiaryBkg: '#f9fafb'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                rankSpacing: 50,
+                nodeSpacing: 30,
+                padding: 15
+            }
+        });
+        
+        // Show initial diagram
+        window.addEventListener('load', () => {
+            showDiagram('overview');
+        });
+    </script>
+</body>
+</html>

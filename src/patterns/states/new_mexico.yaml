@@ -1,0 +1,186 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: new_mexico
+  state_abbreviation: N.M.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for New Mexico state citations and entities
+case_citations:
+  new_mexico_supreme_court:
+    name: new_mexico_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+P\.2d\s+567,\s+890\s+\(N\.M\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: New Mexico Reports or Pacific Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of New Mexico, 123 N.M. 456 (N.M. 2023)
+    - Johnson v. ABC Corp., 456 P.3d 789 (N.M. 2022)
+    - Ex parte Brown, 234 P.2d 567, 890 (N.M. 2021)
+  new_mexico_court_of_appeals:
+    name: new_mexico_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>N\.M\.\s*(?:Ct\.\s*App\.|App\.)|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(N\.M\.\s+(?:Ct\.\s+)?App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: New Mexico Appeals or Pacific Reporter volume
+      reporter: New Mexico appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 N.M. Ct. App. 456 (N.M. Ct. App. 2023)
+    - State v. Johnson, 456 P.3d 789 (N.M. App. 2022)
+    - People v. Brown, 234 P.2d 567 (N.M. Ct. App. 2021)
+  new_mexico_district_court:
+    name: new_mexico_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Judicial\s+District(?:\s+Court)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+N\.M\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. D-101-CV-2023-12345 (1st Judicial District, Santa Fe County,
+      N.M.)
+    - ABC Corp. v. XYZ Inc., CV-22-987654 (2nd Judicial District, Bernalillo County,
+      N.M. 2022)
+statute_citations:
+  new_mexico_statutes:
+    name: new_mexico_statutes_citation
+    pattern: N\.M\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>\d+(?:-\d+)?[A-Z]?-\d+(?:-\d+)?(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?[A-Z]?-\d+(?:-\d+)?(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: New Mexico Statutes section number
+      year: Publication year
+    examples:
+    - N.M. Stat. Ann. § 30-3-2 (2023)
+    - N.M. Stat. §§ 39-3-1 to 39-3-10
+    - N.M. Stat. Ann. § 22-8-12.1A
+  new_mexico_constitution:
+    name: new_mexico_constitution_citation
+    pattern: N\.M\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - N.M. Const. art. II, § 10
+    - N.M. Const. art. IV, § 1
+    - N.M. Const. art. XX, § 21(A)
+regulation_citations:
+  new_mexico_administrative_code:
+    name: new_mexico_administrative_code_citation
+    pattern: (?P<title>\d+(?:\.\d+)*)\s+N\.M\.\s+(?:Admin\.\s+)?Code\s+(?:§§?\s*)?(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      section: Regulation section number
+    examples:
+    - 6.10.3 N.M. Admin. Code § 8
+    - 8.290.2 N.M. Code §§ 8-12
+    - 19.15.2 N.M. Admin. Code § 7.1
+court_system:
+  court_names:
+    new_mexico_supreme_court:
+      pattern: (?i)(?:N\.?M\.?(?:\s+|ew\s+Mexico\s+)?)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+New\s+Mexico)?
+      confidence: 0.95
+      level: supreme
+    new_mexico_court_of_appeals:
+      pattern: (?i)(?:N\.?M\.?(?:\s+|ew\s+Mexico\s+)?)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+New\s+Mexico)?
+      confidence: 0.94
+      level: appellate
+    new_mexico_district_court:
+      pattern: (?i)(?:N\.?M\.?(?:\s+|ew\s+Mexico\s+)?)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    new_mexico_magistrate_court:
+      pattern: (?i)(?:N\.?M\.?(?:\s+|ew\s+Mexico\s+)?)?(?:Magistrate\s+Court|Mag\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: trial
+entity_types:
+- name: NEW_MEXICO_SUPREME_COURT_CASE
+  description: New Mexico Supreme Court case citation
+  confidence_threshold: 0.95
+- name: NEW_MEXICO_APPEALS_CASE
+  description: New Mexico Court of Appeals case citation
+  confidence_threshold: 0.92
+- name: NEW_MEXICO_DISTRICT_COURT_CASE
+  description: New Mexico District Court case citation
+  confidence_threshold: 0.85
+- name: NEW_MEXICO_MAGISTRATE_COURT_CASE
+  description: New Mexico Magistrate Court case citation
+  confidence_threshold: 0.83
+- name: NEW_MEXICO_STATUTE
+  description: New Mexico statutory provision
+  confidence_threshold: 0.9
+- name: NEW_MEXICO_REGULATION
+  description: New Mexico administrative regulation
+  confidence_threshold: 0.88
+- name: NEW_MEXICO_CONSTITUTIONAL_PROVISION
+  description: New Mexico constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1912
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    new_mexico_reports:
+      min_volume: 1
+      max_volume: 150
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 755_citations_per_second
+dependencies:
+  requires:
+  - new_mexico_court_abbreviations
+  - new_mexico_county_names
+  - new_mexico_judicial_districts
+  optional:
+  - new_mexico_historical_courts
+  - new_mexico_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.new_mexico_supreme_court
+    text: Smith v. State of New Mexico, 123 N.M. 456 (N.M. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.new_mexico_statutes
+    text: N.M. Stat. Ann. § 30-3-2 (2023)
+    expected_entities: 1
+  - pattern: case_citations.new_mexico_court_of_appeals
+    text: State v. Johnson, 456 P.3d 789 (N.M. App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.3 seconds
+    memory_usage: < 129MB
+    accuracy_threshold: 0.94

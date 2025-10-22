@@ -1,0 +1,201 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: oklahoma
+  state_abbreviation: Okla.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Oklahoma state citations and entities
+case_citations:
+  oklahoma_supreme_court:
+    name: oklahoma_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+P\.2d\s+567,\s+890\s+\(Okla\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Oklahoma Reports or Pacific Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Oklahoma, 123 Okla. 456 (Okla. 2023)
+    - Johnson v. ABC Corp., 456 P.3d 789 (Okla. 2022)
+    - Ex parte Brown, 234 P.2d 567, 890 (Okla. 2021)
+  oklahoma_court_of_criminal_appeals:
+    name: oklahoma_court_of_criminal_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Okla\.\s*Crim\.|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Okla\.\s+Crim\.\s+App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.97
+    priority: 93
+    components:
+      case_name: Full case name with parties
+      volume: Oklahoma Criminal or Pacific Reporter volume
+      reporter: Oklahoma criminal appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Smith, 123 Okla. Crim. 456 (Okla. Crim. App. 2023)
+    - Johnson v. State, 456 P.3d 789 (Okla. Crim. App. 2022)
+  oklahoma_court_of_civil_appeals:
+    name: oklahoma_court_of_civil_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Okla\.\s*(?:Civ\.\s*)?App\.|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Okla\.\s+(?:Civ\.\s*)?App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Oklahoma Civil Appeals or Pacific Reporter volume
+      reporter: Oklahoma civil appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 Okla. Civ. App. 456 (Okla. Civ. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 P.3d 789 (Okla. App. 2022)
+  oklahoma_district_court:
+    name: oklahoma_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Judicial\s+District(?:\s+Court)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Okla\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. CJ-2023-12345 (14th Judicial District, Tulsa County, Okla.)
+    - ABC Corp. v. XYZ Inc., CV-22-987654 (7th Judicial District, Oklahoma County,
+      Okla. 2022)
+statute_citations:
+  oklahoma_statutes:
+    name: oklahoma_statutes_citation
+    pattern: Okla\.\s+Stat\.\s+(?:Ann\.\s+)?(?:tit\.\s*)?(?P<title>\d+(?:-\d+)?),?\s*(?:§§?\s*)?(?P<section>\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      title: Oklahoma Statutes title number
+      section: Section number
+      year: Publication year
+    examples:
+    - Okla. Stat. tit. 21, § 701.7 (2023)
+    - Okla. Stat. Ann. tit. 12, §§ 1101-1110
+    - Okla. Stat. tit. 25, § 1313.1
+  oklahoma_constitution:
+    name: oklahoma_constitution_citation
+    pattern: Okla\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Okla. Const. art. II, § 7
+    - Okla. Const. art. V, § 1
+    - Okla. Const. art. XXIII, § 7(a)
+regulation_citations:
+  oklahoma_administrative_code:
+    name: oklahoma_administrative_code_citation
+    pattern: Okla\.\s+Admin\.\s+Code\s+(?P<title>\d+)(?:\s*:)?(?P<chapter>\d+)(?:\s*-)?(?P<section>\d+(?:-\d+)*(?:\.\d+)*)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      chapter: Chapter number
+      section: Regulation section number
+    examples:
+    - Okla. Admin. Code 310:675-1-3
+    - Okla. Admin. Code 710:50-15-2
+    - Okla. Admin. Code 165:5-7-1.1
+court_system:
+  court_names:
+    oklahoma_supreme_court:
+      pattern: (?i)(?:Okla(?:homa)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Oklahoma)?
+      confidence: 0.95
+      level: supreme
+    oklahoma_court_of_criminal_appeals:
+      pattern: (?i)(?:Okla(?:homa)?\.\s+)?(?:Court\s+of\s+Criminal\s+Appeals|Ct\.?\s+of\s+Crim\.?\s+App\.?)(?:\s+of\s+Oklahoma)?
+      confidence: 0.94
+      level: supreme
+    oklahoma_court_of_civil_appeals:
+      pattern: (?i)(?:Okla(?:homa)?\.\s+)?(?:Court\s+of\s+Civil\s+Appeals|Ct\.?\s+of\s+Civ\.?\s+App\.?)(?:\s+of\s+Oklahoma)?
+      confidence: 0.94
+      level: appellate
+    oklahoma_district_court:
+      pattern: (?i)(?:Okla(?:homa)?\.\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: OKLAHOMA_SUPREME_COURT_CASE
+  description: Oklahoma Supreme Court case citation
+  confidence_threshold: 0.95
+- name: OKLAHOMA_CRIMINAL_APPEALS_CASE
+  description: Oklahoma Court of Criminal Appeals case citation
+  confidence_threshold: 0.94
+- name: OKLAHOMA_CIVIL_APPEALS_CASE
+  description: Oklahoma Court of Civil Appeals case citation
+  confidence_threshold: 0.92
+- name: OKLAHOMA_DISTRICT_COURT_CASE
+  description: Oklahoma District Court case citation
+  confidence_threshold: 0.85
+- name: OKLAHOMA_STATUTE
+  description: Oklahoma statutory provision
+  confidence_threshold: 0.9
+- name: OKLAHOMA_REGULATION
+  description: Oklahoma administrative regulation
+  confidence_threshold: 0.88
+- name: OKLAHOMA_CONSTITUTIONAL_PROVISION
+  description: Oklahoma constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1907
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    oklahoma_reports:
+      min_volume: 1
+      max_volume: 250
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 765_citations_per_second
+dependencies:
+  requires:
+  - oklahoma_court_abbreviations
+  - oklahoma_county_names
+  - oklahoma_judicial_districts
+  optional:
+  - oklahoma_historical_courts
+  - oklahoma_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.oklahoma_supreme_court
+    text: Smith v. State of Oklahoma, 123 Okla. 456 (Okla. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.oklahoma_statutes
+    text: Okla. Stat. tit. 21, § 701.7 (2023)
+    expected_entities: 1
+  - pattern: case_citations.oklahoma_court_of_criminal_appeals
+    text: State v. Johnson, 456 P.3d 789 (Okla. Crim. App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.2 seconds
+    memory_usage: < 126MB
+    accuracy_threshold: 0.94

@@ -1,0 +1,601 @@
+{
+  "version": "1.0",
+  "generated_at": "2025-10-15T00:00:00Z",
+  "total_relationships": 33,
+  "total_tests": 6,
+  "relationships_by_test": {
+    "test_1760575089802": {
+      "document_id": "case_001",
+      "entity_count": 14,
+      "relationship_count": 7,
+      "relationships": [
+        {
+          "id": "rel-50755dab-4a9f-44e4-b01a-7a49afd9beaa",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-11",
+          "relationship_type": "REPRESENTED_BY",
+          "confidence": 0.88,
+          "start_pos": 0,
+          "end_pos": 220,
+          "context": "United States of America as plaintiff, represented by Officer Sarah Martinez",
+          "metadata": {
+            "proximity_chars": 220,
+            "legal_role": "prosecution"
+          }
+        },
+        {
+          "id": "rel-53722b61-8350-4a1e-99c7-07459f1cd315",
+          "source_entity_id": "uuid-string-14",
+          "target_entity_id": "uuid-string-6",
+          "relationship_type": "CITES",
+          "confidence": 0.95,
+          "start_pos": 120,
+          "end_pos": 272,
+          "context": "United States v. Henderson case cites possession statute 21 U.S.C. \u00a7 841(a)(1)",
+          "metadata": {
+            "citation_type": "statute",
+            "relevance": "primary_charge"
+          }
+        },
+        {
+          "id": "rel-9aecbc09-c47a-4aea-b642-d642f92c6343",
+          "source_entity_id": "uuid-string-14",
+          "target_entity_id": "uuid-string-7",
+          "relationship_type": "CITES",
+          "confidence": 0.92,
+          "start_pos": 145,
+          "end_pos": 272,
+          "context": "United States v. Henderson also cites aiding and abetting statute 18 U.S.C. \u00a7 2",
+          "metadata": {
+            "citation_type": "statute",
+            "relevance": "secondary_charge"
+          }
+        },
+        {
+          "id": "rel-8c01ae02-43f7-4906-b182-eea211d769dc",
+          "source_entity_id": "uuid-string-4",
+          "target_entity_id": "uuid-string-5",
+          "relationship_type": "LOCATED_IN",
+          "confidence": 0.98,
+          "start_pos": 60,
+          "end_pos": 119,
+          "context": "United States District Court for the Southern District of New York",
+          "metadata": {
+            "jurisdiction": "federal",
+            "district": "SDNY"
+          }
+        },
+        {
+          "id": "rel-d99bd12e-7b08-4f8b-80dc-cbc18a3ddff7",
+          "source_entity_id": "uuid-string-2",
+          "target_entity_id": "uuid-string-8",
+          "relationship_type": "ARRESTED_ON",
+          "confidence": 0.9,
+          "start_pos": 30,
+          "end_pos": 174,
+          "context": "Defendant Michael Henderson arrested on March 15, 2023",
+          "metadata": {
+            "event_type": "arrest",
+            "temporal_marker": "date_filed"
+          }
+        },
+        {
+          "id": "rel-cc9b9ac7-a064-4b1d-b9ec-0eb4153f2b2f",
+          "source_entity_id": "uuid-string-10",
+          "target_entity_id": "uuid-string-13",
+          "relationship_type": "CO_OCCURS",
+          "confidence": 0.82,
+          "start_pos": 187,
+          "end_pos": 252,
+          "context": "Interstate 95 incident location in New York state",
+          "metadata": {
+            "proximity_chars": 65,
+            "context_type": "location"
+          }
+        },
+        {
+          "id": "rel-e1da6ca8-76a2-4b8e-8e24-9023c77efd39",
+          "source_entity_id": "uuid-string-11",
+          "target_entity_id": "uuid-string-12",
+          "relationship_type": "EMPLOYED_BY",
+          "confidence": 0.94,
+          "start_pos": 200,
+          "end_pos": 245,
+          "context": "Officer Sarah Martinez of the New York Police Department",
+          "metadata": {
+            "employment_type": "law_enforcement",
+            "organization_role": "officer"
+          }
+        }
+      ],
+      "statistics": {
+        "total_relationships": 7,
+        "relationship_types": {
+          "REPRESENTED_BY": 1,
+          "CITES": 2,
+          "LOCATED_IN": 1,
+          "ARRESTED_ON": 1,
+          "CO_OCCURS": 1,
+          "EMPLOYED_BY": 1
+        },
+        "avg_confidence": 0.9128571428571428,
+        "min_confidence": 0.82,
+        "max_confidence": 0.98
+      }
+    },
+    "test_1760575126888": {
+      "document_id": "case_002",
+      "entity_count": 5,
+      "relationship_count": 4,
+      "relationships": [
+        {
+          "id": "rel-485bd53a-c8d9-4eec-9a2c-33dc04551f6a",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-2",
+          "relationship_type": "CITES",
+          "confidence": 0.89,
+          "start_pos": 0,
+          "end_pos": 150,
+          "context": "Civil rights case cites California Penal Code \u00a7 148(a)(1) for resisting arrest",
+          "metadata": {
+            "citation_type": "state_statute",
+            "relevance": "charge_basis"
+          }
+        },
+        {
+          "id": "rel-2ec3607b-0472-4490-b2cc-95407e97a290",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-3",
+          "relationship_type": "CITES",
+          "confidence": 0.96,
+          "start_pos": 0,
+          "end_pos": 160,
+          "context": "Case citation references federal civil rights statute 42 U.S.C. \u00a7 1983",
+          "metadata": {
+            "citation_type": "federal_statute",
+            "relevance": "primary_legal_basis"
+          }
+        },
+        {
+          "id": "rel-b8e913b1-8d2e-4b8e-ac2d-52695a99992d",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-5",
+          "relationship_type": "CITES",
+          "confidence": 0.93,
+          "start_pos": 0,
+          "end_pos": 190,
+          "context": "Case invokes Fourth and Fourteenth Amendment constitutional protections",
+          "metadata": {
+            "citation_type": "constitutional",
+            "relevance": "constitutional_basis"
+          }
+        },
+        {
+          "id": "rel-26d019a9-3aa6-4f6d-aab3-c278a5c29584",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-4",
+          "relationship_type": "OCCURRED_ON",
+          "confidence": 0.87,
+          "start_pos": 0,
+          "end_pos": 170,
+          "context": "Protest incident occurred on June 18, 2022",
+          "metadata": {
+            "event_type": "incident",
+            "temporal_marker": "incident_date"
+          }
+        }
+      ],
+      "statistics": {
+        "total_relationships": 4,
+        "relationship_types": {
+          "CITES": 3,
+          "OCCURRED_ON": 1
+        },
+        "avg_confidence": 0.9125,
+        "min_confidence": 0.87,
+        "max_confidence": 0.96
+      }
+    },
+    "test_1760575189645": {
+      "document_id": "case_003",
+      "entity_count": 15,
+      "relationship_count": 9,
+      "relationships": [
+        {
+          "id": "rel-aee1198f-f9f4-4408-8f4b-6536e3fda568",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-4",
+          "relationship_type": "PRESIDED_OVER_BY",
+          "confidence": 0.97,
+          "start_pos": 0,
+          "end_pos": 234,
+          "context": "Supreme Court case with Chief Justice Roberts delivering opinion",
+          "metadata": {
+            "judicial_role": "chief_justice",
+            "opinion_type": "majority"
+          }
+        },
+        {
+          "id": "rel-aad72e3f-5264-4a7c-bec2-a3eb0a20419f",
+          "source_entity_id": "uuid-string-2",
+          "target_entity_id": "uuid-string-3",
+          "relationship_type": "FILED_AGAINST",
+          "confidence": 0.91,
+          "start_pos": 40,
+          "end_pos": 199,
+          "context": "Students for Academic Freedom filed suit against Riverside Unified School District",
+          "metadata": {
+            "case_role": "petitioner_vs_respondent",
+            "case_type": "education_law"
+          }
+        },
+        {
+          "id": "rel-f62cfe32-5e0a-4daa-adb4-d9958884b85b",
+          "source_entity_id": "uuid-string-4",
+          "target_entity_id": "uuid-string-5",
+          "relationship_type": "CITES",
+          "confidence": 0.94,
+          "start_pos": 200,
+          "end_pos": 266,
+          "context": "Opinion cites precedent Hazelwood School District v. Kuhlmeier",
+          "metadata": {
+            "citation_type": "case_precedent",
+            "relevance": "controlling_authority"
+          }
+        },
+        {
+          "id": "rel-3e55023f-575c-4c47-b3e8-13a39aa8a079",
+          "source_entity_id": "uuid-string-4",
+          "target_entity_id": "uuid-string-6",
+          "relationship_type": "CITES",
+          "confidence": 0.95,
+          "start_pos": 200,
+          "end_pos": 310,
+          "context": "Opinion references landmark Tinker v. Des Moines student speech case",
+          "metadata": {
+            "citation_type": "case_precedent",
+            "relevance": "foundational_authority"
+          }
+        },
+        {
+          "id": "rel-42365c23-16f4-482a-bc1d-e659093e950a",
+          "source_entity_id": "uuid-string-5",
+          "target_entity_id": "uuid-string-7",
+          "relationship_type": "REPORTED_AT",
+          "confidence": 0.99,
+          "start_pos": 235,
+          "end_pos": 324,
+          "context": "Hazelwood School District v. Kuhlmeier reported at 484 U.S. 260",
+          "metadata": {
+            "reporter": "U.S. Reports",
+            "volume": "484"
+          }
+        },
+        {
+          "id": "rel-de453af4-7205-4140-8e54-6f30297af614",
+          "source_entity_id": "uuid-string-6",
+          "target_entity_id": "uuid-string-8",
+          "relationship_type": "REPORTED_AT",
+          "confidence": 0.98,
+          "start_pos": 267,
+          "end_pos": 334,
+          "context": "Tinker v. Des Moines reported at 393 U.S.",
+          "metadata": {
+            "reporter": "U.S. Reports",
+            "volume": "393"
+          }
+        },
+        {
+          "id": "rel-ef128b86-f218-4a93-bcc4-903b168fc75c",
+          "source_entity_id": "uuid-string-6",
+          "target_entity_id": "uuid-string-9",
+          "relationship_type": "DECIDED_IN",
+          "confidence": 0.92,
+          "start_pos": 267,
+          "end_pos": 340,
+          "context": "Tinker case decided in 1969",
+          "metadata": {
+            "event_type": "decision",
+            "temporal_marker": "year"
+          }
+        },
+        {
+          "id": "rel-88103c61-655e-48f6-b671-d7c703f38a81",
+          "source_entity_id": "uuid-string-4",
+          "target_entity_id": "uuid-string-10",
+          "relationship_type": "ARGUED_ON",
+          "confidence": 0.88,
+          "start_pos": 200,
+          "end_pos": 354,
+          "context": "Case argued before Supreme Court on March 21, 2024",
+          "metadata": {
+            "event_type": "oral_argument",
+            "temporal_marker": "argument_date"
+          }
+        },
+        {
+          "id": "rel-1ee3e572-7a47-42a8-aedd-a04a432bae39",
+          "source_entity_id": "uuid-string-4",
+          "target_entity_id": "uuid-string-11",
+          "relationship_type": "DECIDED_ON",
+          "confidence": 0.91,
+          "start_pos": 200,
+          "end_pos": 368,
+          "context": "Supreme Court decision rendered on June 15, 2024",
+          "metadata": {
+            "event_type": "decision",
+            "temporal_marker": "decision_date"
+          }
+        }
+      ],
+      "statistics": {
+        "total_relationships": 9,
+        "relationship_types": {
+          "PRESIDED_OVER_BY": 1,
+          "FILED_AGAINST": 1,
+          "CITES": 2,
+          "REPORTED_AT": 2,
+          "DECIDED_IN": 1,
+          "ARGUED_ON": 1,
+          "DECIDED_ON": 1
+        },
+        "avg_confidence": 0.9388888888888888,
+        "min_confidence": 0.88,
+        "max_confidence": 0.99
+      }
+    },
+    "test_1760575343531": {
+      "document_id": "case_004",
+      "entity_count": 6,
+      "relationship_count": 4,
+      "relationships": [
+        {
+          "id": "rel-38630421-5960-498f-9b40-446c57d70633",
+          "source_entity_id": "entity_1",
+          "target_entity_id": "entity_2",
+          "relationship_type": "RESULTED_IN",
+          "confidence": 0.86,
+          "start_pos": 0,
+          "end_pos": 110,
+          "context": "Motion for Summary Judgment resulted in $4.5 million damages award",
+          "metadata": {
+            "outcome_type": "monetary_damages",
+            "award_type": "compensatory"
+          }
+        },
+        {
+          "id": "rel-f87e7a95-3643-4329-a379-4c5d55f98e11",
+          "source_entity_id": "entity_2",
+          "target_entity_id": "entity_3",
+          "relationship_type": "ACCOMPANIED_BY",
+          "confidence": 0.9,
+          "start_pos": 100,
+          "end_pos": 160,
+          "context": "Damages award of $4.5 million plus $875,000 in attorney fees",
+          "metadata": {
+            "relationship_nature": "combined_award",
+            "fee_basis": "prevailing_party"
+          }
+        },
+        {
+          "id": "rel-8257ab72-9600-4e71-9bb1-527dc5227e47",
+          "source_entity_id": "entity_1",
+          "target_entity_id": "entity_2",
+          "relationship_type": "CO_OCCURS",
+          "confidence": 0.78,
+          "start_pos": 0,
+          "end_pos": 110,
+          "context": "Court address 500 Pearl Street with contact phone 212-555-1234",
+          "metadata": {
+            "proximity_chars": 110,
+            "context_type": "contact_information"
+          }
+        },
+        {
+          "id": "rel-6b8fa7c2-6651-42c6-ba43-a3cf426b35b9",
+          "source_entity_id": "entity_3",
+          "target_entity_id": "entity_2",
+          "relationship_type": "CO_OCCURS",
+          "confidence": 0.75,
+          "start_pos": 100,
+          "end_pos": 160,
+          "context": "Professional contact: phone 212-555-1234, email jennifer.rodriguez@techvision.com",
+          "metadata": {
+            "proximity_chars": 60,
+            "context_type": "professional_contact"
+          }
+        }
+      ],
+      "statistics": {
+        "total_relationships": 4,
+        "relationship_types": {
+          "RESULTED_IN": 1,
+          "ACCOMPANIED_BY": 1,
+          "CO_OCCURS": 2
+        },
+        "avg_confidence": 0.8225,
+        "min_confidence": 0.75,
+        "max_confidence": 0.9
+      }
+    },
+    "test_1760575386296": {
+      "document_id": "case_005",
+      "entity_count": 6,
+      "relationship_count": 4,
+      "relationships": [
+        {
+          "id": "rel-6e16fad0-2a23-437f-927e-66b7ae979b8d",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-3",
+          "relationship_type": "CHARGED_UNDER",
+          "confidence": 0.93,
+          "start_pos": 0,
+          "end_pos": 68,
+          "context": "United States charged defendant under bank robbery statute 18 U.S.C. \u00a7 2113(a)",
+          "metadata": {
+            "charge_type": "bank_robbery",
+            "statute_type": "federal_criminal"
+          }
+        },
+        {
+          "id": "rel-adf1ebc6-9ab3-4252-863a-17510264234d",
+          "source_entity_id": "uuid-string-2",
+          "target_entity_id": "uuid-string-4",
+          "relationship_type": "CHARGED_UNDER",
+          "confidence": 0.91,
+          "start_pos": 25,
+          "end_pos": 92,
+          "context": "Marcus Thompson charged with brandishing firearm under 18 U.S.C. \u00a7 924(c)(1)(A)(ii)",
+          "metadata": {
+            "charge_type": "firearms_offense",
+            "statute_type": "federal_criminal"
+          }
+        },
+        {
+          "id": "rel-db7f893a-cb5f-46b8-b7b7-c141c99e005d",
+          "source_entity_id": "uuid-string-5",
+          "target_entity_id": "uuid-string-6",
+          "relationship_type": "APPEALED_FROM",
+          "confidence": 0.84,
+          "start_pos": 93,
+          "end_pos": 234,
+          "context": "Appeal to Supreme Court from District Court presided by Judge Susan Martinez",
+          "metadata": {
+            "appellate_relationship": "district_to_supreme",
+            "procedural_posture": "appeal"
+          }
+        },
+        {
+          "id": "rel-c9801dd0-5255-4ca7-9473-a6215fbd3ffc",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-2",
+          "relationship_type": "PROSECUTING",
+          "confidence": 0.96,
+          "start_pos": 0,
+          "end_pos": 44,
+          "context": "United States of America prosecuting Marcus Thompson",
+          "metadata": {
+            "case_role": "plaintiff_vs_defendant",
+            "case_type": "criminal"
+          }
+        }
+      ],
+      "statistics": {
+        "total_relationships": 4,
+        "relationship_types": {
+          "CHARGED_UNDER": 2,
+          "APPEALED_FROM": 1,
+          "PROSECUTING": 1
+        },
+        "avg_confidence": 0.91,
+        "min_confidence": 0.84,
+        "max_confidence": 0.96
+      }
+    },
+    "test_1760575420481": {
+      "document_id": "case_006",
+      "entity_count": 6,
+      "relationship_count": 5,
+      "relationships": [
+        {
+          "id": "rel-a08e5bf6-a910-433f-b93a-f6d21cba50d0",
+          "source_entity_id": "uuid-string-1",
+          "target_entity_id": "uuid-string-2",
+          "relationship_type": "FILED_IN",
+          "confidence": 0.95,
+          "start_pos": 0,
+          "end_pos": 150,
+          "context": "Johnson v. Smith Construction case filed in Superior Court of California, San Diego",
+          "metadata": {
+            "filing_type": "civil",
+            "case_type": "breach_of_contract"
+          }
+        },
+        {
+          "id": "rel-e8e22386-60c8-4536-8163-06490a5fdcdc",
+          "source_entity_id": "uuid-string-2",
+          "target_entity_id": "uuid-string-3",
+          "relationship_type": "FILED_AGAINST",
+          "confidence": 0.92,
+          "start_pos": 101,
+          "end_pos": 200,
+          "context": "Johnson filed breach of contract action against Smith Construction, Inc.",
+          "metadata": {
+            "case_role": "plaintiff_vs_defendant",
+            "claim_type": "breach_of_contract"
+          }
+        },
+        {
+          "id": "rel-ed940d57-f5a9-43ab-8938-b91867872c8a",
+          "source_entity_id": "uuid-string-6",
+          "target_entity_id": "uuid-string-2",
+          "relationship_type": "PRESIDES_OVER",
+          "confidence": 0.89,
+          "start_pos": 101,
+          "end_pos": 254,
+          "context": "Judge Robert Williams presiding over Johnson v. Smith Construction trial",
+          "metadata": {
+            "judicial_role": "trial_judge",
+            "court_level": "superior_court"
+          }
+        },
+        {
+          "id": "rel-85383abd-aa08-4bed-9ac8-7a5233ab34ee",
+          "source_entity_id": "uuid-string-2",
+          "target_entity_id": "uuid-string-4",
+          "relationship_type": "FILED_ON",
+          "confidence": 0.87,
+          "start_pos": 101,
+          "end_pos": 212,
+          "context": "Case filed on February 1, 2023",
+          "metadata": {
+            "event_type": "filing",
+            "temporal_marker": "filing_date"
+          }
+        },
+        {
+          "id": "rel-995e0725-eccf-4841-90c4-f381a0af0f98",
+          "source_entity_id": "uuid-string-2",
+          "target_entity_id": "uuid-string-5",
+          "relationship_type": "SCHEDULED_FOR",
+          "confidence": 0.9,
+          "start_pos": 101,
+          "end_pos": 234,
+          "context": "Trial scheduled for November 15, 2024",
+          "metadata": {
+            "event_type": "trial",
+            "temporal_marker": "trial_date"
+          }
+        }
+      ],
+      "statistics": {
+        "total_relationships": 5,
+        "relationship_types": {
+          "FILED_IN": 1,
+          "FILED_AGAINST": 1,
+          "PRESIDES_OVER": 1,
+          "FILED_ON": 1,
+          "SCHEDULED_FOR": 1
+        },
+        "avg_confidence": 0.906,
+        "min_confidence": 0.87,
+        "max_confidence": 0.95
+      }
+    }
+  },
+  "summary": {
+    "total_relationships": 33,
+    "tests_with_relationships": 6,
+    "relationship_type_distribution": {
+      "REPRESENTS": 1,
+      "CITES": 7,
+      "PRESIDES_OVER": 2,
+      "OCCURS_ON": 7,
+      "CO_OCCURS": 3,
+      "FILED_IN": 4,
+      "OTHER": 13
+    },
+    "avg_confidence_all": 0.9075757575757576,
+    "avg_relationships_per_test": 5.5
+  }
+}

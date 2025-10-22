@@ -1,0 +1,139 @@
+# Jurisdictional and Venue Relationships
+pattern_type: relationship
+jurisdiction: federal
+description: Relationships involving jurisdiction, venue, and geographic elements
+
+patterns:
+  - relationship_type: HAS_JURISDICTION
+    description: Court having jurisdiction over case
+    source_entity: COURT
+    target_entity: JURISDICTION
+    indicators:
+      - "has jurisdiction"
+      - "jurisdiction over"
+      - "subject matter jurisdiction"
+      - "personal jurisdiction"
+      - "within jurisdiction"
+    examples:
+      - "District Court has jurisdiction under 28 USC 1331"
+      - "Court exercises personal jurisdiction over defendant"
+      - "Within the jurisdiction of the Southern District"
+
+  - relationship_type: LOCATED_IN
+    description: Court or party located in geographic area
+    source_entity: COURT
+    target_entity: DISTRICT
+    indicators:
+      - "located in"
+      - "situated in"
+      - "in the"
+      - "for the"
+      - "sitting in"
+    examples:
+      - "Court for the Southern District of New York"
+      - "Located in the Fifth Circuit"
+      - "Sitting in Los Angeles"
+
+  - relationship_type: VENUE_IN
+    description: Venue for case in specific court
+    source_entity: CASE_CITATION
+    target_entity: VENUE
+    indicators:
+      - "venue in"
+      - "venue lies in"
+      - "proper venue"
+      - "brought in"
+      - "filed in"
+    examples:
+      - "Venue lies in the Eastern District"
+      - "Proper venue in Manhattan"
+      - "Case brought in federal court"
+
+  - relationship_type: TRANSFERRED_TO
+    description: Case transferred to another court
+    source_entity: COURT
+    target_entity: COURT
+    indicators:
+      - "transferred to"
+      - "transfer to"
+      - "moved to"
+      - "change of venue to"
+      - "reassigned to"
+    examples:
+      - "Case transferred to Southern District"
+      - "Motion for change of venue to Nevada"
+      - "Reassigned to Judge Smith"
+
+  - relationship_type: RESIDES_IN
+    description: Party residing in jurisdiction
+    source_entity: PARTY
+    target_entity: JURISDICTION
+    indicators:
+      - "resides in"
+      - "resident of"
+      - "domiciled in"
+      - "citizen of"
+      - "incorporated in"
+    examples:
+      - "Defendant resides in California"
+      - "Corporation incorporated in Delaware"
+      - "Plaintiff citizen of New York"
+
+  - relationship_type: GOVERNS_IN
+    description: Law governing in jurisdiction
+    source_entity: STATUTE_CITATION
+    target_entity: JURISDICTION
+    indicators:
+      - "governs in"
+      - "applies in"
+      - "law of"
+      - "under the laws of"
+      - "pursuant to state law"
+    examples:
+      - "California law governs"
+      - "Under federal law"
+      - "Pursuant to New York state law"
+
+  - relationship_type: CIRCUIT_INCLUDES
+    description: Circuit including district courts
+    source_entity: CIRCUITS
+    target_entity: DISTRICT
+    indicators:
+      - "includes"
+      - "comprises"
+      - "encompasses"
+      - "covers"
+      - "within"
+    examples:
+      - "Ninth Circuit includes California districts"
+      - "Second Circuit encompasses New York"
+      - "Within the Fifth Circuit"
+
+  - relationship_type: EXERCISES_OVER
+    description: Court exercising authority over area
+    source_entity: SPECIALIZED_COURTS
+    target_entity: SPECIALIZED_JURISDICTION
+    indicators:
+      - "exercises authority over"
+      - "has authority in"
+      - "jurisdiction extends to"
+      - "covers"
+      - "handles"
+    examples:
+      - "Bankruptcy Court exercises authority over debtor"
+      - "Tax Court jurisdiction extends nationwide"
+      - "Federal Circuit handles patent appeals"
+
+  - relationship_type: REMOVED_TO
+    description: Case removed to federal court
+    source_entity: STATE_COURTS
+    target_entity: FEDERAL_COURTS
+    indicators:
+      - "removed to"
+      - "removal to"
+      - "removed from"
+      - "notice of removal"
+    examples:
+      - "Case removed to federal court"
+      - "Removal from state court"
+      - "Notice of removal filed"

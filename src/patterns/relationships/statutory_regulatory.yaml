@@ -1,0 +1,140 @@
+# Statutory and Regulatory Relationships
+pattern_type: relationship
+jurisdiction: federal
+description: Relationships between statutes, regulations, and legal provisions
+
+patterns:
+  - relationship_type: AMENDS
+    description: Statute or regulation amending another
+    source_entity: STATUTE_CITATION
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "amends"
+      - "amended by"
+      - "amending"
+      - "as amended"
+      - "modification of"
+    examples:
+      - "Public Law 117-58 amends 23 USC 101"
+      - "As amended by the CARES Act"
+      - "Regulation amending 45 CFR 164.502"
+
+  - relationship_type: IMPLEMENTS
+    description: Regulation implementing statute
+    source_entity: REGULATION_CITATION
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "implements"
+      - "implementing"
+      - "pursuant to"
+      - "under authority of"
+      - "as required by"
+    examples:
+      - "45 CFR Part 164 implements HIPAA"
+      - "Regulations pursuant to 42 USC 1983"
+      - "Rule implementing Section 404 of SOX"
+
+  - relationship_type: INTERPRETS
+    description: Case interpreting statute or regulation
+    source_entity: CASE_CITATION
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "interprets"
+      - "interpreting"
+      - "construes"
+      - "construing"
+      - "analysis of"
+    examples:
+      - "The court interprets 18 USC 242"
+      - "Construing the meaning of Section 7"
+      - "Analysis of 42 USC Chapter 21"
+
+  - relationship_type: APPLIES
+    description: Court applying statute or regulation
+    source_entity: COURT
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "applies"
+      - "applying"
+      - "under"
+      - "pursuant to"
+      - "governed by"
+    examples:
+      - "Court applies 28 USC 1331"
+      - "Proceeding under Rule 12(b)(6)"
+      - "Governed by federal regulations"
+
+  - relationship_type: SUPERSEDES
+    description: New law superseding old law
+    source_entity: STATUTE_CITATION
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "supersedes"
+      - "superseding"
+      - "replaces"
+      - "replacing"
+      - "repeals"
+    examples:
+      - "The ACA supersedes previous healthcare laws"
+      - "This statute repeals Section 203"
+      - "New regulation replaces 45 CFR 46"
+
+  - relationship_type: REFERENCES
+    description: Cross-reference between statutes
+    source_entity: STATUTE_CITATION
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "references"
+      - "refers to"
+      - "see"
+      - "see also"
+      - "as defined in"
+    examples:
+      - "As defined in 42 USC 1983"
+      - "See 28 USC 1331 for jurisdiction"
+      - "References Section 504 of the Rehabilitation Act"
+
+  - relationship_type: CODIFIES
+    description: Statute codifying common law or practice
+    source_entity: STATUTE_CITATION
+    target_entity: LEGAL_MARKER
+    indicators:
+      - "codifies"
+      - "codifying"
+      - "incorporates"
+      - "adopts"
+      - "establishes"
+    examples:
+      - "Statute codifies common law doctrine"
+      - "Rule adopts federal standard"
+      - "Regulation incorporates industry practice"
+
+  - relationship_type: VIOLATES
+    description: Party violating statute or regulation
+    source_entity: PARTY
+    target_entity: STATUTE_CITATION
+    indicators:
+      - "violates"
+      - "violated"
+      - "violating"
+      - "breach of"
+      - "non-compliance with"
+    examples:
+      - "Defendant violated 18 USC 1001"
+      - "Breach of fiduciary duty under ERISA"
+      - "Non-compliance with EPA regulations"
+
+  - relationship_type: ENFORCES
+    description: Agency enforcing statute or regulation
+    source_entity: FEDERAL_AGENCY
+    target_entity: REGULATION_CITATION
+    indicators:
+      - "enforces"
+      - "enforcing"
+      - "enforcement of"
+      - "administers"
+      - "oversees"
+    examples:
+      - "SEC enforces securities regulations"
+      - "EPA administers Clean Air Act"
+      - "DOJ enforcement of civil rights laws"

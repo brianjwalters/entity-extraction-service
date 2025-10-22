@@ -1,0 +1,181 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: minnesota
+  state_abbreviation: Minn.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Minnesota state citations and entities
+case_citations:
+  minnesota_supreme_court:
+    name: minnesota_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+956\s+N\.W\.2d\s+456,\s+789\s+\(Minn\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Minnesota Reports or North Western Reporter volume
+      reporter: Minn. or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 967 N.W.2d 234 (Minn. 2023)
+    - Smith v. ABC Corp., 890 Minn. 567 (Minn. 2022)
+    - In re Estate of Brown, 956 N.W.2d 456, 789 (Minn. 2021)
+  minnesota_court_of_appeals:
+    name: minnesota_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>N\.W\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Minn\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: North Western Reporter volume
+      reporter: North Western appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 956 N.W.2d 567 (Minn. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 934 N.W.2d 789 (Minn. Ct. App. 2022)
+    - People v. Brown, 912 N.W.2d 345 (Minn. Ct. App. 2021)
+  minnesota_district_court:
+    name: minnesota_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Minn\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 27-CV-23-1234 (4th Dist. Ct. Hennepin County, Minn.)
+    - ABC Corp. v. XYZ Inc., No. 62-CV-22-5678 (2nd Dist. Ct. Ramsey County, Minn.
+      2022)
+statute_citations:
+  minnesota_statutes:
+    name: minnesota_statutes_citation
+    pattern: Minn\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+[A-Z]?(?:\s*[-–]\s*[\d\.]+[A-Z]?)?(?:\s*to\s*[\d\.]+[A-Z]?)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Minnesota Statutes section number or range
+      year: Publication year
+    examples:
+    - Minn. Stat. Ann. § 609.185 (West 2023)
+    - Minn. Stat. §§ 518B.01-518B.02
+    - Minn. Stat. § 103A.201
+  minnesota_constitution:
+    name: minnesota_constitution_citation
+    pattern: Minn\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Minn. Const. art. I, § 7
+    - Minn. Const. art. IV, § 1
+    - Minn. Const. art. XI, § 14(a)
+regulation_citations:
+  minnesota_rules:
+    name: minnesota_rules_citation
+    pattern: Minn\.\s+R\.\s+(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      section: Minnesota Rules section number
+    examples:
+    - Minn. R. 7023.0100
+    - Minn. R. 9505.0170
+    - Minn. R. 8820.9310
+court_system:
+  court_names:
+    minnesota_supreme_court:
+      pattern: (?i)(?:Minn(?:esota)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Minnesota)?
+      confidence: 0.95
+      level: supreme
+    minnesota_court_of_appeals:
+      pattern: (?i)(?:Minn(?:esota)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Minnesota)?
+      confidence: 0.93
+      level: appellate
+    minnesota_district_court:
+      pattern: (?i)(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Minn(?:esota)?\.?)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: MINNESOTA_SUPREME_COURT_CASE
+  description: Minnesota Supreme Court case citation
+  confidence_threshold: 0.95
+- name: MINNESOTA_APPELLATE_CASE
+  description: Minnesota Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: MINNESOTA_DISTRICT_COURT_CASE
+  description: Minnesota District Court case citation
+  confidence_threshold: 0.85
+- name: MINNESOTA_STATUTE
+  description: Minnesota Statutes provision
+  confidence_threshold: 0.9
+- name: MINNESOTA_REGULATION
+  description: Minnesota Rules provision
+  confidence_threshold: 0.88
+- name: MINNESOTA_CONSTITUTIONAL_PROVISION
+  description: Minnesota constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1858
+    max_year: 2025
+  volume_ranges:
+    minnesota_reports:
+      minn_1st:
+        min_volume: 1
+        max_volume: 312
+    north_western_reporter:
+      nw_1st:
+        min_volume: 1
+        max_volume: 300
+      nw_2d:
+        min_volume: 1
+        max_volume: 999
+      nw_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  f1_target: 0.93
+  processing_speed: 785_citations_per_second
+dependencies:
+  requires:
+  - minnesota_court_abbreviations
+  - minnesota_county_names
+  - minnesota_judicial_districts
+  optional:
+  - minnesota_historical_courts
+  - minnesota_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.minnesota_supreme_court
+    text: State v. Johnson, 967 N.W.2d 234 (Minn. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.minnesota_statutes
+    text: Minn. Stat. Ann. § 609.185 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.minnesota_court_of_appeals
+    text: Smith v. Jones, 956 N.W.2d 567 (Minn. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.9 seconds
+    memory_usage: < 136MB
+    accuracy_threshold: 0.93

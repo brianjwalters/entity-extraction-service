@@ -1,0 +1,213 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: virginia
+  state_abbreviation: Va.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Virginia state citations and entities
+case_citations:
+  virginia_supreme_court:
+    name: virginia_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Johnson,\s+234\s+S\.E\.2d\s+567,\s+890\s+\(Va\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: South Eastern Reporter or Virginia Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Commonwealth v. Smith, 123 S.E.3d 456 (Va. 2023)
+    - Brown v. Virginia, 456 Va. 2d 789 (Va. 2022)
+    - In re Estate of Johnson, 234 S.E.2d 567, 890 (Va. 2021)
+  virginia_court_of_appeals:
+    name: virginia_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>S\.E\.(?:2d|3d)?|Va\.\s*App\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Va\.(?:\s+Ct\.)?(?:\s+App\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: South Eastern Reporter or Virginia Court of Appeals Reports volume
+      reporter: Virginia appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 S.E.3d 456 (Va. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 456 Va. App. 2d 789 (Va. App. 2022)
+    - Commonwealth v. Brown, 234 S.E.2d 567 (Va. Ct. App. 2021)
+  virginia_circuit_court:
+    name: virginia_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?(?:CL|CR|CH)[A-Z0-9-]+)(?:\s*\((?P<court>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+County)?(?:\s+[A-Z][a-z]+)?)\s+(?:Cir\.\s*)?Ct\.(?:\s+Va\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      court: Circuit court name
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. CL23-012345 (Fairfax County Cir. Ct. Va.)
+    - Commonwealth v. Brown, CR22-987654 (Richmond City Cir. Ct. 2022)
+  virginia_general_district_court:
+    name: virginia_general_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?(?:GD|GT|GC)[A-Z0-9-]+)(?:\s*\((?P<district>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+County|City)?)\s+(?:Gen\.?\s*)?Dist\.?\s*Ct\.(?:\s+Va\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: General district court case number
+      district: District court location
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. GD23-987 (Norfolk City Gen. Dist. Ct. Va.)
+    - Commonwealth v. Brown, GT22-12345 (Loudoun County Gen. Dist. Ct. 2022)
+statute_citations:
+  virginia_code:
+    name: virginia_code_citation
+    pattern: Va\.\s+Code\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)*(?:[A-Z](?::\d+)?)?(?:\s*to\s*[\d\.]+(?:[A-Z](?::\d+)?)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Code section number or range
+      year: Publication year
+    examples:
+    - Va. Code Ann. § 18.2-51 (2023)
+    - Va. Code §§ 8.01-220 to 8.01-230
+    - Va. Code Ann. § 15.2-2280A
+  virginia_constitution:
+    name: virginia_constitution_citation
+    pattern: Va\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Va. Const. art. I, § 8
+    - Va. Const. art. VII, § 10
+    - Va. Const. art. IV, § 14(a)
+regulation_citations:
+  virginia_administrative_code:
+    name: virginia_administrative_code_citation
+    pattern: (?P<title>\d{1,2})\s+Va\.\s+Admin\.\s+Code\s+(?P<agency>\d{1,3})(?:-(?P<chapter>\d{1,3}))?(?:-(?P<section>\d{1,4}(?:\.\d{1,3})*))?
+    confidence: 0.92
+    priority: 80
+    components:
+      title: VAC title number
+      agency: Agency number
+      chapter: Chapter number
+      section: Section number
+    examples:
+    - 12 Va. Admin. Code 5-590-10
+    - 18 Va. Admin. Code 112-20-130
+    - 9 Va. Admin. Code 25-31-420
+court_system:
+  court_names:
+    virginia_supreme_court:
+      pattern: (?i)(?:Va\.|Virginia)\s+(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Virginia)?
+      confidence: 0.95
+      level: supreme
+    virginia_court_of_appeals:
+      pattern: (?i)(?:Va\.|Virginia)\s+(?:Court\s+of\s+Appeals|Ct\.\s+of\s+App\.|App\.)
+      confidence: 0.93
+      level: appellate
+    virginia_circuit_court:
+      pattern: (?i)(?P<jurisdiction>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+County|City)?)\s+(?:Circuit\s+Court|Cir\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Virginia)?
+      confidence: 0.9
+      level: trial
+    virginia_general_district_court:
+      pattern: (?i)(?P<jurisdiction>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+County|City)?)\s+(?:General\s+District\s+Court|Gen\.\s*Dist\.\s*Ct\.)(?:\s+(?:of\s+|for\s+)Virginia)?
+      confidence: 0.88
+      level: limited
+    virginia_juvenile_and_domestic_relations_court:
+      pattern: (?i)(?P<jurisdiction>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*(?:\s+County|City)?)\s+(?:Juvenile\s+and\s+Domestic\s+Relations\s+District\s+Court|J\.\s*&\s*D\.R\.\s*Dist\.\s*Ct\.|JDR\s+Court)
+      confidence: 0.9
+      level: limited
+entity_types:
+- name: VIRGINIA_SUPREME_COURT_CASE
+  description: Virginia Supreme Court case citation
+  confidence_threshold: 0.95
+- name: VIRGINIA_APPELLATE_CASE
+  description: Virginia Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: VIRGINIA_CIRCUIT_COURT_CASE
+  description: Virginia Circuit Court case citation
+  confidence_threshold: 0.85
+- name: VIRGINIA_DISTRICT_COURT_CASE
+  description: Virginia General District Court case citation
+  confidence_threshold: 0.83
+- name: VIRGINIA_STATUTE
+  description: Virginia statutory provision
+  confidence_threshold: 0.9
+- name: VIRGINIA_REGULATION
+  description: Virginia administrative regulation
+  confidence_threshold: 0.88
+- name: VIRGINIA_CONSTITUTIONAL_PROVISION
+  description: Virginia constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1788
+    max_year: 2025
+  volume_ranges:
+    southeastern_reporter:
+      se_2d:
+        min_volume: 1
+        max_volume: 999
+      se_3d:
+        min_volume: 1
+        max_volume: 999
+    virginia_reports:
+      va_2d:
+        min_volume: 1
+        max_volume: 300
+      va_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+  vac_validation:
+    title_range:
+    - 1
+    - 24
+    agency_range:
+    - 1
+    - 999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 790_citations_per_second
+dependencies:
+  requires:
+  - virginia_court_abbreviations
+  - virginia_jurisdictions
+  - virginia_code_structure
+  optional:
+  - virginia_historical_courts
+  - virginia_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.virginia_supreme_court
+    text: Commonwealth v. Smith, 123 S.E.3d 456 (Va. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.virginia_code
+    text: Va. Code Ann. § 18.2-51 (2023)
+    expected_entities: 1
+  - pattern: case_citations.virginia_court_of_appeals
+    text: Smith v. Jones, 123 S.E.3d 456 (Va. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.0 seconds
+    memory_usage: < 115MB
+    accuracy_threshold: 0.94

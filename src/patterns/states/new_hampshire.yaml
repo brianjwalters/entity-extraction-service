@@ -1,0 +1,184 @@
+metadata:
+  jurisdiction: new_hampshire
+  state_code: NH
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: new_hampshire
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: New_Hampshire legal entity extraction patterns
+patterns:
+- name: nh_supreme_court
+  pattern: (?P<volume>\d+)\s+N\.H\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.93
+  entity_type: CASE_CITATION
+  entity_subtype: new_hampshire_supreme
+  components:
+    volume: 1
+    reporter: N.H.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Johnson, 172 N.H. 456 (2024)
+  - Smith v. Town of Hanover, 171 N.H. 123, 127 (2023)
+- name: nh_supreme_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(N\.H\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.91
+  entity_type: CASE_CITATION
+  entity_subtype: new_hampshire_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Brown, 345 A.3d 678 (N.H. 2023)
+  - Doe v. Roe, 234 A.2d 890 (N.H. 2022)
+- name: nh_superior_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(N\.H\.\s*Super\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.86
+  entity_type: CASE_CITATION
+  entity_subtype: new_hampshire_superior
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - Johnson v. City of Manchester, 456 A.3d 789 (N.H. Super. Ct. 2023)
+- name: nh_circuit_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(N\.H\.\s*Cir\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.84
+  entity_type: CASE_CITATION
+  entity_subtype: new_hampshire_circuit
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - State v. Williams, 321 A.3d 654 (N.H. Cir. Ct. 2022)
+- name: nh_revised_statutes
+  pattern: "N\\.H\\.\\s+Rev\\.\\s+Stat\\.(?:\\s+Ann\\.)?\\s*\xA7\\s*(?P<section>\\d+(?:-[A-Z])?(?::\\d+)?(?:[a-z])?)"
+  confidence_base: 0.93
+  entity_type: STATUTE_CITATION
+  entity_subtype: new_hampshire_revised_statutes
+  components:
+    jurisdiction: N.H. Rev. Stat.
+    section: 1
+  examples:
+  - "N.H. Rev. Stat. \xA7 630:1"
+  - "N.H. Rev. Stat. Ann. \xA7 263:64"
+  - "N.H. Rev. Stat. \xA7 541-A:29"
+- name: nh_constitution
+  pattern: N\.H\.\s+Const\.\s+(?:pt\.\s+(?P<part>[12])(?:,\s*art\.\s*(?P<article>\d+))?|art\.\s+(?P<article_only>\d+))
+  confidence_base: 0.95
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: new_hampshire_constitution
+  components:
+    jurisdiction: N.H.
+    part: 1
+    article: 2
+    article_only: 3
+  examples:
+  - N.H. Const. pt. 1, art. 15
+  - N.H. Const. pt. 2, art. 5
+  - N.H. Const. art. 28-a
+- name: nh_administrative_rules
+  pattern: N\.H\.\s+Code\s+Admin\.\s+R\.\s+(?:Ann\.\s+)?(?P<agency>[A-Z][a-zA-Z0-9-]+)\s+(?P<rule>\d+(?:\.\d+)*)
+  confidence_base: 0.87
+  entity_type: REGULATION_CITATION
+  entity_subtype: new_hampshire_administrative_rules
+  components:
+    jurisdiction: N.H. Code Admin. R.
+    agency: 1
+    rule: 2
+  examples:
+  - N.H. Code Admin. R. Env-Wq 401.03
+  - N.H. Code Admin. R. Ann. Saf-C 6000.01
+entity_patterns:
+- name: nh_supreme_court_entity
+  pattern: (?:New\s+Hampshire\s+Supreme\s+Court|N\.H\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+New\s+Hampshire)
+  entity_type: COURT
+  entity_subtype: new_hampshire_supreme
+  confidence_base: 0.96
+  attributes:
+    jurisdiction: New Hampshire
+    court_level: supreme
+    authority_level: 1
+- name: nh_superior_court_entity
+  pattern: (?:New\s+Hampshire\s+Superior\s+Court|N\.H\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+New\s+Hampshire)
+  entity_type: COURT
+  entity_subtype: new_hampshire_superior
+  confidence_base: 0.91
+  attributes:
+    jurisdiction: New Hampshire
+    court_level: trial
+    authority_level: 2
+- name: nh_circuit_court_entity
+  pattern: (?:New\s+Hampshire\s+Circuit\s+Court|N\.H\.\s+Cir\.\s+Ct\.|Circuit\s+Court\s+of\s+New\s+Hampshire)
+  entity_type: COURT
+  entity_subtype: new_hampshire_circuit
+  confidence_base: 0.89
+  attributes:
+    jurisdiction: New Hampshire
+    court_level: trial
+    authority_level: 3
+- name: nh_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+New\s+Hampshire\s+Supreme\s+Court|\s+\(N\.H\.\s+Sup\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: new_hampshire_justice
+  confidence_base: 0.91
+  attributes:
+    jurisdiction: New Hampshire
+    court_type: supreme
+validation:
+  year_range:
+  - 1818
+  - 2030
+  volume_limits:
+    nh_reports:
+    - 1
+    - 175
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.91
+  processing_speed: 840
+  memory_usage_mb: 118
+  accuracy_threshold: 0.89
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: State v. Johnson, 172 N.H. 456 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.93
+  - text: New Hampshire Supreme Court held
+    expected_type: COURT
+    expected_confidence: 0.96
+  - text: "N.H. Rev. Stat. \xA7 630:1"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.93
+  performance_benchmarks:
+    citation_extraction_rate: 840
+    entity_recognition_rate: 1180
+    memory_efficiency: 0.84
+entity_types:
+- name: NEW_HAMPSHIRE_LEGAL_ENTITY
+  description: New_Hampshire legal entity or citation
+  confidence_threshold: 0.8

@@ -1,0 +1,227 @@
+metadata:
+  jurisdiction: new_jersey
+  state_code: NJ
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: new_jersey
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: New_Jersey legal entity extraction patterns
+patterns:
+- name: nj_supreme_court
+  pattern: (?P<volume>\d+)\s+N\.J\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.95
+  entity_type: CASE_CITATION
+  entity_subtype: new_jersey_supreme
+  components:
+    volume: 1
+    reporter: N.J.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Johnson, 254 N.J. 123 (2024)
+  - Doe v. City of Newark, 253 N.J. 456, 460 (2023)
+- name: nj_supreme_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(N\.J\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.93
+  entity_type: CASE_CITATION
+  entity_subtype: new_jersey_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Brown, 678 A.3d 234 (N.J. 2023)
+  - Smith v. Town of Princeton, 567 A.2d 890 (N.J. 2022)
+- name: nj_appellate_division
+  pattern: (?P<volume>\d+)\s+N\.J\.\s+Super\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(App\.\s+Div\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.91
+  entity_type: CASE_CITATION
+  entity_subtype: new_jersey_appellate
+  components:
+    volume: 1
+    reporter: N.J. Super.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Johnson v. State, 467 N.J. Super. 345 (App. Div. 2024)
+  - Brown v. Landlord, 466 N.J. Super. 678, 681 (App. Div. 2023)
+- name: nj_appellate_division_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(N\.J\.\s+Super\.\s+Ct\.\s+App\.\s+Div\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.89
+  entity_type: CASE_CITATION
+  entity_subtype: new_jersey_appellate_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Williams, 789 A.3d 123 (N.J. Super. Ct. App. Div. 2023)
+- name: nj_law_division
+  pattern: (?P<volume>\d+)\s+N\.J\.\s+Super\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Law\s+Div\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.87
+  entity_type: CASE_CITATION
+  entity_subtype: new_jersey_law_division
+  components:
+    volume: 1
+    reporter: N.J. Super.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Davis, 345 N.J. Super. 234 (Law Div. 2023)
+- name: nj_chancery_division
+  pattern: (?P<volume>\d+)\s+N\.J\.\s+Super\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Ch\.\s+Div\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.85
+  entity_type: CASE_CITATION
+  entity_subtype: new_jersey_chancery_division
+  components:
+    volume: 1
+    reporter: N.J. Super.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Brown v. Smith, 678 N.J. Super. 456 (Ch. Div. 2023)
+- name: nj_statutes_annotated
+  pattern: "N\\.J\\.\\s+Stat\\.(?:\\s+Ann\\.)?\\s*\xA7\\s*(?P<section>\\d+[A-Z]?(?::\\d+[A-Z]?)*(?:-\\d+(?:\\.\\d+)?)?(?:\\([a-z]\\))?)"
+  confidence_base: 0.94
+  entity_type: STATUTE_CITATION
+  entity_subtype: new_jersey_statutes_annotated
+  components:
+    jurisdiction: N.J. Stat.
+    section: 1
+  examples:
+  - "N.J. Stat. \xA7 2C:11-3"
+  - "N.J. Stat. Ann. \xA7 39:4-50"
+  - "N.J. Stat. \xA7 56:8-2.1"
+- name: nj_constitution
+  pattern: "N\\.J\\.\\s+Const\\.\\s+art\\.\\s+(?P<article>[IVX]+|\\d+)(?:,\\s*\xA7\\s*(?P<section>\\d+)(?:,\\s*(?P<paragraph>\xB6\\s*\\d+))?)?"
+  confidence_base: 0.96
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: new_jersey_constitution
+  components:
+    jurisdiction: N.J.
+    article: 1
+    section: 2
+    paragraph: 3
+  examples:
+  - "N.J. Const. art. I, \xA7 7"
+  - "N.J. Const. art. IV, \xA7 6, \xB6 2"
+  - "N.J. Const. art. VIII, \xA7 2"
+- name: nj_administrative_code
+  pattern: N\.J\.A\.C\.\s+(?P<title>\d+)(?::(?P<chapter>\d+))?(?:-(?P<subchapter>\d+))?(?:\.(?P<section>\d+))?
+  confidence_base: 0.9
+  entity_type: REGULATION_CITATION
+  entity_subtype: new_jersey_administrative_code
+  components:
+    jurisdiction: N.J.A.C.
+    title: 1
+    chapter: 2
+    subchapter: 3
+    section: 4
+  examples:
+  - N.J.A.C. 10A:31-1.1
+  - N.J.A.C. 13:69F-5.12
+  - N.J.A.C. 8:43G-15.2
+entity_patterns:
+- name: nj_supreme_court_entity
+  pattern: (?:New\s+Jersey\s+Supreme\s+Court|N\.J\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+New\s+Jersey)
+  entity_type: COURT
+  entity_subtype: new_jersey_supreme
+  confidence_base: 0.97
+  attributes:
+    jurisdiction: New Jersey
+    court_level: supreme
+    authority_level: 1
+- name: nj_appellate_division_entity
+  pattern: (?:New\s+Jersey\s+Superior\s+Court\s+Appellate\s+Division|N\.J\.\s+Super\.\s+Ct\.\s+App\.\s+Div\.|Superior\s+Court\s+of\s+New\s+Jersey\s+Appellate\s+Division)
+  entity_type: COURT
+  entity_subtype: new_jersey_appellate
+  confidence_base: 0.94
+  attributes:
+    jurisdiction: New Jersey
+    court_level: appellate
+    authority_level: 2
+- name: nj_law_division_entity
+  pattern: (?:New\s+Jersey\s+Superior\s+Court\s+Law\s+Division|N\.J\.\s+Super\.\s+Ct\.\s+Law\s+Div\.|Superior\s+Court\s+of\s+New\s+Jersey\s+Law\s+Division)
+  entity_type: COURT
+  entity_subtype: new_jersey_law_division
+  confidence_base: 0.91
+  attributes:
+    jurisdiction: New Jersey
+    court_level: trial
+    authority_level: 3
+- name: nj_chancery_division_entity
+  pattern: (?:New\s+Jersey\s+Superior\s+Court\s+Chancery\s+Division|N\.J\.\s+Super\.\s+Ct\.\s+Ch\.\s+Div\.|Superior\s+Court\s+of\s+New\s+Jersey\s+Chancery\s+Division)
+  entity_type: COURT
+  entity_subtype: new_jersey_chancery_division
+  confidence_base: 0.89
+  attributes:
+    jurisdiction: New Jersey
+    court_level: trial
+    authority_level: 3
+- name: nj_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+New\s+Jersey\s+Supreme\s+Court|\s+\(N\.J\.\s+Sup\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: new_jersey_justice
+  confidence_base: 0.93
+  attributes:
+    jurisdiction: New Jersey
+    court_type: supreme
+validation:
+  year_range:
+  - 1789
+  - 2030
+  volume_limits:
+    nj_reports:
+    - 1
+    - 255
+    nj_super:
+    - 1
+    - 470
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  processing_speed: 890
+  memory_usage_mb: 135
+  accuracy_threshold: 0.9
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: State v. Johnson, 254 N.J. 123 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.95
+  - text: New Jersey Supreme Court held
+    expected_type: COURT
+    expected_confidence: 0.97
+  - text: "N.J. Stat. \xA7 2C:11-3"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.94
+  performance_benchmarks:
+    citation_extraction_rate: 890
+    entity_recognition_rate: 1260
+    memory_efficiency: 0.87
+entity_types:
+- name: NEW_JERSEY_LEGAL_ENTITY
+  description: New_Jersey legal entity or citation
+  confidence_threshold: 0.8

@@ -1,0 +1,371 @@
+metadata:
+  pattern_type: legal_doctrines
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '2.0'
+  created_date: '2025-01-21'
+  last_updated: '2025-01-21'
+  description: Constitutional and legal doctrine patterns including amendments, principles,
+    and established doctrines
+legal_doctrines:
+  constitutional_amendments:
+    name: constitutional_amendment_extraction
+    pattern: \b(?:First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh|Twelfth|Thirteenth|Fourteenth|Fifteenth|Sixteenth|Seventeenth|Eighteenth|Nineteenth|Twentieth|Twenty-first|Twenty-second|Twenty-third|Twenty-fourth|Twenty-fifth|Twenty-sixth|Twenty-seventh|1st|2nd|3rd|4th|5th|6th|7th|8th|9th|10th|11th|12th|13th|14th|15th|16th|17th|18th|19th|20th|21st|22nd|23rd|24th|25th|26th|27th)\s+Amendment(?:\s+(?:to|of)\s+the\s+(?:United\s+States\s+)?Constitution)?\b
+    confidence: 0.96
+    entity_types:
+    - constitutional_amendment
+    - legal_doctrine
+    components:
+      amendment_number: Amendment number
+      constitutional_reference: Constitutional context
+    examples:
+    - First Amendment
+    - Fourth Amendment to the United States Constitution
+    - 14th Amendment
+    - Fifth Amendment of the Constitution
+    - Sixth Amendment rights
+    - Twenty-first Amendment
+    validation_rules:
+    - valid_amendment_range: 1-27
+  due_process:
+    name: due_process_extraction
+    pattern: \b(?:(?:substantive\s+)?(?:procedural\s+)?due\s+process(?:\s+(?:clause|of\s+law|rights?|violation|protection))?|fundamental\s+fairness)\b
+    confidence: 0.94
+    entity_types:
+    - due_process
+    - legal_doctrine
+    - constitutional_principle
+    components:
+      process_type: Type of due process
+      context: Legal context
+    examples:
+    - due process
+    - substantive due process
+    - procedural due process
+    - due process clause
+    - due process of law
+    - due process violation
+    - fundamental fairness
+    - deprivation of due process
+  equal_protection:
+    name: equal_protection_extraction
+    pattern: \b(?:equal\s+protection(?:\s+(?:clause|of\s+the\s+laws?|under\s+the\s+law|violation|analysis|scrutiny))?|strict\s+scrutiny|intermediate\s+scrutiny|rational\s+basis(?:\s+review)?)\b
+    confidence: 0.93
+    entity_types:
+    - equal_protection
+    - legal_doctrine
+    - constitutional_principle
+    components:
+      doctrine: Equal protection reference
+      context: Legal application
+    examples:
+    - equal protection
+    - equal protection clause
+    - equal protection of the laws
+    - equal protection violation
+    - equal protection analysis
+    - strict scrutiny
+    - rational basis review
+  freedom_of_speech:
+    name: free_speech_extraction
+    pattern: \b(?:freedom\s+of\s+speech|free\s+speech|protected\s+speech|First\s+Amendment\s+(?:speech|right)|freedom\s+of\s+expression)(?:\s+(?:clause|right|protection|violation))?\b
+    confidence: 0.92
+    entity_types:
+    - free_speech
+    - first_amendment
+    - legal_doctrine
+    components:
+      speech_type: Type of speech protection
+      constitutional_basis: Constitutional foundation
+    examples:
+    - freedom of speech
+    - free speech
+    - protected speech
+    - First Amendment speech
+    - freedom of expression
+    - commercial speech
+    - content-based restriction
+  freedom_of_religion:
+    name: religious_freedom_extraction
+    pattern: \b(?:freedom\s+of\s+religion|religious\s+(?:freedom|liberty)|free\s+exercise(?:\s+clause)?|establishment\s+clause)\b
+    confidence: 0.91
+    entity_types:
+    - religious_freedom
+    - first_amendment
+    - legal_doctrine
+    components:
+      freedom_type: Type of religious protection
+      clause: Specific constitutional clause
+    examples:
+    - freedom of religion
+    - religious freedom
+    - free exercise clause
+    - establishment clause
+    - religious liberty
+  search_and_seizure:
+    name: fourth_amendment_extraction
+    pattern: \b(?:unreasonable\s+)?(?:search(?:es)?\s+(?:and|&)\s+seizure(?:s)?|Fourth\s+Amendment\s+(?:search|seizure|violation)|warrantless\s+search|probable\s+cause|reasonable\s+suspicion|exclusionary\s+rule|fruit\s+of\s+the\s+poisonous\s+tree|Terry\s+stop(?:s)?|Terry\s+frisk(?:s)?)\b
+    confidence: 0.9
+    entity_types:
+    - fourth_amendment
+    - search_seizure
+    - legal_doctrine
+    components:
+      protection_type: Fourth Amendment protection
+      violation_type: Type of violation
+    examples:
+    - unreasonable search and seizure
+    - search and seizure
+    - Fourth Amendment search
+    - warrantless search
+    - probable cause
+    - reasonable suspicion
+    - exclusionary rule
+    - fruit of the poisonous tree
+    - Terry stop
+    - Terry frisk
+  self_incrimination:
+    name: fifth_amendment_extraction
+    pattern: '\b(?:self[\s-]incrimination|Fifth\s+Amendment\s+(?:right|protection|privilege)|right\s+(?:to\s+remain\s+silent|against\s+self[\s-]incrimination)|Miranda\s+(?:rights?|warning)|(?:plead|invoke[ds]?|take|assert)\s+(?:the\s+)?Fifth)\b'
+    confidence: 0.89
+    entity_types:
+    - fifth_amendment
+    - self_incrimination
+    - legal_doctrine
+    components:
+      right_type: Type of Fifth Amendment right
+      context: Legal context
+    examples:
+    - self-incrimination
+    - Fifth Amendment right
+    - right to remain silent
+    - Miranda rights
+    - plead the Fifth
+    - Miranda warning
+    - invoked the Fifth
+  right_to_counsel:
+    name: sixth_amendment_extraction
+    pattern: \b(?:right\s+to\s+(?:counsel|attorney|representation)|Sixth\s+Amendment\s+right|effective\s+assistance\s+of\s+counsel|ineffective\s+assistance\s+of\s+counsel|Gideon\s+(?:v\.\s+Wainwright|rule))\b
+    confidence: 0.88
+    entity_types:
+    - sixth_amendment
+    - right_to_counsel
+    - legal_doctrine
+    components:
+      right_type: Type of counsel right
+      effectiveness: Counsel effectiveness issue
+    examples:
+    - right to counsel
+    - Sixth Amendment right
+    - effective assistance of counsel
+    - ineffective assistance of counsel
+    - Gideon v. Wainwright
+    - Strickland standard
+    - right to appointed counsel
+  commerce_clause:
+    name: commerce_clause_extraction
+    pattern: Wickard\s+v\.\s+Filburn
+    confidence: 0.87
+    entity_types:
+    - commerce_clause
+    - legal_doctrine
+    - constitutional_principle
+    components:
+      clause_type: Type of commerce clause
+      application: Commerce application
+    examples:
+    - Commerce Clause
+    - interstate commerce
+    - dormant Commerce Clause
+    - affecting interstate commerce
+    - substantial effect on interstate commerce
+    - Wickard v. Filburn
+  supremacy_clause:
+    name: supremacy_clause_extraction
+    pattern: \b(?:Supremacy\s+Clause|federal\s+preemption|conflict\s+preemption|field\s+preemption|obstacle\s+preemption)\b
+    confidence: 0.86
+    entity_types:
+    - supremacy_clause
+    - legal_doctrine
+    - preemption
+    components:
+      clause: Supremacy clause reference
+      preemption_type: Type of preemption
+    examples:
+    - Supremacy Clause
+    - federal preemption
+    - conflict preemption
+    - field preemption
+    - obstacle preemption
+  habeas_corpus:
+    name: habeas_corpus_extraction
+    pattern: \b(?:habeas\s+corpus|writ\s+of\s+habeas\s+corpus|Great\s+Writ|suspension\s+of\s+habeas\s+corpus)\b
+    confidence: 0.88
+    entity_types:
+    - habeas_corpus
+    - legal_doctrine
+    - constitutional_right
+    components:
+      writ_type: Type of habeas corpus
+      context: Legal context
+    examples:
+    - habeas corpus
+    - writ of habeas corpus
+    - Great Writ
+    - suspension of habeas corpus
+    - 28 U.S.C. § 2254
+    - AEDPA
+  double_jeopardy:
+    name: double_jeopardy_extraction
+    pattern: \b(?:double\s+jeopardy|twice\s+(?:put\s+)?in\s+jeopardy|successive\s+prosecutions|dual\s+sovereignty)\b
+    confidence: 0.87
+    entity_types:
+    - double_jeopardy
+    - fifth_amendment
+    - legal_doctrine
+    components:
+      jeopardy_type: Type of jeopardy issue
+      context: Legal context
+    examples:
+    - double jeopardy
+    - twice in jeopardy
+    - successive prosecutions
+    - dual sovereignty
+  cruel_unusual_punishment:
+    name: eighth_amendment_extraction
+    pattern: \b(?:cruel\s+(?:and|&)\s+unusual\s+punishment|Eighth\s+Amendment\s+(?:violation|claim)|excessive\s+(?:bail|fines?)|proportionality\s+(?:review|analysis))\b
+    confidence: 0.86
+    entity_types:
+    - eighth_amendment
+    - cruel_unusual
+    - legal_doctrine
+    components:
+      punishment_type: Type of punishment issue
+      constitutional_basis: Eighth Amendment basis
+    examples:
+    - cruel and unusual punishment
+    - Eighth Amendment violation
+    - excessive bail
+    - excessive fines
+    - proportionality review
+  stare_decisis:
+    name: stare_decisis_extraction
+    pattern: \b(?:stare\s+decisis|binding\s+precedent|controlling\s+(?:precedent|authority)|persuasive\s+(?:precedent|authority))\b
+    confidence: 0.85
+    entity_types:
+    - stare_decisis
+    - legal_doctrine
+    - precedent
+    components:
+      precedent_type: Type of precedent
+      binding_nature: Binding or persuasive
+    examples:
+    - stare decisis
+    - binding precedent
+    - controlling precedent
+    - persuasive authority
+    - horizontal stare decisis
+    - vertical stare decisis
+  res_judicata:
+    name: res_judicata_extraction
+    pattern: law\s+of\s+the\s+case
+    confidence: 0.84
+    entity_types:
+    - res_judicata
+    - legal_doctrine
+    - preclusion
+    components:
+      preclusion_type: Type of preclusion
+      effect: Legal effect
+    examples:
+    - res judicata
+    - claim preclusion
+    - issue preclusion
+    - collateral estoppel
+    - judicial estoppel
+    - law of the case
+    - offensive collateral estoppel
+  sovereign_immunity:
+    name: sovereign_immunity_extraction
+    pattern: \b(?:sovereign\s+immunity|qualified\s+immunity|absolute\s+immunity|legislative\s+immunity|judicial\s+immunity|Eleventh\s+Amendment\s+immunity)\b
+    confidence: 0.85
+    entity_types:
+    - sovereign_immunity
+    - legal_doctrine
+    - immunity
+    components:
+      immunity_type: Type of immunity
+      scope: Scope of immunity
+    examples:
+    - sovereign immunity
+    - qualified immunity
+    - absolute immunity
+    - legislative immunity
+    - judicial immunity
+    - Eleventh Amendment immunity
+    - prosecutorial immunity
+    - official immunity
+  statutory_construction:
+    name: statutory_construction_extraction
+    pattern: \b(?:plain\s+meaning\s+rule|legislative\s+intent|statutory\s+(?:construction|interpretation)|canons?\s+of\s+(?:construction|interpretation)|ejusdem\s+generis|expressio\s+unius|noscitur\s+a\s+sociis)\b
+    confidence: 0.83
+    entity_types:
+    - statutory_construction
+    - legal_doctrine
+    - interpretation
+    components:
+      construction_type: Type of construction
+      canon: Specific canon applied
+    examples:
+    - plain meaning rule
+    - legislative intent
+    - statutory construction
+    - canons of construction
+    - ejusdem generis
+    - expressio unius
+entity_types:
+- name: legal_doctrines
+  description: Established legal principles
+  priority: 1
+  requires_context: false
+- name: constitutional_amendments
+  description: U.S. Constitutional amendments
+  priority: 1
+  requires_number: true
+- name: constitutional_principles
+  description: Core constitutional concepts
+  priority: 2
+  requires_context: false
+- name: first_amendment
+  description: First Amendment rights
+  priority: 2
+  subcategories:
+  - speech
+  - religion
+  - press
+  - assembly
+  - petition
+- name: fourth_amendment
+  description: Fourth Amendment protections
+  priority: 2
+  subcategories:
+  - search
+  - seizure
+  - warrant
+  - probable_cause
+- name: fifth_amendment
+  description: Fifth Amendment rights
+  priority: 2
+  subcategories:
+  - self_incrimination
+  - due_process
+  - double_jeopardy
+- name: immunity
+  description: Legal immunity doctrines
+  priority: 3
+  requires_type: true
+- name: precedent
+  description: Legal precedent concepts
+  priority: 3
+  requires_context: false

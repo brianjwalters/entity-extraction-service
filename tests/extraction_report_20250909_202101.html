@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Extraction Report - Rahimi.pdf</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .metric {
+            text-align: center;
+        }
+        .metric .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .metric .label {
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #495057;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .entity-type-section {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .entity-type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .entity-type-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #495057;
+        }
+        .entity-count {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .entity-list {
+            display: grid;
+            gap: 10px;
+        }
+        .entity-item {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        .entity-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .entity-text {
+            font-size: 1.1em;
+            color: #212529;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .entity-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        .confidence {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: #e7f3ff;
+            color: #0066cc;
+        }
+        .position {
+            color: #868e96;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 20px 0;
+            z-index: 100;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: 2px solid #dee2e6;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        #searchInput:focus {
+            border-color: #667eea;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .stat-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .no-entities {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Entity Extraction Report</h1>
+            <div class="subtitle">Document: Rahimi.pdf | Generated: 2025-09-09 20:21:01</div>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric">
+                <div class="value">0</div>
+                <div class="label">Total Entities</div>
+            </div>
+            <div class="metric">
+                <div class="value">0</div>
+                <div class="label">Citations</div>
+            </div>
+            <div class="metric">
+                <div class="value">0</div>
+                <div class="label">Entity Types</div>
+            </div>
+            <div class="metric">
+                <div class="value">6.86s</div>
+                <div class="label">Processing Time</div>
+            </div>
+            <div class="metric">
+                <div class="value">205,338</div>
+                <div class="label">Document Size (chars)</div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Search entities..." onkeyup="filterEntities()">
+            </div>
+            
+            <div class="section">
+                <h2>📊 Entity Distribution</h2>
+                <div class="stats-grid">
+    
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📝 Extracted Entities by Type</h2>
+    
+                <div class="no-entities">
+                    <h3>⚠️ No entities were extracted</h3>
+                    <p>This could indicate an issue with the extraction service or prompt configuration.</p>
+                </div>
+        
+        </div>
+    </div>
+    
+    <script>
+        function filterEntities() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const entityItems = document.getElementsByClassName('entity-item');
+            
+            for (let item of entityItems) {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+            
+            // Show/hide entire sections if all items are hidden
+            const sections = document.getElementsByClassName('entity-type-section');
+            for (let section of sections) {
+                const visibleItems = section.querySelectorAll('.entity-item:not([style*="display: none"])');
+                if (visibleItems.length === 0 && searchTerm !== '') {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+    

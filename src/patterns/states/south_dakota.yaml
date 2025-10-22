@@ -1,0 +1,168 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: south_dakota
+  state_abbreviation: S.D.
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for South Dakota state citations and entities
+case_citations:
+  south_dakota_supreme_court:
+    name: south_dakota_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+956\s+N\.W\.2d\s+456,\s+789\s+\(S\.D\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: South Dakota Reports or North Western Reporter volume
+      reporter: S.D. or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 967 N.W.2d 234 (S.D. 2023)
+    - Smith v. ABC Corp., 890 S.D. 567 (S.D. 2022)
+    - In re Estate of Brown, 956 N.W.2d 456, 789 (S.D. 2021)
+  south_dakota_circuit_court:
+    name: south_dakota_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Cir\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+S\.D\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23CIV23-000123 (2nd Cir. Ct. Minnehaha County, S.D.)
+    - ABC Corp. v. XYZ Inc., No. 22CIV22-000456 (7th Cir. Ct. Pennington County, S.D.
+      2022)
+statute_citations:
+  south_dakota_codified_laws:
+    name: south_dakota_codified_laws_citation
+    pattern: S\.D\.\s+Codified\s+Laws\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d-]+(?:\.\d+)?(?:\s*[-–]\s*[\d-]+(?:\.\d+)?)?(?:\s*to\s*[\d-]+(?:\.\d+)?)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: South Dakota Codified Laws section number or range
+      year: Publication year
+    examples:
+    - S.D. Codified Laws Ann. § 22-16-1 (West 2023)
+    - S.D. Codified Laws §§ 25-4-1 to 25-4-56
+    - S.D. Codified Laws § 15-6-54
+  south_dakota_constitution:
+    name: south_dakota_constitution_citation
+    pattern: S\.D\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - S.D. Const. art. VI, § 2
+    - S.D. Const. art. III, § 1
+    - S.D. Const. art. IX, § 1(a)
+regulation_citations:
+  south_dakota_administrative_rules:
+    name: south_dakota_administrative_rules_citation
+    pattern: S\.D\.\s+Admin\.\s+R\.\s+(?P<section>\d+(?::\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?::\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      section: Administrative Rules section number
+    examples:
+    - S.D. Admin. R. 74:02:01:15
+    - S.D. Admin. R. 20:06:01:01
+    - S.D. Admin. R. 67:16:07:02
+court_system:
+  court_names:
+    south_dakota_supreme_court:
+      pattern: (?i)(?:S(?:outh)?\.?\s*D(?:akota)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+South\s+Dakota)?
+      confidence: 0.95
+      level: supreme
+    south_dakota_circuit_court:
+      pattern: (?i)(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:Circuit\s+Court|Cir\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+S(?:outh)?\.?\s*D(?:akota)?\.?)?
+      confidence: 0.9
+      level: trial
+    south_dakota_magistrate_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+County\s+(?:Magistrate\s+Court|Mag\.?\s+Ct\.?)(?:\s+S(?:outh)?\.?\s*D(?:akota)?\.?)?
+      confidence: 0.88
+      level: limited_jurisdiction
+entity_types:
+- name: SOUTH_DAKOTA_SUPREME_COURT_CASE
+  description: South Dakota Supreme Court case citation
+  confidence_threshold: 0.95
+- name: SOUTH_DAKOTA_CIRCUIT_COURT_CASE
+  description: South Dakota Circuit Court case citation
+  confidence_threshold: 0.85
+- name: SOUTH_DAKOTA_MAGISTRATE_COURT_CASE
+  description: South Dakota Magistrate Court case citation
+  confidence_threshold: 0.83
+- name: SOUTH_DAKOTA_STATUTE
+  description: South Dakota Codified Laws provision
+  confidence_threshold: 0.9
+- name: SOUTH_DAKOTA_REGULATION
+  description: South Dakota administrative regulation
+  confidence_threshold: 0.88
+- name: SOUTH_DAKOTA_CONSTITUTIONAL_PROVISION
+  description: South Dakota constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1889
+    max_year: 2025
+  volume_ranges:
+    south_dakota_reports:
+      sd_1st:
+        min_volume: 1
+        max_volume: 90
+      sd_2d:
+        min_volume: 1
+        max_volume: 50
+    north_western_reporter:
+      nw_1st:
+        min_volume: 1
+        max_volume: 300
+      nw_2d:
+        min_volume: 1
+        max_volume: 999
+      nw_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.9
+  f1_target: 0.92
+  processing_speed: 745_citations_per_second
+dependencies:
+  requires:
+  - south_dakota_court_abbreviations
+  - south_dakota_county_names
+  - south_dakota_judicial_circuits
+  optional:
+  - south_dakota_historical_courts
+  - south_dakota_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.south_dakota_supreme_court
+    text: State v. Johnson, 967 N.W.2d 234 (S.D. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.south_dakota_codified_laws
+    text: S.D. Codified Laws Ann. § 22-16-1 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.south_dakota_circuit_court
+    text: Smith v. Jones, No. 23CIV23-000123 (2nd Cir. Ct. Minnehaha County, S.D.)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 4.3 seconds
+    memory_usage: < 142MB
+    accuracy_threshold: 0.91

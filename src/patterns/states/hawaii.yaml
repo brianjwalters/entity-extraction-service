@@ -1,0 +1,219 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: hawaii
+  state_abbreviation: Haw.
+  court_system: unified_two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Hawaii state citations and entities
+case_citations:
+  hawaii_supreme_court:
+    name: hawaii_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Smith,\s+234\s+P\.2d\s+567,\s+890\s+\(Haw\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Pacific Reporter or Hawaii Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Davis, 123 P.3d 456 (Haw. 2010)
+    - Brown v. Superior Court, 456 Haw. 789 (Haw. 2022)
+    - In re Marriage of Smith, 234 P.2d 567, 890 (Haw. 2021)
+  hawaii_intermediate_court_of_appeals:
+    name: hawaii_intermediate_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>P\.(?:\s*2d|3d)?|Haw\.?\s+(?:Ct\.\s+)?App\.)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Haw\.\s+(?:Ct\.\s+)?App\.(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Pacific Reporter or Hawaii Appellate Reports volume
+      reporter: Hawaii appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 P.3d 456 (Haw. Ct. App. 2023)
+    - People v. Brown, 456 Haw. Ct. App. 789 (Haw. Ct. App. 2022)
+    - Doe v. ABC Corp., 234 P.2d 567 (Haw. App. 2021)
+  hawaii_circuit_court:
+    name: hawaii_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Haw\.\s+)?(?:Circuit\s+Court|Cir\.\s+Ct\.)(?:\s+(?P<circuit>\d+)(?:st|nd|rd|th)\s+Circuit)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Circuit number (1st, 2nd, 3rd, 5th)
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23-1-0123 (Haw. Circuit Court 1st Circuit)
+    - ABC Corp. v. XYZ Inc., CV22-987 (Circuit Court 2nd Circuit 2022)
+  hawaii_district_court:
+    name: hawaii_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Haw\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.)(?:\s+(?P<district>[A-Z][a-z]+))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: District court division (Honolulu, Kona, etc.)
+      year: Decision year
+    examples:
+    - State v. Smith, No. 1DTC-23-456 (Haw. District Court Honolulu)
+    - City of Honolulu v. Doe, 1P22-5678 (Dist. Ct. Honolulu 2022)
+  hawaii_family_court:
+    name: hawaii_family_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Johnson,\s+No\.\s+1FC\-23\-789\s+\(Haw\.\s+Family\s+Court\s+1st\s+Circuit\)
+    confidence: 0.86
+    priority: 72
+    components:
+      case_name: Full case name with parties
+      docket_number: Family court case number
+      circuit: Circuit number
+      year: Decision year
+    examples:
+    - In re Marriage of Johnson, No. 1FC-23-789 (Haw. Family Court 1st Circuit)
+    - Doe v. Doe, FC22-1234 (Fam. Ct. 2nd Circuit 2022)
+statute_citations:
+  hawaii_revised_statutes:
+    name: hawaii_revised_statutes_citation
+    pattern: (?:Haw\.\s*Rev\.\s*Stat\.|H\.R\.S\.)\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d-]+(?:\([\da-z]+\))*(?:\s*[-–]\s*[\d-]+(?:\([\da-z]+\))*)?(?:\s*to\s*[\d-]+(?:\([\da-z]+\))*)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Hawaii Revised Statutes section number or range
+      year: Publication year
+    examples:
+    - Haw. Rev. Stat. § 1-101 (2023)
+    - H.R.S. § 712-1240 (2022)
+    - Haw. Rev. Stat. Ann. §§ 431:10A-101 to 431:10A-144
+  hawaii_constitution:
+    name: hawaii_constitution_citation
+    pattern: Haw\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Haw. Const. art. I, § 5
+    - Haw. Const. art. III, § 1
+    - Haw. Const. art. VII, § 9
+regulation_citations:
+  hawaii_administrative_code:
+    name: hawaii_administrative_code_citation
+    pattern: Haw\.\s+Admin\.\s+Code\s+(?P<rule>R(?P<title>\d+)-(?P<chapter>\d+)-(?P<section>\d+)(?:\.(?P<subsection>\d+))*)
+    confidence: 0.92
+    priority: 80
+    components:
+      rule: Complete rule identifier
+      title: Title number
+      chapter: Chapter number
+      section: Section number
+      subsection: Subsection number
+    examples:
+    - Haw. Admin. Code R1-1-1
+    - Haw. Admin. Code R15-22-50
+    - Haw. Admin. Code R3-122-2
+court_system:
+  court_names:
+    hawaii_supreme_court:
+      pattern: (?i)(?:Haw(?:aii)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Hawai[ʻ']i)?
+      confidence: 0.95
+      level: supreme
+    hawaii_intermediate_court_of_appeals:
+      pattern: (?i)(?:Haw(?:aii)?\.\s+)?(?:Intermediate\s+Court\s+of\s+Appeals|Court\s+of\s+Appeals|Int\.?\s+Ct\.?\s+of\s+App\.?)(?:\s+of\s+Hawai[ʻ']i)?
+      confidence: 0.93
+      level: appellate
+    hawaii_circuit_court:
+      pattern: (?i)(?:Haw(?:aii)?\.\s+)?(?:Circuit\s+Court|Cir\.\s+Ct\.?)(?:\s+(?P<circuit>\d+)(?:st|nd|rd|th)\s+Circuit)?
+      confidence: 0.9
+      level: trial
+    hawaii_district_court:
+      pattern: (?i)(?:Haw(?:aii)?\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?P<district>[A-Z][a-z]+))?
+      confidence: 0.88
+      level: district
+    hawaii_family_court:
+      pattern: (?i)(?:Haw(?:aii)?\.\s+)?(?:Family\s+Court|Fam\.\s+Ct\.?)(?:\s+(?P<circuit>\d+)(?:st|nd|rd|th)\s+Circuit)?
+      confidence: 0.87
+      level: family
+entity_types:
+- name: HAWAII_SUPREME_COURT_CASE
+  description: Hawaii Supreme Court case citation
+  confidence_threshold: 0.95
+- name: HAWAII_APPELLATE_CASE
+  description: Hawaii Intermediate Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: HAWAII_CIRCUIT_COURT_CASE
+  description: Hawaii Circuit Court case citation
+  confidence_threshold: 0.85
+- name: HAWAII_DISTRICT_COURT_CASE
+  description: Hawaii District Court case citation
+  confidence_threshold: 0.83
+- name: HAWAII_FAMILY_COURT_CASE
+  description: Hawaii Family Court case citation
+  confidence_threshold: 0.84
+- name: HAWAII_STATUTE
+  description: Hawaii statutory provision (HRS)
+  confidence_threshold: 0.9
+- name: HAWAII_REGULATION
+  description: Hawaii administrative regulation
+  confidence_threshold: 0.88
+- name: HAWAII_CONSTITUTIONAL_PROVISION
+  description: Hawaii constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1959
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    hawaii_reports:
+      min_volume: 1
+      max_volume: 155
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 790_citations_per_second
+dependencies:
+  requires:
+  - hawaii_court_abbreviations
+  - hawaii_circuit_names
+  - hawaii_hrs_chapters
+  optional:
+  - hawaii_historical_courts
+  - hawaii_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.hawaii_supreme_court
+    text: State v. Davis, 123 P.3d 456 (Haw. 2010)
+    expected_entities: 1
+  - pattern: statute_citations.hawaii_revised_statutes
+    text: Haw. Rev. Stat. § 1-101 (2023)
+    expected_entities: 1
+  - pattern: case_citations.hawaii_intermediate_court_of_appeals
+    text: Smith v. Jones, 123 P.3d 456 (Haw. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.0 seconds
+    memory_usage: < 116MB
+    accuracy_threshold: 0.95

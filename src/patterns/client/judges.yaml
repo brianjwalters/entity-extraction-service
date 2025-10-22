@@ -1,0 +1,288 @@
+metadata:
+  pattern_type: judicial_entities
+  jurisdiction: general
+  source_type: judicial
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-08-28'
+  last_updated: '2025-08-28'
+  description: Patterns for identifying judges, justices, and judicial officers
+  optimization_notes: |
+    - High priority patterns for judicial titles
+    - Prevents misclassification as law firms or parties
+    - Includes various judicial titles and formats
+    - Target: <10ms per pattern execution
+
+judicial_entities:
+  # Judge with name patterns - HIGH PRIORITY
+  judge_with_name:
+    name: judge_with_name
+    pattern: '\b([A-Z][a-z]+(?:\s+(?:[A-Z]\.?\s+)?[A-Z][a-z]+){0,3}),?\s+(?:Chief\s+)?(?:Circuit\s+|District\s+|Magistrate\s+)?Judges?\b'
+    confidence: 0.95
+    priority: 1
+    entity_types:
+      - judge
+      - judicial_officer
+    components:
+      judge_name: Name of the judge
+      judge_title: Type of judge
+    optimization: "Captures judge names with titles"
+    validation_rules:
+      - must_contain: "Judge"
+      - entity_type_override: "judge"
+    examples:
+      - "CHAGARES, Chief Judge"
+      - "HARDIMAN, Circuit Judge"
+      - "Pratter, District Judge"
+      - "Smith, Magistrate Judge"
+      - "Johnson, Judge"
+
+  chief_judge_pattern:
+    name: chief_judge_pattern
+    pattern: '\b(?:Chief\s+Judge|Chief\s+Justice)\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?)\b'
+    confidence: 0.96
+    priority: 1
+    entity_types:
+      - judge
+      - chief_judge
+    components:
+      judge_name: Name of the chief judge
+      judge_title: Chief Judge or Chief Justice
+    optimization: "Specific pattern for chief judges"
+    examples:
+      - "Chief Judge Roberts"
+      - "Chief Justice Warren"
+      - "Chief Judge Thompson"
+
+  judge_title_before_name:
+    name: judge_title_before_name
+    pattern: '\b(?:Judge|Justice|Magistrate\s+Judge|Hon\.|Honorable)\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+){0,2})\b'
+    confidence: 0.94
+    priority: 2
+    entity_types:
+      - judge
+      - judicial_officer
+    components:
+      judge_title: Title of the judge
+      judge_name: Name of the judge
+    optimization: "Title preceding name pattern"
+    examples:
+      - "Judge Smith"
+      - "Justice Scalia"
+      - "Magistrate Judge Wilson"
+      - "Hon. Mary Johnson"
+      - "Honorable John Davis"
+
+  circuit_judges_list:
+    name: circuit_judges_list
+    pattern: '\b(?:CHAGARES|JORDAN|HARDIMAN|SHWARTZ|KRAUSE|RESTREPO|BIBAS|PORTER|MATEY|PHIPPS|FREEMAN|MONTGOMERY-REEVES|CHUNG|ROTH|AMBRO),?\s+(?:Chief\s+)?(?:Circuit\s+)?Judges?\b'
+    confidence: 0.97
+    priority: 1
+    entity_types:
+      - judge
+      - circuit_judge
+    components:
+      judge_name: Name of circuit judge
+      judge_court: Circuit court
+    optimization: "Specific Third Circuit judges"
+    examples:
+      - "CHAGARES, Chief Judge"
+      - "HARDIMAN, Circuit Judge"
+      - "AMBRO, Circuit Judge"
+
+  judicial_panel_before:
+    name: judicial_panel_before
+    pattern: '\bBefore:\s+([A-Z][A-Z]+(?:,?\s+[A-Z][A-Z]+)*),?\s+(?:Chief\s+)?(?:Circuit\s+)?Judges?\b'
+    confidence: 0.93
+    priority: 2
+    entity_types:
+      - judicial_panel
+      - judge
+    components:
+      panel_members: Names of panel judges
+      panel_context: Before judicial panel
+    optimization: "Judicial panel listing pattern"
+    examples:
+      - "Before: CHAGARES, Chief Judge"
+      - "Before: JORDAN, HARDIMAN, Circuit Judges"
+
+  justice_pattern:
+    name: justice_pattern
+    pattern: '\bJustices?\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?)\b'
+    confidence: 0.92
+    priority: 2
+    entity_types:
+      - judge
+      - justice
+    components:
+      justice_name: Name of the justice
+    optimization: "Pattern for Supreme Court justices"
+    examples:
+      - "Justice Thomas"
+      - "Justice Ginsburg"
+      - "Justices Alito and Kagan"
+
+  associate_justice:
+    name: associate_justice
+    pattern: '\bAssociate\s+Justice\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?)\b'
+    confidence: 0.95
+    priority: 2
+    entity_types:
+      - judge
+      - supreme_court_justice
+    components:
+      justice_name: Name of associate justice
+      justice_title: Associate Justice
+    optimization: "Supreme Court associate justice pattern"
+    examples:
+      - "Associate Justice Breyer"
+      - "Associate Justice Barrett"
+
+  judge_simple:
+    name: judge_simple
+    pattern: '\b(?:Judge|Justice|Magistrate)\b'
+    confidence: 0.80
+    priority: 10
+    entity_types:
+      - judge
+      - judicial_reference
+    optimization: "Simple judicial title match"
+    examples:
+      - "The Judge ruled"
+      - "Before the Magistrate"
+      - "The Justice wrote"
+
+  honorable_title:
+    name: honorable_title
+    pattern: '\b(?:Hon\.|Honorable)\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+){0,2})\b'
+    confidence: 0.91
+    priority: 3
+    entity_types:
+      - judge
+      - judicial_officer
+    components:
+      honorific: Honorable title
+      judge_name: Name following honorific
+    optimization: "Honorable title pattern"
+    examples:
+      - "Hon. John Smith"
+      - "Honorable Mary Johnson"
+      - "Hon. Robert E. Lee"
+
+  district_judge:
+    name: district_judge
+    pattern: '\b(?:U\.S\.|United\s+States)?\s*District\s+(?:Court\s+)?Judge\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?)\b'
+    confidence: 0.93
+    priority: 2
+    entity_types:
+      - judge
+      - district_judge
+    components:
+      court_level: District Court
+      judge_name: Name of district judge
+    optimization: "District court judge pattern"
+    examples:
+      - "District Judge Smith"
+      - "U.S. District Judge Johnson"
+      - "United States District Court Judge Davis"
+
+  magistrate_judge:
+    name: magistrate_judge
+    pattern: '\b(?:U\.S\.|United\s+States)?\s*Magistrate\s+Judge\s+([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?)\b'
+    confidence: 0.93
+    priority: 2
+    entity_types:
+      - judge
+      - magistrate_judge
+    components:
+      judge_type: Magistrate
+      judge_name: Name of magistrate judge
+    optimization: "Magistrate judge pattern"
+    examples:
+      - "Magistrate Judge Wilson"
+      - "U.S. Magistrate Judge Brown"
+      - "United States Magistrate Judge Lee"
+
+  senior_judge:
+    name: senior_judge
+    pattern: '\b([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?),?\s+Senior\s+(?:Circuit\s+|District\s+)?Judge\b'
+    confidence: 0.94
+    priority: 2
+    entity_types:
+      - judge
+      - senior_judge
+    components:
+      judge_name: Name of senior judge
+      judge_status: Senior status
+    optimization: "Senior judge pattern"
+    examples:
+      - "Smith, Senior Circuit Judge"
+      - "Johnson, Senior District Judge"
+      - "Davis, Senior Judge"
+
+  retired_judge:
+    name: retired_judge
+    pattern: '\b([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?),?\s+(?:Retired\s+)?(?:Circuit\s+|District\s+)?Judge(?:\s+\(Ret(?:ired)?\.?\))?\b|\b([A-Z][a-z]+(?:\s+[A-Z]\.?\s*)?(?:[A-Z][a-z]+)?),?\s+(?:Circuit\s+|District\s+)?Judge\s+\(Ret(?:ired)?\.?\)\b'
+    confidence: 0.92
+    priority: 3
+    entity_types:
+      - judge
+      - retired_judge
+    components:
+      judge_name: Name of retired judge
+      judge_status: Retired
+    optimization: "Retired judge pattern"
+    examples:
+      - "Smith, Circuit Judge (Ret.)"
+      - "Johnson, Retired Judge"
+      - "Davis, Judge (Retired)"
+
+entity_types:
+  - name: "judge"
+    description: "Judicial officer"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "judicial_officer"
+    description: "Any judicial position"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "chief_judge"
+    description: "Chief judge or justice"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "circuit_judge"
+    description: "Circuit court judge"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "district_judge"
+    description: "District court judge"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "magistrate_judge"
+    description: "Magistrate judge"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "justice"
+    description: "Supreme Court justice"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "supreme_court_justice"
+    description: "U.S. Supreme Court justice"
+    priority: 1
+    performance_target: "<5ms"
+  - name: "senior_judge"
+    description: "Senior status judge"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "retired_judge"
+    description: "Retired judge"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "judicial_panel"
+    description: "Panel of judges"
+    priority: 2
+    performance_target: "<5ms"
+  - name: "judicial_reference"
+    description: "General judicial reference"
+    priority: 3
+    performance_target: "<5ms"

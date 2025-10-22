@@ -1,0 +1,155 @@
+# Contractual and Financial Relationships
+pattern_type: relationship
+jurisdiction: federal
+description: Relationships involving contracts, agreements, and financial matters
+
+patterns:
+  - relationship_type: PARTY_TO
+    description: Party to a contract or agreement
+    source_entity: CONTRACT_PARTY
+    target_entity: CONTRACT
+    indicators:
+      - "party to"
+      - "signatory to"
+      - "entered into"
+      - "executed"
+      - "agrees to"
+    examples:
+      - "ABC Corp is party to the Agreement"
+      - "Parties entered into contract"
+      - "Smith executed the settlement"
+
+  - relationship_type: OBLIGATED_TO_PAY
+    description: Party obligated to pay amount
+    source_entity: PARTY
+    target_entity: MONETARY_AMOUNT
+    indicators:
+      - "owes"
+      - "obligated to pay"
+      - "liable for"
+      - "must pay"
+      - "ordered to pay"
+    examples:
+      - "Defendant owes $2.5 million"
+      - "Party obligated to pay damages"
+      - "Ordered to pay $100,000 in fees"
+
+  - relationship_type: ENTITLED_TO
+    description: Party entitled to payment or relief
+    source_entity: PARTY
+    target_entity: DAMAGES
+    indicators:
+      - "entitled to"
+      - "awarded"
+      - "recovers"
+      - "receives"
+      - "due"
+    examples:
+      - "Plaintiff entitled to compensatory damages"
+      - "Party awarded attorney fees"
+      - "Recovers punitive damages"
+
+  - relationship_type: GUARANTEES
+    description: Party guaranteeing obligation
+    source_entity: PARTY
+    target_entity: CONTRACT
+    indicators:
+      - "guarantees"
+      - "guarantor of"
+      - "surety for"
+      - "backs"
+      - "secures"
+    examples:
+      - "Parent company guarantees subsidiary debt"
+      - "Smith as guarantor of the loan"
+      - "Bank secures the obligation"
+
+  - relationship_type: BREACHES
+    description: Party breaching contract
+    source_entity: PARTY
+    target_entity: CONTRACT
+    indicators:
+      - "breaches"
+      - "breached"
+      - "violates"
+      - "defaults on"
+      - "fails to perform"
+    examples:
+      - "Defendant breached the contract"
+      - "Party defaults on agreement"
+      - "Failed to perform obligations"
+
+  - relationship_type: SETTLES_FOR
+    description: Settlement for specific amount
+    source_entity: SETTLEMENT
+    target_entity: MONETARY_AMOUNT
+    indicators:
+      - "settles for"
+      - "settlement of"
+      - "agreed to"
+      - "resolved for"
+      - "compromised at"
+    examples:
+      - "Case settles for $5 million"
+      - "Settlement of $250,000"
+      - "Parties agreed to $1 million"
+
+  - relationship_type: INDEMNIFIES
+    description: Party indemnifying another
+    source_entity: PARTY
+    target_entity: PARTY
+    indicators:
+      - "indemnifies"
+      - "holds harmless"
+      - "defends"
+      - "protects"
+      - "covers"
+    examples:
+      - "Company indemnifies directors"
+      - "Contractor holds owner harmless"
+      - "Vendor defends against claims"
+
+  - relationship_type: DAMAGES_FOR
+    description: Damages for specific harm
+    source_entity: DAMAGES
+    target_entity: LEGAL_MARKER
+    indicators:
+      - "damages for"
+      - "compensation for"
+      - "arising from"
+      - "resulting from"
+      - "due to"
+    examples:
+      - "Damages for breach of contract"
+      - "Compensation for lost profits"
+      - "Arising from negligence"
+
+  - relationship_type: PAYS_TO
+    description: Payment from one party to another
+    source_entity: PARTY
+    target_entity: PARTY
+    indicators:
+      - "pays to"
+      - "payment to"
+      - "remits to"
+      - "transfers to"
+      - "compensates"
+    examples:
+      - "Defendant pays to Plaintiff"
+      - "Payment to the escrow agent"
+      - "Company compensates employees"
+
+  - relationship_type: INTEREST_RATE_ON
+    description: Interest rate on amount
+    source_entity: INTEREST_RATE
+    target_entity: MONETARY_AMOUNT
+    indicators:
+      - "interest on"
+      - "rate of"
+      - "% per annum"
+      - "accruing at"
+      - "bearing interest"
+    examples:
+      - "9% interest on judgment"
+      - "Rate of 5% per annum"
+      - "Judgment bearing 8% interest"

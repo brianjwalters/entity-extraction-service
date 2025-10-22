@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "document": "Rahimi.pdf",
+    "text_length": 15000,
+    "timestamp": "2025-10-15T14:51:43.536290",
+    "strategy": "four_wave",
+    "waves_executed": 4,
+    "tokens_used": 48540,
+    "total_entities": 0,
+    "total_relationships": 0,
+    "entity_types_count": 0
+  },
+  "entities": [],
+  "relationships": [],
+  "entity_type_counts": {}
+}

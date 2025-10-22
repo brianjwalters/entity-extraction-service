@@ -1,0 +1,12 @@
+{
+  "timestamp": "20250909_193252",
+  "document_size": 205338,
+  "processing_time_seconds": 6.108014345169067,
+  "throughput_chars_per_second": 33617.79923820993,
+  "entities_count": 0,
+  "citations_count": 0,
+  "cpu_usage_delta": 0.0,
+  "memory_usage_delta": 0.09999999999999964,
+  "gpu_peak_usage": 94.0,
+  "target_met": false
+}

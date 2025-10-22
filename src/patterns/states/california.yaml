@@ -1,0 +1,221 @@
+# California Legal Entity and Citation Patterns
+# Entity Extraction Service - California Jurisdiction
+
+metadata:
+  jurisdiction: california
+  state_code: CA
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: california
+  last_updated: "2025-07-29"
+  pattern_version: "2.1.0"
+  maintainer: "Legal Data Engineer"
+
+case_citations:
+  ca_supreme_court_cal_reports:
+    pattern: '(?P<volume>\d+)\s+Cal\.\s*(?P<series>\d+(?:st|nd|rd|th|d))?\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)'
+    confidence: 0.92
+    entity_type: "CASE_CITATION"
+    components:
+      volume: 1
+      reporter: "Cal."
+      series: 2
+      page: 3
+      pincite: 4
+      year: 5
+    examples:
+      - "People v. Davis, 15 Cal. 5th 1239 (2024)"
+      - "Serrano v. Priest, 5 Cal. 3d 584, 593 (1971)"
+      - "Marvin v. Marvin, 18 Cal. 3d 660 (1976)"
+      - "Dillon v. Legg, 68 Cal. 2d 728 (1968)"
+
+  ca_supreme_court_pacific:
+    pattern: '(?P<volume>\d+)\s+P\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Cal\.\s+(?P<year>\d{4})\)'
+    confidence: 0.90
+    entity_type: "CASE_CITATION"
+    components:
+      volume: 1
+      reporter: "P."
+      series: 2
+      page: 3
+      pincite: 4
+      year: 5
+    examples:
+      - "Brown v. Board, 123 P.3d 456 (Cal. 2018)"
+      - "City of Los Angeles v. Superior Court, 234 P.3d 890 (Cal. 2019)"
+      - "State of California v. Continental Insurance Co., 55 P.3d 123 (Cal. 2002)"
+
+  ca_court_appeal_cal_app:
+    pattern: '(?P<volume>\d+)\s+Cal\.\s*App\.\s*(?P<series>\d+(?:st|nd|rd|th|d))?\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<district>\d+(?:st|nd|rd|th)\s+Dist\.)?\s*(?P<year>\d{4})\)'
+    confidence: 0.88
+    entity_type: "CASE_CITATION"
+    components:
+      volume: 1
+      reporter: "Cal. App."
+      series: 2
+      page: 3
+      pincite: 4
+      district: 5
+      year: 6
+    examples:
+      - "Smith v. Jones, 45 Cal. App. 5th 789 (2d Dist. 2020)"
+      - "In re Marriage of Smith, 234 Cal. App. 4th 567 (1st Dist. 2015)"
+      - "Johnson v. State, 123 Cal. App. 3d 456 (2018)"
+
+  ca_court_appeal_cal_rptr:
+    pattern: '(?P<volume>\d+)\s+Cal\.\s*Rptr\.\s*(?P<series>\d+(?:st|nd|rd|th|d))?\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Cal\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\)'
+    confidence: 0.87
+    entity_type: "CASE_CITATION"
+    components:
+      volume: 1
+      reporter: "Cal. Rptr."
+      series: 2
+      page: 3
+      pincite: 4
+      year: 5
+    examples:
+      - "Johnson v. State, 123 Cal. Rptr. 3d 456 (Cal. Ct. App. 2019)"
+      - "Garcia v. Superior Court, 234 Cal. Rptr. 3d 567 (Cal. Ct. App. 2020)"
+      - "In re Baby Girl B., 89 Cal. Rptr. 3d 123 (Cal. Ct. App. 2018)"
+
+  # California Superior Court
+  ca_superior_court:
+    pattern: '(?P<volume>\d+)\s+Cal\.\s*Rptr\.\s*(?P<series>\d+(?:st|nd|rd|th|d))?\s+(?P<page>\d+)\s*\(Cal\.\s*Super\.\s*Ct\.\s+(?P<county>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+County)\s+(?P<year>\d{4})\)'
+    confidence: 0.85
+    entity_type: "CASE_CITATION"
+    components:
+      volume: 1
+      reporter: "Cal. Rptr."
+      series: 2
+      page: 3
+      county: 4
+      year: 5
+    examples:
+      - "People v. Williams, 67 Cal. Rptr. 3d 890 (Cal. Super. Ct. Los Angeles County 2017)"
+      - "County of Orange v. Smith, 89 Cal. Rptr. 3d 456 (Cal. Super. Ct. Orange County 2019)"
+      - "Johnson v. ABC Corp., 45 Cal. Rptr. 3d 234 (Cal. Super. Ct. San Diego County 2020)"
+
+  # California Statutes
+  ca_statutes_codes:
+    pattern: "Cal\\.\\s+(?P<code_name>Bus\\.\\s*&\\s*Prof\\.|Civ\\.|Civ\\.\\s*Proc\\.|Com\\.|Corp\\.|Educ\\.|Evid\\.|Fam\\.|Fin\\.|Gov(?:'t)?\\.|Health\\s*&\\s*Safety|Ins\\.|Lab\\.|Penal|Prob\\.|Pub\\.\\s*Util\\.|Rev\\.\\s*&\\s*Tax\\.|Veh\\.|Welf\\.\\s*&\\s*Inst\\.)\\s*Code\\s*§\\s*(?P<section>\\d+(?:\\.\\d+)?(?:[a-z])?)"
+    confidence: 0.90
+    entity_type: "STATUTE_CITATION"
+    components:
+      jurisdiction: "Cal."
+      code_name: 1
+      section: 2
+    examples:
+      - "Cal. Civ. Code § 1798.100"  # California Consumer Privacy Act provision
+      - "Cal. Penal Code § 187"  # Murder statute
+      - "Cal. Bus. & Prof. Code § 17200"  # Unfair Competition Law
+      - "Cal. Health & Safety Code § 11350"  # Controlled substances possession
+      - "Cal. Veh. Code § 23152"  # DUI statute
+      - "Cal. Fam. Code § 2310"  # Property division in divorce
+      - "Cal. Lab. Code § 226"  # Wage statement requirements
+      - "Cal. Gov't Code § 12940"  # Fair Employment and Housing Act
+      - "Cal. Welf. & Inst. Code § 602"  # Juvenile delinquency
+      - "Cal. Educ. Code § 48900"  # Student suspension grounds
+
+  ca_constitution:
+    pattern: 'Cal\.\s+Const\.\s+art\.\s+(?P<article>[IVX]+)(?:,\s*§\s*(?P<section>\d+))?'
+    confidence: 0.95
+    entity_type: "CONSTITUTIONAL_CITATION"
+    components:
+      jurisdiction: "Cal."
+      article: 1
+      section: 2
+    examples:
+      - "Cal. Const. art. I, § 7"
+      - "Cal. Const. art. IV"
+      - "Cal. Const. art. XIII, § 28(f)"
+      - "Cal. Const. art. VI, § 10"
+  
+  # California Administrative Regulations
+  ca_admin_code:
+    pattern: '(?P<title>\d+)\s+Cal\.\s+Code\s+Regs?\.\s*(?:tit\.\s*\d+,\s*)?§\s*(?P<section>\d+(?:\.\d+)?)'
+    confidence: 0.88
+    entity_type: "REGULATION_CITATION"
+    components:
+      title: 1
+      section: 2
+    examples:
+      - "14 Cal. Code Regs. § 1090.5"  # CEQA regulations
+      - "8 Cal. Code Regs. § 3203"  # Cal/OSHA safety regulations
+      - "22 Cal. Code Regs. § 51003"  # Medi-Cal regulations
+      - "16 Cal. Code Regs. § 1399.541"  # Medical Board regulations
+
+entity_patterns:
+  # Courts
+  ca_supreme_court_entity:
+    pattern: '(?:California\s+Supreme\s+Court|Cal\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+California)'
+    entity_type: "COURT"
+    confidence: 0.95
+    attributes:
+      jurisdiction: "California"
+      court_level: "supreme"
+      authority_level: 1
+
+  ca_court_appeal_entity:
+    pattern: '(?:California\s+Court\s+of\s+Appeals?|Cal\.\s+Ct\.\s+App\.|Court\s+of\s+Appeals?\s+of\s+California)(?:\s+(?P<district>\d+(?:st|nd|rd|th)\s+Dist(?:rict)?))?'
+    entity_type: "COURT"
+    confidence: 0.92
+    attributes:
+      jurisdiction: "California"
+      court_level: "appellate"
+      authority_level: 2
+
+  ca_superior_court_entity:
+    pattern: '(?:California\s+Superior\s+Court|Cal\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+California)(?:\s+of\s+(?P<county>[A-Z][a-z]+\s+County))?'
+    entity_type: "COURT"
+    confidence: 0.88
+    attributes:
+      jurisdiction: "California"
+      court_level: "trial"
+      authority_level: 3
+
+  # Judges and Justices
+  ca_justice_titles:
+    pattern: '(?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+California\s+Supreme\s+Court|\s+\(Cal\.\s+Sup\.\s+Ct\.\))?'
+    entity_type: "JUDGE"
+    confidence: 0.90
+    attributes:
+      jurisdiction: "California"
+      court_type: "supreme"
+
+validation:
+  year_range: [1850, 2030]
+  volume_limits:
+    cal_reports: [1, 300]
+    cal_app: [1, 300]
+    cal_rptr: [1, 500]
+    pacific: [1, 1000]
+  page_validation: true
+  section_format_check: true
+
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.91
+  processing_speed: 850  # citations per second
+  memory_usage_mb: 125
+  accuracy_threshold: 0.90
+
+dependencies:
+  - federal/supreme_court.yaml
+  - entities/courts.yaml
+  - citations/case_citations.yaml
+
+testing:
+  test_cases:
+    - text: "People v. Anderson, 6 Cal. 3d 628 (1972)"
+      expected_type: "CASE_CITATION"
+      expected_confidence: 0.92
+    - text: "California Supreme Court held"
+      expected_type: "COURT"
+      expected_confidence: 0.95
+    - text: "Cal. Civ. Code § 1798.100"
+      expected_type: "STATUTE_CITATION"
+      expected_confidence: 0.90
+  performance_benchmarks:
+    citation_extraction_rate: 850
+    entity_recognition_rate: 1200
+    memory_efficiency: 0.85

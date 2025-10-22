@@ -1,0 +1,95 @@
+vllm:
+  base_url: http://10.10.0.87:8080
+  model: mistral-nemo-12b-instruct-128k
+  api_key: null
+  max_tokens: 500
+  temperature: 0.0
+  top_p: 0.9
+  timeout_seconds: 30
+  max_retries: 2
+  retry_delay_ms: 1000
+  requests_per_minute: 30
+  max_concurrent_requests: 2
+  request_delay_ms: 500
+  enable_circuit_breaker: true
+  failure_threshold: 3
+  recovery_timeout_seconds: 60
+  half_open_requests: 1
+chunking:
+  max_chunk_size: 2000
+  chunk_overlap: 200
+  min_chunk_size: 100
+  enable_smart_chunking: true
+  preserve_sentences: true
+  preserve_paragraphs: false
+  batch_size: 5
+  max_chunks_per_document: 100
+extraction:
+  default_mode: hybrid
+  available_modes:
+  - regex
+  - ai_enhanced
+  - hybrid
+  - multi_pass
+  min_confidence: 0.3
+  default_confidence: 0.7
+  high_confidence: 0.9
+  enable_multi_pass: true
+  extraction_passes:
+  - actors
+  - citations
+  - concepts
+  multi_pass_chunk_size: 2000
+  supported_entity_types:
+  - case_citation
+  - party
+  - judge
+  - attorney
+  - court
+  - date
+  - statute
+  - regulation
+  - legal_concept
+  - jurisdiction
+  - docket_number
+  - opinion_type
+  - dissent
+  - concurrence
+  patterns_dir: patterns
+  enable_pattern_caching: true
+  pattern_cache_size: 1000
+  max_content_length: 1000000
+  processing_timeout_seconds: 300
+performance:
+  processing_mode: throttled
+  max_concurrent_requests: 2
+  max_workers: 4
+  queue_size: 10
+  max_memory_mb: 2048
+  enable_memory_monitoring: true
+  memory_check_interval_seconds: 60
+  enable_response_cache: true
+  cache_size_mb: 512
+  cache_ttl_seconds: 3600
+  enable_metrics: true
+  metrics_port: 9090
+  enable_profiling: false
+  enable_rate_limiting: true
+  rate_limit_requests: 100
+  rate_limit_window_seconds: 60
+runtime:
+  service_name: entity-extraction-service
+  host: 0.0.0.0
+  port: 8007
+  debug: false
+  log_level: INFO
+  log_format: json
+  log_file: null
+  store_results: true
+  results_retention_days: 30
+  results_dir: extraction_results
+  enable_health_checks: true
+  health_check_interval_seconds: 30
+  uvicorn_workers: 1
+  uvicorn_timeout_keep_alive: 600
+  uvicorn_limit_concurrency: 10

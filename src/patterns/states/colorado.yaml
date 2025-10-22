@@ -1,0 +1,185 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: colorado
+  state_abbreviation: Colo.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Colorado state citations and entities
+case_citations:
+  colorado_supreme_court:
+    name: colorado_supreme_court_citation
+    pattern: Ex\s+parte\s+Brown,\s+234\s+P\.2d\s+567,\s+890\s+\(Colo\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Colorado Reports or Pacific Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Colorado, 123 Colo. 456 (Colo. 2023)
+    - Johnson v. ABC Corp., 456 P.3d 789 (Colo. 2022)
+    - Ex parte Brown, 234 P.2d 567, 890 (Colo. 2021)
+  colorado_court_of_appeals:
+    name: colorado_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Colo\.\s*App\.|P\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Colo\.\s+(?:Ct\.\s+)?App\.\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Colorado Appeals or Pacific Reporter volume
+      reporter: Colorado appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 Colo. App. 456 (Colo. Ct. App. 2023)
+    - State v. Johnson, 456 P.3d 789 (Colo. App. 2022)
+    - People v. Brown, 234 P.2d 567 (Colo. Ct. App. 2021)
+  colorado_district_court:
+    name: colorado_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]{1,10}\.){0,3}(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Judicial\s+District(?:\s+Court)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Colo\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 23CV12345 (1st Judicial District, Jefferson County, Colo.)
+    - ABC Corp. v. XYZ Inc., 22CV987654 (2nd Judicial District, Denver County, Colo.
+      2022)
+statute_citations:
+  colorado_revised_statutes:
+    name: colorado_revised_statutes_citation
+    pattern: Colo\.\s+Rev\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?-\d+(?:-\d+)?(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Colorado Revised Statutes section number
+      year: Publication year
+    examples:
+    - Colo. Rev. Stat. Ann. § 18-3-202 (2023)
+    - Colo. Rev. Stat. §§ 13-21-101 to 13-21-120
+    - Colo. Rev. Stat. Ann. § 24-4-106.5
+  colorado_constitution:
+    name: colorado_constitution_citation
+    pattern: Colo\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Colo. Const. art. II, § 3
+    - Colo. Const. art. V, § 1
+    - Colo. Const. art. XXVII, § 1(a)
+regulation_citations:
+  colorado_code_of_regulations:
+    name: colorado_code_of_regulations_citation
+    pattern: (?P<volume>\d+)\s+(?:Colo\.\s+)?Code\s+(?:Regs\.|of\s+Regulations)\s+(?:§§?\s*)?(?P<section>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      volume: Volume number
+      section: Regulation section number
+    examples:
+    - 1 Colo. Code Regs. § 201-1
+    - 4 Code of Regulations §§ 723-1.01-1.15
+    - 8 Colo. Code Regs. § 1507-1.1
+court_system:
+  court_names:
+    colorado_supreme_court:
+      pattern: (?i)(?:Colo(?:rado)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Colorado)?
+      confidence: 0.95
+      level: supreme
+    colorado_court_of_appeals:
+      pattern: (?i)(?:Colo(?:rado)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Colorado)?
+      confidence: 0.94
+      level: appellate
+    colorado_district_court:
+      pattern: (?i)(?:Colo(?:rado)?\.\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    colorado_county_court:
+      pattern: (?i)(?:Colo(?:rado)?\.\s+)?(?P<county>[A-Z][a-z]+\s+)?(?:County\s+Court|Cnty\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county_name>[A-Z][a-z]+\s+County))?
+      confidence: 0.88
+      level: trial
+entity_types:
+- name: COLORADO_SUPREME_COURT_CASE
+  description: Colorado Supreme Court case citation
+  confidence_threshold: 0.95
+- name: COLORADO_APPEALS_CASE
+  description: Colorado Court of Appeals case citation
+  confidence_threshold: 0.92
+- name: COLORADO_DISTRICT_COURT_CASE
+  description: Colorado District Court case citation
+  confidence_threshold: 0.85
+- name: COLORADO_COUNTY_COURT_CASE
+  description: Colorado County Court case citation
+  confidence_threshold: 0.83
+- name: COLORADO_STATUTE
+  description: Colorado statutory provision
+  confidence_threshold: 0.9
+- name: COLORADO_REGULATION
+  description: Colorado administrative regulation
+  confidence_threshold: 0.88
+- name: COLORADO_CONSTITUTIONAL_PROVISION
+  description: Colorado constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1876
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    colorado_reports:
+      min_volume: 1
+      max_volume: 200
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 775_citations_per_second
+dependencies:
+  requires:
+  - colorado_court_abbreviations
+  - colorado_county_names
+  - colorado_judicial_districts
+  optional:
+  - colorado_historical_courts
+  - colorado_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.colorado_supreme_court
+    text: Smith v. State of Colorado, 123 Colo. 456 (Colo. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.colorado_revised_statutes
+    text: Colo. Rev. Stat. Ann. § 18-3-202 (2023)
+    expected_entities: 1
+  - pattern: case_citations.colorado_court_of_appeals
+    text: State v. Johnson, 456 P.3d 789 (Colo. App. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.0 seconds
+    memory_usage: < 122MB
+    accuracy_threshold: 0.94

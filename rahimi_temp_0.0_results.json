@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "test_name": "Deterministic Extraction (Temperature 0.0)",
+    "temperature": 0.0,
+    "document": "Rahimi.pdf",
+    "text_length": 15000,
+    "timestamp": "2025-10-15T15:37:12.233470",
+    "strategy": "four_wave",
+    "waves_executed": 4,
+    "tokens_used": 48418,
+    "duration_seconds": 248.37645864486694,
+    "total_entities": 0,
+    "total_relationships": 0,
+    "entity_types_count": 0
+  },
+  "entities": [],
+  "relationships": [],
+  "entity_type_counts": {}
+}

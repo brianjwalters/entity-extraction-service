@@ -1,0 +1,139 @@
+metadata:
+  pattern_type: attorneys
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-08-22'
+  last_updated: '2025-08-22'
+  description: Attorney name and designation patterns for legal document extraction
+
+attorneys:
+  attorney_with_title:
+    name: attorney_title_name
+    # Optimized: Using atomic groups for titles and possessive quantifiers
+    pattern: "\\b(?>Attorney|Counsel(?:or)?|Esquire)\\s+[A-Z][a-z]+(?:\\s+[A-Z]\\.?)*(?:\\s+[A-Z][a-z]+)+\\b"
+    confidence: 0.92
+    entity_types:
+      - attorney
+      - legal_professional
+    components:
+      title: Attorney title designation
+      name: Attorney name
+    examples:
+      - "Attorney John Smith"
+      - "Counsel Mary Johnson"
+      - "Counselor Robert Davis"
+      - "Attorney Sarah K. Wilson"
+      - "Attorney Michael J. P. Thompson"
+      - "Counsel Maria Rodriguez-Martinez"
+      - "Attorney Charles Van Der Berg III"
+
+  attorney_with_esquire:
+    name: name_esquire_format
+    # Optimized: Using possessive quantifiers throughout
+    pattern: "\\b[A-Z][a-z]+(?:\\s+[A-Z]\\.?)*(?:\\s+[A-Z][a-z]+)*,?\\s+(?>Esq(?:uire|\\.)?)\\b"
+    confidence: 0.95
+    entity_types:
+      - attorney
+      - legal_professional
+    components:
+      name: Attorney name
+      designation: Esquire title
+    examples:
+      - "John Smith, Esq"
+      - "Mary Johnson Esq"
+      - "Robert K. Davis, Esquire"
+      - "Sarah Wilson, Esq"
+      - "William Anderson, Esq"
+      - "Patricia Chen-Wong, Esquire"
+      - "Thomas Brien, Esq"
+
+  attorney_for_party:
+    name: attorney_representation
+    # Optimized: Using atomic groups for party types and possessive quantifiers
+    pattern: "\\b(?>Attorney|Counsel)\\s+for\\s+(?:the\\s+)?(?>Plaintiff|Defendant|Appellant|Appellee|Petitioner|Respondent)\\s+[A-Z][a-z]+(?:\\s+[A-Z]\\.?)*(?:\\s+[A-Z][a-z]+)*\\b"
+    confidence: 0.88
+    entity_types:
+      - attorney
+      - legal_professional
+    components:
+      title: Attorney designation
+      representation: Party representation
+      name: Attorney name
+    examples:
+      - "Attorney for the Plaintiff John Smith"
+      - "Counsel for Defendant Mary Johnson"
+      - "Attorney for Appellant Robert Davis"
+      - "Attorney for Petitioner Elizabeth A. Brown"
+      - "Counsel for Respondent James McAllister Jr."
+      - "Attorney for the Appellee Susan Chen-Martinez"
+
+  lead_counsel:
+    name: lead_counsel_designation
+    # Optimized: Using possessive quantifiers and atomic groups
+    pattern: "\\b(?:Lead\\s+)?(?>Attorney|Counsel)\\s+[A-Z][a-z]+(?:\\s+[A-Z]\\.?)*(?:\\s+[A-Z][a-z]+)+\\s+of\\s+[A-Z][a-z]+(?:\\s+[A-Z&][a-z]*)*\\b"
+    confidence: 0.85
+    entity_types:
+      - attorney
+      - legal_professional
+    components:
+      designation: Lead counsel title
+      name: Attorney name
+      firm: Law firm affiliation
+    examples:
+      - "Lead Attorney John Smith of Smith & Associates"
+      - "Counsel Mary Johnson of Johnson Law Group"
+      - "Lead Counsel Robert Davis of Davis Miller Thompson"
+      - "Attorney Jennifer Chen of Park Associates"
+      - "Lead Attorney Michael Sullivan of Sullivan Law"
+
+  attorney_bar_admission:
+    name: attorney_bar_qualified
+    # Optimized: Using atomic groups for fixed phrases and possessive quantifiers
+    pattern: "\\b[A-Z][a-z]+(?:\\s+[A-Z]\\.?)*(?:\\s+[A-Z][a-z]+)+,\\s+(?>admitted|qualified)\\s+(?:to\\s+(?:practice\\s+)?(?:in|before)\\s+)?(?:the\\s+)?(?:State\\s+of\\s+)?[A-Z][a-z]+(?:\\s+Bar)?\\b"
+    confidence: 0.82
+    entity_types:
+      - attorney
+      - legal_professional
+    components:
+      name: Attorney name
+      admission: Bar admission jurisdiction
+    examples:
+      - "John Smith, admitted to practice in California"
+      - "Mary Johnson Smith, admitted to practice in Washington"
+      - "Robert Davis Smith, admitted to practice in New York"
+      - "Elizabeth Chen Martinez, admitted to practice in Texas"
+      - "Michael James Brien, admitted to practice in California"
+      - "Patricia Anderson, admitted to practice before the District of Columbia Bar"
+      - "Thomas Van Berg, admitted to practice in Illinois"
+
+  assistant_counsel:
+    name: assistant_counsel_designation
+    # Optimized: Using atomic groups for titles and possessive quantifiers, handles O'Name patterns
+    pattern: "\\b(?>Assistant|Associate|Junior)\\s+(?>Attorney|Counsel)\\s+[A-Z][a-zA-Z'-]*(?:\\s+(?:[A-Z]\\.?|[A-Z]'[A-Z][a-z]+))*(?:\\s+[A-Z][a-zA-Z'-]+)*(?:\\s+(?:Jr\\.|Sr\\.|III?|IV))?\\b"
+    confidence: 0.80
+    entity_types:
+      - attorney
+      - legal_professional
+    components:
+      level: Attorney level designation
+      title: Attorney title
+      name: Attorney name
+    examples:
+      - "Assistant Attorney John Smith"
+      - "Associate Counsel Mary Johnson"
+      - "Junior Attorney Robert Davis"
+      - "Associate Attorney Jennifer K. Thompson"
+      - "Assistant Counsel Michael Rodriguez-Chen Jr."
+      - "Junior Counsel Patricia O'Sullivan III"
+
+entity_types:
+  - name: "attorneys"
+    description: "Legal attorneys and counsel"
+    priority: 1
+    requires_professional_designation: true
+  - name: "legal_professionals"
+    description: "Legal professionals and practitioners"
+    priority: 2
+    requires_title: true

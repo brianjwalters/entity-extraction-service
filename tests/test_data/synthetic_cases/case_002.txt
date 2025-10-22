@@ -1,0 +1,71 @@
+SUPREME COURT OF THE STATE OF CALIFORNIA
+
+JENNIFER WILLIAMS,
+                                        Plaintiff-Appellant,
+            v.                                          Case No. S267890
+
+CITY OF SAN FRANCISCO and
+POLICE CHIEF WILLIAM SCOTT,
+                                        Defendants-Respondents.
+
+OPINION
+
+JUSTICE MARIA RODRIGUEZ delivered the opinion of the Court.
+
+This civil rights action arises from allegations that the San Francisco Police Department violated Plaintiff Jennifer Williams's constitutional rights under 42 U.S.C. § 1983 during a protest on June 18, 2022. We granted review to determine whether the use of force employed by officers during the arrest of Plaintiff constituted excessive force in violation of the Fourth and Fourteenth Amendments to the United States Constitution. We affirm the Court of Appeal's judgment in favor of Plaintiff.
+
+I. FACTUAL AND PROCEDURAL BACKGROUND
+
+On June 18, 2022, Plaintiff participated in a peaceful demonstration in downtown San Francisco protesting climate change legislation. The demonstration, organized by the Climate Justice Alliance, had obtained all necessary permits and was attended by approximately 500 individuals. At approximately 4:30 p.m., a small group of counter-protesters arrived and began engaging in heated verbal exchanges with the demonstrators.
+
+Plaintiff, a 52-year-old high school teacher with no prior criminal record, was standing on the sidewalk holding a sign that read "Protect Our Planet" when Officer David Martinez approached her and ordered her to disperse. Plaintiff respectfully responded that she had a First Amendment right to peacefully protest and that the demonstration was lawfully permitted. Without further warning, Officer Martinez grabbed Plaintiff's arm and forcefully twisted it behind her back, causing her to fall to the ground.
+
+Two additional officers, Sergeant Lisa Chen and Officer Robert Johnson, arrived and assisted in restraining Plaintiff. Despite Plaintiff's repeated statements that she was not resisting arrest and was in pain, the officers applied significant pressure to her back and neck while handcuffing her. Plaintiff suffered a fractured wrist, severe bruising, and psychological trauma as a result of the incident.
+
+Plaintiff was charged with resisting arrest under California Penal Code § 148(a)(1), but the charges were dismissed three weeks later when body camera footage revealed that Plaintiff had not engaged in any resistive behavior. The footage clearly showed Plaintiff standing peacefully when Officer Martinez initiated contact.
+
+Plaintiff filed suit in the Superior Court of California, County of San Francisco, alleging violations of her civil rights under 42 U.S.C. § 1983, assault and battery, and intentional infliction of emotional distress. The case proceeded to trial, and a jury awarded Plaintiff $850,000 in compensatory damages and $2 million in punitive damages.
+
+Defendants appealed to the California Court of Appeal, First Appellate District, which affirmed the verdict. We granted review.
+
+II. LEGAL FRAMEWORK
+
+Section 1983 provides a federal cause of action against any person who, acting under color of state law, deprives another of rights secured by the Constitution or federal law. To establish a § 1983 claim for excessive force, a plaintiff must demonstrate that: (1) a seizure occurred; and (2) the seizure was unreasonable. Graham v. Connor, 490 U.S. 386, 395 (1989).
+
+The reasonableness of a particular use of force must be judged from the perspective of a reasonable officer on the scene, rather than with the 20/20 vision of hindsight. Id. at 396. Courts must consider the totality of the circumstances, including: (1) the severity of the crime at issue; (2) whether the suspect poses an immediate threat to the safety of officers or others; and (3) whether the suspect is actively resisting arrest or attempting to evade arrest by flight. Id. at 396.
+
+The Ninth Circuit has emphasized that gratuitous use of force when a suspect is not resisting arrest violates the Fourth Amendment. See Drummond v. City of Anaheim, 343 F.3d 1052, 1057 (9th Cir. 2003). Moreover, California law recognizes that police officers have a duty to exercise reasonable care in the use of force. Cal. Gov't Code § 7286(a).
+
+III. ANALYSIS
+
+A. The Seizure Was Unreasonable
+
+Applying the Graham factors to the undisputed facts, we conclude that the force used against Plaintiff was objectively unreasonable and constituted excessive force in violation of the Fourth Amendment.
+
+First, Plaintiff was not suspected of committing any crime at the time of her seizure. She was lawfully exercising her First Amendment right to peaceful assembly and protest. The subsequent charge of resisting arrest was baseless and properly dismissed.
+
+Second, Plaintiff posed no immediate threat to the safety of Officer Martinez or any other person. The body camera footage unequivocally shows Plaintiff standing peacefully, holding a sign, and engaged in protected speech. There is no evidence that she made any threatening gestures or movements.
+
+Third, Plaintiff was not resisting arrest or attempting to flee. To the contrary, she verbally communicated her willingness to comply with lawful orders while respectfully asserting her constitutional rights. The force employed by Officer Martinez—grabbing Plaintiff's arm and twisting it behind her back with sufficient force to cause her to fall—was entirely disproportionate to the situation.
+
+As we stated in Johnson v. County of Los Angeles, 340 F.3d 787, 792 (9th Cir. 2003), "the right to make an arrest or investigatory stop necessarily carries with it the right to use some degree of physical coercion or threat thereof to effect it. However, the force used must be reasonable under the circumstances."
+
+B. Qualified Immunity Does Not Apply
+
+Defendants argue that Officer Martinez is entitled to qualified immunity because the law governing excessive force in the context of peaceful protesters was not clearly established at the time of the incident. We disagree.
+
+The principle that officers may not use gratuitous force against non-threatening, non-resisting individuals has been clearly established for decades. See Tennessee v. Garner, 471 U.S. 1, 11 (1985); Nelson v. City of Davis, 685 F.3d 867, 876 (9th Cir. 2012). A reasonable officer in Officer Martinez's position would have known that using force against a peaceful protester who posed no threat and was not resisting arrest violated the Fourth Amendment.
+
+Moreover, Attorney Rebecca Chen, representing Plaintiff, correctly argues that qualified immunity should not shield officers who engage in conduct that violates clearly established constitutional rights. The doctrine is intended to protect officers who make reasonable mistakes, not to insulate them from liability for obvious constitutional violations.
+
+IV. CONCLUSION
+
+We hold that the use of force against Plaintiff Jennifer Williams was objectively unreasonable and violated her rights under the Fourth Amendment and 42 U.S.C. § 1983. The jury's award of compensatory and punitive damages was supported by substantial evidence and properly reflected the severity of the constitutional violation.
+
+The judgment of the Court of Appeal is AFFIRMED.
+
+JUSTICE MARIA RODRIGUEZ, writing for the Court.
+CHIEF JUSTICE THOMAS HENDERSON, concurring.
+JUSTICE SARAH WASHINGTON, concurring.
+
+Decided: October 5, 2023.

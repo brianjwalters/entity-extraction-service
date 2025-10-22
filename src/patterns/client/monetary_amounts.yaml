@@ -1,0 +1,275 @@
+metadata:
+  pattern_type: monetary_amounts
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '2.0'
+  created_date: '2025-01-21'
+  last_updated: '2025-01-21'
+  description: Monetary amount patterns for extracting currency, damages, fees, costs,
+    and financial values
+monetary_amounts:
+  dollar_sign_amount:
+    name: dollar_sign_format
+    pattern: \$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?(?:\s*(?:million|billion|trillion|thousand|M|B|K))?\b
+    confidence: 0.98
+    entity_types:
+    - monetary_amount
+    - currency
+    components:
+      currency_symbol: Dollar sign
+      amount: Numeric value
+      denomination: Optional multiplier
+    examples:
+    - $1,000,000
+    - $50,000.00
+    - $2.5 million
+    - $750K
+    - $3.2B
+    validation_rules:
+    - valid_currency_format: true
+    - max_decimal_places: 2
+  written_dollar_amount:
+    name: written_dollars_format
+    pattern: \b\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\s+(?:US\s+)?(?:dollars?|USD)\b
+    confidence: 0.95
+    entity_types:
+    - monetary_amount
+    - currency
+    components:
+      amount: Numeric value
+      currency: Dollar designation
+    examples:
+    - 100,000 dollars
+    - 50,000.00 USD
+    - 1,500 US dollars
+    - 250 dollar
+  damages_amount:
+    name: damages_extraction
+    pattern: \b(?:damages?|compensatory\s+damages?|punitive\s+damages?|actual\s+damages?|statutory\s+damages?|liquidated\s+damages?|treble\s+damages?)\s+(?:of|in\s+the\s+amount\s+of|totaling|exceeding)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?(?:\s*(?:million|billion|thousand))?\b
+    confidence: 0.93
+    entity_types:
+    - damages
+    - monetary_amount
+    components:
+      damage_type: Type of damages
+      amount: Damage amount
+    examples:
+    - damages of $100,000
+    - punitive damages in the amount of $5 million
+    - compensatory damages totaling $250,000.00
+    - treble damages exceeding $1,000,000
+  attorney_fees:
+    name: attorney_fees_extraction
+    pattern: \b(?:attorney(?:'s)?\s+fees?|legal\s+fees?|counsel\s+fees?|attorney(?:'s)?\s+costs?)\s+(?:of|in\s+the\s+amount\s+of|totaling)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\b
+    confidence: 0.92
+    entity_types:
+    - attorney_fees
+    - monetary_amount
+    components:
+      fee_type: Attorney fee designation
+      amount: Fee amount
+    examples:
+    - attorney's fees of $50,000
+    - legal fees in the amount of $125,000.00
+    - attorney fees totaling $75,000
+    - counsel fees $30,000
+  court_costs:
+    name: court_costs_extraction
+    pattern: \b(?:court\s+costs?|filing\s+fees?|costs?\s+of\s+(?:suit|litigation|court)|litigation\s+costs?)\s+(?:of|in\s+the\s+amount\s+of|totaling)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\b
+    confidence: 0.91
+    entity_types:
+    - court_costs
+    - monetary_amount
+    components:
+      cost_type: Type of court cost
+      amount: Cost amount
+    examples:
+    - court costs of $5,000
+    - filing fees totaling $850.00
+    - costs of litigation $25,000
+    - litigation costs in the amount of $15,000
+  settlement_amount:
+    name: settlement_extraction
+    pattern: settlement\s+of\s+\$2\.5\s+million
+    confidence: 0.9
+    entity_types:
+    - settlement
+    - monetary_amount
+    components:
+      settlement_type: Settlement designation
+      amount: Settlement amount
+    examples:
+    - settled for $500,000
+    - settlement of $2.5 million
+    - agreed to pay $100,000
+    - payment of $750,000.00
+  fine_penalty:
+    name: fine_penalty_extraction
+    pattern: \b(?:fine(?:d|s)?|penalt(?:y|ies)|sanction(?:s|ed)?|civil\s+penalt(?:y|ies)|criminal\s+fine)\s+(?:of|in\s+the\s+amount\s+of|not\s+(?:to\s+)?exceed(?:ing)?)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\b
+    confidence: 0.91
+    entity_types:
+    - fine
+    - penalty
+    - monetary_amount
+    components:
+      penalty_type: Type of fine or penalty
+      amount: Penalty amount
+    examples:
+    - fine of $10,000
+    - civil penalty in the amount of $250,000
+    - fined $5,000
+    - penalties not exceeding $100,000
+  bail_bond:
+    name: bail_bond_extraction
+    pattern: \b(?:bail|bond|cash\s+bail|surety\s+bond|appearance\s+bond)\s+(?:set\s+at|in\s+the\s+amount\s+of|of)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\b
+    confidence: 0.89
+    entity_types:
+    - bail
+    - bond
+    - monetary_amount
+    components:
+      bond_type: Type of bail or bond
+      amount: Bail amount
+    examples:
+    - bail set at $50,000
+    - bond in the amount of $100,000
+    - cash bail of $25,000
+    - surety bond $75,000
+  restitution:
+    name: restitution_extraction
+    pattern: \b(?:restitution|reimburse(?:ment)?|repay(?:ment)?|victim\s+compensation)\s+(?:of|in\s+the\s+amount\s+of|totaling)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\b
+    confidence: 0.88
+    entity_types:
+    - restitution
+    - monetary_amount
+    components:
+      restitution_type: Type of restitution
+      amount: Restitution amount
+    examples:
+    - restitution of $20,000
+    - reimbursement in the amount of $15,000
+    - victim compensation totaling $35,000
+  contract_value:
+    name: contract_value_extraction
+    pattern: \b(?:contract(?:ual)?\s+(?:value|amount|price)|purchase\s+price|sale\s+price|transaction\s+(?:value|amount))\s+(?:of|is|was)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?(?:\s*(?:million|billion|thousand))?\b
+    confidence: 0.89
+    entity_types:
+    - contract_value
+    - monetary_amount
+    components:
+      value_type: Type of contract value
+      amount: Contract amount
+    examples:
+    - contract value of $1.5 million
+    - purchase price $250,000
+    - sale price was $500,000.00
+    - transaction amount $2 billion
+  judgment_amount:
+    name: judgment_extraction
+    pattern: \b(?:judgment|verdict|award(?:ed)?|jury\s+award(?:ed)?)\s+(?:for|of|in\s+(?:the\s+)?(?:favor|amount)\s+of)?\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?(?:\s*(?:million|billion|thousand))?\b
+    confidence: 0.92
+    entity_types:
+    - judgment
+    - monetary_amount
+    components:
+      judgment_type: Type of judgment
+      amount: Judgment amount
+    examples:
+    - judgment for $750,000
+    - jury awarded $2 million
+    - verdict in the amount of $500,000
+    - award of $1.5 million
+  range_amount:
+    name: monetary_range_extraction
+    pattern: (?:between\s+)?\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\s*(?:to|and|-|–|—)\s*\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\b
+    confidence: 0.87
+    entity_types:
+    - monetary_range
+    - monetary_amount
+    components:
+      min_amount: Minimum amount
+      max_amount: Maximum amount
+    examples:
+    - $10,000 to $50,000
+    - between $100,000 and $500,000
+    - $1,000 - $5,000
+    - $50,000 – $250,000
+  minimum_maximum_amount:
+    name: min_max_extraction
+    pattern: \b(?:minimum|maximum|not\s+(?:less|more)\s+than|at\s+least|up\s+to|no\s+(?:less|more)\s+than)\s+\$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?(?:\s*(?:million|billion|thousand))?\b
+    confidence: 0.86
+    entity_types:
+    - threshold_amount
+    - monetary_amount
+    components:
+      threshold_type: Minimum or maximum designation
+      amount: Threshold amount
+    examples:
+    - minimum $10,000
+    - maximum $100,000
+    - not less than $50,000
+    - up to $1 million
+  per_unit_amount:
+    name: per_unit_extraction
+    pattern: \$\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?\s+per\s+(?:hour|day|week|month|year|unit|item|person|violation|occurrence|claim)
+    confidence: 0.85
+    entity_types:
+    - per_unit_amount
+    - monetary_amount
+    components:
+      amount: Per unit amount
+      unit: Unit designation
+    examples:
+    - $500 per hour
+    - $1,000 per day
+    - $10,000 per violation
+    - $250 per person
+  interest_rate:
+    name: interest_rate_extraction
+    pattern: \b\d{1,2}(?:\.\d{1,2})?\s*(?:%|percent)\s+(?:interest|APR|annual\s+percentage\s+rate|per\s+annum)
+    confidence: 0.84
+    entity_types:
+    - interest_rate
+    - monetary_amount
+    components:
+      rate: Interest percentage
+      type: Interest type
+    examples:
+    - 5% interest
+    - 12.5 percent per annum
+    - 8% APR
+    - 3.75% annual percentage rate
+entity_types:
+- name: monetary_amounts
+  description: General monetary values
+  priority: 1
+  requires_currency: true
+- name: damages
+  description: Court-awarded damages
+  priority: 2
+  requires_amount: true
+- name: attorney_fees
+  description: Legal representation costs
+  priority: 2
+  requires_amount: true
+- name: settlements
+  description: Settlement payments
+  priority: 2
+  requires_amount: true
+- name: fines
+  description: Monetary penalties
+  priority: 2
+  requires_amount: true
+- name: judgments
+  description: Court judgment amounts
+  priority: 2
+  requires_amount: true
+- name: restitution
+  description: Victim compensation
+  priority: 3
+  requires_amount: true
+- name: contract_values
+  description: Contractual monetary values
+  priority: 3
+  requires_amount: true

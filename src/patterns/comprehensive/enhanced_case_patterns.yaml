@@ -1,0 +1,213 @@
+metadata:
+  pattern_type: enhanced_case_patterns
+  jurisdiction: all
+  court_level: all
+  description: Enhanced general case patterns to fill coverage gaps for all court
+    levels
+  pattern_version: '1.0'
+  created_date: '2025-09-11'
+  last_updated: '2025-09-11'
+  maintainer: Legal Data Engineer
+enhanced_case_citations:
+  ex_parte_proceedings:
+    name: ex_parte_proceedings
+    pattern: (?P<full_citation>Ex\s+parte\s+(?P<party_name>[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+){0,5}(?:\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\.?)?)(?:\s*,\s*(?P<volume>\d{1,4})\s+(?P<reporter>[A-Z][a-z]*(?:\.[A-Z][a-z]*)*\.?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?)?(?:\s*\((?P<court>[^)]+)\s+(?P<year>\d{4})\))?)
+    confidence: 0.92
+    entity_type: CASE_CITATION
+    entity_subtype: ex_parte_proceeding
+    components:
+      full_citation: Complete ex parte citation
+      party_name: Name of the party
+      volume: Reporter volume number
+      reporter: Reporter abbreviation
+      page: Starting page number
+      pinpoint: Specific page reference
+      court: Court abbreviation
+      year: Decision year
+    examples:
+    - Ex parte Johnson
+    - Ex parte Smith, 123 U.S. 456 (2023)
+    - Ex parte ABC Corp., 789 F.3d 123 (5th Cir. 2022)
+  in_re_proceedings:
+    name: in_re_proceedings
+    pattern: (?P<full_citation>In\s+re\s+(?P<matter_name>(?:Marriage\s+of\s+)?[A-Z][a-zA-Z]+(?:\s+[A-Z][a-zA-Z]+){0,5}(?:\s+(?:Inc|Corp|Co|LLC|Ltd|Estate|Trust)\.?)?)(?:\s*,\s*(?P<volume>\d{1,4})\s+(?P<reporter>[A-Z][a-z]*(?:\.[A-Z][a-z]*)*\.?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?)?(?:\s*\((?P<court>[^)]+)\s+(?P<year>\d{4})\))?)
+    confidence: 0.94
+    entity_type: CASE_CITATION
+    entity_subtype: in_re_proceeding
+    components:
+      full_citation: Complete in re citation
+      matter_name: Name of the matter
+      volume: Reporter volume number
+      reporter: Reporter abbreviation
+      page: Starting page number
+      pinpoint: Specific page reference
+      court: Court abbreviation
+      year: Decision year
+    examples:
+    - In re Marriage of Smith
+    - In re ABC Corp., 456 F.3d 789 (9th Cir. 2021)
+    - In re Estate of Johnson, 123 Cal. App. 4th 567 (2020)
+  pa_district_county_reports:
+    name: pa_district_county_reports
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+){0,8})\s+v\.\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+){0,8}))\s*,\s*(?P<volume>\d{1,3})\s+Pa\.\s+D\.\s*&\s*C\.(?P<series>\d+(?:st|nd|rd|th))?\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?\s*\((?P<county>[A-Z][a-z]+\s+County)\s+(?:C\.P\.|Common\s+Pleas)\s+(?P<year>\d{4})\)
+    confidence: 0.9
+    entity_type: CASE_CITATION
+    entity_subtype: pennsylvania_district_county
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff name
+      defendant: Defendant name
+      volume: Pa. D. & C. volume number
+      series: Series number (1st, 2nd, etc.)
+      page: Starting page number
+      pinpoint: Specific page reference
+      county: County name
+      year: Decision year
+    examples:
+    - Commonwealth v. Smith, 67 Pa. D. & C.5th 123 (Philadelphia County C.P. 2023)
+    - Brown v. Jones, 45 Pa. D. & C.4th 456 (Allegheny County Common Pleas 2022)
+  unreported_cases:
+    name: unreported_cases
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+){0,8}(?:\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][a-zA-Z]+(?:\s+[A-Za-z][a-zA-Z]+){0,8}(?:\s+(?:Inc|Corp|Co|LLC|Ltd|Commission|Board|Department|Agency|Authority)\.?)?))(?:\s*,\s*(?:No\.\s*(?P<docket_number>[\w\d-]+)))?(?:\s*\((?P<court>[^)]+)\s+(?P<date>[A-Z][a-z]+\s+\d{1,2},\s*\d{4}|\d{4})\))?
+    confidence: 0.85
+    entity_type: CASE_CITATION
+    entity_subtype: unreported_case
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff name
+      defendant: Defendant name
+      docket_number: Case docket number
+      court: Court name
+      date: Decision date or year
+    examples:
+    - Smith v. Jones
+    - United States v. Nixon
+    - Johnson v. ABC Corp., No. 2023-CV-1234
+    - Brown v. State (Superior Court 2023)
+enhanced_court_patterns:
+  federal_court_variations:
+    name: federal_court_variations
+    pattern: (?P<court_name>(?:U\.S\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.|D\.C\.)\s+for\s+the\s+(?P<district>(?:Northern|Southern|Eastern|Western|Central|Middle)\s+District\s+of\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)|(?:U\.S\.\s+)?(?:Court\s+of\s+Appeals|Ct\.\s+App\.)\s+for\s+the\s+(?P<circuit>(?:First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh|D\.C\.|Federal)\s+Circuit)|(?:U\.S\.\s+)?Supreme\s+Court)
+    confidence: 0.93
+    entity_type: COURT
+    entity_subtype: federal_court
+    components:
+      court_name: Full court name
+      district: District designation
+      circuit: Circuit designation
+    examples:
+    - U.S. District Court for the Southern District of New York
+    - Court of Appeals for the Fifth Circuit
+    - U.S. Supreme Court
+  state_court_with_county:
+    name: state_court_with_county
+    pattern: (?:(?:United\s+States\s+)?Supreme\s+(?:Judicial\s+)?Court(?:\s+of\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)?|Superior\s+Court(?:\s+of\s+[A-Z][a-z]+(?:\s+County)?)?)
+    confidence: 0.91
+    entity_type: COURT
+    entity_subtype: state_court
+    components:
+      court_name: Full court name
+      state: State name
+      county: County name (if applicable)
+    examples:
+    - Massachusetts Supreme Judicial Court
+    - Superior Court of Los Angeles County
+    - Pennsylvania Court of Common Pleas
+enhanced_party_patterns:
+  comprehensive_government_entities:
+    name: comprehensive_government_entities
+    pattern: (?P<entity_name>(?:United\s+States|U\.S\.|Commonwealth\s+of\s+[A-Z][a-z]+|State\s+of\s+[A-Z][a-z]+|People\s+of\s+the\s+State\s+of\s+[A-Z][a-z]+|County\s+of\s+[A-Z][a-z]+|City\s+of\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?|Town\s+of\s+[A-Z][a-z]+|Department\s+of\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*|[A-Z][a-z]+\s+(?:Department|Agency|Commission|Board|Authority|Bureau|Office)))
+    confidence: 0.9
+    entity_type: GOVERNMENT_ENTITY
+    entity_subtype: government_party
+    components:
+      entity_name: Full government entity name
+    examples:
+    - United States
+    - Commonwealth of Massachusetts
+    - State of California
+    - City of New York
+    - Department of Justice
+  comprehensive_corporate_entities:
+    name: comprehensive_corporate_entities
+    pattern: (?P<entity_name>[A-Z][a-zA-Z\s]+(?:Inc\.|Corp\.|Corporation|Co\.|Company|LLC|Ltd\.|Limited|L\.P\.|Partnership|LLP|PLLC))
+    confidence: 0.88
+    entity_type: CORPORATION
+    entity_subtype: corporate_party
+    components:
+      entity_name: Full corporate entity name
+    examples:
+    - ABC Corp.
+    - XYZ Inc.
+    - Johnson & Associates LLC
+enhanced_procedural_patterns:
+  comprehensive_docket_numbers:
+    name: comprehensive_docket_numbers
+    pattern: (?:(?:Case\s+)?No\.\s+[\d\-]+(?:[A-Z]+)?)
+    confidence: 0.94
+    entity_type: DOCKET_NUMBER
+    entity_subtype: court_docket
+    components:
+      docket_number: Full docket number
+      year: Filing year
+      case_type: Case type abbreviation
+      sequence: Sequential case number
+      suffix: Additional suffix
+    examples:
+    - No. 2023-cv-1234
+    - Case No. 22-915
+    - Civil Action No. 2023-CA-5678
+entity_types:
+- name: ENHANCED_CASE_CITATION
+  description: Enhanced case citation with improved coverage
+  confidence_threshold: 0.85
+- name: EX_PARTE_PROCEEDING
+  description: Ex parte proceeding citation
+  confidence_threshold: 0.9
+- name: IN_RE_PROCEEDING
+  description: In re proceeding citation
+  confidence_threshold: 0.92
+- name: UNREPORTED_CASE
+  description: Unreported case citation
+  confidence_threshold: 0.83
+- name: COMPREHENSIVE_COURT
+  description: Enhanced court identification
+  confidence_threshold: 0.88
+- name: COMPREHENSIVE_DOCKET
+  description: Enhanced docket number identification
+  confidence_threshold: 0.92
+validation:
+  case_name_validation:
+    valid_connectors:
+    - v.
+    - vs.
+    - versus
+    valid_party_types:
+    - individual
+    - corporation
+    - government
+  court_validation:
+    federal_districts: true
+    state_courts: true
+    county_courts: true
+  docket_validation:
+    year_range:
+    - 1900
+    - 2030
+    format_validation: true
+quality_metrics:
+  precision_target: 0.93
+  recall_target: 0.91
+  f1_target: 0.92
+  processing_speed: 800_citations_per_second
+testing:
+  test_cases:
+  - pattern: enhanced_case_citations.ex_parte_proceedings
+    text: Ex parte Johnson
+    expected_entities: 1
+  - pattern: enhanced_case_citations.pa_district_county_reports
+    text: Commonwealth v. Smith, 67 Pa. D. & C.5th 123 (Philadelphia County C.P. 2023)
+    expected_entities: 1
+  - pattern: enhanced_procedural_patterns.comprehensive_docket_numbers
+    text: No. 2023-cv-1234
+    expected_entities: 1

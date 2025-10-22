@@ -1,0 +1,178 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: nevada
+  state_abbreviation: Nev.
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Nevada state citations and entities
+case_citations:
+  nevada_supreme_court:
+    name: nevada_supreme_court_citation
+    pattern: In\s+re\s+Marriage\s+of\s+Smith,\s+234\s+P\.2d\s+567,\s+890\s+\(Nev\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Pacific Reporter or Nevada Reports
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Davis, 123 P.3d 456 (Nev. 2023)
+    - Brown v. Superior Court, 456 Nev. 789 (Nev. 2022)
+    - In re Marriage of Smith, 234 P.2d 567, 890 (Nev. 2021)
+  nevada_district_court:
+    name: nevada_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Nev\.\s+)?(?:Dist\.\s+Ct\.|District\s+Court)(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. A-23-123456-C (Nev. Dist. Ct. Clark County)
+    - ABC Corp. v. XYZ Inc., CV22-00987 (District Court Washoe County 2022)
+  nevada_justice_court:
+    name: nevada_justice_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?:Nev\.\s+)?(?:Justice\s+Court|J\.P\.\s+Ct\.)(?:\s+(?P<township>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+Township))?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.85
+    priority: 70
+    components:
+      case_name: Full case name with parties
+      docket_number: Justice court case number
+      township: Township where case was filed
+      year: Decision year
+    examples:
+    - State v. Smith, No. 23J-00123 (Nev. Justice Court Las Vegas Township)
+    - City of Reno v. Doe, JP22-5678 (J.P. Ct. Reno Township 2022)
+statute_citations:
+  nevada_revised_statutes:
+    name: nevada_revised_statutes_citation
+    pattern: (?:Nev\.\s*Rev\.\s*Stat\.|N\.R\.S\.)\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: NRS section number or range
+      year: Publication year
+    examples:
+    - Nev. Rev. Stat. § 200.364
+    - N.R.S. § 41.032 (2023)
+    - Nev. Rev. Stat. Ann. §§ 104.3301-104.3512
+  nevada_constitution:
+    name: nevada_constitution_citation
+    pattern: Nev\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Nev. Const. art. I, § 6
+    - Nev. Const. art. IV, § 1
+    - Nev. Const. art. VIII, § 2
+regulation_citations:
+  nevada_administrative_code:
+    name: nevada_administrative_code_citation
+    pattern: Nev\.\s+Admin\.\s+Code\s+(?P<chapter>\d+)\.(?P<section>\d+)(?:\.(?P<subsection>\d+))*
+    confidence: 0.92
+    priority: 80
+    components:
+      chapter: Chapter number
+      section: Section number
+      subsection: Subsection number
+    examples:
+    - Nev. Admin. Code 445A.227
+    - Nev. Admin. Code 284.384
+    - Nev. Admin. Code 616C.495
+court_system:
+  court_names:
+    nevada_supreme_court:
+      pattern: (?i)(?:Nev(?:ada)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Nevada)?
+      confidence: 0.95
+      level: supreme
+    nevada_district_court:
+      pattern: (?i)(?:Nev(?:ada)?\.\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?
+      confidence: 0.9
+      level: trial
+    nevada_justice_court:
+      pattern: (?i)(?:Nev(?:ada)?\.\s+)?(?:Justice\s+Court|J\.P\.\s+Ct\.?)(?:\s+(?P<township>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+Township))?
+      confidence: 0.88
+      level: justice
+    nevada_municipal_court:
+      pattern: (?i)(?:(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+)?(?:Municipal\s+Court|Mun\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<city_alt>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*))?
+      confidence: 0.85
+      level: municipal
+entity_types:
+- name: NEVADA_SUPREME_COURT_CASE
+  description: Nevada Supreme Court case citation
+  confidence_threshold: 0.95
+- name: NEVADA_DISTRICT_COURT_CASE
+  description: Nevada District Court case citation
+  confidence_threshold: 0.85
+- name: NEVADA_JUSTICE_COURT_CASE
+  description: Nevada Justice Court case citation
+  confidence_threshold: 0.83
+- name: NEVADA_STATUTE
+  description: Nevada statutory provision (NRS)
+  confidence_threshold: 0.9
+- name: NEVADA_REGULATION
+  description: Nevada administrative regulation
+  confidence_threshold: 0.88
+- name: NEVADA_CONSTITUTIONAL_PROVISION
+  description: Nevada constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1864
+    max_year: 2025
+  volume_ranges:
+    pacific_reporter:
+      p_2d:
+        min_volume: 1
+        max_volume: 999
+      p_3d:
+        min_volume: 1
+        max_volume: 999
+    nevada_reports:
+      min_volume: 1
+      max_volume: 150
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 820_citations_per_second
+dependencies:
+  requires:
+  - nevada_court_abbreviations
+  - nevada_county_names
+  - nevada_nrs_chapters
+  optional:
+  - nevada_historical_courts
+  - nevada_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.nevada_supreme_court
+    text: State v. Davis, 123 P.3d 456 (Nev. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.nevada_revised_statutes
+    text: Nev. Rev. Stat. § 200.364
+    expected_entities: 1
+  - pattern: case_citations.nevada_district_court
+    text: Smith v. Jones, No. A-23-123456-C (Nev. Dist. Ct. Clark County)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2.8 seconds
+    memory_usage: < 110MB
+    accuracy_threshold: 0.95

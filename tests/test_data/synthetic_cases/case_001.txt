@@ -1,0 +1,54 @@
+UNITED STATES DISTRICT COURT
+SOUTHERN DISTRICT OF NEW YORK
+
+UNITED STATES OF AMERICA,
+                                        Plaintiff,
+            v.                                          Case No. 1:23-cr-00456-JMK
+
+MICHAEL HENDERSON,
+                                        Defendant.
+
+MEMORANDUM OPINION AND ORDER
+
+Before the Court is Defendant Michael Henderson's motion to suppress evidence obtained during a warrantless search of his vehicle on March 15, 2023. The Government opposes the motion. For the reasons set forth below, the motion is DENIED.
+
+I. BACKGROUND
+
+On March 15, 2023, at approximately 2:30 p.m., Officer Sarah Martinez of the New York Police Department initiated a traffic stop of Defendant's vehicle for a broken taillight on Interstate 95 near Exit 12. Upon approaching the vehicle, Officer Martinez observed Defendant acting nervously, avoiding eye contact, and exhibiting visible trembling. When asked for his license and registration, Defendant fumbled through the glove compartment, at which point Officer Martinez observed what appeared to be the corner of a plastic bag containing white powder.
+
+Officer Martinez immediately called for backup and requested Defendant to step out of the vehicle. Officer James Thompson arrived within minutes. Both officers conducted a pat-down search for weapons and then searched the vehicle's interior. Inside the glove compartment, officers discovered approximately 250 grams of cocaine and $15,000 in cash bundled in rubber bands.
+
+Defendant was arrested and charged with possession with intent to distribute cocaine in violation of 21 U.S.C. § 841(a)(1) and 18 U.S.C. § 2. He now moves to suppress the evidence, arguing that the warrantless search violated his Fourth Amendment rights under the United States Constitution.
+
+II. LEGAL STANDARD
+
+The Fourth Amendment protects individuals against unreasonable searches and seizures. U.S. Const. amend. IV. Warrantless searches are per se unreasonable unless they fall within a recognized exception to the warrant requirement. United States v. Johnson, 467 F.3d 56, 61 (2d Cir. 2006). One such exception is the automobile exception, which permits officers to search a vehicle without a warrant when they have probable cause to believe it contains contraband or evidence of criminal activity. Carroll v. United States, 267 U.S. 132, 156 (1925); see also United States v. Ross, 456 U.S. 798, 809 (1982).
+
+Additionally, the plain view doctrine allows officers to seize evidence without a warrant when: (1) the officer is lawfully in a position to view the object; (2) the incriminating character of the object is immediately apparent; and (3) the officer has a lawful right of access to the object. Horton v. California, 496 U.S. 128, 136-37 (1990).
+
+III. DISCUSSION
+
+A. The Traffic Stop Was Lawful
+
+The initial traffic stop was unquestionably lawful. Officer Martinez had reasonable suspicion to stop Defendant's vehicle based on the broken taillight, which constitutes a traffic violation under New York Vehicle and Traffic Law § 375(2)(a)(1). See Whren v. United States, 517 U.S. 806, 810 (1996) (holding that any traffic violation, no matter how minor, provides probable cause for a traffic stop).
+
+B. The Search Was Justified Under the Plain View Doctrine and Automobile Exception
+
+The Court finds that the search of Defendant's vehicle was justified under both the plain view doctrine and the automobile exception to the warrant requirement.
+
+First, Officer Martinez was lawfully positioned at the driver's side window when she observed what appeared to be narcotics in the glove compartment. The incriminating character of the white powder in a plastic bag was immediately apparent to a trained law enforcement officer. See United States v. Garcia, 652 F.3d 127, 135 (2d Cir. 2011) (holding that officers may rely on their training and experience to determine whether the incriminating nature of an object is immediately apparent).
+
+Second, once Officer Martinez observed the suspected narcotics, she had probable cause to believe the vehicle contained contraband, thereby justifying a warrantless search under the automobile exception. See United States v. Smith, 789 F.3d 456, 463 (2d Cir. 2015). The scope of the search was properly limited to areas where narcotics could reasonably be concealed, including the glove compartment where the cocaine was ultimately discovered.
+
+Defendant argues that Officer Martinez's observation was the result of an unlawful prolonged detention. However, the record establishes that the entire encounter, from the initial stop to the discovery of the narcotics, lasted approximately three minutes. This brief period falls well within the permissible scope of a routine traffic stop. See Rodriguez v. United States, 575 U.S. 348, 354 (2015).
+
+IV. CONCLUSION
+
+For the foregoing reasons, Defendant's motion to suppress is DENIED. The warrantless search of Defendant's vehicle was constitutional under both the plain view doctrine and the automobile exception to the warrant requirement.
+
+SO ORDERED this 14th day of September, 2023.
+
+/s/ Judge Janet M. Klein
+JANET M. KLEIN
+United States District Judge
+Southern District of New York

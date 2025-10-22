@@ -1,0 +1,117 @@
+{
+  "test_id": "test_20250905_180528",
+  "document": "Dobbs v. Jackson Women's Health Organization (2022)",
+  "timestamp": "20250905_180541",
+  "strategy_comparison": "# Strategy Comparison Report\n\n**Test ID:** test_20250905_180528\n**Document:** Dobbs v. Jackson Women's Health Organization (2022)\n**Date:** 2025-09-05T18:05:28.293733\n\n## Performance Overview\n\n| Mode | Strategy | Entities | Citations | Types Found | Coverage % | Time (s) | Avg Confidence |\n|------|----------|----------|-----------|-------------|------------|----------|----------------|\n| extraction | regex | 111 | 7 | 25 | 80.7% | 1.43 | 0.753 |\n| extraction | nlp_spacy | 128 | 9 | 23 | 74.2% | 3.17 | 0.866 |\n| extraction | ai_enhanced | 151 | 17 | 23 | 74.2% | 8.12 | 0.902 |\n| combined | hybrid | 130 | 10 | 27 | 87.1% | 5.18 | 0.887 |\n| specialized | legal_specialized | 191 | 22 | 29 | 93.5% | 10.07 | 0.917 |\n\n## Entity Type Distribution\n\n| Entity Type | extraction_regex | extraction_nlp_spacy | extraction_ai_enhanced | combined_hybrid | specialized_legal_specialized |\n|-------------|--------|--------|--------|--------|--------|\n| ADMINISTRATIVE_AGENCY | 1 | 2 | 1 | 0 | 2 |\n| ATTORNEY | 2 | 10 | 10 | 7 | 4 |\n| BURDEN_OF_PROOF | 2 | 1 | 2 | 1 | 1 |\n| CASE_CITATION | 7 | 9 | 17 | 10 | 22 |\n| CIRCUIT | 3 | 1 | 1 | 1 | 5 |\n| CLAIM | 0 | 0 | 0 | 2 | 0 |\n| CONCURRENCE | 1 | 0 | 3 | 0 | 2 |\n| CONSTITUTIONAL_PROVISION | 15 | 13 | 23 | 10 | 17 |\n| COURT | 19 | 18 | 19 | 23 | 23 |\n| DATE | 6 | 11 | 9 | 8 | 10 |\n| DISSENT | 3 | 1 | 0 | 1 | 2 |\n| DISTRICT | 2 | 1 | 1 | 2 | 4 |\n| DOCKET_NUMBER | 1 | 0 | 1 | 2 | 4 |\n| EVIDENCE | 0 | 1 | 1 | 1 | 2 |\n| EXCEPTION | 0 | 0 | 0 | 1 | 3 |\n| FOOTNOTE | 2 | 3 | 0 | 1 | 1 |\n| HOLDING | 11 | 10 | 14 | 9 | 15 |\n| JUDGE | 10 | 15 | 15 | 20 | 22 |\n| JURISDICTION | 2 | 2 | 1 | 3 | 2 |\n| LEGAL_CONCEPT | 2 | 0 | 0 | 1 | 3 |\n| LEGAL_DOCTRINE | 6 | 11 | 15 | 7 | 15 |\n| LEGAL_STANDARD | 2 | 1 | 0 | 0 | 1 |\n| OPINION_TYPE | 0 | 1 | 2 | 3 | 2 |\n| PARTY | 2 | 2 | 1 | 1 | 1 |\n| PRECEDENT | 0 | 1 | 2 | 1 | 1 |\n| PROCEDURAL_POSTURE | 0 | 2 | 2 | 1 | 4 |\n| REGULATION | 1 | 0 | 1 | 2 | 3 |\n| REMEDY | 1 | 0 | 2 | 2 | 2 |\n| RULE | 3 | 2 | 0 | 0 | 0 |\n| STANDARD_OF_REVIEW | 1 | 0 | 0 | 2 | 3 |\n| STATUTE | 6 | 10 | 8 | 8 | 15 |\n\n## Best Performers\n\n- **Best Coverage:** specialized_legal_specialized (93.5% - 29 types)\n- **Most Entities:** specialized_legal_specialized (191 entities)\n- **Fastest:** extraction_regex (1.43 seconds)\n",
+  "coverage_matrix": "# Entity Type Coverage Matrix\n\n**Total Entity Types:** 31\n\n## Coverage Summary\n\n- **Fully Covered (found by all):** 14 types\n- **Partially Covered:** 17 types\n- **Not Covered:** 0 types\n\n## Fully Covered Entity Types\n\n| Entity Type | Total Count | Found By |\n|-------------|-------------|----------|\n| COURT | 102 | All strategies |\n| JUDGE | 82 | All strategies |\n| CONSTITUTIONAL_PROVISION | 78 | All strategies |\n| CASE_CITATION | 65 | All strategies |\n| HOLDING | 59 | All strategies |\n| LEGAL_DOCTRINE | 54 | All strategies |\n| STATUTE | 47 | All strategies |\n| DATE | 44 | All strategies |\n| ATTORNEY | 33 | All strategies |\n| CIRCUIT | 11 | All strategies |\n| DISTRICT | 10 | All strategies |\n| JURISDICTION | 10 | All strategies |\n| BURDEN_OF_PROOF | 7 | All strategies |\n| PARTY | 7 | All strategies |\n\n## Partially Covered Entity Types\n\n| Entity Type | Total Count | Coverage | Found By |\n|-------------|-------------|----------|----------|\n| DOCKET_NUMBER | 8 | 80% | extraction_regex, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| REGULATION | 7 | 80% | extraction_regex, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| PRECEDENT | 5 | 80% | extraction_nlp_spacy, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| DISSENT | 7 | 80% | extraction_regex, extraction_nlp_spacy, combined_hybrid (+1 more) |\n| OPINION_TYPE | 8 | 80% | extraction_nlp_spacy, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| PROCEDURAL_POSTURE | 9 | 80% | extraction_nlp_spacy, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| ADMINISTRATIVE_AGENCY | 6 | 80% | extraction_regex, extraction_nlp_spacy, extraction_ai_enhanced (+1 more) |\n| FOOTNOTE | 7 | 80% | extraction_regex, extraction_nlp_spacy, combined_hybrid (+1 more) |\n| EVIDENCE | 5 | 80% | extraction_nlp_spacy, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| REMEDY | 7 | 80% | extraction_regex, extraction_ai_enhanced, combined_hybrid (+1 more) |\n| CONCURRENCE | 6 | 60% | extraction_regex, extraction_ai_enhanced, specialized_legal_specialized |\n| LEGAL_CONCEPT | 6 | 60% | extraction_regex, combined_hybrid, specialized_legal_specialized |\n| STANDARD_OF_REVIEW | 6 | 60% | extraction_regex, combined_hybrid, specialized_legal_specialized |\n| LEGAL_STANDARD | 4 | 60% | extraction_regex, extraction_nlp_spacy, specialized_legal_specialized |\n| EXCEPTION | 4 | 40% | combined_hybrid, specialized_legal_specialized |\n| RULE | 5 | 40% | extraction_regex, extraction_nlp_spacy |\n| CLAIM | 2 | 20% | combined_hybrid |\n",
+  "confidence_distribution": "# Confidence Score Distribution\n\n## Confidence Statistics by Strategy\n\n| Strategy | Avg Confidence | Min | Max | Std Dev | Entities w/ Confidence |\n|----------|----------------|-----|-----|---------|------------------------|\n| extraction_regex | 0.753 | 0.583 | 0.880 | 0.069 | 111 |\n| extraction_nlp_spacy | 0.866 | 0.657 | 0.987 | 0.078 | 128 |\n| extraction_ai_enhanced | 0.902 | 0.702 | 1.000 | 0.063 | 151 |\n| combined_hybrid | 0.887 | 0.716 | 0.999 | 0.060 | 130 |\n| specialized_legal_specialized | 0.917 | 0.732 | 0.999 | 0.068 | 191 |\n\n## Confidence Buckets\n\n\n### extraction_regex\n\n**High (0.8-0.9):** 3 entities\n  - Sample DOCKET_NUMBER text (DOCKET_NUMBER)\n  - Women's Health Protection Act (STATUTE)\n  - Equal Protection Clause (CONSTITUTIONAL_PROVISION)\n\n**Medium (0.7-0.8):** 11 entities\n  - The authority to regulate abortion returns to the  (HOLDING)\n  - Roe v. Wade, 410 U.S. 113 (1973) (CASE_CITATION)\n  - U.S. District Court for the Southern District of M (COURT)\n  - ... and 8 more\n\n**Low (0.6-0.7):** 5 entities\n  - Sample LEGAL_STANDARD text (LEGAL_STANDARD)\n  - constitutional right to privacy (LEGAL_DOCTRINE)\n  - The authority to regulate abortion returns to the  (HOLDING)\n  - ... and 2 more\n\n**Very Low (<0.6):** 1 entities\n  - Sample LEGAL_CONCEPT text (LEGAL_CONCEPT)\n\n\n### extraction_nlp_spacy\n\n**Very High (0.9-1.0):** 8 entities\n  - Women's Health Protection Act (STATUTE)\n  - Webster v. Reproductive Health Services, 492 U.S.  (CASE_CITATION)\n  - Sample FOOTNOTE text (FOOTNOTE)\n  - ... and 5 more\n\n**High (0.8-0.9):** 6 entities\n  - Sample JURISDICTION text (JURISDICTION)\n  - Supreme Court of the United States (COURT)\n  - Justice Alito (JUDGE)\n  - ... and 3 more\n\n**Medium (0.7-0.8):** 6 entities\n  - Sample PRECEDENT text (PRECEDENT)\n  - U.S. District Court for the Southern District of M (COURT)\n  - Mississippi Gestational Age Act (STATUTE)\n  - ... and 3 more\n\n\n### extraction_ai_enhanced\n\n**Very High (0.9-1.0):** 10 entities\n  - Tenth Amendment (CONSTITUTIONAL_PROVISION)\n  - Ninth Amendment (CONSTITUTIONAL_PROVISION)\n  - Sample DATE text (DATE)\n  - ... and 7 more\n\n**High (0.8-0.9):** 8 entities\n  - stare decisis (LEGAL_DOCTRINE)\n  - Due Process Clause (CONSTITUTIONAL_PROVISION)\n  - The Constitution does not confer a right to aborti (HOLDING)\n  - ... and 5 more\n\n**Medium (0.7-0.8):** 2 entities\n  - Sample ATTORNEY text (ATTORNEY)\n  - Sample PRECEDENT text (PRECEDENT)\n\n\n### combined_hybrid\n\n**Very High (0.9-1.0):** 12 entities\n  - Justice Alito (JUDGE)\n  - Supreme Court of the United States (COURT)\n  - Supreme Court of the United States (COURT)\n  - ... and 9 more\n\n**High (0.8-0.9):** 6 entities\n  - The Constitution does not confer a right to aborti (HOLDING)\n  - Mississippi Gestational Age Act (STATUTE)\n  - Sample PRECEDENT text (PRECEDENT)\n  - ... and 3 more\n\n**Medium (0.7-0.8):** 2 entities\n  - Sample REMEDY text (REMEDY)\n  - Fifth Circuit Court of Appeals (COURT)\n\n\n### specialized_legal_specialized\n\n**Very High (0.9-1.0):** 14 entities\n  - Justice Kavanaugh (JUDGE)\n  - Sample LEGAL_CONCEPT text (LEGAL_CONCEPT)\n  - Women's Health Protection Act (STATUTE)\n  - ... and 11 more\n\n**High (0.8-0.9):** 5 entities\n  - Texas Heartbeat Act (STATUTE)\n  - Sample CONCURRENCE text (CONCURRENCE)\n  - The authority to regulate abortion returns to the  (HOLDING)\n  - ... and 2 more\n\n**Medium (0.7-0.8):** 1 entities\n  - substantive due process (LEGAL_DOCTRINE)\n\n",
+  "quality_heatmap_data": {
+    "strategies": [
+      "extraction_regex",
+      "extraction_nlp_spacy",
+      "extraction_ai_enhanced",
+      "combined_hybrid",
+      "specialized_legal_specialized"
+    ],
+    "metrics": [
+      "entity_type_coverage",
+      "total_entities",
+      "total_citations",
+      "unique_entity_types",
+      "average_confidence",
+      "elapsed_time"
+    ],
+    "values": [
+      [
+        80.65,
+        111,
+        7,
+        25,
+        0.753,
+        0.6535947712418301
+      ],
+      [
+        74.19,
+        128,
+        9,
+        23,
+        0.866,
+        0.3058103975535168
+      ],
+      [
+        74.19,
+        151,
+        17,
+        23,
+        0.902,
+        0.12165450121654503
+      ],
+      [
+        87.1,
+        130,
+        10,
+        27,
+        0.887,
+        0.18939393939393942
+      ],
+      [
+        93.55,
+        191,
+        22,
+        29,
+        0.917,
+        0.09832841691248771
+      ]
+    ],
+    "normalized_values": [
+      [
+        0.33367768595041364,
+        0.0,
+        0.0,
+        0.3333333333333333,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.2125,
+        0.13333333333333333,
+        0.0,
+        0.6890243902439023,
+        0.3736620795107033
+      ],
+      [
+        0.0,
+        0.5,
+        0.6666666666666666,
+        0.0,
+        0.9085365853658536,
+        0.042008819951338226
+      ],
+      [
+        0.6668388429752065,
+        0.2375,
+        0.2,
+        0.6666666666666666,
+        0.8170731707317072,
+        0.16400331439393945
+      ],
+      [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ]
+    ]
+  },
+  "aggregate_metrics": {
+    "total_tests": 5,
+    "successful_tests": 5,
+    "failed_tests": 0,
+    "overall_coverage": 81.936,
+    "total_unique_entity_types": 31,
+    "average_extraction_time": 5.593999999999999
+  }
+}

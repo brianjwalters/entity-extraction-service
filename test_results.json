@@ -1,0 +1,56 @@
+{
+  "basic": {
+    "document_id": "test_basic",
+    "processing_time_ms": 25.24876594543457,
+    "entities": [
+      {
+        "text": "In Brown v. Board of Education, 347 U.S. 483 (1954)",
+        "label": "CASE_CITATION",
+        "start": 5,
+        "end": 56,
+        "confidence": 0.0,
+        "metadata": {}
+      }
+    ],
+    "entity_count": 1,
+    "relationships": [],
+    "relationship_count": 0,
+    "metadata": {
+      "document_id": "test_basic",
+      "pipeline_version": "1.0.0",
+      "patterns_used": 0,
+      "vllm_enabled": false
+    }
+  },
+  "complex": {
+    "document_id": "test_complex",
+    "processing_time_ms": 106.11629486083984,
+    "entities": [
+      {
+        "text": "15 U.S.C. \u00a7 78a",
+        "label": "USC_CITATION",
+        "start": 831,
+        "end": 846,
+        "confidence": 0.0,
+        "metadata": {}
+      },
+      {
+        "text": "Ashcroft v. Iqbal, 556 U.S. 662 (2009)",
+        "label": "CASE_CITATION",
+        "start": 1217,
+        "end": 1255,
+        "confidence": 0.0,
+        "metadata": {}
+      }
+    ],
+    "entity_count": 2,
+    "relationships": [],
+    "relationship_count": 0,
+    "metadata": {
+      "document_id": "test_complex",
+      "pipeline_version": "1.0.0",
+      "patterns_used": 0,
+      "vllm_enabled": false
+    }
+  }
+}

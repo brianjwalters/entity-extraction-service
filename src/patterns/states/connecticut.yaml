@@ -1,0 +1,203 @@
+metadata:
+  jurisdiction: connecticut
+  state_code: CT
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: connecticut
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: Connecticut legal entity extraction patterns
+patterns:
+- name: ct_supreme_court
+  pattern: (?P<volume>\d+)\s+Conn\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.95
+  entity_type: CASE_CITATION
+  entity_subtype: connecticut_supreme
+  components:
+    volume: 1
+    reporter: Conn.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Johnson, 348 Conn. 123 (2024)
+  - Doe v. City of Hartford, 347 Conn. 456, 460 (2023)
+- name: ct_supreme_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Conn\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.93
+  entity_type: CASE_CITATION
+  entity_subtype: connecticut_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Brown, 567 A.3d 890 (Conn. 2023)
+  - Smith v. Town of Greenwich, 456 A.2d 234 (Conn. 2022)
+- name: ct_appellate_court
+  pattern: (?P<volume>\d+)\s+Conn\.\s+App\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.91
+  entity_type: CASE_CITATION
+  entity_subtype: connecticut_appellate
+  components:
+    volume: 1
+    reporter: Conn. App.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - Johnson v. State, 223 Conn. App. 345 (2024)
+  - Brown v. Landlord, 222 Conn. App. 678, 681 (2023)
+- name: ct_appellate_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Conn\.\s+App\.\s+Ct\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.89
+  entity_type: CASE_CITATION
+  entity_subtype: connecticut_appellate_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Williams, 789 A.3d 123 (Conn. App. Ct. 2023)
+- name: ct_superior_court
+  pattern: (?P<volume>\d+)\s+Conn\.\s+Super\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.87
+  entity_type: CASE_CITATION
+  entity_subtype: connecticut_superior
+  components:
+    volume: 1
+    reporter: Conn. Super.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Davis, 67 Conn. Super. 234 (2023)
+- name: ct_general_statutes
+  pattern: "Conn\\.\\s+Gen\\.\\s+Stat\\.(?:\\s+Ann\\.)?\\s*\xA7\\s*(?P<section>\\d+[a-z]?(?:-\\d+[a-z]?)*(?:\\([a-z]\\))?(?:\\(\\d+\\))?)"
+  confidence_base: 0.94
+  entity_type: STATUTE_CITATION
+  entity_subtype: connecticut_general_statutes
+  components:
+    jurisdiction: Conn. Gen. Stat.
+    section: 1
+  examples:
+  - "Conn. Gen. Stat. \xA7 53a-70"
+  - "Conn. Gen. Stat. Ann. \xA7 52-570"
+  - "Conn. Gen. Stat. \xA7 46a-60(a)(1)"
+- name: ct_constitution
+  pattern: "Conn\\.\\s+Const\\.\\s+art\\.\\s+(?P<article>[IVX]+|\\d+)(?:,\\s*\xA7\\s*(?P<section>\\d+))?"
+  confidence_base: 0.96
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: connecticut_constitution
+  components:
+    jurisdiction: Conn.
+    article: 1
+    section: 2
+  examples:
+  - "Conn. Const. art. I, \xA7 8"
+  - "Conn. Const. art. III, \xA7 12"
+  - "Conn. Const. art. X, \xA7 1"
+- name: ct_administrative_regulations
+  pattern: "Conn\\.\\s+Agencies\\s+Regs\\.\\s+\xA7\\s*(?P<section>\\d+(?:-\\d+)*(?:[a-z])?(?:-\\d+)*)"
+  confidence_base: 0.89
+  entity_type: REGULATION_CITATION
+  entity_subtype: connecticut_administrative_regulations
+  components:
+    jurisdiction: Conn. Agencies Regs.
+    section: 1
+  examples:
+  - "Conn. Agencies Regs. \xA7 10-76d-1"
+  - "Conn. Agencies Regs. \xA7 19a-36-A1"
+entity_patterns:
+- name: ct_supreme_court_entity
+  pattern: (?:Connecticut\s+Supreme\s+Court|Conn\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+Connecticut)
+  entity_type: COURT
+  entity_subtype: connecticut_supreme
+  confidence_base: 0.97
+  attributes:
+    jurisdiction: Connecticut
+    court_level: supreme
+    authority_level: 1
+- name: ct_appellate_court_entity
+  pattern: (?:Connecticut\s+Appellate\s+Court|Conn\.\s+App\.\s+Ct\.|Appellate\s+Court\s+of\s+Connecticut)
+  entity_type: COURT
+  entity_subtype: connecticut_appellate
+  confidence_base: 0.94
+  attributes:
+    jurisdiction: Connecticut
+    court_level: appellate
+    authority_level: 2
+- name: ct_superior_court_entity
+  pattern: (?:Connecticut\s+Superior\s+Court|Conn\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+Connecticut)
+  entity_type: COURT
+  entity_subtype: connecticut_superior
+  confidence_base: 0.91
+  attributes:
+    jurisdiction: Connecticut
+    court_level: trial
+    authority_level: 3
+- name: ct_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+Connecticut\s+Supreme\s+Court|\s+\(Conn\.\s+Sup\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: connecticut_justice
+  confidence_base: 0.93
+  attributes:
+    jurisdiction: Connecticut
+    court_type: supreme
+validation:
+  year_range:
+  - 1784
+  - 2030
+  volume_limits:
+    conn_reports:
+    - 1
+    - 350
+    conn_app:
+    - 1
+    - 225
+    conn_super:
+    - 1
+    - 70
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  processing_speed: 870
+  memory_usage_mb: 125
+  accuracy_threshold: 0.9
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: State v. Johnson, 348 Conn. 123 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.95
+  - text: Connecticut Supreme Court held
+    expected_type: COURT
+    expected_confidence: 0.97
+  - text: "Conn. Gen. Stat. \xA7 53a-70"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.94
+  performance_benchmarks:
+    citation_extraction_rate: 870
+    entity_recognition_rate: 1230
+    memory_efficiency: 0.86
+entity_types:
+- name: CONNECTICUT_LEGAL_ENTITY
+  description: Connecticut legal entity or citation
+  confidence_threshold: 0.8

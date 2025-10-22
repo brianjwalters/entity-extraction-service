@@ -1,0 +1,36 @@
+[Unit]
+Description=Luris vLLM Performance Monitor
+After=network.target luris-vllm.service luris-entity-extraction.service
+Wants=luris-vllm.service
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/srv/luris/be/entity-extraction-service
+Environment="PYTHONPATH=/srv/luris/be/entity-extraction-service"
+Environment="VLLM_SERVICE_URL=http://localhost:8080"
+Environment="ENTITY_EXTRACTION_URL=http://localhost:8007"
+Environment="DOCUMENT_UPLOAD_URL=http://localhost:8008"
+Environment="MONITORING_INTERVAL=30"
+Environment="GPU_CHECK_INTERVAL=10"
+Environment="ENABLE_AUTO_RECOVERY=false"
+Environment="MAX_CONSECUTIVE_FAILURES=5"
+Environment="DASHBOARD_INTERVAL=300"
+
+ExecStart=/srv/luris/be/entity-extraction-service/venv/bin/python /srv/luris/be/entity-extraction-service/monitoring/monitor_service.py
+
+# Restart policy
+Restart=always
+RestartSec=10
+
+# Resource limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

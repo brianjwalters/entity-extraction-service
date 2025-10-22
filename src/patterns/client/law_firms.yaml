@@ -1,0 +1,167 @@
+metadata:
+  pattern_type: law_firms
+  jurisdiction: general
+  source_type: all
+  bluebook_compliance: 22nd_edition
+  pattern_version: '2.0'
+  created_date: '2025-08-22'
+  last_updated: '2025-08-28'
+  description: Law firm name and organization patterns for legal document extraction with negative lookaheads
+  optimization_notes: |
+    - Added negative lookaheads to prevent party role misclassification
+    - Require firm indicators (LLP, LLC, PC, etc.) for most patterns
+    - Lower priority (3-5) to allow party patterns to match first
+    - Target: <10ms per pattern execution
+law_firms:
+  law_firm_with_entity:
+    name: firm_entity_designation
+    pattern: '\b(?!.*(?:,\s*)?(?:Appellant|Appellee|Plaintiff|Defendant|Petitioner|Respondent|Judge|Justice|Magistrate)\b)[A-Z][A-Za-z'']+(?:\s+[A-Z&][A-Za-z'']*)*\s+(?:Law\s+)?(?:Firm|Group\s+P\.C\.|LLC|LLP|L\.L\.C\.|P\.(?:[CAL]\.|C\.|A\.|L\.L\.C\.|L\.C\.)|Professional\s+Corporation|Limited\s+Liability\s+(?:Partnership|Company))'
+    confidence: 0.95
+    priority: 3
+    entity_types:
+    - law_firm
+    - legal_organization
+    components:
+      firm_name: Law firm name
+      entity_type: Legal entity designation
+    examples:
+    - Smith & Associates Law Firm
+    - Johnson Legal LLC
+    - Davis & Partners LLP
+    - Wilson Law Group P.C.
+    - Brown Legal Services P.A.
+    - Chen, Rodriguez & Martinez Professional Corporation
+    - O'Sullivan McCarthy & Partners L.L.C.
+    - Van Der Berg International Law LLC
+  firm_with_attorneys:
+    name: firm_attorney_format
+    pattern: '\b(?!(?:Supreme|District|Circuit|Federal|State|City|County|Municipal|Appellate|Superior|Administrative|Tax|Bankruptcy|Criminal|Civil|Family|Probate|Juvenile|Traffic)\s+Court)(?!.*(?:,\s*)?(?:Appellant|Appellee|Plaintiff|Defendant|Petitioner|Respondent)\b)(?:[A-Z][A-Za-z'']+(?:,\s+[A-Z][A-Za-z'']+)+(?:\s+&\s+[A-Z][A-Za-z'']+)*|[A-Z][A-Za-z'']+\s+&\s+[A-Z][A-Za-z'']+(?:\s+[A-Z][A-Za-z'']+)*|[A-Z][A-Za-z'']+(?:\s+[A-Z][A-Za-z'']+)*\s+Law\s+(?:Firm|Group|Offices?))\b'
+    confidence: 0.88
+    priority: 4
+    entity_types:
+    - law_firm
+    - legal_organization
+    components:
+      attorney_names: Partner attorney names
+      firm_designation: Firm type designation
+    examples:
+    - Smith, Johnson & Associates
+    - Davis & Wilson Law Firm
+    - Brown, Miller & Thompson
+    - Anderson Law Group
+    - Chen, Park, Rodriguez & Martinez
+    - O'Sullivan & McCarthy Law Offices
+    - Van Der Berg, Thompson & Associates
+  biglaw_firm:
+    name: large_law_firm
+    pattern: \b(?:(?:[A-Z][A-Za-z']+\s+){1,4}(?:&\s+[A-Z][A-Za-z']+\s*)+(?:LLP|LLC|L\.L\.C\.|P\.C\.|P\.A\.)?|(?:[A-Z][A-Za-z']+\s+){1,4}(?:LLP|LLC|L\.L\.C\.|P\.C\.|P\.A\.))\b
+    confidence: 0.92
+    entity_types:
+    - law_firm
+    - legal_organization
+    components:
+      firm_name: Large law firm name
+      entity_type: Legal entity type
+    examples:
+    - Cravath Swaine & Moore LLP
+    - Skadden Arps Slate Meagher & Flom LLP
+    - Sullivan & Cromwell LLP
+    - Latham & Watkins LLP
+    - Kirkland & Ellis LLP
+    - Davis Polk & Wardwell LLP
+    - Wachtell Lipton Rosen & Katz
+    - Gibson Dunn & Crutcher LLP
+  solo_practice:
+    name: solo_practitioner_firm
+    pattern: \b[A-Z][a-z]+(?:\s+[A-Z]\.?)*(?:\s+[A-Z][a-z]+)*(?:\s+(?:Jr\.|Sr\.|III?|IV))?\s+(?:Law\s+Office|Attorney\s+at\s+Law|Legal\s+Services|P\.L\.L\.C\.)
+    confidence: 0.85
+    entity_types:
+    - law_firm
+    - solo_practice
+    components:
+      attorney_name: Solo practitioner name
+      practice_type: Practice designation
+    examples:
+    - John Smith Law Office
+    - Mary Johnson Attorney at Law
+    - Robert Davis Legal Services
+    - Sarah Wilson P.L.L.C.
+    - Michael J. Thompson III Attorney at Law
+    - Patricia Chen-Martinez Law Office
+    - Thomas O'Sullivan Jr. Legal Services
+  government_legal_office:
+    name: government_counsel_office
+    pattern: \b(?:Office\s+of\s+the\s+)?(?:Attorney\s+General|District\s+Attorney|Public\s+Defender|City\s+Attorney|County\s+Counsel|State\s+Attorney)(?:\s+of\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)?\b
+    confidence: 0.93
+    entity_types:
+    - government_legal_office
+    - legal_organization
+    components:
+      office_type: Government legal office type
+      jurisdiction: Geographic jurisdiction
+    examples:
+    - Office of the Attorney General
+    - District Attorney of Los Angeles County
+    - Public Defender of Washington State
+    - City Attorney of Seattle
+    - State Attorney of Florida
+    - County Counsel of San Francisco
+    - Attorney General of New York
+  public_interest_org:
+    name: public_interest_legal
+    pattern: \b(?:[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+)?(?:Legal\s+(?:Aid|Clinic|Services|Foundation)|Civil\s+Liberties\s+Union|Public\s+Interest\s+Law\s+(?:Firm|Center)|Law\s+Center|Community\s+Legal\s+Services|Justice\s+(?:Project|Center|Initiative))\b
+    confidence: 0.87
+    entity_types:
+    - public_interest_firm
+    - legal_organization
+    components:
+      organization_name: Public interest organization name
+      service_type: Type of legal services
+    examples:
+    - American Civil Liberties Union
+    - Legal Aid Foundation
+    - Public Interest Law Center
+    - Community Legal Services
+    - Northwest Justice Project
+    - Southern Poverty Law Center
+    - Electronic Frontier Foundation Legal Clinic
+  international_firm:
+    name: international_law_firm
+    pattern: \b[A-Z][a-z]+(?:\s+[A-Z&][a-z]*)*\s+(?:International|Global)(?:\s+Law)?\s*(?:Firm|LLP|LLC|P\.C\.)?\b
+    confidence: 0.9
+    entity_types:
+    - international_law_firm
+    - legal_organization
+    components:
+      firm_name: International firm name
+      scope: International designation
+    examples:
+    - Baker McKenzie International LLP
+    - DLA Piper Global Law Firm
+    - Norton Rose Fulbright International
+    - Dentons Global Law Firm
+    - Clifford Chance International LLP
+    - Allen & Overy International
+    - Linklaters Global LLP
+    - Freshfields Bruckhaus Deringer International
+entity_types:
+- name: law_firms
+  description: Law firms and legal organizations
+  priority: 1
+  requires_legal_designation: true
+- name: legal_organizations
+  description: Legal service organizations
+  priority: 2
+  requires_organization_type: true
+- name: solo_practices
+  description: Solo practitioner firms
+  priority: 3
+  requires_practitioner_name: true
+- name: government_legal_offices
+  description: Government legal departments
+  priority: 2
+  requires_government_designation: true
+- name: public_interest_firms
+  description: Public interest legal organizations
+  priority: 3
+  requires_public_service_mission: true

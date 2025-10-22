@@ -1,0 +1,199 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: illinois
+  state_abbreviation: Ill.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Illinois state citations and entities
+case_citations:
+  illinois_supreme_court:
+    name: illinois_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+240\s+Ill\.\s+2d\s+456,\s+789\s+\(Ill\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Illinois Reports or North Eastern Reporter volume
+      reporter: Ill. or N.E. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - People v. Johnson, 245 Ill. 2d 234 (Ill. 2023)
+    - Smith v. ABC Corp., 890 N.E.2d 567 (Ill. 2022)
+    - In re Estate of Brown, 240 Ill. 2d 456, 789 (Ill. 2021)
+    - People v. McDonald, 235 Ill. 2d 532 (Ill. 2009)
+    - City of Chicago v. Morales, 177 Ill. 2d 440 (Ill. 1997)
+  illinois_appellate_court:
+    name: illinois_appellate_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Ill\.?\s*App\.(?:\s*2d|3d)?|N\.E\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist\.(?:\s+Ill\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Illinois App Reports or North Eastern Reporter volume
+      reporter: Illinois appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      district: Appellate district number
+      year: Decision year
+    examples:
+    - Smith v. Jones, 396 Ill. App. 3d 567 (1st Dist. Ill. 2023)
+    - ABC Corp. v. XYZ Inc., 456 N.E.3d 789 (2nd Dist. Ill. 2022)
+    - People v. Brown, 384 Ill. App. 3d 345 (3rd Dist. 2021)
+  illinois_circuit_court:
+    name: illinois_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Cir\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Ill\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-L-001234 (1st Cir. Ct. Cook County, Ill.)
+    - ABC Corp. v. XYZ Inc., No. 22-CH-5678 (18th Cir. Ct. DuPage County, Ill. 2022)
+statute_citations:
+  illinois_compiled_statutes:
+    name: illinois_compiled_statutes_citation
+    pattern: (?P<chapter>\d+)\s+Ill\.\s+Comp\.\s+Stat\.\s+(?:Ann\.\s+)?(?P<act>\d+)\/(?P<section>[\d-]+(?:\.\d+)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      chapter: Illinois Compiled Statutes chapter number
+      act: Act number within chapter
+      section: Section number within act
+      year: Publication year
+    examples:
+    - 720 Ill. Comp. Stat. Ann. 5/9-1 (West 2023)
+    - 810 Ill. Comp. Stat. 5/13-101
+    - 735 Ill. Comp. Stat. 5/2-619
+    - 625 Ill. Comp. Stat. 5/11-501
+    - 775 Ill. Comp. Stat. 5/1-103
+    - 750 Ill. Comp. Stat. 5/503
+    - 815 Ill. Comp. Stat. 505/2
+  illinois_constitution:
+    name: illinois_constitution_citation
+    pattern: Ill\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Ill. Const. art. I, § 8
+    - Ill. Const. art. VI, § 12
+    - Ill. Const. art. XIII, § 1(a)
+regulation_citations:
+  illinois_administrative_code:
+    name: illinois_administrative_code_citation
+    pattern: Ill\.\s+Admin\.\s+Code\s+tit\.\s+(?P<title>\d+),\s+(?:§\s*)?(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Administrative Code title number
+      section: Administrative Code section number
+    examples:
+    - Ill. Admin. Code tit. 77, § 550.310
+    - Ill. Admin. Code tit. 23, § 1.100
+    - Ill. Admin. Code tit. 89, § 140.120
+court_system:
+  court_names:
+    illinois_supreme_court:
+      pattern: (?i)(?:Ill(?:inois)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Illinois)?
+      confidence: 0.95
+      level: supreme
+    illinois_appellate_court:
+      pattern: (?i)(?:Ill(?:inois)?\.\s+)?(?:Appellate\s+Court|App\.?\s+Ct\.?)(?:\s+(?P<district>\d+)(?:st|d|nd|rd|th)\s+Dist(?:rict)?\.?)?(?:\s+of\s+Illinois)?
+      confidence: 0.93
+      level: appellate
+      districts:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    illinois_circuit_court:
+      pattern: (?i)(?:Circuit\s+Court|Cir\.?\s+Ct\.?)(?:\s+of\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Cir(?:cuit)?\.?)?(?:\s+Ill(?:inois)?\.?)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: ILLINOIS_SUPREME_COURT_CASE
+  description: Illinois Supreme Court case citation
+  confidence_threshold: 0.95
+- name: ILLINOIS_APPELLATE_CASE
+  description: Illinois Appellate Court case citation
+  confidence_threshold: 0.9
+- name: ILLINOIS_CIRCUIT_COURT_CASE
+  description: Illinois Circuit Court case citation
+  confidence_threshold: 0.85
+- name: ILLINOIS_STATUTE
+  description: Illinois Compiled Statutes provision
+  confidence_threshold: 0.9
+- name: ILLINOIS_REGULATION
+  description: Illinois administrative regulation
+  confidence_threshold: 0.88
+- name: ILLINOIS_CONSTITUTIONAL_PROVISION
+  description: Illinois constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1818
+    max_year: 2025
+  volume_ranges:
+    illinois_reports:
+      ill_1st:
+        min_volume: 1
+        max_volume: 362
+      ill_2d:
+        min_volume: 1
+        max_volume: 250
+    illinois_app_reports:
+      ill_app_1st:
+        min_volume: 1
+        max_volume: 342
+      ill_app_2d:
+        min_volume: 1
+        max_volume: 372
+      ill_app_3d:
+        min_volume: 1
+        max_volume: 400
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 810_citations_per_second
+dependencies:
+  requires:
+  - illinois_court_abbreviations
+  - illinois_county_names
+  - illinois_judicial_circuits
+  optional:
+  - illinois_historical_courts
+  - illinois_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.illinois_supreme_court
+    text: People v. Johnson, 245 Ill. 2d 234 (Ill. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.illinois_compiled_statutes
+    text: 720 Ill. Comp. Stat. Ann. 5/9-1 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.illinois_appellate_court
+    text: Smith v. Jones, 396 Ill. App. 3d 567 (1st Dist. Ill. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.4 seconds
+    memory_usage: < 128MB
+    accuracy_threshold: 0.94

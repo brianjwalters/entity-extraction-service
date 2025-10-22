@@ -1,0 +1,194 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: missouri
+  state_abbreviation: Mo.
+  court_system: three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Missouri state citations and entities
+case_citations:
+  missouri_supreme_court:
+    name: missouri_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+615\s+S\.W\.3d\s+456,\s+789\s+\(Mo\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Missouri Reports or South Western Reporter volume
+      reporter: Mo. or S.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 628 S.W.3d 234 (Mo. 2023)
+    - Smith v. ABC Corp., 587 Mo. 567 (Mo. 2022)
+    - In re Estate of Brown, 615 S.W.3d 456, 789 (Mo. 2021)
+  missouri_court_of_appeals:
+    name: missouri_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Mo\.?\s*App\.|S\.W\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Mo\.\s*Ct\.\s*App\.\s*(?P<district>[EWSD]\.D\.)?\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Missouri App Reports or South Western Reporter volume
+      reporter: Missouri appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      district: Court of Appeals district (Eastern, Western, Southern)
+      year: Decision year
+    examples:
+    - Smith v. Jones, 456 Mo. App. 567 (Mo. Ct. App. E.D. 2023)
+    - ABC Corp. v. XYZ Inc., 612 S.W.3d 789 (Mo. Ct. App. W.D. 2022)
+    - People v. Brown, 434 Mo. App. 345 (Mo. Ct. App. S.D. 2021)
+  missouri_circuit_court:
+    name: missouri_circuit_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]{1,18}){0,4}(?>\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Jud\.?\s+Cir\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Mo\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: Circuit court case number
+      circuit: Judicial circuit number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 16SL-CV12345 (16th Jud. Cir. Ct. Jackson County, Mo.)
+    - ABC Corp. v. XYZ Inc., No. 22SL-CC67890 (22nd Jud. Cir. Ct. St. Louis County,
+      Mo. 2022)
+statute_citations:
+  missouri_revised_statutes:
+    name: missouri_revised_statutes_citation
+    pattern: Mo\.\s+(?:Rev\.\s+)?Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d\.]+(?:\s*[-–]\s*[\d\.]+)?(?:\s*to\s*[\d\.]+)?)(?:\s+\(West\s+(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Missouri Revised Statutes section number or range
+      year: Publication year
+    examples:
+    - Mo. Rev. Stat. Ann. § 565.020 (West 2023)
+    - Mo. Stat. §§ 452.300-452.415
+    - Mo. Rev. Stat. § 537.600
+  missouri_constitution:
+    name: missouri_constitution_citation
+    pattern: Mo\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Mo. Const. art. I, § 10
+    - Mo. Const. art. V, § 1
+    - Mo. Const. art. IX, § 2(a)
+regulation_citations:
+  missouri_code_of_state_regulations:
+    name: missouri_code_of_state_regulations_citation
+    pattern: (?P<title>\d+)\s+Mo\.\s+Code\s+Regs\.\s+(?P<section>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Code of State Regulations title number
+      section: Regulation section number
+    examples:
+    - 19 Mo. Code Regs. 30-31.020
+    - 10 Mo. Code Regs. 60-4.010
+    - 4 Mo. Code Regs. 240-2.060
+court_system:
+  court_names:
+    missouri_supreme_court:
+      pattern: (?i)(?:Mo(?:issouri)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Missouri)?
+      confidence: 0.95
+      level: supreme
+    missouri_court_of_appeals:
+      pattern: (?i)(?:Mo(?:issouri)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+(?P<district>Eastern|Western|Southern)\s+Dist(?:rict)?\.?)?(?:\s+of\s+Missouri)?
+      confidence: 0.93
+      level: appellate
+      districts:
+      - Eastern
+      - Western
+      - Southern
+    missouri_circuit_court:
+      pattern: (?i)(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:Circuit\s+Court|Jud\.?\s+Cir\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Mo(?:issouri)?\.?)?
+      confidence: 0.9
+      level: trial
+entity_types:
+- name: MISSOURI_SUPREME_COURT_CASE
+  description: Missouri Supreme Court case citation
+  confidence_threshold: 0.95
+- name: MISSOURI_APPELLATE_CASE
+  description: Missouri Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: MISSOURI_CIRCUIT_COURT_CASE
+  description: Missouri Circuit Court case citation
+  confidence_threshold: 0.85
+- name: MISSOURI_STATUTE
+  description: Missouri Revised Statutes provision
+  confidence_threshold: 0.9
+- name: MISSOURI_REGULATION
+  description: Missouri administrative regulation
+  confidence_threshold: 0.88
+- name: MISSOURI_CONSTITUTIONAL_PROVISION
+  description: Missouri constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1821
+    max_year: 2025
+  volume_ranges:
+    missouri_reports:
+      mo_1st:
+        min_volume: 1
+        max_volume: 365
+      mo_2d:
+        min_volume: 1
+        max_volume: 50
+    missouri_app_reports:
+      mo_app_1st:
+        min_volume: 1
+        max_volume: 240
+    south_western_reporter:
+      sw_1st:
+        min_volume: 1
+        max_volume: 300
+      sw_2d:
+        min_volume: 1
+        max_volume: 999
+      sw_3d:
+        min_volume: 1
+        max_volume: 700
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.96
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 805_citations_per_second
+dependencies:
+  requires:
+  - missouri_court_abbreviations
+  - missouri_county_names
+  - missouri_judicial_circuits
+  optional:
+  - missouri_historical_courts
+  - missouri_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.missouri_supreme_court
+    text: State v. Johnson, 628 S.W.3d 234 (Mo. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.missouri_revised_statutes
+    text: Mo. Rev. Stat. Ann. § 565.020 (West 2023)
+    expected_entities: 1
+  - pattern: case_citations.missouri_court_of_appeals
+    text: Smith v. Jones, 456 Mo. App. 567 (Mo. Ct. App. E.D. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.5 seconds
+    memory_usage: < 131MB
+    accuracy_threshold: 0.94

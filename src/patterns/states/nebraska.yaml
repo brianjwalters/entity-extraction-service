@@ -1,0 +1,196 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: nebraska
+  state_abbreviation: Neb.
+  court_system: two_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Nebraska state citations and entities
+case_citations:
+  nebraska_supreme_court:
+    name: nebraska_supreme_court_citation
+    pattern: In\s+re\s+Estate\s+of\s+Brown,\s+956\s+N\.W\.2d\s+456,\s+789\s+\(Neb\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Nebraska Reports or North Western Reporter volume
+      reporter: Neb. or N.W. reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - State v. Johnson, 967 N.W.2d 234 (Neb. 2023)
+    - Smith v. ABC Corp., 890 Neb. 567 (Neb. 2022)
+    - In re Estate of Brown, 956 N.W.2d 456, 789 (Neb. 2021)
+  nebraska_court_of_appeals:
+    name: nebraska_court_of_appeals_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<volume>\d{1,3})\s+(?P<reporter>Neb\.?\s*App\.|N\.W\.(?:\s*2d|3d)?)\s+(?P<page>\d{1,4})(?:\s*,\s*(?P<pinpoint>\d{1,4}(?:[-–]\d{1,4})?))?(?:\s*\(Neb\.\s*Ct\.\s*App\.\s*(?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Nebraska App Reports or North Western Reporter volume
+      reporter: Nebraska appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. Jones, 356 Neb. App. 567 (Neb. Ct. App. 2023)
+    - ABC Corp. v. XYZ Inc., 934 N.W.2d 789 (Neb. Ct. App. 2022)
+    - People v. Brown, 334 Neb. App. 345 (Neb. Ct. App. 2021)
+  nebraska_district_court:
+    name: nebraska_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>No\.\s*[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Jud\.?\s+Dist\.(?:\s+Ct\.)?(?:\s+(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Neb\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      county: County where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. CI23-1234 (4th Jud. Dist. Ct. Douglas County, Neb.)
+    - ABC Corp. v. XYZ Inc., No. CI22-5678 (3rd Jud. Dist. Ct. Lancaster County, Neb.
+      2022)
+statute_citations:
+  nebraska_revised_statutes:
+    name: nebraska_revised_statutes_citation
+    pattern: Neb\.\s+Rev\.\s+Stat\.\s+(?:Ann\.\s+)?(?:§§?\s*)?(?P<section>[\d-]+(?:\.[\d]+)?(?:\s*[-–]\s*[\d-]+(?:\.[\d]+)?)?(?:\s*to\s*[\d-]+(?:\.[\d]+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Nebraska Revised Statutes section number or range
+      year: Publication year
+    examples:
+    - Neb. Rev. Stat. Ann. § 28-105 (2023)
+    - Neb. Rev. Stat. §§ 42-901 to 42-925
+    - Neb. Rev. Stat. § 25-1401
+  nebraska_constitution:
+    name: nebraska_constitution_citation
+    pattern: Neb\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - Neb. Const. art. I, § 3
+    - Neb. Const. art. IV, § 16
+    - Neb. Const. art. VII, § 9(a)
+regulation_citations:
+  nebraska_administrative_code:
+    name: nebraska_administrative_code_citation
+    pattern: (?P<title>\d+)\s+Neb\.\s+Admin\.\s+Code\s+(?P<section>\d+(?:-\d+)*(?:\.\d+)*(?:\s*[-–]\s*\d+(?:-\d+)*(?:\.\d+)*)?)
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Administrative Code title number
+      section: Administrative Code section number
+    examples:
+    - 455 Neb. Admin. Code 1-003.01B
+    - 92 Neb. Admin. Code 81-003.05
+    - 175 Neb. Admin. Code 2-001
+court_system:
+  court_names:
+    nebraska_supreme_court:
+      pattern: (?i)(?:Neb(?:raska)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Nebraska)?
+      confidence: 0.95
+      level: supreme
+    nebraska_court_of_appeals:
+      pattern: (?i)(?:Neb(?:raska)?\.\s+)?(?:Court\s+of\s+Appeals|Ct\.?\s+of\s+App\.?)(?:\s+of\s+Nebraska)?
+      confidence: 0.93
+      level: appellate
+    nebraska_district_court:
+      pattern: (?i)(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Jud\.?\s+Dist\.?\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<county>[A-Z][a-z]+\s+County))?(?:\s+Neb(?:raska)?\.?)?
+      confidence: 0.9
+      level: trial
+    nebraska_county_court:
+      pattern: (?i)(?P<county>[A-Z][a-z]+)\s+County\s+(?:Court|Ct\.?)(?:\s+Neb(?:raska)?\.?)?
+      confidence: 0.88
+      level: limited_jurisdiction
+entity_types:
+- name: NEBRASKA_SUPREME_COURT_CASE
+  description: Nebraska Supreme Court case citation
+  confidence_threshold: 0.95
+- name: NEBRASKA_APPELLATE_CASE
+  description: Nebraska Court of Appeals case citation
+  confidence_threshold: 0.9
+- name: NEBRASKA_DISTRICT_COURT_CASE
+  description: Nebraska District Court case citation
+  confidence_threshold: 0.85
+- name: NEBRASKA_COUNTY_COURT_CASE
+  description: Nebraska County Court case citation
+  confidence_threshold: 0.83
+- name: NEBRASKA_STATUTE
+  description: Nebraska Revised Statutes provision
+  confidence_threshold: 0.9
+- name: NEBRASKA_REGULATION
+  description: Nebraska administrative regulation
+  confidence_threshold: 0.88
+- name: NEBRASKA_CONSTITUTIONAL_PROVISION
+  description: Nebraska constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1867
+    max_year: 2025
+  volume_ranges:
+    nebraska_reports:
+      neb_1st:
+        min_volume: 1
+        max_volume: 230
+      neb_2d:
+        min_volume: 1
+        max_volume: 50
+    nebraska_app_reports:
+      neb_app:
+        min_volume: 1
+        max_volume: 350
+    north_western_reporter:
+      nw_1st:
+        min_volume: 1
+        max_volume: 300
+      nw_2d:
+        min_volume: 1
+        max_volume: 999
+      nw_3d:
+        min_volume: 1
+        max_volume: 100
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.94
+  recall_target: 0.91
+  f1_target: 0.92
+  processing_speed: 765_citations_per_second
+dependencies:
+  requires:
+  - nebraska_court_abbreviations
+  - nebraska_county_names
+  - nebraska_judicial_districts
+  optional:
+  - nebraska_historical_courts
+  - nebraska_local_rules
+testing:
+  test_cases:
+  - pattern: case_citations.nebraska_supreme_court
+    text: State v. Johnson, 967 N.W.2d 234 (Neb. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.nebraska_revised_statutes
+    text: Neb. Rev. Stat. Ann. § 28-105 (2023)
+    expected_entities: 1
+  - pattern: case_citations.nebraska_court_of_appeals
+    text: Smith v. Jones, 356 Neb. App. 567 (Neb. Ct. App. 2023)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 4.1 seconds
+    memory_usage: < 139MB
+    accuracy_threshold: 0.92

@@ -1,0 +1,388 @@
+metadata:
+  jurisdiction: comprehensive
+  authority_level: mixed
+  bluebook_table: comprehensive
+  last_updated: '2025-01-09'
+  pattern_version: 1.0.0
+  maintainer: Legal Data Engineer
+  pattern_type: comprehensive_patterns
+  created_date: '2025-01-09'
+  description: Patterns for entity types that had examples but no patterns
+  
+patterns:
+# Case Information Entity Types
+- name: case_number_federal
+  pattern: (?P<court>\d+):(?P<year>\d{2})-(?P<type>cv|cr|ap|bk|md|misc)-(?P<number>\d{4,6})(?:-(?P<judge>[A-Z]{2,3}))?
+  confidence_base: 0.95
+  entity_type: CASE_NUMBER
+  entity_subtype: federal_case_number
+  components:
+    court: 1
+    year: 2
+    type: 3
+    number: 4
+    judge: 5
+  examples:
+  - "1:21-cv-5678-MW"
+  - "2:24-cr-1234-ABC"
+  - "9:23-ap-9876-XYZ"
+  - "3:22-bk-4567"
+  - "5:24-misc-7890-DEF"
+
+- name: case_number_state
+  pattern: (?P<year>\d{2,4})[-\s](?P<type>[A-Z]{1,4})[-\s](?P<number>\d{3,7})(?:[-\s](?P<suffix>[A-Z]{1,3}))?
+  confidence_base: 0.92
+  entity_type: CASE_NUMBER
+  entity_subtype: state_case_number
+  components:
+    year: 1
+    type: 2
+    number: 3
+    suffix: 4
+  examples:
+  - "2024-CV-123456"
+  - "23-CR-4567"
+  - "2024 FAM 7890"
+  - "22-PROB-5432-A"
+  - "2023-JUV-9876"
+
+- name: docket_number_supreme_court
+  pattern: (?P<term>\d{2})-(?P<number>\d{3,5})
+  confidence_base: 0.98
+  entity_type: DOCKET_NUMBER
+  entity_subtype: supreme_court_docket
+  components:
+    term: 1
+    number: 2
+  examples:
+  - "21-471"
+  - "22-5301"
+  - "24-123"
+  - "23-9876"
+  - "22-4567"
+
+- name: docket_number_appellate
+  pattern: (?P<court>No\.\s+)?(?P<year>\d{2,4})-(?P<number>\d{3,6})(?:\s+\((?P<district>[A-Z0-9\s]+)\))?
+  confidence_base: 0.94
+  entity_type: DOCKET_NUMBER
+  entity_subtype: appellate_docket
+  components:
+    court: 1
+    year: 2
+    number: 3
+    district: 4
+  examples:
+  - "No. 2024-1234"
+  - "23-5678 (5th Cir.)"
+  - "2024-9876"
+  - "22-3456 (D.C. Cir.)"
+  - "No. 2023-7890 (Fed. Cir.)"
+
+# Core Legal Documents
+- name: complaint_document
+  pattern: (?:(?P<plaintiff>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+)?(?P<type>Complaint|complaint)\s+(?P<action>for|against|in|seeking)\s+(?P<subject>[A-Z][a-z]+(?:\s+[A-Za-z]+)*)
+  confidence_base: 0.89
+  entity_type: COMPLAINT
+  entity_subtype: civil_complaint
+  components:
+    plaintiff: 1
+    type: 2
+    action: 3
+    subject: 4
+  examples:
+  - "Complaint for Breach of Contract"
+  - "Smith Complaint against XYZ Corp"
+  - "Complaint seeking Damages"
+  - "Doe Complaint for Civil Rights Violations"
+  - "complaint in Personal Injury"
+
+- name: complaint_formal
+  pattern: (?P<title>COMPLAINT\s+FOR\s+[A-Z\s]+)(?:\s+AND\s+[A-Z\s]+)*
+  confidence_base: 0.93
+  entity_type: COMPLAINT
+  entity_subtype: formal_complaint
+  components:
+    title: 1
+  examples:
+  - "COMPLAINT FOR DAMAGES"
+  - "COMPLAINT FOR BREACH OF CONTRACT"
+  - "COMPLAINT FOR CIVIL RIGHTS VIOLATIONS"
+  - "COMPLAINT FOR PERSONAL INJURY AND DAMAGES"
+  - "COMPLAINT FOR WRONGFUL TERMINATION"
+
+- name: pleading_document
+  pattern: (?P<type>Motion|Answer|Reply|Counterclaim|Cross-claim)\s+(?P<action>to|for|in|against)?\s*(?P<subject>[A-Z][a-z]+(?:\s+[A-Za-z]+)*)
+  confidence_base: 0.87
+  entity_type: PLEADING
+  entity_subtype: court_pleading
+  components:
+    type: 1
+    action: 2
+    subject: 3
+  examples:
+  - "Motion to Dismiss"
+  - "Answer to Complaint"
+  - "Reply in Support"
+  - "Counterclaim for Damages"
+  - "Motion for Summary Judgment"
+
+- name: brief_document
+  pattern: (?P<party>[A-Z][a-z]+(?:'s)?)\s+(?P<type>Brief|Memorandum)\s+(?P<action>in|for|on)\s+(?P<subject>[A-Z][a-z]+(?:\s+[A-Za-z]+)*)
+  confidence_base: 0.90
+  entity_type: BRIEF
+  entity_subtype: legal_brief
+  components:
+    party: 1
+    type: 2
+    action: 3
+    subject: 4
+  examples:
+  - "Plaintiff's Brief in Support"
+  - "Defendant's Memorandum for Summary Judgment"
+  - "Appellant's Brief on Appeal"
+  - "State's Brief in Opposition"
+  - "Respondent's Memorandum on Motion"
+
+- name: petition_document
+  pattern: (?P<type>Petition|Application)\s+(?P<action>for|to|seeking)\s+(?P<subject>[A-Z][a-z]+(?:\s+[A-Za-z]+)*)
+  confidence_base: 0.88
+  entity_type: PETITION
+  entity_subtype: court_petition
+  components:
+    type: 1
+    action: 2
+    subject: 3
+  examples:
+  - "Petition for Writ of Certiorari"
+  - "Application for Stay"
+  - "Petition seeking Relief"
+  - "Petition for Judicial Review"
+  - "Application to Proceed"
+
+# Legal Professionals
+- name: prosecutor_federal
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),?\s+(?P<title>U\.S\.\s+Attorney|United\s+States\s+Attorney|Assistant\s+U\.S\.\s+Attorney|Assistant\s+United\s+States\s+Attorney)(?:\s+for\s+the\s+(?P<district>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+District))?
+  confidence_base: 0.94
+  entity_type: PROSECUTOR
+  entity_subtype: federal_prosecutor
+  components:
+    name: 1
+    title: 2
+    district: 3
+  examples:
+  - "John Smith, U.S. Attorney"
+  - "Jane Doe, Assistant U.S. Attorney for the Southern District"
+  - "Robert Johnson, United States Attorney"
+  - "Mary Wilson, Assistant United States Attorney"
+  - "David Brown, U.S. Attorney for the Eastern District"
+
+- name: prosecutor_state
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),?\s+(?P<title>District\s+Attorney|State(?:'s)?\s+Attorney|County\s+Attorney|Prosecuting\s+Attorney|Commonwealth(?:'s)?\s+Attorney|Solicitor|Assistant\s+District\s+Attorney|Assistant\s+State(?:'s)?\s+Attorney)(?:\s+(?P<jurisdiction>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:County|Parish|District)))?
+  confidence_base: 0.92
+  entity_type: PROSECUTOR
+  entity_subtype: state_prosecutor
+  components:
+    name: 1
+    title: 2
+    jurisdiction: 3
+  examples:
+  - "Sarah Davis, District Attorney"
+  - "Michael Johnson, State's Attorney for Cook County"
+  - "Jennifer Wilson, County Attorney"
+  - "Thomas Anderson, Commonwealth's Attorney"
+  - "Lisa Martinez, Assistant District Attorney"
+
+- name: attorney_general
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),?\s+(?P<title>Attorney\s+General|U\.S\.\s+Attorney\s+General|United\s+States\s+Attorney\s+General|State\s+Attorney\s+General)(?:\s+of\s+(?P<jurisdiction>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*|the\s+United\s+States))?
+  confidence_base: 0.96
+  entity_type: ATTORNEY_GENERAL
+  entity_subtype: attorney_general
+  components:
+    name: 1
+    title: 2
+    jurisdiction: 3
+  examples:
+  - "Merrick Garland, Attorney General"
+  - "John Smith, U.S. Attorney General"
+  - "Jane Doe, State Attorney General of California"
+  - "Robert Johnson, Attorney General of the United States"
+  - "Mary Wilson, Attorney General of Texas"
+
+- name: public_defender
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),?\s+(?P<title>Public\s+Defender|Chief\s+Public\s+Defender|Assistant\s+Public\s+Defender|Federal\s+Public\s+Defender)(?:\s+(?P<jurisdiction>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\s+(?:County|Parish|District|Office)))?
+  confidence_base: 0.91
+  entity_type: PUBLIC_DEFENDER
+  entity_subtype: public_defender
+  components:
+    name: 1
+    title: 2
+    jurisdiction: 3
+  examples:
+  - "David Brown, Public Defender"
+  - "Sarah Davis, Chief Public Defender"
+  - "Michael Johnson, Assistant Public Defender"
+  - "Jennifer Wilson, Federal Public Defender"
+  - "Thomas Anderson, Public Defender for Harris County"
+
+# Criminal Law Terms
+- name: criminal_charge
+  pattern: (?P<degree>First|Second|Third|1st|2nd|3rd)?\s*(?P<class>Class\s+[A-F]|Felony|Misdemeanor)?\s*(?P<charge>[A-Z][a-z]+(?:\s+[A-Za-z]+)*)\s+(?P<type>charge|count|offense)
+  confidence_base: 0.88
+  entity_type: CRIMINAL_CHARGE
+  entity_subtype: criminal_charge
+  components:
+    degree: 1
+    class: 2
+    charge: 3
+    type: 4
+  examples:
+  - "First degree Murder charge"
+  - "Class A Felony count"
+  - "Second Assault offense"
+  - "Theft charge"
+  - "Third degree Burglary count"
+
+- name: criminal_offense
+  pattern: (?P<title>\d+\s+U\.S\.C\.\s+§\s+\d+(?:\([a-z0-9]+\))?)\s*-?\s*(?P<offense>[A-Z][a-z]+(?:\s+[A-Za-z]+)*)
+  confidence_base: 0.93
+  entity_type: CRIMINAL_OFFENSE
+  entity_subtype: federal_offense
+  components:
+    title: 1
+    offense: 2
+  examples:
+  - "18 U.S.C. § 1341 - Mail Fraud"
+  - "21 U.S.C. § 841(a) - Drug Trafficking"
+  - "18 U.S.C. § 922 - Firearms Violations"
+  - "18 U.S.C. § 371 - Conspiracy"
+  - "26 U.S.C. § 7201 - Tax Evasion"
+
+- name: sentence_term
+  pattern: (?P<duration>\d+(?:\.\d+)?)\s+(?P<unit>year|years|month|months|day|days)\s*(?P<type>sentence|imprisonment|incarceration|confinement)(?:\s+(?P<condition>with|without|plus)\s+(?P<additional>[a-z\s]+))?
+  confidence_base: 0.90
+  entity_type: SENTENCE
+  entity_subtype: prison_sentence
+  components:
+    duration: 1
+    unit: 2
+    type: 3
+    condition: 4
+    additional: 5
+  examples:
+  - "5 years imprisonment"
+  - "18 months sentence"
+  - "2.5 years confinement"
+  - "30 days imprisonment with probation"
+  - "10 years sentence without parole"
+
+- name: verdict_decision
+  pattern: (?P<type>guilty|not\s+guilty|acquittal|conviction|mistrial)(?:\s+(?P<subject>verdict|finding|decision|judgment))?(?:\s+(?P<charge>on|for|of)\s+(?P<offense>[A-Z][a-z]+(?:\s+[A-Za-z]+)*))?
+  confidence_base: 0.87
+  entity_type: VERDICT
+  entity_subtype: court_verdict
+  components:
+    type: 1
+    subject: 2
+    charge: 3
+    offense: 4
+  examples:
+  - "guilty verdict"
+  - "not guilty finding"
+  - "conviction on Murder"
+  - "acquittal verdict for Assault"
+  - "mistrial decision"
+
+- name: bail_amount
+  pattern: (?P<currency>\$)(?P<amount>\d{1,3}(?:,\d{3})*(?:\.\d{2})?)\s+(?P<type>bail|bond)(?:\s+(?P<condition>with|without)\s+(?P<terms>[a-z\s]+))?
+  confidence_base: 0.92
+  entity_type: BAIL
+  entity_subtype: bail_amount
+  components:
+    currency: 1
+    amount: 2
+    type: 3
+    condition: 4
+    terms: 5
+  examples:
+  - "$50,000 bail"
+  - "$100,000.00 bond"
+  - "$25,000 bail with conditions"
+  - "$500,000 bond without restrictions"
+  - "$1,000,000 bail"
+
+validation:
+  year_range:
+  - 1900
+  - 2030
+  case_number_validation: true
+  docket_format_check: true
+  title_case_validation: true
+  
+quality_metrics:
+  precision_target: 0.93
+  recall_target: 0.90
+  processing_speed: 750
+  memory_usage_mb: 95
+  accuracy_threshold: 0.87
+
+testing:
+  test_cases:
+  - text: "1:21-cv-5678-MW"
+    expected_type: CASE_NUMBER
+    expected_confidence: 0.95
+  - text: "Complaint for Breach of Contract"
+    expected_type: COMPLAINT
+    expected_confidence: 0.89
+  - text: "John Smith, U.S. Attorney"
+    expected_type: PROSECUTOR
+    expected_confidence: 0.94
+  - text: "18 U.S.C. § 1341 - Mail Fraud"
+    expected_type: CRIMINAL_OFFENSE
+    expected_confidence: 0.93
+  - text: "$50,000 bail"
+    expected_type: BAIL
+    expected_confidence: 0.92
+
+entity_types:
+- name: CASE_NUMBER
+  description: Court case identification numbers
+  confidence_threshold: 0.85
+- name: DOCKET_NUMBER
+  description: Court docket identification numbers
+  confidence_threshold: 0.85
+- name: COMPLAINT
+  description: Legal complaint documents
+  confidence_threshold: 0.80
+- name: PLEADING
+  description: Court pleading documents
+  confidence_threshold: 0.80
+- name: BRIEF
+  description: Legal brief documents
+  confidence_threshold: 0.80
+- name: PETITION
+  description: Court petition documents
+  confidence_threshold: 0.80
+- name: PROSECUTOR
+  description: Prosecuting attorneys
+  confidence_threshold: 0.85
+- name: ATTORNEY_GENERAL
+  description: Attorney General officials
+  confidence_threshold: 0.85
+- name: PUBLIC_DEFENDER
+  description: Public defender attorneys
+  confidence_threshold: 0.85
+- name: CRIMINAL_CHARGE
+  description: Criminal charges and counts
+  confidence_threshold: 0.80
+- name: CRIMINAL_OFFENSE
+  description: Federal criminal offenses
+  confidence_threshold: 0.85
+- name: SENTENCE
+  description: Prison sentences and terms
+  confidence_threshold: 0.85
+- name: VERDICT
+  description: Court verdicts and decisions
+  confidence_threshold: 0.80
+- name: BAIL
+  description: Bail and bond amounts
+  confidence_threshold: 0.85

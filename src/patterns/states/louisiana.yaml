@@ -1,0 +1,221 @@
+metadata:
+  pattern_type: state_jurisdiction
+  jurisdiction: louisiana
+  state_abbreviation: La.
+  court_system: civil_law_three_tier
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Louisiana state citations and entities
+    (civil law system)
+case_citations:
+  louisiana_supreme_court:
+    name: louisiana_supreme_court_citation
+    pattern: Succession\s+of\s+Brown,\s+234\s+So\.\s+2d\s+567,\s+890\s+\(La\.\s+2021\)
+    confidence: 0.98
+    priority: 95
+    components:
+      case_name: Full case name with parties
+      plaintiff: Plaintiff/petitioner name
+      defendant: Defendant/respondent name
+      volume: Reporter volume number
+      reporter: Louisiana Reports or Southern Reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      year: Decision year
+    examples:
+    - Smith v. State of Louisiana, 123 La. 456 (La. 2023)
+    - Johnson v. ABC Corp., 456 So. 3d 789 (La. 2022)
+    - Succession of Brown, 234 So. 2d 567, 890 (La. 2021)
+  louisiana_court_of_appeal:
+    name: louisiana_court_of_appeal_citation
+    pattern: Succession\s+of\s+Brown,\s+234\s+So\.\s+2d\s+567\s+\(La\.\s+Ct\.\s+App\.\s+2nd\s+Cir\.\s+2021\)
+    confidence: 0.95
+    priority: 90
+    components:
+      case_name: Full case name with parties
+      volume: Louisiana Appeals or Southern Reporter volume
+      reporter: Louisiana appellate reporter
+      page: Starting page number
+      pinpoint: Specific page or page range
+      circuit: Circuit court number
+      year: Decision year
+    examples:
+    - Smith v. Jones, 123 La. App. 456 (La. Ct. App. 1st Cir. 2023)
+    - State v. Johnson, 456 So. 3d 789 (La. App. 4th Cir. 2022)
+    - Succession of Brown, 234 So. 2d 567 (La. Ct. App. 2nd Cir. 2021)
+  louisiana_district_court:
+    name: louisiana_district_court_citation
+    pattern: (?P<case_name>(?P<plaintiff>[A-Z][^\s,v]+(?:\s+[A-Z][^\s,v]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?)\s+v\.\s+(?P<defendant>[A-Z][^\s,]+(?:\s+[A-Z][^\s,]*)*(?:\s+[A-Z][a-z]+\.)*(?:\s+(?:Inc|Corp|Co|LLC|Ltd)\.?)?))\s*,\s*(?P<docket_number>(?:No\.\s*)?[A-Z0-9-]+)(?:\s*\((?P<district>\d+)(?:st|d|nd|rd|th)\s+Judicial\s+District\s+Court(?:\s+(?P<parish>[A-Z][a-z]+\s+Parish))?(?:\s+La\.)?(?:\s+(?P<year>\d{4}))?\))?
+    confidence: 0.88
+    priority: 75
+    components:
+      case_name: Full case name with parties
+      docket_number: District court case number
+      district: Judicial district number
+      parish: Parish where case was filed
+      year: Decision year
+    examples:
+    - Smith v. Jones, No. 2023-12345 (15th Judicial District Court, Orleans Parish,
+      La.)
+    - ABC Corp. v. XYZ Inc., CV-22-987654 (19th Judicial District, East Baton Rouge
+      Parish, La. 2022)
+statute_citations:
+  louisiana_revised_statutes:
+    name: louisiana_revised_statutes_citation
+    pattern: La\.\s+(?:Rev\.\s+Stat\.\s+Ann\.|R\.S\.)\s+(?:§§?\s*)?(?P<section>\d+(?:-\d+)?:\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:-\d+)?:\d+(?:\.\d+)?)?)(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.95
+    priority: 90
+    components:
+      section: Revised statutes section number
+      year: Publication year
+    examples:
+    - La. Rev. Stat. Ann. § 14:30 (2023)
+    - La. R.S. §§ 9:315.1-9:315.15
+    - La. Rev. Stat. Ann. § 23:1021.1
+  louisiana_civil_code:
+    name: louisiana_civil_code_citation
+    pattern: La\.\s+(?:Civ\.\s+Code\s+Ann\.|C\.C\.)\s+(?:art\.\s*)?(?P<article>\d{1,4})(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.96
+    priority: 92
+    components:
+      article: Civil Code article number
+      year: Publication year
+    examples:
+    - La. Civ. Code Ann. art. 2315 (2023)
+    - La. C.C. art. 1983
+    - La. Civ. Code Ann. art. 103
+  louisiana_code_of_civil_procedure:
+    name: louisiana_ccp_citation
+    pattern: La\.\s+Code\s+(?:Civ\.\s+P\.|of\s+Civ\.\s+Proc\.)\s+(?:art\.\s*)?(?P<article>\d{1,4})(?:\s+\((?P<year>\d{4})\))?
+    confidence: 0.94
+    priority: 88
+    components:
+      article: Code of Civil Procedure article number
+      year: Publication year
+    examples:
+    - La. Code Civ. P. art. 966 (2023)
+    - La. Code of Civ. Proc. art. 1425
+  louisiana_constitution:
+    name: louisiana_constitution_citation
+    pattern: La\.\s+Const\.\s+(?:(?P<article>art\.\s*(?P<art_num>[IVXLCDM]+|\d+))(?:\s*,\s*§\s*(?P<section>\d+(?:[a-z])?(?:\((?:[a-z]|\d+)\))?)))?
+    confidence: 0.93
+    priority: 85
+    components:
+      article: Constitutional article reference
+      art_num: Article number
+      section: Article section with possible subsections
+    examples:
+    - La. Const. art. I, § 3
+    - La. Const. art. IV, § 5
+    - La. Const. art. XII, § 3(A)
+regulation_citations:
+  louisiana_administrative_code:
+    name: louisiana_administrative_code_citation
+    pattern: La\.\s+Admin\.\s+Code\s+(?:tit\.\s*)?(?P<title>\d+)(?:\s*[:]\s*(?P<section>\d+(?:\.\d+)*(?:\s*[-–]\s*\d+(?:\.\d+)*)?)?)?
+    confidence: 0.92
+    priority: 80
+    components:
+      title: Title number
+      section: Regulation section number
+    examples:
+    - La. Admin. Code tit. 28:I.301
+    - La. Admin. Code tit. 46:XXI.301-305
+    - La. Admin. Code tit. 4:I.501
+court_system:
+  court_names:
+    louisiana_supreme_court:
+      pattern: (?i)(?:La(?:uisiana)?\.\s+)?(?:Supreme\s+Court|Sup\.\s*Ct\.?)(?:\s+of\s+Louisiana)?
+      confidence: 0.95
+      level: supreme
+    louisiana_court_of_appeal:
+      pattern: (?i)(?:La(?:uisiana)?\.\s+)?(?:Court\s+of\s+Appeal|Ct\.?\s+of\s+App\.?)(?:\s+(?P<circuit>\d+)(?:st|d|nd|rd|th)\s+Circuit)?(?:\s+of\s+Louisiana)?
+      confidence: 0.94
+      level: appellate
+      circuits:
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - 5th
+    louisiana_district_court:
+      pattern: (?i)(?:La(?:uisiana)?\.\s+)?(?P<district>\d+)(?:st|d|nd|rd|th)\s+(?:Judicial\s+)?(?:District\s+Court|Dist\.\s+Ct\.?)(?:\s+(?:of\s+|for\s+)(?P<parish>[A-Z][a-z]+\s+Parish))?
+      confidence: 0.9
+      level: trial
+    louisiana_city_court:
+      pattern: (?i)(?:La(?:uisiana)?\.\s+)?(?P<city>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:City\s+Court|Municipal\s+Court)
+      confidence: 0.88
+      level: trial
+entity_types:
+- name: LOUISIANA_SUPREME_COURT_CASE
+  description: Louisiana Supreme Court case citation
+  confidence_threshold: 0.95
+- name: LOUISIANA_APPEALS_CASE
+  description: Louisiana Court of Appeal case citation
+  confidence_threshold: 0.92
+- name: LOUISIANA_DISTRICT_COURT_CASE
+  description: Louisiana District Court case citation
+  confidence_threshold: 0.85
+- name: LOUISIANA_REVISED_STATUTE
+  description: Louisiana Revised Statutes provision
+  confidence_threshold: 0.9
+- name: LOUISIANA_CIVIL_CODE
+  description: Louisiana Civil Code article
+  confidence_threshold: 0.92
+- name: LOUISIANA_CODE_CIVIL_PROCEDURE
+  description: Louisiana Code of Civil Procedure article
+  confidence_threshold: 0.88
+- name: LOUISIANA_REGULATION
+  description: Louisiana administrative regulation
+  confidence_threshold: 0.88
+- name: LOUISIANA_CONSTITUTIONAL_PROVISION
+  description: Louisiana constitutional provision
+  confidence_threshold: 0.9
+validation:
+  year_range:
+    min_year: 1812
+    max_year: 2025
+  volume_ranges:
+    southern_reporter:
+      so_2d:
+        min_volume: 1
+        max_volume: 999
+      so_3d:
+        min_volume: 1
+        max_volume: 999
+    louisiana_reports:
+      min_volume: 1
+      max_volume: 500
+  page_validation:
+    min_page: 1
+    max_page: 9999
+quality_metrics:
+  precision_target: 0.97
+  recall_target: 0.94
+  f1_target: 0.95
+  processing_speed: 740_citations_per_second
+dependencies:
+  requires:
+  - louisiana_court_abbreviations
+  - louisiana_parish_names
+  - louisiana_judicial_districts
+  - louisiana_appellate_circuits
+  optional:
+  - louisiana_historical_courts
+  - louisiana_civil_law_terminology
+testing:
+  test_cases:
+  - pattern: case_citations.louisiana_supreme_court
+    text: Smith v. State of Louisiana, 123 La. 456 (La. 2023)
+    expected_entities: 1
+  - pattern: statute_citations.louisiana_civil_code
+    text: La. Civ. Code Ann. art. 2315 (2023)
+    expected_entities: 1
+  - pattern: case_citations.louisiana_court_of_appeal
+    text: State v. Johnson, 456 So. 3d 789 (La. App. 4th Cir. 2022)
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 3.3 seconds
+    memory_usage: < 132MB
+    accuracy_threshold: 0.95

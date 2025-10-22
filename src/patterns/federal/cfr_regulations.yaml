@@ -1,0 +1,394 @@
+metadata:
+  pattern_type: cfr_regulations
+  jurisdiction: federal
+  source_type: regulatory
+  bluebook_compliance: 22nd_edition
+  pattern_version: '1.0'
+  created_date: '2025-07-29'
+  last_updated: '2025-07-29'
+  description: Complete pattern library for Code of Federal Regulations citations and regulatory entities
+cfr_citations:
+  basic_cfr_citation:
+    name: cfr_basic_citation
+    pattern: "(?P<full_citation>(?P<title>\\d{1,2})\\s+C\\.F\\.R\\.\\s+(?:\xA7\\s*)?(?P<section>\\d+(?:\\.\\d+[a-z]?(?:-\\\
+      d+)?)*(?:\\([a-zA-Z0-9]+\\))*))(?:\\s*\\((?P<year>\\d{4})\\))?(?:\\s*\\((?P<status>superseded|repealed|amended)\\))?"
+    confidence: 0.97
+    components:
+      full_citation: Complete CFR citation
+      title: CFR title number
+      section: Section number with subdivisions
+      year: Publication year
+    examples:
+    - "17 C.F.R. \xA7 240.10b-5"
+    - "29 C.F.R. \xA7 1910.95(a)(1)"
+    - "40 C.F.R. \xA7 122.21 (2023)"
+    - "40 C.F.R. \xA7 261.3(a)(2)"
+    - "17 C.F.R. \xA7 240.10b-5 (1990) (superseded)"
+  cfr_range_citation:
+    name: cfr_section_range
+    pattern: "(?P<full_citation>(?P<title>\\d{1,2})\\s+C\\.F\\.R\\.\\s+\xA7\xA7\\s*(?P<start_section>\\d+(?:\\.\\d+)*(?:\\\
+      ([a-z]\\))?(?:\\(\\d+\\))*(?:\\([a-z]+\\))*(?:\\([A-Z]+\\))*)-(?P<end_section>\\d+(?:\\.\\d+)*(?:\\([a-z]\\))?(?:\\\
+      (\\d+\\))*(?:\\([a-z]+\\))*(?:\\([A-Z]+\\))*))"
+    confidence: 0.94
+    components:
+      full_citation: Complete CFR range citation
+      title: CFR title number
+      start_section: Starting section number
+      end_section: Ending section number
+    examples:
+    - "17 C.F.R. \xA7\xA7 240.1-240.10"
+    - "29 C.F.R. \xA7\xA7 1910.95-1910.97"
+  cfr_part_citation:
+    name: cfr_part_citation
+    pattern: (?P<full_citation>(?P<title>\d{1,2})\s+C\.F\.R\.\s+(?:pt\.|part)\s*(?P<part>\d+)(?:\s*,\s*(?:subpt\.|subpart)\s*(?P<subpart>[A-Z]))?)
+    confidence: 0.95
+    components:
+      full_citation: Complete CFR part citation
+      title: CFR title number
+      part: Part number
+      subpart: Subpart letter (optional)
+    examples:
+    - 17 C.F.R. pt. 240
+    - 29 C.F.R. part 1910, subpart G
+cfr_titles:
+  securities_title17:
+    name: title17_securities_regulations
+    pattern: "(?P<citation>17\\s+C\\.F\\.R\\.\\s+(?:\xA7\\s*)?(?P<section>24[0-9]\\.\\d+[a-z]?(?:-\\d+)?(?:\\([a-z]\\))?(?:\\\
+      (\\d+\\))*))(?:\\s*\\((?P<year>\\d{4})\\))?(?:\\s*\\((?P<status>superseded|repealed|amended)\\))?"
+    confidence: 0.96
+    components:
+      citation: Complete Title 17 CFR citation
+      section: Securities regulation section
+      year: Publication year
+    key_regulations:
+      240.10b-5: Employment of manipulative and deceptive devices
+      240.14a-9: False or misleading statements in proxy materials
+      240.3a4-1: Investment adviser exemption
+    examples:
+    - "17 C.F.R. \xA7 240.10b-5"
+    - "17 C.F.R. \xA7 240.14a-9(a)"
+  labor_title29:
+    name: title29_labor_regulations
+    pattern: "(?P<citation>29\\s+C\\.F\\.R\\.\\s+\xA7\\s*(?P<section>19\\d{2}\\.\\d+(?:\\([a-z]\\))?(?:\\(\\d+\\))*))(?:\\\
+      s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.96
+    components:
+      citation: Complete Title 29 CFR citation
+      section: Labor regulation section
+      year: Publication year
+    key_parts:
+      '1910': Occupational Safety and Health Standards
+      '1926': Safety and Health Regulations for Construction
+      '1904': Recording and Reporting Occupational Injuries and Illnesses
+    examples:
+    - "29 C.F.R. \xA7 1910.95"
+    - "29 C.F.R. \xA7 1926.95(a)"
+  environmental_title40:
+    name: cfr_titles.environmental_title40
+    pattern: "(?P<citation>40\\s+C\\.F\\.R\\.\\s+\xA7\\s*(?P<section>(?:2[0-9]{2}|[1-9]\\d{1,2})\\.\\d+(?:\\([a-z]+\\))*(?:\\\
+      (\\d+\\))*))(?:\\s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.95
+    examples: []
+  immigration_title8:
+    name: title8_immigration_regulations
+    pattern: "(?P<citation>8\\s+C\\.F\\.R\\.\\s+\xA7\\s*(?P<section>(?:10[0-9]|[1-9]\\d{1,2})\\.\\d+(?:\\([a-z]\\))?(?:\\\
+      (\\d+\\))*))(?:\\s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.95
+    components:
+      citation: Complete Title 8 CFR citation
+      section: Immigration regulation section
+      year: Publication year
+    key_parts:
+      '103': Immigration Benefit Request Processing Procedures
+      '214': Nonimmigrant Classes
+      '245': Adjustment of Status to Permanent Resident
+    examples:
+    - "8 C.F.R. \xA7 214.2(h)"
+    - "8 C.F.R. \xA7 245.1(a)"
+  tax_title26:
+    name: title26_tax_regulations
+    pattern: "(?P<citation>26\\s+C\\.F\\.R\\.\\s+\xA7\\s*(?P<section>\\d+\\.\\d+(?:-\\d+)?(?:\\([a-z]\\))?(?:\\(\\d+\\))*))(?:\\\
+      s*\\((?P<year>\\d{4})\\))?"
+    confidence: 0.96
+    components:
+      citation: Complete Title 26 CFR citation
+      section: Tax regulation section
+      year: Publication year
+    regulation_types:
+      1.xxx: Income Tax Regulations
+      20.xxx: Estate Tax Regulations
+      25.xxx: Gift Tax Regulations
+      301.xxx: Procedure and Administration
+    examples:
+    - "26 C.F.R. \xA7 1.162-1"
+    - "26 C.F.R. \xA7 301.9100-1(a)"
+federal_register:
+  final_rule:
+    name: federal_register_final_rule
+    pattern: (?P<citation>(?P<volume>\d+)\s+Fed\.\s*Reg\.\s+(?P<page>\d+(?:,\d+)*)(?:\s*,\s*(?P<pinpoint>\d+(?:,\d+)*))?(?:\s*\((?P<date>[A-Z][a-z]+\s+\d{1,2},\s*\d{4})\))?(?:\s*\((?P<rule_type>final\s+rule|interim\s+final\s+rule|proposed\s+rule|proposed|superseded|withdrawn|corrected|amended)\))?)
+    confidence: 0.93
+    components:
+      citation: Complete Federal Register citation
+      volume: Federal Register volume
+      page: Starting page number
+      pinpoint: Specific page reference
+      date: Publication date
+      rule_type: Type of rulemaking
+    examples:
+    - 85 Fed. Reg. 12345 (Mar. 15, 2020)
+    - 86 Fed. Reg. 54321, 54325 (Sept. 30, 2021) (final rule)
+    - 86 Fed. Reg. 12345 (Mar. 1, 2021) (proposed)
+  proposed_rule:
+    name: federal_register_proposed_rule
+    pattern: "(?P<citation>(?P<volume>\\d+)\\s+Fed\\.\\s*Reg\\.\\s+(?P<page>\\d+(?:,\\d+)*)(?:\\s*\\((?P<date>[A-Z][a-z]+\\\
+      s+\\d{1,2},\\s*\\d{4})\\))?(?:\\s*\\((?P<rule_status>proposed|superseded|to\\s+be\\s+codified\\s+at\\s+(?P<cfr_location>\\\
+      d+\\s+C\\.F\\.R\\.\\s+(?:pt\\.|\xA7)\\s*\\d+(?:\\.\\d+[a-z]?(?:-\\d+)?)*))\\))?)"
+    confidence: 0.91
+    components:
+      citation: Complete proposed rule citation
+      volume: Federal Register volume
+      page: Starting page number
+      date: Publication date
+      rule_status: Proposed rule indicator
+      cfr_location: Future CFR location
+    examples:
+    - 86 Fed. Reg. 12345 (Mar. 1, 2021) (proposed)
+    - "87 Fed. Reg. 54321 (to be codified at 17 C.F.R. \xA7 240.10b-5)"
+agencies:
+  sec_releases:
+    name: sec_release_citation
+    pattern: (?P<release_type>(?:Securities\s+)?(?:Act\s+)?Release\s+No\.\s*)(?P<release_number>(?:33-|34-|35-|IC-|IA-)?\d+)(?:\s*\((?P<date>[A-Z][a-z]+\s+\d{1,2},\s*\d{4})\))?
+    confidence: 0.94
+    components:
+      release_type: Type of SEC release
+      release_number: Release number with series prefix
+      date: Release date
+    series_codes:
+      33-: Securities Act of 1933
+      34-: Securities Exchange Act of 1934
+      35-: Public Utility Holding Company Act
+      IC-: Investment Company Act
+      IA-: Investment Advisers Act
+    examples:
+    - Securities Act Release No. 33-10889 (May 21, 2021)
+    - Release No. 34-92038
+  irs_guidance:
+    name: irs_guidance_citation
+    pattern: (?P<guidance_type>(?:Rev\.\s*Rul\.|Rev\.\s*Proc\.|Notice|Ann\.|PLR|TAM|CCA))\s*(?P<year>\d{4})-(?P<number>\d+)
+    confidence: 0.95
+    components:
+      guidance_type: Type of IRS guidance
+      year: Publication year
+      number: Sequential number within year
+    guidance_types:
+      Rev. Rul.: Revenue Ruling
+      Rev. Proc.: Revenue Procedure
+      Notice: IRS Notice
+      Ann.: IRS Announcement
+      PLR: Private Letter Ruling
+      TAM: Technical Advice Memorandum
+      CCA: Chief Counsel Advice
+    examples:
+    - Rev. Rul. 2021-15
+    - Notice 2022-41
+  osha_standards:
+    name: osha_standard_citation
+    pattern: "(?P<standard>29\\s+C\\.F\\.R\\.\\s+\xA7\\s*(?P<section>19(?:10|26)\\.\\d+))(?:\\s*\\((?P<subsection>[a-z]\\\
+      )(?:\\(\\d+\\))*))?\\s*(?P<standard_name>\\([^)]+\\))?"
+    confidence: 0.93
+    components:
+      standard: OSHA standard citation
+      section: Specific OSHA section
+      subsection: Subsection reference
+      standard_name: Standard name in parentheses
+    examples:
+    - "29 C.F.R. \xA7 1910.95 (Occupational noise exposure)"
+    - "29 C.F.R. \xA7 1926.95(a)(1)"
+administrative:
+  administrative_procedure_act:
+    name: administrative.administrative_procedure_act
+    pattern: "(?P<apa_section>5\\s+U\\.S\\.C\\.\\s+\xA7\\s*(?P<section>(?:55[1-9]|56[0-9]|57[0-6]|70[0-6]|701|702|703|704|705|706|707|708|709|710|711|712))(?:\\\
+      ((?P<subsection>[0-9]+(?:\\)\\([A-Za-z]+)*)\\))?)"
+    confidence: 0.95
+    examples: []
+  chevron_deference:
+    name: chevron_reference
+    pattern: (?P<chevron_ref>Chevron(?:\s+deference|,?\s*U\.S\.A\.?,?\s*Inc\.\s+v\.\s*(?:Natural\s+Resources\s+Defense\s+Council|NRDC)))
+    confidence: 0.91
+    components:
+      chevron_ref: Chevron deference reference
+    examples:
+    - Chevron deference
+    - Chevron, U.S.A., Inc. v. Natural Resources Defense Council
+short_forms:
+  cfr_short_form:
+    name: cfr_short_citation
+    pattern: "(?P<short_cite>\xA7\\s*(?P<section>\\d+(?:\\.\\d+[a-z]?(?:-\\d+)?)*(?:\\([a-zA-Z0-9]+\\))*))"
+    confidence: 0.87
+    components:
+      short_cite: Short form section reference
+      section: Section number with subdivisions
+    examples:
+    - "\xA7 240.10b-5"
+    - "\xA7 1910.95(a)"
+  part_reference:
+    name: cfr_part_reference
+    pattern: (?P<part_ref>(?:pt\.|part)\s*(?P<part>\d+)(?:\s*,\s*(?:subpt\.|subpart)\s*(?P<subpart>[A-Z]))?)
+    confidence: 0.88
+    components:
+      part_ref: Part reference
+      part: Part number
+      subpart: Subpart letter
+    examples:
+    - pt. 240
+    - part 1910, subpart G
+historical:
+  superseded_regulation:
+    name: superseded_cfr_citation
+    pattern: "(?P<citation>(?P<title>\\d{1,2})\\s+C\\.F\\.R\\.\\s+\xA7\\s*(?P<section>\\d+(?:\\.\\d+[a-z]?(?:-\\d+)?)*(?:\\\
+      ([a-z]\\))?(?:\\(\\d+\\))*)\\s*\\((?P<year>\\d{4})\\)\\s*\\((?P<status>superseded|repealed|amended)\\))"
+    confidence: 0.85
+    components:
+      citation: Superseded CFR citation
+      title: CFR title number
+      section: Section number
+      year: Year of superseded version
+      status: Current status
+    examples:
+    - "17 C.F.R. \xA7 240.10b-5 (1990) (superseded)"
+entity_types:
+- name: CFR_REGULATION
+  description: Code of Federal Regulations citation
+  confidence_threshold: 0.9
+- name: CFR_PART
+  description: CFR part reference
+  confidence_threshold: 0.92
+- name: FEDERAL_REGISTER
+  description: Federal Register citation
+  confidence_threshold: 0.88
+- name: SEC_RELEASE
+  description: SEC release number
+  confidence_threshold: 0.91
+- name: IRS_GUIDANCE
+  description: IRS guidance document
+  confidence_threshold: 0.93
+- name: OSHA_STANDARD
+  description: OSHA safety standard
+  confidence_threshold: 0.9
+- name: APA_SECTION
+  description: Administrative Procedure Act section
+  confidence_threshold: 0.94
+- name: CFR_TITLE
+  description: CFR title number
+  confidence_threshold: 0.95
+title_subjects:
+  title_mapping:
+    1: General Provisions
+    2: Grants and Agreements
+    3: The President
+    4: Accounts
+    5: Administrative Personnel
+    6: Domestic Security
+    7: Agriculture
+    8: Aliens and Nationality
+    9: Animals and Animal Products
+    10: Energy
+    11: Federal Elections
+    12: Banks and Banking
+    13: Business Credit and Assistance
+    14: Aeronautics and Space
+    15: Commerce and Foreign Trade
+    16: Commercial Practices
+    17: Commodity and Securities Exchanges
+    18: Conservation of Power and Water Resources
+    19: Customs Duties
+    20: Employees' Benefits
+    21: Food and Drugs
+    22: Foreign Relations
+    23: Highways
+    24: Housing and Urban Development
+    25: Indians
+    26: Internal Revenue
+    27: Alcohol, Tobacco Products and Firearms
+    28: Judicial Administration
+    29: Labor
+    30: Mineral Resources
+    31: 'Money and Finance: Treasury'
+    32: National Defense
+    33: Navigation and Navigable Waters
+    34: Education
+    35: Panama Canal
+    36: Parks, Forests, and Public Property
+    37: Patents, Trademarks, and Copyrights
+    38: Pensions, Bonuses, and Veterans' Relief
+    39: Postal Service
+    40: Protection of Environment
+    41: Public Contracts and Property Management
+    42: Public Health
+    43: 'Public Lands: Interior'
+    44: Emergency Management and Assistance
+    45: Public Welfare
+    46: Shipping
+    47: Telecommunication
+    48: Federal Acquisition Regulations System
+    49: Transportation
+    50: Wildlife and Fisheries
+validation:
+  title_range:
+    min_title: 1
+    max_title: 50
+  section_format:
+    valid_patterns:
+    - \d+
+    - \d+\.\d+
+    - \d+\([a-z]\)
+    - \d+\(\d+\)
+  federal_register_validation:
+    first_volume: 1936
+    current_volume_approximate: 88
+  date_validation:
+    earliest_cfr: 1938
+    current_year: 2025
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.93
+  f1_target: 0.94
+  processing_speed: 1000_citations_per_second
+dependencies:
+  requires:
+  - cfr_title_database
+  - federal_register_index
+  - agency_abbreviations
+  optional:
+  - regulatory_history_tracker
+  - federal_register_daily_updates
+  - agency_guidance_database
+testing:
+  test_cases:
+  - pattern: cfr_citations.basic_cfr_citation
+    text: "17 C.F.R. \xA7 240.10b-5"
+    expected_entities: 1
+  - pattern: cfr_titles.securities_title17
+    text: "under 17 C.F.R. \xA7 240.14a-9"
+    expected_entities: 1
+  - pattern: federal_register.final_rule
+    text: 85 Fed. Reg. 12345 (Mar. 15, 2020)
+    expected_entities: 1
+  - pattern: agencies.sec_releases
+    text: Securities Act Release No. 33-10889
+    expected_entities: 1
+  performance_benchmarks:
+    document_processing_time: < 2 seconds
+    memory_usage: < 100MB
+    accuracy_threshold: 0.93
+historical_notes:
+  cfr_evolution:
+    federal_register_act_1935: Established Federal Register system
+    cfr_first_edition_1938: First Code of Federal Regulations published
+    annual_revision_system: CFR titles revised annually
+  electronic_publishing:
+    ecfr_launch: Electronic CFR (eCFR) provides daily updates
+    federal_register_online: Federal Register available online daily
+  regulatory_reform:
+    regulatory_flexibility_act_1980: Small business impact analysis
+    paperwork_reduction_act: Information collection burden reduction

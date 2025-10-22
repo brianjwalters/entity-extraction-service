@@ -1,0 +1,140 @@
+# Temporal and Procedural Relationships
+pattern_type: relationship
+jurisdiction: federal
+description: Relationships involving time, dates, and procedural sequences
+
+patterns:
+  - relationship_type: FILED_ON
+    description: Document filed on a specific date
+    source_entity: MOTION
+    target_entity: FILING_DATE
+    indicators:
+      - "filed on"
+      - "filed"
+      - "submitted on"
+      - "entered on"
+      - "dated"
+    examples:
+      - "Motion filed on January 15, 2024"
+      - "Complaint submitted on March 1, 2023"
+      - "Brief dated December 10, 2023"
+
+  - relationship_type: DECIDED_ON
+    description: Case decided on a specific date
+    source_entity: CASE_CITATION
+    target_entity: DECISION_DATE
+    indicators:
+      - "decided"
+      - "decided on"
+      - "decision dated"
+      - "opinion issued"
+      - "judgment entered"
+    examples:
+      - "Case decided June 24, 2022"
+      - "Opinion issued March 15, 2024"
+      - "Judgment entered on February 1, 2023"
+
+  - relationship_type: EFFECTIVE_AS_OF
+    description: Law or regulation effective as of date
+    source_entity: STATUTE_CITATION
+    target_entity: EFFECTIVE_DATE
+    indicators:
+      - "effective"
+      - "effective as of"
+      - "in effect from"
+      - "commencing"
+      - "beginning"
+    examples:
+      - "Regulation effective January 1, 2024"
+      - "Statute in effect from July 1, 2023"
+      - "Rule commencing March 15, 2024"
+
+  - relationship_type: EXPIRES_ON
+    description: Document or agreement expiring on date
+    source_entity: CONTRACT
+    target_entity: TERM_DATE
+    indicators:
+      - "expires"
+      - "expiring on"
+      - "terminates"
+      - "ends on"
+      - "valid until"
+    examples:
+      - "Agreement expires December 31, 2024"
+      - "Contract terminates June 30, 2025"
+      - "License valid until January 1, 2026"
+
+  - relationship_type: PRECEDES
+    description: One procedural step preceding another
+    source_entity: MOTION
+    target_entity: MOTION
+    indicators:
+      - "before"
+      - "prior to"
+      - "preceding"
+      - "followed by"
+      - "then"
+    examples:
+      - "Motion to dismiss filed before answer"
+      - "Discovery preceding trial"
+      - "Complaint followed by answer"
+
+  - relationship_type: DEADLINE_FOR
+    description: Deadline for filing or action
+    source_entity: DEADLINE
+    target_entity: MOTION
+    indicators:
+      - "deadline for"
+      - "due by"
+      - "must be filed by"
+      - "no later than"
+      - "within"
+    examples:
+      - "Deadline for response is 30 days"
+      - "Brief due by March 1, 2024"
+      - "Must file within 60 days"
+
+  - relationship_type: DURING
+    description: Event occurring during time period
+    source_entity: LEGAL_MARKER
+    target_entity: DATE_RANGE
+    indicators:
+      - "during"
+      - "throughout"
+      - "between"
+      - "from...to"
+      - "in the period"
+    examples:
+      - "During the period from 2020 to 2023"
+      - "Throughout fiscal year 2024"
+      - "Between January and December 2023"
+
+  - relationship_type: RESPONDS_TO
+    description: Document responding to another document
+    source_entity: BRIEF
+    target_entity: MOTION
+    indicators:
+      - "in response to"
+      - "responding to"
+      - "reply to"
+      - "opposition to"
+      - "answer to"
+    examples:
+      - "Brief in response to motion to dismiss"
+      - "Opposition to summary judgment"
+      - "Reply to plaintiff's complaint"
+
+  - relationship_type: SCHEDULED_FOR
+    description: Hearing or trial scheduled for date
+    source_entity: PROCEDURAL_RULE
+    target_entity: DATE
+    indicators:
+      - "scheduled for"
+      - "set for"
+      - "hearing on"
+      - "trial date"
+      - "calendared"
+    examples:
+      - "Hearing scheduled for April 15, 2024"
+      - "Trial set for September 1, 2024"
+      - "Motion calendared for May 10, 2024"

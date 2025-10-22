@@ -1,0 +1,231 @@
+{
+  "entities": [
+    {
+      "id": "entity_1",
+      "text": "Section 922(g)(8)",
+      "entity_type": "PROCEDURAL_RULE",
+      "start_pos": 0,
+      "end_pos": 22,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "federal_statute",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "federal_statute_section_922g8",
+        "pattern_source": "procedural_elements.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "Respondent Zackey Rahimi was indicted under 18 U.S. C. \u00a7922(g)(8), a federal statute...",
+        "normalized_value": "Section 922(g)(8)",
+        "canonical_form": "Section 922(g)(8)",
+        "related_entities": [],
+        "custom_attributes": {
+          "components": {
+            "rule_type": "federal_statute",
+            "section_number": "922(g)(8)"
+          }
+        }
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "",
+      "context_after": "ible, a syllabus (headnote) will be released, as i"
+    },
+    {
+      "id": "entity_2",
+      "text": "credible threat",
+      "entity_type": "DAMAGES",
+      "start_pos": 100,
+      "end_pos": 118,
+      "confidence": 0.9,
+      "extraction_method": "pattern",
+      "subtype": "threat_level",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "credible_threat",
+        "pattern_source": "procedural_elements.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "Rahimi concedes here that the restraining order against him satisfies the statutory criteria, but argues that on its face Section 922(g)(8) violates the Second Amendment.",
+        "normalized_value": "credible threat",
+        "canonical_form": "credible_threat",
+        "related_entities": [],
+        "custom_attributes": {
+          "components": {
+            "threat_level": "credible"
+          }
+        }
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "will be released, as is being done in connection w",
+      "context_after": "the time the opinion is issued. The syllabus const"
+    },
+    {
+      "id": "entity_3",
+      "text": "Bruen",
+      "entity_type": "JUDGMENT",
+      "start_pos": 120,
+      "end_pos": 126,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "supreme_court_case",
+      "category": "judgment",
+      "metadata": {
+        "pattern_matched": "supreme_court_case_bruen",
+        "pattern_source": "judgment_references.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "While Rahimi's case was on appeal, the Supreme Court decided *New York State Rifle & Pistol Assn., Inc*. v. *Bruen*, 597 U. S. 1 (2022).",
+        "normalized_value": "Bruen",
+        "canonical_form": "Bruen",
+        "related_entities": [],
+        "custom_attributes": {
+          "components": {
+            "case_name": "New York State Rifle & Pistol Assn., Inc. v. Bruen"
+          }
+        }
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": " is being done in connection with this case, at th",
+      "context_after": " the opinion is issued. The syllabus constitutes n"
+    },
+    {
+      "id": "entity_4",
+      "text": "going armed",
+      "entity_type": "PROCEDURAL_RULE",
+      "start_pos": 130,
+      "end_pos": 144,
+      "confidence": 0.9,
+      "extraction_method": "pattern",
+      "subtype": "common_law_regulation",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "going_armed_law",
+        "pattern_source": "procedural_elements.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "These laws often offered the accused significant procedural protections.",
+        "normalized_value": "going armed",
+        "canonical_form": "going armed",
+        "related_entities": [],
+        "custom_attributes": {
+          "components": {
+            "common_law_category": "going armed"
+          }
+        }
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "done in connection with this case, at the time the",
+      "context_after": "sued. The syllabus constitutes no part of the opin"
+    },
+    {
+      "id": "entity_1",
+      "text": "18 U.S. C. \u00a7922(g)(8)",
+      "entity_type": "PROCEDURAL_RULE",
+      "start_pos": 0,
+      "end_pos": 22,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "federal_statute",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "federal_statute_section_922g8",
+        "pattern_source": "procedural_elements.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "Respondent Zackey Rahimi was indicted under 18 U.S. C. \u00a7922(g)(8), a federal statute...",
+        "normalized_value": "18 U.S. C. \u00a7922(g)(8)",
+        "canonical_form": "18 U.S. C. \u00a7922(g)(8)",
+        "related_entities": [],
+        "custom_attributes": {
+          "components": {
+            "rule_type": "federal_statute",
+            "section_number": "922(g)(8)"
+          }
+        }
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave3",
+      "wave_number": 3,
+      "context_before": "",
+      "context_after": "ible, a syllabus (headnote) will be released, as i"
+    }
+  ],
+  "relationships": [],
+  "strategy": "four_wave",
+  "waves_executed": 4,
+  "processing_time": 275.661173,
+  "tokens_used": 56561,
+  "metadata": {
+    "prompt_version": "four_wave",
+    "prompt_templates_used": [
+      "wave1",
+      "wave2",
+      "wave3",
+      "wave4"
+    ],
+    "wave_results": [
+      {
+        "wave": 1,
+        "entities_count": 0,
+        "tokens_used": 19249,
+        "prompt_template": "wave1"
+      },
+      {
+        "wave": 2,
+        "entities_count": 4,
+        "tokens_used": 17264,
+        "prompt_template": "wave2"
+      },
+      {
+        "wave": 3,
+        "entities_count": 4,
+        "tokens_used": 13833,
+        "prompt_template": "wave3"
+      },
+      {
+        "wave": 4,
+        "relationships_count": 0,
+        "tokens_used": 6215,
+        "prompt_template": "wave4"
+      }
+    ],
+    "deduplication_ratio": 0.625,
+    "entities_by_wave": {
+      "wave_1": 0,
+      "wave_2": 4,
+      "wave_3": 4
+    },
+    "relationships_extracted": 0,
+    "wave4_relationship_count": 0
+  },
+  "routing_decision": {
+    "strategy": "four_wave",
+    "prompt_version": "four_wave_optimized_v1",
+    "chunk_config": null,
+    "estimated_tokens": 53500,
+    "estimated_duration": 150.0,
+    "estimated_cost": 0.040125,
+    "expected_accuracy": 0.92,
+    "size_info": {
+      "chars": 10000,
+      "tokens": 2500,
+      "pages": 0,
+      "category": "SMALL",
+      "words": 1570,
+      "lines": 48
+    },
+    "rationale": "Relationships requested: 4-wave extraction with entity relationships",
+    "num_chunks": 0,
+    "extract_relationships": true
+  },
+  "test_config": {
+    "document_size": 10000,
+    "full_document_size": 202376,
+    "test_type": "four_wave_validation",
+    "entity_types_coverage": 166,
+    "relationship_types_coverage": 34
+  }
+}

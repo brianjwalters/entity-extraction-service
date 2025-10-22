@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entity Details - Luris Entity Extraction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Header */
+        .main-nav {
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #667eea;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            font-size: 1.8em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .nav-link.active {
+            color: #667eea;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-icon {
+            color: #cbd5e0;
+            font-size: 1.3em;
+            cursor: pointer;
+            transition: color 0.3s;
+            padding: 8px;
+        }
+
+        .nav-icon:hover {
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .breadcrumb a {
+            color: #4a9eff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #6bb3ff;
+        }
+
+        .breadcrumb-separator {
+            color: #555;
+        }
+
+        .breadcrumb-current {
+            color: #e0e0e0;
+            font-weight: 500;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 8px;
+            color: #4a9eff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .back-button:hover {
+            background: rgba(74, 158, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(74, 158, 255, 0.1);
+            border-top: 4px solid #4a9eff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Error State */
+        .error-container {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .error-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .error-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .error-message {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Card */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a9eff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Entity Header Card */
+        .entity-header {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+        }
+
+        .entity-text-display {
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 4px solid #4a9eff;
+            word-wrap: break-word;
+        }
+
+        .entity-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .badge-type {
+            background: rgba(52, 152, 219, 0.2);
+            border: 1px solid rgba(52, 152, 219, 0.5);
+            color: #3498db;
+        }
+
+        .badge-wave {
+            background: rgba(155, 89, 182, 0.2);
+            border: 1px solid rgba(155, 89, 182, 0.5);
+            color: #9b59b6;
+        }
+
+        .badge-confidence {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid rgba(46, 204, 113, 0.5);
+            color: #2ecc71;
+        }
+
+        .confidence-meter {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e74c3c 0%, #f39c12 50%, #2ecc71 100%);
+            transition: width 1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: #fff;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        /* Position & Context */
+        .position-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .position-stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .position-stat-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .position-stat-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4a9eff;
+        }
+
+        .position-timeline {
+            width: 100%;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            position: relative;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            background: rgba(74, 158, 255, 0.6);
+            border: 2px solid #4a9eff;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .timeline-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            color: #4a9eff;
+            white-space: nowrap;
+        }
+
+        .context-display {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 20px 0;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .context-before {
+            color: #888;
+        }
+
+        .context-entity {
+            background: rgba(255, 235, 59, 0.3);
+            color: #fff;
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .context-after {
+            color: #888;
+        }
+
+        /* Metadata */
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .metadata-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metadata-label {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .metadata-value {
+            font-size: 14px;
+            color: #e0e0e0;
+            word-break: break-all;
+        }
+
+        .metadata-value a {
+            color: #4a9eff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .metadata-value a:hover {
+            color: #6bb3ff;
+            text-decoration: underline;
+        }
+
+        /* Actions */
+        .actions-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: rgba(74, 158, 255, 0.2);
+            border: 1px solid rgba(74, 158, 255, 0.5);
+            color: #4a9eff;
+        }
+
+        .btn-primary:hover {
+            background: rgba(74, 158, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid rgba(46, 204, 113, 0.5);
+            color: #2ecc71;
+        }
+
+        .btn-success:hover {
+            background: rgba(46, 204, 113, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(149, 165, 166, 0.2);
+            border: 1px solid rgba(149, 165, 166, 0.5);
+            color: #95a5a6;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(149, 165, 166, 0.3);
+        }
+
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 200px;
+            margin: 20px 0;
+        }
+
+        /* Navigation Controls */
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 6px;
+            color: #4a9eff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover:not(.nav-button-disabled) {
+            background: rgba(74, 158, 255, 0.2);
+            transform: translateX(0);
+        }
+
+        .nav-button-disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .entity-text-display {
+                font-size: 24px;
+            }
+
+            .position-info {
+                grid-template-columns: 1fr;
+            }
+
+            .metadata-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .actions-bar {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .card {
+                background: white;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+
+            .back-button,
+            .actions-bar,
+            .navigation-controls {
+                display: none;
+            }
+
+            .entity-text-display {
+                color: black;
+                background: #f5f5f5;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(46, 204, 113, 0.95);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Related Entities Table */
+        .related-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .related-table th {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            color: #4a9eff;
+            border-bottom: 2px solid rgba(74, 158, 255, 0.3);
+        }
+
+        .related-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+        }
+
+        .related-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .related-table a {
+            color: #4a9eff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .related-table a:hover {
+            color: #6bb3ff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="nav-logo-icon">🏷️</span>
+                <span>Entity Extraction Dashboard</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="entities.html" class="nav-link active">Entities</a>
+                <a href="relationships.html" class="nav-link">Relationships</a>
+                <a href="documents.html" class="nav-link">Documents</a>
+            </div>
+            <div class="nav-actions">
+                <span class="nav-icon" title="Search">🔍</span>
+                <span class="nav-icon" title="Settings">⚙️</span>
+                <span class="nav-icon" title="Help">❓</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Loading State -->
+        <div id="loadingState" class="loading">
+            <div class="spinner"></div>
+            <p>Loading entity details...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" style="display: none;">
+            <div class="error-container">
+                <div class="error-icon">⚠</div>
+                <h2 class="error-title">Entity Not Found</h2>
+                <p class="error-message">The requested entity could not be found in the test history.</p>
+                <a href="index.html" class="btn btn-primary">
+                    <span>←</span>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="mainContent" style="display: none;">
+            <!-- Header -->
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="entities.html">Entities</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current" id="breadcrumbEntity">Loading...</span>
+                </div>
+                <a href="entities.html" class="back-button">
+                    <span>←</span>
+                    <span>Back to Entities List</span>
+                </a>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="navigation-controls">
+                <a href="#" id="prevEntity" class="nav-button">
+                    <span>←</span>
+                    <span>Previous Entity</span>
+                </a>
+                <span id="navPosition" style="color: #888; font-size: 14px;"></span>
+                <a href="#" id="nextEntity" class="nav-button">
+                    <span>Next Entity</span>
+                    <span>→</span>
+                </a>
+            </div>
+
+            <!-- Section 1: Entity Header Card -->
+            <div class="card entity-header">
+                <div class="entity-text-display" id="entityText">Loading...</div>
+
+                <div class="entity-badges">
+                    <div class="badge badge-type" id="entityTypeBadge">
+                        <span>📋</span>
+                        <span>Type: Loading...</span>
+                    </div>
+                    <div class="badge badge-wave" id="entityWaveBadge">
+                        <span>🌊</span>
+                        <span>Wave: Loading...</span>
+                    </div>
+                    <div class="badge badge-confidence" id="entityConfidenceBadge">
+                        <span>✓</span>
+                        <span>Confidence: Loading...</span>
+                    </div>
+                </div>
+
+                <div>
+                    <strong style="color: #888; font-size: 14px;">Confidence Score</strong>
+                    <div class="confidence-meter">
+                        <div class="confidence-fill" id="confidenceFill" style="width: 0%;">
+                            <span id="confidencePercent">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px; font-size: 13px; color: #888;">
+                    <strong>Test ID:</strong> <span id="testId">Loading...</span> |
+                    <strong>Timestamp:</strong> <span id="timestamp">Loading...</span>
+                </div>
+            </div>
+
+            <!-- Section 2: Position & Context -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span>📍</span>
+                    <span>Position & Context</span>
+                </h3>
+
+                <div class="position-info">
+                    <div class="position-stat">
+                        <div class="position-stat-label">Start Position</div>
+                        <div class="position-stat-value" id="startPos">-</div>
+                    </div>
+                    <div class="position-stat">
+                        <div class="position-stat-label">End Position</div>
+                        <div class="position-stat-value" id="endPos">-</div>
+                    </div>
+                    <div class="position-stat">
+                        <div class="position-stat-label">Character Length</div>
+                        <div class="position-stat-value" id="charLength">-</div>
+                    </div>
+                    <div class="position-stat">
+                        <div class="position-stat-label">Document Progress</div>
+                        <div class="position-stat-value" id="docProgress">-</div>
+                    </div>
+                </div>
+
+                <div>
+                    <strong style="color: #888; font-size: 14px; display: block; margin-bottom: 10px;">Position in Document</strong>
+                    <div class="position-timeline" id="positionTimeline">
+                        <div class="timeline-marker" id="timelineMarker">
+                            <div class="timeline-label" id="timelineLabel">Entity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <strong style="color: #888; font-size: 14px; display: block; margin-bottom: 10px;">Context</strong>
+                    <div class="context-display" id="contextDisplay">
+                        <span class="context-before" id="contextBefore"></span><span class="context-entity" id="contextEntity"></span><span class="context-after" id="contextAfter"></span>
+                    </div>
+                </div>
+
+                <div class="actions-bar">
+                    <button class="btn btn-primary" onclick="copyContext()">
+                        <span>📋</span>
+                        <span>Copy Context</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 3: Metadata -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span>ℹ️</span>
+                    <span>Metadata</span>
+                </h3>
+
+                <div class="metadata-grid">
+                    <div class="metadata-item">
+                        <div class="metadata-label">
+                            <span>📄</span>
+                            <span>Document ID</span>
+                        </div>
+                        <div class="metadata-value">
+                            <a href="#" id="documentLink">-</a>
+                        </div>
+                    </div>
+                    <div class="metadata-item">
+                        <div class="metadata-label">
+                            <span>📝</span>
+                            <span>Prompt Template</span>
+                        </div>
+                        <div class="metadata-value" id="promptTemplate">-</div>
+                    </div>
+                    <div class="metadata-item">
+                        <div class="metadata-label">
+                            <span>⏱️</span>
+                            <span>Extraction Time</span>
+                        </div>
+                        <div class="metadata-value" id="extractionTime">-</div>
+                    </div>
+                    <div class="metadata-item">
+                        <div class="metadata-label">
+                            <span>🌊</span>
+                            <span>Wave Execution Time</span>
+                        </div>
+                        <div class="metadata-value" id="waveExecutionTime">-</div>
+                    </div>
+                    <div class="metadata-item">
+                        <div class="metadata-label">
+                            <span>🔑</span>
+                            <span>Entity ID</span>
+                        </div>
+                        <div class="metadata-value" id="entityId">-</div>
+                    </div>
+                    <div class="metadata-item">
+                        <div class="metadata-label">
+                            <span>💾</span>
+                            <span>Token Usage</span>
+                        </div>
+                        <div class="metadata-value" id="tokenUsage">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Visualizations -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span>📊</span>
+                    <span>Analysis</span>
+                </h3>
+
+                <div class="chart-container">
+                    <canvas id="confidenceChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Section 5: Related Entities -->
+            <div class="card" id="relatedEntitiesCard" style="display: none;">
+                <h3 class="card-title">
+                    <span>🔗</span>
+                    <span>Related Entities</span>
+                </h3>
+
+                <p style="color: #888; margin-bottom: 15px; font-size: 14px;">
+                    Entities extracted from the same test run
+                </p>
+
+                <div style="overflow-x: auto;">
+                    <table class="related-table" id="relatedTable">
+                        <thead>
+                            <tr>
+                                <th>Entity Text</th>
+                                <th>Type</th>
+                                <th>Confidence</th>
+                                <th>Wave</th>
+                                <th>Position</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="relatedTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Actions Bar -->
+            <div class="card">
+                <h3 class="card-title">
+                    <span>⚡</span>
+                    <span>Quick Actions</span>
+                </h3>
+
+                <div class="actions-bar">
+                    <button class="btn btn-primary" onclick="copyEntityId()">
+                        <span>🔑</span>
+                        <span>Copy Entity ID</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="copyEntityText()">
+                        <span>📝</span>
+                        <span>Copy Entity Text</span>
+                    </button>
+                    <button class="btn btn-primary" onclick="copyFullContext()">
+                        <span>📋</span>
+                        <span>Copy Full Context</span>
+                    </button>
+                    <button class="btn btn-success" onclick="exportEntityJson()">
+                        <span>💾</span>
+                        <span>Export JSON</span>
+                    </button>
+                    <a href="documents.html" class="btn btn-secondary">
+                        <span>📄</span>
+                        <span>View in Document</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toastIcon">✓</span>
+        <span id="toastMessage">Success!</span>
+    </div>
+
+    <script>
+        // Global state
+        let currentEntity = null;
+        let allEntities = [];
+        let currentIndex = -1;
+        let confidenceChart = null;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const entityId = urlParams.get('entity_id');
+
+            if (!entityId) {
+                showError();
+                return;
+            }
+
+            await loadEntityData(entityId);
+        });
+
+        // Load entity data
+        async function loadEntityData(entityId) {
+            try {
+                const response = await fetch('test_history.json');
+                if (!response.ok) throw new Error('Failed to load test history');
+
+                const data = await response.json();
+
+                // Find the entity across all tests
+                let foundEntity = null;
+                let foundTest = null;
+
+                for (const test of data.tests) {
+                    if (test.entities && test.entities.length > 0) {
+                        const entity = test.entities.find(e => e.id === entityId);
+                        if (entity) {
+                            foundEntity = entity;
+                            foundTest = test;
+
+                            // Build allEntities list from this test for navigation
+                            allEntities = test.entities.slice();
+                            currentIndex = allEntities.findIndex(e => e.id === entityId);
+                            break;
+                        }
+                    }
+                }
+
+                if (!foundEntity) {
+                    showError();
+                    return;
+                }
+
+                currentEntity = foundEntity;
+                currentEntity.test = foundTest;
+
+                displayEntity(currentEntity);
+                updateNavigation();
+
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+
+            } catch (error) {
+                console.error('Error loading entity:', error);
+                showError();
+            }
+        }
+
+        // Display entity data
+        function displayEntity(entity) {
+            // Entity Header
+            document.getElementById('entityText').textContent = entity.text || 'Unknown Entity';
+            document.getElementById('breadcrumbEntity').textContent =
+                (entity.text && entity.text.length > 30)
+                    ? entity.text.substring(0, 30) + '...'
+                    : (entity.text || 'Entity');
+
+            // Badges
+            const typeEmojis = {
+                'JUDGE': '👨‍⚖️',
+                'ATTORNEY': '👔',
+                'PARTY': '👤',
+                'COURT': '🏛️',
+                'CASE_CITATION': '⚖️',
+                'STATUTE': '📜',
+                'CONSTITUTIONAL_PROVISION': '📋',
+                'LEGAL_CONCEPT': '💡',
+                'DATE': '📅',
+                'LOCATION': '📍'
+            };
+
+            const typeEmoji = typeEmojis[entity.entity_type] || '📋';
+            document.getElementById('entityTypeBadge').innerHTML = `
+                <span>${typeEmoji}</span>
+                <span>Type: ${entity.entity_type || 'Unknown'}</span>
+            `;
+
+            document.getElementById('entityWaveBadge').innerHTML = `
+                <span>🌊</span>
+                <span>Wave: ${entity.wave_number || 'N/A'}</span>
+            `;
+
+            const confidence = entity.confidence || 0;
+            document.getElementById('entityConfidenceBadge').innerHTML = `
+                <span>✓</span>
+                <span>Confidence: ${(confidence * 100).toFixed(1)}%</span>
+            `;
+
+            // Confidence Meter
+            const confidencePercent = (confidence * 100).toFixed(1);
+            document.getElementById('confidenceFill').style.width = confidencePercent + '%';
+            document.getElementById('confidencePercent').textContent = confidencePercent + '%';
+
+            // Test Info
+            document.getElementById('testId').textContent = entity.test?.test_id || 'N/A';
+            document.getElementById('timestamp').textContent =
+                entity.test?.timestamp ? new Date(entity.test.timestamp).toLocaleString() : 'N/A';
+
+            // Position Info
+            const startPos = entity.start_pos || 0;
+            const endPos = entity.end_pos || 0;
+            const charLength = endPos - startPos;
+
+            document.getElementById('startPos').textContent = startPos.toLocaleString();
+            document.getElementById('endPos').textContent = endPos.toLocaleString();
+            document.getElementById('charLength').textContent = charLength.toLocaleString();
+
+            // Calculate document progress (assuming approximate document length)
+            const estimatedDocLength = entity.test?.metadata?.total_characters || 100000;
+            const progress = ((startPos / estimatedDocLength) * 100).toFixed(1);
+            document.getElementById('docProgress').textContent = progress + '%';
+
+            // Position Timeline
+            const timelineMarker = document.getElementById('timelineMarker');
+            timelineMarker.style.left = progress + '%';
+            timelineMarker.style.width = Math.max(2, (charLength / estimatedDocLength) * 100) + '%';
+            document.getElementById('timelineLabel').textContent = `${progress}%`;
+
+            // Context Display
+            const contextBefore = entity.context_before || '';
+            const contextAfter = entity.context_after || '';
+
+            document.getElementById('contextBefore').textContent = contextBefore;
+            document.getElementById('contextEntity').textContent = entity.text || '';
+            document.getElementById('contextAfter').textContent = contextAfter;
+
+            // Metadata
+            document.getElementById('documentLink').textContent = entity.document_id || 'N/A';
+            document.getElementById('documentLink').href =
+                entity.document_id ? `documents.html?doc_id=${entity.document_id}` : '#';
+
+            document.getElementById('promptTemplate').textContent = entity.prompt_template || 'N/A';
+            document.getElementById('extractionTime').textContent =
+                entity.test?.timestamp ? new Date(entity.test.timestamp).toLocaleString() : 'N/A';
+            document.getElementById('waveExecutionTime').textContent =
+                entity.wave_execution_time ? `${entity.wave_execution_time.toFixed(2)}ms` : 'N/A';
+            document.getElementById('entityId').textContent = entity.id || 'N/A';
+            document.getElementById('tokenUsage').textContent =
+                entity.token_usage ? `${entity.token_usage.toLocaleString()} tokens` : 'N/A';
+
+            // Create confidence chart
+            createConfidenceChart(entity);
+
+            // Display related entities
+            displayRelatedEntities(entity);
+        }
+
+        // Create confidence comparison chart
+        function createConfidenceChart(entity) {
+            const ctx = document.getElementById('confidenceChart').getContext('2d');
+
+            if (confidenceChart) {
+                confidenceChart.destroy();
+            }
+
+            const entityConfidence = (entity.confidence || 0) * 100;
+            const avgConfidence = calculateAverageConfidence();
+
+            confidenceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['This Entity', 'Average (All Entities)'],
+                    datasets: [{
+                        label: 'Confidence Score (%)',
+                        data: [entityConfidence, avgConfidence],
+                        backgroundColor: [
+                            'rgba(74, 158, 255, 0.6)',
+                            'rgba(149, 165, 166, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(74, 158, 255, 1)',
+                            'rgba(149, 165, 166, 1)'
+                        ],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Confidence Comparison',
+                            color: '#e0e0e0',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#888',
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#e0e0e0'
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Calculate average confidence across all entities
+        function calculateAverageConfidence() {
+            if (allEntities.length === 0) return 0;
+
+            const sum = allEntities.reduce((acc, e) => acc + (e.confidence || 0), 0);
+            return ((sum / allEntities.length) * 100).toFixed(1);
+        }
+
+        // Display related entities
+        function displayRelatedEntities(entity) {
+            if (!allEntities || allEntities.length <= 1) {
+                document.getElementById('relatedEntitiesCard').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('relatedEntitiesCard').style.display = 'block';
+
+            // Show up to 10 related entities (excluding current)
+            const relatedEntities = allEntities
+                .filter(e => e.id !== entity.id)
+                .slice(0, 10);
+
+            const tableBody = document.getElementById('relatedTableBody');
+            tableBody.innerHTML = '';
+
+            relatedEntities.forEach(relEntity => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${relEntity.text || 'Unknown'}</td>
+                    <td>${relEntity.entity_type || 'N/A'}</td>
+                    <td>${((relEntity.confidence || 0) * 100).toFixed(1)}%</td>
+                    <td>Wave ${relEntity.wave_number || 'N/A'}</td>
+                    <td>${(relEntity.start_pos || 0).toLocaleString()}</td>
+                    <td>
+                        <a href="entity_detail.html?entity_id=${relEntity.id}">View Details</a>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Navigation
+        function updateNavigation() {
+            const prevButton = document.getElementById('prevEntity');
+            const nextButton = document.getElementById('nextEntity');
+            const navPosition = document.getElementById('navPosition');
+
+            if (currentIndex > 0) {
+                prevButton.href = `entity_detail.html?entity_id=${allEntities[currentIndex - 1].id}`;
+                prevButton.classList.remove('nav-button-disabled');
+            } else {
+                prevButton.href = '#';
+                prevButton.classList.add('nav-button-disabled');
+            }
+
+            if (currentIndex < allEntities.length - 1) {
+                nextButton.href = `entity_detail.html?entity_id=${allEntities[currentIndex + 1].id}`;
+                nextButton.classList.remove('nav-button-disabled');
+            } else {
+                nextButton.href = '#';
+                nextButton.classList.add('nav-button-disabled');
+            }
+
+            navPosition.textContent = `Entity ${currentIndex + 1} of ${allEntities.length}`;
+        }
+
+        // Copy functions
+        function copyEntityId() {
+            copyToClipboard(currentEntity.id, 'Entity ID copied!');
+        }
+
+        function copyEntityText() {
+            copyToClipboard(currentEntity.text, 'Entity text copied!');
+        }
+
+        function copyContext() {
+            const context = `${currentEntity.context_before || ''}${currentEntity.text || ''}${currentEntity.context_after || ''}`;
+            copyToClipboard(context, 'Context copied!');
+        }
+
+        function copyFullContext() {
+            const fullContext = `${currentEntity.context_before || ''}${currentEntity.text || ''}${currentEntity.context_after || ''}`;
+            copyToClipboard(fullContext, 'Full context copied!');
+        }
+
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(message, '✓');
+            }).catch(err => {
+                showToast('Failed to copy', '✗');
+            });
+        }
+
+        // Export entity as JSON
+        function exportEntityJson() {
+            const entityData = {
+                id: currentEntity.id,
+                text: currentEntity.text,
+                entity_type: currentEntity.entity_type,
+                confidence: currentEntity.confidence,
+                start_pos: currentEntity.start_pos,
+                end_pos: currentEntity.end_pos,
+                wave_number: currentEntity.wave_number,
+                prompt_template: currentEntity.prompt_template,
+                context_before: currentEntity.context_before,
+                context_after: currentEntity.context_after,
+                document_id: currentEntity.document_id,
+                test_id: currentEntity.test?.test_id,
+                timestamp: currentEntity.test?.timestamp
+            };
+
+            const blob = new Blob([JSON.stringify(entityData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `entity_${currentEntity.id}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('JSON exported successfully!', '💾');
+        }
+
+        // Show toast notification
+        function showToast(message, icon = '✓') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            document.getElementById('toastIcon').textContent = icon;
+
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Show error state
+        function showError() {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('errorState').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

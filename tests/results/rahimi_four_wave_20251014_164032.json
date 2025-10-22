@@ -1,0 +1,235 @@
+{
+  "entities": [
+    {
+      "id": "entity_1",
+      "text": "United States v. Rahimi",
+      "entity_type": "CASE",
+      "start_pos": 0,
+      "end_pos": 1,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "slip_opinion",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "slip_opinion",
+        "pattern_source": "supreme_court_cases.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "This is a slip opinion from the Supreme Court of the United States.",
+        "normalized_value": "United States v. Rahimi",
+        "canonical_form": "United States v. Rahimi"
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "",
+      "context_after": "Slip Opinion)\n\nOCTOBER  TERM,  2023\n\n1\n\nSyllabus\n\n"
+    },
+    {
+      "id": "entity_2",
+      "text": "18 U.S.C. \u00a7922(g)(8)",
+      "entity_type": "STATUTE",
+      "start_pos": 1,
+      "end_pos": 2,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "federal_statute",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "federal_statute",
+        "pattern_source": "federal_statutes.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "Respondent Zackey Rahimi was indicted under 18 U.S.C. \u00a7922(g)(8),",
+        "normalized_value": "18 U.S.C. \u00a7922(g)(8)",
+        "canonical_form": "18 U.S.C. \u00a7922(g)(8)"
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "(",
+      "context_after": "lip Opinion)\n\nOCTOBER  TERM,  2023\n\n1\n\nSyllabus\n\nN"
+    },
+    {
+      "id": "entity_3",
+      "text": "Zackey Rahimi",
+      "entity_type": "PARTY",
+      "start_pos": 10,
+      "end_pos": 18,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "defendant",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "defendant",
+        "pattern_source": "parties_in_cases.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "Respondent Zackey Rahimi was indicted under 18 U.S.C. \u00a7922(g)(8),",
+        "normalized_value": "Zackey Rahimi",
+        "canonical_form": "Zackey Rahimi"
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "(Slip Opin",
+      "context_after": "TOBER  TERM,  2023\n\n1\n\nSyllabus\n\nNOTE:  Where  it "
+    },
+    {
+      "id": "entity_4",
+      "text": "New York State Rifle & Pistol Assn., Inc. v. Bruen",
+      "entity_type": "CASE",
+      "start_pos": 20,
+      "end_pos": 34,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "supreme_court_precedent",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "supreme_court_precedent",
+        "pattern_source": "supreme_court_precedents.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "While Rahimi\u2019s case was on appeal, the Supreme Court decided New York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022).",
+        "normalized_value": "New York State Rifle & Pistol Assn., Inc. v. Bruen",
+        "canonical_form": "New York State Rifle & Pistol Assn., Inc. v. Bruen"
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "(Slip Opinion)\n\nOCTO",
+      "context_after": "23\n\n1\n\nSyllabus\n\nNOTE:  Where  it  is  feasible,  "
+    },
+    {
+      "id": "entity_5",
+      "text": "61 F.4th 443",
+      "entity_type": "CASE_CITATION",
+      "start_pos": 36,
+      "end_pos": 49,
+      "confidence": 0.95,
+      "extraction_method": "pattern",
+      "subtype": "court_of_appeals_decision",
+      "category": "procedural",
+      "metadata": {
+        "pattern_matched": "court_of_appeals_decision",
+        "pattern_source": "court_of_appeals_decisions.yaml",
+        "pattern_confidence": 0.9,
+        "sentence_context": "While Rahimi\u2019s case was on appeal, the Fifth Circuit reversed, concluding that the Government had not shown that Section 922(g)(8) \u2018fits within our Nation\u2019s historical tradition of firearm regulation.\u2019",
+        "normalized_value": "61 F.4th 443",
+        "canonical_form": "61 F.4th 443"
+      },
+      "created_at": 1688867200,
+      "prompt_template": "wave2",
+      "wave_number": 2,
+      "context_before": "(Slip Opinion)\n\nOCTOBER  TERM,  2023",
+      "context_after": "\n\nNOTE:  Where  it  is  feasible,  a  syllabus  (h"
+    }
+  ],
+  "relationships": [
+    {
+      "source_entity_id": "entity_1",
+      "target_entity_id": "entity_2",
+      "relationship_type": "CITES",
+      "confidence": 0.95,
+      "context": "Respondent Zackey Rahimi was indicted under 18 U.S.C. \u00a7922(g)(8), a federal statute that prohibits individuals subject to a domestic violence restraining order from possessing a firearm."
+    },
+    {
+      "source_entity_id": "entity_3",
+      "target_entity_id": "entity_1",
+      "relationship_type": "PARTY_TO_CASE",
+      "confidence": 0.95,
+      "context": "Zackey Rahimi was the Respondent in United States v. Rahimi."
+    },
+    {
+      "source_entity_id": "entity_4",
+      "target_entity_id": "entity_1",
+      "relationship_type": "APPEALS_FROM",
+      "confidence": 0.95,
+      "context": "While Rahimi\u2019s case was on appeal, the Supreme Court decided New York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022)."
+    },
+    {
+      "source_entity_id": "entity_5",
+      "target_entity_id": "entity_4",
+      "relationship_type": "DECIDED_BY",
+      "confidence": 0.95,
+      "context": "61 F.4th 443, a court of appeals decision, reversed the District Court's decision in United States v. Rahimi."
+    },
+    {
+      "source_entity_id": "entity_4",
+      "target_entity_id": "entity_5",
+      "relationship_type": "INVOLVES",
+      "confidence": 0.95,
+      "context": "The Fifth Circuit's decision in United States v. Rahimi, 61 F.4th 443, is involved in the analysis of Section 922(g)(8)\u2019s constitutionality."
+    }
+  ],
+  "strategy": "four_wave",
+  "waves_executed": 4,
+  "processing_time": 208.741076,
+  "tokens_used": 55910,
+  "metadata": {
+    "prompt_version": "four_wave",
+    "prompt_templates_used": [
+      "wave1",
+      "wave2",
+      "wave3",
+      "wave4"
+    ],
+    "wave_results": [
+      {
+        "wave": 1,
+        "entities_count": 0,
+        "tokens_used": 19698,
+        "prompt_template": "wave1"
+      },
+      {
+        "wave": 2,
+        "entities_count": 5,
+        "tokens_used": 15209,
+        "prompt_template": "wave2"
+      },
+      {
+        "wave": 3,
+        "entities_count": 5,
+        "tokens_used": 14697,
+        "prompt_template": "wave3"
+      },
+      {
+        "wave": 4,
+        "relationships_count": 5,
+        "tokens_used": 6306,
+        "prompt_template": "wave4"
+      }
+    ],
+    "deduplication_ratio": 0.5,
+    "entities_by_wave": {
+      "wave_1": 0,
+      "wave_2": 5,
+      "wave_3": 5
+    },
+    "relationships_extracted": 5,
+    "wave4_relationship_count": 5
+  },
+  "routing_decision": {
+    "strategy": "four_wave",
+    "prompt_version": "four_wave_optimized_v1",
+    "chunk_config": null,
+    "estimated_tokens": 53500,
+    "estimated_duration": 150.0,
+    "estimated_cost": 0.040125,
+    "expected_accuracy": 0.92,
+    "size_info": {
+      "chars": 10000,
+      "tokens": 2500,
+      "pages": 0,
+      "category": "SMALL",
+      "words": 1543,
+      "lines": 193
+    },
+    "rationale": "Relationships requested: 4-wave extraction with entity relationships",
+    "num_chunks": 0,
+    "extract_relationships": true
+  },
+  "test_config": {
+    "document_size": 10000,
+    "full_document_size": 216803,
+    "test_type": "four_wave_validation",
+    "entity_types_coverage": 166,
+    "relationship_types_coverage": 34
+  }
+}

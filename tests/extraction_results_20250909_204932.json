@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "timestamp": "20250909_204932",
+    "document": "Rahimi.pdf",
+    "document_size": 205338,
+    "processing_time": 20.439953565597534,
+    "total_entities": 13,
+    "total_citations": 0
+  },
+  "entities": [
+    {
+      "entity_type": "PARTY",
+      "text": "Government\u2019s \u201claw-abiding, dangerous citizen\u201d",
+      "confidence": 0.71,
+      "start_position": 199495,
+      "end_position": 199534,
+      "context": "Government\u2019s \u201claw-abiding, dangerous citizen\u201d\ntest\u2014and indeed any similar, principle-base",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "GOVERNMENT_ENTITY",
+      "text": "Congress",
+      "confidence": 0.71,
+      "start_position": 199535,
+      "end_position": 199541,
+      "context": "Government\u2019s \u201claw-abiding, dangerous citizen\u201d\ntest\u2014and indeed any similar, principle-based appro",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "CONSTITUTIONAL_PROVISION",
+      "text": "Second Amendment",
+      "confidence": 0.71,
+      "start_position": 199595,
+      "end_position": 199613,
+      "context": "\u2014and indeed any similar, principle-based approach\u2014\nwould hollow out the Second Amendment of any substance.\nCongress co",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "GOVERNMENT_ENTITY",
+      "text": "United States",
+      "confidence": 0.71,
+      "start_position": 199615,
+      "end_position": 199625,
+      "context": "lar, principle-based approach\u2014\nwould hollow out the Second Amendment of any substance.\nCongress could impose a",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "PARTY",
+      "text": "Rahimi",
+      "confidence": 0.71,
+      "start_position": 199705,
+      "end_position": 199711,
+      "context": "gress could impose any firearm regulation so long as it\ntargets \u201cunfit\u201d persons. And, of course, Congress ",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "PARTY",
+      "text": "Texas",
+      "confidence": 0.71,
+      "start_position": 199775,
+      "end_position": 199779,
+      "context": "\u201d persons. And, of course, Congress would also\ndictate what \u201cunfit\u201d means and who qualifies. See Tr. of\n",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "PARTY",
+      "text": "McDonald",
+      "confidence": 0.71,
+      "start_position": 199855,
+      "end_position": 199861,
+      "context": "o qualifies. See Tr. of\nOral Arg. 7, 51. The historical understanding of the Second\nAmendment right would ",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "PARTY",
+      "text": "THOMAS",
+      "confidence": 0.71,
+      "start_position": 199865,
+      "end_position": 199870,
+      "context": "s. See Tr. of\nOral Arg. 7, 51. The historical understanding of the Second\nAmendment right would be irrele",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "COURT",
+      "text": "Court",
+      "confidence": 0.71,
+      "start_position": 199875,
+      "end_position": 199879,
+      "context": " of\nOral Arg. 7, 51. The historical understanding of the Second\nAmendment right would be irrelevant. In ",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "PARTY",
+      "text": "States",
+      "confidence": 0.71,
+      "start_position": 199905,
+      "end_position": 199911,
+      "context": "rical understanding of the Second\nAmendment right would be irrelevant. In fact, the Government posits that",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "LEGAL_CONCEPT",
+      "text": "Civil War",
+      "confidence": 0.71,
+      "start_position": 199915,
+      "end_position": 199923,
+      "context": "rstanding of the Second\nAmendment right would be irrelevant. In fact, the Government posits that Congress co",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "STATUTE",
+      "text": "\u00a722.02(b)",
+      "confidence": 0.71,
+      "start_position": 199971,
+      "end_position": 199983,
+      "context": "ant. In fact, the Government posits that Congress could enact a law that the\nFounders explicitly rejected. See i",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    },
+    {
+      "entity_type": "STATUTE",
+      "text": "12.33",
+      "confidence": 0.71,
+      "start_position": 199985,
+      "end_position": 199995,
+      "context": "the Government posits that Congress could enact a law that the\nFounders explicitly rejected. See id., at 18 (a",
+      "extraction_method": "ai_discovered",
+      "metadata": {}
+    }
+  ],
+  "citations": [],
+  "entity_type_summary": {
+    "PARTY": 6,
+    "GOVERNMENT_ENTITY": 2,
+    "CONSTITUTIONAL_PROVISION": 1,
+    "COURT": 1,
+    "LEGAL_CONCEPT": 1,
+    "STATUTE": 2
+  }
+}

@@ -1,0 +1,452 @@
+metadata:
+  pattern_type: court_names
+  jurisdiction: general
+  source_type: judicial
+  bluebook_compliance: 22nd_edition
+  pattern_version: '2.1'
+  created_date: '2025-01-21'
+  last_updated: '2025-08-28'
+  description: Enhanced court name patterns for comprehensive legal entity extraction
+    with circuit court identification improvements
+  enhancement_summary: Added circuit ordinal patterns (Third Circuit), shorthand patterns
+    (3d Cir.), and comprehensive circuit court coverage
+federal_courts:
+  supreme_court:
+    name: us_supreme_court
+    pattern: \b(?:the\s+)?(?:United\s+States\s+)?Supreme\s+Court(?:\s+of\s+the\s+United\s+States)?\b|\b(?:the\s+)?highest\s+Court\b
+    confidence: 0.98
+    components:
+      court_type: Supreme Court
+      jurisdiction: United States
+    examples:
+    - Supreme Court of the United States
+    - U.S. Supreme Court
+    - the Supreme Court
+    - United States Supreme Court
+    - the highest Court
+  supreme_court_short:
+    name: us_supreme_court_short
+    pattern: \bU\.S\.?\s+Supreme Court\b
+    confidence: 0.95
+    components:
+      court_type: Supreme Court
+      jurisdiction: U.S.
+    examples:
+    - U.S. Supreme Court
+    - U.S Supreme Court
+  circuit_courts:
+    name: circuit_court_of_appeals
+    pattern: \b(?:the\s+)?(?:United\s+States\s+)?Court\s+of\s+Appeals\s+for\s+the\s+([A-Z][a-z]+|D\.C\.|\d+(?:st|nd|rd|th)|Federal|First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh)\s+Circuit\b
+    confidence: 0.95
+    components:
+      court_type: Court of Appeals
+      circuit: Circuit designation
+    examples:
+    - United States Court of Appeals for the Ninth Circuit
+    - Court of Appeals for the 9th Circuit
+    - the Court of Appeals for the D.C. Circuit
+    - United States Court of Appeals for the Federal Circuit
+    - Court of Appeals for the Second Circuit
+    - Court of Appeals for the Third Circuit
+    - United States Court of Appeals for the Third Circuit
+  circuit_courts_reverse:
+    name: circuit_court_reverse_format
+    pattern: D\.C\.\s+Circuit\s+Court\s+of\s+Appeals
+    confidence: 0.92
+    components:
+      circuit: Circuit designation
+      court_type: Circuit Court of Appeals
+    examples:
+    - Ninth Circuit Court of Appeals
+    - 9th Circuit Court of Appeals
+    - D.C. Circuit Court of Appeals
+    - Third Circuit
+    - Third Circuit Court of Appeals
+  circuit_shorthand:
+    name: circuit_court_shorthand
+    pattern: \b(?:1st|2nd|2d|3rd|3d|4th|5th|6th|7th|8th|9th|10th|11th|D\.C\.|Fed\.)\s+Cir(?:cuit|\.)?\b
+    confidence: 0.9
+    components:
+      court_type: Circuit Court (abbreviated)
+      circuit: Circuit designation (abbreviated)
+    examples:
+    - 3d Cir.
+    - 9th Cir.
+    - 2d Cir.
+    - D.C. Cir.
+    - Fed. Cir.
+    - 11th Circuit
+    - 3rd Circuit
+  circuit_ordinal:
+    name: circuit_court_ordinal
+    pattern: \b(?:the\s+)?(?:First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh|D\.C\.|Federal)\s+Circuit\b
+    confidence: 0.93
+    components:
+      court_type: Circuit Court
+      circuit: Circuit designation (ordinal)
+    examples:
+    - Third Circuit
+    - the Third Circuit
+    - First Circuit
+    - Eleventh Circuit
+    - D.C. Circuit
+    - Federal Circuit
+  circuit_header_format:
+    name: circuit_court_header
+    pattern: \b(?:U\.S\.\s+Court\s+of\s+Appeals,\s+)?(?:the\s+)?(First|Second|Third|Fourth|Fifth|Sixth|Seventh|Eighth|Ninth|Tenth|Eleventh|D\.C\.|Federal)\s+Circuit(?:\s+Court)?\b
+    confidence: 0.94
+    components:
+      court_type: Circuit Court
+      circuit: Circuit designation (ordinal)
+    examples:
+    - U.S. Court of Appeals, Third Circuit
+    - Third Circuit
+    - the Third Circuit
+    - Third Circuit Court
+    - First Circuit Court
+    - D.C. Circuit
+  district_courts:
+    name: us_district_court_full
+    pattern: \b(?:the\s+)?United States District Court for the ([A-Z][a-z]+)\s+District
+      of ([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\b
+    confidence: 0.98
+    components:
+      court_type: U.S. District Court
+      district: District designation
+      state: State or jurisdiction
+    examples:
+    - United States District Court for the Western District of Washington
+    - the United States District Court for the Southern District of New York
+    - United States District Court for the Northern District of California
+    - United States District Court for the District of Columbia
+    - U.S. District Court for the Eastern District of Texas
+  district_courts_short:
+    name: us_district_court_short
+    pattern: \bU\.S\.?\s+District Court for the ([A-Z][a-z]+)\s+District of ([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\b
+    confidence: 0.95
+    components:
+      court_type: U.S. District Court
+      district: District designation
+      state: State or jurisdiction
+    examples:
+    - U.S. District Court for the Western District of Washington
+    - U.S. District Court for the Eastern District of Virginia
+  bankruptcy_courts:
+    name: bankruptcy_court
+    pattern: '\b(?:the\s+)?(?:United States\s+)?Bankruptcy Court(?: for the ([A-Z][a-z]+)\s+District
+      of ([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*))?\b'
+    confidence: 0.92
+    components:
+      court_type: Bankruptcy Court
+      district: District designation (optional)
+      state: State or jurisdiction (optional)
+    examples:
+    - United States Bankruptcy Court
+    - Bankruptcy Court for the Western District of Washington
+    - the Bankruptcy Court
+    - U.S. Bankruptcy Court for the District of Delaware
+    - Bankruptcy Court for the Southern District of New York
+state_courts:
+  state_supreme_courts:
+    name: state_supreme_court
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:State\s+)?Supreme Court\b
+    confidence: 0.95
+    components:
+      state: State name
+      court_type: Supreme Court
+    examples:
+    - Washington State Supreme Court
+    - California Supreme Court
+    - New York Supreme Court
+  state_supreme_courts_of:
+    name: supreme_court_of_state
+    pattern: \bSupreme Court of ([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\b
+    confidence: 0.95
+    components:
+      court_type: Supreme Court
+      state: State name
+    examples:
+    - Supreme Court of Washington
+    - Supreme Court of California
+    - Supreme Court of the United States
+  state_appellate_courts:
+    name: state_court_of_appeals
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Court of Appeals\b
+    confidence: 0.92
+    components:
+      state: State name
+      court_type: Court of Appeals
+    examples:
+    - Washington Court of Appeals
+    - California Court of Appeals
+    - Texas Court of Appeals
+  state_superior_courts:
+    name: state_superior_court
+    pattern: \b(?:the\s+)?Superior Court of ([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)(?:,\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County)?\b
+    confidence: 0.9
+    components:
+      court_type: Superior Court
+      state: State name
+      county: County name (optional)
+    examples:
+    - Superior Court of Washington
+    - Superior Court of Washington, King County
+    - the Superior Court of California
+  county_superior_courts:
+    name: county_superior_court
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+County Superior Court\b
+    confidence: 0.88
+    components:
+      county: County name
+      court_type: County Superior Court
+    examples:
+    - King County Superior Court
+    - Los Angeles County Superior Court
+    - Cook County Superior Court
+  district_courts_state:
+    name: state_district_court
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:County\s+)?District Court\b
+    confidence: 0.85
+    components:
+      location: County or district name
+      court_type: District Court
+    examples:
+    - King County District Court
+    - Seattle District Court
+    - Municipal District Court
+  municipal_courts:
+    name: municipal_court
+    pattern: \b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+Municipal Court\b
+    confidence: 0.85
+    components:
+      municipality: City or municipal name
+      court_type: Municipal Court
+    examples:
+    - Seattle Municipal Court
+    - Portland Municipal Court
+    - Boston Municipal Court
+generic_court_references:
+  the_court:
+    name: generic_court
+    pattern: \b(?:the\s+)?Court\b(?!\s+of)(?!\s+for)
+    confidence: 0.75
+    components:
+      court_type: Court (generic)
+    examples:
+    - the Court
+    - Court
+specialized_courts:
+  court_of_claims:
+    name: court_of_claims
+    pattern: \b(?:United\s+States\s+)?Court\s+of\s+(?:Federal\s+)?Claims\b
+    confidence: 0.92
+    components:
+      jurisdiction: United States
+      court_type: Court of Claims
+    examples:
+    - United States Court of Federal Claims
+    - Court of Federal Claims
+    - U.S. Court of Claims
+    - Court of Claims
+  court_of_international_trade:
+    name: court_international_trade
+    pattern: \b(?:United\s+States\s+)?Court\s+of\s+International\s+Trade\b
+    confidence: 0.91
+    components:
+      jurisdiction: United States
+      court_type: Court of International Trade
+    examples:
+    - United States Court of International Trade
+    - Court of International Trade
+    - U.S. Court of International Trade
+  patent_trademark_courts:
+    name: patent_trademark_courts
+    pattern: \b(?:Patent\s+(?:and\s+)?(?:Trademark\s+)?(?:Trial\s+and\s+)?Appeal\s+Board|PTAB|Trademark\s+Trial\s+and\s+Appeal\s+Board|TTAB)\b
+    confidence: 0.89
+    components:
+      board_type: Patent or Trademark board
+      abbreviation: Board abbreviation
+    examples:
+    - Patent Trial and Appeal Board
+    - PTAB
+    - Trademark Trial and Appeal Board
+    - TTAB
+    - Patent and Trademark Appeal Board
+  immigration_courts:
+    name: immigration_court
+    pattern: Executive\s+Office\s+for\s+Immigration\s+Review
+    confidence: 0.88
+    components:
+      court_type: Immigration court or board
+      abbreviation: Court abbreviation
+    examples:
+    - Immigration Court
+    - Executive Office for Immigration Review
+    - Board of Immigration Appeals
+    - BIA
+    - EOIR
+    - Immigration Judge
+  military_courts:
+    name: military_court
+    pattern: \b(?:Court\s+of\s+(?:Military\s+)?(?:Criminal\s+)?Appeals|(?:Army|Navy|Air\s+Force|Marine\s+Corps|Coast\s+Guard)\s+Court\s+of\s+Criminal\s+Appeals|Court-Martial|CAAF)\b
+    confidence: 0.87
+    components:
+      court_type: Military court
+      service_branch: Military branch
+    examples:
+    - United States Court of Appeals for the Armed Forces
+    - Army Court of Criminal Appeals
+    - Navy-Marine Corps Court of Criminal Appeals
+    - Air Force Court of Criminal Appeals
+    - Coast Guard Court of Criminal Appeals
+    - Court-Martial
+    - CAAF
+  administrative_law_courts:
+    name: administrative_law_court
+    pattern: \b(?:Administrative\s+Law\s+Judge|ALJ|Office\s+of\s+Administrative\s+Hearings|Merit\s+Systems\s+Protection\s+Board|MSPB)\b
+    confidence: 0.86
+    components:
+      court_type: Administrative court
+      abbreviation: Court abbreviation
+    examples:
+    - Administrative Law Judge
+    - ALJ
+    - Office of Administrative Hearings
+    - Merit Systems Protection Board
+    - MSPB
+  family_courts:
+    name: family_court
+    pattern: \b(?:([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:County\s+)?)?Family Court\b
+    confidence: 0.88
+    components:
+      jurisdiction: County or state (optional)
+      court_type: Family Court
+    examples:
+    - King County Family Court
+    - Family Court
+    - Seattle Family Court
+  probate_courts:
+    name: probate_court
+    pattern: \b(?:([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:County\s+)?)?Probate Court\b
+    confidence: 0.88
+    components:
+      jurisdiction: County or state (optional)
+      court_type: Probate Court
+    examples:
+    - King County Probate Court
+    - Probate Court
+  juvenile_courts:
+    name: juvenile_court
+    pattern: \b(?:([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:County\s+)?)?Juvenile Court\b
+    confidence: 0.88
+    components:
+      jurisdiction: County or state (optional)
+      court_type: Juvenile Court
+    examples:
+    - King County Juvenile Court
+    - Juvenile Court
+  tax_courts:
+    name: tax_court
+    pattern: \b(?:U\.S\.\s+)?Tax\s+Court(?:\s+of\s+the\s+United\s+States)?\b
+    confidence: 0.95
+    components:
+      jurisdiction: U.S. (optional)
+      court_type: Tax Court
+    examples:
+    - U.S. Tax Court
+    - Tax Court
+    - United States Tax Court
+    - Tax Court of the United States
+    - the Tax Court
+  veterans_courts:
+    name: veterans_court
+    pattern: \b(?:(?:U\.S\.\s+)?Court\s+of\s+(?:Appeals\s+for\s+)?Veterans\s+Claims|Board\s+of\s+Veterans'?\s+Appeals|BVA|CAVC)\b
+    confidence: 0.88
+    components:
+      court_type: Veterans court or board
+      abbreviation: Court abbreviation
+    examples:
+    - U.S. Court of Appeals for Veterans Claims
+    - Court of Veterans Claims
+    - Board of Veterans' Appeals
+    - BVA
+    - CAVC
+  arbitration_tribunals:
+    name: arbitration_tribunal
+    pattern: \b(?:(?:International\s+)?(?:Court\s+of\s+)?Arbitration|Arbitration\s+(?:Panel|Tribunal)|ICC\s+(?:Court\s+of\s+)?Arbitration|AAA\s+(?:Panel|Tribunal)|JAMS)\b
+    confidence: 0.85
+    components:
+      tribunal_type: Arbitration body
+      organization: Arbitration organization
+    examples:
+    - International Court of Arbitration
+    - ICC Court of Arbitration
+    - AAA Arbitration Panel
+    - JAMS Arbitration Tribunal
+    - Arbitration Panel
+entity_types:
+- name: US_SUPREME_COURT
+  description: United States Supreme Court
+  confidence_threshold: 0.95
+- name: CIRCUIT_COURT
+  description: U.S. Circuit Court of Appeals (full format)
+  confidence_threshold: 0.92
+- name: CIRCUIT_COURT_ORDINAL
+  description: U.S. Circuit Court (ordinal format - Third Circuit, D.C. Circuit)
+  confidence_threshold: 0.93
+- name: CIRCUIT_COURT_SHORTHAND
+  description: U.S. Circuit Court (abbreviated - 3d Cir., 9th Cir.)
+  confidence_threshold: 0.9
+- name: DISTRICT_COURT
+  description: U.S. District Court
+  confidence_threshold: 0.9
+- name: BANKRUPTCY_COURT
+  description: U.S. Bankruptcy Court
+  confidence_threshold: 0.88
+- name: STATE_SUPREME_COURT
+  description: State Supreme Court
+  confidence_threshold: 0.9
+- name: STATE_APPELLATE_COURT
+  description: State Court of Appeals
+  confidence_threshold: 0.88
+- name: SUPERIOR_COURT
+  description: State Superior Court
+  confidence_threshold: 0.85
+- name: COUNTY_COURT
+  description: County-level court
+  confidence_threshold: 0.83
+- name: MUNICIPAL_COURT
+  description: Municipal or city court
+  confidence_threshold: 0.83
+- name: SPECIALIZED_COURT
+  description: Family, probate, juvenile, or other specialized court
+  confidence_threshold: 0.85
+validation:
+  court_name_format:
+    valid_patterns:
+    - Jurisdiction + Court Type
+    - Court Type + of + Jurisdiction
+    required_elements:
+    - court_type
+    optional_elements:
+    - jurisdiction
+    - district_designation
+quality_metrics:
+  precision_target: 0.93
+  recall_target: 0.9
+  f1_target: 0.91
+  processing_speed: 900_courts_per_second
+testing:
+  test_cases:
+  - pattern: federal_courts.district_courts
+    text: The United States District Court for the Western District of Washington
+    expected_entities: 1
+  - pattern: state_courts.state_supreme_courts
+    text: Washington State Supreme Court
+    expected_entities: 1
+  - pattern: federal_courts.supreme_court
+    text: Supreme Court of the United States
+    expected_entities: 1
+  - pattern: state_courts.county_superior_courts
+    text: King County Superior Court
+    expected_entities: 1

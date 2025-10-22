@@ -1,0 +1,723 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "name": "Entity Relationship Network",
+    "description": "Entity relationships from test suite"
+  },
+  "nodes": [
+    {
+      "id": 0,
+      "entity_id": "uuid-string-1",
+      "label": "United States of America",
+      "entity_type": "PARTY",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 1,
+      "entity_id": "uuid-string-2",
+      "label": "Michael Henderson",
+      "entity_type": "PARTY",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 2,
+      "entity_id": "uuid-string-3",
+      "label": "Case No.",
+      "entity_type": "CASE_CITATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.9,
+      "category": "core_legal",
+      "size": 28.0
+    },
+    {
+      "id": 3,
+      "entity_id": "uuid-string-4",
+      "label": "United States District Court",
+      "entity_type": "COURT",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 4,
+      "entity_id": "uuid-string-5",
+      "label": "Southern District of New York",
+      "entity_type": "STATE_STATUTE_CITATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.9,
+      "category": "core_legal",
+      "size": 28.0
+    },
+    {
+      "id": 5,
+      "entity_id": "uuid-string-6",
+      "label": "21 U.S.C. \u00a7 841(a)(1)",
+      "entity_type": "STATUTE_CITATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 6,
+      "entity_id": "uuid-string-7",
+      "label": "18 U.S.C. \u00a7 2",
+      "entity_type": "STATUTE_CITATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 7,
+      "entity_id": "uuid-string-8",
+      "label": "March 15, 2023",
+      "entity_type": "DATE",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "temporal",
+      "size": 29.0
+    },
+    {
+      "id": 8,
+      "entity_id": "uuid-string-9",
+      "label": "2:30 p.m.",
+      "entity_type": "TIME",
+      "test_id": "test_1760575089802",
+      "confidence": 0.9,
+      "category": "temporal",
+      "size": 28.0
+    },
+    {
+      "id": 9,
+      "entity_id": "uuid-string-10",
+      "label": "Interstate 95",
+      "entity_type": "LOCATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.9,
+      "category": "core_legal",
+      "size": 28.0
+    },
+    {
+      "id": 10,
+      "entity_id": "uuid-string-11",
+      "label": "Officer Sarah Martinez",
+      "entity_type": "ATTORNEY",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 11,
+      "entity_id": "uuid-string-12",
+      "label": "New York Police Department",
+      "entity_type": "ORGANIZATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 12,
+      "entity_id": "uuid-string-13",
+      "label": "New York",
+      "entity_type": "STATE",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 13,
+      "entity_id": "uuid-string-14",
+      "label": "United States v. Henderson",
+      "entity_type": "CASE_CITATION",
+      "test_id": "test_1760575089802",
+      "confidence": 0.95,
+      "category": "core_legal",
+      "size": 29.0
+    },
+    {
+      "id": 14,
+      "entity_id": "uuid-string-15",
+      "label": "2023",
+      "entity_type": "DATE",
+      "test_id": "test_1760575189645",
+      "confidence": 1.0,
+      "category": "temporal",
+      "size": 30.0
+    },
+    {
+      "id": 15,
+      "entity_id": "entity_1",
+      "label": "The exact text as it appears in the document",
+      "entity_type": "MOTION",
+      "test_id": "test_1760575343531",
+      "confidence": 0.9,
+      "category": "procedural",
+      "size": 28.0
+    },
+    {
+      "id": 16,
+      "entity_id": "entity_2",
+      "label": "The exact text as it appears in the document",
+      "entity_type": "MONETARY_AMOUNT",
+      "test_id": "test_1760575343531",
+      "confidence": 0.95,
+      "category": "financial",
+      "size": 29.0
+    },
+    {
+      "id": 17,
+      "entity_id": "entity_3",
+      "label": "The exact text as it appears in the document",
+      "entity_type": "ATTORNEY_FEES",
+      "test_id": "test_1760575343531",
+      "confidence": 0.95,
+      "category": "financial",
+      "size": 29.0
+    }
+  ],
+  "links": [
+    {
+      "source": 0,
+      "target": 2,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.72,
+      "test_id": "test_1760575089802",
+      "weight": 7.199999999999999,
+      "context": "The relationship between United States of America and Case No. is established"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "relationship_type": "FILED_IN",
+      "confidence": 0.92,
+      "test_id": "test_1760575089802",
+      "weight": 9.200000000000001,
+      "context": "Case involving United States of America filed in United States District Court"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.8,
+      "test_id": "test_1760575089802",
+      "weight": 8.0,
+      "context": "The relationship between United States of America and Southern District of New York is established"
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.69,
+      "test_id": "test_1760575089802",
+      "weight": 6.8999999999999995,
+      "context": "The relationship between United States of America and 21 U.S.C. \u00a7 841(a)(1) is established"
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.8,
+      "test_id": "test_1760575089802",
+      "weight": 8.0,
+      "context": "Reference to United States of America in connection with 18 U.S.C. \u00a7 2"
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.85,
+      "test_id": "test_1760575089802",
+      "weight": 8.5,
+      "context": "United States of America and March 15, 2023 are connected in this legal proceeding"
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575089802",
+      "weight": 6.6000000000000005,
+      "context": "United States of America relates to 2:30 p.m. in the document context"
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575089802",
+      "weight": 6.6000000000000005,
+      "context": "United States of America and Interstate 95 are connected in this legal proceeding"
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "relationship_type": "REPRESENTS",
+      "confidence": 0.93,
+      "test_id": "test_1760575089802",
+      "weight": 9.3,
+      "context": "Attorney Officer Sarah Martinez represents United States of America"
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.78,
+      "test_id": "test_1760575089802",
+      "weight": 7.800000000000001,
+      "context": "United States of America and New York Police Department are connected in this legal proceeding"
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.84,
+      "test_id": "test_1760575126888",
+      "weight": 8.4,
+      "context": "This civil rights action arises from allegations that the San Francisco Police Department violated P"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.84,
+      "test_id": "test_1760575126888",
+      "weight": 8.4,
+      "context": "The relationship between This civil rights action arises from allegations that the San Francisco Pol"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.74,
+      "test_id": "test_1760575126888",
+      "weight": 7.4,
+      "context": "This civil rights action arises from allegations that the San Francisco Police Department violated P"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.67,
+      "test_id": "test_1760575126888",
+      "weight": 6.7,
+      "context": "This civil rights action arises from allegations that the San Francisco Police Department violated P"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.68,
+      "test_id": "test_1760575126888",
+      "weight": 6.800000000000001,
+      "context": "California Penal Code \u00a7 148(a)(1) and June 18, 2022 are connected in this legal proceeding"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575126888",
+      "weight": 6.6000000000000005,
+      "context": "Reference to California Penal Code \u00a7 148(a)(1) in connection with 4th and 14th Amendments"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.76,
+      "test_id": "test_1760575126888",
+      "weight": 7.6,
+      "context": "Document establishes connection: 42 U.S.C. \u00a7 1983 \u2194 June 18, 2022"
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.78,
+      "test_id": "test_1760575126888",
+      "weight": 7.800000000000001,
+      "context": "Document establishes connection: 42 U.S.C. \u00a7 1983 \u2194 4th and 14th Amendments"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.75,
+      "test_id": "test_1760575126888",
+      "weight": 7.5,
+      "context": "The relationship between June 18, 2022 and 4th and 14th Amendments is established"
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.79,
+      "test_id": "test_1760575189645",
+      "weight": 7.9,
+      "context": "Reference to Supreme Court of the United States in connection with Students for Academic Freedom"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.7,
+      "test_id": "test_1760575189645",
+      "weight": 7.0,
+      "context": "Document establishes connection: Supreme Court of the United States \u2194 Riverside Unified School Distr"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575189645",
+      "weight": 6.6000000000000005,
+      "context": "Document establishes connection: Supreme Court of the United States \u2194 Chief Justice Roberts"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "relationship_type": "REPRESENTS",
+      "confidence": 0.9,
+      "test_id": "test_1760575189645",
+      "weight": 9.0,
+      "context": "Attorney Chief Justice Roberts represents Students for Academic Freedom"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.84,
+      "test_id": "test_1760575189645",
+      "weight": 8.4,
+      "context": "Students for Academic Freedom and Hazelwood School District v. Kuhlmeier are connected in this legal"
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.7,
+      "test_id": "test_1760575189645",
+      "weight": 7.0,
+      "context": "Document establishes connection: Students for Academic Freedom \u2194 Tinker v. Des Moines Independent Co"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relationship_type": "REPRESENTS",
+      "confidence": 0.85,
+      "test_id": "test_1760575189645",
+      "weight": 8.5,
+      "context": "Attorney Chief Justice Roberts represents Riverside Unified School District"
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.76,
+      "test_id": "test_1760575189645",
+      "weight": 7.6,
+      "context": "The relationship between Riverside Unified School District and Hazelwood School District v. Kuhlmeie"
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.77,
+      "test_id": "test_1760575189645",
+      "weight": 7.7,
+      "context": "Riverside Unified School District and Tinker v. Des Moines Independent Community School District are"
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.77,
+      "test_id": "test_1760575189645",
+      "weight": 7.7,
+      "context": "Riverside Unified School District relates to 484 U.S. 260 in the document context"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.68,
+      "test_id": "test_1760575343531",
+      "weight": 6.800000000000001,
+      "context": "The relationship between The exact text as it appears in the document and The exact text as it appea"
+    },
+    {
+      "source": 15,
+      "target": 17,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.75,
+      "test_id": "test_1760575343531",
+      "weight": 7.5,
+      "context": "The exact text as it appears in the document relates to The exact text as it appears in the document"
+    },
+    {
+      "source": 15,
+      "target": 15,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.72,
+      "test_id": "test_1760575343531",
+      "weight": 7.199999999999999,
+      "context": "The exact text as it appears in the document and The exact text as it appears in the document are co"
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.78,
+      "test_id": "test_1760575343531",
+      "weight": 7.800000000000001,
+      "context": "The relationship between The exact text as it appears in the document and The exact text as it appea"
+    },
+    {
+      "source": 15,
+      "target": 17,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.74,
+      "test_id": "test_1760575343531",
+      "weight": 7.4,
+      "context": "The exact text as it appears in the document relates to The exact text as it appears in the document"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.7,
+      "test_id": "test_1760575343531",
+      "weight": 7.0,
+      "context": "Reference to The exact text as it appears in the document in connection with The exact text as it ap"
+    },
+    {
+      "source": 16,
+      "target": 15,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575343531",
+      "weight": 6.6000000000000005,
+      "context": "The exact text as it appears in the document and The exact text as it appears in the document are co"
+    },
+    {
+      "source": 16,
+      "target": 16,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.71,
+      "test_id": "test_1760575343531",
+      "weight": 7.1,
+      "context": "Reference to The exact text as it appears in the document in connection with The exact text as it ap"
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.77,
+      "test_id": "test_1760575343531",
+      "weight": 7.7,
+      "context": "The exact text as it appears in the document relates to The exact text as it appears in the document"
+    },
+    {
+      "source": 17,
+      "target": 15,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.8,
+      "test_id": "test_1760575343531",
+      "weight": 8.0,
+      "context": "The exact text as it appears in the document relates to The exact text as it appears in the document"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.75,
+      "test_id": "test_1760575386296",
+      "weight": 7.5,
+      "context": "Document establishes connection: United States of America \u2194 18 U.S.C. \u00a7 2113(a)"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.79,
+      "test_id": "test_1760575386296",
+      "weight": 7.9,
+      "context": "Document establishes connection: United States of America \u2194 18 U.S.C. \u00a7 924(c)(1)(A)(ii)"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "relationship_type": "FILED_IN",
+      "confidence": 0.95,
+      "test_id": "test_1760575386296",
+      "weight": 9.5,
+      "context": "Case involving United States of America filed in Supreme Court of the United States"
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.65,
+      "test_id": "test_1760575386296",
+      "weight": 6.5,
+      "context": "Reference to United States of America in connection with Honorable Judge Susan Martinez"
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.77,
+      "test_id": "test_1760575386296",
+      "weight": 7.7,
+      "context": "The relationship between Marcus Thompson and 18 U.S.C. \u00a7 2113(a) is established"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.8,
+      "test_id": "test_1760575386296",
+      "weight": 8.0,
+      "context": "Marcus Thompson and 18 U.S.C. \u00a7 924(c)(1)(A)(ii) are connected in this legal proceeding"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relationship_type": "FILED_IN",
+      "confidence": 0.9,
+      "test_id": "test_1760575386296",
+      "weight": 9.0,
+      "context": "Case involving Marcus Thompson filed in Supreme Court of the United States"
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.77,
+      "test_id": "test_1760575386296",
+      "weight": 7.7,
+      "context": "The relationship between Marcus Thompson and Honorable Judge Susan Martinez is established"
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.81,
+      "test_id": "test_1760575386296",
+      "weight": 8.100000000000001,
+      "context": "18 U.S.C. \u00a7 2113(a) relates to Supreme Court of the United States in the document context"
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.75,
+      "test_id": "test_1760575386296",
+      "weight": 7.5,
+      "context": "18 U.S.C. \u00a7 2113(a) and Honorable Judge Susan Martinez are connected in this legal proceeding"
+    },
+    {
+      "source": 0,
+      "target": 1,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.78,
+      "test_id": "test_1760575420481",
+      "weight": 7.800000000000001,
+      "context": "SUPERIOR COURT OF CALIFORNIA, COUNTY OF SAN DIEGO Case No. 37-2023-00123456-CU-BC-CTL JOHNSON v. SMI"
+    },
+    {
+      "source": 0,
+      "target": 2,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.81,
+      "test_id": "test_1760575420481",
+      "weight": 8.100000000000001,
+      "context": "Document establishes connection: SUPERIOR COURT OF CALIFORNIA, COUNTY OF SAN DIEGO Case No. 37-2023-"
+    },
+    {
+      "source": 0,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.71,
+      "test_id": "test_1760575420481",
+      "weight": 7.1,
+      "context": "The relationship between SUPERIOR COURT OF CALIFORNIA, COUNTY OF SAN DIEGO Case No. 37-2023-00123456"
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.82,
+      "test_id": "test_1760575420481",
+      "weight": 8.2,
+      "context": "SUPERIOR COURT OF CALIFORNIA, COUNTY OF SAN DIEGO Case No. 37-2023-00123456-CU-BC-CTL JOHNSON v. SMI"
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575420481",
+      "weight": 6.6000000000000005,
+      "context": "The relationship between SUPERIOR COURT OF CALIFORNIA, COUNTY OF SAN DIEGO Case No. 37-2023-00123456"
+    },
+    {
+      "source": 1,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.71,
+      "test_id": "test_1760575420481",
+      "weight": 7.1,
+      "context": "Document establishes connection: JOHNSON v. SMITH CONSTRUCTION, INC. \u2194 February 1, 2023"
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.66,
+      "test_id": "test_1760575420481",
+      "weight": 6.6000000000000005,
+      "context": "JOHNSON v. SMITH CONSTRUCTION, INC. and Trial is set for November 15, 2024 are connected in this leg"
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.81,
+      "test_id": "test_1760575420481",
+      "weight": 8.100000000000001,
+      "context": "Document establishes connection: JOHNSON v. SMITH CONSTRUCTION, INC. \u2194 Judge Robert Williams"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.68,
+      "test_id": "test_1760575420481",
+      "weight": 6.800000000000001,
+      "context": "Defendant Smith Construction, Inc. relates to February 1, 2023 in the document context"
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "relationship_type": "CO_OCCURS",
+      "confidence": 0.76,
+      "test_id": "test_1760575420481",
+      "weight": 7.6,
+      "context": "Document establishes connection: Defendant Smith Construction, Inc. \u2194 Trial is set for November 15, "
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+metadata:
+  jurisdiction: vermont
+  state_code: VT
+  authority_level: state
+  bluebook_table: T1.3
+  court_system: vermont
+  last_updated: '2025-07-29'
+  pattern_version: 2.1.0
+  maintainer: Legal Data Engineer
+  pattern_type: state_patterns
+  created_date: '2025-08-19'
+  description: Vermont legal entity extraction patterns
+patterns:
+- name: vt_supreme_court
+  pattern: (?P<volume>\d+)\s+Vt\.\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\((?P<year>\d{4})\)
+  confidence_base: 0.94
+  entity_type: CASE_CITATION
+  entity_subtype: vermont_supreme
+  components:
+    volume: 1
+    reporter: Vt.
+    page: 2
+    pincite: 3
+    year: 4
+  examples:
+  - State v. Thompson, 217 Vt. 345 (2024)
+  - In re Estate of Smith, 216 Vt. 123, 128 (2023)
+- name: vt_supreme_court_atlantic
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)(?:\s*,\s*(?P<pincite>\d+(?:-\d+)?))?\s*\(Vt\.\s+(?P<year>\d{4})\)
+  confidence_base: 0.92
+  entity_type: CASE_CITATION
+  entity_subtype: vermont_supreme_atlantic
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    pincite: 4
+    year: 5
+  examples:
+  - State v. Johnson, 456 A.3d 789 (Vt. 2023)
+  - Doe v. Town of Brattleboro, 234 A.2d 567 (Vt. 2022)
+- name: vt_superior_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(Vt\.\s*Super\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.87
+  entity_type: CASE_CITATION
+  entity_subtype: vermont_superior
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - Brown v. City of Burlington, 321 A.3d 456 (Vt. Super. Ct. 2023)
+- name: vt_family_court
+  pattern: (?P<volume>\d+)\s+A\.\s*(?P<series>\d+)?d\s+(?P<page>\d+)\s*\(Vt\.\s*Fam\.\s*Ct\.\s*(?P<year>\d{4})\)
+  confidence_base: 0.85
+  entity_type: CASE_CITATION
+  entity_subtype: vermont_family
+  components:
+    volume: 1
+    reporter: A.
+    series: 2
+    page: 3
+    year: 4
+  examples:
+  - In re C.D., 654 A.3d 321 (Vt. Fam. Ct. 2022)
+- name: vt_statutes_annotated
+  pattern: "(?P<title>\\d+)\\s+V\\.S\\.A\\.\\s*\xA7\\s*(?P<section>\\d+(?:[a-z])?(?:\\.\\d+)?(?:\\([a-z]\\))?)"
+  confidence_base: 0.94
+  entity_type: STATUTE_CITATION
+  entity_subtype: vermont_statutes_annotated
+  components:
+    title: 1
+    jurisdiction: V.S.A.
+    section: 2
+  examples:
+  - "13 V.S.A. \xA7 1201"
+  - "23 V.S.A. \xA7 1091a"
+  - "9 V.S.A. \xA7 2461(a)"
+- name: vt_constitution
+  pattern: Vt\.\s+Const\.\s+ch\.\s+(?P<chapter>[12])(?:,\s*art\.\s*(?P<article>\d+))?
+  confidence_base: 0.96
+  entity_type: CONSTITUTIONAL_CITATION
+  entity_subtype: vermont_constitution
+  components:
+    jurisdiction: Vt.
+    chapter: 1
+    article: 2
+  examples:
+  - Vt. Const. ch. 1, art. 7
+  - Vt. Const. ch. 2, art. 13
+- name: vt_administrative_rules
+  pattern: Vt\.\s+Code\s+R\.\s+(?P<agency>\d+)-(?P<subagency>\d+)-(?P<rule>\d+)(?:\.\d+)*
+  confidence_base: 0.89
+  entity_type: REGULATION_CITATION
+  entity_subtype: vermont_administrative_rules
+  components:
+    jurisdiction: Vt. Code R.
+    agency: 1
+    subagency: 2
+    rule: 3
+  examples:
+  - Vt. Code R. 12-2-101.3
+  - Vt. Code R. 20-5-9301
+entity_patterns:
+- name: vt_supreme_court_entity
+  pattern: (?:Vermont\s+Supreme\s+Court|Vt\.\s+Sup\.\s+Ct\.|Supreme\s+Court\s+of\s+Vermont)
+  entity_type: COURT
+  entity_subtype: vermont_supreme
+  confidence_base: 0.97
+  attributes:
+    jurisdiction: Vermont
+    court_level: supreme
+    authority_level: 1
+- name: vt_superior_court_entity
+  pattern: (?:Vermont\s+Superior\s+Court|Vt\.\s+Super\.\s+Ct\.|Superior\s+Court\s+of\s+Vermont)
+  entity_type: COURT
+  entity_subtype: vermont_superior
+  confidence_base: 0.92
+  attributes:
+    jurisdiction: Vermont
+    court_level: trial
+    authority_level: 2
+- name: vt_family_court_entity
+  pattern: (?:Vermont\s+Family\s+Court|Vt\.\s+Fam\.\s+Ct\.|Family\s+Court\s+of\s+Vermont)
+  entity_type: COURT
+  entity_subtype: vermont_family
+  confidence_base: 0.9
+  attributes:
+    jurisdiction: Vermont
+    court_level: specialized
+    authority_level: 3
+- name: vt_environmental_court_entity
+  pattern: (?:Vermont\s+Environmental\s+Court|Vt\.\s+Envtl\.\s+Ct\.|Environmental\s+Court\s+of\s+Vermont)
+  entity_type: COURT
+  entity_subtype: vermont_environmental
+  confidence_base: 0.88
+  attributes:
+    jurisdiction: Vermont
+    court_level: specialized
+    authority_level: 3
+- name: vt_justice_titles
+  pattern: (?P<name>[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*),\s+(?P<title>Chief\s+Justice|Associate\s+Justice|J\.|Justice)(?:\s+of\s+the\s+Vermont\s+Supreme\s+Court|\s+\(Vt\.\s+Sup\.\s+Ct\.\))?
+  entity_type: JUDGE
+  entity_subtype: vermont_justice
+  confidence_base: 0.92
+  attributes:
+    jurisdiction: Vermont
+    court_type: supreme
+validation:
+  year_range:
+  - 1791
+  - 2030
+  volume_limits:
+    vermont_reports:
+    - 1
+    - 220
+    atlantic:
+    - 1
+    - 1000
+  page_validation: true
+  section_format_check: true
+quality_metrics:
+  precision_target: 0.95
+  recall_target: 0.92
+  processing_speed: 860
+  memory_usage_mb: 115
+  accuracy_threshold: 0.9
+dependencies:
+- federal/supreme_court.yaml
+- entities/courts.yaml
+- citations/case_citations.yaml
+testing:
+  test_cases:
+  - text: State v. Thompson, 217 Vt. 345 (2024)
+    expected_type: CASE_CITATION
+    expected_confidence: 0.94
+  - text: Vermont Supreme Court held
+    expected_type: COURT
+    expected_confidence: 0.97
+  - text: "13 V.S.A. \xA7 1201"
+    expected_type: STATUTE_CITATION
+    expected_confidence: 0.94
+  performance_benchmarks:
+    citation_extraction_rate: 860
+    entity_recognition_rate: 1220
+    memory_efficiency: 0.86
+entity_types:
+- name: VERMONT_LEGAL_ENTITY
+  description: Vermont legal entity or citation
+  confidence_threshold: 0.8
