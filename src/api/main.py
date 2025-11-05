@@ -107,7 +107,7 @@ async def lifespan(app: FastAPI):
 
             # Get vLLM server configuration from environment (config already has /v1)
             vllm_base_url = os.getenv("VLLM_INSTRUCT_URL", "http://10.10.0.87:8080/v1")
-            vllm_model_name = os.getenv("VLLM_INSTRUCT_MODEL", "mistral-nemo-12b-instruct-128k")
+            vllm_model_name = os.getenv("VLLM_INSTRUCT_MODEL", "qwen3-vl-instruct-384k")
 
             logger.info(f"Initializing vLLM HTTP Client:")
             logger.info(f"  Base URL: {vllm_base_url}")

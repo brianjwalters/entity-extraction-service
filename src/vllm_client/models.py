@@ -35,13 +35,13 @@ class VLLMConfig:
     """
 
     # Model configuration (legacy single-service)
-    model: str = "mistral-nemo-12b-instruct-128k"
-    model_id: str = "mistral-nemo-12b-instruct-128k"
+    model: str = "qwen3-vl-instruct-384k"
+    model_id: str = "qwen3-vl-instruct-384k"
     base_url: str = "http://10.10.0.87:8080/v1"
 
     # Multi-service endpoints (3-service architecture)
     instruct_url: str = "http://10.10.0.87:8080/v1"
-    instruct_model: str = "mistral-nemo-12b-instruct-128k"
+    instruct_model: str = "qwen3-vl-instruct-384k"
     thinking_url: str = "http://10.10.0.87:8082/v1"
     thinking_model: str = "qwen-thinking-256k"
     embeddings_url: str = "http://10.10.0.87:8081/v1"

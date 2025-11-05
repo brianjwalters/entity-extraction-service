@@ -1015,9 +1015,9 @@ class VLLMDirectSettings(BaseSettings):
         description="vLLM service port"
     )
     vllm_model_name: str = Field(
-        default="mistral-nemo-12b-instruct-128k",
+        default="qwen3-vl-instruct-384k",
         env="VLLM_INSTRUCT_MODEL",
-        description="vLLM model name for entity extraction (served model name) - Mistral-Nemo 12B with Flash Attention"
+        description="vLLM model name for entity extraction (served model name) - Qwen3-VL-8B-Instruct-FP8 with 65K context"
     )
 
     # Generation Parameters (Reproducibility)
