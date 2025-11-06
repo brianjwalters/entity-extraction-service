@@ -1,0 +1,82 @@
+================================================================================
+HYBRID EXTRACTION RESULTS
+================================================================================
+
+⏱️  PERFORMANCE STATISTICS
+--------------------------------------------------------------------------------
+Eyecite extraction time: 10.40s
+LLM classification time: 0.00s
+Total processing time:   12.68s
+
+📊 CITATION STATISTICS
+--------------------------------------------------------------------------------
+Total citations found:       1129
+Known citations (Eyecite):   1084 (96.0%)
+Unknown citations:           45 (4.0%)
+LLM classified:              40
+False positives filtered:    5
+Final entity count:          1123
+
+🏷️  ENTITY TYPE BREAKDOWN
+--------------------------------------------------------------------------------
+CASE_CITATION                         595 ( 53.0%)
+CASE_CITATION_SHORT                   263 ( 23.4%)
+ID_CITATION                           164 ( 14.6%)
+STATUTE_CITATION                       51 (  4.5%)
+SUPRA_CITATION                         28 (  2.5%)
+STATE_STATUTE_CITATION                 10 (  0.9%)
+JOURNAL_CITATION                        6 (  0.5%)
+USC_SUBSECTION_CITATION                 2 (  0.2%)
+USC_CITATION                            2 (  0.2%)
+INTERNAL_REFERENCE                      1 (  0.1%)
+CFR_CITATION                            1 (  0.1%)
+
+🔧 EXTRACTION METHOD BREAKDOWN
+--------------------------------------------------------------------------------
+eyecite                              1083 ( 96.4%)
+hybrid_eyecite_llm                     40 (  3.6%)
+
+📋 SAMPLE ENTITIES (First 20)
+--------------------------------------------------------------------------------
+  1. [CASE_CITATION            ] 200 U. S. 321
+      Method: eyecite | Confidence: 0.95
+  2. [STATE_STATUTE_CITATION   ] Miss. Code Ann. §41
+      Method: eyecite | Confidence: 0.95
+  3. [CASE_CITATION            ] 410 U. S. 113
+      Method: eyecite | Confidence: 0.95
+  4. [CASE_CITATION            ] 505 U. S. 833
+      Method: eyecite | Confidence: 0.95
+  5. [CASE_CITATION_SHORT      ] 410 U. S., at 152
+      Method: eyecite | Confidence: 0.95
+  6. [CASE_CITATION            ] 417 U. S. 484
+      Method: eyecite | Confidence: 0.95
+  7. [CASE_CITATION            ] 506 U. S. 263
+      Method: eyecite | Confidence: 0.95
+  8. [CASE_CITATION            ] 586 U. S. ___
+      Method: eyecite | Confidence: 0.95
+  9. [CASE_CITATION            ] 597 U. S. ____
+      Method: eyecite | Confidence: 0.95
+ 10. [CASE_CITATION            ] 503 U. S. 115
+      Method: eyecite | Confidence: 0.95
+ 11. [CASE_CITATION_SHORT      ] 410 U. S., at 136
+      Method: eyecite | Confidence: 0.95
+ 12. [CASE_CITATION            ] 13 Pa. 631
+      Method: eyecite | Confidence: 0.95
+ 13. [CASE_CITATION            ] 83 N. C. 630
+      Method: eyecite | Confidence: 0.95
+ 14. [CASE_CITATION_SHORT      ] 410 U. S., at 154
+      Method: eyecite | Confidence: 0.95
+ 15. [CASE_CITATION_SHORT      ] 505 U. S., at 851
+      Method: eyecite | Confidence: 0.95
+ 16. [CASE_CITATION_SHORT      ] 410 U. S., at 150
+      Method: eyecite | Confidence: 0.95
+ 17. [CASE_CITATION_SHORT      ] 505 U. S., at 852
+      Method: eyecite | Confidence: 0.95
+ 18. [CASE_CITATION_SHORT      ] 505 U. S., at 851
+      Method: eyecite | Confidence: 0.95
+ 19. [CASE_CITATION            ] 576 U. S. 446
+      Method: eyecite | Confidence: 0.95
+ 20. [CASE_CITATION            ] 501 U. S. 808
+      Method: eyecite | Confidence: 0.95
+
+================================================================================

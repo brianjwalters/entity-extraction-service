@@ -1,0 +1,3919 @@
+================================================================================
+EYECITE CITATION EXTRACTION RESULTS
+================================================================================
+
+📊 EXTRACTION STATISTICS
+--------------------------------------------------------------------------------
+Total citations found: 642
+Unique resources: 203
+
+Citation types:
+  - FullCaseCitation: 233
+  - IdCitation: 142
+  - UnknownCitation: 137
+  - ShortCaseCitation: 98
+  - FullJournalCitation: 16
+  - FullLawCitation: 14
+  - SupraCitation: 2
+
+================================================================================
+ALL CITATIONS (Grouped by Resource)
+================================================================================
+
+
+[1] RESOURCE: 200 U. S. 321
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 200 U. S. 321
+    Position: 393-406
+    Court: scotus
+    Parties: United States v. Detroit Timber & Lumber Co.
+    Context: ...See United States v. Detroit Timber & Lumber Co., 200 U. S. 321, 337. SUPREME COURT OF THE UNITED STATES Syllabus...
+
+[2] RESOURCE: 18 U. S. C. §922
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 654-670
+    Context: ...2024 Respondent Zackey Rahimi was indicted under 18 U. S. C. §922(g)(8), a federal statute that prohibits individua...
+
+  Citation 2: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 11150-11166
+    Context: ...artner,” or a child of the partner or individual. 18 U. S. C. §922(g)(8). Respondent Zackey Rahimi is subject to suc...
+
+  Citation 3: [IdCitation]
+    Text: Ibid.
+    Position: 12165-12170
+    Context: ...he would shoot her if she reported the incident. Ibid. Undeterred by this threat, C. M. went to court to...
+
+  Citation 4: [IdCitation]
+    Text: Id.,
+    Position: 12881-12885
+    Context: ...hreat” to the “physical safety” of C. M. or A. R. Id., at 2–3. Based on these findings, the order prohib...
+
+  Citation 5: [IdCitation]
+    Text: Id.,
+    Position: 13061-13065
+    Context: ...C. M. during that period except to discuss A. R. Id., at 3–7. It also suspended Rahimi’s gun license fo...
+
+  Citation 6: [IdCitation]
+    Text: Id.,
+    Position: 13128-13132
+    Context: ...lso suspended Rahimi’s gun license for two years. Id., at 5–6. If Rahimi was imprisoned or confined when...
+
+  Citation 7: [IdCitation]
+    Text: Id.,
+    Position: 13339-13343
+    Context: ...ate, depending on the length of his imprisonment. Id., at 6–7. In May, however, Rahimi violated the orde...
+
+  Citation 8: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 15025-15041
+    Context: ...tic violence restraining order, in vi- olation of 18 U. S. C. §922(g)(8). At the time, such a viola- tion was punish...
+
+  Citation 9: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 44692-44708
+    Context: ...Court’s opinion applying that precedent to uphold 18 U. S. C. §922(g)(8). The Court today emphasizes that a challeng...
+
+  Citation 10: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 56423-56439
+    Context: ...erno, 481 U. S. 739, 745 (1987). He contends that 18 U. S. C. §922(g)(8) violates the Second Amendment “in all its a...
+
+  Citation 11: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 137165-137181
+    Context: ...aintained were sufficient historical analogues to 18 U. S. C. §922(g)(8), in- cluding surety and going armed laws. S...
+
+  Citation 12: [FullLawCitation]
+    Text: 18 U. S. C. §922
+    Position: 143573-143589
+    Context: ...orical regulation justifies the statute at issue, 18 U. S. C. §922(g)(8). Therefore, I respectfully dissent. I Secti...
+
+[3] RESOURCE: 597 U. S. 1
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 1655-1666
+    Year: 2023
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022). In light of Bruen, the Fifth Circuit reve...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 597 U. S., at 26
+    Position: 3197-3211
+    Context: ...nderpin the Nation’s regulatory tradition. Bruen, 597 U. S., at 26–31. When firearm regulation is challenged under...
+
+  Citation 3: [ShortCaseCitation]
+    Text: 597 U. S., at 24
+    Position: 3418-3434
+    Context: ...storical tradition of firearm regulation.” Bruen, 597 U. S., at 24. A court must ascertain whether the new law is “r...
+
+  Citation 4: [IdCitation]
+    Text: Id.,
+    Position: 3656-3666
+    Context: ...founding genera - tion to modern circumstances.” Id., at 29, and n. 7. Why and how the regulation burdens the...
+
+  Citation 5: [IdCitation]
+    Text: Id.,
+    Position: 3922-3932
+    Context: ...alogous enough to pass constitu- tional muster.” Id., at 30. Pp. 5–8. (b) Section 922(g)(8) survives Rahimi’s...
+
+  Citation 6: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 9138-9154
+    Context: ...i- cal twin” rather than a “historical analogue.” 597 U. S., at 30. The panel also misapplied the Court’ s precedent...
+
+  Citation 7: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 17625-17636
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022). In Bruen , we explained that when a firea...
+
+  Citation 8: [IdCitation]
+    Text: Id.,
+    Position: 17869-17879
+    Context: ...on’s historical tradition of firearm regulation.” Id., at 24. 5 Cite as: 602 U. S. ____ (2024) Opinion of the...
+
+  Citation 9: [ShortCaseCitation]
+    Text: 597 U. S., at 17
+    Position: 19342-19358
+    Context: ...res for Americans a means of self-defense. Bruen, 597 U. S., at 17. The spark that ignited the American Revolution w...
+
+  Citation 10: [ShortCaseCitation]
+    Text: 597 U. S., at 22
+    Position: 21398-21414
+    Context: ...an with “constitutional text and history.” Bruen, 597 U. S., at 22. In Bruen, we directed courts to examine our “his...
+
+  Citation 11: [IdCitation]
+    Text: Id.,
+    Position: 21552-21562
+    Context: ...n” to help delineate the con- tours of the right. Id., at 17. We explained that if a chal - lenged regulation...
+
+  Citation 12: [ShortCaseCitation]
+    Text: 597 U. S., at 26
+    Position: 22834-22848
+    Context: ...rinciples that underpin our regulatory tradition. 597 U. S., at 26–31. A court must ascertain whether the new law...
+
+  Citation 13: [IdCitation]
+    Text: Id.,
+    Position: 23072-23082
+    Context: ...founding generation to modern cir - cumstances.” Id., at 29, and n. 7. Discerning and develop- ing the law in...
+
+  Citation 14: [IdCitation]
+    Text: Id.,
+    Position: 23193-23203
+    Context: ...s “a commonplace task for any law- yer or judge.” Id., at 28. Why and how the regulation burdens the right are...
+
+  Citation 15: [IdCitation]
+    Text: Id.,
+    Position: 23282-23292
+    Context: ...burdens the right are cen - tral to this inquiry. Id., at 29. For example, if laws at the founding regulated f...
+
+  Citation 16: [IdCitation]
+    Text: Id.,
+    Position: 23879-23889
+    Context: ...analogous enough to pass constitutional muster.” Id., at 30. The law must comport 8 UNITED STATES v. RAHIMI O...
+
+  Citation 17: [IdCitation]
+    Text: Ibid.
+    Position: 24071-24076
+    Context: ...ed not be a “dead ringer” or a “historical twin.” Ibid. (emphasis deleted).1 B Bearing these principles i...
+
+  Citation 18: [ShortCaseCitation]
+    Text: 597 U. S., at 37
+    Position: 25719-25735
+    Context: ...pe of the right against the Federal Government).” 597 U. S., at 37. We explained that under the circumstances, resol...
+
+  Citation 19: [IdCitation]
+    Text: Id.,
+    Position: 25838-25842
+    Context: ...g the dispute was unnecessary to decide the case. Id., at 37–38. The same is true here. 9 Cite as: 602 U...
+
+  Citation 20: [ShortCaseCitation]
+    Text: 597 U. S., at 40
+    Position: 26588-26604
+    Context: ...bly in the Statute of Northampton of 1328. Bruen, 597 U. S., at 40. In the aftermath of the Reformation and the Engl...
+
+  Citation 21: [ShortCaseCitation]
+    Text: 597 U. S., at 56
+    Position: 32393-32409
+    Context: ...nine other jurisdictions did the same. See Bruen, 597 U. S., at 56, and n. 23. These laws often offered the accused...
+
+  Citation 22: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 35767-35783
+    Context: ...regimes, but it does not need to be. See Bruen , 597 U. S., at 30. Its prohibition on the possession of firearms by...
+
+  Citation 23: [IdCitation]
+    Text: Id.,
+    Position: 36274-36284
+    Context: ...hy and how it burdens the Second Amendment right. Id., at 29. Section 922(g)(8) restricts gun use to mitigate...
+
+  Citation 24: [ShortCaseCitation]
+    Text: 597 U. S., at 55
+    Position: 38870-38884
+    Context: ...cal analogue for New York’s gun licensing regime. 597 U. S., at 55–60. What distinguished the regimes, we observed...
+
+  Citation 25: [IdCitation]
+    Text: Id.,
+    Position: 39121-39131
+    Context: ...citizen had such a right, absent a special need. Id., at 56 (emphasis deleted). Section 922(g)(8)(C)(i) does...
+
+  Citation 26: [IdCitation]
+    Text: ibid.
+    Position: 39430-39435
+    Context: ...ible threat to the physical safety of others. See ibid. While we also noted that the surety laws applied...
+
+  Citation 27: [IdCitation]
+    Text: Id.,
+    Position: 39634-39644
+    Context: ...ely the State treated the rights of its citizens. Id., at 57. But as we have explained, our Nation’s tradition...
+
+  Citation 28: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 41029-41045
+    Context: ...id in Bruen, a “historical twin” is not required. 597 U. S., at 30. For its part, the Fifth Circuit made two errors....
+
+  Citation 29: [IdCitation]
+    Text: Ibid.
+    Position: 41205-41210
+    Context: ...ical twin” ra- ther than a “historical analogue.” Ibid. (emphasis deleted). Second, it did not correctly...
+
+  Citation 30: [ShortCaseCitation]
+    Text: 597 U. S., at 70
+    Position: 42506-42522
+    Context: ...ght. See, e.g., Heller, 554 U. S., at 635; Bruen, 597 U. S., at 70. But those decisions did not define the term and...
+
+  Citation 31: [ShortCaseCitation]
+    Text: 597 U. S., at 31
+    Position: 42842-42858
+    Context: ...f the full scope of the Second Amendment.” Bruen, 597 U. S., at 31. Nor do we do so today. Rath er, we conclude only...
+
+  Citation 32: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 44444-44455
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...York State Rifle & Pistol Assn., Inc. v. Bruen , 597 U. S. 1 (2022), for the first time. Although I continue t...
+
+  Citation 33: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 47535-47551
+    Context: ...d ringer’ or a ‘historical twin’” (quoting Bruen, 597 U. S., at 30)). Here, for example, the Government has not iden...
+
+  Citation 34: [ShortCaseCitation]
+    Text: 597 U. S., at 112
+    Position: 49569-49586
+    Context: ...s necessary to our Nation’s safety and security.” 597 U. S., at 112 (Breyer, J., dissenting). Thankfully, the Court r...
+
+  Citation 35: [ShortCaseCitation]
+    Text: 597 U. S., at 91
+    Position: 52261-52277
+    Context: ...seri- ous problems posed by gun violence,” Bruen, 597 U. S., at 91 (Breyer, J., dissenting), not merely by asking wh...
+
+  Citation 36: [IdCitation]
+    Text: id.,
+    Position: 52642-52653
+    Context: ...cases involving other constitutional provisions,” id., at 106, the constitutionality of §922(g)(8) is even more...
+
+  Citation 37: [ShortCaseCitation]
+    Text: 597 U. S., at 131
+    Position: 53653-53670
+    Context: ...riate, any less restrictive alternatives.” Bruen, 597 U. S., at 131 (Breyer, J., dissenting). Prior to Bruen, the Cou...
+
+  Citation 38: [IdCitation]
+    Text: Id.,
+    Position: 53944-53955
+    Context: ...severe, and intermediate scrutiny if it is not.” Id., at 103. 6 UNITED STATES v. RAHIMI SOTOMAYOR, J., concurr...
+
+  Citation 39: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 57072-57083
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1, 22 (2022)). As this Court has recognized, too, t...
+
+  Citation 40: [ShortCaseCitation]
+    Text: 597 U. S., at 17
+    Position: 57517-57533
+    Context: ...n’s historical tradition of firearms regulation.” 597 U. S., at 17; see ante, at 6. In this case, no one questions t...
+
+  Citation 41: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 58039-58055
+    Context: ...e historical analogue. Ante, at 8 (quoting Bruen, 597 U. S., at 30). But the government must establish that, in at l...
+
+  Citation 42: [ShortCaseCitation]
+    Text: 597 U. S., at 29
+    Position: 58406-58422
+    Context: ...e current law “is com- parably justified.” Bruen, 597 U. S., at 29; see ante, at 7. Why do we require those showings...
+
+  Citation 43: [ShortCaseCitation]
+    Text: 597 U. S., at 27
+    Position: 60057-60071
+    Context: ...people adopted remains our enduring guide. Bruen, 597 U. S., at 27–28; see, e.g., United States v. Jones, 565 U. S...
+
+  Citation 44: [ShortCaseCitation]
+    Text: 597 U. S., at 24
+    Position: 63559-63575
+    Context: ...was originally understood to protect. See Bruen, 597 U. S., at 24. I appreciate that one of our colleagues sees thi...
+
+  Citation 45: [ShortCaseCitation]
+    Text: 597 U. S., at 19
+    Position: 66279-66295
+    Context: ...ES v. RAHIMI GORSUCH, J., concurring and history. 597 U. S., at 19. Perhaps judges’ jobs would be easier if they cou...
+
+  Citation 46: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 101049-101060
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1, 35–37, 50–70 (2022); City of Austin v. Reagan Na...
+
+  Citation 47: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 116723-116734
+    Year: 2022
+    Court: scotus
+    Context: ...lations and exceptions to the right to bear arms. 597 U. S. 1, 17 (2022); see id., at 79– 81 (K AVANAUGH, J., c...
+
+  Citation 48: [IdCitation]
+    Text: id.,
+    Position: 116751-116755
+    Context: ...e right to bear arms. 597 U. S. 1, 17 (2022); see id., at 79– 81 (K AVANAUGH, J., concurring). This Cour...
+
+  Citation 49: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 120091-120102
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1, 17, 19 (2022). That evidence marks where the rig...
+
+  Citation 50: [IdCitation]
+    Text: Id.,
+    Position: 120371-120381
+    Context: ...d Amendment’s text and historical understanding.” Id., at 26. Because the Court has taken an originalist appro...
+
+  Citation 51: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 128226-128237
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022). I disagree with the meth- odology of that...
+
+  Citation 52: [IdCitation]
+    Text: id.,
+    Position: 128391-128395
+    Context: ...a Member of the Court at that time. See generally id., at 83–133 (Breyer, J., dissenting). But Bruen is...
+
+  Citation 53: [IdCitation]
+    Text: Ibid.
+    Position: 129540-129545
+    Context: ...nalogous enough to pass constitutional muster.’ ” Ibid. (quoting Bruen, 597 U. S., at 30). Gun regulation...
+
+  Citation 54: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 129562-129578
+    Context: ...s constitutional muster.’ ” Ibid. (quoting Bruen, 597 U. S., at 30). Gun regulations need only “com- port with the p...
+
+  Citation 55: [ShortCaseCitation]
+    Text: 597 U. S., at 103
+    Position: 135468-135485
+    Context: ...that incorporated means-end scrutiny. See Bruen, 597 U. S., at 103 (Breyer, J., dissenting). Rejecting that “two-ste...
+
+  Citation 56: [IdCitation]
+    Text: id.,
+    Position: 135578-135588
+    Context: ...two-step approach” as having “one step too many,” id., at 19, the Bruen majority subbed in another two-step ev...
+
+  Citation 57: [IdCitation]
+    Text: Id.,
+    Position: 135754-135764
+    Context: ...ent’s plain text covers an individual’s conduct.” Id., at 24. If it does, “[t]he government must then justify...
+
+  Citation 58: [IdCitation]
+    Text: Ibid.
+    Position: 135931-135936
+    Context: ...on’s historical tradition of firearm regulation.” Ibid. No one seems to question that “[h]istory has a ro...
+
+  Citation 59: [ShortCaseCitation]
+    Text: 597 U. S., at 30
+    Position: 136704-136720
+    Context: ...and rep- resentative historical analogue,” Bruen, 597 U. S., at 30 (emphasis deleted), Rahimi argued below that “the...
+
+  Citation 60: [ShortCaseCitation]
+    Text: 597 U. S., at 90
+    Position: 142029-142043
+    Context: ...proposals. See Tr. of Oral Arg. 54–57; cf. Bruen, 597 U. S., at 90–91 (Breyer, J., dissenting). And courts, which...
+
+  Citation 61: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 143270-143281
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1 (2022), this Court’s directive was clear: A fire...
+
+  Citation 62: [ShortCaseCitation]
+    Text: 597 U. S., at 17
+    Position: 147754-147768
+    Context: ...a fire- arm regulation is constitutional. Bruen, 597 U. S., at 17– 19. That framework requires the Government to...
+
+  Citation 63: [IdCitation]
+    Text: Id.,
+    Position: 147952-147962
+    Context: ...uter bounds of the righ t to keep and bear arms.” Id., at 19. The Fifth Circuit withdrew its opinion to apply...
+
+  Citation 64: [ShortCaseCitation]
+    Text: 597 U. S., at 27
+    Position: 150758-150774
+    Context: ...n the possession of handguns in the home,” Bruen, 597 U. S., at 27, and Bruen considered New York’s effective ban on...
+
+  Citation 65: [IdCitation]
+    Text: id.,
+    Position: 150859-150863
+    Context: ...ffective ban on carrying a firearm in public, see id., at 11– 13. The Court determined that the District...
+
+  Citation 66: [IdCitation]
+    Text: Id.,
+    Position: 151150-151160
+    Context: ...ves could have adopted to confront that problem.” Id., at 27. Accordingly, the Court “consider[ed] ‘founding -...
+
+  Citation 67: [IdCitation]
+    Text: Ibid.
+    Position: 151281-151286
+    Context: ...dent’ ” and looked for a comparable reg- ulation. Ibid. (quoting Heller , 554 U. S., at 631). In both cas...
+
+  Citation 68: [ShortCaseCitation]
+    Text: 597 U. S., at 27
+    Position: 151438-151454
+    Context: ...regulations unconstitutional. Id., at 631; Bruen, 597 U. S., at 27. Under our precedent, then, we must resolve two q...
+
+  Citation 69: [ShortCaseCitation]
+    Text: 597 U. S., at 70
+    Position: 153340-153354
+    Context: ...a right “guaranteed to ‘all Americans.’ ” Bruen , 597 U. S., at 70 (quoting Heller, 554 U. S., at 581). Since Rahi...
+
+  Citation 70: [FullCaseCitation]
+    Text: 597 U. S. 1
+    Position: 154314-154325
+    Year: 2022
+    Court: scotus
+    Parties: Pistol Assn., Inc. v. Bruen
+    Context: ...w York State Rifle & Pistol Assn., Inc. v. Bruen, 597 U. S. 1, 37 (2022)). 7 Cite as: 602 U. S. ____ (2024) THO...
+
+  Citation 71: [ShortCaseCitation]
+    Text: 597 U. S., at 46
+    Position: 164642-164658
+    Context: ...to define the Second Amendment right. See Bruen, 597 U. S., at 46. 12 UNITED STATES v. RAHIMI THOMAS, J., dissentin...
+
+  Citation 72: [ShortCaseCitation]
+    Text: 597 U. S., at 19
+    Position: 168302-168318
+    Context: ...ounds of the right to keep and bear arms.” Bruen, 597 U. S., at 19. iii The Government’s remaining evidence is even...
+
+  Citation 73: [ShortCaseCitation]
+    Text: 597 U. S., at 48
+    Position: 171335-171351
+    Context: ...as an absolute ban on handguns”); see also Bruen, 597 U. S., at 48. Our careful parsing of regu latory burdens makes...
+
+  Citation 74: [IdCitation]
+    Text: Id.,
+    Position: 171494-171504
+    Context: ...fies a right with a “historically fixed meaning.” Id., at 28. Accordingly, his - tory is our reference point a...
+
+  Citation 75: [IdCitation]
+    Text: Id.,
+    Position: 171738-171748
+    Context: ...that our an- cestors would never have accepted.” Id., at 30 (internal quo- tation marks and alteration omitte...
+
+  Citation 76: [ShortCaseCitation]
+    Text: 597 U. S., at 70
+    Position: 174622-174638
+    Context: ...ess oner- ous burdens than §922(g)(8). See Bruen, 597 U. S., at 70 (explaining that regulations “limit[ing] the inte...
+
+  Citation 77: [ShortCaseCitation]
+    Text: 597 U. S., at 47
+    Position: 188428-188442
+    Context: ...t home or even public carry generally. See Bruen, 597 U. S., at 47–50. Instead, they targeted only public carry th...
+
+  Citation 78: [ShortCaseCitation]
+    Text: 597 U. S., at 50
+    Position: 188622-188638
+    Context: ...” 1 Burn, Justice of the Peace, at 13; see Bruen, 597 U. S., at 50 (explaining that going armed laws “prohibit beari...
+
+  Citation 79: [ShortCaseCitation]
+    Text: 597 U. S., at 50
+    Position: 190597-190613
+    Context: ...ated by” an effective ban on public carry. Bruen, 597 U. S., at 50. Surely, then, a law that imposes a public and pr...
+
+  Citation 80: [ShortCaseCitation]
+    Text: 597 U. S., at 26
+    Position: 198456-198472
+    Context: ...ment’s text and historical understanding.” Bruen, 597 U. S., at 26 (emphasis added). To do so, we must look at the h...
+
+  Citation 81: [IdCitation]
+    Text: id.,
+    Position: 198647-198651
+    Context: ...d—not at modern post-hoc speculations. See, e.g., id., at 41–42, 48–49; Heller , 554 U. S., at 631–632....
+
+  Citation 82: [ShortCaseCitation]
+    Text: 597 U. S., at 26
+    Position: 201883-201899
+    Context: ...—“that demands our unqualified deference.” Bruen, 597 U. S., at 26. The Government’s own evidence exemplifies the da...
+
+  Citation 83: [IdCitation]
+    Text: Ibid.
+    Position: 202363-202368
+    Context: ...reats,” a modern Congress has the same authority. Ibid. The problem with such a view should be obvious. F...
+
+[4] RESOURCE: 61 F. 4th 443
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 61 F. 4th 443
+    Position: 1864-1877
+    Year: 2023
+    Context: ...n’s historical tradit ion of firearm regulation.” 61 F. 4th 443, 460 (CA5 2023). Held: When an individual has bee...
+
+  Citation 2: [FullCaseCitation]
+    Text: 61 F. 4th 443
+    Position: 9862-9875
+    Context: ...us of citizens who were not “responsible.” P. 17. 61 F. 4th 443, reversed and remanded. R OBERTS, C. J., delivere...
+
+  Citation 3: [FullCaseCitation]
+    Text: 61 F. 4th 443
+    Position: 18075-18088
+    Year: 2023
+    Context: ...new panel then heard oral argument and reversed. 61 F. 4th 443, 448 (CA5 2023). Surveying the evidence that the...
+
+  Citation 4: [IdCitation]
+    Text: Id.,
+    Position: 18267-18271
+    Context: ...t fit within our tradition of firearm regulation. Id., at 460–461. Judge Ho wrote separately to express...
+
+  Citation 5: [IdCitation]
+    Text: Id.,
+    Position: 18436-18440
+    Context: ...st in protecting people from violent individuals. Id., at 461–462 (concurring opinion). We granted certi...
+
+  Citation 6: [ShortCaseCitation]
+    Text: 61 F. 4th, at 453
+    Position: 41310-41327
+    Context: ...apply our precedents governing facial challenges. 61 F. 4th, at 453. As we have said in other contexts, “[w]hen legis...
+
+  Citation 7: [ShortCaseCitation]
+    Text: 61 F. 4th, at 459
+    Position: 41781-41798
+    Context: ...(g)(8) might raise constitu- tional concerns. See 61 F. 4th, at 459; id., at 465–467 (Ho, J., concurring). That error...
+
+  Citation 8: [IdCitation]
+    Text: id.,
+    Position: 41800-41804
+    Context: ...constitu- tional concerns. See 61 F. 4th, at 459; id., at 465–467 (Ho, J., concurring). That error left...
+
+  Citation 9: [ShortCaseCitation]
+    Text: 61 F. 4th, at 459
+    Position: 43297-43314
+    Context: ...process rather than the Second Amend- ment. E.g., 61 F. 4th, at 459; id., at 465–467 (Ho, J., concurring). As we have...
+
+  Citation 10: [IdCitation]
+    Text: id.,
+    Position: 43316-43320
+    Context: ...the Second Amend- ment. E.g., 61 F. 4th, at 459; id., at 465–467 (Ho, J., concurring). As we have expla...
+
+  Citation 11: [FullCaseCitation]
+    Text: 61 F. 4th 443
+    Position: 137450-137463
+    Year: 2023
+    Context: ...ent’s analogues were not “‘relevantly similar.’ ” 61 F. 4th 443, 460–461 (2023). Neither the parties nor the Fift...
+
+  Citation 12: [FullCaseCitation]
+    Text: 61 F. 4th 443
+    Position: 148244-148257
+    Year: 2023
+    Context: ...on’s historical tradition of firearm regulation.” 61 F. 4th 443, 460 (2023). The Fifth Circuit, accordingly, vaca...
+
+[5] RESOURCE: 554 U. S. 570
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 2597-2610
+    Court: scotus
+    Context: ...not unlimited,” District of Co- lumbia v. Heller, 554 U. S. 570, 626. The reach of the Second Amend- ment is not...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 554 U. S., at 582
+    Position: 2735-2752
+    Context: ...s that were in existence at the Founding. Heller, 554 U. S., at 582. Rather, it “extends, prima facie, to all instrum...
+
+  Citation 3: [IdCitation]
+    Text: Ibid.
+    Position: 2884-2889
+    Context: ...ms, even those that were not [yet] in existence.” Ibid. By that same logic, the Second Amend- ment permit...
+
+  Citation 4: [ShortCaseCitation]
+    Text: 554 U. S., at 626
+    Position: 7441-7458
+    Context: ...o present a special danger of misuse, see Heller, 554 U. S., at 626, Section 922(g)(8) applies only once a court has...
+
+  Citation 5: [ShortCaseCitation]
+    Text: 554 U. S., at 626
+    Position: 8759-8788
+    Context: ...- tally ill,” are “presumptively lawful.” Heller, 554 U. S., at 626, 627, n. 26. And the Court’s conclusion in Bruen that regulat...
+
+  Citation 6: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 20321-20334
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...s not unlimited.” District of Columbia v. Heller, 554 U. S. 570, 626 (2008). In Heller, this Court held that the...
+
+  Citation 7: [IdCitation]
+    Text: Ibid.
+    Position: 20756-20761
+    Context: ...any manner whatsoever and for whatever purpose.” Ibid. At the found- ing, the bearing of arms was subjec...
+
+  Citation 8: [ShortCaseCitation]
+    Text: 554 U. S., at 627
+    Position: 21133-21147
+    Context: ...the carrying of “dangerous and unusual weapons.” 554 U. S., at 627 (citing 4 W. Blackstone, Com- mentaries on the...
+
+  Citation 9: [ShortCaseCitation]
+    Text: 554 U. S., at 626
+    Position: 21275-21292
+    Context: ...69)). Others forbade carrying concealed firearms. 554 U. S., at 626. In Heller, our inquiry into the scope of the rig...
+
+  Citation 10: [ShortCaseCitation]
+    Text: 554 U. S., at 582
+    Position: 22255-22272
+    Context: ...hose arms that were in existence at the founding. 554 U. S., at 582. Rather, it “extends, prima facie, to all instrum...
+
+  Citation 11: [IdCitation]
+    Text: Ibid.
+    Position: 22408-22413
+    Context: ..., even those that were not [yet] in ex- istence.” Ibid. By that same logic, the Second Amendment permits...
+
+  Citation 12: [ShortCaseCitation]
+    Text: 554 U. S., at 594
+    Position: 28088-28102
+    Context: ...ponents on this side of the Atlantic. See Heller, 554 U. S., at 594–595, 600–603. But regulations tar- geting indi...
+
+  Citation 13: [ShortCaseCitation]
+    Text: 554 U. S., at 626
+    Position: 36867-36884
+    Context: ...o present a special danger of misuse, see Heller, 554 U. S., at 626, we note that Section 922(g)(8) applies only once...
+
+  Citation 14: [ShortCaseCitation]
+    Text: 554 U. S., at 636
+    Position: 38305-38322
+    Context: ...olute prohibition of handguns . . . in the home.” 554 U. S., at 636; Brief for Respondent 32. But Hel- ler never esta...
+
+  Citation 15: [ShortCaseCitation]
+    Text: 554 U. S., at 626
+    Position: 38652-38681
+    Context: ...nd the mentally ill,” are “presumptively lawful.” 554 U. S., at 626, 627, n. 26. Our analysis of the surety laws in Bruen also do...
+
+  Citation 16: [ShortCaseCitation]
+    Text: 554 U. S., at 635
+    Position: 42480-42497
+    Context: ...oy the Second Amendment right. See, e.g., Heller, 554 U. S., at 635; Bruen, 597 U. S., at 70. But those decisions did...
+
+  Citation 17: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 57300-57313
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...., at 32 (quoting District of Columbia v. Heller, 554 U. S. 570, 592 (2008)). And where that “text covers an indi...
+
+  Citation 18: [ShortCaseCitation]
+    Text: 554 U. S., at 592
+    Position: 58715-58732
+    Context: ...tood to have when the people adopted” it. Heller, 554 U. S., at 592, 634–635. When the people ratified the Second Ame...
+
+  Citation 19: [ShortCaseCitation]
+    Text: 554 U. S., at 634
+    Position: 66582-66599
+    Context: ...far from the Constitution’s promise. See Heller, 554 U. S., at 634. One more point: Our resolution of Mr. Rahimi’s f...
+
+  Citation 20: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 75163-75176
+    Year: 2008
+    Court: scotus
+    Parties: Columbia v. Heller
+    Context: ...IMI KAVANAUGH, J., concurring Columbia v. Heller, 554 U. S. 570, 626 (2008). II A recurring and difficult issue f...
+
+  Citation 21: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 81517-81530
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...allel” language); District of Columbia v. Heller, 554 U. S. 570, 600–601 (2008) (“Our interpretation is confirmed...
+
+  Citation 22: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 97908-97921
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...ing in judgment); District of Columbia v. Heller, 554 U. S. 570, 605–619, 626–628 (2008); McCreary County v. Amer...
+
+  Citation 23: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 101812-101825
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ..., 575–579 (2014); District of Columbia v. Heller, 554 U. S. 570, 605–619, 626– 628 (2008); Crawford v. Washington...
+
+  Citation 24: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 113169-113182
+    Year: 2008
+    Court: scotus
+    Context: ...sefulness is no constitutional guarantee at all.” 554 U. S. 570, 634 (2008). Some respond that history can be dif...
+
+  Citation 25: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 115346-115359
+    Year: 2008
+    Court: scotus
+    Context: ...rpose” and is subject to “important” limitations. 554 U. S. 570, 626–627 (2008). Although Heller declined to “und...
+
+  Citation 26: [IdCitation]
+    Text: Id.,
+    Position: 115524-115535
+    Context: ...ategories of traditional exceptions to the right. Id., at 626. For example, Heller indicated that: (i) “prohibi...
+
+  Citation 27: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 119828-119841
+    Year: 2008
+    Court: scotus
+    Parties: Columbia v. Heller
+    Context: ...d parcel of it. Dis- trict of Columbia v. Heller, 554 U. S. 570, 595, 627 (2008). Those limits define the scope o...
+
+  Citation 28: [ShortCaseCitation]
+    Text: 554 U. S., at 582
+    Position: 123623-123637
+    Context: ...he meaning of the phrase “bear Arms.” See Heller, 554 U. S., at 582–592. It also plays the more complicated role o...
+
+  Citation 29: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 134618-134631
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...our decision in District of Columbia v. Heller , 554 U. S. 570 (2008), which first recognized an individual righ...
+
+  Citation 30: [IdCitation]
+    Text: id.,
+    Position: 134727-134738
+    Context: ...right to keep and bear arms for self-defense, see id., at 628, was disrup- tive in its own way. After all, befo...
+
+  Citation 31: [IdCitation]
+    Text: Id.,
+    Position: 135073-135091
+    Context: ...ssion of firearms for purely private activities.” Id., at 676, n. 38 (Stevens, J., dissent - ing). Nonetheless, after...
+
+  Citation 32: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 140379-140392
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...flexibility. See District of Columbia v. Heller, 554 U. S. 570, 722 (2008) (Breye r, J., dissenting) (expressing...
+
+  Citation 33: [FullCaseCitation]
+    Text: 554 U. S. 570
+    Position: 146928-146941
+    Year: 2008
+    Court: scotus
+    Parties: District  Columbia v. Heller
+    Context: ...nt. He pointed to District of Columbia v. Heller, 554 U. S. 570 (2008), which held that the Second Amendment prot...
+
+  Citation 34: [ShortCaseCitation]
+    Text: 554 U. S., at 631
+    Position: 151305-151322
+    Context: ...comparable reg- ulation. Ibid. (quoting Heller , 554 U. S., at 631). In both cases, the Court found no such law and...
+
+  Citation 35: [IdCitation]
+    Text: Id.,
+    Position: 151418-151429
+    Context: ...and held the modern regulations unconstitutional. Id., at 631; Bruen, 597 U. S., at 27. Under our precedent, th...
+
+  Citation 36: [ShortCaseCitation]
+    Text: 554 U. S., at 599
+    Position: 152861-152878
+    Context: ...of the [Second Amendment] right itself.” Heller, 554 U. S., at 599 (emphasis deleted). There is no doubt that §922(g...
+
+  Citation 37: [ShortCaseCitation]
+    Text: 554 U. S., at 581
+    Position: 153374-153391
+    Context: ...ans.’ ” Bruen , 597 U. S., at 70 (quoting Heller, 554 U. S., at 581). Since Rahimi is a member of the political commu...
+
+  Citation 38: [ShortCaseCitation]
+    Text: 554 U. S., at 592
+    Position: 157148-157165
+    Context: ...in part by disarming their op- ponents.” Heller, 554 U. S., at 592. Englishmen, as a re- sult, grew “to be extremely...
+
+  Citation 39: [IdCitation]
+    Text: Id.,
+    Position: 157304-157315
+    Context: ...un by the state and to be jealous of their arms.” Id., at 593. Following the Glorious Revolution, they “obtaine...
+
+  Citation 40: [IdCitation]
+    Text: Ibid.
+    Position: 157509-157514
+    Context: ...ghts), that Protestants would never be disarmed.” Ibid. The English Bill of Rights “has long been underst...
+
+  Citation 41: [IdCitation]
+    Text: Ibid.
+    Position: 157616-157621
+    Context: ...d to be the predecessor to our Second Amendment.” Ibid. In fact, our Founders expanded on it and made the...
+
+  Citation 42: [ShortCaseCitation]
+    Text: 554 U. S., at 603
+    Position: 164926-164943
+    Context: ...erstood to codify a pre- existing right.” Heller, 554 U. S., at 603. Moreover, the States rejected the proposals. Sam...
+
+  Citation 43: [ShortCaseCitation]
+    Text: 554 U. S., at 599
+    Position: 170966-170983
+    Context: ...rearm anywhere, only at home, or nowhere. Heller, 554 U. S., at 599 (empha- sis deleted). And, the Government’s sugge...
+
+  Citation 44: [IdCitation]
+    Text: id.,
+    Position: 171142-171153
+    Context: ...tions between var- ious laws’ burdens. See, e.g., id., at 632 (explaining that laws that “did not clearly prohi...
+
+  Citation 45: [ShortCaseCitation]
+    Text: 554 U. S., at 580
+    Position: 196845-196862
+    Context: ...all members of the political community.” Heller, 554 U. S., at 580; see also id., at 581 (beginning its analysis wit...
+
+  Citation 46: [IdCitation]
+    Text: id.,
+    Position: 196873-196884
+    Context: ...l community.” Heller, 554 U. S., at 580; see also id., at 581 (beginning its analysis with the strong “presumpt...
+
+  Citation 47: [ShortCaseCitation]
+    Text: 554 U. S., at 631
+    Position: 198678-198692
+    Context: ...ations. See, e.g., id., at 41–42, 48–49; Heller , 554 U. S., at 631–632. As I have explained, a historically based...
+
+  Citation 48: [ShortCaseCitation]
+    Text: 554 U. S., at 634
+    Position: 200237-200251
+    Context: ...en the people adopted [the Amend- ment].” Heller, 554 U. S., at 634–635. Only a subsequent constitutional amendmen...
+
+  Citation 49: [IdCitation]
+    Text: Id.,
+    Position: 200453-200464
+    Context: ...udges think [its original] scope [is] too broad.” Id., at 635. Yet, the Government’s “law -abiding, dangerous c...
+
+  Citation 50: [ShortCaseCitation]
+    Text: 554 U. S., at 634
+    Position: 201651-201668
+    Context: ...s is no constitutional guarantee at all.” Heller, 554 U. S., at 634. The Second Amendment is “the very product of an...
+
+  Citation 51: [IdCitation]
+    Text: Id.,
+    Position: 201753-201764
+    Context: ...product of an interest balancing by the people.” Id., at 635. It is this policy judgment—not that of modern an...
+
+[6] RESOURCE: 481 U. S. 739
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 481 U. S. 739
+    Position: 4181-4194
+    Court: scotus
+    Parties: United States v. Salerno
+    Context: ...he Act would be valid.” United States v. Salerno, 481 U. S. 739, 745. Here, Section 922(g)(8) is constitutional a...
+
+  Citation 2: [FullCaseCitation]
+    Text: 481 U. S. 739
+    Position: 24462-24475
+    Year: 1987
+    Court: scotus
+    Parties: United States v. Salerno
+    Context: ...he Act would be valid.” United States v. Salerno, 481 U. S. 739, 745 (1987). That means that to prevail, the Gove...
+
+  Citation 3: [FullCaseCitation]
+    Text: 481 U. S. 739
+    Position: 43524-43537
+    Year: 1987
+    Court: scotus
+    Parties: United States v. Salerno
+    Context: ...(g)(8) on its face. See United States v. Salerno, 481 U. S. 739, 745 (1987) (a facial challenge fails if the law...
+
+  Citation 4: [FullCaseCitation]
+    Text: 481 U. S. 739
+    Position: 56379-56392
+    Year: 1987
+    Court: scotus
+    Parties: United States v. Salerno
+    Context: ...y”: a facial challenge. United States v. Salerno, 481 U. S. 739, 745 (1987). He contends that 18 U. S. C. §922(g)...
+
+  Citation 5: [ShortCaseCitation]
+    Text: 481 U. S., at 745
+    Position: 56691-56708
+    Context: ...without violating the Second Amendment. Salerno, 481 U. S., at 745. I agree with the Court that he has failed to mak...
+
+  Citation 6: [ShortCaseCitation]
+    Text: 481 U. S., at 751
+    Position: 66813-66830
+    Context: ...s applied in “particular circumstances.” Salerno, 481 U. S., at 751. So, for example, we do not deci de today whether...
+
+[7] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 5425-5439
+    Year: 2024
+    Court: scotus
+    Context: ...the peace, the bond would be forfeit. 3 Cite as: 602 U. S. ____ (2024) Syllabus Surety laws could be invoked to p...
+
+[8] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 10290-10304
+    Year: 2024
+    Court: scotus
+    Context: ...n. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) Opinion of the Court NOTICE: This opinion...
+
+[9] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 13908-13922
+    Year: 2024
+    Court: scotus
+    Context: ...egal drugs. After one of his customers 3 Cite as: 602 U. S. ____ (2024) Opinion of the Court “started talking tras...
+
+[10] RESOURCE: 136 Stat. 1329
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: 136 Stat. 1329
+    Position: 15238-15252
+    Context: ...r Communities Act, Pub. L. 117–159, §12004(c)(2), 136 Stat. 1329, 18 U. S. C. §924(a)(8). A prosecution under Sect...
+
+[11] RESOURCE: 18 U. S. C. §924
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: 18 U. S. C. §924
+    Position: 15254-15270
+    Context: ...t, Pub. L. 117–159, §12004(c)(2), 136 Stat. 1329, 18 U. S. C. §924(a)(8). A prosecution under Section 922(g)(8) may...
+
+[12] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 17892-17906
+    Year: 2023
+    Court: scotus
+    Context: ...on of firearm regulation.” Id., at 24. 5 Cite as: 602 U. S. ____ (2024) Opinion of the Court In light of Bruen, th...
+
+[13] RESOURCE: 600 U. S. ___
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 600 U. S. ___
+    Position: 18497-18510
+    Year: 2023
+    Court: scotus
+    Context: ...–462 (concurring opinion). We granted certiorari. 600 U. S. ___ (2023) II When a restraining order contains a fin...
+
+[14] RESOURCE: 561 U. S. 742
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 561 U. S. 742
+    Position: 19183-19196
+    Year: 2010
+    Court: scotus
+    Parties: McDonald v. Chicago
+    Context: ...system of ordered liberty.” McDonald v. Chicago, 561 U. S. 742, 778 (2010). Derived from English practice and co...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 561 U. S., at 771
+    Position: 19867-19881
+    Context: ...rms against interference by the States. McDonald, 561 U. S., at 771– 776. As a leading and early proponent of eman...
+
+  Citation 3: [FullCaseCitation]
+    Text: 561 U. S. 742
+    Position: 95766-95779
+    Year: 2010
+    Court: scotus
+    Parties: McDonald v. Chicago
+    Context: ...our people” are “paramount.” McDonald v. Chicago, 561 U. S. 742, 792 (2010) (Scalia, J., concurring). Constitutio...
+
+  Citation 4: [FullCaseCitation]
+    Text: 561 U. S. 742
+    Position: 112312-112325
+    Year: 2010
+    Court: scotus
+    Parties: McDonald v. Chicago
+    Context: ..., we can loosen the leash.” McDonald v. Chicago , 561 U. S. 742, 803 (2010) (concurring opinion) (quotation marks...
+
+  Citation 5: [ShortCaseCitation]
+    Text: 561 U. S., at 803
+    Position: 113349-113363
+    Context: ...e text can require “nuanced judgments,” McDonald, 561 U. S., at 803–804 (Scalia, J., concurring), and is “sometime...
+
+  Citation 6: [ShortCaseCitation]
+    Text: 561 U. S., at 804
+    Position: 114033-114050
+    Context: ...means available in an imperfect world.” McDonald, 561 U. S., at 804 (Scalia, J., concurring) (emphasis in original)....
+
+  Citation 7: [IdCitation]
+    Text: Ibid.
+    Position: 114458-114463
+    Context: ...ound to point in any direction the judges favor.” Ibid. Moreover, the historical approach “intrudes less...
+
+  Citation 8: [IdCitation]
+    Text: Id.,
+    Position: 114763-114774
+    Context: ...emocratically adopted or rejected by the people.” Id., at 805. IV This Court’s Second Amendment jurisprudence h...
+
+  Citation 9: [FullCaseCitation]
+    Text: 561 U. S. 742
+    Position: 116482-116495
+    Year: 2010
+    Court: scotus
+    Context: ...nding regulatory measures” identified in Heller . 561 U. S. 742, 786 (2010) (plurality opinion). Then, in Bruen,...
+
+  Citation 10: [FullCaseCitation]
+    Text: 561 U. S. 742
+    Position: 202979-202992
+    Year: 2010
+    Court: scotus
+    Parties: McDonald v. Chicago
+    Context: ...sarm them and other blacks.” McDonald v. Chicago, 561 U. S. 742, 771 (2010). Some “States formally prohibited Afr...
+
+  Citation 11: [IdCitation]
+    Text: Ibid.
+    Position: 203085-203090
+    Context: ...ted African- Americans from possessing firearms.” Ibid. A n d , 31 Cite as: 602 U. S. ____ (2024) THOMAS,...
+
+  Citation 12: [ShortCaseCitation]
+    Text: 561 U. S., at 858
+    Position: 206089-206106
+    Context: ...ial to the preserva - tion of liberty.” McDonald, 561 U. S., at 858 (T HOMAS, J., concurring in part and concurring i...
+
+[15] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 21835-21849
+    Year: 2024
+    Court: scotus
+    Context: ...lates othe r constitutional rights, it 7 Cite as: 602 U. S. ____ (2024) Opinion of the Court bears the burden to “...
+
+[16] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 25887-25901
+    Year: 2024
+    Court: scotus
+    Context: ...Id., at 37–38. The same is true here. 9 Cite as: 602 U. S. ____ (2024) Opinion of the Court decide whether regula...
+
+[17] RESOURCE: 20 Wyo. L. Rev. 249
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 20 Wyo. L. Rev. 249
+    Position: 27025-27044
+    Context: ...ohibiting Dangerous Persons From Possessing Arms, 20 Wyo. L. Rev. 249, 259 (2020). The Glorious Revolution cut back on...
+
+[18] RESOURCE: 56 Stan. L. Rev. 345
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 56 Stan. L. Rev. 345
+    Position: 29291-29311
+    Context: ...in his stead. D. Levinson, Collective Sanctions, 56 Stan. L. Rev. 345, 358 (2003). Eventually, the communal frankpledge...
+
+  Citation 2: [IdCitation]
+    Text: Ibid.
+    Position: 29828-29833
+    Context: ...suspected of fu- ture misbehavior to post a bond. Ibid. If an individual failed to post a bond, he would...
+
+[19] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 29923-29937
+    Year: 2024
+    Court: scotus
+    Context: ...he would be jailed. See, e.g., Mass. 11 Cite as: 602 U. S. ____ (2024) Opinion of the Court Rev. Stat., ch. 134,...
+
+[20] RESOURCE: 2 Edw. 3
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 2 Edw. 3
+    Position: 33560-33568
+    Year: 1328
+    Context: ...raced their origin to the Statute of Northampton, 2 Edw. 3 c. 3 (1328). Alt- hough the prototypical affray i...
+
+  Citation 2: [FullCaseCitation]
+    Text: 2 Edw. 3
+    Position: 33923-33931
+    Context: ...d—were often codified in the same statutes. E.g., 2 Edw. 3 c. 3; Acts and Laws of His Majesty’s Province of...
+
+[21] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 34010-34024
+    Court: scotus
+    Context: ...ajesty’s Province of New-Hampshire in 13 Cite as: 602 U. S. ____ (2024) Opinion of the Court New-England 2 (1761)....
+
+[22] RESOURCE: 25 N. C. 418
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 25 N. C. 418
+    Position: 34424-34436
+    Year: 1843
+    Parties: State v. Huntly
+    Context: ...necessarily to actual violence.” State v. Huntly, 25 N. C. 418, 421–422 (1843) (per curiam ). There- fore, the l...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 25 N. C., at 421
+    Position: 34731-34744
+    Context: ...udence through the common law. See, e.g., Huntly, 25 N. C., at 421–422; O’Neill v. State, 16 Ala. 65, 67 (1849);...
+
+[23] RESOURCE: 16 Ala. 65
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 16 Ala. 65
+    Position: 34771-34781
+    Year: 1849
+    Parties: O’Neill v. State
+    Context: ..., Huntly, 25 N. C., at 421–422; O’Neill v. State, 16 Ala. 65, 67 (1849); Hickman v. State, 193 Md. App. 238, 2...
+
+[24] RESOURCE: 193 Md. App. 238
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 193 Md. App. 238
+    Position: 34812-34828
+    Year: 2010
+    Parties: Hickman v. State
+    Context: .... State, 16 Ala. 65, 67 (1849); Hickman v. State, 193 Md. App. 238, 253–255, 996 A. 2d 974, 983 (2010) (recognizing...
+
+[25] RESOURCE: 996 A. 2d 974
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 996 A. 2d 974
+    Position: 34839-34852
+    Year: 2010
+    Parties: Hickman v. State
+    Context: ...49); Hickman v. State, 193 Md. App. 238, 253–255, 996 A. 2d 974, 983 (2010) (recognizing that common-law prohibit...
+
+[26] RESOURCE: Tex. Fam. Code Ann. §85.025
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: Tex. Fam. Code Ann. §85.025
+    Position: 37570-37597
+    Context: ...years after his release from prison, according to Tex. Fam. Code Ann. §85.025(c) (West 2019). App. 6–7. Finally, the penalty—an...
+
+[27] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 37982-37996
+    Year: 2024
+    Court: scotus
+    Context: ...of temporary disarmament that Section 15 Cite as: 602 U. S. ____ (2024) Opinion of the Court 922(g)(8) imposes is...
+
+[28] RESOURCE: 599 U. S. 762
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 599 U. S. 762
+    Position: 41531-41544
+    Year: 2023
+    Court: scotus
+    Context: ...manufacture conflict.” United States v. Han- sen, 599 U. S. 762, 781 (2023). Rather than consider the circumstanc...
+
+[29] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 41892-41906
+    Year: 2024
+    Court: scotus
+    Context: ...error left the panel slaying a straw 17 Cite as: 602 U. S. ____ (2024) Opinion of the Court man.2 5 Finally, in h...
+
+[30] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 44052-44066
+    Year: 2024
+    Court: scotus
+    Context: ...d. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) SOTOMAYOR, J., concurring SUPREME COURT OF...
+
+[31] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 47696-47710
+    Year: 2024
+    Court: scotus
+    Context: ...aw that specifically disarmed domestic 3 Cite as: 602 U. S. ____ (2024) SOTOMAYOR, J., concurring abusers, see, e....
+
+[32] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 51750-51764
+    Year: 2024
+    Court: scotus
+    Context: ...retation and hamstrings our democracy. 5 Cite as: 602 U. S. ____ (2024) SOTOMAYOR, J., concurring III The Court to...
+
+[33] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 55998-56012
+    Year: 2024
+    Court: scotus
+    Context: ...n. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) GORSUCH, J., concurring SUPREME COURT OF T...
+
+[34] RESOURCE: 587 U. S. 119
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 587 U. S. 119
+    Position: 56524-56537
+    Year: 2019
+    Court: scotus
+    Parties: Bucklew v. Precythe
+    Context: ...t “in all its applications.” Bucklew v. Precythe, 587 U. S. 119, 138 (2019). To prevail, he must show “no set of...
+
+[35] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 59856-59870
+    Year: 2024
+    Court: scotus
+    Context: ...fore us. Developments in the world may 3 Cite as: 602 U. S. ____ (2024) GORSUCH, J., concurring change, facts on t...
+
+[36] RESOURCE: 565 U. S. 400
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 565 U. S. 400
+    Position: 60113-60126
+    Year: 2012
+    Court: scotus
+    Parties: United States v. Jones
+    Context: ...S., at 27–28; see, e.g., United States v. Jones, 565 U. S. 400, 404– 405 (2012); Caetano v. Massachusetts, 577 U...
+
+[37] RESOURCE: 577 U. S. 411
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 577 U. S. 411
+    Position: 60171-60184
+    Year: 2016
+    Court: scotus
+    Parties: Caetano v. Massachusetts
+    Context: .... 400, 404– 405 (2012); Caetano v. Massachusetts, 577 U. S. 411, 411– 412 (2016) (per curiam ). If changes are to...
+
+[38] RESOURCE: 541 U. S. 36
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 541 U. S. 36
+    Position: 60886-60898
+    Year: 2004
+    Court: scotus
+    Parties: Crawford v. Washington
+    Context: ...nt his accusers at trial. Crawford v. Washington, 541 U. S. 36, 54 (2004). Just as here, we have recognized that...
+
+  Citation 2: [IdCitation]
+    Text: Ibid.
+    Position: 61094-61099
+    Context: ...eptions established at the time of the founding.” Ibid. And, just as here, when a party asks us to sustai...
+
+  Citation 3: [FullCaseCitation]
+    Text: 541 U. S. 36
+    Position: 98162-98174
+    Year: 2004
+    Court: scotus
+    Parties: Crawford v. Washington
+    Context: ...(Scalia, J., dissenting); Crawford v. Washington, 541 U. S. 36, 47–50 (2004); Mitchell v. United States, 526 U....
+
+  Citation 4: [FullCaseCitation]
+    Text: 541 U. S. 36
+    Position: 101877-101889
+    Year: 2004
+    Court: scotus
+    Parties: Crawford v. Washington
+    Context: ...605–619, 626– 628 (2008); Crawford v. Washington, 541 U. S. 36, 47–50 (2004); Apprendi v. New Jersey, 530 U. S....
+
+[39] RESOURCE: 554 U. S. 353
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 554 U. S. 353
+    Position: 61296-61309
+    Year: 2008
+    Court: scotus
+    Parties: Giles v. California
+    Context: ...analogue to justify it. See Giles v. California, 554 U. S. 353, 358–361 (2008). Just as here, too, we have expre...
+
+  Citation 2: [IdCitation]
+    Text: id.,
+    Position: 61561-61565
+    Context: ...’” or “values” to guide them in future cases. See id., at 374–375 (opinion of Scalia, J.). We have rejec...
+
+  Citation 3: [IdCitation]
+    Text: Id.,
+    Position: 61852-61863
+    Context: ...ginally un- derstood at the time of the founding. Id., at 375. As we have put it, a court may not “e xtrapolate...
+
+  Citation 4: [IdCitation]
+    Text: Ibid.
+    Position: 62158-62163
+    Context: ...(in the courts’ views) those underlying values.” Ibid. Pro- ceeding that way, we have warned, risks hand...
+
+  Citation 5: [IdCitation]
+    Text: Ibid.
+    Position: 62303-62308
+    Context: ...tee of confrontation” into “no guarantee at all.” Ibid. As there, so too here: Courts must proceed with c...
+
+[40] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 64118-64132
+    Year: 2024
+    Court: scotus
+    Context: ...at least keeps judges in their proper 5 Cite as: 602 U. S. ____ (2024) GORSUCH, J., concurring lane, seeking to h...
+
+[41] RESOURCE: 590 U. S. ___
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 590 U. S. ___
+    Position: 65313-65326
+    Year: 2014
+    Court: scotus
+    Parties: Rogers v. Grewal
+    Context: ...ene - fits the law offered. See Rogers v. Grewal, 590 U. S. ___, ___, and n. 1 (2020) (T HOMAS, J., joined by KAV...
+
+[42] RESOURCE: 742 F. 3d 1144
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 742 F. 3d 1144
+    Position: 65501-65515
+    Year: 2014
+    Parties: Peruta v. County of San Diego
+    Context: ...); see also, e.g., Peruta v. County of San Diego, 742 F. 3d 1144, 1167–1168, 1176–1177 (CA9 2014); Drake v. Filko,...
+
+[43] RESOURCE: 724 F. 3d 426
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 724 F. 3d 426
+    Position: 65566-65579
+    Year: 2013
+    Parties: Drake v. Filko
+    Context: ...1167–1168, 1176–1177 (CA9 2014); Drake v. Filko, 724 F. 3d 426, 457 (CA3 2013) (Hardiman, J., dissenting). Some...
+
+[44] RESOURCE: 19 F. 4th 1087
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 19 F. 4th 1087
+    Position: 65769-65783
+    Year: 2021
+    Parties: Duncan v. Bonta
+    Context: ...ng for judicial policymak- ing.” Duncan v. Bonta, 19 F. 4th 1087, 1148 (CA9 2021) (en banc) (Bumatay, J., dissenti...
+
+  Citation 2: [IdCitation]
+    Text: Ibid.
+    Position: 65990-65995
+    Context: ...ies he “[f]avored” and discard those he disliked. Ibid. How did the government fare under that regime? In...
+
+  Citation 3: [IdCitation]
+    Text: Id.,
+    Position: 66096-66114
+    Context: ...one circuit, it had an “undefeated, 50–0 record.” Id., at 1167, n. 8 (VanDyke, J., dissenting). In Bruen, we rejected...
+
+[45] RESOURCE: 330 U. S. 75
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 330 U. S. 75
+    Position: 68291-68303
+    Year: 1947
+    Court: scotus
+    Parties: Public Workers v. Mitchell
+    Context: ...‘not abstractions.’ ” Public Workers v. Mitchell, 330 U. S. 75, 89 (1947). And the case 7 Cite as: 602 U. S. ___...
+
+[46] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 68340-68354
+    Year: 2024
+    Court: scotus
+    Context: ...330 U. S. 75, 89 (1947). And the case 7 Cite as: 602 U. S. ____ (2024) GORSUCH, J., concurring before us does not...
+
+[47] RESOURCE: 6 Wheat. 264
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 6 Wheat. 264
+    Position: 68828-68840
+    Year: 1821
+    Court: scotus
+    Parties: Cohens v. Virginia
+    Context: ...hose expres- sions are used,” Cohens v. Virginia, 6 Wheat. 264, 399 (1821), and may not be “stretch[ed] . . . be...
+
+[48] RESOURCE: 596 U. S. 118
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 596 U. S. 118
+    Position: 68933-68946
+    Year: 2022
+    Court: scotus
+    Parties: Brown v. Davenport
+    Context: .... . beyond their con- text,” Brown v. Davenport, 596 U. S. 118, 141 (2022). Among all the opinions issued in thi...
+
+[49] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 69545-69559
+    Year: 2024
+    Court: scotus
+    Context: ...r. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring SUPREME COURT OF...
+
+[50] RESOURCE: 146 U. S. 1
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 146 U. S. 1
+    Position: 72956-72967
+    Year: 1961
+    Court: scotus
+    Parties: McPherson v. Blacker
+    Context: ...arrow or enlarge the text.” McPherson v. Blacker, 146 U. S. 1, 27 (1892). Of course, some provisions of the Con...
+
+  Citation 2: [FullCaseCitation]
+    Text: 146 U. S. 1
+    Position: 91377-91388
+    Year: 1892
+    Court: scotus
+    Parties: McPherson v. Blacker
+    Context: ...into a regular practice”); McPherson v. Blacker , 146 U. S. 1, 27 (1892) (when constitutional text is vague, “c...
+
+[51] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 73105-73119
+    Year: 1961
+    Court: scotus
+    Context: ...to put it in Madison’s words, “more or 3 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring less obscure and...
+
+[52] RESOURCE: 551 U. S. 449
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 551 U. S. 449
+    Position: 74429-74442
+    Year: 2007
+    Court: scotus
+    Context: ...lection Comm’n v. Wisconsin Right to Life, Inc. , 551 U. S. 449, 482 (2007) (opinion of R OBERTS, C. J.); see R....
+
+  Citation 2: [FullCaseCitation]
+    Text: 551 U. S. 449
+    Position: 77034-77047
+    Year: 2007
+    Court: scotus
+    Context: ...lection Comm’n v. Wisconsin Right to Life, Inc. , 551 U. S. 449, 482 (2007) (opinion of R OBERTS, C. J.) (stating...
+
+[53] RESOURCE: 559 U. S. 460
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 559 U. S. 460
+    Position: 74790-74803
+    Year: 2010
+    Court: scotus
+    Parties: United States v. Stevens
+    Context: ...fraud, and incitement. United States v. Stevens, 559 U. S. 460, 468 (2010) (quotation marks omitted). So too wit...
+
+[54] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 77195-77209
+    Year: 2024
+    Court: scotus
+    Context: ...alling the language we are applying”). 5 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring role than an app...
+
+[55] RESOURCE: 57 U. Cin. L. Rev. 849
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 57 U. Cin. L. Rev. 849
+    Position: 77982-78004
+    Context: ...imself.” A. Scalia, Originalism: The Lesser Evil, 57 U. Cin. L. Rev. 849, 864 (1989). When properly applied, history helps...
+
+  Citation 2: [FullJournalCitation]
+    Text: 57 U. Cin. L. Rev. 849
+    Position: 111911-111933
+    Context: ...he law.” A. Scalia, Originalism: The Lesser Evil, 57 U. Cin. L. Rev. 849, 863 (1989). Under the balancing approach, to use...
+
+[56] RESOURCE: 56 U. Chi. L. Rev. 1175
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 56 U. Chi. L. Rev. 1175
+    Position: 78186-78209
+    Context: ...h.” A. Scalia, The Rule of Law as a Law of Rules, 56 U. Chi. L. Rev. 1175, 1183 (1989). 2 Absent precedent, therefore, hist...
+
+  Citation 2: [FullJournalCitation]
+    Text: 56 U. Chi. L. Rev. 1175
+    Position: 111432-111455
+    Context: ...n.” A. Scalia, The Rule of Law as a Law of Rules, 56 U. Chi. L. Rev. 1175, 1185 (1989). Moreover, the balancing approach is...
+
+[57] RESOURCE: 462 U. S. 919
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 462 U. S. 919
+    Position: 78813-78826
+    Year: 1983
+    Court: scotus
+    Parties: INS v. Chadha
+    Context: ...is not to be followed. See, e.g., INS v. Chadha, 462 U. S. 919, 945–959 (1983); Powell v. McCormack, 395 U. S. 4...
+
+[58] RESOURCE: 395 U. S. 486
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 395 U. S. 486
+    Position: 78865-78878
+    Year: 1969
+    Court: scotus
+    Parties: Powell v. McCormack
+    Context: ...2 U. S. 919, 945–959 (1983); Powell v. McCormack, 395 U. S. 486, 546–547 (1969); Brown v. Board of Education, 347...
+
+  Citation 2: [FullCaseCitation]
+    Text: 395 U. S. 486
+    Position: 102285-102298
+    Year: 1969
+    Court: scotus
+    Parties: Powell v. McCormack
+    Context: ...7 U. S. 664, 676–680 (1970); Powell v. McCormack, 395 U. S. 486, 522, 541–547 (1969); Youngstown Sheet & Tube Co....
+
+[59] RESOURCE: 347 U. S. 483
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 347 U. S. 483
+    Position: 78925-78938
+    Year: 1954
+    Court: scotus
+    Parties: Brown v. Board of Education
+    Context: ...486, 546–547 (1969); Brown v. Board of Education, 347 U. S. 483, 490–495, and n. 5 (1954); cf. Sedition Act of 17...
+
+  Citation 2: [FullCaseCitation]
+    Text: 347 U. S. 483
+    Position: 88453-88466
+    Year: 1954
+    Court: scotus
+    Parties: Brown v. Board of Education
+    Context: ...388 U. S. 1 (1967); Brown v. Board of Education, 347 U. S. 483 (1954). In short, pre-ratification American histo...
+
+  Citation 3: [FullCaseCitation]
+    Text: 347 U. S. 483
+    Position: 104812-104825
+    Court: scotus
+    Context: ...ay appropriately be overturned. See, e.g., Brown, 347 U. S. 483; West Coast Hotel Co. v. Parrish, 300 U. S. 379 (...
+
+[60] RESOURCE: 1 Stat. 596
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: 1 Stat. 596
+    Position: 79000-79011
+    Context: ...nd n. 5 (1954); cf. Sedition Act of 1798, ch. 74, 1 Stat. 596. In some cases, there may be debate about whether...
+
+[61] RESOURCE: 573 U. S. 513
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 573 U. S. 513
+    Position: 79178-79191
+    Year: 2014
+    Court: scotus
+    Parties: NLRB v. Noel Canning
+    Context: ...rical practices. See, e.g., NLRB v. Noel Canning, 573 U. S. 513, 613 (2014) (Scalia, J., concurring in judgment)...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 573 U. S., at 522
+    Position: 93490-93504
+    Context: ...thod ological questions. See, e.g., Noel Canning, 573 U. S., at 522–556; Youngstown Sheet & Tube Co. v. Sawyer, 34...
+
+  Citation 3: [FullCaseCitation]
+    Text: 573 U. S. 513
+    Position: 97799-97812
+    Year: 2014
+    Court: scotus
+    Parties: NLRB v. Noel Canning
+    Context: ...at 1962, n. 79; see, e.g., NLRB v. Noel Canning, 573 U. S. 513, 584–593, 602–615 (2014) (Scalia, J., concurring...
+
+[62] RESOURCE: 600 U. S. 1
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 600 U. S. 1
+    Position: 81220-81231
+    Year: 2023
+    Court: scotus
+    Parties: Moore v. Harper
+    Context: ...e U. S. Constitution. See, e.g., Moore v. Harper, 600 U. S. 1, 33 (2023) (the “Framers did not write the Electi...
+
+  Citation 2: [FullCaseCitation]
+    Text: 600 U. S. 1
+    Position: 100881-100892
+    Year: 2023
+    Court: scotus
+    Parties: Moore v. Harper
+    Context: ...0, 113–115 (2024) (per curiam ); Moore v. Harper, 600 U. S. 1, 22, 32–34 (2023); Kennedy v. Bremerton School Di...
+
+[63] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 81416-81430
+    Year: 2024
+    Court: scotus
+    Context: ...as evidenced by their use of “closely 7 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring parallel” langua...
+
+[64] RESOURCE: 434 U. S. 452
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 434 U. S. 452
+    Position: 81764-81777
+    Year: 1978
+    Court: scotus
+    Parties: United States Steel Corp. v. Multistate Tax Comm’n
+    Context: ...ited States Steel Corp. v. Multistate Tax Comm’n, 434 U. S. 452, 460, and n. 10 (1978) (“The history of interstat...
+
+[65] RESOURCE: 594 U. S. 482
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 594 U. S. 482
+    Position: 83341-83354
+    Year: 2021
+    Court: scotus
+    Parties: PennEast Pipeline Co. v. New Jersey
+    Context: ...g upon it”); PennEast Pipeline Co. v. New Jersey, 594 U. S. 482, 508 (2021) (“When the Framers met in Philadelphi...
+
+  Citation 2: [FullCaseCitation]
+    Text: 594 U. S. 482
+    Position: 101280-101293
+    Year: 2021
+    Court: scotus
+    Parties: PennEast Pipeline Co. v. New Jersey
+    Context: ...–477 (2022); PennEast Pipeline Co. v. New Jersey, 594 U. S. 482, 494–497, 508 (2021); TransUnion LLC v. Ramirez,...
+
+[66] RESOURCE: 542 U. S. 692
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 542 U. S. 692
+    Position: 83622-83635
+    Year: 2004
+    Court: scotus
+    Parties: Sosa v. Alvarez-Machain
+    Context: ...cles of Confederation”); Sosa v. Alvarez-Machain, 542 U. S. 692, 716–717 (2004) (“The Continental Congress was ha...
+
+[67] RESOURCE: 514 U. S. 779
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 514 U. S. 779
+    Position: 84048-84061
+    Year: 1995
+    Court: scotus
+    Parties: U. S. Term Limits, Inc. v. Thornton
+    Context: ...omitted)); U. S. Term Limits, Inc. v. Thornton , 514 U. S. 779, 803 (1995) (“After the Constitutional Convention...
+
+[68] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 85547-85561
+    Year: 2024
+    Court: scotus
+    Context: ...e people, are unguarded in the British 9 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring Constitution”)....
+
+[69] RESOURCE: 314 U. S. 252
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 314 U. S. 252
+    Position: 85914-85927
+    Year: 1941
+    Court: scotus
+    Parties: Bridges v. California
+    Context: ...Britain had ever enjoyed.” Bridges v. California, 314 U. S. 252, 265 (1941). Ratified as it was “while the memory...
+
+[70] RESOURCE: 565 U. S. 171
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 565 U. S. 171
+    Position: 86234-86247
+    Year: 2012
+    Court: scotus
+    Parties: Hosanna-Tabor Evangelical Lutheran Church  School v. EEOC
+    Context: ...r Evangelical Lutheran Church and School v. EEOC, 565 U. S. 171, 183 (2012) (“Familiar with life under the establ...
+
+[71] RESOURCE: 287 U. S. 45
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 287 U. S. 45
+    Position: 86476-86488
+    Year: 1932
+    Court: scotus
+    Parties: Powell v. Alabama
+    Context: ...dment’s Establishment Clause); Powell v. Alabama, 287 U. S. 45, 60 (1932) (right to counsel under the Sixth Amen...
+
+[72] RESOURCE: 501 U. S. 957
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 501 U. S. 957
+    Position: 87034-87047
+    Year: 1991
+    Court: scotus
+    Parties: Harmelin v. Michigan
+    Context: ...S. Constitution. See, e.g., Harmelin v. Michigan, 501 U. S. 957, 975 (1991) (opinion of Scalia, J.) (“Unless on e...
+
+  Citation 2: [FullCaseCitation]
+    Text: 501 U. S. 957
+    Position: 99096-99109
+    Year: 1991
+    Court: scotus
+    Parties: Harmelin v. Michigan
+    Context: ...) (Scalia, J., dissenting); Harmelin v. Michigan, 501 U. S. 957, 979–985 (1991) (opinion of Scalia, J.); Rutan v....
+
+[73] RESOURCE: 588 U. S. 284
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 588 U. S. 284
+    Position: 88320-88333
+    Year: 2019
+    Court: scotus
+    Parties: Flowers v. Mississippi
+    Context: ...nstitution. See generally Flowers v. Mississippi, 588 U. S. 284 (2019); Batson v. Kentucky, 476 U. S. 79 (1986);...
+
+[74] RESOURCE: 476 U. S. 79
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 476 U. S. 79
+    Position: 88362-88374
+    Year: 1986
+    Court: scotus
+    Parties: Batson v. Kentucky
+    Context: ...ssippi, 588 U. S. 284 (2019); Batson v. Kentucky, 476 U. S. 79 (1986); Loving v. Virginia , 388 U. S. 1 (1967);...
+
+[75] RESOURCE: 388 U. S. 1
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 388 U. S. 1
+    Position: 88404-88415
+    Year: 1967
+    Court: scotus
+    Parties: Loving v. Virginia
+    Context: ...ntucky, 476 U. S. 79 (1986); Loving v. Virginia , 388 U. S. 1 (1967); Brown v. Board of Education, 347 U. S. 48...
+
+[76] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 89943-89957
+    Year: 2024
+    Court: scotus
+    Context: ...r kings, not kings for the people”?). 11 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring governments bega...
+
+[77] RESOURCE: 536 U. S. 765
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 536 U. S. 765
+    Position: 90833-90846
+    Year: 2002
+    Court: scotus
+    Parties: Republican Party  Minn. v. White
+    Context: ...r. See, e.g., Republican Party of Minn. v. White, 536 U. S. 765, 785 (2002) (a “universal and long-established tr...
+
+[78] RESOURCE: 236 U. S. 459
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 236 U. S. 459
+    Position: 91066-91079
+    Year: 1915
+    Court: scotus
+    Parties: United States v. Midwest Oil Co.
+    Context: ...arks omitted)); United States v. Midwest Oil Co., 236 U. S. 459, 472–473 (1915) (“officers, law-makers and citize...
+
+  Citation 2: [FullCaseCitation]
+    Text: 236 U. S. 459
+    Position: 102642-102655
+    Year: 1915
+    Court: scotus
+    Parties: United States v. Midwest Oil Co.
+    Context: ...55–158 (1926); United States v. Midwest Oil Co. , 236 U. S. 459, 469–475 (1915); Marshall Field & Co. v. Clark, 1...
+
+[79] RESOURCE: 4 Wheat. 316
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 4 Wheat. 316
+    Position: 93144-93156
+    Year: 1819
+    Court: scotus
+    Parties: McCulloch v. Maryland
+    Context: ...cessary and Proper Clause. McCulloch v. Maryland, 4 Wheat. 316 (1819). Writing for the Court, Chief Justice Mars...
+
+  Citation 2: [IdCitation]
+    Text: Id.,
+    Position: 93365-93376
+    Context: ...uld “scarcely be considered as an open question.” Id., at 401. The constitutionality of the —————— answer to th...
+
+  Citation 3: [FullCaseCitation]
+    Text: 4 Wheat. 316
+    Position: 102838-102850
+    Year: 1819
+    Court: scotus
+    Parties: McCulloch v. Maryland
+    Context: ...How. 272, 279–280 (1856); McCulloch v. Maryland, 4 Wheat. 316, 400–401 (1819).6 —————— 6 The Court has similarl...
+
+[80] RESOURCE: 343 U. S. 579
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 343 U. S. 579
+    Position: 93552-93565
+    Year: 1952
+    Court: scotus
+    Parties: Tube Co. v. Sawyer
+    Context: ...t 522–556; Youngstown Sheet & Tube Co. v. Sawyer, 343 U. S. 579, 610–611 (1952) (Frankfurter, J., concurring). An...
+
+  Citation 2: [FullCaseCitation]
+    Text: 343 U. S. 579
+    Position: 102361-102374
+    Year: 1952
+    Court: scotus
+    Parties: Tube Co. v. Sawyer
+    Context: ...7 (1969); Youngstown Sheet & Tube Co. v. Sawyer , 343 U. S. 579, 610–613 (1952) (Frankfurter, J., concurring); Un...
+
+[81] RESOURCE: 118 Nw. U. L. Rev. 433
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 118 Nw. U. L. Rev. 433
+    Position: 93936-93958
+    Context: ..., and Kennedy: The Role of History and Tradition, 118 Nw. U. L. Rev. 433 (2023); M. DeGirolami, Traditionali sm Rising, 24...
+
+[82] RESOURCE: 24 J. Contemp. Legal Issues 9
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 24 J. Contemp. Legal Issues 9
+    Position: 94006-94035
+    Context: ...33 (2023); M. DeGirolami, Traditionali sm Rising, 24 J. Contemp. Legal Issues 9 (2023); S. Girgis, Living Traditionalism, 98 N. Y...
+
+[83] RESOURCE: 71 Stan. L. Rev. 1
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 71 Stan. L. Rev. 1
+    Position: 94149-94167
+    Context: ...477 (2023); W. Baude, Constitutional Liquidation, 71 Stan. L. Rev. 1 (2019); C. Bradley, Doing Gloss, 84 U. Chi. L. Re...
+
+[84] RESOURCE: 84 U. Chi. L. Rev. 59
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 84 U. Chi. L. Rev. 59
+    Position: 94201-94222
+    Context: ...Stan. L. Rev. 1 (2019); C. Bradley, Doing Gloss, 84 U. Chi. L. Rev. 59 (2017); C. Bradley & T. Morrison, Historical Glos...
+
+[85] RESOURCE: 126 Harv. L. Rev. 411
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 126 Harv. L. Rev. 411
+    Position: 94304-94325
+    Context: ...n, Historical Gloss and the Separation of Powers, 126 Harv. L. Rev. 411 (2012); A. Amar, America’s Constitution (2005); C...
+
+[86] RESOURCE: 70 U. Chi. L. Rev. 519
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 70 U. Chi. L. Rev. 519
+    Position: 94427-94449
+    Context: ...Nelson, Originalism and Interpretive Conventions, 70 U. Chi. L. Rev. 519 (2003); M. McConnell, Tradition and Constitutiona...
+
+[87] RESOURCE: 1998 U. Ill. L. Rev. 173
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 1998 U. Ill. L. Rev. 173
+    Position: 94529-94553
+    Context: ...on and Constitutionalism Before the Constitution, 1998 U. Ill. L. Rev. 173. 13 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J.,...
+
+[88] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 94567-94581
+    Year: 2024
+    Court: scotus
+    Context: ...nstitution, 1998 U. Ill. L. Rev. 173. 13 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring national bank ha...
+
+[89] RESOURCE: 497 U. S. 62
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 497 U. S. 62
+    Position: 96088-96100
+    Year: 1990
+    Court: scotus
+    Parties: Rutan v. Republican Party of Ill.
+    Context: ...this Court.” Rutan v. Republican Party of Ill. , 497 U. S. 62, 96 (1990) (Scalia, J., dissenting). The U. S. Re...
+
+  Citation 2: [FullCaseCitation]
+    Text: 497 U. S. 62
+    Position: 99186-99198
+    Year: 1990
+    Court: scotus
+    Parties: Rutan v. Republican Party of Ill.
+    Context: ...f Scalia, J.); Rutan v. Republican Party of Ill., 497 U. S. 62, 95–97 (1990) (Scalia, J., dissenting); McKoy v....
+
+  Citation 3: [ShortCaseCitation]
+    Text: 497 U. S., at 95
+    Position: 99830-99844
+    Context: ...of other practices is to be figured out.” Rutan , 497 U. S., at 95–96 (Scalia, J., dissenting) (emphasis in origin...
+
+[90] RESOURCE: 92 Notre Dame L. Rev. 1945
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 92 Notre Dame L. Rev. 1945
+    Position: 96529-96555
+    Context: ...e Text: Justice Scalia’s Originalism in Practice, 92 Notre Dame L. Rev. 1945, 1957, 1960 (2017). Justice Scalia did not necess...
+
+[91] RESOURCE: 514 U. S. 334
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 514 U. S. 334
+    Position: 97603-97616
+    Year: 1995
+    Court: scotus
+    Parties: McIntyre v. Ohio Elections Comm’n
+    Context: ...to enshrine.” McIntyre v. Ohio Elections Comm’n, 514 U. S. 334, 378 (1995) (Scalia, J., dissenting). Or another:...
+
+  Citation 2: [FullCaseCitation]
+    Text: 514 U. S. 334
+    Position: 98676-98689
+    Year: 1995
+    Court: scotus
+    Parties: McIntyre v. Ohio Elections Comm’n
+    Context: ...15–519 (1995); McIntyre v. Ohio Elections Comm’n, 514 U. S. 334, 375–378, an d nn. 1–2 (1995) (Scalia, J., dissen...
+
+[92] RESOURCE: 545 U. S. 844
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 545 U. S. 844
+    Position: 98006-98019
+    Year: 2005
+    Court: scotus
+    Parties: McCreary County v. American Civil Liberties Union of Ky.
+    Context: ...County v. American Civil Liberties Union of Ky., 545 U. S. 844, 886–900 (2005) (Scalia, J., dissenting); Hamdi v...
+
+[93] RESOURCE: 542 U. S. 507
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 542 U. S. 507
+    Position: 98082-98095
+    Year: 2004
+    Court: scotus
+    Parties: Hamdi v. Rumsfeld
+    Context: ...05) (Scalia, J., dissenting); Hamdi v. Rumsfeld , 542 U. S. 507, 558–563 (2004) (Scalia, J., dissenting); Crawfor...
+
+[94] RESOURCE: 526 U. S. 314
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 526 U. S. 314
+    Position: 98217-98230
+    Year: 1999
+    Court: scotus
+    Parties: Mitchell v. United States
+    Context: .... S. 36, 47–50 (2004); Mitchell v. United States, 526 U. S. 314, 334–336, and n. 1 (1999) (Scalia, J., dissenting...
+
+[95] RESOURCE: 525 U. S. 316
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 525 U. S. 316
+    Position: 98349-98362
+    Year: 1999
+    Court: scotus
+    Parties: Department  Commerce v. United States House of Representatives
+    Context: ...mmerce v. United States House of Representatives, 525 U. S. 316, 347–349 (1999) (Scalia, J., concurring in part);...
+
+[96] RESOURCE: 524 U. S. 417
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 524 U. S. 417
+    Position: 98442-98455
+    Year: 1998
+    Court: scotus
+    Parties: Clinton v. City of New York
+    Context: ...concurring in part); Clinton v. City of New York, 524 U. S. 417, 465–469 (1998) (Scalia, J., concurring in part a...
+
+[97] RESOURCE: 521 U. S. 898
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 521 U. S. 898
+    Position: 98554-98567
+    Year: 1997
+    Court: scotus
+    Parties: Printz v. United States
+    Context: ...and dissenting in part); Printz v. United States, 521 U. S. 898, 905–918 (1997); United States v. Gaudin, 515 U....
+
+[98] RESOURCE: 515 U. S. 506
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 515 U. S. 506
+    Position: 98610-98623
+    Year: 1995
+    Court: scotus
+    Parties: United States v. Gaudin
+    Context: ...S. 898, 905–918 (1997); United States v. Gaudin, 515 U. S. 506, 515–519 (1995); McIntyre v. Ohio Elections Comm’...
+
+[99] RESOURCE: 514 U. S. 211
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 514 U. S. 211
+    Position: 98780-98793
+    Year: 1995
+    Court: scotus
+    Parties: Plaut v. Spendthrift Farm, Inc.
+    Context: ...., dissenting); Plaut v. Spendthrift Farm, Inc. , 514 U. S. 211, 223–225 (1995); Board of Ed. of Kiryas Joel Vill...
+
+[100] RESOURCE: 512 U. S. 687
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 512 U. S. 687
+    Position: 98872-98885
+    Year: 1994
+    Court: scotus
+    Parties: Board  Ed.  Kiryas Joel Village School Dist. v. Grumet
+    Context: .... of Kiryas Joel Village School Dist. v. Grumet , 512 U. S. 687, 732, 744 (1994) (Scalia, J., dissenting); Herrer...
+
+[101] RESOURCE: 506 U. S. 390
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 506 U. S. 390
+    Position: 98949-98962
+    Year: 1993
+    Court: scotus
+    Parties: Herrera v. Collins
+    Context: ...94) (Scalia, J., dissenting); Herrera v. Collins, 506 U. S. 390, 427–428 (1993) (Scalia, J., concurring); Richmon...
+
+[102] RESOURCE: 506 U. S. 40
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 506 U. S. 40
+    Position: 99024-99036
+    Year: 1992
+    Court: scotus
+    Parties: Richmond v. Lewis
+    Context: ...993) (Scalia, J., concurring); Richmond v. Lewis, 506 U. S. 40, 54 (1992) (Scalia, J., dissenting); Harmelin v....
+
+[103] RESOURCE: 494 U. S. 433
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 494 U. S. 433
+    Position: 99264-99277
+    Court: scotus
+    Parties: McKoy v. North Carolina
+    Context: ...Scalia, J., dissenting); McKoy v. North Carolina, 494 U. S. 433, 466, 471 (199 0) (Scalia, J., dissenting); Holla...
+
+[104] RESOURCE: 493 U. S. 474
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 493 U. S. 474
+    Position: 99343-99356
+    Year: 1990
+    Court: scotus
+    Parties: Holland v. Illinois
+    Context: ...0) (Scalia, J., dissenting); Holland v. Illinois, 493 U. S. 474, 481–482, and n. 1 (1990). 15 Cite as: 602 U. S....
+
+  Citation 2: [FullCaseCitation]
+    Text: 493 U. S. 474
+    Position: 102045-102058
+    Year: 1990
+    Court: scotus
+    Parties: Holland v. Illinois
+    Context: ...5 U. S. 437, 445–448 (1992); Holland v. Illinois, 493 U. S. 474, 481–482, and n. 1 (1990); Marsh v. Chambers, 463...
+
+[105] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 99396-99410
+    Year: 2024
+    Court: scotus
+    Context: ...U. S. 474, 481–482, and n. 1 (1990). 15 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring examining table...
+
+[106] RESOURCE: 601 U. S. 416
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 601 U. S. 416
+    Position: 100744-100757
+    Year: 2024
+    Court: scotus
+    Parties: Consumer Financial Protection Bureau v. Community Financial Services Assn. of America, Ltd.
+    Context: ...munity Financial Services Assn. of America, Ltd., 601 U. S. 416, 441–445 (2024) (K AGAN, J., concurring); Trump v...
+
+[107] RESOURCE: 601 U. S. 100
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 601 U. S. 100
+    Position: 100819-100832
+    Year: 2024
+    Court: scotus
+    Parties: Trump v. Anderson
+    Context: ...024) (K AGAN, J., concurring); Trump v. Anderson, 601 U. S. 100, 113–115 (2024) (per curiam ); Moore v. Harper, 6...
+
+[108] RESOURCE: 597 U. S. 507
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 597 U. S. 507
+    Position: 100947-100960
+    Year: 2022
+    Court: scotus
+    Parties: Kennedy v. Bremerton School Dist.
+    Context: ...32–34 (2023); Kennedy v. Bremerton School Dist., 597 U. S. 507, 535–536, 540–541, and n. 6 (2022); New York Stat...
+
+[109] RESOURCE: 596 U. S. 61
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 596 U. S. 61
+    Position: 101142-101154
+    Year: 2022
+    Court: scotus
+    Parties: City  Austin v. Reagan Nat. Advertising of Austin, LLC
+    Context: ...ustin v. Reagan Nat. Advertising of Austin, LLC , 596 U. S. 61, 75 (2022); Houston Community College System v. W...
+
+  Citation 2: [FullCaseCitation]
+    Text: 596 U. S. 61
+    Position: 109289-109301
+    Year: 2022
+    Court: scotus
+    Parties: City  Austin v. Reagan Nat. Advertising of Austin, LLC
+    Context: ...ustin v. Reagan Nat. Advertising of Austin, LLC , 596 U. S. 61, 75 (2022) (a city’s regulation of solely off-pre...
+
+[110] RESOURCE: 595 U. S. 468
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 595 U. S. 468
+    Position: 101212-101225
+    Year: 2022
+    Court: scotus
+    Parties: Houston Community College System v. Wilson
+    Context: ...22); Houston Community College System v. Wilson , 595 U. S. 468, 474–477 (2022); PennEast Pipeline Co. v. New Jer...
+
+[111] RESOURCE: 594 U. S. 413
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 594 U. S. 413
+    Position: 101343-101356
+    Year: 2021
+    Court: scotus
+    Parties: TransUnion LLC v. Ramirez
+    Context: ..., 494–497, 508 (2021); TransUnion LLC v. Ramirez, 594 U. S. 413, 424–425, 432–434 (2021); Torres v. Madrid, 592 U...
+
+[112] RESOURCE: 592 U. S. 306
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 592 U. S. 306
+    Position: 101401-101414
+    Year: 2021
+    Court: scotus
+    Parties: Torres v. Madrid
+    Context: .... 413, 424–425, 432–434 (2021); Torres v. Madrid, 592 U. S. 306, 314 (2021); Trump v. Mazars USA, LLP, 591 U. S....
+
+[113] RESOURCE: 591 U. S. 848
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 591 U. S. 848
+    Position: 101454-101467
+    Year: 2020
+    Court: scotus
+    Parties: Trump v. Mazars USA, LLP
+    Context: ...U. S. 306, 314 (2021); Trump v. Mazars USA, LLP, 591 U. S. 848, 858–862 (2020); Chiafalo 16 UNITED STATES v. RAH...
+
+[114] RESOURCE: 591 U. S. 578
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 591 U. S. 578
+    Position: 101562-101575
+    Year: 2020
+    Court: scotus
+    Context: .... RAHIMI KAVANAUGH, J., concurring v. Washington, 591 U. S. 578, 592–597 (2020); American Legion v. American Huma...
+
+[115] RESOURCE: 588 U. S. 29
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 588 U. S. 29
+    Position: 101638-101650
+    Year: 2019
+    Court: scotus
+    Parties: American Legion v. American Humanist Assn.
+    Context: ...20); American Legion v. American Humanist Assn. , 588 U. S. 29, 58–66 (2019); Zivotofsky v. Kerry, 576 U. S. 1,...
+
+[116] RESOURCE: 576 U. S. 1
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 576 U. S. 1
+    Position: 101687-101698
+    Year: 2015
+    Court: scotus
+    Parties: Zivotofsky v. Kerry
+    Context: ...588 U. S. 29, 58–66 (2019); Zivotofsky v. Kerry, 576 U. S. 1, 15–17, 23–28 (2015); Town of Greece v. Galloway,...
+
+[117] RESOURCE: 572 U. S. 565
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 572 U. S. 565
+    Position: 101749-101762
+    Year: 2014
+    Court: scotus
+    Parties: Town  Greece v. Galloway
+    Context: ...15–17, 23–28 (2015); Town of Greece v. Galloway, 572 U. S. 565, 575–579 (2014); District of Columbia v. Heller,...
+
+[118] RESOURCE: 530 U. S. 466
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 530 U. S. 466
+    Position: 101929-101942
+    Year: 2000
+    Court: scotus
+    Parties: Apprendi v. New Jersey
+    Context: ...1 U. S. 36, 47–50 (2004); Apprendi v. New Jersey, 530 U. S. 466, 481–483, and n. 10 (2000); Medina v. California,...
+
+[119] RESOURCE: 505 U. S. 437
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 505 U. S. 437
+    Position: 101993-102006
+    Year: 1992
+    Court: scotus
+    Parties: Medina v. California
+    Context: ...481–483, and n. 10 (2000); Medina v. California, 505 U. S. 437, 445–448 (1992); Holland v. Illinois, 493 U. S. 4...
+
+[120] RESOURCE: 463 U. S. 783
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 463 U. S. 783
+    Position: 102105-102118
+    Year: 1983
+    Court: scotus
+    Parties: Marsh v. Chambers
+    Context: ...474, 481–482, and n. 1 (1990); Marsh v. Chambers, 463 U. S. 783, 786–792 (1983); Dames & Moore v. Regan , 453 U....
+
+[121] RESOURCE: 453 U. S. 654
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 453 U. S. 654
+    Position: 102161-102174
+    Year: 1981
+    Court: scotus
+    Parties: Moore v. Regan
+    Context: ...S. 783, 786–792 (1983); Dames & Moore v. Regan , 453 U. S. 654, 678–682 (1981); Walz v. Tax Comm’n of City of Ne...
+
+[122] RESOURCE: 397 U. S. 664
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 397 U. S. 664
+    Position: 102233-102246
+    Year: 1970
+    Court: scotus
+    Parties: Walz v. Tax Comm’n of City of New York
+    Context: ...(1981); Walz v. Tax Comm’n of City of New York , 397 U. S. 664, 676–680 (1970); Powell v. McCormack, 395 U. S. 4...
+
+[123] RESOURCE: 299 U. S. 304
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 299 U. S. 304
+    Position: 102468-102481
+    Year: 1936
+    Court: scotus
+    Parties: United States v. Curtiss-Wright Export Corp.
+    Context: ...g); United States v. Curtiss-Wright Export Corp., 299 U. S. 304, 321–329 (1936); The Pocket Veto Case, 279 U. S....
+
+[124] RESOURCE: 279 U. S. 655
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 279 U. S. 655
+    Position: 102521-102534
+    Year: 1929
+    Court: scotus
+    Context: ...U. S. 304, 321–329 (1936); The Pocket Veto Case, 279 U. S. 655, 688– 691 (1929); Myers v. United States, 272 U....
+
+[125] RESOURCE: 272 U. S. 52
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 272 U. S. 52
+    Position: 102577-102589
+    Year: 1926
+    Court: scotus
+    Parties: Myers v. United States
+    Context: ...S. 655, 688– 691 (1929); Myers v. United States, 272 U. S. 52, 155–158 (1926); United States v. Midwest Oil Co....
+
+[126] RESOURCE: 143 U. S. 649
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 143 U. S. 649
+    Position: 102704-102717
+    Year: 1892
+    Court: scotus
+    Parties: Co. v. Clark
+    Context: ...9, 469–475 (1915); Marshall Field & Co. v. Clark, 143 U. S. 649, 683–692 (1892); Murray’s Lessee v. Hoboken Land...
+
+[127] RESOURCE: 18 How. 272
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 18 How. 272
+    Position: 102786-102797
+    Year: 1856
+    Court: scotus
+    Parties: Murray’ Lessee v. Hoboken Land & Improvement Co.
+    Context: ...urray’s Lessee v. Hoboken Land & Improvement Co., 18 How. 272, 279–280 (1856); McCulloch v. Maryland, 4 Wheat....
+
+[128] RESOURCE: 521 U. S. 702
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 521 U. S. 702
+    Position: 103482-103495
+    Year: 1997
+    Court: scotus
+    Parties: Washington v. Glucksberg
+    Context: ...history and tradition.” Washington v. Glucksberg, 521 U. S. 702, 720–721 (1997) (quotation marks omitted); see, e...
+
+[129] RESOURCE: 268 U. S. 510
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 268 U. S. 510
+    Position: 103580-103593
+    Year: 1925
+    Court: scotus
+    Parties: Pierce v. Society of Sisters
+    Context: ...mitted); see, e.g., Pierce v. Society of Sisters, 268 U. S. 510, 534–535 (1925) (“liberty of parents and guardian...
+
+[130] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 103731-103745
+    Year: 2024
+    Court: scotus
+    Context: ...on of children under their control”). 17 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring C Precedent . Wi...
+
+[131] RESOURCE: 300 U. S. 379
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 300 U. S. 379
+    Position: 104860-104873
+    Year: 1937
+    Court: scotus
+    Parties: West Coast Hotel Co. v. Parrish
+    Context: ..., 347 U. S. 483; West Coast Hotel Co. v. Parrish, 300 U. S. 379 (1937); see also Ramos v. Louisiana, 590 U. S. 83...
+
+[132] RESOURCE: 590 U. S. 83
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 590 U. S. 83
+    Position: 104911-104923
+    Year: 2020
+    Court: scotus
+    Parties: Ramos v. Louisiana
+    Context: ...00 U. S. 379 (1937); see also Ramos v. Louisiana, 590 U. S. 83, 115–132 (2020) (K AVANAUGH, J., concurring in pa...
+
+[133] RESOURCE: 537 F. 3d 667
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 537 F. 3d 667
+    Position: 105857-105870
+    Year: 2008
+    Context: ...ring v. Public Company Accounting Oversight Bd. , 537 F. 3d 667, 698 (CADC 2008) (Kavanaugh, J., dissenting) (“We...
+
+[134] RESOURCE: 43 Conn. L. Rev. 1059
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 43 Conn. L. Rev. 1059
+    Position: 107297-107318
+    Context: ..., The Once and Future Equal Protection Doctrine?, 43 Conn. L. Rev. 1059, 1080 (2011) (“The levels of scrutiny are essenti...
+
+[135] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 107626-107640
+    Year: 2024
+    Court: scotus
+    Context: ...ia did, what judges as umpires should 19 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring strive to do, an...
+
+[136] RESOURCE: 502 U. S. 105
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 502 U. S. 105
+    Position: 108582-108595
+    Year: 1991
+    Court: scotus
+    Parties: Schuster, Inc. v. Members of N. Y. State Crime Victims Bd.
+    Context: ...Inc. v. Members of N. Y. State Crime Victims Bd., 502 U. S. 105, 125 (1991) (Kennedy, J., concurring in judgment)...
+
+[137] RESOURCE: 460 U. S. 37
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 460 U. S. 37
+    Position: 109619-109631
+    Year: 1983
+    Court: scotus
+    Parties: Perry Ed. Assn. v. Perry Local Educators’ Assn.
+    Context: ...Perry Ed. Assn. v. Perry Local Educators’ Assn., 460 U. S. 37, 45–46 (1983) (“In places which by long tradition...
+
+[138] RESOURCE: 1 Cranch 137
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 1 Cranch 137
+    Position: 110720-110732
+    Year: 1803
+    Court: scotus
+    Parties: Marbury v. Madison
+    Context: ...es who “say what the law is.” Marbury v. Madison, 1 Cranch 137, 177 (1803). That is because the balancing approa...
+
+[139] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 112063-112077
+    Year: 2024
+    Court: scotus
+    Context: ...ically vi vid description, if “We The 21 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring Court conclude t...
+
+[140] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 116013-116027
+    Year: 2024
+    Court: scotus
+    Context: ...rying of firearms in sensitive places 23 Cite as: 602 U. S. ____ (2024) KAVANAUGH, J., concurring such as schools...
+
+[141] RESOURCE: 670 F. 3d 1244
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 670 F. 3d 1244
+    Position: 118271-118285
+    Year: 2011
+    Parties: Heller v. District of Columbia
+    Context: ...ly. See generally Heller v. District of Columbia, 670 F. 3d 1244, 1269–1296 (CADC 2011) (Kavanaugh, J., dissenting...
+
+[142] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 119364-119378
+    Year: 2024
+    Court: scotus
+    Context: ...t. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) BARRETT, J., concurring SUPREME COURT OF T...
+
+[143] RESOURCE: 135 Harv. L. Rev. 777
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullJournalCitation]
+    Text: 135 Harv. L. Rev. 777
+    Position: 121145-121166
+    Context: ...S. Sachs, Originalism: Standard and Proce- dure, 135 Harv. L. Rev. 777, 782 (2022). So for an original- ist, the history...
+
+[144] RESOURCE: 602 U. S. ___
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ___
+    Position: 121767-121780
+    Year: 2024
+    Court: scotus
+    Parties: Vidal v. Elster
+    Context: ...pplies, control the outcome. See Vidal v. Elster, 602 U. S. ___, ___–___ (2024) (B ARRETT, J., concurring in part...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 602 U. S., at ___
+    Position: 123037-123051
+    Context: ...from original meaning is not binding law. Vidal, 602 U. S., at ___–___ (B ARRETT, J., concurring in part) (slip o...
+
+  Citation 3: [ShortCaseCitation]
+    Text: 602 U. S., at ___
+    Position: 126471-126485
+    Context: ...hat limits the right to public carry); cf. Vidal, 602 U. S., at ___–___ (BARRETT, J., concurring in part) (slip op...
+
+[145] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 123221-123235
+    Year: 2024
+    Court: scotus
+    Context: ...may have little bearing on the meaning 3 Cite as: 602 U. S. ____ (2024) BARRETT, J., concurring of the text. Samia...
+
+[146] RESOURCE: 599 U. S. 635
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 599 U. S. 635
+    Position: 123304-123317
+    Year: 2023
+    Court: scotus
+    Parties: Samia v. United States
+    Context: ..., concurring of the text. Samia v. United States, 599 U. S. 635, 656–657 (2023) (BARRETT, J., concurring in part...
+
+[147] RESOURCE: 919 F. 3d 437
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 919 F. 3d 437
+    Position: 127352-127365
+    Year: 2019
+    Parties: Kanter v. Barr
+    Context: ...g firearms.” Ante, at 5; see also Kanter v. Barr, 919 F. 3d 437, 451, 464– 465 (CA7 2019) (Barrett, J., dissentin...
+
+[148] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 127504-127518
+    Year: 2024
+    Court: scotus
+    Context: ...n sense: it demonstrates that legisla- 5 Cite as: 602 U. S. ____ (2024) BARRETT, J., concurring tures have the pow...
+
+[149] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 127834-127848
+    Year: 2024
+    Court: scotus
+    Context: ...y. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) JACKSON, J., concurring SUPREME COURT OF T...
+
+[150] RESOURCE: 469 U. S. 528
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 469 U. S. 528
+    Position: 130418-130431
+    Year: 1985
+    Court: scotus
+    Parties: Garcia v. San Antonio Metropolitan Transit Authority
+    Context: ...a v. San Antonio Metropolitan Transit Authority , 469 U. S. 528, 538–539 (1985). The message that lower courts ar...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 469 U. S., at 540
+    Position: 141010-141027
+    Context: ...ment [will] lead to a workable standard.” Garcia, 469 U. S., at 540 (internal quotation marks and alteration omitted)...
+
+[151] RESOURCE: 310 A. 3d 175
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 310 A. 3d 175
+    Position: 130684-130697
+    Year: 2024
+    Parties: Barris v. Stroud Twp., ___ Pa. ___, ___
+    Context: ...e, e.g., Barris v. Stroud Twp., ___ Pa. ___, ___, 310 A. 3d 175, 190 (2024) (“[M]ore guidance in this challenging...
+
+[152] RESOURCE: 154 Haw. 8
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 154 Haw. 8
+    Position: 130813-130823
+    Year: 2024
+    Parties: State v. Wilson
+    Context: ...ng area of the law is welcome”); State v. Wilson, 154 Haw. 8, 21, 543 P. 3d 440, 453 (2024) (“[B]y turning the...
+
+[153] RESOURCE: 543 P. 3d 440
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 543 P. 3d 440
+    Position: 130829-130842
+    Year: 2024
+    Parties: State v. Wilson
+    Context: ...aw is welcome”); State v. Wilson, 154 Haw. 8, 21, 543 P. 3d 440, 453 (2024) (“[B]y turning the test into history...
+
+[154] RESOURCE: 94 F. 4th 1284
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 94 F. 4th 1284
+    Position: 131004-131018
+    Year: 2024
+    Parties: United States v. Dubois
+    Context: ...terpret firearms laws”); United States v. Dubois, 94 F. 4th 1284, 1293 (CA11 2024) (“We require clearer instruc- t...
+
+[155] RESOURCE: 77 F. 4th 337
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 77 F. 4th 337
+    Position: 131201-131214
+    Year: 2023
+    Parties: United States v. Daniels
+    Context: ...U. S. C. §]922(g)(1)”); United States v. Daniels, 77 F. 4th 337, 358 (CA5 2023) (Higginson, J., concurring) (“[C]...
+
+  Citation 2: [FullCaseCitation]
+    Text: 77 F. 4th 337
+    Position: 139758-139771
+    Year: 2023
+    Parties: United States v. Daniels
+    Context: ...others have. See, e.g., United States v. Daniels, 77 F. 4th 337, 358–360 (CA5 2023) (Higginson, J., concurring) (...
+
+[156] RESOURCE: 70 F. 4th 1018
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 70 F. 4th 1018
+    Position: 131447-131461
+    Year: 2023
+    Parties: Atkinson v. Garland
+    Context: ...tive, difficult questions”); Atkinson v. Garland, 70 F. 4th 1018, 1024 (CA7 2023) (“[T]he historical analysis re -...
+
+  Citation 2: [IdCitation]
+    Text: id.,
+    Position: 131601-131613
+    Context: ...o doubt yield some measure of in- determinancy”); id., at 1036 (Wood, J., dissenting) (“As other courts have beg...
+
+[157] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 131891-131905
+    Year: 2024
+    Court: scotus
+    Context: ...(“Interpretations and applications of 3 Cite as: 602 U. S. ____ (2024) JACKSON, J., concurring history-and-tradit...
+
+[158] RESOURCE: 2023 WL 8587869
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 2023 WL 8587869
+    Position: 132892-132907
+    Year: 2023
+    Court: txwd
+    Parties: United States v. Sing-Ledezma, ___ F. Supp. 3d ___, ___
+    Context: ...States v. Sing-Ledezma, ___ F. Supp. 3d ___, ___, 2023 WL 8587869, *3 (WD Tex. Dec. 11, 2023) (“[T]he Court pauses...
+
+[159] RESOURCE: 658 F. Supp. 3d 794
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 658 F. Supp. 3d 794
+    Position: 133112-133131
+    Year: 2023
+    Court: caed
+    Parties: United States v. Bartucci
+    Context: ...eft in Bruen’s wake”); United States v. Bartucci, 658 F. Supp. 3d 794, 800 (ED Cal. 2023) (“[T]he unique test the Supre...
+
+[160] RESOURCE: 679 F. Supp. 3d 501
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 679 F. Supp. 3d 501
+    Position: 133433-133452
+    Year: 2023
+    Court: mssd
+    Parties: United States v. Bullock
+    Context: ...ong the lower courts”); United States v. Bullock, 679 F. Supp. 3d 501, 534 (SD Miss. 2023) (raising methodological ques...
+
+[161] RESOURCE: 672 F. Supp. 3d 118
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 672 F. Supp. 3d 118
+    Position: 133701-133720
+    Year: 2023
+    Court: vaed
+    Parties: Fraser v. Bureau of Alcohol, Tobacco , Firearms and Explosives
+    Context: ...u of Alcohol, Tobacco , Firearms and Explosives , 672 F. Supp. 3d 118, 137, n. 20 (ED Va. 2023) (“The Court is staffed...
+
+[162] RESOURCE: 661 F. Supp. 3d 392
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 661 F. Supp. 3d 392
+    Position: 134006-134025
+    Year: 2023
+    Court: md
+    Parties: United States v. Jackson
+    Context: ...e for non-historians”); United States v. Jackson, 661 F. Supp. 3d 392, 406 (Md. 2023) (noting “the challenges created b...
+
+[163] RESOURCE: 647 F. Supp. 3d 664
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 647 F. Supp. 3d 664
+    Position: 134124-134143
+    Year: 2022
+    Court: innd
+    Parties: United States v. Love
+    Context: ...by Bruen’s assign- ment”); United States v. Love, 647 F. Supp. 3d 664, 670 (ND Ind. 2022) (“By . . . announcing an inco...
+
+[164] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 136438-136452
+    Year: 2024
+    Court: scotus
+    Context: ...polic ymakers or their lawyers (who do 5 Cite as: 602 U. S. ____ (2024) JACKSON, J., concurring This very case pro...
+
+[165] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 140822-140836
+    Year: 2024
+    Court: scotus
+    Context: ...it also appears to be creating chaos. 7 Cite as: 602 U. S. ____ (2024) JACKSON, J., concurring areas,” and “it no...
+
+[166] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 142952-142966
+    Year: 2024
+    Court: scotus
+    Context: ...1. _________________ _________________ 1 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting SUPREME COURT OF TH...
+
+[167] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 146487-146501
+    Year: 2024
+    Court: scotus
+    Context: ...)(8) satisfies the Due Process Clause. 3 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting Rahimi presented a...
+
+[168] RESOURCE: 956 F. 3d 747
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 956 F. 3d 747
+    Position: 147350-147363
+    Year: 2020
+    Parties: United States v. McGinnis
+    Context: ...ent claims. See, e.g., United States v. McGinnis, 956 F. 3d 747, 753–754 (2020). Applying Circuit precedent, the...
+
+[169] RESOURCE: 2022 WL 2070392
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 2022 WL 2070392
+    Position: 147459-147474
+    Year: 2022
+    Context: ...the Fifth Circuit af - firmed the District Court. 2022 WL 2070392 (2022). Roughly two weeks later, this Court issue...
+
+[170] RESOURCE: 600 U. S. ___
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 600 U. S. ___
+    Position: 148355-148368
+    Year: 2023
+    Court: scotus
+    Context: ...cated Rahimi’s conviction. We granted certiorari. 600 U. S. ___ (2023). II The Second Amendment provides that “[a...
+
+[171] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 150533-150547
+    Year: 2024
+    Court: scotus
+    Context: ...n is unconstitutional.” Id., at 26–27. 5 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting The Court employed...
+
+[172] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 154350-154364
+    Year: 2024
+    Court: scotus
+    Context: ...nc. v. Bruen, 597 U. S. 1, 37 (2022)). 7 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting §922(g)(8) addresse...
+
+[173] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 158214-158228
+    Year: 2024
+    Court: scotus
+    Context: ...e Govern ment to resurrect those self- 9 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting same “dangerous” pe...
+
+[174] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 162408-162422
+    Year: 2024
+    Court: scotus
+    Context: ...port, Appx., Pt. 6, pp. 39–40 (1897). 11 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting While the English w...
+
+[175] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 166633-166647
+    Year: 2024
+    Court: scotus
+    Context: ...ainst it. 6 Documentary History 1453. 13 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting the law against car...
+
+[176] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 170717-170731
+    Year: 2024
+    Court: scotus
+    Context: ...ome Second Amendment rights. If self- 15 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting defense is “the cen...
+
+[177] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 175091-175105
+    Year: 2024
+    Court: scotus
+    Context: ...pre-existing Second Amendment right. 17 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting with one or more me...
+
+[178] RESOURCE: 598 F. 3d 768
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 598 F. 3d 768
+    Position: 178937-178950
+    Year: 2010
+    Parties: United States v. Rozier
+    Context: ...ircumstances. See, e.g., United States v. Rozier, 598 F. 3d 768, 771 (CA11 2010) ( per curiam) (concluding that i...
+
+[179] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 179135-179149
+    Year: 1982
+    Court: scotus
+    Context: ...nse (in his home)”); United States v. 19 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting Gant, 691 F. 2d 115...
+
+[180] RESOURCE: 691 F. 2d 1159
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 691 F. 2d 1159
+    Position: 179186-179200
+    Year: 1982
+    Context: ...02 U. S. ____ (2024) THOMAS, J., dissenting Gant, 691 F. 2d 1159, 1162 (CA5 1982) (affirming convic- tion of a bus...
+
+[181] RESOURCE: 520 F. 3d 806
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 520 F. 3d 806
+    Position: 179551-179564
+    Year: 2008
+    Parties: United States v. Matthews
+    Context: ...onds to inspect” each, United States v. Matthews, 520 F. 3d 806, 807 (CA7 2008), or “made direct contact with the...
+
+[182] RESOURCE: 46 F. 4th 1183
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 46 F. 4th 1183
+    Position: 179668-179682
+    Year: 2022
+    Parties: United States v. Johnson
+    Context: ...earm by sitting on it,” United States v. Johnson, 46 F. 4th 1183, 1189 (CA10 2022). They have also construed §922(...
+
+[183] RESOURCE: 89 F. 4th 826
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 89 F. 4th 826
+    Position: 179886-179899
+    Year: 2023
+    Parties: United States v. Stepp
+    Context: ...occupied home. See, e.g., United States v. Stepp, 89 F. 4th 826, 832–835 (CA10 2023). Moreover, §922(g) captures...
+
+[184] RESOURCE: 431 U. S. 563
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 431 U. S. 563
+    Position: 180376-180389
+    Year: 2002
+    Court: scotus
+    Parties: Scarborough v. United States
+    Context: ...ted by §922(g). See Scarborough v. United States, 431 U. S. 563, 566–567 (1977) (holding §922(g)’s predecessor st...
+
+[185] RESOURCE: 302 F. 3d 769
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 302 F. 3d 769
+    Position: 180544-180557
+    Year: 2002
+    Parties: United States v. Lemons
+    Context: ...in- terstate commerce”); United States v. Lemons, 302 F. 3d 769, 772 (CA7 2002) (affirming conviction under §922(...
+
+[186] RESOURCE: 544 U. S. 709
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 544 U. S. 709
+    Position: 181056-181069
+    Year: 2005
+    Court: scotus
+    Context: ...id not raise it below. See Cutter v. Wil- kinson, 544 U. S. 709, 718, n. 7 (2005) (“[W]e are a court of review, n...
+
+  Citation 2: [ShortCaseCitation]
+    Text: 544 U. S., at 634
+    Position: 204282-204299
+    Context: ...he right is really worth insisting upon.” Heller, 544 U. S., at 634. The Court rightly rejects the Government’s appro...
+
+[187] RESOURCE: 514 U. S. 549
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 514 U. S. 549
+    Position: 181270-181283
+    Year: 1995
+    Court: scotus
+    Parties: United States v. Lopez
+    Context: ...the Commerce Clause. See United States v. Lopez, 514 U. S. 549, 585 (1995) (THOMAS, J., concurring). 20 UNITED S...
+
+[188] RESOURCE: 18 U. S. C. §921
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: 18 U. S. C. §921
+    Position: 181457-181473
+    Context: ...ts with no danger- ous function on their own. See 18 U. S. C. §921(a)(17)(A). These sweeping prohibitions are crimin...
+
+[189] RESOURCE: 2020 WL 4464668
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 2020 WL 4464668
+    Position: 182377-182392
+    Year: 2020
+    Court: mtd
+    Parties: United States v. Wilkey
+    Context: ...ment right remains. See United States v. Wilkey, 2020 WL 4464668, *1 (D Mont., Aug. 4, 2020) (defendant agreed to...
+
+[190] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 183302-183316
+    Year: 2024
+    Court: scotus
+    Context: ...ndment right. In Bruen, the Court ex- 21 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting plained that surety...
+
+[191] RESOURCE: 864 F. 3d 650
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 864 F. 3d 650
+    Position: 183694-183707
+    Year: 2017
+    Parties: Wrenn v. District of Columbia
+    Context: ...at 56–57 (quoting Wrenn v. District of Columbia , 864 F. 3d 650, 661 (CADC 2017); alteration in original). As a r...
+
+[192] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 187187-187201
+    Year: 2024
+    Court: scotus
+    Context: ...the entire community. An affray was a 23 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting “common Nusanc[e],”...
+
+[193] RESOURCE: Wis. Stat. §16
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: Wis. Stat. §16
+    Position: 188056-188070
+    Context: ...tat., ch. 134, §16 (1836); see also 1838 Terr. of Wis. Stat. §16, p. 381; 1851 Terr. of Minn. Rev. Stat., ch. 112,...
+
+[194] RESOURCE: 2 Tenn. 198
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 2 Tenn. 198
+    Position: 188886-188897
+    Year: 2016
+    Parties: Cash v. State
+    Context: ...l violence on that same basis. See Cash v. State, 2 Tenn. 198, 199 (1813) (“It is because the violence is commi...
+
+[195] RESOURCE: 227 Md. App. 592
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 227 Md. App. 592
+    Position: 189098-189114
+    Year: 2016
+    Court: md
+    Parties: Nottingham v. State
+    Context: ...of as - sault and battery”); Nottingham v. State, 227 Md. App. 592, 602, 135 A. 3d 541, 547 (Md. 2016) (“[U]nlike as...
+
+[196] RESOURCE: 135 A. 3d 541
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 135 A. 3d 541
+    Position: 189121-189134
+    Year: 2016
+    Court: md
+    Parties: Nottingham v. State
+    Context: ...ry”); Nottingham v. State, 227 Md. App. 592, 602, 135 A. 3d 541, 547 (Md. 2016) (“[U]nlike assault and battery,”...
+
+[197] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 191321-191335
+    Year: 2024
+    Court: scotus
+    Context: ...ond a reasonable doubt. The Constitu- 25 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting tion provided a bev...
+
+[198] RESOURCE: 564 U. S. 431
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 564 U. S. 431
+    Position: 192452-192465
+    Year: 2011
+    Court: scotus
+    Parties: Turner v. Rogers
+    Context: ...n agains t double jeopardy. See Turner v. Rogers, 564 U. S. 431, 441 (2011) (“[T]he Sixth Amendment does not gove...
+
+[199] RESOURCE: 522 U. S. 93
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 522 U. S. 93
+    Position: 192558-192570
+    Year: 1997
+    Court: scotus
+    Parties: Hudson v. United States
+    Context: ...ot govern civil cases”); Hudson v. United States, 522 U. S. 93, 99 (1997) (“The [Double Jeopardy] Clause protect...
+
+[200] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 195372-195386
+    Year: 2024
+    Court: scotus
+    Context: ...a person for the same behavior. That 27 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting is the exact sort o...
+
+[201] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 199268-199282
+    Year: 2024
+    Court: scotus
+    Context: ...e.g., 597 U. S., at 9, 15, 31–32, 71. 29 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting 13. As it does toda...
+
+[202] RESOURCE: 602 U. S. ____
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullCaseCitation]
+    Text: 602 U. S. ____
+    Position: 203111-203125
+    Year: 2024
+    Court: scotus
+    Context: ...m possessing firearms.” Ibid. A n d , 31 Cite as: 602 U. S. ____ (2024) THOMAS, J., dissenting “[t]hroughout the S...
+
+[203] RESOURCE: Tex. Penal Code Ann. §§22.02
+--------------------------------------------------------------------------------
+
+  Citation 1: [FullLawCitation]
+    Text: Tex. Penal Code Ann. §§22.02
+    Position: 205129-205157
+    Context: ..., dissenting by up to 20 years’ imprisonment. See Tex. Penal Code Ann. §§22.02(b), 12.33 (West 2019 and Supp. 2023). Assuming C....
+
+================================================================================
+INDIVIDUAL CITATIONS (Sequential Order)
+================================================================================
+
+   1. [FullCaseCitation    ] 200 U. S. 321
+   2. [FullLawCitation     ] 18 U. S. C. §922
+   3. [UnknownCitation     ] §922(g)(8)(C)(i),
+   4. [UnknownCitation     ] §922(g)(8)(C)(ii).
+   5. [FullCaseCitation    ] 597 U. S. 1
+   6. [FullCaseCitation    ] 61 F. 4th 443
+   7. [FullCaseCitation    ] 554 U. S. 570
+   8. [ShortCaseCitation   ] 554 U. S., at 582
+   9. [IdCitation          ] Ibid.
+  10. [ShortCaseCitation   ] 597 U. S., at 26
+  11. [ShortCaseCitation   ] 597 U. S., at 24
+  12. [IdCitation          ] Id.,
+  13. [IdCitation          ] Id.,
+  14. [FullCaseCitation    ] 481 U. S. 739
+  15. [UnknownCitation     ] §922(g)(8)(C)(i),
+  16. [FullCaseCitation    ] 602 U. S. ____
+  17. [IdCitation          ] Id.,
+  18. [ShortCaseCitation   ] 554 U. S., at 626
+  19. [UnknownCitation     ] §922(g)(8)(C)(i),
+  20. [ShortCaseCitation   ] 554 U. S., at 626
+  21. [ShortCaseCitation   ] 597 U. S., at 30
+  22. [FullCaseCitation    ] 61 F. 4th 443
+  23. [FullCaseCitation    ] 602 U. S. ____
+  24. [FullLawCitation     ] 18 U. S. C. §922
+  25. [IdCitation          ] Ibid.
+  26. [IdCitation          ] Id.,
+  27. [IdCitation          ] Id.,
+  28. [IdCitation          ] Id.,
+  29. [IdCitation          ] Id.,
+  30. [FullCaseCitation    ] 602 U. S. ____
+  31. [FullLawCitation     ] 18 U. S. C. §922
+  32. [UnknownCitation     ] §924(a)(2);
+  33. [UnknownCitation     ] §12004(c)(2),
+  34. [FullLawCitation     ] 136 Stat. 1329
+  35. [FullLawCitation     ] 18 U. S. C. §924
+  36. [UnknownCitation     ] §922(g)(8)(A).
+  37. [UnknownCitation     ] §922(g)(8)(B).
+  38. [UnknownCitation     ] §921(a)(32).
+  39. [UnknownCitation     ] §922(g)(8)(C)(i),
+  40. [UnknownCitation     ] §922(g)(8)(C)(ii).
+  41. [IdCitation          ] Id.,
+  42. [IdCitation          ] Id.,
+  43. [IdCitation          ] Id.,
+  44. [FullCaseCitation    ] 597 U. S. 1
+  45. [IdCitation          ] Id.,
+  46. [FullCaseCitation    ] 602 U. S. ____
+  47. [FullCaseCitation    ] 61 F. 4th 443
+  48. [IdCitation          ] Id.,
+  49. [IdCitation          ] Id.,
+  50. [FullCaseCitation    ] 600 U. S. ___
+  51. [FullCaseCitation    ] 561 U. S. 742
+  52. [ShortCaseCitation   ] 597 U. S., at 17
+  53. [ShortCaseCitation   ] 561 U. S., at 771
+  54. [FullCaseCitation    ] 554 U. S. 570
+  55. [IdCitation          ] Ibid.
+  56. [ShortCaseCitation   ] 554 U. S., at 627
+  57. [ShortCaseCitation   ] 554 U. S., at 626
+  58. [ShortCaseCitation   ] 597 U. S., at 22
+  59. [IdCitation          ] Id.,
+  60. [FullCaseCitation    ] 602 U. S. ____
+  61. [IdCitation          ] Id.,
+  62. [ShortCaseCitation   ] 554 U. S., at 582
+  63. [IdCitation          ] Ibid.
+  64. [ShortCaseCitation   ] 597 U. S., at 26
+  65. [IdCitation          ] Id.,
+  66. [IdCitation          ] Id.,
+  67. [IdCitation          ] Id.,
+  68. [IdCitation          ] Id.,
+  69. [IdCitation          ] Ibid.
+  70. [FullCaseCitation    ] 481 U. S. 739
+  71. [ShortCaseCitation   ] 597 U. S., at 37
+  72. [IdCitation          ] Id.,
+  73. [FullCaseCitation    ] 602 U. S. ____
+  74. [ShortCaseCitation   ] 597 U. S., at 40
+  75. [UnknownCitation     ] §13
+  76. [FullJournalCitation ] 20 Wyo. L. Rev. 249
+  77. [UnknownCitation     ] §6,
+  78. [UnknownCitation     ] §7,
+  79. [IdCitation          ] id.,
+  80. [IdCitation          ] Ibid.
+  81. [ShortCaseCitation   ] 554 U. S., at 594
+  82. [IdCitation          ] id.,
+  83. [IdCitation          ] id.,
+  84. [FullJournalCitation ] 56 Stan. L. Rev. 345
+  85. [IdCitation          ] Ibid.
+  86. [FullCaseCitation    ] 602 U. S. ____
+  87. [UnknownCitation     ] §6
+  88. [IdCitation          ] Id.,
+  89. [IdCitation          ] Id.,
+  90. [IdCitation          ] Id.,
+  91. [UnknownCitation     ] §16;
+  92. [IdCitation          ] ibid.
+  93. [ShortCaseCitation   ] 597 U. S., at 56
+  94. [UnknownCitation     ] §§1,
+  95. [UnknownCitation     ] §§3–4.
+  96. [UnknownCitation     ] §16.
+  97. [FullCaseCitation    ] 2 Edw. 3
+  98. [FullCaseCitation    ] 2 Edw. 3
+  99. [FullCaseCitation    ] 602 U. S. ____
+ 100. [FullCaseCitation    ] 25 N. C. 418
+ 101. [ShortCaseCitation   ] 25 N. C., at 421
+ 102. [FullCaseCitation    ] 16 Ala. 65
+ 103. [FullCaseCitation    ] 193 Md. App. 238
+ 104. [FullCaseCitation    ] 996 A. 2d 974
+ 105. [ShortCaseCitation   ] 597 U. S., at 30
+ 106. [IdCitation          ] Id.,
+ 107. [ShortCaseCitation   ] 554 U. S., at 626
+ 108. [UnknownCitation     ] §922(g)(8)(C)(i).
+ 109. [UnknownCitation     ] §922(g)(8).
+ 110. [FullLawCitation     ] Tex. Fam. Code Ann. §85.025
+ 111. [FullCaseCitation    ] 602 U. S. ____
+ 112. [ShortCaseCitation   ] 554 U. S., at 636
+ 113. [ShortCaseCitation   ] 554 U. S., at 626
+ 114. [ShortCaseCitation   ] 597 U. S., at 55
+ 115. [IdCitation          ] Id.,
+ 116. [IdCitation          ] ibid.
+ 117. [IdCitation          ] Id.,
+ 118. [SupraCitation       ] supra,
+ 119. [ShortCaseCitation   ] 597 U. S., at 30
+ 120. [IdCitation          ] Ibid.
+ 121. [ShortCaseCitation   ] 61 F. 4th, at 453
+ 122. [FullCaseCitation    ] 599 U. S. 762
+ 123. [ShortCaseCitation   ] 61 F. 4th, at 459
+ 124. [IdCitation          ] id.,
+ 125. [FullCaseCitation    ] 602 U. S. ____
+ 126. [ShortCaseCitation   ] 554 U. S., at 635
+ 127. [ShortCaseCitation   ] 597 U. S., at 70
+ 128. [ShortCaseCitation   ] 597 U. S., at 31
+ 129. [ShortCaseCitation   ] 61 F. 4th, at 459
+ 130. [IdCitation          ] id.,
+ 131. [FullCaseCitation    ] 481 U. S. 739
+ 132. [FullCaseCitation    ] 602 U. S. ____
+ 133. [FullCaseCitation    ] 597 U. S. 1
+ 134. [FullLawCitation     ] 18 U. S. C. §922
+ 135. [ShortCaseCitation   ] 597 U. S., at 30
+ 136. [FullCaseCitation    ] 602 U. S. ____
+ 137. [UnknownCitation     ] §922(g)(8)
+ 138. [UnknownCitation     ] §922(g)(8),
+ 139. [UnknownCitation     ] §922(g)(8)
+ 140. [ShortCaseCitation   ] 597 U. S., at 112
+ 141. [UnknownCitation     ] “§922(g)(8)
+ 142. [UnknownCitation     ] §922(g)(8).
+ 143. [FullCaseCitation    ] 602 U. S. ____
+ 144. [ShortCaseCitation   ] 597 U. S., at 91
+ 145. [IdCitation          ] id.,
+ 146. [UnknownCitation     ] §922(g)(8)
+ 147. [ShortCaseCitation   ] 597 U. S., at 131
+ 148. [IdCitation          ] Id.,
+ 149. [UnknownCitation     ] §922(g)(8)
+ 150. [UnknownCitation     ] §922(g)(8)
+ 151. [FullCaseCitation    ] 602 U. S. ____
+ 152. [FullCaseCitation    ] 481 U. S. 739
+ 153. [FullLawCitation     ] 18 U. S. C. §922
+ 154. [FullCaseCitation    ] 587 U. S. 119
+ 155. [ShortCaseCitation   ] 481 U. S., at 745
+ 156. [FullCaseCitation    ] 597 U. S. 1
+ 157. [FullCaseCitation    ] 554 U. S. 570
+ 158. [ShortCaseCitation   ] 597 U. S., at 17
+ 159. [ShortCaseCitation   ] 597 U. S., at 30
+ 160. [ShortCaseCitation   ] 597 U. S., at 29
+ 161. [ShortCaseCitation   ] 554 U. S., at 592
+ 162. [UnknownCitation     ] §1890,
+ 163. [FullCaseCitation    ] 602 U. S. ____
+ 164. [ShortCaseCitation   ] 597 U. S., at 27
+ 165. [FullCaseCitation    ] 565 U. S. 400
+ 166. [FullCaseCitation    ] 577 U. S. 411
+ 167. [FullCaseCitation    ] 541 U. S. 36
+ 168. [IdCitation          ] Ibid.
+ 169. [FullCaseCitation    ] 554 U. S. 353
+ 170. [IdCitation          ] id.,
+ 171. [IdCitation          ] Id.,
+ 172. [IdCitation          ] Ibid.
+ 173. [IdCitation          ] Ibid.
+ 174. [UnknownCitation     ] §922(g)(8)
+ 175. [UnknownCitation     ] §§922(g)(8)(A),
+ 176. [UnknownCitation     ] §922(g)(8).
+ 177. [ShortCaseCitation   ] 597 U. S., at 24
+ 178. [UnknownCitation     ] §922(g)(8)
+ 179. [FullCaseCitation    ] 602 U. S. ____
+ 180. [FullCaseCitation    ] 590 U. S. ___
+ 181. [FullCaseCitation    ] 742 F. 3d 1144
+ 182. [FullCaseCitation    ] 724 F. 3d 426
+ 183. [FullCaseCitation    ] 19 F. 4th 1087
+ 184. [IdCitation          ] Ibid.
+ 185. [IdCitation          ] Id.,
+ 186. [ShortCaseCitation   ] 597 U. S., at 19
+ 187. [ShortCaseCitation   ] 554 U. S., at 634
+ 188. [UnknownCitation     ] §922(g)(8)
+ 189. [ShortCaseCitation   ] 481 U. S., at 751
+ 190. [UnknownCitation     ] §922(g)(8)(C)(i);
+ 191. [UnknownCitation     ] §922(g)(8)
+ 192. [FullCaseCitation    ] 330 U. S. 75
+ 193. [FullCaseCitation    ] 602 U. S. ____
+ 194. [FullCaseCitation    ] 6 Wheat. 264
+ 195. [FullCaseCitation    ] 596 U. S. 118
+ 196. [FullCaseCitation    ] 602 U. S. ____
+ 197. [FullCaseCitation    ] 146 U. S. 1
+ 198. [FullCaseCitation    ] 602 U. S. ____
+ 199. [FullCaseCitation    ] 551 U. S. 449
+ 200. [FullCaseCitation    ] 559 U. S. 460
+ 201. [FullCaseCitation    ] 554 U. S. 570
+ 202. [FullCaseCitation    ] 551 U. S. 449
+ 203. [FullCaseCitation    ] 602 U. S. ____
+ 204. [FullJournalCitation ] 57 U. Cin. L. Rev. 849
+ 205. [FullJournalCitation ] 56 U. Chi. L. Rev. 1175
+ 206. [FullCaseCitation    ] 462 U. S. 919
+ 207. [FullCaseCitation    ] 395 U. S. 486
+ 208. [FullCaseCitation    ] 347 U. S. 483
+ 209. [FullLawCitation     ] 1 Stat. 596
+ 210. [FullCaseCitation    ] 573 U. S. 513
+ 211. [FullCaseCitation    ] 600 U. S. 1
+ 212. [FullCaseCitation    ] 602 U. S. ____
+ 213. [FullCaseCitation    ] 554 U. S. 570
+ 214. [FullCaseCitation    ] 434 U. S. 452
+ 215. [IdCitation          ] id.,
+ 216. [FullCaseCitation    ] 594 U. S. 482
+ 217. [FullCaseCitation    ] 542 U. S. 692
+ 218. [FullCaseCitation    ] 514 U. S. 779
+ 219. [UnknownCitation     ] §1
+ 220. [FullCaseCitation    ] 602 U. S. ____
+ 221. [FullCaseCitation    ] 314 U. S. 252
+ 222. [FullCaseCitation    ] 565 U. S. 171
+ 223. [FullCaseCitation    ] 287 U. S. 45
+ 224. [FullCaseCitation    ] 501 U. S. 957
+ 225. [FullCaseCitation    ] 588 U. S. 284
+ 226. [FullCaseCitation    ] 476 U. S. 79
+ 227. [FullCaseCitation    ] 388 U. S. 1
+ 228. [FullCaseCitation    ] 347 U. S. 483
+ 229. [FullCaseCitation    ] 602 U. S. ____
+ 230. [FullCaseCitation    ] 536 U. S. 765
+ 231. [FullCaseCitation    ] 236 U. S. 459
+ 232. [FullCaseCitation    ] 146 U. S. 1
+ 233. [IdCitation          ] Id.,
+ 234. [FullCaseCitation    ] 4 Wheat. 316
+ 235. [IdCitation          ] Id.,
+ 236. [ShortCaseCitation   ] 573 U. S., at 522
+ 237. [FullCaseCitation    ] 343 U. S. 579
+ 238. [FullJournalCitation ] 118 Nw. U. L. Rev. 433
+ 239. [FullJournalCitation ] 24 J. Contemp. Legal Issues 9
+ 240. [FullJournalCitation ] 71 Stan. L. Rev. 1
+ 241. [FullJournalCitation ] 84 U. Chi. L. Rev. 59
+ 242. [FullJournalCitation ] 126 Harv. L. Rev. 411
+ 243. [FullJournalCitation ] 70 U. Chi. L. Rev. 519
+ 244. [FullJournalCitation ] 1998 U. Ill. L. Rev. 173
+ 245. [FullCaseCitation    ] 602 U. S. ____
+ 246. [IdCitation          ] Ibid.
+ 247. [IdCitation          ] Ibid.
+ 248. [FullCaseCitation    ] 561 U. S. 742
+ 249. [FullCaseCitation    ] 497 U. S. 62
+ 250. [FullJournalCitation ] 92 Notre Dame L. Rev. 1945
+ 251. [ShortCaseCitation   ] 554 U. S., at 605
+ 252. [IdCitation          ] ibid.
+ 253. [FullCaseCitation    ] 514 U. S. 334
+ 254. [IdCitation          ] Id.,
+ 255. [FullCaseCitation    ] 573 U. S. 513
+ 256. [FullCaseCitation    ] 554 U. S. 570
+ 257. [FullCaseCitation    ] 545 U. S. 844
+ 258. [FullCaseCitation    ] 542 U. S. 507
+ 259. [FullCaseCitation    ] 541 U. S. 36
+ 260. [FullCaseCitation    ] 526 U. S. 314
+ 261. [FullCaseCitation    ] 525 U. S. 316
+ 262. [FullCaseCitation    ] 524 U. S. 417
+ 263. [FullCaseCitation    ] 521 U. S. 898
+ 264. [FullCaseCitation    ] 515 U. S. 506
+ 265. [FullCaseCitation    ] 514 U. S. 334
+ 266. [FullCaseCitation    ] 514 U. S. 211
+ 267. [FullCaseCitation    ] 512 U. S. 687
+ 268. [FullCaseCitation    ] 506 U. S. 390
+ 269. [FullCaseCitation    ] 506 U. S. 40
+ 270. [FullCaseCitation    ] 501 U. S. 957
+ 271. [FullCaseCitation    ] 497 U. S. 62
+ 272. [FullCaseCitation    ] 494 U. S. 433
+ 273. [FullCaseCitation    ] 493 U. S. 474
+ 274. [FullCaseCitation    ] 602 U. S. ____
+ 275. [ShortCaseCitation   ] 497 U. S., at 95
+ 276. [FullCaseCitation    ] 601 U. S. 416
+ 277. [FullCaseCitation    ] 601 U. S. 100
+ 278. [FullCaseCitation    ] 600 U. S. 1
+ 279. [FullCaseCitation    ] 597 U. S. 507
+ 280. [FullCaseCitation    ] 597 U. S. 1
+ 281. [FullCaseCitation    ] 596 U. S. 61
+ 282. [FullCaseCitation    ] 595 U. S. 468
+ 283. [FullCaseCitation    ] 594 U. S. 482
+ 284. [FullCaseCitation    ] 594 U. S. 413
+ 285. [FullCaseCitation    ] 592 U. S. 306
+ 286. [FullCaseCitation    ] 591 U. S. 848
+ 287. [FullCaseCitation    ] 591 U. S. 578
+ 288. [FullCaseCitation    ] 588 U. S. 29
+ 289. [FullCaseCitation    ] 576 U. S. 1
+ 290. [FullCaseCitation    ] 572 U. S. 565
+ 291. [FullCaseCitation    ] 554 U. S. 570
+ 292. [FullCaseCitation    ] 541 U. S. 36
+ 293. [FullCaseCitation    ] 530 U. S. 466
+ 294. [FullCaseCitation    ] 505 U. S. 437
+ 295. [FullCaseCitation    ] 493 U. S. 474
+ 296. [FullCaseCitation    ] 463 U. S. 783
+ 297. [FullCaseCitation    ] 453 U. S. 654
+ 298. [FullCaseCitation    ] 397 U. S. 664
+ 299. [FullCaseCitation    ] 395 U. S. 486
+ 300. [FullCaseCitation    ] 343 U. S. 579
+ 301. [FullCaseCitation    ] 299 U. S. 304
+ 302. [FullCaseCitation    ] 279 U. S. 655
+ 303. [FullCaseCitation    ] 272 U. S. 52
+ 304. [FullCaseCitation    ] 236 U. S. 459
+ 305. [FullCaseCitation    ] 143 U. S. 649
+ 306. [FullCaseCitation    ] 18 How. 272
+ 307. [FullCaseCitation    ] 4 Wheat. 316
+ 308. [FullCaseCitation    ] 521 U. S. 702
+ 309. [FullCaseCitation    ] 268 U. S. 510
+ 310. [FullCaseCitation    ] 602 U. S. ____
+ 311. [FullCaseCitation    ] 347 U. S. 483
+ 312. [FullCaseCitation    ] 300 U. S. 379
+ 313. [FullCaseCitation    ] 590 U. S. 83
+ 314. [FullCaseCitation    ] 537 F. 3d 667
+ 315. [FullJournalCitation ] 43 Conn. L. Rev. 1059
+ 316. [FullCaseCitation    ] 602 U. S. ____
+ 317. [FullCaseCitation    ] 502 U. S. 105
+ 318. [FullCaseCitation    ] 596 U. S. 61
+ 319. [FullCaseCitation    ] 460 U. S. 37
+ 320. [FullCaseCitation    ] 1 Cranch 137
+ 321. [FullJournalCitation ] 56 U. Chi. L. Rev. 1175
+ 322. [FullJournalCitation ] 57 U. Cin. L. Rev. 849
+ 323. [FullCaseCitation    ] 602 U. S. ____
+ 324. [FullCaseCitation    ] 561 U. S. 742
+ 325. [FullCaseCitation    ] 554 U. S. 570
+ 326. [ShortCaseCitation   ] 561 U. S., at 803
+ 327. [ShortCaseCitation   ] 57 U. Cin. L. Rev., at 864
+ 328. [ShortCaseCitation   ] 561 U. S., at 804
+ 329. [IdCitation          ] Ibid.
+ 330. [IdCitation          ] Id.,
+ 331. [FullCaseCitation    ] 554 U. S. 570
+ 332. [IdCitation          ] Id.,
+ 333. [FullCaseCitation    ] 602 U. S. ____
+ 334. [IdCitation          ] Id.,
+ 335. [FullCaseCitation    ] 561 U. S. 742
+ 336. [FullCaseCitation    ] 597 U. S. 1
+ 337. [IdCitation          ] id.,
+ 338. [FullCaseCitation    ] 670 F. 3d 1244
+ 339. [FullCaseCitation    ] 602 U. S. ____
+ 340. [FullCaseCitation    ] 554 U. S. 570
+ 341. [FullCaseCitation    ] 597 U. S. 1
+ 342. [IdCitation          ] Id.,
+ 343. [FullJournalCitation ] 135 Harv. L. Rev. 777
+ 344. [FullCaseCitation    ] 602 U. S. ___
+ 345. [ShortCaseCitation   ] 597 U. S., at 50
+ 346. [IdCitation          ] Id.,
+ 347. [IdCitation          ] Id.,
+ 348. [IdCitation          ] Id.,
+ 349. [ShortCaseCitation   ] 602 U. S., at ___
+ 350. [FullCaseCitation    ] 602 U. S. ____
+ 351. [FullCaseCitation    ] 599 U. S. 635
+ 352. [ShortCaseCitation   ] 554 U. S., at 582
+ 353. [ShortCaseCitation   ] 597 U. S., at 30
+ 354. [IdCitation          ] Id.,
+ 355. [IdCitation          ] Id.,
+ 356. [ShortCaseCitation   ] 597 U. S., at 28
+ 357. [IdCitation          ] id.,
+ 358. [ShortCaseCitation   ] 602 U. S., at ___
+ 359. [FullCaseCitation    ] 919 F. 3d 437
+ 360. [FullCaseCitation    ] 602 U. S. ____
+ 361. [FullCaseCitation    ] 602 U. S. ____
+ 362. [FullCaseCitation    ] 597 U. S. 1
+ 363. [IdCitation          ] id.,
+ 364. [IdCitation          ] Ibid.
+ 365. [ShortCaseCitation   ] 597 U. S., at 30
+ 366. [FullCaseCitation    ] 469 U. S. 528
+ 367. [FullCaseCitation    ] 310 A. 3d 175
+ 368. [FullCaseCitation    ] 154 Haw. 8
+ 369. [FullCaseCitation    ] 543 P. 3d 440
+ 370. [FullCaseCitation    ] 94 F. 4th 1284
+ 371. [UnknownCitation     ] §]922(g)(1)”);
+ 372. [FullCaseCitation    ] 77 F. 4th 337
+ 373. [FullCaseCitation    ] 70 F. 4th 1018
+ 374. [IdCitation          ] id.,
+ 375. [FullCaseCitation    ] 602 U. S. ____
+ 376. [IdCitation          ] id.,
+ 377. [IdCitation          ] id.,
+ 378. [IdCitation          ] Id.,
+ 379. [FullCaseCitation    ] 2023 WL 8587869
+ 380. [FullCaseCitation    ] 658 F. Supp. 3d 794
+ 381. [FullCaseCitation    ] 679 F. Supp. 3d 501
+ 382. [FullCaseCitation    ] 672 F. Supp. 3d 118
+ 383. [FullCaseCitation    ] 661 F. Supp. 3d 392
+ 384. [FullCaseCitation    ] 647 F. Supp. 3d 664
+ 385. [FullCaseCitation    ] 554 U. S. 570
+ 386. [IdCitation          ] id.,
+ 387. [IdCitation          ] Id.,
+ 388. [ShortCaseCitation   ] 597 U. S., at 103
+ 389. [IdCitation          ] id.,
+ 390. [IdCitation          ] Id.,
+ 391. [IdCitation          ] Ibid.
+ 392. [FullCaseCitation    ] 602 U. S. ____
+ 393. [ShortCaseCitation   ] 597 U. S., at 30
+ 394. [FullLawCitation     ] 18 U. S. C. §922
+ 395. [FullCaseCitation    ] 61 F. 4th 443
+ 396. [FullCaseCitation    ] 77 F. 4th 337
+ 397. [FullCaseCitation    ] 554 U. S. 570
+ 398. [FullCaseCitation    ] 602 U. S. ____
+ 399. [ShortCaseCitation   ] 469 U. S., at 540
+ 400. [ShortCaseCitation   ] 597 U. S., at 90
+ 401. [ShortCaseCitation   ] 597 U. S., at 37
+ 402. [IdCitation          ] Id.,
+ 403. [FullCaseCitation    ] 602 U. S. ____
+ 404. [FullCaseCitation    ] 597 U. S. 1
+ 405. [FullLawCitation     ] 18 U. S. C. §922
+ 406. [UnknownCitation     ] §922(g)(8)’s
+ 407. [UnknownCitation     ] §922(g)(8)(A).
+ 408. [UnknownCitation     ] §922(g)(8)(B).
+ 409. [UnknownCitation     ] §922(g)(8)(C).
+ 410. [UnknownCitation     ] §922(g)(8)
+ 411. [UnknownCitation     ] §922(g).
+ 412. [UnknownCitation     ] §922(g)(8)’s
+ 413. [UnknownCitation     ] §922(g)
+ 414. [UnknownCitation     ] §§922(g)(1),
+ 415. [UnknownCitation     ] §922(g)(8)
+ 416. [UnknownCitation     ] §922(g)(8)
+ 417. [UnknownCitation     ] §922(g)
+ 418. [UnknownCitation     ] §922(g)(8).
+ 419. [UnknownCitation     ] §922(g)(8)
+ 420. [UnknownCitation     ] §922(g)(8)’s
+ 421. [UnknownCitation     ] §922(g)(8)
+ 422. [UnknownCitation     ] §924(a)(8);
+ 423. [UnknownCitation     ] §922(g)(8)
+ 424. [UnknownCitation     ] §922(g)(1).
+ 425. [IdCitation          ] id.,
+ 426. [UnknownCitation     ] §922(g)(8)
+ 427. [FullCaseCitation    ] 602 U. S. ____
+ 428. [UnknownCitation     ] §922(g)(8)’s
+ 429. [UnknownCitation     ] §922(g)(8).
+ 430. [FullCaseCitation    ] 554 U. S. 570
+ 431. [FullCaseCitation    ] 956 F. 3d 747
+ 432. [FullCaseCitation    ] 2022 WL 2070392
+ 433. [ShortCaseCitation   ] 597 U. S., at 17
+ 434. [IdCitation          ] Id.,
+ 435. [UnknownCitation     ] §922(g)(8)
+ 436. [FullCaseCitation    ] 61 F. 4th 443
+ 437. [FullCaseCitation    ] 600 U. S. ___
+ 438. [UnknownCitation     ] §922(g)(8)
+ 439. [ShortCaseCitation   ] 597 U. S., at 17
+ 440. [IdCitation          ] Ibid.
+ 441. [IdCitation          ] Id.,
+ 442. [IdCitation          ] ibid.
+ 443. [IdCitation          ] Id.,
+ 444. [IdCitation          ] Id.,
+ 445. [IdCitation          ] Id.,
+ 446. [FullCaseCitation    ] 602 U. S. ____
+ 447. [ShortCaseCitation   ] 597 U. S., at 27
+ 448. [IdCitation          ] id.,
+ 449. [IdCitation          ] Id.,
+ 450. [IdCitation          ] Ibid.
+ 451. [ShortCaseCitation   ] 554 U. S., at 631
+ 452. [IdCitation          ] Id.,
+ 453. [ShortCaseCitation   ] 597 U. S., at 27
+ 454. [UnknownCitation     ] §922(g)(8)
+ 455. [UnknownCitation     ] §922(g)(8)
+ 456. [UnknownCitation     ] §922(g)(8)
+ 457. [UnknownCitation     ] §922(g)(8)
+ 458. [UnknownCitation     ] §922(g)(8)
+ 459. [IdCitation          ] Id.,
+ 460. [UnknownCitation     ] §922(g)(8)
+ 461. [UnknownCitation     ] §922(g)
+ 462. [ShortCaseCitation   ] 554 U. S., at 599
+ 463. [UnknownCitation     ] §922(g)(8)
+ 464. [IdCitation          ] Id.,
+ 465. [IdCitation          ] Id.,
+ 466. [ShortCaseCitation   ] 597 U. S., at 70
+ 467. [ShortCaseCitation   ] 554 U. S., at 581
+ 468. [UnknownCitation     ] §922(g)(8)
+ 469. [ShortCaseCitation   ] 597 U. S., at 24
+ 470. [FullCaseCitation    ] 597 U. S. 1
+ 471. [FullCaseCitation    ] 602 U. S. ____
+ 472. [UnknownCitation     ] §922(g)(8)
+ 473. [IdCitation          ] Id.,
+ 474. [UnknownCitation     ] §922(g)(8),
+ 475. [UnknownCitation     ] §922(g)(8)’s
+ 476. [UnknownCitation     ] §922(g)(8).
+ 477. [IdCitation          ] Id.,
+ 478. [UnknownCitation     ] §922(g)(8)’s
+ 479. [UnknownCitation     ] §13.
+ 480. [ShortCaseCitation   ] 554 U. S., at 592
+ 481. [IdCitation          ] Id.,
+ 482. [IdCitation          ] Ibid.
+ 483. [IdCitation          ] Ibid.
+ 484. [FullCaseCitation    ] 602 U. S. ____
+ 485. [UnknownCitation     ] §922(g)(8).
+ 486. [UnknownCitation     ] §922(g)(8)—quashing
+ 487. [IdCitation          ] id.,
+ 488. [IdCitation          ] Id.,
+ 489. [IdCitation          ] Id.,
+ 490. [IdCitation          ] Id.,
+ 491. [FullCaseCitation    ] 602 U. S. ____
+ 492. [UnknownCitation     ] §922(g)(8)
+ 493. [IdCitation          ] id.,
+ 494. [IdCitation          ] Ibid.
+ 495. [UnknownCitation     ] §922(g)(8).
+ 496. [ShortCaseCitation   ] 597 U. S., at 46
+ 497. [IdCitation          ] Id.,
+ 498. [ShortCaseCitation   ] 554 U. S., at 603
+ 499. [FullCaseCitation    ] 602 U. S. ____
+ 500. [IdCitation          ] Id.,
+ 501. [IdCitation          ] Ibid.
+ 502. [IdCitation          ] Id.,
+ 503. [ShortCaseCitation   ] 597 U. S., at 19
+ 504. [UnknownCitation     ] §922(g)(8).
+ 505. [IdCitation          ] Id.,
+ 506. [UnknownCitation     ] §922(g)(8).
+ 507. [UnknownCitation     ] §922(g)(8
+ 508. [ShortCaseCitation   ] 554 U. S., at 633
+ 509. [IdCitation          ] Id.,
+ 510. [IdCitation          ] Id.,
+ 511. [IdCitation          ] id.,
+ 512. [UnknownCitation     ] §922(g)(8)’s
+ 513. [FullCaseCitation    ] 602 U. S. ____
+ 514. [ShortCaseCitation   ] 554 U. S., at 599
+ 515. [IdCitation          ] id.,
+ 516. [ShortCaseCitation   ] 597 U. S., at 48
+ 517. [IdCitation          ] Id.,
+ 518. [IdCitation          ] Id.,
+ 519. [UnknownCitation     ] §922(g)(8).
+ 520. [ShortCaseCitation   ] 597 U. S., at 31
+ 521. [IdCitation          ] Id.,
+ 522. [IdCitation          ] Id.,
+ 523. [UnknownCitation     ] §922(g)(8).
+ 524. [UnknownCitation     ] §922(g)(8).
+ 525. [ShortCaseCitation   ] 597 U. S., at 70
+ 526. [FullCaseCitation    ] 602 U. S. ____
+ 527. [IdCitation          ] Id.,
+ 528. [IdCitation          ] ibid.
+ 529. [IdCitation          ] id.,
+ 530. [IdCitation          ] Id.,
+ 531. [IdCitation          ] Id.,
+ 532. [IdCitation          ] Id.,
+ 533. [UnknownCitation     ] §922(g)(8),
+ 534. [UnknownCitation     ] §922(g)(8)
+ 535. [UnknownCitation     ] §922(g)
+ 536. [FullCaseCitation    ] 598 F. 3d 768
+ 537. [FullCaseCitation    ] 602 U. S. ____
+ 538. [FullCaseCitation    ] 691 F. 2d 1159
+ 539. [UnknownCitation     ] §922(g)
+ 540. [FullCaseCitation    ] 520 F. 3d 806
+ 541. [FullCaseCitation    ] 46 F. 4th 1183
+ 542. [UnknownCitation     ] §922(g)
+ 543. [FullCaseCitation    ] 89 F. 4th 826
+ 544. [UnknownCitation     ] §922(g)
+ 545. [UnknownCitation     ] §922(g).
+ 546. [UnknownCitation     ] §922(g).
+ 547. [FullCaseCitation    ] 431 U. S. 563
+ 548. [UnknownCitation     ] §922(g)’s
+ 549. [FullCaseCitation    ] 302 F. 3d 769
+ 550. [UnknownCitation     ] §922(g)
+ 551. [FullCaseCitation    ] 544 U. S. 709
+ 552. [UnknownCitation     ] §922(g)(8)
+ 553. [FullCaseCitation    ] 514 U. S. 549
+ 554. [FullLawCitation     ] 18 U. S. C. §921
+ 555. [UnknownCitation     ] §924(a)(8).
+ 556. [UnknownCitation     ] §922(g)(1).
+ 557. [UnknownCitation     ] §922(g)(8)’s
+ 558. [FullCaseCitation    ] 2020 WL 4464668
+ 559. [UnknownCitation     ] §922(g)(8)
+ 560. [UnknownCitation     ] §922(g)(8)
+ 561. [UnknownCitation     ] §922(g)(8)
+ 562. [FullCaseCitation    ] 602 U. S. ____
+ 563. [ShortCaseCitation   ] 597 U. S., at 59
+ 564. [IdCitation          ] Id.
+ 565. [FullCaseCitation    ] 864 F. 3d 650
+ 566. [ShortCaseCitation   ] 597 U. S., at 55
+ 567. [UnknownCitation     ] §922(g)(8),
+ 568. [IdCitation          ] Id.,
+ 569. [UnknownCitation     ] §922(g)(8).
+ 570. [UnknownCitation     ] §922(g)(8)
+ 571. [IdCitation          ] Id.,
+ 572. [UnknownCitation     ] §922(g)(8).
+ 573. [UnknownCitation     ] §922(g)(8).
+ 574. [UnknownCitation     ] §922(g)(8).
+ 575. [UnknownCitation     ] §922(g)(8).
+ 576. [UnknownCitation     ] §922(g)(8).
+ 577. [UnknownCitation     ] §922(g)(8)’s
+ 578. [UnknownCitation     ] §922(g)(8)
+ 579. [ShortCaseCitation   ] 597 U. S., at 59
+ 580. [IdCitation          ] Id.,
+ 581. [UnknownCitation     ] §922(g)(8)
+ 582. [UnknownCitation     ] §922(g)(8)
+ 583. [FullCaseCitation    ] 602 U. S. ____
+ 584. [IdCitation          ] Ibid.
+ 585. [UnknownCitation     ] §16
+ 586. [FullLawCitation     ] Wis. Stat. §16
+ 587. [UnknownCitation     ] §18.
+ 588. [ShortCaseCitation   ] 597 U. S., at 47
+ 589. [ShortCaseCitation   ] 597 U. S., at 50
+ 590. [FullCaseCitation    ] 2 Tenn. 198
+ 591. [FullCaseCitation    ] 227 Md. App. 592
+ 592. [FullCaseCitation    ] 135 A. 3d 541
+ 593. [UnknownCitation     ] §922(g)(8)
+ 594. [UnknownCitation     ] §922(g)(8).
+ 595. [UnknownCitation     ] §922(g)(8)
+ 596. [ShortCaseCitation   ] 597 U. S., at 50
+ 597. [UnknownCitation     ] §922(g)(8)’s
+ 598. [UnknownCitation     ] §922(g)(8)
+ 599. [FullCaseCitation    ] 602 U. S. ____
+ 600. [UnknownCitation     ] §922(g)(8)’s
+ 601. [UnknownCitation     ] §922(g)(8)(C).
+ 602. [UnknownCitation     ] §922(g)(8)(A).
+ 603. [UnknownCitation     ] §922(g)(8)—a
+ 604. [FullCaseCitation    ] 564 U. S. 431
+ 605. [FullCaseCitation    ] 522 U. S. 93
+ 606. [UnknownCitation     ] §527.6(i)
+ 607. [UnknownCitation     ] §922(g)(8)
+ 608. [UnknownCitation     ] §922(g)(8)’s
+ 609. [UnknownCitation     ] §922(g)(8).
+ 610. [UnknownCitation     ] §922(g)(8),
+ 611. [ShortCaseCitation   ] 597 U. S., at 28
+ 612. [IdCitation          ] Id.,
+ 613. [FullCaseCitation    ] 602 U. S. ____
+ 614. [ShortCaseCitation   ] 597 U. S., at 30
+ 615. [UnknownCitation     ] §922(g)(8).
+ 616. [ShortCaseCitation   ] 554 U. S., at 580
+ 617. [IdCitation          ] id.,
+ 618. [UnknownCitation     ] §922(g)(8)
+ 619. [ShortCaseCitation   ] 597 U. S., at 26
+ 620. [IdCitation          ] id.,
+ 621. [ShortCaseCitation   ] 554 U. S., at 631
+ 622. [SupraCitation       ] Supra,
+ 623. [ShortCaseCitation   ] 554 U. S., at 626
+ 624. [ShortCaseCitation   ] 597 U. S., at 9
+ 625. [FullCaseCitation    ] 602 U. S. ____
+ 626. [ShortCaseCitation   ] 554 U. S., at 634
+ 627. [IdCitation          ] Id.,
+ 628. [IdCitation          ] id.,
+ 629. [ShortCaseCitation   ] 554 U. S., at 634
+ 630. [IdCitation          ] Id.,
+ 631. [ShortCaseCitation   ] 597 U. S., at 26
+ 632. [IdCitation          ] Ibid.
+ 633. [FullCaseCitation    ] 561 U. S. 742
+ 634. [IdCitation          ] Ibid.
+ 635. [FullCaseCitation    ] 602 U. S. ____
+ 636. [IdCitation          ] Id.,
+ 637. [IdCitation          ] Ibid.
+ 638. [IdCitation          ] Id.,
+ 639. [ShortCaseCitation   ] 544 U. S., at 634
+ 640. [FullLawCitation     ] Tex. Penal Code Ann. §§22.02
+ 641. [UnknownCitation     ] §922(g)(8)
+ 642. [ShortCaseCitation   ] 561 U. S., at 858

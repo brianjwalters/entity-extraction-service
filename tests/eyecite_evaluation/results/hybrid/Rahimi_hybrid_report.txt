@@ -1,0 +1,85 @@
+================================================================================
+HYBRID EXTRACTION RESULTS
+================================================================================
+
+⏱️  PERFORMANCE STATISTICS
+--------------------------------------------------------------------------------
+Eyecite extraction time: 3.46s
+LLM classification time: 0.00s
+Total processing time:   4.44s
+
+📊 CITATION STATISTICS
+--------------------------------------------------------------------------------
+Total citations found:       642
+Known citations (Eyecite):   505 (78.7%)
+Unknown citations:           137 (21.3%)
+LLM classified:              135
+False positives filtered:    2
+Final entity count:          640
+
+🏷️  ENTITY TYPE BREAKDOWN
+--------------------------------------------------------------------------------
+CASE_CITATION                         233 ( 36.4%)
+ID_CITATION                           142 ( 22.2%)
+STATUTE_CITATION                      134 ( 20.9%)
+CASE_CITATION_SHORT                    98 ( 15.3%)
+JOURNAL_CITATION                       16 (  2.5%)
+USC_CITATION                            9 (  1.4%)
+USC_SUBSECTION_CITATION                 3 (  0.5%)
+STATE_STATUTE_CITATION                  2 (  0.3%)
+SUPRA_CITATION                          2 (  0.3%)
+INTERNAL_REFERENCE                      1 (  0.2%)
+
+🔧 EXTRACTION METHOD BREAKDOWN
+--------------------------------------------------------------------------------
+eyecite                               505 ( 78.9%)
+hybrid_eyecite_llm                    135 ( 21.1%)
+
+📋 SAMPLE ENTITIES (First 20)
+--------------------------------------------------------------------------------
+  1. [CASE_CITATION            ] 200 U. S. 321
+      Method: eyecite | Confidence: 0.95
+  2. [USC_CITATION             ] 18 U. S. C. §922
+      Method: eyecite | Confidence: 0.95
+  3. [STATUTE_CITATION         ] §922(g)(8)(C)(i),
+      Method: hybrid_eyecite_llm | Confidence: 0.65
+      LLM: Generic statutory reference - type unclear from context
+  4. [STATUTE_CITATION         ] §922(g)(8)(C)(ii).
+      Method: hybrid_eyecite_llm | Confidence: 0.65
+      LLM: Generic statutory reference - type unclear from context
+  5. [CASE_CITATION            ] 597 U. S. 1
+      Method: eyecite | Confidence: 0.95
+  6. [CASE_CITATION            ] 61 F. 4th 443
+      Method: eyecite | Confidence: 0.95
+  7. [CASE_CITATION            ] 554 U. S. 570
+      Method: eyecite | Confidence: 0.95
+  8. [CASE_CITATION_SHORT      ] 554 U. S., at 582
+      Method: eyecite | Confidence: 0.95
+  9. [ID_CITATION              ] Ibid.
+      Method: eyecite | Confidence: 0.95
+ 10. [CASE_CITATION_SHORT      ] 597 U. S., at 26
+      Method: eyecite | Confidence: 0.95
+ 11. [CASE_CITATION_SHORT      ] 597 U. S., at 24
+      Method: eyecite | Confidence: 0.95
+ 12. [ID_CITATION              ] Id.,
+      Method: eyecite | Confidence: 0.95
+ 13. [ID_CITATION              ] Id.,
+      Method: eyecite | Confidence: 0.95
+ 14. [CASE_CITATION            ] 481 U. S. 739
+      Method: eyecite | Confidence: 0.95
+ 15. [STATUTE_CITATION         ] §922(g)(8)(C)(i),
+      Method: hybrid_eyecite_llm | Confidence: 0.65
+      LLM: Generic statutory reference - type unclear from context
+ 16. [CASE_CITATION            ] 602 U. S. ____
+      Method: eyecite | Confidence: 0.95
+ 17. [ID_CITATION              ] Id.,
+      Method: eyecite | Confidence: 0.95
+ 18. [CASE_CITATION_SHORT      ] 554 U. S., at 626
+      Method: eyecite | Confidence: 0.95
+ 19. [STATUTE_CITATION         ] §922(g)(8)(C)(i),
+      Method: hybrid_eyecite_llm | Confidence: 0.65
+      LLM: Generic statutory reference - type unclear from context
+ 20. [CASE_CITATION_SHORT      ] 554 U. S., at 626
+      Method: eyecite | Confidence: 0.95
+
+================================================================================

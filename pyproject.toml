@@ -157,6 +157,14 @@ markers = [
     "vllm: marks tests requiring vLLM service availability",
     "spacy: marks tests requiring spaCy models",
     "gpu: marks tests requiring GPU availability",
+    "e2e: marks tests as end-to-end tests",
+    "tier1: marks tests for Tier 1 critical family law patterns",
+    "tier2: marks tests for Tier 2 Phase 2 family law patterns",
+    "tier3: marks tests for Tier 3 Phase 3 family law patterns",
+    "family_law: marks tests for family law entity extraction",
+    "requires_vllm: marks tests requiring vLLM Instruct service (port 8080)",
+    "requires_services: marks tests requiring all services running",
+    "pipeline: marks tests for complete pipeline workflow",
 ]
 
 # Coverage settings
