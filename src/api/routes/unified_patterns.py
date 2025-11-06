@@ -447,6 +447,7 @@ async def get_unified_patterns(
         # Initialize response data
         entity_patterns = None
         relationship_patterns = None
+        pattern_loader = None  # Initialize pattern_loader to avoid UnboundLocalError
 
         # Load entity patterns if requested
         if type in ["entities", "all"]:
