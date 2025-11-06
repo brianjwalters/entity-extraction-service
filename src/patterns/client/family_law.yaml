@@ -3,21 +3,27 @@ metadata:
   jurisdiction: general
   source_type: family_law_documents
   bluebook_compliance: 22nd_edition
-  pattern_version: '1.1'
+  pattern_version: '2.0'
   created_date: '2025-01-15'
-  last_updated: '2025-01-16'
-  description: Comprehensive family law patterns for custody, visitation, child support, spousal support, parenting plans, jurisdiction concepts, procedural documents, property division, child protection, and family law specific terminology
+  last_updated: '2025-11-05'
+  description: Comprehensive family law patterns for custody, visitation, child support, spousal support, parenting plans, jurisdiction concepts, procedural documents, property division, child protection, support calculation, support enforcement, parentage proceedings, adoption proceedings, and family law specific terminology
+  phase_2_additions: 'Added 25 new patterns across 7 pattern groups (procedural_documents_ext, child_support_calculation, support_enforcement, jurisdiction_concepts_ext, parentage_proceedings, adoption_proceedings, child_protection_ext) focusing on parental rights & responsibilities (RCW Title 26)'
+  total_patterns: 79
+  phase_1_patterns: 54
+  phase_2_patterns: 25
+  entity_types_defined: 120
   optimization_status: |-
-    ✅ PRODUCTION READY - All 15 new patterns benchmarked and approved (2025-01-16)
-    - Average execution time: 0.296ms per pattern (50x faster than 15ms target)
-    - 100% patterns meet <15ms performance target on 5,000-word documents
-    - Zero backtracking risks identified across all patterns
-    - Complexity scores: 0.9-2.5/10 (excellent range)
-    - 93-100% accuracy maintained on test cases
+    ✅ PRODUCTION READY - Phase 1 (15 patterns) benchmarked 2025-01-16, Phase 2 (25 patterns) added 2025-11-05
+    - Phase 1 Average: 0.296ms per pattern (50x faster than 15ms target)
+    - Phase 2 Target: <15ms per pattern (estimated 0.3-0.5ms based on Phase 1 performance)
+    - 100% Phase 1 patterns meet <15ms performance target on 5,000-word documents
+    - Phase 2 patterns follow Phase 1 optimization best practices
+    - Zero backtracking risks identified across Phase 1 patterns
+    - Complexity scores: 0.9-2.5/10 (excellent range for Phase 1)
+    - 93-100% accuracy maintained on Phase 1 test cases
     - Non-capturing groups provide optimal DFA state transitions
-    - Attempted optimizations (factoring, reordering) degraded performance by 30-109%
-    - RECOMMENDATION: Keep all patterns in current form - already production-optimized
-    - Full report: /srv/luris/be/entity-extraction-service/docs/FAMILY_LAW_PATTERN_OPTIMIZATION_REPORT.md
+    - Phase 2 patterns ready for performance benchmarking
+    - Full Phase 1 report: /srv/luris/be/entity-extraction-service/docs/FAMILY_LAW_PATTERN_OPTIMIZATION_REPORT.md
   optimization_notes: |-
     - High-confidence patterns for family law document processing
     - Covers custody determinations, financial obligations, parenting plans
@@ -1053,6 +1059,542 @@ child_protection:
       - protective custody pending investigation
       - child removed to protective custody
 
+# ========================================
+# PHASE 2 (Tier 2) - Parental Rights & Responsibilities
+# Added: 2025-11-05
+# Focus: Support calculation, enforcement, parentage, adoption
+# Entity Count: 25 new patterns across 7 pattern groups
+# ========================================
+
+procedural_documents_ext:
+  restraining_order:
+    name: restraining_order
+    pattern: \b(?:restraining\s+order|temporary\s+restraining\s+order|TRO|order\s+restraining|order\s+prohibiting|order\s+preventing)
+    confidence: 0.94
+    entity_types:
+      - RESTRAINING_ORDER
+      - PROCEDURAL_DOCUMENT
+      - COURT_ORDER
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.09.050"
+      order_type: Restraining order preventing specific actions during dissolution
+    optimization: Restraining order identification for asset protection
+    performance_target: <15ms
+    examples:
+      - restraining order preventing sale of marital home
+      - temporary restraining order entered by court
+      - TRO prohibiting disposal of community property
+      - order restraining parties from molesting each other
+      - order preventing removal of children from state
+
+  relocation_notice:
+    name: relocation_notice
+    pattern: \b(?:relocation\s+notice|60[- ]day\s+notice|notice\s+of\s+intended\s+relocation|intended\s+relocation|relocation\s+petition)
+    confidence: 0.93
+    entity_types:
+      - RELOCATION_NOTICE
+      - PROCEDURAL_DOCUMENT
+      - FAMILY_LAW_DOCUMENT
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.09.405"
+      notice_type: Required notice for relocation with children
+    optimization: Relocation notice requirement identification
+    performance_target: <15ms
+    examples:
+      - 60-day relocation notice required under RCW 26.09.405
+      - notice of intended relocation filed with court
+      - relocation petition served on other parent
+      - intended relocation to California disclosed
+      - relocation notice must specify new address
+
+  maintenance_order:
+    name: maintenance_order
+    pattern: \b(?:spousal\s+maintenance|maintenance\s+(?:of|in\s+the\s+amount\s+of)|maintenance\s+order|maintenance\s+shall\s+be)
+    confidence: 0.92
+    entity_types:
+      - MAINTENANCE_ORDER
+      - SPOUSAL_SUPPORT
+      - FINANCIAL_OBLIGATION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.09.090"
+      order_type: Spousal maintenance award
+    optimization: Maintenance order extraction with amount
+    performance_target: <15ms
+    examples:
+      - spousal maintenance of $2,500 per month awarded
+      - maintenance order for limited duration
+      - maintenance shall be paid monthly
+      - maintenance in the amount of $1,800 monthly
+      - spousal maintenance terminated upon remarriage
+
+  property_disposition:
+    name: property_disposition
+    pattern: \b(?:just\s+and\s+equitable\s+(?:distribution|division)|equitable\s+distribution|property\s+disposition|disposition\s+of\s+property|distribution\s+of\s+(?:community\s+)?property)
+    confidence: 0.91
+    entity_types:
+      - PROPERTY_DISPOSITION
+      - PROPERTY_DIVISION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.09.080"
+      division_type: Just and equitable property disposition
+    optimization: Property disposition order identification
+    performance_target: <15ms
+    examples:
+      - just and equitable distribution of community property
+      - equitable distribution considering all factors
+      - property disposition shall be 60/40 split
+      - disposition of property includes retirement accounts
+      - distribution of community property ordered
+
+child_support_calculation:
+  basic_support_obligation:
+    name: basic_support_obligation
+    pattern: \b(?:basic\s+support\s+obligation|basic\s+child\s+support|economic\s+table|support\s+obligation\s+per\s+table|transfer\s+payment)
+    confidence: 0.94
+    entity_types:
+      - BASIC_SUPPORT_OBLIGATION
+      - CHILD_SUPPORT_CALCULATION
+      - FINANCIAL_OBLIGATION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.19.020"
+      calculation_basis: Basic support obligation from economic table
+    optimization: Basic support obligation identification with table reference
+    performance_target: <15ms
+    examples:
+      - basic support obligation of $1,245 per economic table
+      - basic child support calculated at $890 monthly
+      - economic table shows obligation of $1,567
+      - support obligation per table is $1,123
+      - transfer payment of $623 monthly
+
+  support_deviation:
+    name: support_deviation
+    pattern: \b(?:support\s+deviation|deviation\s+from\s+standard|deviation\s+factors?)
+    confidence: 0.92
+    entity_types:
+      - SUPPORT_DEVIATION
+      - CHILD_SUPPORT_CALCULATION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.19.075"
+      deviation_type: Deviation from standard child support calculation
+    optimization: Support deviation justification identification
+    performance_target: <15ms
+    examples:
+      - deviation from standard calculation justified by special needs
+      - support deviation based on high income
+      - deviate from standard support due to extraordinary expenses
+      - deviation factors include travel costs
+      - deviation justification documented in declaration
+
+  residential_credit:
+    name: residential_credit
+    pattern: \b(?:residential\s+credit|credit\s+for\s+residential\s+time|percentage\s+of\s+residential\s+time|residential\s+schedule\s+credit|overnights\s+credit)
+    confidence: 0.93
+    entity_types:
+      - RESIDENTIAL_CREDIT
+      - CHILD_SUPPORT_CALCULATION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.19.080"
+      credit_type: Credit for residential time with child
+    optimization: Residential credit calculation identification
+    performance_target: <15ms
+    examples:
+      - residential credit of 35% applied to support
+      - credit for residential time reduces obligation
+      - percentage of residential time is 40%
+      - residential schedule credit of 38% granted
+      - overnights credit calculated at 142 nights annually
+
+  imputed_income:
+    name: imputed_income
+    pattern: \b(?:imputed\s+income|income\s+imputed|impute\s+income|earning\s+capacity|voluntarily\s+(?:unemployed|underemployed))
+    confidence: 0.91
+    entity_types:
+      - IMPUTED_INCOME
+      - CHILD_SUPPORT_CALCULATION
+      - INCOME_CALCULATION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.19.071"
+      imputation_basis: Income imputation for voluntarily unemployed/underemployed
+    optimization: Imputed income identification
+    performance_target: <15ms
+    examples:
+      - income imputed at minimum wage for voluntary unemployment
+      - imputed income based on earning capacity of $45,000
+      - income shall be imputed at $15 per hour
+      - earning capacity supports imputation of $60,000 annually
+      - voluntarily underemployed justifies income imputation
+
+  income_deduction_order:
+    name: income_deduction_order
+    pattern: \b(?:income\s+(?:withholding|deduction)\s+order|wage\s+withholding|withholding\s+order|income\s+assignment|employer\s+withholding)
+    confidence: 0.95
+    entity_types:
+      - INCOME_DEDUCTION_ORDER
+      - SUPPORT_ENFORCEMENT
+      - COURT_ORDER
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.19.035"
+      order_type: Mandatory income withholding for support
+    optimization: Income deduction order identification
+    performance_target: <15ms
+    examples:
+      - income withholding order served on employer
+      - wage withholding for child support ordered
+      - withholding order requires $1,200 monthly deduction
+      - income assignment to Division of Child Support
+      - employer withholding effective immediately
+
+support_enforcement:
+  wage_assignment_order:
+    name: wage_assignment_order
+    pattern: \b(?:wage\s+assignment|assignment\s+of\s+wages|mandatory\s+wage\s+assignment|wage\s+garnishment\s+order)
+    confidence: 0.94
+    entity_types:
+      - WAGE_ASSIGNMENT_ORDER
+      - SUPPORT_ENFORCEMENT
+      - COURT_ORDER
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.18.070"
+      enforcement_type: Wage assignment for support enforcement
+    optimization: Wage assignment order identification
+    performance_target: <15ms
+    examples:
+      - mandatory wage assignment ordered for all support
+      - assignment of wages to secure payment
+      - wage assignment sent to employer
+      - wage garnishment order issued by DCS
+      - mandatory wage assignment cannot be waived
+
+  contempt_action:
+    name: contempt_action
+    pattern: \b(?:contempt\s+(?:action|motion|hearing)|show\s+cause|held\s+in\s+contempt)
+    confidence: 0.93
+    entity_types:
+      - CONTEMPT_ACTION
+      - SUPPORT_ENFORCEMENT
+      - COURT_PROCEEDING
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.18.050"
+      enforcement_type: Contempt proceedings for support violation
+    optimization: Contempt action identification
+    performance_target: <15ms
+    examples:
+      - show cause hearing for contempt scheduled
+      - contempt action for non-payment of support
+      - held in contempt for willful violation
+      - contempt motion filed for support arrears
+      - contempt proceeding initiated by DCS
+
+  child_support_lien:
+    name: child_support_lien
+    pattern: \b(?:child\s+support\s+lien|support\s+lien|lien\s+(?:on|against)\s+(?:real\s+)?property|judgment\s+lien\s+for\s+support|lien\s+recorded)
+    confidence: 0.92
+    entity_types:
+      - CHILD_SUPPORT_LIEN
+      - SUPPORT_ENFORCEMENT
+      - JUDGMENT_LIEN
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.18.055"
+      enforcement_type: Lien against property for support arrears
+    optimization: Support lien identification
+    performance_target: <15ms
+    examples:
+      - child support lien recorded against real property
+      - support lien on home for $35,000 arrears
+      - lien against property perfected by filing
+      - judgment lien for support created automatically
+      - lien recorded with county auditor
+
+  support_arrears:
+    name: support_arrears
+    pattern: \b(?:support\s+arrears|arrears|back\s+support|delinquent\s+support|past[- ]due\s+support|unpaid\s+support)
+    confidence: 0.91
+    entity_types:
+      - SUPPORT_ARREARS
+      - SUPPORT_ENFORCEMENT
+      - FINANCIAL_OBLIGATION
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.18.---"
+      arrears_type: Unpaid child support obligations
+    optimization: Support arrears identification with amounts
+    performance_target: <15ms
+    examples:
+      - support arrears totaling $45,000 accumulated
+      - arrears of $12,000 plus interest
+      - back support owed from 2019-2023
+      - delinquent support of $8,500
+      - past-due support shall accrue interest
+
+jurisdiction_concepts_ext:
+  significant_connection_jurisdiction:
+    name: significant_connection_jurisdiction
+    pattern: \b(?:significant\s+connections?|substantial\s+evidence)
+    confidence: 0.92
+    entity_types:
+      - SIGNIFICANT_CONNECTION
+      - JURISDICTION_CONCEPT
+      - UCCJEA_TERM
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.27.201"
+      jurisdiction_basis: Significant connection jurisdiction under UCCJEA
+    optimization: Significant connection jurisdiction extraction
+    performance_target: <15ms
+    examples:
+      - child has significant connections to Washington state
+      - substantial evidence concerning child's care in Washington
+      - child and one parent have significant connections
+      - significant connection jurisdiction established
+      - substantial evidence in state supports jurisdiction
+
+  exclusive_continuing_jurisdiction_ext:
+    name: exclusive_continuing_jurisdiction_detailed
+    pattern: \b(?:Washington\s+retains\s+(?:exclusive\s+)?continuing\s+jurisdiction|continuing\s+jurisdiction\s+retained|state\s+(?:of\s+original\s+jurisdiction\s+)?retains|exclusive\s+jurisdiction\s+continues)
+    confidence: 0.94
+    entity_types:
+      - EXCLUSIVE_CONTINUING_JURISDICTION
+      - JURISDICTION_CONCEPT
+      - UCCJEA_TERM
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.27.211"
+      jurisdiction_retention: Continuing exclusive jurisdiction retention
+    optimization: Detailed continuing jurisdiction identification
+    performance_target: <15ms
+    examples:
+      - Washington retains exclusive continuing jurisdiction
+      - continuing jurisdiction retained over custody matters
+      - state of original jurisdiction retains authority
+      - exclusive jurisdiction continues under UCCJEA
+      - Washington retains continuing jurisdiction
+
+  foreign_custody_order_registration:
+    name: foreign_order_registration
+    pattern: \b(?:foreign\s+custody\s+order|(?:Nevada|California|Oregon)\s+order|out-of-state\s+order)\s+registered
+    confidence: 0.93
+    entity_types:
+      - FOREIGN_CUSTODY_ORDER
+      - JURISDICTION_CONCEPT
+      - UCCJEA_TERM
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.27.301"
+      registration_type: Foreign custody order registration
+    optimization: Foreign order registration identification
+    performance_target: <15ms
+    examples:
+      - Nevada custody order registered in Washington
+      - foreign order registered for enforcement
+      - California order registration requested
+      - out-of-state order registered with court
+      - registered foreign custody order from Oregon
+
+parentage_proceedings:
+  parentage_action:
+    name: parentage_action
+    pattern: \b(?:parentage\s+(?:action|proceeding|petition)|action\s+to\s+establish\s+parentage)
+    confidence: 0.94
+    entity_types:
+      - PARENTAGE_ACTION
+      - PARENTAGE_PROCEEDING
+      - FAMILY_LAW_DOCUMENT
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.26A.400"
+      action_type: Action to establish legal parentage
+    optimization: Parentage action identification
+    performance_target: <15ms
+    examples:
+      - parentage action filed to establish father's rights
+      - action to establish parentage pending
+      - parentage proceeding under RCW 26.26A
+      - establishment of parentage requested
+      - parentage petition served on alleged father
+
+  paternity_acknowledgment:
+    name: paternity_acknowledgment
+    pattern: \b(?:acknowledgment\s+of\s+parentage|voluntary\s+acknowledgment|paternity\s+affidavit)
+    confidence: 0.95
+    entity_types:
+      - PATERNITY_ACKNOWLEDGMENT
+      - PARENTAGE_PROCEEDING
+      - LEGAL_DOCUMENT
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.26A.205"
+      acknowledgment_type: Voluntary acknowledgment of paternity
+    optimization: Paternity acknowledgment identification
+    performance_target: <15ms
+    examples:
+      - voluntary acknowledgment of paternity executed at birth
+      - acknowledgment of parentage signed by both parents
+      - paternity affidavit filed with vital statistics
+      - signed acknowledgment establishes legal parentage
+      - executed acknowledgment at hospital
+
+  genetic_testing_order:
+    name: genetic_testing_order
+    pattern: \b(?:genetic\s+test(?:ing)?|DNA\s+test(?:ing)?|paternity\s+test|court\s+ordered\s+testing|genetic\s+marker\s+analysis)
+    confidence: 0.93
+    entity_types:
+      - GENETIC_TESTING_ORDER
+      - PARENTAGE_PROCEEDING
+      - COURT_ORDER
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.26A.310"
+      testing_type: Court-ordered genetic testing for parentage
+    optimization: Genetic testing order identification
+    performance_target: <15ms
+    examples:
+      - court ordered genetic testing to establish paternity
+      - DNA testing results show 99.99% probability
+      - genetic test ordered by court
+      - paternity test required for determination
+      - genetic marker analysis confirms parentage
+
+  adjudication_of_parentage:
+    name: adjudication_parentage
+    pattern: \b(?:adjudication\s+of\s+parentage|parentage\s+adjudicated|court\s+establishes\s+parentage)
+    confidence: 0.94
+    entity_types:
+      - ADJUDICATION_OF_PARENTAGE
+      - PARENTAGE_PROCEEDING
+      - COURT_ORDER
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.26A.405"
+      adjudication_type: Court adjudication of legal parentage
+    optimization: Parentage adjudication identification
+    performance_target: <15ms
+    examples:
+      - parentage adjudicated by court order
+      - court finds parentage established
+      - adjudication of parentage entered
+      - determination of parentage by genetic testing
+      - parentage established by court order
+
+adoption_proceedings:
+  adoption_petition:
+    name: adoption_petition
+    pattern: \b(?:adoption\s+petition|stepparent\s+adoption|petition\s+to\s+adopt)
+    confidence: 0.95
+    entity_types:
+      - ADOPTION_PETITION
+      - ADOPTION_PROCEEDING
+      - FAMILY_LAW_DOCUMENT
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.33.020"
+      petition_type: Petition to adopt child
+    optimization: Adoption petition identification
+    performance_target: <15ms
+    examples:
+      - petition for adoption filed with juvenile court
+      - adoption petition by stepparent
+      - petition to adopt minor child
+      - adoption petition hearing scheduled
+      - stepparent adoption petition approved
+
+  relinquishment_petition:
+    name: relinquishment_petition
+    pattern: \b(?:relinquishment\s+of\s+parental\s+rights|voluntary\s+relinquishment|parental\s+rights\s+relinquished)
+    confidence: 0.93
+    entity_types:
+      - RELINQUISHMENT_PETITION
+      - ADOPTION_PROCEEDING
+      - PARENTAL_RIGHTS
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.33.080"
+      relinquishment_type: Voluntary relinquishment of parental rights
+    optimization: Relinquishment petition identification
+    performance_target: <15ms
+    examples:
+      - petition for relinquishment of parental rights
+      - voluntary relinquishment executed for adoption
+      - relinquishment petition approved by court
+      - parental rights relinquished voluntarily
+      - relinquishment of parental rights for adoption plan
+
+  home_study_report:
+    name: home_study_report
+    pattern: \b(?:(?:pre|post)placement\s+study|home\s+study)
+    confidence: 0.94
+    entity_types:
+      - HOME_STUDY_REPORT
+      - ADOPTION_PROCEEDING
+      - COURT_REPORT
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.33.180"
+      study_type: Home study evaluation for adoption
+    optimization: Home study report identification
+    performance_target: <15ms
+    examples:
+      - preplacement home study completed by agency
+      - home study report recommends approval
+      - adoption home study conducted
+      - postplacement study confirms adjustment
+      - home study report submitted to court
+
+  open_adoption_agreement:
+    name: open_adoption_agreement
+    pattern: \b(?:open\s+adoption\s+agreement|post-adoption\s+contact|agreed\s+order)
+    confidence: 0.91
+    entity_types:
+      - OPEN_ADOPTION_AGREEMENT
+      - ADOPTION_PROCEEDING
+      - FAMILY_LAW_DOCUMENT
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.33.295"
+      agreement_type: Post-adoption contact agreement
+    optimization: Open adoption agreement identification
+    performance_target: <15ms
+    examples:
+      - open adoption agreement allows quarterly visits
+      - post-adoption contact arranged with birth parents
+      - agreed order for contact entered by court
+      - communication agreement preserves relationship
+      - ongoing contact provision in adoption decree
+
+child_protection_ext:
+  mandatory_reporter_violation:
+    name: mandatory_reporter
+    pattern: \b(?:mandatory\s+reporter|required\s+to\s+report|failure\s+to\s+report|duty\s+to\s+report|teacher\s+(?:as\s+)?mandatory\s+reporter|healthcare\s+provider\s+(?:must|shall)\s+report)
+    confidence: 0.92
+    entity_types:
+      - MANDATORY_REPORTER
+      - CHILD_PROTECTION
+      - LEGAL_DUTY
+      - FAMILY_LAW_TERM
+    components:
+      rcw_reference: "RCW 26.44.030"
+      reporter_duty: Mandatory reporting requirement for child abuse/neglect
+    optimization: Mandatory reporter identification
+    performance_target: <15ms
+    examples:
+      - teacher as mandatory reporter failed to report suspected abuse
+      - mandatory reporter required to contact CPS
+      - healthcare provider must report reasonable suspicion
+      - duty to report child abuse or neglect
+      - failure to report as mandatory reporter
+
 entity_types:
   - name: CUSTODY_TYPE
     description: Types of custody arrangements (joint, sole, physical, legal)
@@ -1396,6 +1938,142 @@ entity_types:
     performance_target: <15ms
   - name: EMERGENCY_CUSTODY
     description: Emergency custody situations
+    priority: 1
+    performance_target: <15ms
+  - name: RESTRAINING_ORDER
+    description: Restraining orders during dissolution (RCW 26.09.050)
+    priority: 1
+    performance_target: <15ms
+  - name: RELOCATION_NOTICE
+    description: Required notice for relocation with children (RCW 26.09.405)
+    priority: 1
+    performance_target: <15ms
+  - name: MAINTENANCE_ORDER
+    description: Spousal maintenance award (RCW 26.09.090)
+    priority: 1
+    performance_target: <15ms
+  - name: PROPERTY_DISPOSITION
+    description: Just and equitable property disposition (RCW 26.09.080)
+    priority: 1
+    performance_target: <15ms
+  - name: BASIC_SUPPORT_OBLIGATION
+    description: Basic child support from economic table (RCW 26.19.020)
+    priority: 1
+    performance_target: <15ms
+  - name: CHILD_SUPPORT_CALCULATION
+    description: Child support calculation components
+    priority: 1
+    performance_target: <15ms
+  - name: SUPPORT_DEVIATION
+    description: Deviation from standard support calculation (RCW 26.19.075)
+    priority: 1
+    performance_target: <15ms
+  - name: RESIDENTIAL_CREDIT
+    description: Credit for residential time with child (RCW 26.19.080)
+    priority: 1
+    performance_target: <15ms
+  - name: IMPUTED_INCOME
+    description: Income imputation for unemployed/underemployed (RCW 26.19.071)
+    priority: 1
+    performance_target: <15ms
+  - name: INCOME_CALCULATION
+    description: Income calculation for support determination
+    priority: 2
+    performance_target: <15ms
+  - name: INCOME_DEDUCTION_ORDER
+    description: Mandatory income withholding for support (RCW 26.19.035)
+    priority: 1
+    performance_target: <15ms
+  - name: SUPPORT_ENFORCEMENT
+    description: Child support enforcement mechanisms
+    priority: 1
+    performance_target: <15ms
+  - name: WAGE_ASSIGNMENT_ORDER
+    description: Wage assignment for support enforcement (RCW 26.18.070)
+    priority: 1
+    performance_target: <15ms
+  - name: CONTEMPT_ACTION
+    description: Contempt proceedings for support violation (RCW 26.18.050)
+    priority: 1
+    performance_target: <15ms
+  - name: COURT_PROCEEDING
+    description: Court proceedings and hearings
+    priority: 2
+    performance_target: <15ms
+  - name: CHILD_SUPPORT_LIEN
+    description: Lien against property for support arrears (RCW 26.18.055)
+    priority: 1
+    performance_target: <15ms
+  - name: JUDGMENT_LIEN
+    description: Judgment liens for financial obligations
+    priority: 2
+    performance_target: <15ms
+  - name: SUPPORT_ARREARS
+    description: Unpaid child support obligations
+    priority: 1
+    performance_target: <15ms
+  - name: PARENTAGE_ACTION
+    description: Action to establish legal parentage (RCW 26.26A.400)
+    priority: 1
+    performance_target: <15ms
+  - name: PARENTAGE_PROCEEDING
+    description: Parentage establishment proceedings
+    priority: 1
+    performance_target: <15ms
+  - name: PATERNITY_ACKNOWLEDGMENT
+    description: Voluntary acknowledgment of paternity (RCW 26.26A.205)
+    priority: 1
+    performance_target: <15ms
+  - name: LEGAL_DOCUMENT
+    description: Legal documents and agreements
+    priority: 2
+    performance_target: <15ms
+  - name: GENETIC_TESTING_ORDER
+    description: Court-ordered genetic testing (RCW 26.26A.310)
+    priority: 1
+    performance_target: <15ms
+  - name: ADJUDICATION_OF_PARENTAGE
+    description: Court adjudication of legal parentage (RCW 26.26A.405)
+    priority: 1
+    performance_target: <15ms
+  - name: ADOPTION_PETITION
+    description: Petition to adopt child (RCW 26.33.020)
+    priority: 1
+    performance_target: <15ms
+  - name: ADOPTION_PROCEEDING
+    description: Adoption proceedings and petitions
+    priority: 1
+    performance_target: <15ms
+  - name: RELINQUISHMENT_PETITION
+    description: Voluntary relinquishment of parental rights (RCW 26.33.080)
+    priority: 1
+    performance_target: <15ms
+  - name: PARENTAL_RIGHTS
+    description: Parental rights and termination
+    priority: 1
+    performance_target: <15ms
+  - name: HOME_STUDY_REPORT
+    description: Home study evaluation for adoption (RCW 26.33.180)
+    priority: 1
+    performance_target: <15ms
+  - name: COURT_REPORT
+    description: Court-ordered reports and evaluations
+    priority: 2
+    performance_target: <15ms
+  - name: OPEN_ADOPTION_AGREEMENT
+    description: Post-adoption contact agreement (RCW 26.33.295)
+    priority: 1
+    performance_target: <15ms
+  - name: MANDATORY_REPORTER
+    description: Mandatory reporting of child abuse/neglect (RCW 26.44.030)
+    priority: 1
+    performance_target: <15ms
+  - name: LEGAL_DUTY
+    description: Legal duties and obligations
+    priority: 2
+    performance_target: <15ms
+  - name: SPOUSAL_SUPPORT
+    description: Spousal support and maintenance
     priority: 1
     performance_target: <15ms
 
